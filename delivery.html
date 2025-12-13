@@ -6,59 +6,84 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Доставка и оплата — EthioDirect</title>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/responsive.css">
 </head>
 
 <body>
     <main>
-        <div class="page-header">
-            <div class="container">
-                <h1>Доставка и оплата</h1>
+        <!-- HERO -->
+        <section class="section bg-surface" style="padding-top: 100px;">
+            <div class="container text-center">
+                <span class="text-gold"
+                    style="text-transform:uppercase; font-weight:600; letter-spacing:1px;">Сервис</span>
+                <h1 style="margin-top:10px;">Доставка и оплата</h1>
             </div>
-        </div>
+        </section>
 
-        <div class="container section-padding">
-            <h2 class="mb-4">Способы доставки</h2>
-            <div
-                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-bottom: 60px;">
-                <div class="card">
-                    <i class="fas fa-truck" style="font-size: 2rem; color: var(--primary); margin-bottom: 15px;"></i>
+        <!-- DELIVERY -->
+        <section class="section">
+            <div class="container" style="max-width:900px;">
+                <h2 class="mb-4"><i class="fas fa-truck text-gold" style="margin-right:10px;"></i> Доставка</h2>
+
+                <div style="background:white; padding:40px; border-radius:var(--radius-md); margin-bottom:30px;">
                     <h3>Новая Почта</h3>
-                    <p>Доставка в отделение или почтомат. Срок 1-3 дня. Стоимость по тарифам перевозчика (бесплатно от
-                        1000 грн).</p>
+                    <p>Мы отправляем заказы Новой Почтой по всей Украине.</p>
+                    <ul style="margin-top:20px; line-height:2;">
+                        <li><strong>Стоимость:</strong> По тарифам перевозчика (~70-100₴)</li>
+                        <li><strong>Бесплатно:</strong> При заказе от 1000₴ или по подписке</li>
+                        <li><strong>Срок:</strong> 1-3 рабочих дня</li>
+                    </ul>
                 </div>
-                <div class="card">
-                    <i class="fas fa-motorcycle"
-                        style="font-size: 2rem; color: var(--primary); margin-bottom: 15px;"></i>
-                    <h3>Курьер по Одессе</h3>
-                    <p>Доставка день в день при заказе до 12:00. Фиксированная стоимость 80 грн (бесплатно от 800 грн).
-                    </p>
-                </div>
-            </div>
 
-            <h2 class="mb-4">Оплата</h2>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
-                <div class="card">
-                    <i class="fas fa-credit-card"
-                        style="font-size: 2rem; color: var(--secondary); margin-bottom: 15px;"></i>
-                    <h3>Онлайн на сайте</h3>
-                    <p>Google Pay, Apple Pay, Visa/Mastercard без комиссии.</p>
+                <div style="background:white; padding:40px; border-radius:var(--radius-md); margin-bottom:30px;">
+                    <h3>Курьер по Одессе</h3>
+                    <p>Собственная доставка по Одессе.</p>
+                    <ul style="margin-top:20px; line-height:2;">
+                        <li><strong>Стоимость:</strong> 50₴ (бесплатно от 500₴)</li>
+                        <li><strong>Срок:</strong> В день заказа или на следующий</li>
+                    </ul>
                 </div>
-                <div class="card">
-                    <i class="fas fa-money-bill-wave"
-                        style="font-size: 2rem; color: var(--secondary); margin-bottom: 15px;"></i>
-                    <h3>Наложенный платеж</h3>
-                    <p>Оплата при получении (комиссия Новой Почты 20 грн + 2% от суммы).</p>
+
+                <h2 class="mb-4 mt-5"><i class="fas fa-credit-card text-gold" style="margin-right:10px;"></i> Оплата
+                </h2>
+
+                <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap:30px;">
+                    <div style="background:white; padding:30px; border-radius:var(--radius-md); text-align:center;">
+                        <i class="fas fa-wallet text-gold" style="font-size:2rem; margin-bottom:15px;"></i>
+                        <h4>Онлайн-оплата</h4>
+                        <p style="font-size:0.9rem;">Visa, Mastercard, Apple Pay, Google Pay</p>
+                    </div>
+                    <div style="background:white; padding:30px; border-radius:var(--radius-md); text-align:center;">
+                        <i class="fas fa-money-bill-wave text-gold" style="font-size:2rem; margin-bottom:15px;"></i>
+                        <h4>Наложенный платеж</h4>
+                        <p style="font-size:0.9rem;">Оплата при получении на почте (+20₴)</p>
+                    </div>
+                    <div style="background:white; padding:30px; border-radius:var(--radius-md); text-align:center;">
+                        <i class="fas fa-file-invoice-dollar text-gold" style="font-size:2rem; margin-bottom:15px;"></i>
+                        <h4>Безнал для ФЛП/ТОВ</h4>
+                        <p style="font-size:0.9rem;">Счет на оплату с НДС</p>
+                    </div>
                 </div>
+
+                <h2 class="mb-4 mt-5"><i class="fas fa-sync-alt text-gold" style="margin-right:10px;"></i> Обмен и
+                    возврат</h2>
+                <div style="background:white; padding:40px; border-radius:var(--radius-md);">
+                    <p>Если кофе вам не понравился по вкусу — напишите нам. Мы заменим на другой сорт или вернем деньги.
+                        Это не частая ситуация, но мы хотим, чтобы вы были довольны.</p>
+                    <p><strong>Условие:</strong> Пачка открыта не более чем наполовину. Срок — 14 дней с момента
+                        получения.</p>
+                </div>
+
             </div>
-        </div>
+        </section>
     </main>
+
     <script src="js/data.js"></script>
     <script src="js/components.js"></script>
+    <script src="js/main.js"></script>
 </body>
 
 </html>

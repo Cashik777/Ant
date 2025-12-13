@@ -1,91 +1,89 @@
-/* ===== MOCK DATA ===== */
+/* ===== ETHIODIRECT DATA v3.0 ===== */
 
 const PRODUCTS = [
     {
         id: 1,
-        name: 'Sidamo Gr.2',
-        type: 'grain',
-        roast: 'medium',
+        name: 'Ethiopia Sidamo Gr.2',
+        desc: 'Классический эфиопский кофе с нотами черники и какао. Идеален для эспрессо и молочных напитков.',
         price: 380,
         weight: 250,
+        roast: 'medium',
+        taste: ['chocolate', 'berry'],
+        region: 'Sidamo',
+        process: 'washed',
         image: 'https://images.unsplash.com/photo-1587734195507-6b7c8b6a3e5a?auto=format&fit=crop&w=600&q=80',
-        tags: ['Fruity', 'Floral'],
-        desc: 'Яркие ноты лимона и бергамота с цветочным послевкусием.'
+        tags: ['Sidamo', 'Medium', 'Washed']
     },
     {
         id: 2,
         name: 'Yirgacheffe Kochere',
-        type: 'grain',
-        roast: 'light',
+        desc: 'Яркий и цветочный. Ноты бергамота, жасмина и лимона. Лучший выбор для фильтра.',
         price: 420,
         weight: 250,
+        roast: 'light',
+        taste: ['floral', 'citrus'],
+        region: 'Yirgacheffe',
+        process: 'washed',
         image: 'https://images.unsplash.com/photo-1510707577719-ae7c9b788690?auto=format&fit=crop&w=600&q=80',
-        tags: ['Berry', 'Tea-like'],
-        desc: 'Легендарный сорт. Чайное тело, ноты жасмина и персика.'
+        tags: ['Yirgacheffe', 'Light', 'Floral']
     },
     {
         id: 3,
-        name: 'Harrar Longberry',
-        type: 'grain',
-        roast: 'dark',
-        price: 400,
+        name: 'Guji Highland Natural',
+        desc: 'Сладкий, как варенье. Ноты клубники, манго и меда. Натуральная обработка.',
+        price: 450,
         weight: 250,
-        image: 'https://images.unsplash.com/photo-1511537190424-bbbab87ac5eb?auto=format&fit=crop&w=600&q=80',
-        tags: ['Chocolate', 'Spicy'],
-        desc: 'Древний сорт. Насыщенный вкус шоколада и черники. Идеален для эспрессо.'
+        roast: 'medium-light',
+        taste: ['fruity', 'sweet'],
+        region: 'Guji',
+        process: 'natural',
+        image: 'https://images.unsplash.com/photo-1621262974917-76b4a39f60af?auto=format&fit=crop&w=600&q=80',
+        tags: ['Guji', 'Natural', 'Sweet']
     },
     {
         id: 4,
-        name: 'Guji Highland',
-        type: 'grain',
-        roast: 'medium',
-        price: 450,
+        name: 'Espresso House Blend',
+        desc: 'Наш фирменный бленд для эспрессо. Плотное тело, шоколад, орехи. Стабильный вкус каждый раз.',
+        price: 350,
         weight: 250,
-        image: 'https://images.unsplash.com/photo-1621262974917-76b4a39f60af?auto=format&fit=crop&w=600&q=80',
-        tags: ['Sweet', 'Complex'],
-        desc: 'Сложный букет с оттенками клубники и темного шоколада.'
+        roast: 'medium-dark',
+        taste: ['chocolate', 'nutty'],
+        region: 'Blend',
+        process: 'mixed',
+        image: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=600&q=80',
+        tags: ['Blend', 'Espresso', 'Classic']
     },
     {
         id: 5,
-        name: 'Espresso Blend',
-        type: 'ground',
-        roast: 'dark',
-        price: 350,
-        weight: 500,
-        image: 'https://images.unsplash.com/photo-1517487881594-2787fef5ebf7?auto=format&fit=crop&w=600&q=80',
-        tags: ['Strong', 'Classic'],
-        desc: 'Авторская смесь для утреннего пробуждения. Плотная крема.'
+        name: 'Limmu Washed',
+        desc: 'Чистый и сбалансированный. Ноты зеленого яблока и карамели. Универсальный профиль.',
+        price: 390,
+        weight: 250,
+        roast: 'medium',
+        taste: ['balanced', 'fruity'],
+        region: 'Limmu',
+        process: 'washed',
+        image: 'https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&w=600&q=80',
+        tags: ['Limmu', 'Medium', 'Balanced']
     },
     {
         id: 6,
-        name: 'Drip Packs (10pcs)',
-        type: 'capsules',
-        roast: 'medium',
-        price: 300,
-        weight: 120,
-        image: 'https://images.unsplash.com/photo-1627521741517-5bd2789196b2?auto=format&fit=crop&w=600&q=80',
-        tags: ['Convenient', 'Travel'],
-        desc: 'Удобный дрип-кофе в дорогу. Микс лучших эфиопских сортов.'
+        name: 'Harrar Natural',
+        desc: 'Дикий и необычный. Ноты черники, вина и специй. Для искателей приключений.',
+        price: 480,
+        weight: 250,
+        roast: 'light',
+        taste: ['wild', 'berry', 'wine'],
+        region: 'Harrar',
+        process: 'natural',
+        image: 'https://images.unsplash.com/photo-1442512595331-e89e7385a861?auto=format&fit=crop&w=600&q=80',
+        tags: ['Harrar', 'Natural', 'Wild']
     }
 ];
 
+// Subscription Plans
 const SUBSCRIPTION_PLANS = [
-    {
-        id: 'start',
-        name: 'Знакомство',
-        desc: '1 пачка (250г) в месяц. Идеально для начала.',
-        price: 350
-    },
-    {
-        id: 'lover',
-        name: 'Любитель',
-        desc: '3 пачки (750г) в месяц. Хватит на каждое утро.',
-        price: 950
-    },
-    {
-        id: 'pro',
-        name: 'Профи',
-        desc: '2кг в месяц. Для большой семьи или офиса.',
-        price: 2400
-    }
+    { id: 'starter', name: 'Знакомство', bags: 1, price: 350, desc: '1 пачка в месяц' },
+    { id: 'regular', name: 'Любитель', bags: 3, price: 900, desc: '3 пачки в месяц (популярный)' },
+    { id: 'office', name: 'Офис', bags: 8, price: 2200, desc: '2 кг в месяц' }
 ];

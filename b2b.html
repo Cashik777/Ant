@@ -6,64 +6,137 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Для бизнеса — EthioDirect</title>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/responsive.css">
 </head>
 
 <body>
     <main>
-        <div class="page-header">
+        <!-- HERO -->
+        <section class="section bg-warm text-center" style="padding-top: 120px;">
             <div class="container">
-                <h1>Партнерство с EthioDirect</h1>
-                <p>Оптовые поставки для кофеен, ресторанов и офисов.</p>
+                <span class="text-gold" style="text-transform:uppercase; font-weight:600; letter-spacing:1px;">For
+                    Business</span>
+                <h1 style="margin-top:10px;">Кофе для вашего бизнеса</h1>
+                <p style="max-width:600px; margin:0 auto;">Мы поставляем specialty кофе для кофеен, ресторанов и офисов.
+                    Оптовые цены, обучение бариста, надежный сервис.</p>
             </div>
-        </div>
+        </section>
 
-        <div class="container section-padding">
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
-                <div class="card">
-                    <h3>Для кофеен</h3>
-                    <p>Мы предлагаем стабильные поставки моносортов и эспрессо-смесей. Помощь в настройке оборудования и
-                        обучение персонала.</p>
-                    <ul style="margin: 20px 0; list-style: disc; padding-left: 20px; color: var(--text-light);">
-                        <li>Оптовый прайс от 5 кг</li>
-                        <li>Бесплатная доставка</li>
-                        <li>Индивидуальная обжарка</li>
+        <!-- FOR CAFES -->
+        <section id="cafes" class="section">
+            <div class="container" style="display:grid; grid-template-columns: 1fr 1fr; gap:60px; align-items:center;">
+                <div>
+                    <span class="text-gold" style="font-weight:700; text-transform:uppercase;">Для кофеен</span>
+                    <h2>Станьте нашим партнером</h2>
+                    <p>Мы предлагаем specialty-кофе для заведений, которые заботятся о качестве.</p>
+                    <ul style="list-style:none; margin:30px 0;">
+                        <li style="margin-bottom:15px;"><i class="fas fa-check text-gold"
+                                style="margin-right:10px;"></i> Свежая обжарка еженедельно</li>
+                        <li style="margin-bottom:15px;"><i class="fas fa-check text-gold"
+                                style="margin-right:10px;"></i> Обучение вашего персонала</li>
+                        <li style="margin-bottom:15px;"><i class="fas fa-check text-gold"
+                                style="margin-right:10px;"></i> Помощь с настройкой оборудования</li>
                     </ul>
-                    <button class="btn btn-primary">Скачать прайс</button>
+                    <a href="#form" class="btn btn-primary">Оставить заявку</a>
                 </div>
-                <div class="card">
-                    <h3>Для офисов</h3>
-                    <p>Вкусный кофе повышает продуктивность. Установим кофемашину бесплатно при заказе от 10 кг в месяц.
-                    </p>
-                    <ul style="margin: 20px 0; list-style: disc; padding-left: 20px; color: var(--text-light);">
-                        <li>Аренда оборудования</li>
-                        <li>Сервисное обслуживание</li>
-                        <li>Дегустация в офисе</li>
-                    </ul>
-                    <button class="btn btn-primary">Заказать дегустацию</button>
+                <div>
+                    <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=800&q=80"
+                        style="border-radius:var(--radius-md);" alt="Cafe Partner">
                 </div>
             </div>
+        </section>
 
-            <div class="card mt-5 section-padding text-center" style="margin-top: 60px;">
-                <h2>Свяжитесь с нами</h2>
-                <p>Оставьте заявку и мы подготовим для вас индивидуальное предложение.</p>
-                <form onsubmit="event.preventDefault(); alert('Спасибо! Мы свяжемся с вами.');"
-                    style="max-width: 500px; margin: 0 auto; display: flex; flex-direction: column; gap: 15px;">
-                    <input type="text" placeholder="Ваше имя"
-                        style="padding: 15px; border: 1px solid #ddd; border-radius: 8px;">
-                    <input type="text" placeholder="Телефон"
-                        style="padding: 15px; border: 1px solid #ddd; border-radius: 8px;">
-                    <button class="btn btn-secondary">Отправить заявку</button>
+        <!-- FOR OFFICES -->
+        <section id="office" class="section bg-surface">
+            <div class="container" style="display:grid; grid-template-columns: 1fr 1fr; gap:60px; align-items:center;">
+                <div style="order:2;">
+                    <span class="text-gold" style="font-weight:700; text-transform:uppercase;">Для офисов</span>
+                    <h2>Кофе для команды</h2>
+                    <p>Забудьте о плохом офисном кофе. Мы настроим регулярные поставки, чтобы ваша команда была
+                        счастлива.</p>
+                    <ul style="list-style:none; margin:30px 0;">
+                        <li style="margin-bottom:15px;"><i class="fas fa-check text-gold"
+                                style="margin-right:10px;"></i> Подписка для офиса</li>
+                        <li style="margin-bottom:15px;"><i class="fas fa-check text-gold"
+                                style="margin-right:10px;"></i> Аренда оборудования</li>
+                        <li style="margin-bottom:15px;"><i class="fas fa-check text-gold"
+                                style="margin-right:10px;"></i> Гибкий график доставок</li>
+                    </ul>
+                    <a href="#form" class="btn btn-primary">Обсудить условия</a>
+                </div>
+                <div style="order:1;">
+                    <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=800&q=80"
+                        style="border-radius:var(--radius-md);" alt="Office Coffee">
+                </div>
+            </div>
+        </section>
+
+        <!-- WHOLESALE -->
+        <section id="wholesale" class="section">
+            <div class="container text-center">
+                <span class="text-gold" style="font-weight:700; text-transform:uppercase;">Оптовые продажи</span>
+                <h2>Зеленое зерно и обжаренный кофе</h2>
+                <p style="max-width:600px; margin:0 auto 40px;">Мы поставляем зеленое зерно напрямую из Эфиопии и готовы
+                    обжарить его под ваш профиль или продать для вашего ростера.</p>
+                <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:30px; margin-top:40px;">
+                    <div style="background:white; padding:40px; border-radius:var(--radius-md);">
+                        <i class="fas fa-box-open text-gold" style="font-size:2rem; margin-bottom:15px;"></i>
+                        <h3>От 10 кг</h3>
+                        <p>Минимальный заказ для оптовой цены.</p>
+                    </div>
+                    <div style="background:white; padding:40px; border-radius:var(--radius-md);">
+                        <i class="fas fa-tags text-gold" style="font-size:2rem; margin-bottom:15px;"></i>
+                        <h3>Скидка 20-40%</h3>
+                        <p>В зависимости от объема и частоты.</p>
+                    </div>
+                    <div style="background:white; padding:40px; border-radius:var(--radius-md);">
+                        <i class="fas fa-truck text-gold" style="font-size:2rem; margin-bottom:15px;"></i>
+                        <h3>Доставка по Украине</h3>
+                        <p>Новая Почта. Бесплатно от 50 кг.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FORM -->
+        <section id="form" class="section bg-warm">
+            <div class="container" style="max-width:700px;">
+                <h2 class="text-center">Оставьте заявку</h2>
+                <p class="text-center mb-5">Мы свяжемся с вами в течение 24 часов.</p>
+                <form
+                    style="background:white; padding:40px; border-radius:var(--radius-md); box-shadow:var(--shadow-subtle);">
+                    <div style="margin-bottom:20px;">
+                        <label>Ваше имя</label>
+                        <input type="text" placeholder="Имя или название компании"
+                            style="width:100%; padding:15px; border:1px solid #ddd; border-radius:8px; margin-top:8px;">
+                    </div>
+                    <div style="margin-bottom:20px;">
+                        <label>Email или телефон</label>
+                        <input type="text" placeholder="+380..."
+                            style="width:100%; padding:15px; border:1px solid #ddd; border-radius:8px; margin-top:8px;">
+                    </div>
+                    <div style="margin-bottom:20px;">
+                        <label>Что вас интересует?</label>
+                        <select
+                            style="width:100%; padding:15px; border:1px solid #ddd; border-radius:8px; margin-top:8px;">
+                            <option>Кофе для кофейни</option>
+                            <option>Кофе для офиса</option>
+                            <option>Оптовые закупки</option>
+                            <option>Другое</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width:100%;">Отправить заявку</button>
                 </form>
             </div>
-        </div>
+        </section>
     </main>
+
     <script src="js/data.js"></script>
     <script src="js/components.js"></script>
+    <script src="js/main.js"></script>
 </body>
 
 </html>

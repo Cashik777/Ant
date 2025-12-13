@@ -6,50 +6,98 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Контакты — EthioDirect</title>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/responsive.css">
 </head>
 
 <body>
     <main>
-        <div class="page-header">
-            <div class="container">
-                <h1>Мы на связи</h1>
+        <!-- HERO -->
+        <section class="section bg-surface" style="padding-top: 100px;">
+            <div class="container text-center">
+                <span class="text-gold"
+                    style="text-transform:uppercase; font-weight:600; letter-spacing:1px;">Связь</span>
+                <h1 style="margin-top:10px;">Контакты</h1>
+                <p>Мы всегда рады общению. Пишите, звоните, заходите в гости.</p>
             </div>
-        </div>
+        </section>
 
-        <div class="container section-padding">
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
+        <!-- CONTACT INFO & FORM -->
+        <section class="section">
+            <div class="container" style="display:grid; grid-template-columns: 1fr 1fr; gap:60px; align-items:start;">
+                <!-- INFO -->
                 <div>
-                    <h2>Наши контакты</h2>
-                    <p class="mb-4">Мы всегда рады ответить на ваши вопросы о кофе.</p>
+                    <h2 class="mb-4">Свяжитесь с нами</h2>
 
-                    <ul style="font-size: 1.1rem; line-height: 2;">
-                        <li><i class="fas fa-phone mr-2"></i> +380 (XX) XXX-XX-XX</li>
-                        <li><i class="fas fa-envelope mr-2"></i> hello@ethiodirect.ua</li>
-                        <li><i class="fas fa-map-marker-alt mr-2"></i> Украина, г. Одесса, ул. Дерибасовская, 1</li>
-                        <li><i class="fas fa-clock mr-2"></i> Пн-Пт: 09:00 - 18:00</li>
-                    </ul>
+                    <div style="margin-bottom:30px;">
+                        <h4><i class="fas fa-phone text-gold" style="margin-right:10px;"></i> Телефон</h4>
+                        <p><a href="tel:+380501234567" style="font-size:1.1rem;">+38 (050) 123-45-67</a></p>
+                    </div>
+
+                    <div style="margin-bottom:30px;">
+                        <h4><i class="fas fa-envelope text-gold" style="margin-right:10px;"></i> Email</h4>
+                        <p><a href="mailto:hello@ethiodirect.ua" style="font-size:1.1rem;">hello@ethiodirect.ua</a></p>
+                    </div>
+
+                    <div style="margin-bottom:30px;">
+                        <h4><i class="fas fa-map-marker-alt text-gold" style="margin-right:10px;"></i> Адрес цеха
+                            обжарки</h4>
+                        <p>г. Одесса, ул. Кофейная, 1<br>Принимаем по предварительной записи</p>
+                    </div>
+
+                    <div style="margin-bottom:30px;">
+                        <h4><i class="fas fa-clock text-gold" style="margin-right:10px;"></i> Время работы</h4>
+                        <p>Пн-Пт: 10:00 – 18:00<br>Сб-Вс: Выходной (обработка онлайн-заказов)</p>
+                    </div>
+
+                    <div style="display:flex; gap:15px; margin-top:30px;">
+                        <a href="#" class="btn btn-outline" style="padding:12px 15px;"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="#" class="btn btn-outline" style="padding:12px 15px;"><i
+                                class="fab fa-telegram"></i></a>
+                        <a href="#" class="btn btn-outline" style="padding:12px 15px;"><i
+                                class="fab fa-facebook"></i></a>
+                    </div>
                 </div>
-                <div class="card">
-                    <h3>Напишите нам</h3>
-                    <form onsubmit="event.preventDefault(); alert('Сообщение отправлено!');"
-                        style="display: flex; flex-direction: column; gap: 15px;">
-                        <input type="text" placeholder="Ваше имя"
-                            style="padding: 15px; border: 1px solid #ddd; border-radius: 8px;">
-                        <textarea placeholder="Сообщение" rows="5"
-                            style="padding: 15px; border: 1px solid #ddd; border-radius: 8px;"></textarea>
-                        <button class="btn btn-primary">Отправить</button>
+
+                <!-- FORM -->
+                <div
+                    style="background:white; padding:40px; border-radius:var(--radius-md); box-shadow:var(--shadow-subtle);">
+                    <h3 class="mb-4">Напишите нам</h3>
+                    <form>
+                        <div style="margin-bottom:20px;">
+                            <label style="font-weight:500; display:block; margin-bottom:8px;">Ваше имя</label>
+                            <input type="text" placeholder="Как вас зовут?"
+                                style="width:100%; padding:14px; border:1px solid #ddd; border-radius:8px;">
+                        </div>
+                        <div style="margin-bottom:20px;">
+                            <label style="font-weight:500; display:block; margin-bottom:8px;">Email</label>
+                            <input type="email" placeholder="your@email.com"
+                                style="width:100%; padding:14px; border:1px solid #ddd; border-radius:8px;">
+                        </div>
+                        <div style="margin-bottom:20px;">
+                            <label style="font-weight:500; display:block; margin-bottom:8px;">Сообщение</label>
+                            <textarea rows="5" placeholder="Ваш вопрос или комментарий..."
+                                style="width:100%; padding:14px; border:1px solid #ddd; border-radius:8px; resize:vertical;"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width:100%;">Отправить</button>
                     </form>
                 </div>
             </div>
-        </div>
+        </section>
+
+        <!-- MAP PLACEHOLDER -->
+        <section style="height:400px; background:#ddd; display:flex; align-items:center; justify-content:center;">
+            <p class="text-muted"><i class="fas fa-map-marker-alt" style="font-size:2rem; margin-right:10px;"></i> Здесь
+                будет карта (Google Maps / OpenStreetMap)</p>
+        </section>
     </main>
+
     <script src="js/data.js"></script>
     <script src="js/components.js"></script>
+    <script src="js/main.js"></script>
 </body>
 
 </html>

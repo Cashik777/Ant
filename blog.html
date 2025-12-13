@@ -4,90 +4,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Журнал — EthioDirect</title>
+    <title>Кофейный гид — EthioDirect</title>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/responsive.css">
 </head>
 
 <body>
-    <!-- HEADER INJECTED -->
-
     <main>
-        <div class="page-header text-center section bg-contrast">
-            <div class="container">
-                <h1>Кофейный гид</h1>
-                <p>База знаний для любителей кофе.</p>
+        <!-- HERO -->
+        <section class="section bg-surface" style="padding-top: 100px;">
+            <div class="container text-center">
+                <span class="text-gold"
+                    style="text-transform:uppercase; font-weight:600; letter-spacing:1px;">Education</span>
+                <h1 style="margin-top:10px;">Кофейный гид</h1>
+                <p style="max-width:600px; margin:20px auto 0;">Статьи о выборе кофе, методах приготовления и культуре
+                    specialty.</p>
             </div>
-        </div>
+        </section>
 
-        <!-- QUIZ TEASER -->
+        <!-- QUIZ BANNER -->
         <section class="section">
             <div class="container">
                 <div
-                    style="background: var(--primary); color: white; border-radius: var(--radius-md); padding: 60px; display: flex; align-items: center; justify-content: space-between; position: relative; overflow: hidden;">
-                    <div style="position: relative; z-index: 2; max-width: 600px;">
-                        <h2 style="color: white; margin-bottom: 20px;">Какой кофе вам подходит?</h2>
-                        <p style="margin-bottom: 30px; font-size: 1.1rem; opacity: 0.9;">Пройдите короткий тест (30
-                            секунд) и наш алгоритм подберет для вас идеальный сорт.</p>
-                        <button class="btn btn-secondary" onclick="alert('Запуск теста...')">Пройти тест</button>
+                    style="background: linear-gradient(135deg, var(--primary) 0%, #3a3a3a 100%); color:white; border-radius:var(--radius-lg); padding:60px; display:flex; align-items:center; justify-content:space-between;">
+                    <div style="max-width:500px;">
+                        <h2 style="color:white; margin-bottom:20px;">Не знаете, какой кофе выбрать?</h2>
+                        <p style="margin-bottom:30px; opacity:0.9;">Пройдите наш тест и получите персональную
+                            рекомендацию за 30 секунд.</p>
+                        <a href="quiz.html" class="btn" style="background:white; color:var(--primary);">Пройти тест</a>
                     </div>
-                    <div style="position: absolute; right: -50px; bottom: -50px; opacity: 0.2; font-size: 15rem;">
-                        <i class="fas fa-question"></i>
-                    </div>
+                    <i class="fas fa-question-circle" style="font-size:8rem; opacity:0.15;"></i>
                 </div>
             </div>
         </section>
 
         <!-- ARTICLES -->
-        <div class="container section">
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px;">
-                <article class="reveal"
-                    style="border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-soft);">
-                    <img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&w=800&q=80"
-                        style="width: 100%; height: 250px; object-fit: cover;">
-                    <div style="padding: 30px; background: white;">
-                        <span class="text-gold"
-                            style="font-size: 0.8rem; text-transform: uppercase; font-weight: 700;">Заваривание</span>
-                        <h3 style="margin: 10px 0;">Гид по V60</h3>
-                        <p style="color: #666; margin-bottom: 20px;">Как получить чистую и яркую чашку дома. Пропорции,
-                            температура, помол.</p>
-                        <a href="#" style="color: var(--primary); font-weight: 600;">Читать статью &rarr;</a>
-                    </div>
-                </article>
+        <section class="section bg-surface">
+            <div class="container">
+                <h2 class="text-center mb-5">Статьи</h2>
+                <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap:40px;">
 
-                <article class="reveal"
-                    style="border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-soft);">
-                    <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=800&q=80"
-                        style="width: 100%; height: 250px; object-fit: cover;">
-                    <div style="padding: 30px; background: white;">
-                        <span class="text-gold"
-                            style="font-size: 0.8rem; text-transform: uppercase; font-weight: 700;">Теория</span>
-                        <h3 style="margin: 10px 0;">Мытая vs Натуральная</h3>
-                        <p style="color: #666; margin-bottom: 20px;">Влияние обработки на вкус: почему Эфиопия бывает
-                            такой разной.</p>
-                        <a href="#" style="color: var(--primary); font-weight: 600;">Читать статью &rarr;</a>
-                    </div>
-                </article>
+                    <article
+                        style="background:white; border-radius:var(--radius-md); overflow:hidden; box-shadow:var(--shadow-subtle);">
+                        <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=600&q=80"
+                            style="width:100%; height:220px; object-fit:cover;">
+                        <div style="padding:30px;">
+                            <span class="text-gold"
+                                style="font-size:0.8rem; text-transform:uppercase; font-weight:600;">Заваривание</span>
+                            <h3 style="margin:10px 0;">Гид по V60: идеальная чашка дома</h3>
+                            <p style="font-size:0.9rem;">Пошаговая инструкция для начинающих. Пропорции, температура,
+                                помол.</p>
+                            <a href="#" style="color:var(--primary); font-weight:500; font-size:0.9rem;">Читать
+                                &rarr;</a>
+                        </div>
+                    </article>
 
-                <article class="reveal"
-                    style="border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-soft);">
-                    <img src="https://images.unsplash.com/photo-1442512595331-e89e7385a861?auto=format&fit=crop&w=800&q=80"
-                        style="width: 100%; height: 250px; object-fit: cover;">
-                    <div style="padding: 30px; background: white;">
-                        <span class="text-gold"
-                            style="font-size: 0.8rem; text-transform: uppercase; font-weight: 700;">Хранение</span>
-                        <h3 style="margin: 10px 0;">Как хранить зерно?</h3>
-                        <p style="color: #666; margin-bottom: 20px;">5 главных врагов кофейного зерна и как с ними
-                            бороться.</p>
-                        <a href="#" style="color: var(--primary); font-weight: 600;">Читать статью &rarr;</a>
-                    </div>
-                </article>
+                    <article
+                        style="background:white; border-radius:var(--radius-md); overflow:hidden; box-shadow:var(--shadow-subtle);">
+                        <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=600&q=80"
+                            style="width:100%; height:220px; object-fit:cover;">
+                        <div style="padding:30px;">
+                            <span class="text-gold"
+                                style="font-size:0.8rem; text-transform:uppercase; font-weight:600;">Теория</span>
+                            <h3 style="margin:10px 0;">Мытая vs Натуральная обработка</h3>
+                            <p style="font-size:0.9rem;">Почему Эфиопия бывает такой разной? Влияние обработки на вкус.
+                            </p>
+                            <a href="#" style="color:var(--primary); font-weight:500; font-size:0.9rem;">Читать
+                                &rarr;</a>
+                        </div>
+                    </article>
+
+                    <article
+                        style="background:white; border-radius:var(--radius-md); overflow:hidden; box-shadow:var(--shadow-subtle);">
+                        <img src="https://images.unsplash.com/photo-1442512595331-e89e7385a861?auto=format&fit=crop&w=600&q=80"
+                            style="width:100%; height:220px; object-fit:cover;">
+                        <div style="padding:30px;">
+                            <span class="text-gold"
+                                style="font-size:0.8rem; text-transform:uppercase; font-weight:600;">Хранение</span>
+                            <h3 style="margin:10px 0;">Как правильно хранить кофе?</h3>
+                            <p style="font-size:0.9rem;">5 главных врагов свежести зерна и как с ними бороться.</p>
+                            <a href="#" style="color:var(--primary); font-weight:500; font-size:0.9rem;">Читать
+                                &rarr;</a>
+                        </div>
+                    </article>
+
+                    <article
+                        style="background:white; border-radius:var(--radius-md); overflow:hidden; box-shadow:var(--shadow-subtle);">
+                        <img src="https://images.unsplash.com/photo-1501747315-124a0eaca060?auto=format&fit=crop&w=600&q=80"
+                            style="width:100%; height:220px; object-fit:cover;">
+                        <div style="padding:30px;">
+                            <span class="text-gold"
+                                style="font-size:0.8rem; text-transform:uppercase; font-weight:600;">Оборудование</span>
+                            <h3 style="margin:10px 0;">Какую кофемолку выбрать?</h3>
+                            <p style="font-size:0.9rem;">Ручная vs. электрическая. Жернова. Бюджет.</p>
+                            <a href="#" style="color:var(--primary); font-weight:500; font-size:0.9rem;">Читать
+                                &rarr;</a>
+                        </div>
+                    </article>
+
+                </div>
             </div>
-        </div>
+        </section>
     </main>
 
     <script src="js/data.js"></script>
