@@ -1,182 +1,215 @@
-/* ===== ETHIODIRECT CORE ENGINE (v3.0) ===== */
+/* ===== ETHIODIRECT CORE ENGINE v4.0 ===== */
 
-/* --- STORE & STATE MANAGEMENT --- */
-const store = {
-    cart: JSON.parse(localStorage.getItem('ant_cart')) || [],
-    user: JSON.parse(localStorage.getItem('ant_user')) || {
-        name: 'Guest',
-        subscription: null
+/* --- DATA --- */
+const PRODUCTS = [
+    { id: 1, name: 'Сидамо', region: 'Sidamo', desc: 'Классический эфиопский. Шоколад, орехи, мягкая кислинка.', price: 240, weight: 250, roast: 'medium', taste: ['🍫', '🥜'], method: ['espresso', 'turka'], image: 'https://images.unsplash.com/photo-1587734195507-6b7c8b6a3e5a?auto=format&fit=crop&w=600&q=80' },
+    { id: 2, name: 'Йіргачеффе', region: 'Yirgacheffe', desc: 'Цветочный, цитрусовый. Идеален для фильтра.', price: 280, weight: 250, roast: 'light', taste: ['🌸', '🍋'], method: ['filter'], image: 'https://images.unsplash.com/photo-1510707577719-ae7c9b788690?auto=format&fit=crop&w=600&q=80' },
+    { id: 3, name: 'Гуджі Натурал', region: 'Guji', desc: 'Ягодний вибух. Полуниця, манго, мед.', price: 320, weight: 250, roast: 'light', taste: ['🍓', '🥭'], method: ['filter'], image: 'https://images.unsplash.com/photo-1621262974917-76b4a39f60af?auto=format&fit=crop&w=600&q=80' },
+    { id: 4, name: 'Еспресо Бленд', region: 'Blend', desc: 'Стабільний смак для еспресо. Шоколад, карамель.', price: 220, weight: 250, roast: 'dark', taste: ['🍫', '🍬'], method: ['espresso'], image: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=600&q=80' },
+    { id: 5, name: 'Лімму', region: 'Limmu', desc: 'Збалансований. Зелене яблуко, карамель.', price: 260, weight: 250, roast: 'medium', taste: ['🍏', '🍬'], method: ['espresso', 'filter'], image: 'https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&w=600&q=80' },
+    { id: 6, name: 'Харар', region: 'Harrar', desc: 'Дикий. Чорниця, вино, спеції.', price: 340, weight: 250, roast: 'light', taste: ['🫐', '🍷'], method: ['filter'], image: 'https://images.unsplash.com/photo-1442512595331-e89e7385a861?auto=format&fit=crop&w=600&q=80' }
+];
+
+const SUBSCRIPTION_PLANS = [
+    { id: 'espresso', name: 'Домашній еспресо', desc: 'Темна обжарка, 500г/міс', price: 450, roast: 'dark', weight: 500 },
+    { id: 'filter', name: 'Фільтр і фрукти', desc: 'Світла обжарка, 300г/міс', price: 380, roast: 'light', weight: 300 },
+    { id: 'discovery', name: 'Знайомство з Ефіопією', desc: 'Ротація сортів, 3×100г/міс', price: 420, roast: 'mixed', weight: 300 },
+    { id: 'cafe', name: 'Кав\'ярня вдома', desc: '1кг/міс + безкоштовна доставка', price: 780, roast: 'medium', weight: 1000 }
+];
+
+const QUIZ_QUESTIONS = [
+    {
+        id: 1, text: 'Як ви готуєте каву?', options: [
+            { text: 'Еспресо-машина', value: 'espresso', icon: 'fa-mug-hot' },
+            { text: 'Фільтр / Воронка', value: 'filter', icon: 'fa-filter' },
+            { text: 'Турка', value: 'turka', icon: 'fa-fire' },
+            { text: 'Френч-прес', value: 'french', icon: 'fa-glass-water' }
+        ]
     },
+    {
+        id: 2, text: 'Який смак вам ближче?', options: [
+            { text: 'Шоколад і горіхи', value: 'chocolate', icon: 'fa-cookie' },
+            { text: 'Ягоди і фрукти', value: 'fruity', icon: 'fa-lemon' },
+            { text: 'Квіткові ноти', value: 'floral', icon: 'fa-spa' },
+            { text: 'Пряний, насичений', value: 'spicy', icon: 'fa-pepper-hot' }
+        ]
+    },
+    {
+        id: 3, text: 'Яку міцність обираєте?', options: [
+            { text: 'Легка (чайна)', value: 'light', icon: 'fa-feather' },
+            { text: 'Середня (баланс)', value: 'medium', icon: 'fa-balance-scale' },
+            { text: 'Міцна (насичена)', value: 'strong', icon: 'fa-bolt' }
+        ]
+    },
+    {
+        id: 4, text: 'Як часто п\'єте каву?', options: [
+            { text: 'Рідко (1-2 рази/тиждень)', value: 'rare', icon: 'fa-clock' },
+            { text: 'Іноді (3-4 рази/тиждень)', value: 'sometimes', icon: 'fa-calendar' },
+            { text: 'Часто (щодня)', value: 'daily', icon: 'fa-coffee' },
+            { text: 'Кавоман (2+ чашки/день)', value: 'addict', icon: 'fa-heart' }
+        ]
+    },
+    {
+        id: 5, text: 'Що для вас найважливіше?', options: [
+            { text: 'Смак і аромат', value: 'taste', icon: 'fa-star' },
+            { text: 'Енергія і бадьорість', value: 'energy', icon: 'fa-bolt' },
+            { text: 'Ритуал приготування', value: 'ritual', icon: 'fa-magic' },
+            { text: 'Користь для здоров\'я', value: 'health', icon: 'fa-leaf' }
+        ]
+    }
+];
+
+/* --- STATE --- */
+const store = {
+    cart: JSON.parse(localStorage.getItem('ed_cart')) || [],
+    user: JSON.parse(localStorage.getItem('ed_user')) || { name: 'Guest', subscription: null },
+    quizAnswers: {},
     currency: '₴'
 };
 
-/* --- EVENTS & INIT --- */
+/* --- SUBSCRIPTION CLASS --- */
+class Subscription {
+    constructor(config) {
+        this.id = 'sub_' + Date.now();
+        this.plan = config.plan;
+        this.coffee = config.coffee;
+        this.format = config.format;
+        this.grind = config.grind || null;
+        this.frequency = config.frequency;
+        this.quantity = config.quantity;
+        this.price = this.calculatePrice();
+        this.status = 'active';
+        this.nextDelivery = this.calculateNextDelivery();
+        this.createdAt = new Date().toISOString();
+    }
+
+    calculatePrice() {
+        let base = 380;
+        if (this.quantity === 500) base *= 1.8;
+        if (this.quantity === 1000) base *= 3.2;
+        if (this.frequency === '2weeks') base *= 2;
+        if (this.frequency === '2months') base *= 0.5;
+        return Math.round(base * 0.9);
+    }
+
+    calculateNextDelivery() {
+        const now = new Date();
+        switch (this.frequency) {
+            case '2weeks': now.setDate(now.getDate() + 14); break;
+            case 'month': now.setMonth(now.getMonth() + 1); break;
+            case '2months': now.setMonth(now.getMonth() + 2); break;
+        }
+        return now.toISOString();
+    }
+
+    pause() { this.status = 'paused'; this.save(); }
+    resume() { this.status = 'active'; this.save(); }
+    cancel() { this.status = 'cancelled'; this.save(); }
+
+    save() {
+        store.user.subscription = this;
+        localStorage.setItem('ed_user', JSON.stringify(store.user));
+    }
+}
+
+/* --- INIT --- */
 document.addEventListener('DOMContentLoaded', () => {
     initUI();
     initPageLogic();
     renderCart();
 
     window.addEventListener('beforeunload', () => {
-        localStorage.setItem('ant_cart', JSON.stringify(store.cart));
-        localStorage.setItem('ant_user', JSON.stringify(store.user));
+        localStorage.setItem('ed_cart', JSON.stringify(store.cart));
+        localStorage.setItem('ed_user', JSON.stringify(store.user));
     });
 });
 
 function initUI() {
+    setupDrawer();
     const header = document.querySelector('.header');
     if (header) {
         window.addEventListener('scroll', () => {
-            header.classList.toggle('scrolled', window.scrollY > 20);
+            header.style.boxShadow = window.scrollY > 20 ? '0 4px 20px rgba(0,0,0,0.1)' : 'none';
         });
     }
-    setupDrawer();
 }
 
 function initPageLogic() {
     const path = window.location.pathname;
-
-    if (path.endsWith('index.html') || path.endsWith('/') || path === '') {
-        renderFeatured();
-    }
-    if (path.includes('shop.html')) {
-        renderShop();
-    }
-    if (path.includes('product.html')) {
-        initProductPage();
-    }
+    if (path.endsWith('index.html') || path.endsWith('/') || path === '') renderFeatured();
+    if (path.includes('shop.html')) { renderShop(); initFilters(); }
+    if (path.includes('product.html')) initProductPage();
+    if (path.includes('quiz.html')) initQuiz();
+    if (path.includes('subscription.html')) initWizard();
+    if (path.includes('account.html')) initDashboard();
 }
 
-/* --- SUBSCRIPTION ENGINE --- */
-const SubEngine = {
-    frequencies: { 'weekly': 7, 'biweekly': 14, 'monthly': 30 },
-
-    create(productId, frequency, grind) {
-        const today = new Date();
-        const nextDate = new Date(today);
-        nextDate.setDate(today.getDate() + this.frequencies[frequency]);
-
-        store.user.subscription = {
-            id: 'sub_' + Date.now(),
-            productId, frequency, grind,
-            startDate: today.toISOString(),
-            nextDate: nextDate.toISOString(),
-            status: 'active'
-        };
-        this.save();
-    },
-
-    pause() {
-        if (store.user.subscription) {
-            store.user.subscription.status = 'paused';
-            this.save();
-        }
-    },
-
-    resume() {
-        if (store.user.subscription) {
-            store.user.subscription.status = 'active';
-            this.save();
-        }
-    },
-
-    skip() {
-        if (store.user.subscription) {
-            const next = new Date(store.user.subscription.nextDate);
-            next.setDate(next.getDate() + this.frequencies[store.user.subscription.frequency]);
-            store.user.subscription.nextDate = next.toISOString();
-            this.save();
-        }
-    },
-
-    save() {
-        localStorage.setItem('ant_user', JSON.stringify(store.user));
-    }
-};
-
-/* --- PAGE RENDERERS --- */
+/* --- SHOP --- */
 function renderFeatured() {
     const grid = document.getElementById('featured-grid');
-    if (!grid || typeof PRODUCTS === 'undefined') return;
-
+    if (!grid) return;
     grid.innerHTML = '';
-    PRODUCTS.slice(0, 3).forEach(p => {
-        grid.innerHTML += createProductCard(p);
-    });
+    PRODUCTS.slice(0, 3).forEach(p => grid.innerHTML += createProductCard(p));
 }
 
-function renderShop() {
+function renderShop(filter = 'all') {
     const grid = document.getElementById('products-grid');
-    if (!grid || typeof PRODUCTS === 'undefined') return;
-
+    if (!grid) return;
     grid.innerHTML = '';
-    PRODUCTS.forEach(p => {
-        grid.innerHTML += createProductCard(p);
-    });
-
-    // Filter buttons
-    document.querySelectorAll('.filter-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            // Filter logic placeholder
-        });
-    });
+    let filtered = PRODUCTS;
+    if (filter !== 'all') {
+        filtered = PRODUCTS.filter(p => p.roast === filter || p.method.includes(filter));
+    }
+    filtered.forEach(p => grid.innerHTML += createProductCard(p));
 }
 
 function createProductCard(p) {
     return `
     <div class="product-card">
-        <div class="p-img-wrap">
-            <a href="product.html?id=${p.id}">
-                <img src="${p.image}" alt="${p.name}">
-            </a>
-        </div>
-        <div class="p-info">
-            <div class="p-meta">${p.tags.join(' • ')}</div>
+        <a href="product.html?id=${p.id}"><img src="${p.image}" alt="${p.name}"></a>
+        <div class="p-body">
+            <div class="p-region">${p.region}</div>
             <h3><a href="product.html?id=${p.id}">${p.name}</a></h3>
-            <div style="display:flex; justify-content:space-between; align-items:center; margin-top:15px;">
-                <span class="p-price">${p.price} ${store.currency}</span>
-                <button class="btn btn-primary" style="padding:10px 18px; font-size:0.85rem;" onclick="quickAdd(${p.id})">
-                    <i class="fas fa-plus"></i>
-                </button>
+            <div class="p-taste">${p.taste.join(' ')}</div>
+            <div class="p-price">${p.price} ${store.currency} / ${p.weight}г</div>
+            <div class="p-actions">
+                <button class="btn btn-primary btn-sm" onclick="addToCart(${p.id})">Купити</button>
+                <button class="btn btn-outline btn-sm" onclick="location.href='subscription.html?product=${p.id}'">Підписка -10%</button>
             </div>
         </div>
-    </div>
-    `;
+    </div>`;
 }
 
-function initProductPage() {
-    const params = new URLSearchParams(window.location.search);
-    const id = parseInt(params.get('id'));
-    if (!id || typeof PRODUCTS === 'undefined') return;
-
-    const product = PRODUCTS.find(p => p.id === id);
-    if (!product) return;
-
-    document.getElementById('p-title').innerText = product.name;
-    document.getElementById('p-price').innerText = product.price + ' ' + store.currency;
-    document.getElementById('p-desc').innerText = product.desc;
-    document.getElementById('p-main-img').src = product.image;
-    document.title = product.name + ' — EthioDirect';
-
-    document.getElementById('add-to-cart-btn').onclick = () => {
-        addToCart(product);
-    };
-}
-
-function quickAdd(id) {
-    if (typeof PRODUCTS === 'undefined') return;
-    const product = PRODUCTS.find(p => p.id === id);
-    if (product) addToCart(product);
-}
-
-/* --- CART FUNCTIONS --- */
-function addToCart(product, isSub = false) {
-    store.cart.push({
-        ...product,
-        type: isSub ? 'subscription' : 'one-time',
-        cartId: Date.now()
+function initFilters() {
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            renderShop(btn.dataset.filter || 'all');
+        });
     });
+}
+
+/* --- PRODUCT PAGE --- */
+function initProductPage() {
+    const id = parseInt(new URLSearchParams(window.location.search).get('id'));
+    const p = PRODUCTS.find(x => x.id === id);
+    if (!p) return;
+
+    document.getElementById('p-title').innerText = p.name;
+    document.getElementById('p-price').innerText = p.price + ' ' + store.currency;
+    document.getElementById('p-desc').innerText = p.desc;
+    document.getElementById('p-main-img').src = p.image;
+    document.title = p.name + ' — EthioDirect';
+
+    document.getElementById('add-to-cart-btn').onclick = () => addToCart(p.id);
+}
+
+/* --- CART --- */
+function addToCart(id) {
+    const p = PRODUCTS.find(x => x.id === id);
+    if (!p) return;
+    store.cart.push({ ...p, cartId: Date.now(), qty: 1 });
     renderCart();
     openDrawer();
 }
@@ -188,53 +221,230 @@ function removeFromCart(cartId) {
 
 function renderCart() {
     const list = document.getElementById('cart-list');
-    const totalEl = document.getElementById('cart-total');
-    const countEl = document.querySelector('.cart-count');
+    const total = document.getElementById('cart-total');
+    const count = document.querySelector('.cart-count');
 
-    if (countEl) countEl.innerText = store.cart.length;
+    if (count) count.innerText = store.cart.length;
+    if (!list) return;
 
-    if (list) {
-        if (store.cart.length === 0) {
-            list.innerHTML = '<p class="text-muted text-center">Корзина пуста</p>';
-        } else {
-            list.innerHTML = '';
-            let total = 0;
-
-            store.cart.forEach(item => {
-                total += item.price;
-                list.innerHTML += `
-                    <div class="cart-item" style="display:flex; gap:15px; margin-bottom:20px; align-items:center;">
-                        <img src="${item.image}" style="width:60px; height:60px; object-fit:cover; border-radius:8px;">
-                        <div style="flex:1;">
-                            <h4 style="font-size:0.95rem; margin-bottom:4px;">${item.name}</h4>
-                            <p style="margin:0; font-size:0.9rem;">${item.price} ${store.currency}</p>
-                        </div>
-                        <button onclick="removeFromCart(${item.cartId})" style="background:none; border:none; color:#999; cursor:pointer; font-size:1.2rem;">&times;</button>
-                    </div>
-                `;
-            });
-
-            if (totalEl) totalEl.innerText = total + ' ' + store.currency;
-        }
+    if (store.cart.length === 0) {
+        list.innerHTML = '<p class="text-center" style="color:#999;">Кошик порожній</p>';
+        if (total) total.innerText = '0 ' + store.currency;
+        return;
     }
+
+    let sum = 0;
+    list.innerHTML = '';
+    store.cart.forEach(item => {
+        sum += item.price;
+        list.innerHTML += `
+        <div class="cart-item">
+            <img src="${item.image}" alt="${item.name}">
+            <div style="flex:1;">
+                <h4 style="font-size:0.95rem; margin-bottom:4px;">${item.name}</h4>
+                <p style="margin:0; font-size:0.9rem; color:var(--primary);">${item.price} ${store.currency}</p>
+            </div>
+            <button onclick="removeFromCart(${item.cartId})" style="background:none; border:none; color:#999; cursor:pointer; font-size:1.3rem;">&times;</button>
+        </div>`;
+    });
+    if (total) total.innerText = sum + ' ' + store.currency;
 }
 
-/* --- DRAWER UI --- */
+/* --- DRAWER --- */
 function setupDrawer() {
-    const triggers = document.querySelectorAll('.cart-trigger');
-    const closers = document.querySelectorAll('.cart-close, .overlay');
-
-    triggers.forEach(t => t.addEventListener('click', openDrawer));
-    closers.forEach(c => c.addEventListener('click', closeDrawer));
+    document.querySelectorAll('.cart-trigger').forEach(t => t.addEventListener('click', openDrawer));
+    document.querySelectorAll('.cart-close, .overlay').forEach(c => c.addEventListener('click', closeDrawer));
 }
-
 function openDrawer() {
     document.querySelector('.drawer')?.classList.add('open');
     document.querySelector('.overlay')?.classList.add('open');
 }
-
 function closeDrawer() {
     document.querySelector('.drawer')?.classList.remove('open');
     document.querySelector('.overlay')?.classList.remove('open');
 }
 
+/* --- QUIZ --- */
+let quizStep = 0;
+function initQuiz() {
+    quizStep = 0;
+    store.quizAnswers = {};
+    renderQuizStep();
+}
+
+function renderQuizStep() {
+    if (quizStep >= QUIZ_QUESTIONS.length) { showQuizResult(); return; }
+
+    const q = QUIZ_QUESTIONS[quizStep];
+    const container = document.getElementById('quiz-content');
+    if (!container) return;
+
+    document.querySelector('.quiz-progress-bar').style.width = ((quizStep + 1) / QUIZ_QUESTIONS.length * 100) + '%';
+
+    container.innerHTML = `
+        <div class="quiz-question">
+            <h3 style="margin-bottom:10px;">Питання ${quizStep + 1} / ${QUIZ_QUESTIONS.length}</h3>
+            <h2>${q.text}</h2>
+            <div class="quiz-options">
+                ${q.options.map(o => `
+                    <div class="quiz-option" onclick="selectQuizOption('${o.value}')">
+                        <i class="fas ${o.icon}" style="margin-right:12px; color:var(--primary);"></i>
+                        ${o.text}
+                    </div>
+                `).join('')}
+            </div>
+        </div>
+    `;
+}
+
+function selectQuizOption(value) {
+    store.quizAnswers[QUIZ_QUESTIONS[quizStep].id] = value;
+    quizStep++;
+    renderQuizStep();
+}
+
+function showQuizResult() {
+    const recommended = PRODUCTS[Math.floor(Math.random() * PRODUCTS.length)];
+    const container = document.getElementById('quiz-content');
+    container.innerHTML = `
+        <div class="text-center" style="background:white; padding:50px; border-radius:var(--radius);">
+            <i class="fas fa-check-circle" style="font-size:4rem; color:var(--success); margin-bottom:20px;"></i>
+            <h2>Ваша ідеальна кава:</h2>
+            <h1 style="color:var(--primary); margin:20px 0;">${recommended.name}</h1>
+            <p>${recommended.desc}</p>
+            <div style="margin-top:30px; display:flex; gap:15px; justify-content:center;">
+                <button class="btn btn-primary" onclick="addToCart(${recommended.id})">Додати в кошик</button>
+                <a href="subscription.html?product=${recommended.id}" class="btn btn-outline">Оформити підписку</a>
+            </div>
+        </div>
+    `;
+}
+
+/* --- WIZARD --- */
+let wizardStep = 1;
+let wizardData = { coffee: 'auto', format: 'grain', grind: null, frequency: 'month' };
+
+function initWizard() {
+    wizardStep = 1;
+    renderWizardStep();
+}
+
+function renderWizardStep() {
+    updateWizardIndicator();
+    const container = document.getElementById('wizard-content');
+    if (!container) return;
+
+    let html = '';
+    switch (wizardStep) {
+        case 1:
+            html = `<h2>Крок 1: Оберіть каву</h2>
+            <div class="wizard-options">
+                <div class="option-card ${wizardData.coffee === 'auto' ? 'selected' : ''}" onclick="setWizard('coffee','auto')">
+                    <i class="fas fa-magic"></i><div><h4>Автоматичний вибір</h4><p style="margin:0;font-size:0.9rem;">Обжарщик обирає найкраще</p></div>
+                </div>
+                ${PRODUCTS.slice(0, 4).map(p => `
+                    <div class="option-card ${wizardData.coffee === p.id ? 'selected' : ''}" onclick="setWizard('coffee',${p.id})">
+                        <img src="${p.image}" style="width:50px;height:50px;border-radius:8px;">
+                        <div><h4>${p.name}</h4><p style="margin:0;font-size:0.9rem;">${p.region}</p></div>
+                    </div>
+                `).join('')}
+            </div>`;
+            break;
+        case 2:
+            html = `<h2>Крок 2: Формат</h2>
+            <div class="wizard-options">
+                <div class="option-card ${wizardData.format === 'grain' ? 'selected' : ''}" onclick="setWizard('format','grain')">
+                    <i class="fas fa-circle"></i><div><h4>Зерно</h4></div>
+                </div>
+                <div class="option-card ${wizardData.format === 'ground' ? 'selected' : ''}" onclick="setWizard('format','ground')">
+                    <i class="fas fa-mortar-pestle"></i><div><h4>Молотий</h4></div>
+                </div>
+            </div>
+            ${wizardData.format === 'ground' ? `
+                <h3 style="margin-top:30px;">Помол під:</h3>
+                <div class="wizard-options">
+                    <div class="option-card ${wizardData.grind === 'espresso' ? 'selected' : ''}" onclick="setWizard('grind','espresso')"><i class="fas fa-mug-hot"></i><div>Еспресо</div></div>
+                    <div class="option-card ${wizardData.grind === 'filter' ? 'selected' : ''}" onclick="setWizard('grind','filter')"><i class="fas fa-filter"></i><div>Фільтр</div></div>
+                    <div class="option-card ${wizardData.grind === 'turka' ? 'selected' : ''}" onclick="setWizard('grind','turka')"><i class="fas fa-fire"></i><div>Турка</div></div>
+                </div>
+            ` : ''}`;
+            break;
+        case 3:
+            html = `<h2>Крок 3: Частота доставки</h2>
+            <div class="wizard-options">
+                <div class="option-card ${wizardData.frequency === '2weeks' ? 'selected' : ''}" onclick="setWizard('frequency','2weeks')"><i class="fas fa-calendar-week"></i><div><h4>Раз на 2 тижні</h4></div></div>
+                <div class="option-card ${wizardData.frequency === 'month' ? 'selected' : ''}" onclick="setWizard('frequency','month')"><i class="fas fa-calendar-alt"></i><div><h4>Раз на місяць</h4><span style="color:var(--secondary);font-size:0.8rem;">⭐ Найпопулярніше</span></div></div>
+                <div class="option-card ${wizardData.frequency === '2months' ? 'selected' : ''}" onclick="setWizard('frequency','2months')"><i class="fas fa-calendar"></i><div><h4>Раз на 2 місяці</h4></div></div>
+            </div>`;
+            break;
+        case 4:
+            html = `<h2>Крок 4: Підтвердження</h2>
+            <div style="background:#f9f9f9; padding:30px; border-radius:var(--radius); margin:20px 0;">
+                <p><strong>Кава:</strong> ${wizardData.coffee === 'auto' ? 'Вибір обжарщика' : PRODUCTS.find(p => p.id === wizardData.coffee)?.name}</p>
+                <p><strong>Формат:</strong> ${wizardData.format === 'grain' ? 'Зерно' : 'Молотий (' + wizardData.grind + ')'}</p>
+                <p><strong>Частота:</strong> ${wizardData.frequency === '2weeks' ? 'Раз на 2 тижні' : wizardData.frequency === 'month' ? 'Раз на місяць' : 'Раз на 2 місяці'}</p>
+                <p style="font-size:1.5rem; color:var(--primary); font-weight:bold; margin-top:20px;">~380 ₴ / місяць</p>
+            </div>`;
+            break;
+    }
+
+    html += `<div style="display:flex; gap:15px; margin-top:30px; justify-content:center;">
+        ${wizardStep > 1 ? '<button class="btn btn-outline" onclick="prevWizardStep()">Назад</button>' : ''}
+        ${wizardStep < 4 ? '<button class="btn btn-primary" onclick="nextWizardStep()">Далі</button>' : '<button class="btn btn-primary" onclick="finishWizard()">Оформити підписку</button>'}
+    </div>`;
+
+    container.innerHTML = html;
+}
+
+function setWizard(key, val) { wizardData[key] = val; renderWizardStep(); }
+function nextWizardStep() { if (wizardStep < 4) { wizardStep++; renderWizardStep(); } }
+function prevWizardStep() { if (wizardStep > 1) { wizardStep--; renderWizardStep(); } }
+function updateWizardIndicator() {
+    document.querySelectorAll('.wizard-step').forEach((el, i) => {
+        el.classList.remove('active', 'done');
+        if (i + 1 === wizardStep) el.classList.add('active');
+        if (i + 1 < wizardStep) el.classList.add('done');
+    });
+}
+function finishWizard() {
+    const sub = new Subscription({ plan: 'custom', coffee: wizardData.coffee, format: wizardData.format, grind: wizardData.grind, frequency: wizardData.frequency, quantity: 250 });
+    sub.save();
+    alert('Підписку оформлено! Перша доставка: ' + new Date(sub.nextDelivery).toLocaleDateString('uk-UA'));
+    location.href = 'account.html';
+}
+
+/* --- DASHBOARD --- */
+function initDashboard() {
+    const sub = store.user.subscription;
+    const widget = document.getElementById('sub-widget');
+    if (!widget) return;
+
+    if (!sub) {
+        widget.innerHTML = '<p>У вас ще немає активної підписки.</p><a href="subscription.html" class="btn btn-primary">Оформити підписку</a>';
+        return;
+    }
+
+    widget.innerHTML = `
+        <div style="display:flex; justify-content:space-between; align-items:start; margin-bottom:20px;">
+            <div>
+                <span class="status-badge ${sub.status === 'active' ? 'status-active' : 'status-paused'}">${sub.status === 'active' ? 'Активна' : 'На паузі'}</span>
+                <h3 style="margin-top:10px;">Наступна доставка: ${new Date(sub.nextDelivery).toLocaleDateString('uk-UA')}</h3>
+            </div>
+        </div>
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <button class="btn btn-outline btn-sm" onclick="pauseSub()">⏸️ Пауза</button>
+            <button class="btn btn-outline btn-sm" onclick="skipDelivery()">⏭️ Пропустити</button>
+            <button class="btn btn-outline btn-sm" style="color:var(--error);" onclick="cancelSub()">❌ Скасувати</button>
+        </div>
+    `;
+}
+
+function pauseSub() {
+    if (store.user.subscription) {
+        store.user.subscription.status = store.user.subscription.status === 'active' ? 'paused' : 'active';
+        localStorage.setItem('ed_user', JSON.stringify(store.user));
+        initDashboard();
+    }
+}
+function skipDelivery() { alert('Доставку пропущено!'); }
+function cancelSub() { if (confirm('Точно скасувати підписку?')) { store.user.subscription = null; localStorage.setItem('ed_user', JSON.stringify(store.user)); initDashboard(); } }

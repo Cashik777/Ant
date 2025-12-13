@@ -1,73 +1,69 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="uk">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Магазин — EthioDirect</title>
-
-    <!-- FONTS -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- STYLES -->
     <link rel="stylesheet" href="css/main.css">
-    <style>
-        .filters {
-            margin-bottom: 40px;
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .filter-btn {
-            padding: 10px 20px;
-            border-radius: 30px;
-            background: white;
-            border: 1px solid #ddd;
-            cursor: pointer;
-            transition: .3s;
-        }
-
-        .filter-btn.active,
-        .filter-btn:hover {
-            background: var(--primary);
-            color: white;
-            border-color: var(--primary);
-        }
-    </style>
 </head>
 
 <body>
-    <!-- HEADER INJECTED -->
 
-    <main class="section bg-surface">
-        <div class="container">
-            <div class="text-center" style="margin-bottom: 60px;">
-                <h1>Каталог</h1>
-                <p>Микролоты, смеси и аксессуары.</p>
+    <header class="header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo"><i class="fas fa-seedling"></i> EthioDirect</a>
+            <nav class="nav-desktop">
+                <a href="shop.html" class="nav-link active">Магазин</a>
+                <a href="subscription.html" class="nav-link">Підписка</a>
+                <a href="quiz.html" class="nav-link">Тест</a>
+                <a href="about.html" class="nav-link">Про нас</a>
+            </nav>
+            <div class="header-actions">
+                <a href="account.html" class="nav-link"><i class="far fa-user"></i></a>
+                <div class="cart-trigger"><i class="fas fa-shopping-bag"></i><span class="cart-count">0</span></div>
             </div>
+        </div>
+    </header>
+
+    <div class="overlay"></div>
+    <div class="drawer">
+        <div class="drawer-header">
+            <h3>Кошик</h3><span class="cart-close" style="cursor:pointer;font-size:1.5rem;">&times;</span>
+        </div>
+        <div class="drawer-body" id="cart-list"></div>
+        <div class="drawer-footer">
+            <div style="display:flex;justify-content:space-between;margin-bottom:15px;font-weight:600;">
+                <span>Разом:</span><span id="cart-total">0 ₴</span></div>
+            <button class="btn btn-primary" style="width:100%;">Оформити</button>
+        </div>
+    </div>
+
+    <main class="section">
+        <div class="container">
+            <h1 class="text-center" style="margin-bottom:20px;">Магазин</h1>
+            <p class="text-center" style="margin-bottom:40px;">Оберіть каву за смаком, обжаркою або методом
+                приготування.</p>
 
             <div class="filters">
-                <button class="filter-btn active" data-type="all">Все</button>
-                <button class="filter-btn" data-type="grain">Зерно</button>
-                <button class="filter-btn" data-type="ground">Молотый</button>
-                <button class="filter-btn" data-type="capsules">Дрипы</button>
+                <button class="filter-btn active" data-filter="all">Усі</button>
+                <button class="filter-btn" data-filter="light">Світла</button>
+                <button class="filter-btn" data-filter="medium">Середня</button>
+                <button class="filter-btn" data-filter="dark">Темна</button>
+                <button class="filter-btn" data-filter="espresso">Еспресо</button>
+                <button class="filter-btn" data-filter="filter">Фільтр</button>
             </div>
 
-            <div id="products-grid" class="products-grid">
-                <!-- JS INJECTED -->
-            </div>
+            <div class="products-grid" id="products-grid"></div>
         </div>
     </main>
 
-    <!-- DRAWER INJECTED -->
+    <footer class="footer">
+        <div class="container text-center">© 2025 EthioDirect</div>
+    </footer>
 
-    <script src="js/data.js"></script>
-    <script src="js/components.js"></script>
     <script src="js/main.js"></script>
 </body>
 

@@ -1,139 +1,65 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="uk">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Subscription Builder — EthioDirect</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700&display=swap"
-        rel="stylesheet">
+    <title>Підписка — EthioDirect</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/main.css">
 </head>
 
 <body>
-    <!-- HEADER INJECTED -->
+
+    <header class="header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo"><i class="fas fa-seedling"></i> EthioDirect</a>
+            <nav class="nav-desktop">
+                <a href="shop.html" class="nav-link">Магазин</a>
+                <a href="subscription.html" class="nav-link active">Підписка</a>
+                <a href="quiz.html" class="nav-link">Тест</a>
+                <a href="about.html" class="nav-link">Про нас</a>
+            </nav>
+            <div class="header-actions">
+                <a href="account.html" class="nav-link"><i class="far fa-user"></i></a>
+                <div class="cart-trigger"><i class="fas fa-shopping-bag"></i><span class="cart-count">0</span></div>
+            </div>
+        </div>
+    </header>
+
+    <div class="overlay"></div>
+    <div class="drawer">
+        <div class="drawer-header">
+            <h3>Кошик</h3><span class="cart-close" style="cursor:pointer;font-size:1.5rem;">&times;</span>
+        </div>
+        <div class="drawer-body" id="cart-list"></div>
+        <div class="drawer-footer">
+            <div style="display:flex;justify-content:space-between;margin-bottom:15px;font-weight:600;">
+                <span>Разом:</span><span id="cart-total">0 ₴</span></div>
+            <button class="btn btn-primary" style="width:100%;">Оформити</button>
+        </div>
+    </div>
 
     <main class="section">
-        <div class="container wizard-container">
-            <div class="text-center mb-5">
-                <h1>Конструктор подписки</h1>
-                <p>Полный контроль над вашим утренним ритуалом.</p>
+        <div class="container wizard">
+            <h1 class="text-center" style="margin-bottom:10px;">Конструктор підписки</h1>
+            <p class="text-center" style="margin-bottom:40px;">4 простих кроки — і кава приходить сама.</p>
+
+            <div class="wizard-steps">
+                <div class="wizard-step active">1</div>
+                <div class="wizard-step">2</div>
+                <div class="wizard-step">3</div>
+                <div class="wizard-step">4</div>
             </div>
 
-            <div class="step-indicator">
-                <div class="step-dot active" id="dot-1"></div>
-                <div class="step-dot" id="dot-2"></div>
-                <div class="step-dot" id="dot-3"></div>
+            <div class="wizard-content" id="wizard-content">
+                <!-- JS renders wizard here -->
             </div>
-
-            <!-- STEP 1: COFFEE -->
-            <div id="wiz-1" class="quiz-step active">
-                <h3 class="text-center mb-4">1. Выберите кофе</h3>
-                <div style="display: grid; gap: 20px;">
-                    <div class="option-card" onclick="wizNext(2)">
-                        <div style="display:flex; justify-content:space-between; align-items:center;">
-                            <div>
-                                <h4>Roaster's Choice (Рекомендуем)</h4>
-                                <p style="margin:0; font-size:0.9rem;">Мы отправляем лучший лот месяца. Вы не скучаете.
-                                </p>
-                            </div>
-                            <i class="fas fa-award text-gold" style="font-size:1.5rem;"></i>
-                        </div>
-                    </div>
-                    <div class="option-card" onclick="wizNext(2)">
-                        <div style="display:flex; justify-content:space-between; align-items:center;">
-                            <div>
-                                <h4>Espresso Blend</h4>
-                                <p style="margin:0; font-size:0.9rem;">Стабильный, плотный вкус каждый раз.</p>
-                            </div>
-                            <i class="fas fa-mug-hot text-gold" style="font-size:1.5rem;"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- STEP 2: GRIND -->
-            <div id="wiz-2" class="quiz-step" style="display:none;">
-                <h3 class="text-center mb-4">2. Какой помол?</h3>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-                    <div class="option-card text-center" onclick="wizNext(3)">
-                        <i class="far fa-circle mb-3" style="font-size:2rem;"></i>
-                        <h4>В зернах</h4>
-                    </div>
-                    <div class="option-card text-center" onclick="wizNext(3)">
-                        <i class="fas fa-industry mb-3" style="font-size:2rem;"></i>
-                        <h4>Молотый</h4>
-                    </div>
-                </div>
-                <button class="btn btn-outline mt-4" onclick="wizBack(1)" style="width:100%;">Назад</button>
-            </div>
-
-            <!-- STEP 3: FREQUENCY -->
-            <div id="wiz-3" class="quiz-step" style="display:none;">
-                <h3 class="text-center mb-4">3. Как часто?</h3>
-                <div style="display: grid; gap: 20px;">
-                    <div class="option-card" onclick="finishWiz('weekly')">
-                        <div style="display:flex; justify-content:space-between;">
-                            <h4>Каждую неделю</h4>
-                            <span class="text-gold">350₴ / доставка</span>
-                        </div>
-                    </div>
-                    <div class="option-card" onclick="finishWiz('biweekly')">
-                        <div style="display:flex; justify-content:space-between;">
-                            <h4>Раз в 2 недели</h4>
-                            <span class="text-gold">360₴ / доставка</span>
-                        </div>
-                    </div>
-                    <div class="option-card" onclick="finishWiz('monthly')">
-                        <div style="display:flex; justify-content:space-between;">
-                            <h4>Раз в месяц</h4>
-                            <span class="text-gold">380₴ / доставка</span>
-                        </div>
-                    </div>
-                </div>
-                <button class="btn btn-outline mt-4" onclick="wizBack(2)" style="width:100%;">Назад</button>
-            </div>
-
-            <!-- SUCCESS -->
-            <div id="wiz-success" class="quiz-step" style="display:none; text-align:center;">
-                <i class="fas fa-check-circle" style="font-size: 4rem; color: var(--accent); margin-bottom: 30px;"></i>
-                <h2>Подписка оформлена!</h2>
-                <p>Мы добавили её в ваш профиль. Теперь магия будет происходить автоматически.</p>
-                <a href="account.html" class="btn btn-primary mt-4">Перейти в кабинет</a>
-            </div>
-
         </div>
     </main>
 
-    <script src="js/data.js"></script>
-    <script src="js/components.js"></script>
     <script src="js/main.js"></script>
-
-    <script>
-        function wizNext(n) {
-            document.querySelectorAll('.quiz-step').forEach(el => el.style.display = 'none');
-            document.getElementById('wiz-' + n).style.display = 'block';
-
-            document.querySelectorAll('.step-dot').forEach(d => d.classList.remove('active'));
-            document.getElementById('dot-' + n).classList.add('active');
-        }
-
-        function wizBack(n) {
-            wizNext(n);
-        }
-
-        function finishWiz(freq) {
-            // Mock creation
-            if (typeof SubEngine !== 'undefined') {
-                SubEngine.create(1, freq, 'grain');
-            }
-            document.querySelectorAll('.quiz-step').forEach(el => el.style.display = 'none');
-            document.querySelector('.step-indicator').style.display = 'none';
-            document.getElementById('wiz-success').style.display = 'block';
-        }
-    </script>
 </body>
 
 </html>

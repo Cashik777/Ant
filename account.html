@@ -1,158 +1,87 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="uk">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Dashboard — EthioDirect</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700&display=swap"
-        rel="stylesheet">
+    <title>Особистий кабінет — EthioDirect</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/main.css">
-    <style>
-        .dash-grid {
-            display: grid;
-            grid-template-columns: 280px 1fr;
-            gap: 40px;
-        }
-
-        .sidebar {
-            background: white;
-            padding: 30px;
-            border-radius: var(--radius-md);
-            height: fit-content;
-        }
-
-        .sidebar-link {
-            display: block;
-            padding: 12px 0;
-            color: #666;
-            border-bottom: 1px solid #eee;
-            transition: .3s;
-        }
-
-        .sidebar-link:hover,
-        .sidebar-link.active {
-            color: var(--primary);
-            padding-left: 5px;
-        }
-
-        .dash-widget {
-            background: white;
-            padding: 30px;
-            border-radius: var(--radius-md);
-            box-shadow: var(--shadow-subtle);
-            margin-bottom: 30px;
-        }
-
-        .status-badge {
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            text-transform: uppercase;
-        }
-
-        .status-active {
-            background: #d4edda;
-            color: #155724;
-        }
-
-        .status-paused {
-            background: #fff3cd;
-            color: #856404;
-        }
-    </style>
 </head>
 
 <body>
-    <!-- HEADER INJECTED -->
 
-    <main class="section bg-surface">
+    <header class="header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo"><i class="fas fa-seedling"></i> EthioDirect</a>
+            <nav class="nav-desktop">
+                <a href="shop.html" class="nav-link">Магазин</a>
+                <a href="subscription.html" class="nav-link">Підписка</a>
+                <a href="quiz.html" class="nav-link">Тест</a>
+                <a href="about.html" class="nav-link">Про нас</a>
+            </nav>
+            <div class="header-actions">
+                <a href="account.html" class="nav-link active"><i class="far fa-user"></i></a>
+                <div class="cart-trigger"><i class="fas fa-shopping-bag"></i><span class="cart-count">0</span></div>
+            </div>
+        </div>
+    </header>
+
+    <div class="overlay"></div>
+    <div class="drawer">
+        <div class="drawer-header">
+            <h3>Кошик</h3><span class="cart-close" style="cursor:pointer;font-size:1.5rem;">&times;</span>
+        </div>
+        <div class="drawer-body" id="cart-list"></div>
+        <div class="drawer-footer">
+            <div style="display:flex;justify-content:space-between;margin-bottom:15px;font-weight:600;">
+                <span>Разом:</span><span id="cart-total">0 ₴</span></div>
+            <button class="btn btn-primary" style="width:100%;">Оформити</button>
+        </div>
+    </div>
+
+    <main class="section">
         <div class="container dash-grid">
-            <!-- SIDEBAR -->
-            <aside class="sidebar">
-                <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 30px;">
+            <aside class="dash-sidebar">
+                <div style="display:flex;align-items:center;gap:12px;margin-bottom:25px;">
                     <div
-                        style="width: 50px; height: 50px; background: #eee; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-                        <i class="fas fa-user text-muted"></i>
-                    </div>
-                    <div>
-                        <h4 style="margin:0;">Alex</h4>
-                        <span style="font-size:0.85rem; color:#999;">Coffee Enthusiast</span>
-                    </div>
+                        style="width:45px;height:45px;background:#eee;border-radius:50%;display:flex;align-items:center;justify-content:center;">
+                        <i class="fas fa-user" style="color:#999;"></i></div>
+                    <div><strong>Гість</strong><br><span style="font-size:0.85rem;color:#999;">coffee lover</span></div>
                 </div>
-
                 <nav>
-                    <a href="#" class="sidebar-link active">Обзор</a>
-                    <a href="#" class="sidebar-link">Настройки подписки</a>
-                    <a href="#" class="sidebar-link">История заказов</a>
-                    <a href="#" class="sidebar-link">Адреса</a>
-                    <a href="#" class="sidebar-link" style="color: var(--accent);">Выйти</a>
+                    <a href="#" class="dash-link active">Огляд</a>
+                    <a href="#" class="dash-link">Мої замовлення</a>
+                    <a href="#" class="dash-link">Управління підпискою</a>
+                    <a href="#" class="dash-link">Адреси</a>
+                    <a href="#" class="dash-link">Бонуси</a>
+                    <a href="#" class="dash-link" style="color:var(--error);">Вийти</a>
                 </nav>
             </aside>
 
-            <!-- MAIN CONTENT -->
             <section>
-                <h2 class="mb-4">Доброе утро, Alex ☕️</h2>
+                <h2 style="margin-bottom:25px;">Вітаємо! ☕</h2>
 
-                <!-- NEXT DELIVERY WIDGET -->
-                <div class="dash-widget">
-                    <div
-                        style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 20px;">
-                        <div>
-                            <span
-                                style="font-size: 0.9rem; color: #999; text-transform: uppercase; letter-spacing: 1px;">Следующая
-                                посылка</span>
-                            <h3 style="margin-top: 5px;">18 Декабря, Среда</h3>
-                        </div>
-                        <span class="status-badge status-active">Активна</span>
-                    </div>
-
-                    <div
-                        style="display: flex; gap: 20px; align-items: center; background: #f9f9f9; padding: 15px; border-radius: 8px;">
-                        <img src="https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=100&q=80"
-                            style="width: 60px; height: 60px; object-fit: cover; border-radius: 4px;">
-                        <div>
-                            <h4 style="font-size: 1rem; margin-bottom: 3px;">Roaster's Choice (Эфиопия)</h4>
-                            <p style="margin:0; font-size: 0.9rem;">В зернах, 250г</p>
-                        </div>
-                    </div>
-
-                    <div style="margin-top: 30px; display: flex; gap: 15px;">
-                        <button class="btn btn-secondary btn-sm" onclick="alert('Доставка пропущена')">Пропустить
-                            неделю</button>
-                        <button class="btn btn-outline btn-sm" onclick="alert('Подписка на паузе')">Пауза на время
-                            отпуска</button>
-                        <button class="btn btn-primary btn-sm" onclick="alert('Отправляем!')">Отправить сейчас</button>
-                    </div>
+                <div class="dash-widget" id="sub-widget">
+                    <!-- JS renders subscription status -->
                 </div>
 
-                <!-- RECCOMENDATIONS -->
                 <div class="dash-widget">
-                    <h3>Мы думаем, вам понравится</h3>
-                    <div style="display: flex; gap: 20px; margin-top: 20px; overflow-x: auto;">
-                        <div style="min-width: 200px;">
-                            <img src="https://images.unsplash.com/photo-1621262974917-76b4a39f60af?auto=format&fit=crop&w=400&q=80"
-                                style="width: 100%; height: 150px; object-fit: cover; border-radius: 8px; margin-bottom: 10px;">
-                            <h4>Guji Highland</h4>
-                            <button class="btn-icon" style="color: var(--primary);">Добавить в бокс +</button>
-                        </div>
-                        <div style="min-width: 200px;">
-                            <img src="https://images.unsplash.com/photo-1517487881594-2787fef5ebf7?auto=format&fit=crop&w=400&q=80"
-                                style="width: 100%; height: 150px; object-fit: cover; border-radius: 8px; margin-bottom: 10px;">
-                            <h4>Cascara Tea</h4>
-                            <button class="btn-icon" style="color: var(--primary);">Добавить в бокс +</button>
-                        </div>
-                    </div>
+                    <h3 style="margin-bottom:15px;">Останні замовлення</h3>
+                    <p style="color:#999;">Ще немає замовлень. <a href="shop.html" style="color:var(--primary);">Перейти
+                            до магазину →</a></p>
+                </div>
+
+                <div class="dash-widget">
+                    <h3 style="margin-bottom:15px;">Бонуси</h3>
+                    <p><strong style="font-size:1.5rem;color:var(--primary);">0</strong> балів</p>
+                    <p style="font-size:0.9rem;color:#999;">1 грн = 1 бал. 500 балів = 100₴ знижки.</p>
                 </div>
             </section>
         </div>
     </main>
 
-    <script src="js/data.js"></script>
-    <script src="js/components.js"></script>
     <script src="js/main.js"></script>
 </body>
 
