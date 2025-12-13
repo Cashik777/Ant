@@ -4,8 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EthioDirect — Кава з Ефіопії</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>EthioDirect — Душа Ефіопії в кожній чашці</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/main.css">
 </head>
@@ -15,17 +14,19 @@
     <!-- HEADER -->
     <header class="header">
         <div class="container header-inner">
-            <a href="index.html" class="logo"><i class="fas fa-seedling"></i> EthioDirect</a>
+            <a href="index.html" class="logo">
+                <i class="fas fa-leaf text-accent" style="color:var(--accent);"></i>
+                <span style="font-family:var(--font-heading); letter-spacing:1px; font-size:1.5rem;">EthioDirect</span>
+            </a>
             <nav class="nav-desktop">
-                <a href="shop.html" class="nav-link">Магазин</a>
+                <a href="shop.html" class="nav-link">Каталог</a>
                 <a href="subscription.html" class="nav-link">Підписка</a>
-                <a href="quiz.html" class="nav-link">Тест</a>
+                <a href="blog.html" class="nav-link">Історії</a>
                 <a href="about.html" class="nav-link">Про нас</a>
-                <a href="b2b.html" class="nav-link">B2B</a>
             </nav>
             <div class="header-actions">
                 <a href="account.html" class="nav-link"><i class="far fa-user"></i></a>
-                <div class="cart-trigger"><i class="fas fa-shopping-bag"></i><span class="cart-count">0</span></div>
+                <div class="cart-trigger"><i class="fas fa-shopping-cart"></i><span class="cart-count">0</span></div>
             </div>
         </div>
     </header>
@@ -34,7 +35,7 @@
     <div class="overlay"></div>
     <div class="drawer">
         <div class="drawer-header">
-            <h3>Кошик</h3><span class="cart-close" style="cursor:pointer;font-size:1.5rem;">&times;</span>
+            <h3>Ваш кошик</h3><span class="cart-close" style="cursor:pointer;font-size:1.5rem;">&times;</span>
         </div>
         <div class="drawer-body" id="cart-list"></div>
         <div class="drawer-footer">
@@ -46,72 +47,121 @@
 
     <!-- HERO -->
     <section class="hero">
-        <div class="hero-bg"></div>
-        <div class="container">
-            <div class="hero-content">
-                <h1>Свіжообсмажена кава<br>з Ефіопії</h1>
-                <p>Прямі поставки → обжарка в Одесі → доставка за 1-3 дні.<br>Спробуйте разово або оформіть підписку зі
-                    знижкою 10%.</p>
-                <div style="display:flex;gap:15px;margin-top:30px;">
-                    <a href="shop.html" class="btn btn-secondary">Магазин</a>
-                    <a href="subscription.html" class="btn" style="background:white;color:var(--primary);">Підписка</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- HOW IT WORKS -->
-    <section class="section bg-white">
         <div class="container text-center">
-            <h2>Як працює підписка?</h2>
-            <p style="max-width:600px;margin:0 auto 50px;">Кава приходить сама. Ви контролюєте все.</p>
-            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:40px;">
-                <div>
-                    <div style="font-size:2.5rem;color:var(--primary);margin-bottom:15px;">01</div>
-                    <h4>Оберіть каву</h4>
-                    <p>Конкретний сорт або автовибір</p>
-                </div>
-                <div>
-                    <div style="font-size:2.5rem;color:var(--primary);margin-bottom:15px;">02</div>
-                    <h4>Налаштуйте</h4>
-                    <p>Формат, помол, частота</p>
-                </div>
-                <div>
-                    <div style="font-size:2.5rem;color:var(--primary);margin-bottom:15px;">03</div>
-                    <h4>Отримуйте</h4>
-                    <p>Новою Поштою кожного разу</p>
-                </div>
-                <div>
-                    <div style="font-size:2.5rem;color:var(--primary);margin-bottom:15px;">04</div>
-                    <h4>Керуйте</h4>
-                    <p>Пауза, зміна, скасування</p>
+            <div class="hero-content"
+                style="max-width:800px; margin:0 auto; padding:40px; background:rgba(255,255,255,0.1); backdrop-filter:blur(5px); border:1px solid rgba(255,255,255,0.2);">
+                <h4
+                    style="color:var(--secondary); font-family:var(--font-body); letter-spacing:3px; text-transform:uppercase; margin-bottom:15px;">
+                    Direct Trade Coffee</h4>
+                <h1 style="color:white; font-size:4rem; margin-bottom:20px;">Кава, що змінює ранок</h1>
+                <p style="color:rgba(255,255,255,0.95); font-size:1.3rem; margin-bottom:30px; font-weight:300;">
+                    Прямі поставки з ферм регіону Gedeo. Обсмажено в Одесі. <br>
+                    Сервіс, який дбає про те, щоб у вас завжди була ідеальниа чашка.
+                </p>
+                <div style="display:flex;gap:20px;justify-content:center;">
+                    <a href="shop.html" class="btn btn-primary"
+                        style="background:white; color:var(--primary); border:none;">Обрати смак</a>
+                    <a href="quiz.html" class="btn btn-primary"
+                        style="background:transparent; border:1px solid white;">Пройти тест</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FEATURED -->
-    <section class="section">
-        <div class="container">
-            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:40px;">
-                <h2 style="margin:0;">Популярне</h2>
-                <a href="shop.html" style="color:var(--primary);font-weight:500;">Весь каталог →</a>
-            </div>
-            <div class="products-grid" id="featured-grid"></div>
-        </div>
-    </section>
-
-    <!-- QUIZ CTA -->
+    <!-- STORY / VALUES -->
     <section class="section bg-white">
         <div class="container">
             <div
-                style="background:linear-gradient(135deg,var(--primary) 0%,#5a0000 100%);color:white;border-radius:var(--radius);padding:60px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:30px;">
-                <div style="max-width:500px;">
-                    <h2 style="color:white;margin-bottom:15px;">Не знаєте, що обрати?</h2>
-                    <p style="color:rgba(255,255,255,0.9);margin:0;">Пройдіть тест з 5 питань і отримайте персональну
-                        рекомендацію.</p>
+                style="display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap:60px; align-items:center;">
+                <div>
+                    <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=800&q=80"
+                        alt="Pour over coffee" style="border-radius:4px; box-shadow:var(--shadow-soft);">
                 </div>
-                <a href="quiz.html" class="btn" style="background:white;color:var(--primary);">Пройти тест</a>
+                <div>
+                    <h4>Філософія EthioDirect</h4>
+                    <h2>Більше, ніж просто зерно</h2>
+                    <p>Ми віримо, що ранковий ритуал має бути бездоганним. Тому ми прибрали всіх посередників між вами
+                        та ефіопським фермером.</p>
+                    <ul style="list-style:none; margin:20px 0;">
+                        <li style="margin-bottom:15px;"><i class="fas fa-check text-accent"
+                                style="margin-right:10px;"></i> Лише Specialty Grade (85+ балів)</li>
+                        <li style="margin-bottom:15px;"><i class="fas fa-check text-accent"
+                                style="margin-right:10px;"></i> Обсмажка під замовлення</li>
+                        <li style="margin-bottom:15px;"><i class="fas fa-check text-accent"
+                                style="margin-right:10px;"></i> Прозора історія кожного лоту</li>
+                    </ul>
+                    <a href="about.html" style="color:var(--accent); font-weight:600; text-decoration:underline;">Читати
+                        історію →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURED PRODUCTS -->
+    <section class="section">
+        <div class="container text-center">
+            <h2>Вибір тижня</h2>
+            <p style="max-width:600px; margin:0 auto 50px;">Найпопулярніші лоти, які обирають наші підписники.</p>
+            <div class="products-grid" id="featured-grid">
+                <!-- JS Injected -->
+            </div>
+            <div style="margin-top:50px;">
+                <a href="shop.html" class="btn btn-primary">Весь каталог</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SUBSCRIPTION EXPLAINER -->
+    <section class="section bg-white">
+        <div class="container">
+            <h2 class="text-center" style="margin-bottom:60px;">Розумна підписка</h2>
+            <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:40px;">
+                <div class="text-center" style="padding:30px; border:1px solid #eee;">
+                    <i class="fas fa-magic" style="font-size:3rem; color:var(--accent); margin-bottom:20px;"></i>
+                    <h3>01. Ви обираєте</h3>
+                    <p>Сорт кави або функцію "Здивуйте мене". Вибираєте частоту доставки.</p>
+                </div>
+                <div class="text-center" style="padding:30px; border:1px solid #eee;">
+                    <i class="fas fa-fire" style="font-size:3rem; color:var(--accent); margin-bottom:20px;"></i>
+                    <h3>02. Ми смажимо</h3>
+                    <p>Обсмажуємо зерно спеціально під ваше замовлення, щоб зберегти максимум смаку.</p>
+                </div>
+                <div class="text-center" style="padding:30px; border:1px solid #eee;">
+                    <i class="fas fa-box" style="font-size:3rem; color:var(--accent); margin-bottom:20px;"></i>
+                    <h3>03. Ви насолоджуєтесь</h3>
+                    <p>Кава приїжджає вчасно. Ви не думаєте про покупки, а просто п'єте смачну каву.</p>
+                </div>
+            </div>
+            <div class="text-center" style="margin-top:50px;">
+                <a href="subscription.html" class="btn btn-primary">Створити підписку</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- BLOG TEASER -->
+    <section class="section" style="background:#2b2b2b; color:white;">
+        <div class="container">
+            <h2 style="color:white; text-align:center;">Кавові історії</h2>
+            <div
+                style="display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap:40px; margin-top:50px;">
+                <a href="blog.html" class="blog-card" style="border:none; box-shadow:none; background:transparent;">
+                    <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=600&q=80"
+                        style="height:250px; object-fit:cover; margin-bottom:20px;">
+                    <h3 style="color:white; font-size:1.5rem;">Як заварювати V60 вдома</h3>
+                    <p style="color:#aaa;">Покроковий гід для новачків.</p>
+                </a>
+                <a href="blog.html" class="blog-card" style="border:none; box-shadow:none; background:transparent;">
+                    <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=600&q=80"
+                        style="height:250px; object-fit:cover; margin-bottom:20px;">
+                    <h3 style="color:white; font-size:1.5rem;">Що таке натуральна обробка?</h3>
+                    <p style="color:#aaa;">Чому ефіопська кава така фруктова.</p>
+                </a>
+                <a href="blog.html" class="blog-card" style="border:none; box-shadow:none; background:transparent;">
+                    <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=600&q=80"
+                        style="height:250px; object-fit:cover; margin-bottom:20px;">
+                    <h3 style="color:white; font-size:1.5rem;">Наша подорож в Іргачеффе</h3>
+                    <p style="color:#aaa;">Як ми обирали лоти цього року.</p>
+                </a>
             </div>
         </div>
     </section>
@@ -120,26 +170,37 @@
     <footer class="footer">
         <div class="container">
             <div
-                style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:40px;margin-bottom:40px;">
+                style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:50px; margin-bottom:50px;">
                 <div>
-                    <h4>EthioDirect</h4>
-                    <p style="font-size:0.9rem;">Specialty кава з Ефіопії. Обжарка в Одесі.</p>
+                    <h4 style="font-family:var(--font-heading); font-size:1.5rem;">EthioDirect</h4>
+                    <p>Ми робимо specialty каву доступною та зрозумілою. Приєднуйтесь до нашої спільноти.</p>
+                    <div style="display:flex; gap:15px; margin-top:20px;">
+                        <i class="fab fa-instagram" style="color:white; font-size:1.2rem;"></i>
+                        <i class="fab fa-facebook" style="color:white; font-size:1.2rem;"></i>
+                        <i class="fab fa-telegram" style="color:white; font-size:1.2rem;"></i>
+                    </div>
                 </div>
                 <div>
-                    <h4>Магазин</h4><a href="shop.html" style="display:block;margin-bottom:8px;">Каталог</a><a
-                        href="subscription.html" style="display:block;">Підписка</a>
+                    <h4>Меню</h4>
+                    <ul style="list-style:none; line-height:2;">
+                        <li><a href="shop.html">Магазин</a></li>
+                        <li><a href="subscription.html">Підписка</a></li>
+                        <li><a href="about.html">Про нас</a></li>
+                        <li><a href="blog.html">Блог</a></li>
+                    </ul>
                 </div>
                 <div>
-                    <h4>Інформація</h4><a href="about.html" style="display:block;margin-bottom:8px;">Про нас</a><a
-                        href="delivery.html" style="display:block;">Доставка</a>
-                </div>
-                <div>
-                    <h4>Контакти</h4>
-                    <p style="font-size:0.9rem;">hello@ethiodirect.ua<br>+380 50 123 45 67</p>
+                    <h4>Клієнтам</h4>
+                    <ul style="list-style:none; line-height:2;">
+                        <li><a href="account.html">Особистий кабінет</a></li>
+                        <li><a href="delivery.html">Доставка та оплата</a></li>
+                        <li><a href="contacts.html">Контакти</a></li>
+                    </ul>
                 </div>
             </div>
-            <div style="border-top:1px solid #444;padding-top:20px;text-align:center;font-size:0.85rem;">© 2025
-                EthioDirect</div>
+            <div style="border-top:1px solid #333; padding-top:20px; text-align:center; font-size:0.85rem; color:#666;">
+                © 2025 EthioDirect. Odessa, Ukraine.
+            </div>
         </div>
     </footer>
 
