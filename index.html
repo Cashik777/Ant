@@ -1,155 +1,135 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EthioDirect — Настоящий кофе из Эфиопии</title>
-    
+    <title>EthioDirect — Premium Coffee</title>
+
     <!-- FONTS -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
-    
-    <!-- ICONS -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <!-- STYLES -->
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/responsive.css">
-    
-    <style>
-        /* Hero specific styles */
-        .hero {
-            position: relative;
-            height: 90vh; /* Почти полный экран */
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1920&q=90');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed; /* Parallax */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            border-bottom-left-radius: 50px;
-            border-bottom-right-radius: 50px;
-            overflow: hidden;
-            margin-bottom: 80px;
-        }
-        
-        .hero-content h1 {
-            color: white;
-            margin-bottom: 20px;
-            text-shadow: 0 4px 10px rgba(0,0,0,0.3);
-        }
-        
-        .hero-features {
-            display: flex;
-            gap: 40px;
-            justify-content: center;
-            margin-top: 60px;
-        }
-        
-        .h-feature {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 1.1rem;
-            font-weight: 500;
-        }
-        
-        /* About Teaser */
-        .about-teaser {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            align-items: center;
-            gap: 60px;
-        }
-        
-        .about-img {
-            border-radius: var(--radius);
-            box-shadow: var(--shadow-lg);
-        }
-    </style>
 </head>
+
 <body>
-    <!-- HEADER INJECTED BY JS -->
+    <!-- HEADER INJECTED -->
 
     <main>
         <!-- HERO -->
         <section class="hero">
-            <div class="container hero-content fade-in">
-                <h4>ПРЯМЫЕ ПОСТАВКИ • СВЕЖАЯ ОБЖАРКА</h4>
-                <h1>Вкус Эфиопии<br>в твоей чашке</h1>
-                <p style="color: rgba(255,255,255,0.9); font-size: 1.3rem; margin-bottom: 40px;">Мы находим лучшие лоты фермерского кофе и доставляем их<br>к вашему порогу в течение 3 дней после обжарки.</p>
-                <div style="display: flex; justify-content: center; gap: 20px;">
-                    <a href="shop.html" class="btn btn-primary">Перейти в магазин</a>
-                    <a href="subscription.html" class="btn btn-secondary">Подписаться</a>
-                </div>
-                
-                <div class="hero-features">
-                    <div class="h-feature"><i class="fas fa-plane"></i> Из Эфиопии напрямую</div>
-                    <div class="h-feature"><i class="fas fa-fire"></i> Обжарка в Одессе</div>
-                    <div class="h-feature"><i class="fas fa-box-open"></i> Бесплатная доставка</div>
-                </div>
+            <div class="hero-bg"
+                style="background-image: url('https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&w=1920&q=90');">
             </div>
-        </section>
-        
-        <!-- BEST SELLERS -->
-        <section class="section-padding">
-            <div class="container">
-                <div class="section-title">
-                    <h2>Популярные лоты</h2>
-                    <p>Выбор наших постоянных клиентов. Идеальный старт для знакомства.</p>
-                </div>
-                
-                <div id="best-sellers-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
-                    <!-- JS INJECTION -->
-                </div>
-                
-                <div class="text-center" style="margin-top: 50px;">
-                    <a href="shop.html" class="btn btn-outline">Смотреть весь каталог</a>
-                </div>
-            </div>
-        </section>
-        
-        <!-- ABOUT TEASER -->
-        <section class="section-padding" style="background: var(--bg-white);">
-            <div class="container about-teaser">
-                <div>
-                    <img src="https://images.unsplash.com/photo-1621960155685-502bb6dd9221?auto=format&fit=crop&w=1000&q=80" alt="Coffee farm" class="about-img" style="width: 100%;">
-                </div>
-                <div>
-                    <h4 style="color: var(--secondary); text-transform: uppercase; letter-spacing: 1px;">Наше происхождение</h4>
-                    <h2>От фермера — к вам</h2>
-                    <p>Мы не покупаем кофе на бирже. Мы лично знаем фермеров в регионах Сидамо и Иргачеффе. Каждый год мы летаем в Эфиопию, чтобы выбрать лучшие микролоты урожая.</p>
-                    <p>Наш кофе проходит строгий контроль качества Q-грейдеров и обжаривается на лучшем оборудовании Giesen в Одессе.</p>
-                    <a href="about.html" class="btn btn-outline" style="margin-top: 20px;">Читать историю</a>
-                </div>
-            </div>
-        </section>
-        
-        <!-- SUBSCRIPTION BANNER -->
-        <section class="section-padding">
-            <div class="container">
-                <div class="card" style="background: var(--primary); color: white; display: flex; align-items: center; justify-content: space-between; padding: 60px; background-image: url('assets/pattern.png'); background-blend-mode: soft-light;">
-                    <div style="max-width: 600px;">
-                        <h2 style="color: white; margin-bottom: 10px;">Кофе никогда не закончится</h2>
-                        <p style="color: rgba(255,255,255,0.8); font-size: 1.2rem;">Подпишитесь и получайте свежий кофе автоматически.<br>Скидка 15% на все заказы по подписке.</p>
+            <div class="container relative z-10">
+                <div class="hero-content reveal">
+                    <div class="hero-tags">
+                        <span class="tag text-gold"><i class="fas fa-star"></i> Premium Quality</span>
+                        <span class="tag text-white">Direct Trade</span>
                     </div>
-                    <div>
-                        <a href="subscription.html" class="btn btn-secondary">Настроить подписку</a>
+                    <h1>Искусство<br>Эфиопского<br>Кофе.</h1>
+                    <p style="font-size: 1.25rem; margin-bottom: 40px; opacity: 0.9; line-height: 1.6;">
+                        Мы контролируем каждый шаг: от ягоды до вашей чашки.<br>
+                        Исключительные микролоты свежей обжарки.
+                    </p>
+                    <div style="display: flex; gap: 20px;">
+                        <a href="shop.html" class="btn btn-primary">Каталог</a>
+                        <a href="subscription.html" class="btn btn-secondary">Подписка</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BEST SELLERS -->
+        <section class="section">
+            <div class="container">
+                <div class="text-center reveal" style="margin-bottom: 80px;">
+                    <span class="text-gold"
+                        style="font-weight: 700; text-transform: uppercase; letter-spacing: 2px;">Выбор гурманов</span>
+                    <h2>Популярные лоты</h2>
+                </div>
+
+                <div id="best-sellers-grid" class="products-grid">
+                    <!-- JS INJECTED -->
+                </div>
+            </div>
+        </section>
+
+        <!-- FEATURES / QUALITY -->
+        <section class="section bg-contrast">
+            <div class="container">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;">
+                    <div class="reveal">
+                        <h2>Стандарты<br>Качества Q-Grade</h2>
+                        <p style="margin-bottom: 30px; font-size: 1.1rem; color: #555;">
+                            Мы не просто продаем кофе. Мы создаем опыт. Каждая партия проходит строгую оценку по
+                            протоколу SCA (Specialty Coffee Association). Мы работаем только с зерном, получившим оценку
+                            85 баллов и выше.
+                        </p>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+                            <div>
+                                <h3 class="text-gold" style="font-size: 2.5rem; margin-bottom: 5px;">2000м</h3>
+                                <p style="font-size: 0.9rem;">Высота произрастания</p>
+                            </div>
+                            <div>
+                                <h3 class="text-gold" style="font-size: 2.5rem; margin-bottom: 5px;">100%</h3>
+                                <p style="font-size: 0.9rem;">Органическая Арабика</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="reveal" style="position: relative;">
+                        <img src="https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=1000&q=80"
+                            style="border-radius: var(--radius-lg); box-shadow: var(--shadow-hover);"
+                            alt="Coffee Brewing">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- REVIEWS -->
+        <section class="section">
+            <div class="container text-center reveal">
+                <h2>Что говорят наши клиенты</h2>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 60px;">
+                    <div class="review-card"
+                        style="background: white; padding: 40px; border-radius: var(--radius-md); box-shadow: var(--shadow-soft);">
+                        <div class="stars mb-4 text-gold"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p style="font-style: italic; margin-bottom: 20px;">"Лучший Сидамо, который я пробовал в
+                            Украине. Обжарка идеальная."</p>
+                        <strong>Дмитрий К.</strong>
+                    </div>
+                    <div class="review-card"
+                        style="background: white; padding: 40px; border-radius: var(--radius-md); box-shadow: var(--shadow-soft);">
+                        <div class="stars mb-4 text-gold"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p style="font-style: italic; margin-bottom: 20px;">"Подписка работает как часы. Кофе всегда
+                            свежий, доставка быстрая."</p>
+                        <strong>Анна М.</strong>
+                    </div>
+                    <div class="review-card"
+                        style="background: white; padding: 40px; border-radius: var(--radius-md); box-shadow: var(--shadow-soft);">
+                        <div class="stars mb-4 text-gold"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p style="font-style: italic; margin-bottom: 20px;">"Очень понравился B2B сервис для нашего
+                            офиса. Рекомендую!"</p>
+                        <strong>Сергей В.</strong>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- FOOTER INJECTED BY JS -->
+    <!-- FOOTER INJECTED -->
 
-    <!-- SCRIPTS -->
     <script src="js/data.js"></script>
     <script src="js/components.js"></script>
     <script src="js/main.js"></script>
 </body>
+
 </html>

@@ -1,151 +1,102 @@
-/* ===== COMPONENTS INJECTION ===== */
+/* ===== COMPONENTS INJECTION v2.0 ===== */
+/* This file injects common HTML structures like Header, Footer, and Cart Drawer */
 
 document.addEventListener('DOMContentLoaded', () => {
     injectHeader();
+    injectCartDrawer();
     injectFooter();
-    updateCartBadge();
-    initMobileMenu();
-    highlightActiveLink();
 });
 
 function injectHeader() {
-    const headerHTML = `
-    <header class="main-header">
+    const html = `
+    <header class="header">
         <div class="container header-inner">
             <a href="index.html" class="logo">
-                <i class="fas fa-coffee"></i>
-                <span>EthioDirect</span>
+                <i class="fas fa-coffee"></i> EthioDirect
             </a>
             
-            <nav class="nav-menu" id="navMenu">
-                <a href="index.html" class="nav-link" data-page="home">Главная</a>
-                <a href="shop.html" class="nav-link" data-page="shop">Магазин</a>
-                <a href="subscription.html" class="nav-link" data-page="subscription">Подписка</a>
-                <a href="about.html" class="nav-link" data-page="about">О кофе</a>
-                <a href="b2b.html" class="nav-link" data-page="b2b">B2B</a>
-                <a href="contacts.html" class="nav-link" data-page="contacts">Контакты</a>
+            <nav class="nav-desktop">
+                <a href="index.html" class="nav-link">Главная</a>
+                <a href="shop.html" class="nav-link">Магазин</a>
+                <a href="subscription.html" class="nav-link">Подписка</a>
+                <a href="about.html" class="nav-link">О нас</a>
+                <a href="contacts.html" class="nav-link">Контакты</a>
             </nav>
             
-            <div class="header-actions">
-                <a href="account.html" class="icon-btn" title="Личный кабинет">
-                    <i class="far fa-user"></i>
-                </a>
-                <a href="cart.html" class="icon-btn" title="Корзина">
+            <div class="header-controls">
+                <div class="cart-trigger">
                     <i class="fas fa-shopping-bag"></i>
-                    <span class="badge" id="cartBadge">0</span>
-                </a>
-                <div class="mobile-toggle" id="mobileToggle" style="display: none;">
-                    <i class="fas fa-bars"></i>
+                    <span class="cart-count">0</span>
                 </div>
+                <!-- Mobile toggle could go here -->
             </div>
         </div>
     </header>
     `;
+    document.body.insertAdjacentHTML('afterbegin', html);
 
-    // Вставляем хедер в начало body
-    document.body.insertAdjacentHTML('afterbegin', headerHTML);
+    // Highlight active link
+    const path = window.location.pathname.split('/').pop() || 'index.html';
+    const links = document.querySelectorAll('.nav-link');
+    links.forEach(l => {
+        if (l.getAttribute('href') === path) l.classList.add('active');
+    });
+}
+
+function injectCartDrawer() {
+    const html = `
+    <div class="cart-overlay"></div>
+    <div class="cart-drawer">
+        <div class="cart-header">
+            <h3>Ваша корзина</h3>
+            <button class="cart-close" style="background:none; border:none; font-size:1.5rem; cursor:pointer;">&times;</button>
+        </div>
+        <div class="cart-body" id="cart-items">
+            <!-- Items injected by main.js -->
+        </div>
+        <div class="cart-footer">
+            <div style="display:flex; justify-content:space-between; margin-bottom:20px; font-weight:700; font-size:1.2rem;">
+                <span>Итого:</span>
+                <span id="cart-total">0 ₴</span>
+            </div>
+            <button class="btn btn-primary" style="width:100%;" onclick="alert('Переход к оплате...')">Оформить заказ</button>
+        </div>
+    </div>
+    `;
+    document.body.insertAdjacentHTML('beforeend', html);
 }
 
 function injectFooter() {
-    const footerHTML = `
-    <footer>
+    const html = `
+    <footer class="footer">
         <div class="container">
-            <div class="footer-grid">
-                <div class="footer-about">
-                    <div class="logo mb-2" style="color: white;">
-                        <i class="fas fa-coffee" style="color: var(--secondary);"></i>
-                        <span>EthioDirect</span>
-                    </div>
-                    <p>Прямые поставки премиального кофе с высокогорий Эфиопии. Обжарка в Одессе перед отправкой.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-telegram-plane"></i></a>
-                    </div>
+            <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:50px;">
+                <div>
+                    <h4 style="color:white; margin-bottom:20px;">EthioDirect</h4>
+                    <p style="color:#888;">Премиальный эфиопский кофе с доставкой от фермера к вашей чашке за 72 часа.</p>
                 </div>
-                
-                <div class="footer-col">
-                    <h4>Магазин</h4>
-                    <ul>
-                        <li><a href="shop.html?type=all">Весь кофе</a></li>
-                        <li><a href="shop.html?type=grain">В зёрнах</a></li>
-                        <li><a href="shop.html?type=ground">Молотый</a></li>
-                        <li><a href="shop.html?type=capsules">Капсулы</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-col">
-                    <h4>Клиентам</h4>
-                    <ul>
+                <div>
+                    <h4 style="color:white; margin-bottom:20px;">Магазин</h4>
+                    <ul style="color:#888; line-height:2;">
+                        <li><a href="shop.html">Каталог</a></li>
                         <li><a href="subscription.html">Подписка</a></li>
-                        <li><a href="delivery.html">Доставка и оплата</a></li>
-                        <li><a href="blog.html">Блог</a></li>
-                        <li><a href="account.html">Личный кабинет</a></li>
+                        <li><a href="b2b.html">Для бизнеса</a></li>
                     </ul>
                 </div>
-                
-                <div class="footer-col">
-                    <h4>Контакты</h4>
-                    <ul>
-                        <li><a href="tel:+380000000000">+380 (XX) XXX-XX-XX</a></li>
-                        <li><a href="mailto:hello@ethiodirect.ua">hello@ethiodirect.ua</a></li>
-                        <li>Одесса, Украина</li>
+                <div>
+                    <h4 style="color:white; margin-bottom:20px;">Помощь</h4>
+                    <ul style="color:#888; line-height:2;">
+                        <li><a href="delivery.html">Доставка</a></li>
+                        <li><a href="contacts.html">Контакты</a></li>
+                        <li><a href="return.html">Возврат</a></li>
                     </ul>
                 </div>
             </div>
-            
             <div class="footer-bottom">
-                <p>&copy; 2025 EthioDirect. Все права защищены.</p>
+                &copy; 2025 EthioDirect Coffee Co. Odessa, Ukraine.
             </div>
         </div>
     </footer>
     `;
-
-    // Вставляем футер перед закрывающим тегом body, но скрипты обычно в конце, поэтому просто appendChild
-    document.body.insertAdjacentHTML('beforeend', footerHTML);
-}
-
-function initMobileMenu() {
-    // Ждем небольшой таймаут, так как хедер вставляется динамически
-    setTimeout(() => {
-        const toggle = document.getElementById('mobileToggle');
-        const menu = document.getElementById('navMenu');
-
-        if (toggle && menu) {
-            toggle.addEventListener('click', () => {
-                menu.classList.toggle('active');
-                const i = toggle.querySelector('i');
-                if (menu.classList.contains('active')) {
-                    i.classList.remove('fa-bars');
-                    i.classList.add('fa-times');
-                } else {
-                    i.classList.remove('fa-times');
-                    i.classList.add('fa-bars');
-                }
-            });
-        }
-    }, 100);
-}
-
-function highlightActiveLink() {
-    setTimeout(() => {
-        const path = window.location.pathname;
-        const page = path.split('/').pop().replace('.html', '') || 'home';
-
-        const links = document.querySelectorAll('.nav-link');
-        links.forEach(link => {
-            if (link.dataset.page === page) {
-                link.classList.add('active');
-            }
-        });
-    }, 100);
-}
-
-function updateCartBadge() {
-    // В будущем будет брать данные из localStorage
-    const count = 0;
-    setTimeout(() => {
-        const badge = document.getElementById('cartBadge');
-        if (badge) badge.innerText = count;
-    }, 100);
+    document.body.insertAdjacentHTML('beforeend', html);
 }
