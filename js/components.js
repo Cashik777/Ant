@@ -1,5 +1,4 @@
-/* ===== COMPONENTS INJECTION v2.0 ===== */
-/* This file injects common HTML structures like Header, Footer, and Cart Drawer */
+/* ===== COMPONENTS INJECTION v3.0 (Updated Footer) ===== */
 
 document.addEventListener('DOMContentLoaded', () => {
     injectHeader();
@@ -8,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function injectHeader() {
+    // Current Header Implementation
     const html = `
     <header class="header">
         <div class="container header-inner">
@@ -20,25 +20,25 @@ function injectHeader() {
                 <a href="shop.html" class="nav-link">Магазин</a>
                 <a href="subscription.html" class="nav-link">Подписка</a>
                 <a href="about.html" class="nav-link">О нас</a>
+                <a href="blog.html" class="nav-link">Блог</a>
                 <a href="contacts.html" class="nav-link">Контакты</a>
             </nav>
             
             <div class="header-controls">
+                <a href="account.html" class="cart-trigger"><i class="far fa-user"></i></a>
                 <div class="cart-trigger">
                     <i class="fas fa-shopping-bag"></i>
                     <span class="cart-count">0</span>
                 </div>
-                <!-- Mobile toggle could go here -->
             </div>
         </div>
     </header>
     `;
     document.body.insertAdjacentHTML('afterbegin', html);
 
-    // Highlight active link
+    // Highlight
     const path = window.location.pathname.split('/').pop() || 'index.html';
-    const links = document.querySelectorAll('.nav-link');
-    links.forEach(l => {
+    document.querySelectorAll('.nav-link').forEach(l => {
         if (l.getAttribute('href') === path) l.classList.add('active');
     });
 }
@@ -51,15 +51,10 @@ function injectCartDrawer() {
             <h3>Ваша корзина</h3>
             <button class="cart-close" style="background:none; border:none; font-size:1.5rem; cursor:pointer;">&times;</button>
         </div>
-        <div class="cart-body" id="cart-items">
-            <!-- Items injected by main.js -->
-        </div>
+        <div class="cart-body" id="cart-items"></div>
         <div class="cart-footer">
-            <div style="display:flex; justify-content:space-between; margin-bottom:20px; font-weight:700; font-size:1.2rem;">
-                <span>Итого:</span>
-                <span id="cart-total">0 ₴</span>
-            </div>
-            <button class="btn btn-primary" style="width:100%;" onclick="alert('Переход к оплате...')">Оформить заказ</button>
+            <div style="display:flex; justify-content:space-between; margin-bottom:20px; font-weight:700;"><span>Итого:</span><span id="cart-total">0 ₴</span></div>
+            <button class="btn btn-primary" style="width:100%;">Оформить заказ</button>
         </div>
     </div>
     `;
@@ -73,27 +68,29 @@ function injectFooter() {
             <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:50px;">
                 <div>
                     <h4 style="color:white; margin-bottom:20px;">EthioDirect</h4>
-                    <p style="color:#888;">Премиальный эфиопский кофе с доставкой от фермера к вашей чашке за 72 часа.</p>
+                    <p style="color:#888;">Прямые поставки из Эфиопии. Обжарка в Одессе.</p>
                 </div>
                 <div>
-                    <h4 style="color:white; margin-bottom:20px;">Магазин</h4>
+                    <h4 style="color:white; margin-bottom:20px;">Покупателям</h4>
                     <ul style="color:#888; line-height:2;">
-                        <li><a href="shop.html">Каталог</a></li>
+                        <li><a href="shop.html">Магазин</a></li>
                         <li><a href="subscription.html">Подписка</a></li>
-                        <li><a href="b2b.html">Для бизнеса</a></li>
+                        <li><a href="delivery.html">Доставка</a></li>
+                        <li><a href="return.html">Обмен и возврат</a></li>
                     </ul>
                 </div>
-                <div>
-                    <h4 style="color:white; margin-bottom:20px;">Помощь</h4>
+                 <div>
+                    <h4 style="color:white; margin-bottom:20px;">Информация</h4>
                     <ul style="color:#888; line-height:2;">
-                        <li><a href="delivery.html">Доставка</a></li>
-                        <li><a href="contacts.html">Контакты</a></li>
-                        <li><a href="return.html">Возврат</a></li>
+                        <li><a href="about.html">О нас</a></li>
+                        <li><a href="b2b.html">Для бизнеса</a></li>
+                        <li><a href="privacy.html">Политика конфиденциальности</a></li>
+                        <li><a href="offer.html">Публичная оферта</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                &copy; 2025 EthioDirect Coffee Co. Odessa, Ukraine.
+                &copy; 2025 EthioDirect. Все права защищены.
             </div>
         </div>
     </footer>

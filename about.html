@@ -14,30 +14,100 @@
 </head>
 
 <body>
-    <main>
-        <div class="page-header">
-            <div class="container">
-                <h1>Наша миссия</h1>
-                <p>Соединяя Эфиопию и Украину через любовь к кофе.</p>
-            </div>
-        </div>
+    <!-- HEADER INJECTED -->
 
-        <div class="container section-padding">
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;">
-                <div>
-                    <h2>Родина кофе</h2>
-                    <p>Эфиопия — единственное место в мире, где кофе растет в дикой природе. Это родина арабики. Мы
-                        работаем в регионах Сидамо, Иргачеффе и Харрар.</p>
-                    <p>Наши партнеры — это кооперативы фермеров, которые выращивают кофейные деревья в тени других
-                        растений на высоте 2000 метров над уровнем моря.</p>
-                </div>
-                <img src="https://images.unsplash.com/photo-1498804103079-a6351b050096?auto=format&fit=crop&w=800&q=80"
-                    alt="Ethiopia Coffee" style="width: 100%; border-radius: var(--radius);">
+    <main>
+        <!-- HERO -->
+        <section class="section" style="padding-bottom: 60px;">
+            <div class="container text-center">
+                <h1>От ягоды до чашки</h1>
+                <p style="font-size: 1.25rem;">История путешествия длиной в 6000 км.</p>
             </div>
-        </div>
+        </section>
+
+        <!-- ROUTE STORY -->
+        <section class="section bg-contrast">
+            <div class="container">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;">
+                    <div class="reveal">
+                        <span class="text-gold" style="font-weight: 700; text-transform: uppercase;">Начало пути</span>
+                        <h2>Эфиопия: Сидамо и Иргачеффе</h2>
+                        <p style="margin-bottom: 20px; font-size: 1.1rem; color: #555;">
+                            Мы лично посещаем регионы Сидамо и Иргачеффе каждый ноябрь. Именно здесь, на высоте
+                            2000-2200 метров, созревает лучший в мире кофе.
+                        </p>
+                        <p style="margin-bottom: 30px; font-size: 1.1rem; color: #555;">
+                            Мы работаем напрямую со станциями обработки, минуя биржи и перекупщиков. Это позволяет
+                            фермерам получать справедливую цену, а вам — честный продукт.
+                        </p>
+                    </div>
+                    <div class="reveal">
+                        <img src="https://images.unsplash.com/photo-1498804103079-a6351b050096?auto=format&fit=crop&w=1000&q=80"
+                            style="border-radius: var(--radius-lg); box-shadow: var(--shadow-hover);" alt="Ethiopia">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ODESSA ROASTING -->
+        <section class="section">
+            <div class="container">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;">
+                    <div class="reveal order-last">
+                        <img src="https://images.unsplash.com/photo-1596065682859-99a38f081492?auto=format&fit=crop&w=1000&q=80"
+                            style="border-radius: var(--radius-lg); box-shadow: var(--shadow-hover);" alt="Roasting">
+                    </div>
+                    <div class="reveal">
+                        <span class="text-gold" style="font-weight: 700; text-transform: uppercase;">Магия
+                            обжарки</span>
+                        <h2>Одесса: Цех EthioDirect</h2>
+                        <p style="margin-bottom: 20px; font-size: 1.1rem; color: #555;">
+                            Зеленое зерно прибывает в порт Одессы в контейнерах с климат-контролем. Здесь начинается
+                            магия.
+                        </p>
+                        <ul style="list-style: none; margin-bottom: 30px;">
+                            <li style="margin-bottom: 15px; display:flex; align-items:center; gap:10px;"><i
+                                    class="fas fa-check text-gold"></i> Ростер Giesen W15A</li>
+                            <li style="margin-bottom: 15px; display:flex; align-items:center; gap:10px;"><i
+                                    class="fas fa-check text-gold"></i> Компьютерный профиль обжарки (Cropster)</li>
+                            <li style="margin-bottom: 15px; display:flex; align-items:center; gap:10px;"><i
+                                    class="fas fa-check text-gold"></i> Еженедельные каппинги (дегустации)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- QUALITY -->
+        <section class="section bg-contrast text-center">
+            <div class="container reveal">
+                <h2>Контроль качества</h2>
+                <div style="max-width: 800px; margin: 0 auto 60px;">
+                    <p>Каждая партия проходит проверку Q-грейдером. Если кофе не набирает 85 баллов, мы его не продаем.
+                    </p>
+                </div>
+                <div style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;">
+                    <div style="padding: 30px; background: white; border-radius: var(--radius-md); width: 250px;">
+                        <i class="fas fa-leaf text-gold" style="font-size: 2rem; margin-bottom: 15px;"></i>
+                        <h4>100% Арабика</h4>
+                    </div>
+                    <div style="padding: 30px; background: white; border-radius: var(--radius-md); width: 250px;">
+                        <i class="fas fa-hand-holding-heart text-gold"
+                            style="font-size: 2rem; margin-bottom: 15px;"></i>
+                        <h4>Ручной сбор</h4>
+                    </div>
+                    <div style="padding: 30px; background: white; border-radius: var(--radius-md); width: 250px;">
+                        <i class="fas fa-award text-gold" style="font-size: 2rem; margin-bottom: 15px;"></i>
+                        <h4>Specialty Grade</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
+
     <script src="js/data.js"></script>
     <script src="js/components.js"></script>
+    <script src="js/main.js"></script>
 </body>
 
 </html>

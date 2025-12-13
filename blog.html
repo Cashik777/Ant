@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Блог — EthioDirect</title>
+    <title>Журнал — EthioDirect</title>
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap"
         rel="stylesheet">
@@ -14,37 +14,85 @@
 </head>
 
 <body>
+    <!-- HEADER INJECTED -->
+
     <main>
-        <div class="page-header">
+        <div class="page-header text-center section bg-contrast">
             <div class="container">
                 <h1>Кофейный гид</h1>
-                <p>Учимся выбирать, готовить и понимать кофе.</p>
+                <p>База знаний для любителей кофе.</p>
             </div>
         </div>
 
-        <div class="container section-padding">
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
-                <article class="card">
-                    <img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&w=600&q=80"
-                        alt="V60"
-                        style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 20px;">
-                    <h3>Как заварить идеальный V60?</h3>
-                    <p>V60 — один из самых популярных способов заваривания...</p>
-                    <a href="#" style="color: var(--primary); font-weight: 600;">Читать далее →</a>
+        <!-- QUIZ TEASER -->
+        <section class="section">
+            <div class="container">
+                <div
+                    style="background: var(--primary); color: white; border-radius: var(--radius-md); padding: 60px; display: flex; align-items: center; justify-content: space-between; position: relative; overflow: hidden;">
+                    <div style="position: relative; z-index: 2; max-width: 600px;">
+                        <h2 style="color: white; margin-bottom: 20px;">Какой кофе вам подходит?</h2>
+                        <p style="margin-bottom: 30px; font-size: 1.1rem; opacity: 0.9;">Пройдите короткий тест (30
+                            секунд) и наш алгоритм подберет для вас идеальный сорт.</p>
+                        <button class="btn btn-secondary" onclick="alert('Запуск теста...')">Пройти тест</button>
+                    </div>
+                    <div style="position: absolute; right: -50px; bottom: -50px; opacity: 0.2; font-size: 15rem;">
+                        <i class="fas fa-question"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ARTICLES -->
+        <div class="container section">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px;">
+                <article class="reveal"
+                    style="border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-soft);">
+                    <img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&w=800&q=80"
+                        style="width: 100%; height: 250px; object-fit: cover;">
+                    <div style="padding: 30px; background: white;">
+                        <span class="text-gold"
+                            style="font-size: 0.8rem; text-transform: uppercase; font-weight: 700;">Заваривание</span>
+                        <h3 style="margin: 10px 0;">Гид по V60</h3>
+                        <p style="color: #666; margin-bottom: 20px;">Как получить чистую и яркую чашку дома. Пропорции,
+                            температура, помол.</p>
+                        <a href="#" style="color: var(--primary); font-weight: 600;">Читать статью &rarr;</a>
+                    </div>
                 </article>
-                <article class="card">
-                    <img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&w=600&q=80"
-                        alt="Beans"
-                        style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 20px;">
-                    <h3>Мытая vs Натуральная обработка</h3>
-                    <p>В чем разница между мытой и натуральной обработкой зерна...</p>
-                    <a href="#" style="color: var(--primary); font-weight: 600;">Читать далее →</a>
+
+                <article class="reveal"
+                    style="border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-soft);">
+                    <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=800&q=80"
+                        style="width: 100%; height: 250px; object-fit: cover;">
+                    <div style="padding: 30px; background: white;">
+                        <span class="text-gold"
+                            style="font-size: 0.8rem; text-transform: uppercase; font-weight: 700;">Теория</span>
+                        <h3 style="margin: 10px 0;">Мытая vs Натуральная</h3>
+                        <p style="color: #666; margin-bottom: 20px;">Влияние обработки на вкус: почему Эфиопия бывает
+                            такой разной.</p>
+                        <a href="#" style="color: var(--primary); font-weight: 600;">Читать статью &rarr;</a>
+                    </div>
+                </article>
+
+                <article class="reveal"
+                    style="border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-soft);">
+                    <img src="https://images.unsplash.com/photo-1442512595331-e89e7385a861?auto=format&fit=crop&w=800&q=80"
+                        style="width: 100%; height: 250px; object-fit: cover;">
+                    <div style="padding: 30px; background: white;">
+                        <span class="text-gold"
+                            style="font-size: 0.8rem; text-transform: uppercase; font-weight: 700;">Хранение</span>
+                        <h3 style="margin: 10px 0;">Как хранить зерно?</h3>
+                        <p style="color: #666; margin-bottom: 20px;">5 главных врагов кофейного зерна и как с ними
+                            бороться.</p>
+                        <a href="#" style="color: var(--primary); font-weight: 600;">Читать статью &rarr;</a>
+                    </div>
                 </article>
             </div>
         </div>
     </main>
+
     <script src="js/data.js"></script>
     <script src="js/components.js"></script>
+    <script src="js/main.js"></script>
 </body>
 
 </html>

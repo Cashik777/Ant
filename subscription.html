@@ -12,142 +12,171 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/responsive.css">
     <style>
-        .step-wizard {
-            background: white;
-            border-radius: var(--radius);
-            padding: 40px;
-            box-shadow: var(--shadow-md);
+        .step-active {
+            color: var(--primary);
+            font-weight: bold;
         }
 
-        .wizard-header {
+        .plan-card {
+            border: 2px solid #eee;
+            border-radius: var(--radius-md);
+            padding: 40px;
+            transition: var(--transition);
+        }
+
+        .plan-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #eee;
+            padding: 20px 0;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            cursor: pointer;
             display: flex;
             justify-content: space-between;
-            margin-bottom: 40px;
-            position: relative;
         }
 
-        .wizard-header::before {
-            content: '';
-            position: absolute;
-            top: 15px;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: #eee;
-            z-index: 1;
+        .faq-answer {
+            display: none;
+            margin-top: 15px;
+            color: #666;
         }
 
-        .step-indicator {
-            position: relative;
-            z-index: 2;
-            width: 35px;
-            height: 35px;
-            background: white;
-            border: 2px solid #ddd;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            color: #999;
-            transition: var(--transition);
-        }
-
-        .step-indicator.active {
-            border-color: var(--primary);
-            background: var(--primary);
-            color: white;
-        }
-
-        .option-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-        }
-
-        .option-card {
-            border: 2px solid #eee;
-            border-radius: var(--radius);
-            padding: 20px;
-            cursor: pointer;
-            transition: var(--transition);
-            text-align: center;
-        }
-
-        .option-card:hover,
-        .option-card.selected {
-            border-color: var(--primary);
-            background: rgba(105, 20, 20, 0.05);
-        }
-
-        .option-icon {
-            font-size: 2rem;
-            color: var(--primary);
-            margin-bottom: 15px;
+        .faq-item.active .faq-answer {
+            display: block;
         }
     </style>
 </head>
 
 <body>
+    <!-- HEADER INJECTED -->
+
     <main>
-        <div class="page-header">
+        <div class="page-header text-center section bg-contrast">
             <div class="container">
-                <h1>Кофейная подписка</h1>
-                <p>Свежий кофе с доставкой по расписанию. Отмените в любой момент.</p>
+                <h1>Кофе по расписанию</h1>
+                <p>Экономьте 15% и получайте свежую обжарку прямо к двери.</p>
             </div>
         </div>
 
-        <div class="container section-padding">
-            <div class="step-wizard" id="subscription-wizard">
-                <div class="wizard-header">
-                    <div class="step-indicator active">1</div>
-                    <div class="step-indicator">2</div>
-                    <div class="step-indicator">3</div>
-                    <div class="step-indicator">4</div>
+        <!-- HOW IT WORKS -->
+        <div class="container section">
+            <div class="text-center mb-4">
+                <h2>Как это работает?</h2>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; text-align: center;">
+                <div><i class="fas fa-mouse-pointer"
+                        style="font-size:2rem; color:var(--primary); margin-bottom:15px;"></i>
+                    <p>1. Выберите кофе</p>
+                </div>
+                <div><i class="fas fa-weight-hanging"
+                        style="font-size:2rem; color:var(--primary); margin-bottom:15px;"></i>
+                    <p>2. Укажите вес</p>
+                </div>
+                <div><i class="fas fa-calendar-alt"
+                        style="font-size:2rem; color:var(--primary); margin-bottom:15px;"></i>
+                    <p>3. Выберите частоту</p>
+                </div>
+                <div><i class="fas fa-truck" style="font-size:2rem; color:var(--primary); margin-bottom:15px;"></i>
+                    <p>4. Получайте доставку</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- WIZARD -->
+        <div class="container pb-5">
+            <div class="step-wizard reveal"
+                style="background: white; padding: 40px; border-radius: var(--radius-md); box-shadow: var(--shadow-soft);">
+                <div class="text-center mb-5">
+                    <h2 class="text-gold">Конструктор подписки</h2>
                 </div>
 
-                <!-- Step 1 -->
-                <div class="wizard-step" id="step-1">
-                    <h3 class="text-center mb-4">Какой кофе вы любите?</h3>
-                    <div class="option-grid">
-                        <div class="option-card" onclick="selectOption(this, 1)">
-                            <div class="option-icon"><i class="fas fa-filter"></i></div>
-                            <h4>Для фильтра</h4>
-                            <p>Светлая обжарка, фруктовые ноты</p>
-                        </div>
-                        <div class="option-card" onclick="selectOption(this, 1)">
-                            <div class="option-icon"><i class="fas fa-mug-hot"></i></div>
-                            <h4>Эспрессо</h4>
-                            <p>Средняя обжарка, шоколад и орехи</p>
-                        </div>
-                        <div class="option-card" onclick="selectOption(this, 1)">
-                            <div class="option-icon"><i class="fas fa-random"></i></div>
-                            <h4>Сюрприз</h4>
-                            <p>Каждый месяц что-то новое</p>
-                        </div>
+                <!-- Mock Step 1 -->
+                <h4 class="mb-4">1. Какой кофе вы предпочитаете?</h4>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+                    <div class="plan-card text-center" onclick="this.style.borderColor='var(--primary)'">
+                        <h3>Для фильтра</h3>
+                        <p>Кения, Эфиопия. Светлая обжарка.</p>
+                    </div>
+                    <div class="plan-card text-center" onclick="this.style.borderColor='var(--primary)'">
+                        <h3>Для эспрессо</h3>
+                        <p>Плотные, сладкие сорта.</p>
+                    </div>
+                    <div class="plan-card text-center" onclick="this.style.borderColor='var(--primary)'">
+                        <h3>Сюрприз</h3>
+                        <p>Роастмастер выбирает лучшее.</p>
                     </div>
                 </div>
 
-                <div class="text-center mt-4">
-                    <button class="btn btn-primary" onclick="nextStep()">Далее</button>
+                <div class="text-center mt-5">
+                    <button class="btn btn-primary">Продолжить</button>
                 </div>
             </div>
         </div>
+
+        <!-- READY PLANS -->
+        <div class="container section">
+            <div class="text-center mb-5">
+                <h2>Готовые пакеты</h2>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;">
+                <div class="card text-center" style="padding: 40px; border: 1px solid #eee;">
+                    <h3>Знакомство</h3>
+                    <div style="font-size: 2rem; color: var(--primary); margin: 10px 0;">350 ₴ <span
+                            style="font-size: 1rem; color: #666;">/ мес</span></div>
+                    <p class="mb-4">1 пачка (250г) раз в месяц. Чтобы попробовать.</p>
+                    <button class="btn btn-outline">Выбрать</button>
+                </div>
+                <div class="card text-center" style="padding: 40px; border: 2px solid var(--gold);">
+                    <div style="color: var(--gold); font-weight: bold; text-transform: uppercase; margin-bottom: 10px;">
+                        Популярный</div>
+                    <h3>Любитель</h3>
+                    <div style="font-size: 2rem; color: var(--primary); margin: 10px 0;">900 ₴ <span
+                            style="font-size: 1rem; color: #666;">/ мес</span></div>
+                    <p class="mb-4">3 пачки (750г). По одной на каждую неделю.</p>
+                    <button class="btn btn-secondary">Выбрать</button>
+                </div>
+                <div class="card text-center" style="padding: 40px; border: 1px solid #eee;">
+                    <h3>Офис / Семья</h3>
+                    <div style="font-size: 2rem; color: var(--primary); margin: 10px 0;">2200 ₴ <span
+                            style="font-size: 1rem; color: #666;">/ мес</span></div>
+                    <p class="mb-4">2 кг кофе. Хватит на всех.</p>
+                    <button class="btn btn-outline">Выбрать</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ -->
+        <div class="container section bg-contrast">
+            <h2 class="text-center mb-5">Частые вопросы</h2>
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div class="faq-item" onclick="this.classList.toggle('active')">
+                    <div class="faq-question">Когда списываются деньги? <i class="fas fa-chevron-down"></i></div>
+                    <div class="faq-answer">Деньги списываются автоматически раз в месяц в день оформления подписки.
+                    </div>
+                </div>
+                <div class="faq-item" onclick="this.classList.toggle('active')">
+                    <div class="faq-question">Могу ли я отменить подписку? <i class="fas fa-chevron-down"></i></div>
+                    <div class="faq-answer">Да, вы можете поставить на паузу или отменить подписку в любой момент в
+                        личном кабинете.</div>
+                </div>
+                <div class="faq-item" onclick="this.classList.toggle('active')">
+                    <div class="faq-question">Какая доставка? <i class="fas fa-chevron-down"></i></div>
+                    <div class="faq-answer">Мы доставляем Новой Почтой бесплатно для всех подписчиков.</div>
+                </div>
+            </div>
+        </div>
+
     </main>
 
     <script src="js/data.js"></script>
     <script src="js/components.js"></script>
     <script src="js/main.js"></script>
-    <script>
-        // Inline simple wizard logic for prototype
-        function selectOption(el, step) {
-            el.parentElement.querySelectorAll('.option-card').forEach(c => c.classList.remove('selected'));
-            el.classList.add('selected');
-        }
-        function nextStep() {
-            alert("В полной версии здесь будет переход к следующему шагу!");
-        }
-    </script>
 </body>
 
 </html>
