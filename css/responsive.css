@@ -1,0 +1,78 @@
+/* ===== RESPONSIVE STYLES ===== */
+
+@media (max-width: 1024px) {
+    :root {
+        --container-width: 95%;
+    }
+
+    h1 {
+        font-size: 2.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --header-height: 70px;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    /* Header Mobile */
+    .nav-menu {
+        position: fixed;
+        top: var(--header-height);
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - var(--header-height));
+        background: white;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 40px;
+        transition: var(--transition);
+        box-shadow: var(--shadow-md);
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .nav-item {
+        margin: 15px 0;
+    }
+
+    .nav-link {
+        font-size: 1.2rem;
+    }
+
+    .mobile-toggle {
+        display: block !important;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: var(--text-main);
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        width: 92%;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .btn {
+        width: 100%;
+    }
+}

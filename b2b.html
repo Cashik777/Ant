@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Для бизнеса — EthioDirect</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+    <main>
+        <div class="page-header">
+            <div class="container">
+                <h1>Партнерство с EthioDirect</h1>
+                <p>Оптовые поставки для кофеен, ресторанов и офисов.</p>
+            </div>
+        </div>
+
+        <div class="container section-padding">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
+                <div class="card">
+                    <h3>Для кофеен</h3>
+                    <p>Мы предлагаем стабильные поставки моносортов и эспрессо-смесей. Помощь в настройке оборудования и
+                        обучение персонала.</p>
+                    <ul style="margin: 20px 0; list-style: disc; padding-left: 20px; color: var(--text-light);">
+                        <li>Оптовый прайс от 5 кг</li>
+                        <li>Бесплатная доставка</li>
+                        <li>Индивидуальная обжарка</li>
+                    </ul>
+                    <button class="btn btn-primary">Скачать прайс</button>
+                </div>
+                <div class="card">
+                    <h3>Для офисов</h3>
+                    <p>Вкусный кофе повышает продуктивность. Установим кофемашину бесплатно при заказе от 10 кг в месяц.
+                    </p>
+                    <ul style="margin: 20px 0; list-style: disc; padding-left: 20px; color: var(--text-light);">
+                        <li>Аренда оборудования</li>
+                        <li>Сервисное обслуживание</li>
+                        <li>Дегустация в офисе</li>
+                    </ul>
+                    <button class="btn btn-primary">Заказать дегустацию</button>
+                </div>
+            </div>
+
+            <div class="card mt-5 section-padding text-center" style="margin-top: 60px;">
+                <h2>Свяжитесь с нами</h2>
+                <p>Оставьте заявку и мы подготовим для вас индивидуальное предложение.</p>
+                <form onsubmit="event.preventDefault(); alert('Спасибо! Мы свяжемся с вами.');"
+                    style="max-width: 500px; margin: 0 auto; display: flex; flex-direction: column; gap: 15px;">
+                    <input type="text" placeholder="Ваше имя"
+                        style="padding: 15px; border: 1px solid #ddd; border-radius: 8px;">
+                    <input type="text" placeholder="Телефон"
+                        style="padding: 15px; border: 1px solid #ddd; border-radius: 8px;">
+                    <button class="btn btn-secondary">Отправить заявку</button>
+                </form>
+            </div>
+        </div>
+    </main>
+    <script src="js/data.js"></script>
+    <script src="js/components.js"></script>
+</body>
+
+</html>

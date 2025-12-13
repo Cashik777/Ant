@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Подписка на кофе — EthioDirect</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <style>
+        .step-wizard {
+            background: white;
+            border-radius: var(--radius);
+            padding: 40px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .wizard-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .wizard-header::before {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #eee;
+            z-index: 1;
+        }
+
+        .step-indicator {
+            position: relative;
+            z-index: 2;
+            width: 35px;
+            height: 35px;
+            background: white;
+            border: 2px solid #ddd;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #999;
+            transition: var(--transition);
+        }
+
+        .step-indicator.active {
+            border-color: var(--primary);
+            background: var(--primary);
+            color: white;
+        }
+
+        .option-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .option-card {
+            border: 2px solid #eee;
+            border-radius: var(--radius);
+            padding: 20px;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .option-card:hover,
+        .option-card.selected {
+            border-color: var(--primary);
+            background: rgba(105, 20, 20, 0.05);
+        }
+
+        .option-icon {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div class="page-header">
+            <div class="container">
+                <h1>Кофейная подписка</h1>
+                <p>Свежий кофе с доставкой по расписанию. Отмените в любой момент.</p>
+            </div>
+        </div>
+
+        <div class="container section-padding">
+            <div class="step-wizard" id="subscription-wizard">
+                <div class="wizard-header">
+                    <div class="step-indicator active">1</div>
+                    <div class="step-indicator">2</div>
+                    <div class="step-indicator">3</div>
+                    <div class="step-indicator">4</div>
+                </div>
+
+                <!-- Step 1 -->
+                <div class="wizard-step" id="step-1">
+                    <h3 class="text-center mb-4">Какой кофе вы любите?</h3>
+                    <div class="option-grid">
+                        <div class="option-card" onclick="selectOption(this, 1)">
+                            <div class="option-icon"><i class="fas fa-filter"></i></div>
+                            <h4>Для фильтра</h4>
+                            <p>Светлая обжарка, фруктовые ноты</p>
+                        </div>
+                        <div class="option-card" onclick="selectOption(this, 1)">
+                            <div class="option-icon"><i class="fas fa-mug-hot"></i></div>
+                            <h4>Эспрессо</h4>
+                            <p>Средняя обжарка, шоколад и орехи</p>
+                        </div>
+                        <div class="option-card" onclick="selectOption(this, 1)">
+                            <div class="option-icon"><i class="fas fa-random"></i></div>
+                            <h4>Сюрприз</h4>
+                            <p>Каждый месяц что-то новое</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-4">
+                    <button class="btn btn-primary" onclick="nextStep()">Далее</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/data.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // Inline simple wizard logic for prototype
+        function selectOption(el, step) {
+            el.parentElement.querySelectorAll('.option-card').forEach(c => c.classList.remove('selected'));
+            el.classList.add('selected');
+        }
+        function nextStep() {
+            alert("В полной версии здесь будет переход к следующему шагу!");
+        }
+    </script>
+</body>
+
+</html>

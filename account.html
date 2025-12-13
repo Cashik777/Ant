@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Личный кабинет — EthioDirect</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+    <main>
+        <div class="page-header">
+            <div class="container">
+                <h1>Личный кабинет</h1>
+            </div>
+        </div>
+
+        <div class="container section-padding">
+            <div style="display: grid; grid-template-columns: 250px 1fr; gap: 40px;">
+                <aside>
+                    <div class="card" style="padding: 20px;">
+                        <div style="text-align: center; margin-bottom: 20px;">
+                            <div
+                                style="width: 80px; height: 80px; background: #eee; border-radius: 50%; margin: 0 auto 10px; display: flex; align-items: center; justify-content: center; font-size: 2rem; color: #aaa;">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <h3>Пользователь</h3>
+                        </div>
+                        <ul style="list-style: none;">
+                            <li
+                                style="padding: 10px; border-bottom: 1px solid #eee; font-weight: 600; color: var(--primary);">
+                                Моя подписка</li>
+                            <li style="padding: 10px; border-bottom: 1px solid #eee;">История заказов</li>
+                            <li style="padding: 10px; border-bottom: 1px solid #eee;">Адреса доставки</li>
+                            <li style="padding: 10px; color: red;">Выйти</li>
+                        </ul>
+                    </div>
+                </aside>
+
+                <section>
+                    <div class="card mb-4">
+                        <h3>Активная подписка</h3>
+                        <p>На данный момент у вас нет активных подписок.</p>
+                        <a href="subscription.html" class="btn btn-primary mt-2">Оформить подписку</a>
+                    </div>
+
+                    <div class="card">
+                        <h3>Последние заказы</h3>
+                        <p>История заказов пуста.</p>
+                        <a href="shop.html" class="btn btn-outline mt-2">Перейти в магазин</a>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+    <script src="js/data.js"></script>
+    <script src="js/components.js"></script>
+</body>
+
+</html>

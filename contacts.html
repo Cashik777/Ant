@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты — EthioDirect</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+    <main>
+        <div class="page-header">
+            <div class="container">
+                <h1>Мы на связи</h1>
+            </div>
+        </div>
+
+        <div class="container section-padding">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
+                <div>
+                    <h2>Наши контакты</h2>
+                    <p class="mb-4">Мы всегда рады ответить на ваши вопросы о кофе.</p>
+
+                    <ul style="font-size: 1.1rem; line-height: 2;">
+                        <li><i class="fas fa-phone mr-2"></i> +380 (XX) XXX-XX-XX</li>
+                        <li><i class="fas fa-envelope mr-2"></i> hello@ethiodirect.ua</li>
+                        <li><i class="fas fa-map-marker-alt mr-2"></i> Украина, г. Одесса, ул. Дерибасовская, 1</li>
+                        <li><i class="fas fa-clock mr-2"></i> Пн-Пт: 09:00 - 18:00</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Напишите нам</h3>
+                    <form onsubmit="event.preventDefault(); alert('Сообщение отправлено!');"
+                        style="display: flex; flex-direction: column; gap: 15px;">
+                        <input type="text" placeholder="Ваше имя"
+                            style="padding: 15px; border: 1px solid #ddd; border-radius: 8px;">
+                        <textarea placeholder="Сообщение" rows="5"
+                            style="padding: 15px; border: 1px solid #ddd; border-radius: 8px;"></textarea>
+                        <button class="btn btn-primary">Отправить</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="js/data.js"></script>
+    <script src="js/components.js"></script>
+</body>
+
+</html>
