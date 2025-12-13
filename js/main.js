@@ -1,234 +1,196 @@
-/* ===== MAIN LOGIC v2.5 ===== */
+/* ===== ETHIODIRECT CORE ENGINE (v3.0) ===== */
 
-// State
-const state = {
-    cart: JSON.parse(localStorage.getItem('cart')) || [],
+/* --- STORE & STATE MANAGEMENT --- */
+const store = {
+    cart: JSON.parse(localStorage.getItem('ant_cart')) || [],
+    user: JSON.parse(localStorage.getItem('ant_user')) || {
+        name: 'Guest',
+        subscription: null // { productId, frequency, nextDate, status }
+    },
     currency: '₴'
 };
 
+/* --- EVENTS & INIT --- */
 document.addEventListener('DOMContentLoaded', () => {
-    initComponents();
-    initPageLogic();
-    updateCartUI();
-    initScrollAnimations();
+    initUI();
+    initLogic();
+    renderCart();
+
+    // Auto-save logic
+    window.addEventListener('beforeunload', () => {
+        localStorage.setItem('ant_cart', JSON.stringify(store.cart));
+        localStorage.setItem('ant_user', JSON.stringify(store.user));
+    });
 });
 
-/* --- INITIALIZATION --- */
-function initComponents() {
-    // Header Scroll Effect
+function initUI() {
+    // Scroll header effect
     const header = document.querySelector('.header');
-    if (header) {
-        window.addEventListener('scroll', () => {
-            const currentScroll = window.scrollY;
-            if (currentScroll > 50) {
-                header.style.background = 'rgba(255,255,255,0.98)';
-                header.style.boxShadow = '0 5px 20px rgba(0,0,0,0.05)';
-            } else {
-                header.style.background = 'rgba(253, 251, 247, 0.9)';
-                header.style.boxShadow = 'none';
-            }
-        });
-    }
+    window.addEventListener('scroll', () => {
+        header.classList.toggle('scrolled', window.scrollY > 20);
+    });
 
-    // Mobile Menu
-    const toggle = document.querySelector('.mobile-toggle');
-    const nav = document.querySelector('.nav-desktop');
-    if (toggle && nav) {
-        toggle.addEventListener('click', () => {
-            nav.classList.toggle('active');
-        });
-    }
+    // Mobile nav
+    // ... (Standard mobile nav logic)
 
-    // Cart Drawer logic
-    const cartTrigger = document.querySelector('.cart-trigger');
-    if (cartTrigger) cartTrigger.addEventListener('click', openCart);
-
-    document.querySelector('.cart-close')?.addEventListener('click', closeCart);
-    document.querySelector('.cart-overlay')?.addEventListener('click', closeCart);
+    // Components
+    setupDrawer();
 }
 
-function initPageLogic() {
+function initLogic() {
+    // Route matching
     const path = window.location.pathname;
 
-    // Home Page
-    if (path.includes('index') || path === '/' || path === '' || path.endsWith('/')) {
-        renderBestSellers();
-    }
-
-    // Product Page
-    if (path.includes('product.html')) {
-        initProductPage();
-    }
-
-    // Shop Page
-    if (path.includes('shop.html')) {
-        renderShop();
-    }
+    if (path.includes('quiz')) initQuiz();
+    if (path.includes('subscription')) initSubWizard();
+    if (path.includes('account')) initDashboard();
 }
 
-/* --- ANIMATIONS --- */
-function initScrollAnimations() {
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('active');
-            }
-        });
-    }, { threshold: 0.1 });
+/* --- SUBSCRIPTION ENGINE --- */
+const SubEngine = {
+    frequencies: {
+        'weekly': 7,
+        'biweekly': 14,
+        'monthly': 30
+    },
 
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-}
+    create(productId, frequency, grind) {
+        const today = new Date();
+        const nextDate = new Date(today);
+        nextDate.setDate(today.getDate() + this.frequencies[frequency]);
 
-/* --- CART DRAWER LOGIC --- */
-function openCart() {
-    const drawer = document.querySelector('.cart-drawer');
-    const overlay = document.querySelector('.cart-overlay');
-    if (drawer) drawer.classList.add('open');
-    if (overlay) overlay.classList.add('open');
-}
+        const sub = {
+            id: 'sub_' + Date.now(),
+            productId,
+            frequency,
+            grind,
+            startDate: today.toISOString(),
+            nextDate: nextDate.toISOString(),
+            status: 'active'
+        };
 
-function closeCart() {
-    const drawer = document.querySelector('.cart-drawer');
-    const overlay = document.querySelector('.cart-overlay');
-    if (drawer) drawer.classList.remove('open');
-    if (overlay) overlay.classList.remove('open');
-}
+        store.user.subscription = sub;
+        this.save();
+        return sub;
+    },
 
-function addToCart(id, qty = 1) {
-    const product = PRODUCTS.find(p => p.id === id);
-    if (!product) return;
+    pause() {
+        if (store.user.subscription) {
+            store.user.subscription.status = 'paused';
+            this.save();
+        }
+    },
 
-    const existing = state.cart.find(i => i.id === id);
-    if (existing) {
-        existing.qty += qty;
-    } else {
-        state.cart.push({ ...product, qty });
+    resume() {
+        if (store.user.subscription) {
+            store.user.subscription.status = 'active';
+            this.save();
+        }
+    },
+
+    skip() {
+        if (store.user.subscription) {
+            const currentNext = new Date(store.user.subscription.nextDate);
+            currentNext.setDate(currentNext.getDate() + this.frequencies[store.user.subscription.frequency]);
+            store.user.subscription.nextDate = currentNext.toISOString();
+            this.save();
+        }
+    },
+
+    save() {
+        localStorage.setItem('ant_user', JSON.stringify(store.user));
+        // In real app: API call sync
     }
+};
 
-    saveCart();
-    updateCartUI();
-    openCart();
+/* --- QUIZ MODULE (COFFEE MATCHER) --- */
+function initQuiz() {
+    const questions = [
+        {
+            id: q1,
+            text: "Как вы готовите кофе?",
+            options: [
+                { text: "Эспрессо машина", points: { espresso: 5, filter: 0 } },
+                { text: "Фильтр / Воронка", points: { espresso: 0, filter: 5 } },
+                { text: "Турка / Гейзер", points: { espresso: 3, filter: 2 } }
+            ]
+        },
+        {
+            id: q2,
+            text: "Что важнее во вкусе?",
+            options: [
+                { text: "Кислинка и фрукты", points: { acidic: 5, bitter: 0 } },
+                { text: "Шоколад и орехи", points: { acidic: 0, bitter: 5 } },
+                { text: "Баланс", points: { acidic: 2, bitter: 2 } }
+            ]
+        }
+    ];
+    // Simple logic placeholder
+    console.log('Quiz initialized');
+}
+
+/* --- CART FUNCTIONS --- */
+function addToCart(product, isSub = false) {
+    store.cart.push({
+        ...product,
+        type: isSub ? 'subscription' : 'one-time',
+        id: Date.now() // Unique item ID
+    });
+    renderCart();
+    openDrawer();
 }
 
 function removeFromCart(id) {
-    state.cart = state.cart.filter(i => i.id !== id);
-    saveCart();
-    updateCartUI();
+    store.cart = store.cart.filter(i => i.id !== id);
+    renderCart();
 }
 
-function updateQty(id, delta) {
-    const item = state.cart.find(i => i.id === id);
-    if (item) {
-        item.qty += delta;
-        if (item.qty <= 0) removeFromCart(id);
-        else saveCart();
-        updateCartUI();
-    }
-}
-
-function saveCart() {
-    localStorage.setItem('cart', JSON.stringify(state.cart));
-}
-
-function updateCartUI() {
-    const container = document.getElementById('cart-items');
-    const countBadge = document.querySelector('.cart-count');
+function renderCart() {
+    const list = document.getElementById('cart-list');
     const totalEl = document.getElementById('cart-total');
+    const countEl = document.querySelector('.cart-count');
 
-    if (countBadge) countBadge.innerText = state.cart.reduce((a, b) => a + b.qty, 0);
+    if (countEl) countEl.innerText = store.cart.length;
 
-    if (container) {
-        container.innerHTML = '';
+    if (list) {
+        list.innerHTML = '';
         let total = 0;
 
-        state.cart.forEach(item => {
-            total += item.price * item.qty;
-            container.innerHTML += `
-                <div class="cart-item">
-                    <img src="${item.image}" alt="${item.name}">
-                    <div style="flex:1;">
-                        <h4 style="font-size: 0.95rem; margin-bottom: 5px;">${item.name}</h4>
-                        <p style="color: #666; font-size: 0.85rem;">${item.price}₴</p>
-                        <div style="display: flex; align-items: center; gap: 10px; margin-top: 10px;">
-                            <button class="btn-qty" onclick="updateQty(${item.id}, -1)">-</button>
-                            <span>${item.qty}</span>
-                            <button class="btn-qty" onclick="updateQty(${item.id}, 1)">+</button>
-                        </div>
+        store.cart.forEach(item => {
+            total += item.price;
+            list.innerHTML += `
+                <div class="cart-item" style="display:flex; gap:15px; margin-bottom:20px;">
+                    <img src="${item.image}" style="width:60px; height:60px; object-fit:cover; border-radius:4px;">
+                    <div>
+                        <h4>${item.name}</h4>
+                        <p>${item.price} ${store.currency}</p>
+                        ${item.type === 'subscription' ? '<span style="font-size:0.8rem; color:var(--accent);">Подписка (-10%)</span>' : ''}
                     </div>
-                    <button onclick="removeFromCart(${item.id})" style="color: red; background: none; border: none; cursor: pointer;">&times;</button>
                 </div>
             `;
         });
 
-        if (state.cart.length === 0) container.innerHTML = '<p class="text-center text-muted">Корзина пуста</p>';
-        if (totalEl) totalEl.innerText = total + ' ' + state.currency;
+        if (totalEl) totalEl.innerText = total + ' ' + store.currency;
     }
 }
 
-/* --- PAGE RENDERERS --- */
-function renderBestSellers() {
-    const grid = document.getElementById('best-sellers-grid');
-    if (!grid) return;
+/* --- DRAWER UI --- */
+function setupDrawer() {
+    const drawer = document.querySelector('.drawer');
+    const overlay = document.querySelector('.overlay');
+    const triggers = document.querySelectorAll('.cart-trigger');
+    const closers = document.querySelectorAll('.cart-close, .overlay');
 
-    PRODUCTS.slice(0, 3).forEach(p => {
-        grid.innerHTML += createProductCard(p);
-    });
+    triggers.forEach(t => t.addEventListener('click', openDrawer));
+    closers.forEach(c => c.addEventListener('click', closeDrawer));
 }
 
-function renderShop() {
-    const grid = document.getElementById('products-grid');
-    if (!grid) return;
-    grid.innerHTML = '';
-    PRODUCTS.forEach(p => grid.innerHTML += createProductCard(p));
+function openDrawer() {
+    document.querySelector('.drawer').classList.add('open');
+    document.querySelector('.overlay').classList.add('open');
 }
 
-function createProductCard(p) {
-    // Calculate subscription price (15% off)
-    const subPrice = Math.floor(p.price * 0.85);
-
-    return `
-    <div class="product-card reveal">
-        <div class="p-image-wrap">
-            <span class="p-badge">${p.roast} roast</span>
-            <a href="product.html?id=${p.id}"><img src="${p.image}" alt="${p.name}"></a>
-        </div>
-        <div class="p-info">
-            <div class="p-meta" style="font-size: 0.8rem; text-transform:uppercase; color: #999; margin-bottom:5px;">
-                ${p.tags.join(' • ')}
-            </div>
-            <h3 style="margin-top:0;"><a href="product.html?id=${p.id}">${p.name}</a></h3>
-             <div style="display:flex; gap:10px; margin-bottom:15px; font-size:0.9rem; color:#666;">
-                <span><i class="fas fa-mountain"></i> Ethiopia</span>
-                <span><i class="fas fa-weight"></i> ${p.weight}g</span>
-            </div>
-            
-            <div style="border-top:1px solid #eee; padding-top:15px;">
-                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
-                    <span style="font-weight:700; font-size:1.2rem;">${p.price} ₴</span>
-                    <button class="btn btn-primary" style="padding: 8px 16px; font-size:0.8rem;" onclick="addToCart(${p.id})">Купить</button>
-                </div>
-                
-                 <div style="display:flex; justify-content:space-between; align-items:center; background:#f9f9f9; padding:8px; border-radius:4px;">
-                    <span style="font-size:0.9rem; color:var(--primary); font-weight:600;">${subPrice} ₴ <small style="color:#666; font-weight:400;">по подписке</small></span>
-                    <a href="subscription.html?product=${p.id}" style="font-size:0.8rem; text-decoration:underline; cursor:pointer; color:var(--text-main);">Подписаться</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    `;
-}
-
-function initProductPage() {
-    const params = new URLSearchParams(window.location.search);
-    const id = parseInt(params.get('id'));
-    const product = PRODUCTS.find(p => p.id === id);
-
-    if (!product) return;
-
-    document.getElementById('p-title').innerText = product.name;
-    document.getElementById('p-price').innerText = product.price + ' ' + state.currency;
-    document.getElementById('p-desc').innerText = product.desc;
-    document.getElementById('p-main-img').src = product.image;
-
-    document.getElementById('add-to-cart-btn').onclick = () => addToCart(product.id, 1);
+function closeDrawer() {
+    document.querySelector('.drawer').classList.remove('open');
+    document.querySelector('.overlay').classList.remove('open');
 }

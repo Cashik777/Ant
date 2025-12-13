@@ -4,199 +4,217 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EthioDirect — Premium Coffee</title>
+    <title>EthioDirect — Coffee Service</title>
 
     <!-- FONTS -->
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- STYLES -->
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/responsive.css">
 </head>
 
 <body>
-    <!-- HEADER INJECTED -->
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">
+                <i class="fas fa-seedling text-gold"></i>
+                <span style="color:var(--primary);">EthioDirect</span>
+            </a>
+
+            <nav class="nav-desktop">
+                <a href="shop.html" class="nav-link">Кофе</a>
+                <a href="subscription.html" class="nav-link">Подписка</a>
+                <a href="quiz.html" class="nav-link">Подобрать</a>
+                <a href="about.html" class="nav-link">О нас</a>
+            </nav>
+
+            <div class="header-actions">
+                <a href="account.html" class="nav-link" title="Dash"><i class="far fa-user"></i></a>
+                <div class="cart-trigger nav-link" style="cursor:pointer; position:relative;">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count"
+                        style="position:absolute; top:-5px; right:-8px; background:var(--accent); color:white; font-size:10px; padding:2px 5px; border-radius:10px;">0</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- DRAWER CART -->
+    <div class="overlay"></div>
+    <div class="drawer">
+        <div class="drawer-header">
+            <h3>Ваша корзина</h3>
+            <span class="cart-close" style="cursor:pointer; font-size:1.5rem;">&times;</span>
+        </div>
+        <div class="drawer-body" id="cart-list">
+            <!-- Items -->
+        </div>
+        <div class="drawer-footer">
+            <div style="display:flex; justify-content:space-between; margin-bottom:20px; font-weight:600;">
+                <span>Итого</span>
+                <span id="cart-total">0 ₴</span>
+            </div>
+            <button class="btn btn-primary" style="width:100%;">К оформлению</button>
+        </div>
+    </div>
 
     <main>
         <!-- HERO -->
-        <section class="hero">
-            <div class="hero-bg"
-                style="background-image: url('https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&w=1920&q=90');">
-            </div>
-            <div class="container relative z-10">
-                <div class="hero-content reveal">
-                    <div class="hero-tags">
-                        <span class="tag text-gold"><i class="fas fa-star"></i> Premium Quality</span>
-                        <span class="tag text-white">Odessa Roasting</span>
-                    </div>
-                    <h1>Искусство<br>Эфиопского<br>Кофе.</h1>
-                    <p style="font-size: 1.25rem; margin-bottom: 40px; opacity: 0.9; line-height: 1.6;">
-                        Прямые поставки от фермеров Эфиопии. Обжарка в Одессе.<br>
-                        Попробуйте разово или оформите подписку.
+        <section class="hero bg-warm">
+            <div class="container relative" style="height:100%; display:flex; align-items:center;">
+                <div class="hero-content reveal-up">
+                    <h1 style="margin-bottom: 30px;">Кофе,<br>который думает<br>за тебя.</h1>
+                    <p style="font-size: 1.2rem; max-width: 450px;">
+                        Оформите подписку один раз и забудьте о пустой банке по утрам. Свежая обжарка, автодоставка,
+                        полный контроль.
                     </p>
-                    <div style="display: flex; gap: 20px;">
-                        <a href="shop.html" class="btn btn-primary">Купить кофе</a>
-                        <a href="subscription.html" class="btn btn-secondary">Оформить подписку</a>
+                    <div style="display:flex; gap:20px; margin-top:40px;">
+                        <a href="subscription.html" class="btn btn-primary">Подобрать подписку</a>
+                        <a href="shop.html" class="btn btn-outline">Каталог</a>
                     </div>
-                </div>
-            </div>
-        </section>
 
-        <!-- HOW SUBSCRIPTION WORKS -->
-        <section class="section">
-            <div class="container">
-                <div class="text-center reveal" style="margin-bottom: 60px;">
-                    <span class="text-gold" style="font-weight: 700; text-transform: uppercase;">Удобный сервис</span>
-                    <h2>Как работает подписка?</h2>
-                    <p class="text-muted">Никогда больше не просыпайтесь без кофе.</p>
-                </div>
-
-                <div
-                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; text-align: center;">
-                    <div class="reveal">
-                        <div style="font-size: 3rem; color: var(--primary); margin-bottom: 20px;">01</div>
-                        <h3>Выберите кофе</h3>
-                        <p class="text-muted">Ассортимент моносортов или эспрессо-смесь.</p>
-                    </div>
-                    <div class="reveal">
-                        <div style="font-size: 3rem; color: var(--primary); margin-bottom: 20px;">02</div>
-                        <h3>Настройте частоту</h3>
-                        <p class="text-muted">Раз в неделю, две недели или месяц.</p>
-                    </div>
-                    <div class="reveal">
-                        <div style="font-size: 3rem; color: var(--primary); margin-bottom: 20px;">03</div>
-                        <h3>Получайте свежим</h3>
-                        <p class="text-muted">Обжарка конкретно под вашу отправку.</p>
-                    </div>
-                    <div class="reveal">
-                        <div style="font-size: 3rem; color: var(--primary); margin-bottom: 20px;">04</div>
-                        <h3>Наслаждайтесь</h3>
-                        <p class="text-muted">Скидка -15% на все заказы по подписке.</p>
-                    </div>
-                </div>
-
-                <div class="text-center mt-5 reveal">
-                    <a href="subscription.html" class="btn btn-outline">Собрать подписку</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- BEST SELLERS -->
-        <section class="section bg-contrast">
-            <div class="container">
-                <div class="text-center reveal" style="margin-bottom: 80px;">
-                    <span class="text-gold"
-                        style="font-weight: 700; text-transform: uppercase; letter-spacing: 2px;">Магазин</span>
-                    <h2>Популярные лоты</h2>
-                </div>
-
-                <div id="best-sellers-grid" class="products-grid">
-                    <!-- JS INJECTED -->
-                </div>
-
-                <div class="text-center mt-5 reveal">
-                    <a href="shop.html" class="btn btn-primary">Весь каталог</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- ORIGIN STORY -->
-        <section class="section">
-            <div class="container">
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;">
-                    <div class="reveal">
-                        <span class="text-gold" style="font-weight: 700; text-transform: uppercase;">Наша история</span>
-                        <h2>Эфиопия — Одесса</h2>
-                        <p style="margin-bottom: 20px; font-size: 1.1rem; color: #555;">
-                            Наш путь начинается на высоте 2000 метров в регионе Сидамо, где мы лично отбираем лоты у
-                            местных фермеров.
-                        </p>
-                        <p style="margin-bottom: 30px; font-size: 1.1rem; color: #555;">
-                            Затем зерно отправляется прямым рейсом в Одессу (через порт), где наши роастмастера
-                            раскрывают его потенциал на ростере Giesen.
-                        </p>
-                        <a href="about.html" class="btn btn-outline">Читать полную историю</a>
-                    </div>
-                    <div class="reveal">
-                        <img src="https://images.unsplash.com/photo-1621960155685-502bb6dd9221?auto=format&fit=crop&w=1000&q=80"
-                            style="border-radius: var(--radius-lg); box-shadow: var(--shadow-hover);" alt="Farm">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- REVIEWS -->
-        <section class="section bg-contrast">
-            <div class="container text-center reveal">
-                <h2>Отзывы</h2>
-                <div
-                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin-top: 60px;">
-                    <div class="review-card"
-                        style="background: white; padding: 40px; border-radius: var(--radius-md); box-shadow: var(--shadow-soft);">
-                        <div class="stars mb-4 text-gold"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                        <p style="font-style: italic; margin-bottom: 20px;">"Лучший Сидамо, который я пробовал в
-                            Украине. Обжарка идеальная."</p>
-                        <strong>Дмитрий К.</strong>
-                    </div>
-                    <div class="review-card"
-                        style="background: white; padding: 40px; border-radius: var(--radius-md); box-shadow: var(--shadow-soft);">
-                        <div class="stars mb-4 text-gold"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                        <p style="font-style: italic; margin-bottom: 20px;">"Подписка работает как часы. Кофе всегда
-                            свежий, доставка быстрая."</p>
-                        <strong>Анна М.</strong>
-                    </div>
-                    <div class="review-card"
-                        style="background: white; padding: 40px; border-radius: var(--radius-md); box-shadow: var(--shadow-soft);">
-                        <div class="stars mb-4 text-gold"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                        <p style="font-style: italic; margin-bottom: 20px;">"B2B сервис для офиса — топ. Коллеги
-                            довольны."</p>
-                        <strong>Сергей В.</strong>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- BLOG TEASER -->
-        <section class="section">
-            <div class="container">
-                <div class="text-center reveal" style="margin-bottom: 60px;">
-                    <h2>Журнал</h2>
-                </div>
-
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;">
-                    <a href="blog.html" class="reveal bg-white"
-                        style="display:block; border-radius: var(--radius-md); overflow:hidden; box-shadow: var(--shadow-soft);">
-                        <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=600&q=80"
-                            style="height: 250px; width:100%; object-fit:cover;">
-                        <div style="padding: 25px;">
-                            <h3 style="font-size: 1.3rem;">Как варить V60 дома?</h3>
-                            <p class="text-muted">Простой гид для новичков.</p>
+                    <div style="margin-top: 60px; display:flex; gap:40px;">
+                        <div>
+                            <span style="font-weight:700; display:block; font-size:1.2rem;">4.9/5</span>
+                            <span style="font-size:0.9rem; color:var(--text-muted);">TrustPilot</span>
                         </div>
-                    </a>
-                    <a href="blog.html" class="reveal bg-white"
-                        style="display:block; border-radius: var(--radius-md); overflow:hidden; box-shadow: var(--shadow-soft);">
-                        <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=600&q=80"
-                            style="height: 250px; width:100%; object-fit:cover;">
-                        <div style="padding: 25px;">
-                            <h3 style="font-size: 1.3rem;">Мытая vs Натуральная</h3>
-                            <p class="text-muted">В чем разница обработок?</p>
+                        <div>
+                            <span style="font-weight:700; display:block; font-size:1.2rem;">3k+</span>
+                            <span style="font-size:0.9rem; color:var(--text-muted);">Подписчиков</span>
                         </div>
-                    </a>
+                    </div>
+                </div>
+
+                <div class="hero-img-container reveal-up" style="animation-delay: 0.2s;">
+                    <img src="https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=1200&q=90"
+                        class="hero-img" alt="Coffee Ritual">
                 </div>
             </div>
         </section>
+
+        <!-- VALUE PROPS (Subscription First) -->
+        <section class="section">
+            <div class="container text-center">
+                <p class="text-gold"
+                    style="text-transform:uppercase; font-weight:600; letter-spacing:1px; margin-bottom:20px;">Сервис
+                </p>
+                <h2 style="max-width:700px; margin:0 auto 80px;">Как это работает?</h2>
+
+                <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:60px;">
+                    <div class="reveal-up">
+                        <div style="font-size:2rem; margin-bottom:20px; color:var(--primary);">01</div>
+                        <h3>Quiz</h3>
+                        <p>Пройдите 30-секундный тест, чтобы найти свой идеальный вкус среди наших микролотов.</p>
+                    </div>
+                    <div class="reveal-up" style="animation-delay:0.1s;">
+                        <div style="font-size:2rem; margin-bottom:20px; color:var(--primary);">02</div>
+                        <h3>Schedule</h3>
+                        <p>Выберите частоту. Мы обжариваем кофе конкретно под вашу дату отправки.</p>
+                    </div>
+                    <div class="reveal-up" style="animation-delay:0.2s;">
+                        <div style="font-size:2rem; margin-bottom:20px; color:var(--primary);">03</div>
+                        <h3>Relax</h3>
+                        <p>Кофе приходит сам. Меняйте сорт, ставьте на паузу или отменяйте в один клик.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FEATURED PRODUCTS -->
+        <section class="section bg-surface">
+            <div class="container">
+                <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:60px;">
+                    <div>
+                        <h2>Лучшее сейчас</h2>
+                        <p style="margin-bottom:0;">Выбор наших роастмастеров в этом месяце.</p>
+                    </div>
+                    <a href="shop.html" style="border-bottom:1px solid currentColor;">Весь каталог</a>
+                </div>
+
+                <div class="products-grid" id="featured-grid">
+                    <!-- Placeholder Item 1 -->
+                    <div class="product-card">
+                        <div class="p-img-wrap">
+                            <img
+                                src="https://images.unsplash.com/photo-1587734195507-6b7c8b6a3e5a?auto=format&fit=crop&w=600&q=80">
+                        </div>
+                        <div class="p-info">
+                            <div class="p-meta">Sidamo • Floral</div>
+                            <h3>Ethiopia Sidamo Gr.2</h3>
+                            <div style="display:flex; justify-content:space-between; margin-top:10px;">
+                                <span class="p-price">380 ₴</span>
+                                <button class="btn-icon" style="border:none; background:transparent; cursor:pointer;"><i
+                                        class="fas fa-plus"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Placeholder Item 2 -->
+                    <div class="product-card">
+                        <div class="p-img-wrap">
+                            <img
+                                src="https://images.unsplash.com/photo-1621262974917-76b4a39f60af?auto=format&fit=crop&w=600&q=80">
+                        </div>
+                        <div class="p-info">
+                            <div class="p-meta">Guji • Sweet</div>
+                            <h3>Guji Highland</h3>
+                            <div style="display:flex; justify-content:space-between; margin-top:10px;">
+                                <span class="p-price">450 ₴</span>
+                                <button class="btn-icon" style="border:none; background:transparent; cursor:pointer;"><i
+                                        class="fas fa-plus"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Placeholder Item 3 -->
+                    <div class="product-card">
+                        <div class="p-img-wrap">
+                            <img
+                                src="https://images.unsplash.com/photo-1510707577719-ae7c9b788690?auto=format&fit=crop&w=600&q=80">
+                        </div>
+                        <div class="p-info">
+                            <div class="p-meta">Yirgacheffe • Citrus</div>
+                            <h3>Yirgacheffe Kochere</h3>
+                            <div style="display:flex; justify-content:space-between; margin-top:10px;">
+                                <span class="p-price">420 ₴</span>
+                                <button class="btn-icon" style="border:none; background:transparent; cursor:pointer;"><i
+                                        class="fas fa-plus"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- QUIZ BANNER -->
+        <section class="section">
+            <div class="container">
+                <div
+                    style="background: var(--primary); color:white; border-radius:30px; padding:80px; text-align:center; position:relative; overflow:hidden;">
+                    <div style="position:relative; z-index:2;">
+                        <h2 style="font-size:3rem; margin-bottom:30px;">Не знаете, что выбрать?</h2>
+                        <a href="quiz.html" class="btn" style="background:white; color:black;">Пройти тест (30 сек)</a>
+                    </div>
+                    <div
+                        style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); width:600px; height:600px; background:radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(0,0,0,0) 70%); pointer-events:none;">
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </main>
 
-    <!-- FOOTER INJECTED -->
+    <!-- FOOTER simple include -->
+    <footer style="padding:60px 0; border-top:1px solid #eee; margin-top:60px;">
+        <div class="container text-center">
+            <p class="text-muted">&copy; 2025 EthioDirect. Designed for Coffee Lovers.</p>
+        </div>
+    </footer>
 
     <script src="js/data.js"></script>
-    <script src="js/components.js"></script>
     <script src="js/main.js"></script>
 </body>
 
