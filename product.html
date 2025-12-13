@@ -8,73 +8,66 @@
 
     <!-- FONTS & ICONS -->
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- STYLES -->
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/responsive.css">
+    <style>
+        .p-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        @media(max-width: 768px) {
+            .p-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+    </style>
 </head>
 
 <body>
     <!-- HEADER INJECTED -->
 
-    <main class="section bg-contrast" style="padding-top: 50px;">
-        <div class="container product-page-grid">
+    <main class="section bg-surface" style="padding-top: 50px;">
+        <div class="container p-grid">
             <!-- GALLERY -->
-            <div class="p-gallery reveal">
-                <div class="p-main-img">
-                    <img id="p-main-img" src="" alt="Product Image">
+            <div class="p-gallery">
+                <div class="p-img-wrap"
+                    style="aspect-ratio: 1; background: white; border-radius: var(--radius-md); overflow: hidden;">
+                    <img id="p-main-img" src="" alt="Product Image"
+                        style="width: 100%; height: 100%; object-fit: contain;">
                 </div>
             </div>
 
             <!-- INFO -->
-            <div class="p-details reveal">
-                <div style="margin-bottom: 20px;">
-                    <a href="shop.html"
-                        style="color: #888; text-transform:uppercase; font-size: 0.8rem; font-weight:600;"><i
-                            class="fas fa-arrow-left"></i> Назад в каталог</a>
-                </div>
+            <div class="p-details">
+                <a href="shop.html"
+                    style="color: #999; font-size: 0.9rem; margin-bottom: 20px; display: inline-block;">&larr; Назад</a>
 
-                <h1 id="p-title" style="font-size: 3.5rem; margin-bottom: 20px;">Название товара</h1>
+                <h1 id="p-title" style="font-size: 3rem; margin-bottom: 20px;">Название</h1>
                 <div id="p-price"
-                    style="font-size: 2rem; color: var(--primary); font-weight: 700; margin-bottom: 30px;">0 ₴</div>
+                    style="font-size: 2rem; color: var(--primary); font-weight: 600; margin-bottom: 30px;">0 ₴</div>
 
-                <p id="p-desc" style="font-size: 1.1rem; color: #555; margin-bottom: 40px; line-height: 1.8;">
-                    Описание товара...
+                <p id="p-desc" style="font-size: 1.1rem; color: #555; margin-bottom: 40px;">
+                    Описание...
                 </p>
 
                 <!-- ACTIONS -->
                 <div
-                    style="background: white; padding: 30px; border-radius: var(--radius-md); box-shadow: var(--shadow-soft);">
-                    <div style="margin-bottom: 20px;">
-                        <span style="display:block; font-weight:600; margin-bottom:10px;">Помол:</span>
-                        <div style="display:flex; gap:10px;">
-                            <button class="btn btn-outline" style="padding:10px 20px; font-size:0.8rem;">Зерно</button>
-                            <button class="btn btn-outline"
-                                style="padding:10px 20px; font-size:0.8rem;">Эспрессо</button>
-                            <button class="btn btn-outline" style="padding:10px 20px; font-size:0.8rem;">Фильтр</button>
-                        </div>
-                    </div>
-
-                    <button class="btn btn-primary" id="add-to-cart-btn" style="width: 100%;">
-                        Добавить в корзину
+                    style="background: white; padding: 30px; border-radius: var(--radius-md); box-shadow: var(--shadow-subtle);">
+                    <button class="btn btn-primary" id="add-to-cart-btn" style="width: 100%; margin-bottom: 15px;">
+                        В корзину (Разовая)
                     </button>
-                </div>
-
-                <!-- FEATURES -->
-                <div style="margin-top: 40px; display: grid; gap: 20px;">
-                    <div style="display:flex; gap:15px; align-items:center;">
-                        <i class="fas fa-truck" style="font-size:1.5rem; color: var(--gold);"></i>
-                        <div><strong>Быстрая доставка</strong><br><span style="font-size:0.9rem; color:#666;">1-3 дня по
-                                Украине</span></div>
-                    </div>
-                    <div style="display:flex; gap:15px; align-items:center;">
-                        <i class="fas fa-check-circle" style="font-size:1.5rem; color: var(--gold);"></i>
-                        <div><strong>Свежая обжарка</strong><br><span style="font-size:0.9rem; color:#666;">Жарим каждую
-                                неделю</span></div>
-                    </div>
+                    <button class="btn btn-secondary" onclick="window.location.href='subscription.html'"
+                        style="width: 100%;">
+                        Оформить подписку (-15%)
+                    </button>
                 </div>
             </div>
         </div>

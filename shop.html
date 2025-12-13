@@ -8,23 +8,54 @@
 
     <!-- FONTS -->
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- STYLES -->
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/responsive.css">
+    <style>
+        .filters {
+            margin-bottom: 40px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .filter-btn {
+            padding: 10px 20px;
+            border-radius: 30px;
+            background: white;
+            border: 1px solid #ddd;
+            cursor: pointer;
+            transition: .3s;
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+    </style>
 </head>
 
 <body>
     <!-- HEADER INJECTED -->
 
-    <main class="section bg-contrast">
+    <main class="section bg-surface">
         <div class="container">
             <div class="text-center" style="margin-bottom: 60px;">
                 <h1>Каталог</h1>
-                <p>Выберите свой идеальный кофе</p>
+                <p>Микролоты, смеси и аксессуары.</p>
+            </div>
+
+            <div class="filters">
+                <button class="filter-btn active" data-type="all">Все</button>
+                <button class="filter-btn" data-type="grain">Зерно</button>
+                <button class="filter-btn" data-type="ground">Молотый</button>
+                <button class="filter-btn" data-type="capsules">Дрипы</button>
             </div>
 
             <div id="products-grid" class="products-grid">
@@ -32,6 +63,8 @@
             </div>
         </div>
     </main>
+
+    <!-- DRAWER INJECTED -->
 
     <script src="js/data.js"></script>
     <script src="js/components.js"></script>

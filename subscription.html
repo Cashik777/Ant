@@ -4,179 +4,136 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Подписка на кофе — EthioDirect</title>
+    <title>Subscription Builder — EthioDirect</title>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/responsive.css">
-    <style>
-        .step-active {
-            color: var(--primary);
-            font-weight: bold;
-        }
-
-        .plan-card {
-            border: 2px solid #eee;
-            border-radius: var(--radius-md);
-            padding: 40px;
-            transition: var(--transition);
-        }
-
-        .plan-card:hover {
-            border-color: var(--primary);
-            transform: translateY(-5px);
-        }
-
-        .faq-item {
-            border-bottom: 1px solid #eee;
-            padding: 20px 0;
-        }
-
-        .faq-question {
-            font-weight: 600;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .faq-answer {
-            display: none;
-            margin-top: 15px;
-            color: #666;
-        }
-
-        .faq-item.active .faq-answer {
-            display: block;
-        }
-    </style>
 </head>
 
 <body>
     <!-- HEADER INJECTED -->
 
-    <main>
-        <div class="page-header text-center section bg-contrast">
-            <div class="container">
-                <h1>Кофе по расписанию</h1>
-                <p>Экономьте 15% и получайте свежую обжарку прямо к двери.</p>
-            </div>
-        </div>
-
-        <!-- HOW IT WORKS -->
-        <div class="container section">
-            <div class="text-center mb-4">
-                <h2>Как это работает?</h2>
-            </div>
-            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; text-align: center;">
-                <div><i class="fas fa-mouse-pointer"
-                        style="font-size:2rem; color:var(--primary); margin-bottom:15px;"></i>
-                    <p>1. Выберите кофе</p>
-                </div>
-                <div><i class="fas fa-weight-hanging"
-                        style="font-size:2rem; color:var(--primary); margin-bottom:15px;"></i>
-                    <p>2. Укажите вес</p>
-                </div>
-                <div><i class="fas fa-calendar-alt"
-                        style="font-size:2rem; color:var(--primary); margin-bottom:15px;"></i>
-                    <p>3. Выберите частоту</p>
-                </div>
-                <div><i class="fas fa-truck" style="font-size:2rem; color:var(--primary); margin-bottom:15px;"></i>
-                    <p>4. Получайте доставку</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- WIZARD -->
-        <div class="container pb-5">
-            <div class="step-wizard reveal"
-                style="background: white; padding: 40px; border-radius: var(--radius-md); box-shadow: var(--shadow-soft);">
-                <div class="text-center mb-5">
-                    <h2 class="text-gold">Конструктор подписки</h2>
-                </div>
-
-                <!-- Mock Step 1 -->
-                <h4 class="mb-4">1. Какой кофе вы предпочитаете?</h4>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
-                    <div class="plan-card text-center" onclick="this.style.borderColor='var(--primary)'">
-                        <h3>Для фильтра</h3>
-                        <p>Кения, Эфиопия. Светлая обжарка.</p>
-                    </div>
-                    <div class="plan-card text-center" onclick="this.style.borderColor='var(--primary)'">
-                        <h3>Для эспрессо</h3>
-                        <p>Плотные, сладкие сорта.</p>
-                    </div>
-                    <div class="plan-card text-center" onclick="this.style.borderColor='var(--primary)'">
-                        <h3>Сюрприз</h3>
-                        <p>Роастмастер выбирает лучшее.</p>
-                    </div>
-                </div>
-
-                <div class="text-center mt-5">
-                    <button class="btn btn-primary">Продолжить</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- READY PLANS -->
-        <div class="container section">
+    <main class="section">
+        <div class="container wizard-container">
             <div class="text-center mb-5">
-                <h2>Готовые пакеты</h2>
+                <h1>Конструктор подписки</h1>
+                <p>Полный контроль над вашим утренним ритуалом.</p>
             </div>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;">
-                <div class="card text-center" style="padding: 40px; border: 1px solid #eee;">
-                    <h3>Знакомство</h3>
-                    <div style="font-size: 2rem; color: var(--primary); margin: 10px 0;">350 ₴ <span
-                            style="font-size: 1rem; color: #666;">/ мес</span></div>
-                    <p class="mb-4">1 пачка (250г) раз в месяц. Чтобы попробовать.</p>
-                    <button class="btn btn-outline">Выбрать</button>
-                </div>
-                <div class="card text-center" style="padding: 40px; border: 2px solid var(--gold);">
-                    <div style="color: var(--gold); font-weight: bold; text-transform: uppercase; margin-bottom: 10px;">
-                        Популярный</div>
-                    <h3>Любитель</h3>
-                    <div style="font-size: 2rem; color: var(--primary); margin: 10px 0;">900 ₴ <span
-                            style="font-size: 1rem; color: #666;">/ мес</span></div>
-                    <p class="mb-4">3 пачки (750г). По одной на каждую неделю.</p>
-                    <button class="btn btn-secondary">Выбрать</button>
-                </div>
-                <div class="card text-center" style="padding: 40px; border: 1px solid #eee;">
-                    <h3>Офис / Семья</h3>
-                    <div style="font-size: 2rem; color: var(--primary); margin: 10px 0;">2200 ₴ <span
-                            style="font-size: 1rem; color: #666;">/ мес</span></div>
-                    <p class="mb-4">2 кг кофе. Хватит на всех.</p>
-                    <button class="btn btn-outline">Выбрать</button>
-                </div>
-            </div>
-        </div>
 
-        <!-- FAQ -->
-        <div class="container section bg-contrast">
-            <h2 class="text-center mb-5">Частые вопросы</h2>
-            <div style="max-width: 800px; margin: 0 auto;">
-                <div class="faq-item" onclick="this.classList.toggle('active')">
-                    <div class="faq-question">Когда списываются деньги? <i class="fas fa-chevron-down"></i></div>
-                    <div class="faq-answer">Деньги списываются автоматически раз в месяц в день оформления подписки.
+            <div class="step-indicator">
+                <div class="step-dot active" id="dot-1"></div>
+                <div class="step-dot" id="dot-2"></div>
+                <div class="step-dot" id="dot-3"></div>
+            </div>
+
+            <!-- STEP 1: COFFEE -->
+            <div id="wiz-1" class="quiz-step active">
+                <h3 class="text-center mb-4">1. Выберите кофе</h3>
+                <div style="display: grid; gap: 20px;">
+                    <div class="option-card" onclick="wizNext(2)">
+                        <div style="display:flex; justify-content:space-between; align-items:center;">
+                            <div>
+                                <h4>Roaster's Choice (Рекомендуем)</h4>
+                                <p style="margin:0; font-size:0.9rem;">Мы отправляем лучший лот месяца. Вы не скучаете.
+                                </p>
+                            </div>
+                            <i class="fas fa-award text-gold" style="font-size:1.5rem;"></i>
+                        </div>
+                    </div>
+                    <div class="option-card" onclick="wizNext(2)">
+                        <div style="display:flex; justify-content:space-between; align-items:center;">
+                            <div>
+                                <h4>Espresso Blend</h4>
+                                <p style="margin:0; font-size:0.9rem;">Стабильный, плотный вкус каждый раз.</p>
+                            </div>
+                            <i class="fas fa-mug-hot text-gold" style="font-size:1.5rem;"></i>
+                        </div>
                     </div>
                 </div>
-                <div class="faq-item" onclick="this.classList.toggle('active')">
-                    <div class="faq-question">Могу ли я отменить подписку? <i class="fas fa-chevron-down"></i></div>
-                    <div class="faq-answer">Да, вы можете поставить на паузу или отменить подписку в любой момент в
-                        личном кабинете.</div>
-                </div>
-                <div class="faq-item" onclick="this.classList.toggle('active')">
-                    <div class="faq-question">Какая доставка? <i class="fas fa-chevron-down"></i></div>
-                    <div class="faq-answer">Мы доставляем Новой Почтой бесплатно для всех подписчиков.</div>
-                </div>
             </div>
-        </div>
 
+            <!-- STEP 2: GRIND -->
+            <div id="wiz-2" class="quiz-step" style="display:none;">
+                <h3 class="text-center mb-4">2. Какой помол?</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div class="option-card text-center" onclick="wizNext(3)">
+                        <i class="far fa-circle mb-3" style="font-size:2rem;"></i>
+                        <h4>В зернах</h4>
+                    </div>
+                    <div class="option-card text-center" onclick="wizNext(3)">
+                        <i class="fas fa-industry mb-3" style="font-size:2rem;"></i>
+                        <h4>Молотый</h4>
+                    </div>
+                </div>
+                <button class="btn btn-outline mt-4" onclick="wizBack(1)" style="width:100%;">Назад</button>
+            </div>
+
+            <!-- STEP 3: FREQUENCY -->
+            <div id="wiz-3" class="quiz-step" style="display:none;">
+                <h3 class="text-center mb-4">3. Как часто?</h3>
+                <div style="display: grid; gap: 20px;">
+                    <div class="option-card" onclick="finishWiz('weekly')">
+                        <div style="display:flex; justify-content:space-between;">
+                            <h4>Каждую неделю</h4>
+                            <span class="text-gold">350₴ / доставка</span>
+                        </div>
+                    </div>
+                    <div class="option-card" onclick="finishWiz('biweekly')">
+                        <div style="display:flex; justify-content:space-between;">
+                            <h4>Раз в 2 недели</h4>
+                            <span class="text-gold">360₴ / доставка</span>
+                        </div>
+                    </div>
+                    <div class="option-card" onclick="finishWiz('monthly')">
+                        <div style="display:flex; justify-content:space-between;">
+                            <h4>Раз в месяц</h4>
+                            <span class="text-gold">380₴ / доставка</span>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn btn-outline mt-4" onclick="wizBack(2)" style="width:100%;">Назад</button>
+            </div>
+
+            <!-- SUCCESS -->
+            <div id="wiz-success" class="quiz-step" style="display:none; text-align:center;">
+                <i class="fas fa-check-circle" style="font-size: 4rem; color: var(--accent); margin-bottom: 30px;"></i>
+                <h2>Подписка оформлена!</h2>
+                <p>Мы добавили её в ваш профиль. Теперь магия будет происходить автоматически.</p>
+                <a href="account.html" class="btn btn-primary mt-4">Перейти в кабинет</a>
+            </div>
+
+        </div>
     </main>
 
     <script src="js/data.js"></script>
     <script src="js/components.js"></script>
     <script src="js/main.js"></script>
+
+    <script>
+        function wizNext(n) {
+            document.querySelectorAll('.quiz-step').forEach(el => el.style.display = 'none');
+            document.getElementById('wiz-' + n).style.display = 'block';
+
+            document.querySelectorAll('.step-dot').forEach(d => d.classList.remove('active'));
+            document.getElementById('dot-' + n).classList.add('active');
+        }
+
+        function wizBack(n) {
+            wizNext(n);
+        }
+
+        function finishWiz(freq) {
+            // Mock creation
+            if (typeof SubEngine !== 'undefined') {
+                SubEngine.create(1, freq, 'grain');
+            }
+            document.querySelectorAll('.quiz-step').forEach(el => el.style.display = 'none');
+            document.querySelector('.step-indicator').style.display = 'none';
+            document.getElementById('wiz-success').style.display = 'block';
+        }
+    </script>
 </body>
 
 </html>
