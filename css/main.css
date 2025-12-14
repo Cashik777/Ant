@@ -108,8 +108,7 @@ a {
     padding: 5px 0;
     position: relative;
     transition: color 0.3s;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
-    /* Shadow for legibility over any bg */
+    /* Removed text-shadow for cleaner white */
 }
 
 .nav-link:hover,
@@ -131,7 +130,6 @@ a {
 
 .menu-toggle i {
     color: #ffffff !important;
-    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.5));
 }
 
 .nav-link:hover::after,
