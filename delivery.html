@@ -25,7 +25,7 @@
                 <a href="gift-certificates.html" class="nav-link">🎁 Сертифікати</a>
                 <a href="blog.html" class="nav-link">Історії</a>
                 <a href="about.html" class="nav-link">Про нас</a>
-                <a href="quiz.html" class="nav-link">Тест</a>
+                <a href="#" class="nav-link" onclick="openQuiz(); return false;">Тест</a>
             </nav>
             <div class="header-actions">
                 <a href="account.html"><i class="far fa-user"></i></a>
@@ -43,18 +43,21 @@
         <div class="drawer-body" id="cart-list"></div>
         <div class="drawer-footer">
             <div style="display:flex;justify-content:space-between;margin-bottom:15px;font-weight:600;">
-                <span>Разом:</span><span id="cart-total">0 ₴</span></div>
+                <span>Разом:</span><span id="cart-total">0 ₴</span>
+            </div>
             <button class="btn btn-primary" style="width:100%;">Оформити замовлення</button>
         </div>
     </div>
 
     <main>
         <!-- HERO -->
-        <section class="section bg-surface" style="padding-top: 100px;">
-            <div class="container text-center">
-                <span class="text-gold"
-                    style="text-transform:uppercase; font-weight:600; letter-spacing:1px;">Сервис</span>
-                <h1 style="margin-top:10px;">Доставка и оплата</h1>
+        <!-- HERO -->
+        <section class="page-hero">
+            <div class="container">
+                <span
+                    style="text-transform:uppercase; font-weight:600; letter-spacing:2px; font-size:0.8rem; color:var(--accent);">Сервіс</span>
+                <h1>Доставка та Оплата</h1>
+                <p>Ми дбаємо про те, щоб ваша кава приїхала свіжою та вчасно.</p>
             </div>
         </section>
 
