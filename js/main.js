@@ -270,7 +270,13 @@ function renderCart() {
     if (!list) return;
 
     if (store.cart.length === 0) {
-        list.innerHTML = '<p class="text-center" style="color:#999;">Кошик порожній</p>';
+        list.innerHTML = `
+            <div style="text-align:center; padding:40px 20px;">
+                <i class="fas fa-mug-hot" style="font-size:3rem; color:#eee; margin-bottom:20px;"></i>
+                <p style="color:var(--text-secondary); margin-bottom:20px;">Ваша чашка поки що порожня...</p>
+                <a href="index.html#featured" class="btn btn-primary btn-sm" onclick="document.querySelector('.drawer').classList.remove('open'); document.querySelector('.overlay').classList.remove('open');">Заповнити чашку смаком</a>
+            </div>
+        `;
         if (total) total.innerText = '0 ' + store.currency;
         return;
     }
