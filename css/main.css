@@ -98,32 +98,40 @@ a {
     transition: var(--transition);
 }
 
+/* HEADER LINKS & BUTTON - FORCED HIGH CONTRAST */
 .nav-link {
-    font-weight: 500;
-    color: #f4f1ea;
-    /* Milky Coffee / White */
+    font-weight: 600;
+    color: #ffffff !important;
     text-transform: uppercase;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     letter-spacing: 1px;
     padding: 5px 0;
     position: relative;
     transition: color 0.3s;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    /* Shadow for legibility over any bg */
 }
 
 .nav-link:hover,
 .nav-link.active {
-    color: var(--accent);
+    color: var(--accent) !important;
 }
 
-.nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: var(--accent);
-    transition: width 0.3s ease;
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: #ffffff !important;
+    /* Force White */
+    font-size: 1.8rem;
+    cursor: pointer;
+    z-index: 1002;
+    padding: 5px;
+}
+
+.menu-toggle i {
+    color: #ffffff !important;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.5));
 }
 
 .nav-link:hover::after,
