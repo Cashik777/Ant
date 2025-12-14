@@ -4,27 +4,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Історії — EthioDirect</title>
+    <title>Блог про каву — EthioDirect</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/ux-enhancements.css">
+    <style>
+        .filter-btn {
+            padding: 10px 25px;
+            border: 2px solid var(--primary);
+            background: white;
+            color: var(--primary);
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .filter-btn.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .filter-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .blog-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            transition: all 0.3s;
+        }
+
+        .blog-card.hidden {
+            display: none;
+        }
+    </style>
 </head>
 
 <body>
-
     <header class="header">
         <div class="container header-inner">
             <a href="index.html" class="logo">
-                <i class="fas fa-leaf text-accent" style="color:var(--accent);"></i>
+                <i class="fas fa-leaf text-accent"></i>
                 <span style="font-family:var(--font-heading); letter-spacing:1px; font-size:1.5rem;">EthioDirect</span>
             </a>
             <nav class="nav-desktop">
-                <a href="shop.html" class="nav-link">Каталог</a>
-                <a href="subscription.html" class="nav-link">Підписка</a>
+                <a href="shop.html">Каталог</a>
+                <a href="subscription.html">Підписка</a>
                 <a href="blog.html" class="nav-link active">Історії</a>
-                <a href="about.html" class="nav-link">Про нас</a>
+                <a href="about.html">Про нас</a>
             </nav>
             <div class="header-actions">
-                <a href="account.html" class="nav-link"><i class="far fa-user"></i></a>
+                <a href="account.html"><i class="far fa-user"></i></a>
                 <div class="cart-trigger"><i class="fas fa-shopping-cart"></i><span class="cart-count">0</span></div>
             </div>
         </div>
@@ -44,200 +78,329 @@
     </div>
 
     <main>
-        <section class="section" style="padding-top:120px; background:white;">
-            <div class="container text-center">
-                <span
-                    style="color:var(--accent); text-transform:uppercase; letter-spacing:2px; font-size:0.9rem; font-weight:600;">Journal</span>
-                <h1 style="margin-top:10px;">Кавові історії</h1>
-                <p style="max-width:600px; margin:0 auto;">Про культуру, фермерів та мистецтво заварювання.</p>
+        <section class="section"
+            style="padding-top:120px; background:linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%); color:white; text-align:center;">
+            <div class="container">
+                <h1 style="font-size:3rem; color:white; margin-bottom:20px;">Кавовий блог</h1>
+                <p style="font-size:1.2rem; max-width:600px; margin:0 auto; opacity:0.95;">Все про specialty каву: від
+                    зерна до чашки. 15 детальних статей.</p>
             </div>
         </section>
 
-        <section class="section">
-            <div class="container" style="max-width:900px;">
+        <section class="section" style="background:white; padding-top:40px;">
+            <div class="container">
+                <div style="display:flex; gap:15px; justify-content:center; flex-wrap:wrap; margin-bottom:50px;">
+                    <button class="filter-btn active" onclick="filterBlog('all')">Всі статті (15)</button>
+                    <button class="filter-btn" onclick="filterBlog('basics')">Основи (5)</button>
+                    <button class="filter-btn" onclick="filterBlog('brewing')">Заварювання (5)</button>
+                    <button class="filter-btn" onclick="filterBlog('origins')">Походження (5)</button>
+                </div>
 
-                <!-- Article 1 -->
-                <article class="blog-card">
-                    <div>
-                        <img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&w=800&q=80"
-                            class="blog-img" alt="V60 Brewing">
-                    </div>
-                    <div class="blog-content">
-                        <span class="blog-date">12 Грудня 2024</span>
-                        <h2 style="font-size:2rem; margin:15px 0;">Гід по V60: Ідеальна чашка</h2>
-                        <p>Пуровер V60 — це класика альтернативи. Він дозволяє розкрити найтонші ноти ефіопського зерна.
-                            Ми підготували детальний рецепт.</p>
-                        <a href="#" class="btn btn-outline"
-                            style="width:fit-content; border-radius:4px; padding:10px 20px;">Читати далі</a>
-                    </div>
-                </article>
+                <div class="blog-grid"
+                    style="display:grid; grid-template-columns:repeat(auto-fill, minmax(350px, 1fr)); gap:40px;">
 
-                <!-- Article 2 -->
-                <article class="blog-card">
-                    <div>
-                        <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=800&q=80"
-                            class="blog-img" alt="Coffee Processing">
-                    </div>
-                    <div class="blog-content">
-                        <span class="blog-date">05 Грудня 2024</span>
-                        <h2 style="font-size:2rem; margin:15px 0;">Магія натуральної обробки</h2>
-                        <p>Коли ви відчуваєте в чашці смак полуниці чи чорниці — це часто результат "натуральної"
-                            (сухої) обробки. Як це працює?</p>
-                        <a href="#" class="btn btn-outline"
-                            style="width:fit-content; border-radius:4px; padding:10px 20px;">Читати далі</a>
-                    </div>
-                </article>
+                    <!-- Article 1 -->
+                    <article class="blog-card hover-lift" data-category="basics">
+                        <a href="blog/specialty-coffee.html" style="text-decoration:none; color:inherit;">
+                            <img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=600"
+                                style="width:100%; height:220px; object-fit:cover;">
+                            <div style="padding:25px;">
+                                <span
+                                    style="display:inline-block; background:var(--bg-main); padding:5px 12px; border-radius:15px; font-size:0.85rem; color:var(--accent); font-weight:600; margin-bottom:15px;">BASICS</span>
+                                <h3 style="font-size:1.4rem; margin-bottom:15px;">Що таке Specialty кава?</h3>
+                                <p style="color:#666; margin-bottom:20px;">Детальний гід про specialty каву: SCA
+                                    грейдинг, відмінності від комерційної...</p>
+                                <div style="color:#999; font-size:0.9rem;"><i class="far fa-clock"></i> 7 хв</div>
+                            </div>
+                        </a>
+                    </article>
 
-                <!-- Article 3 -->
-                <article class="blog-card">
-                    <div>
-                        <img src="https://images.unsplash.com/photo-1442512595331-e89e7385a861?auto=format&fit=crop&w=800&q=80"
-                            class="blog-img" alt="Coffee Storage">
-                    </div>
-                    <div class="blog-content">
-                        <span class="blog-date">28 Листопада 2024</span>
-                        <h2 style="font-size:2rem; margin:15px 0;">5 міфів про зберігання кави</h2>
-                        <p>Холодильник? Морозилка? Просто шафа? Розбираємось, що насправді вбиває смак вашого свіжого
-                            зерна.</p>
-                        <a href="#" class="btn btn-outline"
-                            style="width:fit-content; border-radius:4px; padding:10px 20px;">Читати далі</a>
-                    </div>
-                </article>
+                    <!-- Article 2 -->
+                    <article class="blog-card hover-lift" data-category="basics">
+                        <a href="blog/arabica-vs-robusta.html" style="text-decoration:none; color:inherit;">
+                            <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=600"
+                                style="width:100%; height:220px; object-fit:cover;">
+                            <div style="padding:25px;">
+                                <span
+                                    style="display:inline-block; background:var(--bg-main); padding:5px 12px; border-radius:15px; font-size:0.85rem; color:var(--accent); font-weight:600; margin-bottom:15px;">BASICS</span>
+                                <h3 style="font-size:1.4rem; margin-bottom:15px;">Arabica vs Robusta</h3>
+                                <p style="color:#666; margin-bottom:20px;">Порівняння двох видів кави: смак, якість,
+                                    вирощування...</p>
+                                <div style="color:#999; font-size:0.9rem;"><i class="far fa-clock"></i> 6 хв</div>
+                            </div>
+                        </a>
+                    </article>
 
+                    <!-- Article 3 -->
+                    <article class="blog-card hover-lift" data-category="basics">
+                        <a href="blog/brewing-methods.html" style="text-decoration:none; color:inherit;">
+                            <img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?w=600"
+                                style="width:100%; height:220px; object-fit:cover;">
+                            <div style="padding:25px;">
+                                <span
+                                    style="display:inline-block; background:var(--bg-main); padding:5px 12px; border-radius:15px; font-size:0.85rem; color:var(--accent); font-weight:600; margin-bottom:15px;">BASICS</span>
+                                <h3 style="font-size:1.4rem; margin-bottom:15px;">5 способів заварювання</h3>
+                                <p style="color:#666; margin-bottom:20px;">Еспресо, V60, турка, френч-прес, аеропрес —
+                                    який обрати?</p>
+                                <div style="color:#999; font-size:0.9rem;"><i class="far fa-clock"></i> 8 хв</div>
+                            </div>
+                        </a>
+                    </article>
+
+                    <!-- Article 4 -->
+                    <article class="blog-card hover-lift" data-category="basics">
+                        <a href="blog/coffee-storage.html" style="text-decoration:none; color:inherit;">
+                            <img src="https://images.unsplash.com/photo-1442512595331-e89e7385a861?w=600"
+                                style="width:100%; height:220px; object-fit:cover;">
+                            <div style="padding:25px;">
+                                <span
+                                    style="display:inline-block; background:var(--bg-main); padding:5px 12px; border-radius:15px; font-size:0.85rem; color:var(--accent); font-weight:600; margin-bottom:15px;">BASICS</span>
+                                <h3 style="font-size:1.4rem; margin-bottom:15px;">Як зберігати каву</h3>
+                                <p style="color:#666; margin-bottom:20px;">5 ворогів кави, правила зберігання, чи можна
+                                    заморожувати...</p>
+                                <div style="color:#999; font-size:0.9rem;"><i class="far fa-clock"></i> 5 хв</div>
+                            </div>
+                        </a>
+                    </article>
+
+                    <!-- Article 5 -->
+                    <article class="blog-card hover-lift" data-category="basics">
+                        <a href="blog/sca-grading.html" style="text-decoration:none; color:inherit;">
+                            <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600"
+                                style="width:100%; height:220px; object-fit:cover;">
+                            <div style="padding:25px;">
+                                <span
+                                    style="display:inline-block; background:var(--bg-main); padding:5px 12px; border-radius:15px; font-size:0.85rem; color:var(--accent); font-weight:600; margin-bottom:15px;">BASICS</span>
+                                <h3 style="font-size:1.4rem; margin-bottom:15px;">SCA оцінка кави</h3>
+                                <p style="color:#666; margin-bottom:20px;">Що означають цифри 80-100 балів, 10 критеріїв
+                                    оцінки...</p>
+                                <div style="color:#999; font-size:0.9rem;"><i class="far fa-clock"></i> 5 хв</div>
+                            </div>
+                        </a>
+                    </article>
+
+                    <!-- Article 6 -->
+                    <article class="blog-card hover-lift" data-category="brewing">
+                        <a href="blog/espresso-guide.html" style="text-decoration:none; color:inherit;">
+                            <img src="https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?w=600"
+                                style="width:100%; height:220px; object-fit:cover;">
+                            <div style="padding:25px;">
+                                <span
+                                    style="display:inline-block; background:var(--bg-main); padding:5px 12px; border-radius:15px; font-size:0.85rem; color:var(--primary); font-weight:600; margin-bottom:15px;">BREWING</span>
+                                <h3 style="font-size:1.4rem; margin-bottom:15px;">Еспресо вдома</h3>
+                                <p style="color:#666; margin-bottom:20px;">Покроковий гід: дозування, темперування,
+                                    екстракція...</p>
+                                <div style="color:#999; font-size:0.9rem;"><i class="far fa-clock"></i> 6 хв</div>
+                            </div>
+                        </a>
+                    </article>
+
+                    <!-- Article 7 -->
+                    <article class="blog-card hover-lift" data-category="brewing">
+                        <a href="blog/v60-guide.html" style="text-decoration:none; color:inherit;">
+                            <img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?w=600"
+                                style="width:100%; height:220px; object-fit:cover;">
+                            <div style="padding:25px;">
+                                <span
+                                    style="display:inline-block; background:var(--bg-main); padding:5px 12px; border-radius:15px; font-size:0.85rem; color:var(--primary); font-weight:600; margin-bottom:15px;">BREWING</span>
+                                <h3 style="font-size:1.4rem; margin-bottom:15px;">V60 пур-овер</h3>
+                                <p style="color:#666; margin-bottom:20px;">Техніка bloom, два проливання, найчистіша
+                                    чашка...</p>
+                                <div style="color:#999; font-size:0.9rem;"><i class="far fa-clock"></i> 5 хв</div>
+                            </div>
+                        </a>
+                    </article>
+
+                    <!-- Article 8 -->
+                    <article class="blog-card hover-lift" data-category="brewing">
+                        <a href="blog/turka-guide.html" style="text-decoration:none; color:inherit;">
+                            <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?w=600"
+                                style="width:100%; height:220px; object-fit:cover;">
+                            <div style="padding:25px;">
+                                <span
+                                    style="display:inline-block; background:var(--bg-main); padding:5px 12px; border-radius:15px; font-size:0.85rem; color:var(--primary); font-weight:600; margin-bottom:15px;">BREWING</span>
+                                <h3 style="font-size:1.4rem; margin-bottom:15px;">Кава в турці</h3>
+                                <p style="color:#666; margin-bottom:20px;">Класичний спосіб: піна, вогонь, секрети
+                                    східної кави...</p>
+                                <div style="color:#999; font-size:0.9rem;"><i class="far fa-clock"></i> 5 хв</div>
+                            </div>
+                        </a>
+                    </article>
+
+                    <!-- Article 9 -->
+                    <article class="blog-card hover-lift" data-category="brewing">
+                        <a href="blog/french-press-guide.html" style="text-decoration:none; color:inherit;">
+                            <img src="https://images.unsplash.com/photo-1520970014086-2208d157c9e2?w=600"
+                                style="width:100%; height:220px; object-fit:cover;">
+                            <div style="padding:25px;">
+                                <span
+                                    style="display:inline-block; background:var(--bg-main); padding:5px 12px; border-radius:15px; font-size:0.85rem; color:var(--primary); font-weight:600; margin-bottom:15px;">BREWING</span>
+                                <h3 style="font-size:1.4rem; margin-bottom:15px;">Френч-прес</h3>
+                                <p style="color:#666; margin-bottom:20px;">Найпростіший метод: 4 хвилини, грубий помел,
+                                    відпочинок...</p>
+                                <div style="color:#999; font-size:0.9rem;"><i class="far fa-clock"></i> 4 хв</div>
+                            </div>
+                        </a>
+                    </article>
+
+                    <!-- Article 10 -->
+                    <article class="blog-card hover-lift" data-category="brewing">
+                        <a href="blog/cold-brew-guide.html" style="text-decoration:none; color:inherit;">
+                            <img src="https://images.unsplash.com/photo-1517487881594-2787fef5ebf7?w=600"
+                                style="width:100%; height:220px; object-fit:cover;">
+                            <div style="padding:25px;">
+                                <span
+                                    style="display:inline-block; background:var(--bg-main); padding:5px 12px; border-radius:15px; font-size:0.85rem; color:var(--primary); font-weight:600; margin-bottom:15px;">BREWING</span>
+                                <h3 style="font-size:1.4rem; margin-bottom:15px;">Cold Brew</h3>
+                                <p style="color:#666; margin-bottom:20px;">12-24 години екстракції, солодкий без
+                                    гіркоти, літній рецепт...</p>
+                                <div style="color:#999; font-size:0.9rem;"><i class="far fa-clock"></i> 5 хв</div>
+                            </div>
+                        </a>
+                    </article>
+
+                    <!-- Article 11 -->
+                    <article class="blog-card hover-lift" data-category="origins">
+                        <a href="blog/ethiopia-origins.html" style="text-decoration:none; color:inherit;">
+                            <img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e3?w=600"
+                                style="width:100%; height:220px; object-fit:cover;">
+                            <div style="padding:25px;">
+                                <span
+                                    style="display:inline-block; background:var(--bg-main); padding:5px 12px; border-radius:15px; font-size:0.85rem; color:#c17817; font-weight:600; margin-bottom:15px;">ORIGINS</span>
+                                <h3 style="font-size:1.4rem; margin-bottom:15px;">Ефіопія — батьківщина кави</h3>
+                                <p style="color:#666; margin-bottom:20px;">Легенда Калді, регіони Yirgacheffe, Sidamo,
+                                    Harrar...</p>
+                                <div style="color:#999; font-size:0.9rem;"><i class="far fa-clock"></i> 6 хв</div>
+                            </div>
+                        </a>
+                    </article>
+
+                    <!-- Article 12 -->
+                    <article class="blog-card hover-lift" data-category="origins">
+                        <a href="blog/yirgacheffe-region.html" style="text-decoration:none; color:inherit;">
+                            <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=600"
+                                style="width:100%; height:220px; object-fit:cover;">
+                            <div style="padding:25px;">
+                                <span
+                                    style="display:inline-block; background:var(--bg-main); padding:5px 12px; border-radius:15px; font-size:0.85rem; color:#c17817; font-weight:600; margin-bottom:15px;">ORIGINS</span>
+                                <h3 style="font-size:1.4rem; margin-bottom:15px;">Yirgacheffe регіон</h3>
+                                <p style="color:#666; margin-bottom:20px;">Жасмин, чорниця, 1700-2200м, найвідоміша кава
+                                    Ефіопії...</p>
+                                <div style="color:#999; font-size:0.9rem;"><i class="far fa-clock"></i> 6 хв</div>
+                            </div>
+                        </a>
+                    </article>
+
+                    <!-- Article 13 -->
+                    <article class="blog-card hover-lift" data-category="origins">
+                        <a href="blog/coffee-processing.html" style="text-decoration:none; color:inherit;">
+                            <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=600"
+                                style="width:100%; height:220px; object-fit:cover;">
+                            <div style="padding:25px;">
+                                <span
+                                    style="display:inline-block; background:var(--bg-main); padding:5px 12px; border-radius:15px; font-size:0.85rem; color:#c17817; font-weight:600; margin-bottom:15px;">ORIGINS</span>
+                                <h3 style="font-size:1.4rem; margin-bottom:15px;">Обробка кави</h3>
+                                <p style="color:#666; margin-bottom:20px;">Мита vs натуральна vs honey — як це впливає
+                                    на смак...</p>
+                                <div style="color:#999; font-size:0.9rem;"><i class="far fa-clock"></i> 6 хв</div>
+                            </div>
+                        </a>
+                    </article>
+
+                    <!-- Article 14 -->
+                    <article class="blog-card hover-lift" data-category="origins">
+                        <a href="blog/bean-to-cup.html" style="text-decoration:none; color:inherit;">
+                            <img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=600"
+                                style="width:100%; height:220px; object-fit:cover;">
+                            <div style="padding:25px;">
+                                <span
+                                    style="display:inline-block; background:var(--bg-main); padding:5px 12px; border-radius:15px; font-size:0.85rem; color:#c17817; font-weight:600; margin-bottom:15px;">ORIGINS</span>
+                                <h3 style="font-size:1.4rem; margin-bottom:15px;">Від зерна до чашки</h3>
+                                <p style="color:#666; margin-bottom:20px;">8 етапів подорожі specialty кави від ферми до
+                                    вас...</p>
+                                <div style="color:#999; font-size:0.9rem;"><i class="far fa-clock"></i> 7 хв</div>
+                            </div>
+                        </a>
+                    </article>
+
+                    <!-- Article 15 -->
+                    <article class="blog-card hover-lift" data-category="origins">
+                        <a href="blog/coffee-seasonality.html" style="text-decoration:none; color:inherit;">
+                            <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600"
+                                style="width:100%; height:220px; object-fit:cover;">
+                            <div style="padding:25px;">
+                                <span
+                                    style="display:inline-block; background:var(--bg-main); padding:5px 12px; border-radius:15px; font-size:0.85rem; color:#c17817; font-weight:600; margin-bottom:15px;">ORIGINS</span>
+                                <h3 style="font-size:1.4rem; margin-bottom:15px;">Сезонність кави</h3>
+                                <p style="color:#666; margin-bottom:20px;">Календар урожаю, коли купувати свіжу каву,
+                                    crop year...</p>
+                                <div style="color:#999; font-size:0.9rem;"><i class="far fa-clock"></i> 6 хв</div>
+                            </div>
+                        </a>
+                    </article>
+
+                </div>
             </div>
         </section>
     </main>
 
-    <!-- PROFESSIONAL FOOTER COMPONENT -->
-<footer class="footer-pro">
-    <div class="container">
-        <!-- Main Footer Content -->
-        <div class="footer-grid">
-            <!-- Column 1: Brand -->
-            <div class="footer-col">
-                <h4 style="font-family:var(--font-heading); font-size:1.5rem; color:white; margin-bottom:20px;">
-                    EthioDirect</h4>
-                <p style="color:#aaa; line-height:1.8; margin-bottom:20px;">Ми доставляємо справжню specialty каву прямо
-                    з ефіопських ферм до вашого дому. Свіжа обсмажка, чесна ціна, любов до кави.</p>
-                <div class="social-links">
-                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                    <a href="#" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
-                    <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+    <!-- FOOTER -->
+    <footer class="footer-pro">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4 style="font-family:var(--font-heading); font-size:1.5rem; color:white; margin-bottom:20px;">
+                        EthioDirect</h4>
+                    <p style="color:#aaa; line-height:1.8; margin-bottom:20px;">М и доставляємо справжню specialty каву
+                        прямо з ефіопських ферм до вашого дому.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Магазин</h4>
+                    <ul class="footer-links">
+                        <li><a href="shop.html">Каталог</a></li>
+                        <li><a href="subscription.html">Підписка</a></li>
+                        <li><a href="b2b.html">B2B</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Підтримка</h4>
+                    <ul class="footer-links">
+                        <li><a href="delivery.html">Доставка</a></li>
+                        <li><a href="return.html">Повернення</a></li>
+                        <li><a href="contacts.html">Контакти</a></li>
+                    </ul>
                 </div>
             </div>
-
-            <!-- Column 2: Shop -->
-            <div class="footer-col">
-                <h4>Магазин</h4>
-                <ul class="footer-links">
-                    <li><a href="shop.html">Весь каталог</a></li>
-                    <li><a href="subscription.html">Підписка на каву</a></li>
-                    <li><a href="quiz.html">Підібрати каву</a></li>
-                    <li><a href="b2b.html">B2B рішення</a></li>
-                    <li><a href="account.html">Особистий кабінет</a></li>
-                </ul>
-            </div>
-
-            <!-- Column 3: Support -->
-            <div class="footer-col">
-                <h4>Підтримка</h4>
-                <ul class="footer-links">
-                    <li><a href="delivery.html">Доставка та оплата</a></li>
-                    <li><a href="return.html">Повернення та обмін</a></li>
-                    <li><a href="faq.html">Часті питання</a></li>
-                    <li><a href="contacts.html">Контакти</a></li>
-                    <li><a href="about.html">Про нас</a></li>
-                </ul>
-            </div>
-
-            <!-- Column 4: Contacts -->
-            <div class="footer-col">
-                <h4>Контакти</h4>
-                <ul class="footer-contacts">
-                    <li><i class="fas fa-phone"></i> <a href="tel:+380501234567">+380 (50) 123-45-67</a></li>
-                    <li><i class="fas fa-envelope"></i> <a href="mailto:hello@ethiodirect.ua">hello@ethiodirect.ua</a>
-                    </li>
-                    <li><i class="fas fa-map-marker-alt"></i> Одеса, Україна</li>
-                    <li><i class="fas fa-clock"></i> Пн-Пт: 9:00-18:00</li>
-                </ul>
-            </div>
-
-            <!-- Column 5: Newsletter -->
-            <div class="footer-col">
-                <h4>Підписка на новини</h4>
-                <p style="color:#aaa; margin-bottom:15px; font-size:0.9rem;">Отримуйте акції, новинки та поради щодо
-                    заварювання</p>
-                <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
-                    <input type="email" placeholder="Ваш email" required>
-                    <button type="submit" class="btn-newsletter">Підписатись</button>
-                </form>
+            <div class="footer-bottom">
+                <p>&copy; 2025 EthioDirect</p>
             </div>
         </div>
-
-        <!-- Trust Badges -->
-        <div class="footer-trust">
-            <div class="trust-badges">
-                <div class="trust-badge">
-                    <i class="fas fa-shield-alt"></i>
-                    <div>
-                        <strong>14 днів</strong>
-                        <span>повернення</span>
-                    </div>
-                </div>
-                <div class="trust-badge">
-                    <i class="fas fa-coffee"></i>
-                    <div>
-                        <strong>100% Specialty</strong>
-                        <span>якість зерна</span>
-                    </div>
-                </div>
-                <div class="trust-badge">
-                    <i class="fas fa-shipping-fast"></i>
-                    <div>
-                        <strong>Безкоштовна</strong>
-                        <span>доставка від 500₴</span>
-                    </div>
-                </div>
-                <div class="trust-badge">
-                    <i class="fas fa-fire"></i>
-                    <div>
-                        <strong>Свіжа обсмажка</strong>
-                        <span>до 3 днів</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Payment Methods -->
-        <div class="footer-payment">
-            <p style="color:#666; font-size:0.85rem; margin-bottom:15px;">Способи оплати:</p>
-            <div class="payment-icons">
-                <i class="fab fa-cc-visa" title="Visa"></i>
-                <i class="fab fa-cc-mastercard" title="Mastercard"></i>
-                <i class="fab fa-apple-pay" title="Apple Pay"></i>
-                <i class="fab fa-google-pay" title="Google Pay"></i>
-                <span class="payment-text">LiqPay</span>
-            </div>
-        </div>
-
-        <!-- Bottom Bar -->
-        <div class="footer-bottom">
-            <div class="footer-bottom-left">
-                <p>&copy; 2025 EthioDirect. Всі права захищені.</p>
-            </div>
-            <div class="footer-bottom-right">
-                <a href="privacy.html">Політика конфіденційності</a>
-                <span>·</span>
-                <a href="return.html">Умови повернення</a>
-                <span>·</span>
-                <a href="#">Публічна оферта</a>
-            </div>
-        </div>
-    </div>
-</footer>
+    </footer>
 
     <script src="js/main.js"></script>
+    <script>
+        function filterBlog(category) {
+            const cards = document.querySelectorAll('.blog-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+
+            buttons.forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.onclick.toString().includes(category)) {
+                    btn.classList.add('active');
+                }
+            });
+
+            cards.forEach(card => {
+                if (category === 'all' || card.dataset.category === category) {
+                    card.classList.remove('hidden');
+                    card.style.display = 'block';
+                } else {
+                    card.classList.add('hidden');
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
 </body>
 
 </html>
