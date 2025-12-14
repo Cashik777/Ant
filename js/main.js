@@ -671,3 +671,16 @@ window.resumeSub = resumeSub;
 window.skipDelivery = skipDelivery;
 window.changeSub = changeSub;
 window.cancelSub = cancelSub;
+
+/* --- NEWSLETTER --- */
+function subscribeNewsletter(event) {
+    event.preventDefault();
+    const form = event.target;
+    const email = form.querySelector('input[type="email"]').value;
+
+    // Simulate newsletter subscription
+    alert(`Дякуємо! Email ${email} додано до розсилки. Скоро отримаєте першу порцію кавових новин!`);
+    form.reset();
+}
+
+window.subscribeNewsletter = subscribeNewsletter;
