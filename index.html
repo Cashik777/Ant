@@ -7,11 +7,52 @@
     <title>EthioDirect — Душа Ефіопії в кожній чашці</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/conversion-widgets.css">
 </head>
 
 <body>
 
+    <!-- PROMO BAR -->
+    <div id="promo-bar" class="promo-bar">
+        🎉 Безкоштовна доставка від 500₴ | Знижка -15% на підписку
+        <button id="promo-bar-close" class="promo-bar-close">&times;</button>
+    </div>
+
+    <!-- FLOATING CHAT WIDGET -->
+    <div class="floating-chat">
+        <div id="chat-bubble" class="chat-bubble" style="display:none;">
+            <strong>Потрібна допомога?</strong><br>
+            Напишіть нам у Telegram!
+        </div>
+        <button id="chat-button" class="chat-button">
+            <i class="fab fa-telegram"></i>
+        </button>
+    </div>
+
+    <!-- BACK TO TOP -->
+    <button id="back-to-top" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- EXIT INTENT POPUP -->
+    <div id="exit-popup" class="exit-popup-overlay">
+        <div class="exit-popup">
+            <button id="exit-popup-close" class="exit-popup-close">&times;</button>
+            <div class="exit-popup-icon">
+                <i class="fas fa-gift"></i>
+            </div>
+            <h2>Зачекайте! Отримайте знижку</h2>
+            <p>Підпишіться на розсилку та отримайте <strong>-10%</strong> на першу покупку</p>
+            <form id="exit-popup-form" class="exit-popup-form">
+                <input type="email" placeholder="Ваш email" required>
+                <button type="submit">Отримати знижку</button>
+            </form>
+            <p class="exit-popup-note">Ми не спамимо. Тільки корисний контент.</p>
+        </div>
+    </div>
+
     <!-- HEADER -->
+
     <header class="header">
         <div class="container header-inner">
             <a href="index.html" class="logo">
@@ -439,6 +480,7 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script src="js/conversion-widgets.js"></script>
 </body>
 
 </html>
