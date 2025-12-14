@@ -11,7 +11,7 @@ const PRODUCTS = [
         taste: ['chocolate', 'berry'],
         region: 'Sidamo',
         process: 'washed',
-        image: 'https://images.unsplash.com/photo-1587734195507-6b7c8b6a3e5a?auto=format&fit=crop&w=600&q=80',
+        image: 'https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=800',
         tags: ['Sidamo', 'Medium', 'Washed']
     },
     {
@@ -24,7 +24,7 @@ const PRODUCTS = [
         taste: ['floral', 'citrus'],
         region: 'Yirgacheffe',
         process: 'washed',
-        image: 'https://images.unsplash.com/photo-1510707577719-ae7c9b788690?auto=format&fit=crop&w=600&q=80',
+        image: 'https://images.unsplash.com/photo-1583689426955-f21509a25b2a?w=800',
         tags: ['Yirgacheffe', 'Light', 'Floral']
     },
     {
@@ -37,7 +37,7 @@ const PRODUCTS = [
         taste: ['fruity', 'sweet'],
         region: 'Guji',
         process: 'natural',
-        image: 'https://images.unsplash.com/photo-1621262974917-76b4a39f60af?auto=format&fit=crop&w=600&q=80',
+        image: 'https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=800',
         tags: ['Guji', 'Natural', 'Sweet']
     },
     {

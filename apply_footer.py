@@ -9,6 +9,7 @@ with open('footer-template.html', 'r', encoding='utf-8') as f:
 files_to_update = [
     'shop.html',
     'index.html',
+    'gift-certificates.html',
     'product.html',
     'about.html', 
     'blog.html',

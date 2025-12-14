@@ -4,15 +4,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Підписка — EthioDirect</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Часті питання (FAQ) — EthioDirect</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/main.css">
+    <style>
+        .faq-item {
+            border-bottom: 1px solid #eee;
+        }
+
+        .faq-header {
+            padding: 20px 0;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--text-main);
+            transition: color 0.3s;
+        }
+
+        .faq-header:hover {
+            color: var(--primary);
+        }
+
+        .faq-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .faq-body p {
+            padding-bottom: 20px;
+        }
+
+        .faq-item.active .faq-body {
+            max-height: 300px;
+        }
+
+        .faq-item.active .faq-header i {
+            transform: rotate(180deg);
+        }
+    </style>
 </head>
 
 <body>
 
-            <header class="header">
+    <!-- HEADER PLACEHOLDER - Will be updated by script, but putting default here -->
+        <header class="header">
         <div class="container header-inner">
             <a href="index.html" class="logo">
                 <i class="fas fa-leaf text-accent"></i>
@@ -20,7 +61,7 @@
             </a>
             <nav class="nav-desktop">
                 <a href="shop.html" class="nav-link">Каталог</a>
-                <a href="subscription.html" class="nav-link active">Підписка</a>
+                <a href="subscription.html" class="nav-link">Підписка</a>
                 <a href="gift-certificates.html" class="nav-link">🎁 Сертифікати</a>
                 <a href="blog.html" class="nav-link">Історії</a>
                 <a href="about.html" class="nav-link">Про нас</a>
@@ -37,41 +78,67 @@
     <div class="overlay"></div>
     <div class="drawer">
         <div class="drawer-header">
-            <h3>Кошик</h3><span class="cart-close" style="cursor:pointer;font-size:1.5rem;">&times;</span>
+            <h3>Ваш кошик</h3><span class="cart-close">&times;</span>
         </div>
         <div class="drawer-body" id="cart-list"></div>
         <div class="drawer-footer">
             <div style="display:flex;justify-content:space-between;margin-bottom:15px;font-weight:600;">
-                <span>Разом:</span><span id="cart-total">0 ₴</span>
-            </div>
-            <button class="btn btn-primary" style="width:100%;">Оформити</button>
+                <span>Разом:</span><span id="cart-total">0 ₴</span></div>
+            <button class="btn btn-primary" style="width:100%;">Оформити замовлення</button>
         </div>
     </div>
 
-    <main class="section">
-        <div class="container wizard">
-            <h1 class="text-center" style="margin-bottom:10px;">Конструктор підписки</h1>
-            <p class="text-center" style="margin-bottom:40px;">4 простих кроки — і кава приходить сама.</p>
+    <main>
+        <section class="section bg-white" style="padding-top:120px;">
+            <div class="container" style="max-width:800px;">
+                <h1 class="text-center" style="margin-bottom:50px;">Часті питання</h1>
 
-            <div class="wizard-steps">
-                <div class="wizard-step active">1</div>
-                <div class="wizard-step">2</div>
-                <div class="wizard-step">3</div>
-                <div class="wizard-step">4</div>
-            </div>
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <div class="faq-header">Як відбувається доставка? <i class="fas fa-chevron-down"></i></div>
+                        <div class="faq-body">
+                            <p>Ми відправляємо замовлення Новою Поштою щодня. Якщо замовлення оформлено до 15:00, воно
+                                поїде в той же день. Доставка зазвичай займає 1-2 дні.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-header">Чи свіжа у вас кава? <i class="fas fa-chevron-down"></i></div>
+                        <div class="faq-body">
+                            <p>Так, ми смажимо каву невеликими партіями 2-3 рази на тиждень. Ви ніколи не отримаєте
+                                пачку, якій більше 14 днів з дати обсмажки.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-header">Як працює підписка? <i class="fas fa-chevron-down"></i></div>
+                        <div class="faq-body">
+                            <p>Ви обираєте тип кави та частоту доставки. Гроші списуються автоматично перед кожною
+                                відправкою. Ви можете поставити підписку на паузу або скасувати її в будь-який момент в
+                                особистому кабінеті.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-header">Який помел обрати? <i class="fas fa-chevron-down"></i></div>
+                        <div class="faq-body">
+                            <p>Для еспресо-машини — дрібний помел. Для гейзерної кавоварки — середній. Для фільтра та
+                                пуровера — середньо-великий. Для френч-преса — великий. Якщо сумніваєтесь, оберіть "в
+                                зернах" — це найкращий варіант для збереження смаку.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-header">Чи є у вас безкофеїнова кава? <i class="fas fa-chevron-down"></i></div>
+                        <div class="faq-body">
+                            <p>Так, у нас є Ефіопія Decaf, оброблена натуральним методом (Swiss Water або Sugar Cane),
+                                що зберігає смак регіону, але без кофеїну.</p>
+                        </div>
+                    </div>
+                </div>
 
-            <div class="wizard-content" id="wizard-content">
-                <!-- JS renders wizard here -->
             </div>
-        </div>
+        </section>
     </main>
 
-    <script src="js/main.js"></script>
-    <!-- PROFESSIONAL FOOTER COMPONENT -->
-    <!-- PROFESSIONAL FOOTER COMPONENT -->
-<!-- PROFESSIONAL FOOTER COMPONENT -->
-<!-- PROFESSIONAL FOOTER COMPONENT -->
-<footer class="footer-pro">
+    <!-- Footer will be auto-replaced next run -->
+    <footer class="footer-pro">
     <div class="container">
         <!-- Main Footer Content -->
         <div class="footer-grid">
@@ -199,6 +266,16 @@
         </div>
     </div>
 </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        document.querySelectorAll('.faq-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const item = header.parentElement;
+                item.classList.toggle('active');
+            });
+        });
+    </script>
 </body>
 
 </html>

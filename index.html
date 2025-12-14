@@ -57,21 +57,22 @@
     <header class="header">
         <div class="container header-inner">
             <a href="index.html" class="logo">
-                <i class="fas fa-leaf text-accent" style="color:var(--accent);"></i>
+                <i class="fas fa-leaf text-accent"></i>
                 <span style="font-family:var(--font-heading); letter-spacing:1px; font-size:1.5rem;">EthioDirect</span>
             </a>
             <nav class="nav-desktop">
                 <a href="shop.html" class="nav-link">Каталог</a>
                 <a href="subscription.html" class="nav-link">Підписка</a>
-                <a href="gift-certificates.html" class="nav-link" style="color:var(--accent);">🎁 Сертифікати</a>
+                <a href="gift-certificates.html" class="nav-link">🎁 Сертифікати</a>
                 <a href="blog.html" class="nav-link">Історії</a>
                 <a href="about.html" class="nav-link">Про нас</a>
                 <a href="quiz.html" class="nav-link">Тест</a>
             </nav>
             <div class="header-actions">
-                <a href="account.html" class="nav-link"><i class="far fa-user"></i></a>
+                <a href="account.html"><i class="far fa-user"></i></a>
                 <div class="cart-trigger"><i class="fas fa-shopping-cart"></i><span class="cart-count">0</span></div>
             </div>
+            <button class="menu-toggle" aria-label="Menu"><i class="fas fa-bars"></i></button>
         </div>
     </header>
 
@@ -163,17 +164,17 @@
             <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:40px;">
                 <div class="text-center" style="padding:30px; border:1px solid #eee;">
                     <i class="fas fa-magic" style="font-size:3rem; color:var(--accent); margin-bottom:20px;"></i>
-                    <h3>01. Ви обираєте</h3>
+                    <h3>Крок 1</h3>
                     <p>Сорт кави або функцію "Здивуйте мене". Вибираєте частоту доставки.</p>
                 </div>
                 <div class="text-center" style="padding:30px; border:1px solid #eee;">
                     <i class="fas fa-fire" style="font-size:3rem; color:var(--accent); margin-bottom:20px;"></i>
-                    <h3>02. Ми смажимо</h3>
+                    <h3>Крок 2</h3>
                     <p>Обсмажуємо зерно спеціально під ваше замовлення, щоб зберегти максимум смаку.</p>
                 </div>
                 <div class="text-center" style="padding:30px; border:1px solid #eee;">
                     <i class="fas fa-box" style="font-size:3rem; color:var(--accent); margin-bottom:20px;"></i>
-                    <h3>03. Ви насолоджуєтесь</h3>
+                    <h3>Крок 3</h3>
                     <p>Кава приїжджає вчасно. Ви не думаєте про покупки, а просто п'єте смачну каву.</p>
                 </div>
             </div>
@@ -202,27 +203,90 @@
     <!-- BLOG TEASER -->
 
 
-    <section class="section" style="background:#2b2b2b; color:white;">
+    <section class="section" style="background:#f9f9f9; color:var(--text-main);">
         <div class="container">
-            <h2 style="color:white; text-align:center;">Кавові історії</h2>
-            <div
-                style="display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap:40px; margin-top:50px;">
-                <a href="blog.html" class="blog-card" style="border:none; box-shadow:none; background:transparent;">
-                    <img src="img/story-v60.png" style="height:250px; object-fit:cover; margin-bottom:20px;">
-                    <h3 style="color:white; font-size:1.5rem;">Як заварювати V60 вдома</h3>
-                    <p style="color:#aaa;">Покроковий гід для новачків.</p>
+            <h2 style="text-align:center; margin-bottom:50px; font-size:2.5rem;">Кавові історії</h2>
+
+            <div style="display:grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap:30px;">
+
+                <!-- Story 1 -->
+                <a href="blog.html"
+                    style="background:white; border-radius:16px; overflow:hidden; box-shadow:0 10px 30px rgba(0,0,0,0.05); transition:transform 0.3s ease; display:block;"
+                    onmouseover="this.style.transform='translateY(-10px)'"
+                    onmouseout="this.style.transform='translateY(0)'">
+                    <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?w=600"
+                        style="height:200px; width:100%; object-fit:cover;">
+                    <div style="padding:25px;">
+                        <h3 style="font-size:1.2rem; margin-bottom:10px;">Як заварювати V60</h3>
+                        <p style="color:#666; font-size:0.9rem; margin:0;">Покроковий гід.</p>
+                    </div>
                 </a>
-                <a href="blog.html" class="blog-card" style="border:none; box-shadow:none; background:transparent;">
-                    <img src="img/coffee-processing.png" style="height:250px; object-fit:cover; margin-bottom:20px;">
-                    <h3 style="color:white; font-size:1.5rem;">Що таке натуральна обробка?</h3>
-                    <p style="color:#aaa;">Чому ефіопська кава така фруктова.</p>
+
+                <!-- Story 2 -->
+                <a href="blog.html"
+                    style="background:white; border-radius:16px; overflow:hidden; box-shadow:0 10px 30px rgba(0,0,0,0.05); transition:transform 0.3s ease; display:block;"
+                    onmouseover="this.style.transform='translateY(-10px)'"
+                    onmouseout="this.style.transform='translateY(0)'">
+                    <img src="https://images.unsplash.com/photo-1585822769213-3a36db5db78e?w=600"
+                        style="height:200px; width:100%; object-fit:cover;">
+                    <div style="padding:25px;">
+                        <h3 style="font-size:1.2rem; margin-bottom:10px;">Натуральна обробка</h3>
+                        <p style="color:#666; font-size:0.9rem; margin:0;">Секрет фруктового смаку.</p>
+                    </div>
                 </a>
-                <a href="blog.html" class="blog-card" style="border:none; box-shadow:none; background:transparent;">
-                    <img src="img/yirgacheffe-landscape.png"
-                        style="height:250px; object-fit:cover; margin-bottom:20px;">
-                    <h3 style="color:white; font-size:1.5rem;">Наша подорож в Іргачеффе</h3>
-                    <p style="color:#aaa;">Як ми обирали лоти цього року.</p>
+
+                <!-- Story 3 -->
+                <a href="blog.html"
+                    style="background:white; border-radius:16px; overflow:hidden; box-shadow:0 10px 30px rgba(0,0,0,0.05); transition:transform 0.3s ease; display:block;"
+                    onmouseover="this.style.transform='translateY(-10px)'"
+                    onmouseout="this.style.transform='translateY(0)'">
+                    <img src="https://images.unsplash.com/photo-1498804103079-a6351b050096?w=600"
+                        style="height:200px; width:100%; object-fit:cover;">
+                    <div style="padding:25px;">
+                        <h3 style="font-size:1.2rem; margin-bottom:10px;">Подорож в Іргачеффе</h3>
+                        <p style="color:#666; font-size:0.9rem; margin:0;">Як ми обирали лоти.</p>
+                    </div>
                 </a>
+
+                <!-- Story 4 -->
+                <a href="blog.html"
+                    style="background:white; border-radius:16px; overflow:hidden; box-shadow:0 10px 30px rgba(0,0,0,0.05); transition:transform 0.3s ease; display:block;"
+                    onmouseover="this.style.transform='translateY(-10px)'"
+                    onmouseout="this.style.transform='translateY(0)'">
+                    <img src="https://images.unsplash.com/photo-1442512595331-e89e7385a861?w=600"
+                        style="height:200px; width:100%; object-fit:cover;">
+                    <div style="padding:25px;">
+                        <h3 style="font-size:1.2rem; margin-bottom:10px;">Зберігання кави</h3>
+                        <p style="color:#666; font-size:0.9rem; margin:0;">Головні помилки.</p>
+                    </div>
+                </a>
+
+                <!-- Story 5 -->
+                <a href="blog.html"
+                    style="background:white; border-radius:16px; overflow:hidden; box-shadow:0 10px 30px rgba(0,0,0,0.05); transition:transform 0.3s ease; display:block;"
+                    onmouseover="this.style.transform='translateY(-10px)'"
+                    onmouseout="this.style.transform='translateY(0)'">
+                    <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600"
+                        style="height:200px; width:100%; object-fit:cover;">
+                    <div style="padding:25px;">
+                        <h3 style="font-size:1.2rem; margin-bottom:10px;">SCA Грейдинг</h3>
+                        <p style="color:#666; font-size:0.9rem; margin:0;">Що таке 85 балів?</p>
+                    </div>
+                </a>
+
+                <!-- Story 6 -->
+                <a href="blog.html"
+                    style="background:white; border-radius:16px; overflow:hidden; box-shadow:0 10px 30px rgba(0,0,0,0.05); transition:transform 0.3s ease; display:block;"
+                    onmouseover="this.style.transform='translateY(-10px)'"
+                    onmouseout="this.style.transform='translateY(0)'">
+                    <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=600"
+                        style="height:200px; width:100%; object-fit:cover;">
+                    <div style="padding:25px;">
+                        <h3 style="font-size:1.2rem; margin-bottom:10px;">Arabica vs Robusta</h3>
+                        <p style="color:#666; font-size:0.9rem; margin:0;">В чому різниця.</p>
+                    </div>
+                </a>
+
             </div>
         </div>
     </section>
@@ -264,8 +328,6 @@
     <!-- WHY CHOOSE US -->
     <section class="section" style="background:white;">
         <div class="container text-center">
-            <span
-                style="color:var(--accent); text-transform:uppercase; letter-spacing:2px; font-size:0.9rem; font-weight:600;">Переваги</span>
             <h2 style="margin-top:10px; margin-bottom:60px;">Чому обирають EthioDirect</h2>
 
             <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:40px;">
@@ -315,8 +377,6 @@
     <!-- TESTIMONIALS -->
     <section class="section" style="background:linear-gradient(135deg, var(--bg-main) 0%, #fff 100%);">
         <div class="container text-center">
-            <span
-                style="color:var(--accent); text-transform:uppercase; letter-spacing:2px; font-size:0.9rem; font-weight:600;">Відгуки</span>
             <h2 style="margin-top:10px; margin-bottom:60px;">Що кажуть наші клієнти</h2>
 
             <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:30px;">
@@ -371,134 +431,137 @@
 
     <!-- PROFESSIONAL FOOTER COMPONENT -->
     <!-- PROFESSIONAL FOOTER COMPONENT -->
-<footer class="footer-pro">
-    <div class="container">
-        <!-- Main Footer Content -->
-        <div class="footer-grid">
-            <!-- Column 1: Brand -->
-            <div class="footer-col">
-                <h4 style="font-family:var(--font-heading); font-size:1.5rem; color:white; margin-bottom:20px;">
-                    <a href="index.html" style="text-decoration:none; color:white;">EthioDirect</a>
-                </h4>
-                <p style="color:#aaa; line-height:1.8; margin-bottom:20px;">Ми доставляємо справжню specialty каву прямо
-                    з ефіопських ферм до вашого дому. Свіжа обсмажка, чесна ціна, любов до кави.</p>
-                <div class="social-links">
-                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                    <a href="#" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
-                    <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-                </div>
-            </div>
-
-            <!-- Column 2: Shop -->
-            <div class="footer-col">
-                <h4>Магазин</h4>
-                <ul class="footer-links">
-                    <li><a href="shop.html">Весь каталог</a></li>
-                    <li><a href="subscription.html">Підписка на каву</a></li>
-                    <li><a href="quiz.html">Підібрати каву</a></li>
-                    <li><a href="b2b.html">B2B рішення</a></li>
-                    <li><a href="account.html">Особистий кабінет</a></li>
-                </ul>
-            </div>
-
-            <!-- Column 3: Support -->
-            <div class="footer-col">
-                <h4>Підтримка</h4>
-                <ul class="footer-links">
-                    <li><a href="delivery.html">Доставка та оплата</a></li>
-                    <li><a href="return.html">Повернення та обмін</a></li>
-                    <li><a href="faq.html">Часті питання</a></li>
-                    <li><a href="contacts.html">Контакти</a></li>
-                    <li><a href="about.html">Про нас</a></li>
-                </ul>
-            </div>
-
-            <!-- Column 4: Contacts -->
-            <div class="footer-col">
-                <h4>Контакти</h4>
-                <ul class="footer-contacts">
-                    <li><i class="fas fa-phone"></i> <a href="tel:+380501234567">+380 (50) 123-45-67</a></li>
-                    <li><i class="fas fa-envelope"></i> <a href="mailto:hello@ethiodirect.ua">hello@ethiodirect.ua</a>
-                    </li>
-                    <li><i class="fas fa-map-marker-alt"></i> Одеса, Україна</li>
-                    <li><i class="fas fa-clock"></i> Пн-Пт: 9:00-18:00</li>
-                </ul>
-            </div>
-
-            <!-- Column 5: Newsletter -->
-            <div class="footer-col">
-                <h4>Підписка на новини</h4>
-                <p style="color:#aaa; margin-bottom:15px; font-size:0.9rem;">Отримуйте акції, новинки та поради щодо
-                    заварювання</p>
-                <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
-                    <input type="email" placeholder="Ваш email" required>
-                    <button type="submit" class="btn-newsletter">Підписатись</button>
-                </form>
-            </div>
-        </div>
-
-        <!-- Trust Badges -->
-        <div class="footer-trust">
-            <div class="trust-badges">
-                <div class="trust-badge">
-                    <i class="fas fa-shield-alt"></i>
-                    <div>
-                        <strong>14 днів</strong>
-                        <span>повернення</span>
+    <!-- PROFESSIONAL FOOTER COMPONENT -->
+    <footer class="footer-pro">
+        <div class="container">
+            <!-- Main Footer Content -->
+            <div class="footer-grid">
+                <!-- Column 1: Brand -->
+                <div class="footer-col">
+                    <h4 style="font-family:var(--font-heading); font-size:1.5rem; color:white; margin-bottom:20px;">
+                        <a href="index.html" style="text-decoration:none; color:white;">EthioDirect</a>
+                    </h4>
+                    <p style="color:#aaa; line-height:1.8; margin-bottom:20px;">Ми доставляємо справжню specialty каву
+                        прямо
+                        з ефіопських ферм до вашого дому. Свіжа обсмажка, чесна ціна, любов до кави.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+                        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
                     </div>
                 </div>
-                <div class="trust-badge">
-                    <i class="fas fa-coffee"></i>
-                    <div>
-                        <strong>100% Specialty</strong>
-                        <span>якість зерна</span>
-                    </div>
-                </div>
-                <div class="trust-badge">
-                    <i class="fas fa-shipping-fast"></i>
-                    <div>
-                        <strong>Безкоштовна</strong>
-                        <span>доставка від 500₴</span>
-                    </div>
-                </div>
-                <div class="trust-badge">
-                    <i class="fas fa-fire"></i>
-                    <div>
-                        <strong>Свіжа обсмажка</strong>
-                        <span>до 3 днів</span>
-                    </div>
-                </div>
-            </div>
-        </div>
 
-        <!-- Payment Methods -->
-        <div class="footer-payment">
-            <p style="color:#666; font-size:0.85rem; margin-bottom:15px;">Способи оплати:</p>
-            <div class="payment-icons">
-                <i class="fab fa-cc-visa" title="Visa"></i>
-                <i class="fab fa-cc-mastercard" title="Mastercard"></i>
-                <i class="fab fa-apple-pay" title="Apple Pay"></i>
-                <i class="fab fa-google-pay" title="Google Pay"></i>
-                <span class="payment-text">LiqPay</span>
-            </div>
-        </div>
+                <!-- Column 2: Shop -->
+                <div class="footer-col">
+                    <h4>Магазин</h4>
+                    <ul class="footer-links">
+                        <li><a href="shop.html">Весь каталог</a></li>
+                        <li><a href="subscription.html">Підписка на каву</a></li>
+                        <li><a href="gift-certificates.html">Сертифікати</a></li>
+                        <li><a href="b2b.html">B2B рішення</a></li>
+                        <li><a href="account.html">Особистий кабінет</a></li>
+                    </ul>
+                </div>
 
-        <!-- Bottom Bar -->
-        <div class="footer-bottom">
-            <div class="footer-bottom-left">
-                <p>&copy; 2025 EthioDirect. Всі права захищені.</p>
+                <!-- Column 3: Support -->
+                <div class="footer-col">
+                    <h4>Підтримка</h4>
+                    <ul class="footer-links">
+                        <li><a href="delivery.html">Доставка та оплата</a></li>
+                        <li><a href="return.html">Повернення та обмін</a></li>
+                        <li><a href="faq.html">Часті питання</a></li>
+                        <li><a href="contacts.html">Контакти</a></li>
+                        <li><a href="about.html">Про нас</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Contacts -->
+                <div class="footer-col">
+                    <h4>Контакти</h4>
+                    <ul class="footer-contacts">
+                        <li><i class="fas fa-phone"></i> <a href="tel:+380501234567">+380 (50) 123-45-67</a></li>
+                        <li><i class="fas fa-envelope"></i> <a
+                                href="mailto:hello@ethiodirect.ua">hello@ethiodirect.ua</a>
+                        </li>
+                        <li><i class="fas fa-map-marker-alt"></i> Одеса, Україна</li>
+                        <li><i class="fas fa-clock"></i> Пн-Пт: 9:00-18:00</li>
+                    </ul>
+                </div>
+
+                <!-- Column 5: Newsletter -->
+                <div class="footer-col">
+                    <h4>Підписка на новини</h4>
+                    <p style="color:#aaa; margin-bottom:15px; font-size:0.9rem;">Отримуйте акції, новинки та поради щодо
+                        заварювання</p>
+                    <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
+                        <input type="email" placeholder="Ваш email" required>
+                        <button type="submit" class="btn-newsletter">Підписатись</button>
+                    </form>
+                </div>
             </div>
-            <div class="footer-bottom-right">
-                <a href="privacy.html">Політика конфіденційності</a>
-                <span>·</span>
-                <a href="return.html">Умови повернення</a>
-                <span>·</span>
-                <a href="#">Публічна оферта</a>
+
+            <!-- Trust Badges -->
+            <div class="footer-trust">
+                <div class="trust-badges">
+                    <div class="trust-badge">
+                        <i class="fas fa-shield-alt"></i>
+                        <div>
+                            <strong>14 днів</strong>
+                            <span>повернення</span>
+                        </div>
+                    </div>
+                    <div class="trust-badge">
+                        <i class="fas fa-coffee"></i>
+                        <div>
+                            <strong>100% Specialty</strong>
+                            <span>якість зерна</span>
+                        </div>
+                    </div>
+                    <div class="trust-badge">
+                        <i class="fas fa-shipping-fast"></i>
+                        <div>
+                            <strong>Безкоштовна</strong>
+                            <span>доставка від 500₴</span>
+                        </div>
+                    </div>
+                    <div class="trust-badge">
+                        <i class="fas fa-fire"></i>
+                        <div>
+                            <strong>Свіжа обсмажка</strong>
+                            <span>до 3 днів</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment Methods -->
+            <div class="footer-payment">
+                <p style="color:#666; font-size:0.85rem; margin-bottom:15px;">Способи оплати:</p>
+                <div class="payment-icons">
+                    <i class="fab fa-cc-visa" title="Visa"></i>
+                    <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+                    <i class="fab fa-apple-pay" title="Apple Pay"></i>
+                    <i class="fab fa-google-pay" title="Google Pay"></i>
+                    <span class="payment-text">LiqPay</span>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="footer-bottom">
+                <div class="footer-bottom-left">
+                    <p>&copy; 2025 EthioDirect. Всі права захищені.</p>
+                </div>
+                <div class="footer-bottom-right">
+                    <a href="privacy.html">Політика конфіденційності</a>
+                    <span>·</span>
+                    <a href="return.html">Умови повернення</a>
+                    <span>·</span>
+                    <a href="#">Публічна оферта</a>
+                </div>
             </div>
         </div>
-    </div>
-</footer>
+    </footer>
 
     <script src="js/main.js"></script>
     <script src="js/conversion-widgets.js"></script>

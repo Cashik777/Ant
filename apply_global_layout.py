@@ -1,5 +1,31 @@
-<!-- PROFESSIONAL FOOTER COMPONENT -->
-<footer class="footer-pro">
+import os
+import re
+
+# The "Gold Standard" Header (Fixed: Removed inline style from Certificates)
+HEADER_TEMPLATE = """    <header class="header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">
+                <i class="fas fa-leaf text-accent"></i>
+                <span style="font-family:var(--font-heading); letter-spacing:1px; font-size:1.5rem;">EthioDirect</span>
+            </a>
+            <nav class="nav-desktop">
+                <a href="shop.html" class="nav-link">Каталог</a>
+                <a href="subscription.html" class="nav-link">Підписка</a>
+                <a href="gift-certificates.html" class="nav-link">🎁 Сертифікати</a>
+                <a href="blog.html" class="nav-link">Історії</a>
+                <a href="about.html" class="nav-link">Про нас</a>
+                <a href="quiz.html" class="nav-link">Тест</a>
+            </nav>
+            <div class="header-actions">
+                <a href="account.html"><i class="far fa-user"></i></a>
+                <div class="cart-trigger"><i class="fas fa-shopping-cart"></i><span class="cart-count">0</span></div>
+            </div>
+            <button class="menu-toggle" aria-label="Menu"><i class="fas fa-bars"></i></button>
+        </div>
+    </header>"""
+
+# The "Gold Standard" Footer (Professional v2)
+FOOTER_TEMPLATE = """<footer class="footer-pro">
     <div class="container">
         <!-- Main Footer Content -->
         <div class="footer-grid">
@@ -126,4 +152,52 @@
             </div>
         </div>
     </div>
-</footer>
+</footer>"""
+
+def apply_layout():
+    files = [f for f in os.listdir('.') if f.endswith('.html')]
+    
+    for filename in files:
+        with open(filename, 'r', encoding='utf-8') as f:
+            content = f.read()
+            
+        # Replace Header
+        # Regex to find <header class="header">...</header> (non-greedy)
+        # Note: We need to be careful if header has dynamic active states.
+        # Ideally, we should inject the "active" class based on filename.
+        
+        # 1. Remove existing header
+        content = re.sub(r'<header class="header">.*?</header>', '[[HEADER_PLACEHOLDER]]', content, flags=re.DOTALL)
+        
+        # 2. Remove existing footer (generic or pro)
+        content = re.sub(r'<footer.*?>.*?</footer>', '[[FOOTER_PLACEHOLDER]]', content, flags=re.DOTALL)
+        
+        # 3. Insert new Header
+        # Add 'active' class logic
+        header_to_insert = HEADER_TEMPLATE
+        if filename == 'index.html':
+            pass # No link is active on home usually, or logo?
+        elif filename == 'shop.html':
+            header_to_insert = header_to_insert.replace('href="shop.html" class="nav-link"', 'href="shop.html" class="nav-link active"')
+        elif filename == 'subscription.html':
+            header_to_insert = header_to_insert.replace('href="subscription.html" class="nav-link"', 'href="subscription.html" class="nav-link active"')
+        elif filename == 'gift-certificates.html':
+            header_to_insert = header_to_insert.replace('href="gift-certificates.html" class="nav-link"', 'href="gift-certificates.html" class="nav-link active"')
+        elif filename == 'blog.html':
+            header_to_insert = header_to_insert.replace('href="blog.html" class="nav-link"', 'href="blog.html" class="nav-link active"')
+        elif filename == 'about.html':
+            header_to_insert = header_to_insert.replace('href="about.html" class="nav-link"', 'href="about.html" class="nav-link active"')
+        elif filename == 'quiz.html':
+             header_to_insert = header_to_insert.replace('href="quiz.html" class="nav-link"', 'href="quiz.html" class="nav-link active"')
+        
+        content = content.replace('[[HEADER_PLACEHOLDER]]', header_to_insert)
+        
+        # 4. Insert new Footer
+        content = content.replace('[[FOOTER_PLACEHOLDER]]', FOOTER_TEMPLATE)
+        
+        with open(filename, 'w', encoding='utf-8') as f:
+            f.write(content)
+        print(f"Updated {filename}")
+
+if __name__ == "__main__":
+    apply_layout()
