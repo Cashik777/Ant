@@ -1445,3 +1445,39 @@ img {
     color: var(--success);
     font-size: 1.2rem;
 }
+
+/* --- PAGE HERO & UTILITIES (Added Phase 4) --- */
+.text-gold {
+    color: var(--secondary);
+}
+
+.text-white {
+    color: white;
+}
+
+.text-muted {
+    color: #666;
+}
+
+.page-hero {
+    background: linear-gradient(rgba(44, 24, 16, 0.8), rgba(44, 24, 16, 0.7)), url('../img/hero-bg.png');
+    background-size: cover;
+    background-position: center;
+    padding: 140px 0 80px;
+    color: white;
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.page-hero h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    color: var(--secondary);
+}
+
+.page-hero p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto;
+}
