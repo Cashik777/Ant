@@ -45,21 +45,134 @@
     </div>
 
     <main>
-        <section class="section" style="padding-top:120px; background:white;">
+        <section class="section" style="padding-top:120px; background:#f9f9f9;">
             <div class="container">
-                <h1 class="text-center" style="margin-bottom:20px;">Каталог зерна</h1>
-                <!-- Filters -->
-                <div class="filters">
-                    <button class="filter-btn active" data-filter="all">Всі лоти</button>
-                    <button class="filter-btn" data-filter="light">Світла обсмажка</button>
-                    <button class="filter-btn" data-filter="medium">Середня</button>
-                    <button class="filter-btn" data-filter="dark">Темна</button>
-                    <button class="filter-btn" data-filter="espresso">Для еспресо</button>
-                    <button class="filter-btn" data-filter="filter">Для фільтру</button>
-                </div>
+                <!-- Breadcrumbs -->
+                <nav class="breadcrumbs" style="margin-bottom:30px;">
+                    <a href="index.html">Головна</a>
+                    <span>›</span>
+                    <span>Каталог</span>
+                </nav>
 
-                <div class="products-grid" id="products-grid">
-                    <!-- JS Injected -->
+                <!-- Shop Layout with Sidebar -->
+                <div class="shop-layout">
+                    <!-- Sidebar Filters -->
+                    <aside class="shop-sidebar">
+                        <div class="filter-section">
+                            <h3>Фільтри</h3>
+                            <button class="btn-clear-filters" onclick="clearAllFilters()">Очистити всі</button>
+                        </div>
+
+                        <!-- Price Range Filter -->
+                        <div class="filter-group">
+                            <h4>Ціна</h4>
+                            <div class="price-range">
+                                <input type="range" id="price-min" min="0" max="500" value="0" step="10">
+                                <input type="range" id="price-max" min="0" max="500" value="500" step="10">
+                                <div class="price-display">
+                                    <span id="price-min-display">0</span> ₴ — <span id="price-max-display">500</span> ₴
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Roast Level Filter -->
+                        <div class="filter-group">
+                            <h4>Обсмажка</h4>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" data-filter="roast" value="light">
+                                <span>Світла</span>
+                                <small>(фруктова, квіткова)</small>
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" data-filter="roast" value="medium">
+                                <span>Середня</span>
+                                <small>(збалансована)</small>
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" data-filter="roast" value="dark">
+                                <span>Темна</span>
+                                <small>(шоколадна, горіхова)</small>
+                            </label>
+                        </div>
+
+                        <!-- Taste Notes Filter -->
+                        <div class="filter-group">
+                            <h4>Смакові ноти</h4>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" data-filter="taste" value="chocolate">
+                                <span>🍫 Шоколад і горіхи</span>
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" data-filter="taste" value="fruity">
+                                <span>🍓 Ягоди і фрукти</span>
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" data-filter="taste" value="floral">
+                                <span>🌸 Квіткові ноти</span>
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" data-filter="taste" value="spicy">
+                                <span>🌶️ Пряні</span>
+                            </label>
+                        </div>
+
+                        <!-- Brewing Method Filter -->
+                        <div class="filter-group">
+                            <h4>Спосіб приготування</h4>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" data-filter="method" value="espresso">
+                                <span>☕ Еспресо</span>
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" data-filter="method" value="filter">
+                                <span>🫖 Фільтр</span>
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" data-filter="method" value="turka">
+                                <span>🔥 Турка</span>
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" data-filter="method" value="french">
+                                <span>🥤 Френч-прес</span>
+                            </label>
+                        </div>
+                    </aside>
+
+                    <!-- Main Content Area -->
+                    <div class="shop-content">
+                        <!-- Top Bar -->
+                        <div class="shop-toolbar">
+                            <div class="results-info">
+                                Знайдено: <strong id="results-count">6</strong> товарів
+                            </div>
+                            <div class="shop-controls">
+                                <select id="sort-select" onchange="sortProducts(this.value)">
+                                    <option value="popular">Популярні</option>
+                                    <option value="price-asc">Ціна: зростання</option>
+                                    <option value="price-desc">Ціна: спадання</option>
+                                    <option value="new">Новинки</option>
+                                </select>
+                                <div class="view-switcher">
+                                    <button class="view-btn active" data-view="grid"><i class="fas fa-th"></i></button>
+                                    <button class="view-btn" data-view="list"><i class="fas fa-list"></i></button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Products Grid -->
+                        <div class="products-grid" id="products-grid">
+                            <!-- JS Injected -->
+                        </div>
+
+                        <!-- No Results Message -->
+                        <div id="no-results" style="display:none; text-align:center; padding:60px 20px;">
+                            <i class="fas fa-search" style="font-size:4rem; color:#ccc; margin-bottom:20px;"></i>
+                            <h3>Нічого не знайдено</h3>
+                            <p style="color:#999;">Спробуйте змінити фільтри</p>
+                            <button class="btn btn-primary" onclick="clearAllFilters()"
+                                style="margin-top:20px;">Очистити фільтри</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
