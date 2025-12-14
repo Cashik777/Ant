@@ -1,141 +1,228 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="uk">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Для бизнеса — EthioDirect</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700&display=swap"
-        rel="stylesheet">
+    <title>B2B — EthioDirect</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/main.css">
 </head>
 
 <body>
+
+    <header class="header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">
+                <i class="fas fa-leaf text-accent" style="color:var(--accent);"></i>
+                <span style="font-family:var(--font-heading); letter-spacing:1px; font-size:1.5rem;">EthioDirect</span>
+            </a>
+            <nav class="nav-desktop">
+                <a href="shop.html" class="nav-link">Каталог</a>
+                <a href="subscription.html" class="nav-link">Підписка</a>
+                <a href="blog.html" class="nav-link">Історії</a>
+                <a href="about.html" class="nav-link">Про нас</a>
+                <a href="b2b.html" class="nav-link active">B2B</a>
+            </nav>
+            <div class="header-actions">
+                <a href="account.html" class="nav-link"><i class="far fa-user"></i></a>
+                <div class="cart-trigger"><i class="fas fa-shopping-cart"></i><span class="cart-count">0</span></div>
+            </div>
+        </div>
+    </header>
+
+    <div class="overlay"></div>
+    <div class="drawer">
+        <div class="drawer-header">
+            <h3>Ваш кошик</h3><span class="cart-close" style="cursor:pointer;font-size:1.5rem;">&times;</span>
+        </div>
+        <div class="drawer-body" id="cart-list"></div>
+        <div class="drawer-footer">
+            <div style="display:flex;justify-content:space-between;margin-bottom:15px;font-weight:600;">
+                <span>Разом:</span><span id="cart-total">0 ₴</span></div>
+            <button class="btn btn-primary" style="width:100%;">Оформити замовлення</button>
+        </div>
+    </div>
+
     <main>
-        <!-- HERO -->
-        <section class="section bg-warm text-center" style="padding-top: 120px;">
-            <div class="container">
-                <span class="text-gold" style="text-transform:uppercase; font-weight:600; letter-spacing:1px;">For
-                    Business</span>
-                <h1 style="margin-top:10px;">Кофе для вашего бизнеса</h1>
-                <p style="max-width:600px; margin:0 auto;">Мы поставляем specialty кофе для кофеен, ресторанов и офисов.
-                    Оптовые цены, обучение бариста, надежный сервис.</p>
+        <section class="section" style="padding-top:120px; background:white;">
+            <div class="container text-center">
+                <span
+                    style="color:var(--accent); text-transform:uppercase; letter-spacing:2px; font-size:0.9rem; font-weight:600;">Business
+                    Solutions</span>
+                <h1 style="margin-top:10px;">Кава для вашого бізнесу</h1>
+                <p style="max-width:700px; margin:0 auto;">Спеціальні умови для кав'ярень, ресторанів, офісів та оптових
+                    покупців.</p>
             </div>
         </section>
 
         <!-- FOR CAFES -->
-        <section id="cafes" class="section">
-            <div class="container" style="display:grid; grid-template-columns: 1fr 1fr; gap:60px; align-items:center;">
-                <div>
-                    <span class="text-gold" style="font-weight:700; text-transform:uppercase;">Для кофеен</span>
-                    <h2>Станьте нашим партнером</h2>
-                    <p>Мы предлагаем specialty-кофе для заведений, которые заботятся о качестве.</p>
-                    <ul style="list-style:none; margin:30px 0;">
-                        <li style="margin-bottom:15px;"><i class="fas fa-check text-gold"
-                                style="margin-right:10px;"></i> Свежая обжарка еженедельно</li>
-                        <li style="margin-bottom:15px;"><i class="fas fa-check text-gold"
-                                style="margin-right:10px;"></i> Обучение вашего персонала</li>
-                        <li style="margin-bottom:15px;"><i class="fas fa-check text-gold"
-                                style="margin-right:10px;"></i> Помощь с настройкой оборудования</li>
-                    </ul>
-                    <a href="#form" class="btn btn-primary">Оставить заявку</a>
-                </div>
-                <div>
-                    <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=800&q=80"
-                        style="border-radius:var(--radius-md);" alt="Cafe Partner">
+        <section class="section">
+            <div class="container">
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center;">
+                    <div>
+                        <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=80"
+                            style="border-radius:4px; box-shadow:var(--shadow-soft);">
+                    </div>
+                    <div>
+                        <h2>Для кав'ярень</h2>
+                        <p style="font-size:1.1rem; margin-bottom:25px;">Підвищте рівень вашого закладу з нашим
+                            specialty кавою прямо з Ефіопії.</p>
+                        <ul style="list-style:none; margin:0; padding:0;">
+                            <li style="margin-bottom:15px; display:flex; align-items:start; gap:12px;">
+                                <i class="fas fa-check-circle"
+                                    style="color:var(--accent); font-size:1.2rem; margin-top:4px;"></i>
+                                <div><strong>Стабільна якість:</strong> Щотижневі поставки свіжообсмаженого зерна</div>
+                            </li>
+                            <li style="margin-bottom:15px; display:flex; align-items:start; gap:12px;">
+                                <i class="fas fa-check-circle"
+                                    style="color:var(--accent); font-size:1.2rem; margin-top:4px;"></i>
+                                <div><strong>Кастомізація:</strong> Обжарка під ваш профіль (еспресо/фільтр)</div>
+                            </li>
+                            <li style="margin-bottom:15px; display:flex; align-items:start; gap:12px;">
+                                <i class="fas fa-check-circle"
+                                    style="color:var(--accent); font-size:1.2rem; margin-top:4px;"></i>
+                                <div><strong>Навчання:</strong> Безкоштовні каппінги та консультації баристи</div>
+                            </li>
+                            <li style="margin-bottom:15px; display:flex; align-items:start; gap:12px;">
+                                <i class="fas fa-check-circle"
+                                    style="color:var(--accent); font-size:1.2rem; margin-top:4px;"></i>
+                                <div><strong>Ціна:</strong> Від 180₴/кг при замовленні від 10кг/міс</div>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- FOR OFFICES -->
-        <section id="office" class="section bg-surface">
-            <div class="container" style="display:grid; grid-template-columns: 1fr 1fr; gap:60px; align-items:center;">
-                <div style="order:2;">
-                    <span class="text-gold" style="font-weight:700; text-transform:uppercase;">Для офисов</span>
-                    <h2>Кофе для команды</h2>
-                    <p>Забудьте о плохом офисном кофе. Мы настроим регулярные поставки, чтобы ваша команда была
-                        счастлива.</p>
-                    <ul style="list-style:none; margin:30px 0;">
-                        <li style="margin-bottom:15px;"><i class="fas fa-check text-gold"
-                                style="margin-right:10px;"></i> Подписка для офиса</li>
-                        <li style="margin-bottom:15px;"><i class="fas fa-check text-gold"
-                                style="margin-right:10px;"></i> Аренда оборудования</li>
-                        <li style="margin-bottom:15px;"><i class="fas fa-check text-gold"
-                                style="margin-right:10px;"></i> Гибкий график доставок</li>
-                    </ul>
-                    <a href="#form" class="btn btn-primary">Обсудить условия</a>
-                </div>
-                <div style="order:1;">
-                    <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=800&q=80"
-                        style="border-radius:var(--radius-md);" alt="Office Coffee">
+        <section class="section bg-white">
+            <div class="container">
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center;">
+                    <div>
+                        <h2>Для офісів</h2>
+                        <p style="font-size:1.1rem; margin-bottom:25px;">Тримайте команду в тонусі з якісною кавою на
+                            робочому місці.</p>
+                        <ul style="list-style:none; margin:0; padding:0;">
+                            <li style="margin-bottom:15px; display:flex; align-items:start; gap:12px;">
+                                <i class="fas fa-coffee"
+                                    style="color:var(--accent); font-size:1.2rem; margin-top:4px;"></i>
+                                <div><strong>Підписка:</strong> Автоматичні поставки без турботи</div>
+                            </li>
+                            <li style="margin-bottom:15px; display:flex; align-items:start; gap:12px;">
+                                <i class="fas fa-coffee"
+                                    style="color:var(--accent); font-size:1.2rem; margin-top:4px;"></i>
+                                <div><strong>Оренда обладнання:</strong> Кавомашини та кавомолки</div>
+                            </li>
+                            <li style="margin-bottom:15px; display:flex; align-items:start; gap:12px;">
+                                <i class="fas fa-coffee"
+                                    style="color:var(--accent); font-size:1.2rem; margin-top:4px;"></i>
+                                <div><strong>Гнучкість:</strong> Змінюйте об'єм та частоту доставки</div>
+                            </li>
+                            <li style="margin-bottom:15px; display:flex; align-items:start; gap:12px;">
+                                <i class="fas fa-coffee"
+                                    style="color:var(--accent); font-size:1.2rem; margin-top:4px;"></i>
+                                <div><strong>Звітність:</strong> Щомісячна статистика споживання</div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <img src="https://images.unsplash.com/photo-1521017432531-fbd92d768814?auto=format&fit=crop&w=800&q=80"
+                            style="border-radius:4px; box-shadow:var(--shadow-soft);">
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- WHOLESALE -->
-        <section id="wholesale" class="section">
+        <section class="section">
             <div class="container text-center">
-                <span class="text-gold" style="font-weight:700; text-transform:uppercase;">Оптовые продажи</span>
-                <h2>Зеленое зерно и обжаренный кофе</h2>
-                <p style="max-width:600px; margin:0 auto 40px;">Мы поставляем зеленое зерно напрямую из Эфиопии и готовы
-                    обжарить его под ваш профиль или продать для вашего ростера.</p>
-                <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:30px; margin-top:40px;">
-                    <div style="background:white; padding:40px; border-radius:var(--radius-md);">
-                        <i class="fas fa-box-open text-gold" style="font-size:2rem; margin-bottom:15px;"></i>
-                        <h3>От 10 кг</h3>
-                        <p>Минимальный заказ для оптовой цены.</p>
+                <h2>Оптові продажі</h2>
+                <p style="max-width:600px; margin:0 auto 50px;">Працюєте з кавою? Ми постачаємо specialty зерно для
+                    роздрібних магазинів, дистриб'юторів та інших партнерів.</p>
+
+                <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:40px; margin-top:50px;">
+                    <div style="padding:30px; background:white; border-radius:4px; box-shadow:var(--shadow-soft);">
+                        <i class="fas fa-shipping-fast"
+                            style="font-size:3rem; color:var(--primary); margin-bottom:20px;"></i>
+                        <h4>Швидка логістика</h4>
+                        <p>Доставка по всій Україні протягом 1-3 днів</p>
                     </div>
-                    <div style="background:white; padding:40px; border-radius:var(--radius-md);">
-                        <i class="fas fa-tags text-gold" style="font-size:2rem; margin-bottom:15px;"></i>
-                        <h3>Скидка 20-40%</h3>
-                        <p>В зависимости от объема и частоты.</p>
+                    <div style="padding:30px; background:white; border-radius:4px; box-shadow:var(--shadow-soft);">
+                        <i class="fas fa-handshake"
+                            style="font-size:3rem; color:var(--primary); margin-bottom:20px;"></i>
+                        <h4>Надійність</h4>
+                        <p>Стабільна якість та ціна. Довгострокові контракти</p>
                     </div>
-                    <div style="background:white; padding:40px; border-radius:var(--radius-md);">
-                        <i class="fas fa-truck text-gold" style="font-size:2rem; margin-bottom:15px;"></i>
-                        <h3>Доставка по Украине</h3>
-                        <p>Новая Почта. Бесплатно от 50 кг.</p>
+                    <div style="padding:30px; background:white; border-radius:4px; box-shadow:var(--shadow-soft);">
+                        <i class="fas fa-tag" style="font-size:3rem; color:var(--primary); margin-bottom:20px;"></i>
+                        <h4>Спеціальні умови</h4>
+                        <p>Індивідуальне ціноутворення для великих об'ємів</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- FORM -->
-        <section id="form" class="section bg-warm">
+        <!-- CONTACT FORM -->
+        <section class="section bg-white">
             <div class="container" style="max-width:700px;">
-                <h2 class="text-center">Оставьте заявку</h2>
-                <p class="text-center mb-5">Мы свяжемся с вами в течение 24 часов.</p>
-                <form
-                    style="background:white; padding:40px; border-radius:var(--radius-md); box-shadow:var(--shadow-subtle);">
+                <h2 class="text-center">Залишити заявку</h2>
+                <p class="text-center mb-4">Заповніть форму, і ми зв'яжемось з вами протягом 24 годин</p>
+
+                <form style="background:var(--bg-main); padding:40px; border-radius:4px;">
                     <div style="margin-bottom:20px;">
-                        <label>Ваше имя</label>
-                        <input type="text" placeholder="Имя или название компании"
-                            style="width:100%; padding:15px; border:1px solid #ddd; border-radius:8px; margin-top:8px;">
+                        <label style="display:block; margin-bottom:8px; font-weight:600;">Ваше ім'я *</label>
+                        <input type="text" required
+                            style="width:100%; padding:12px; border:1px solid #ddd; border-radius:4px; font-size:1rem;">
                     </div>
+
                     <div style="margin-bottom:20px;">
-                        <label>Email или телефон</label>
-                        <input type="text" placeholder="+380..."
-                            style="width:100%; padding:15px; border:1px solid #ddd; border-radius:8px; margin-top:8px;">
+                        <label style="display:block; margin-bottom:8px; font-weight:600;">Email *</label>
+                        <input type="email" required
+                            style="width:100%; padding:12px; border:1px solid #ddd; border-radius:4px; font-size:1rem;">
                     </div>
+
                     <div style="margin-bottom:20px;">
-                        <label>Что вас интересует?</label>
-                        <select
-                            style="width:100%; padding:15px; border:1px solid #ddd; border-radius:8px; margin-top:8px;">
-                            <option>Кофе для кофейни</option>
-                            <option>Кофе для офиса</option>
-                            <option>Оптовые закупки</option>
-                            <option>Другое</option>
+                        <label style="display:block; margin-bottom:8px; font-weight:600;">Телефон *</label>
+                        <input type="tel" required
+                            style="width:100%; padding:12px; border:1px solid #ddd; border-radius:4px; font-size:1rem;">
+                    </div>
+
+                    <div style="margin-bottom:20px;">
+                        <label style="display:block; margin-bottom:8px; font-weight:600;">Тип бізнесу *</label>
+                        <select required
+                            style="width:100%; padding:12px; border:1px solid #ddd; border-radius:4px; font-size:1rem;">
+                            <option value="">Оберіть тип</option>
+                            <option value="cafe">Кав'ярня / Ресторан</option>
+                            <option value="office">Офіс</option>
+                            <option value="wholesale">Оптовий покупець</option>
+                            <option value="other">Інше</option>
                         </select>
                     </div>
-                    <button type="submit" class="btn btn-primary" style="width:100%;">Отправить заявку</button>
+
+                    <div style="margin-bottom:20px;">
+                        <label style="display:block; margin-bottom:8px; font-weight:600;">Очікуваний об'єм
+                            (кг/міс)</label>
+                        <input type="number"
+                            style="width:100%; padding:12px; border:1px solid #ddd; border-radius:4px; font-size:1rem;">
+                    </div>
+
+                    <div style="margin-bottom:30px;">
+                        <label style="display:block; margin-bottom:8px; font-weight:600;">Коментар</label>
+                        <textarea rows="4"
+                            style="width:100%; padding:12px; border:1px solid #ddd; border-radius:4px; font-size:1rem; resize:vertical;"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width:100%;">Відправити заявку</button>
                 </form>
             </div>
         </section>
     </main>
 
-    <script src="js/data.js"></script>
-    <script src="js/components.js"></script>
+    <footer class="footer">
+        <div class="container text-center">© 2025 EthioDirect</div>
+    </footer>
+
     <script src="js/main.js"></script>
 </body>
 
