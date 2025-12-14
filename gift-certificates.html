@@ -18,10 +18,12 @@
                 <span style="font-family:var(--font-heading); letter-spacing:1px; font-size:1.5rem;">EthioDirect</span>
             </a>
             <nav class="nav-desktop">
-                <a href="shop.html">Каталог</a>
-                <a href="subscription.html">Підписка</a>
-                <a href="blog.html">Історії</a>
-                <a href="about.html">Про нас</a>
+                <a href="shop.html" class="nav-link">Каталог</a>
+                <a href="subscription.html" class="nav-link">Підписка</a>
+                <a href="gift-certificates.html" class="nav-link active" style="color:var(--accent);">🎁 Сертифікати</a>
+                <a href="blog.html" class="nav-link">Історії</a>
+                <a href="about.html" class="nav-link">Про нас</a>
+                <a href="quiz.html" class="nav-link">Тест</a>
             </nav>
             <div class="header-actions">
                 <a href="account.html"><i class="far fa-user"></i></a>
@@ -38,7 +40,8 @@
         <div class="drawer-body" id="cart-list"></div>
         <div class="drawer-footer">
             <div style="display:flex;justify-content:space-between;margin-bottom:15px;font-weight:600;">
-                <span>Разом:</span><span id="cart-total">0 ₴</span></div>
+                <span>Разом:</span><span id="cart-total">0 ₴</span>
+            </div>
             <button class="btn btn-primary" style="width:100%;">Оформити замовлення</button>
         </div>
     </div>
@@ -239,23 +242,28 @@
         <section class="section" style="background:var(--bg-main);">
             <div class="container text-center">
                 <h2 style="margin-bottom:50px;">Чому це ідеальний подарунок?</h2>
-                <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:40px;">
-                    <div>
+                <div
+                    style="display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:40px; align-items:stretch;">
+                    <div
+                        style="background:white; padding:30px; border-radius:12px; box-shadow:0 10px 30px rgba(0,0,0,0.05); height:100%;">
                         <i class="fas fa-heart" style="font-size:3rem; color:var(--accent); margin-bottom:20px;"></i>
                         <h3 style="margin-bottom:15px;">Для кавоманів</h3>
                         <p style="color:#666;">Specialty кава 85+ SCA балів — те, що вони справді оцінять</p>
                     </div>
-                    <div>
+                    <div
+                        style="background:white; padding:30px; border-radius:12px; box-shadow:0 10px 30px rgba(0,0,0,0.05); height:100%;">
                         <i class="fas fa-clock" style="font-size:3rem; color:var(--accent); margin-bottom:20px;"></i>
                         <h3 style="margin-bottom:15px;">Миттєво</h3>
                         <p style="color:#666;">Не треба нікуди їхати — PDF сертифікат на email за хвилину</p>
                     </div>
-                    <div>
+                    <div
+                        style="background:white; padding:30px; border-radius:12px; box-shadow:0 10px 30px rgba(0,0,0,0.05); height:100%;">
                         <i class="fas fa-star" style="font-size:3rem; color:var(--accent); margin-bottom:20px;"></i>
                         <h3 style="margin-bottom:15px;">Без термінів</h3>
                         <p style="color:#666;">Дійсний рік, можна використати частинами</p>
                     </div>
-                    <div>
+                    <div
+                        style="background:white; padding:30px; border-radius:12px; box-shadow:0 10px 30px rgba(0,0,0,0.05); height:100%;">
                         <i class="fas fa-gift" style="font-size:3rem; color:var(--accent); margin-bottom:20px;"></i>
                         <h3 style="margin-bottom:15px;">Краса дизайну</h3>
                         <p style="color:#666;">Стильний PDF, який приємно дарувати і отримувати</p>
