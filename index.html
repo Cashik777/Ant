@@ -91,77 +91,123 @@
         </div>
     </div>
 
-    <!-- HERO -->
-    <section class="hero">
-        <div class="container text-center">
-            <div class="hero-content"
-                style="max-width:900px; margin:0 auto; padding:60px 40px; background:rgba(44, 36, 27, 0.7); backdrop-filter:blur(8px); border-radius:4px; border:1px solid rgba(255,255,255,0.1);">
+    <!-- HERO: SENSORY EXPERIENCE -->
+    <section class="hero"
+        style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat; height: 90vh; display:flex; align-items:center; position:relative;">
+        <div class="container">
+            <div class="hero-content" style="max-width: 800px; color: #FFF; text-align: left;">
 
-                <!-- Scarcity / Urgency Trigger -->
-                <div
-                    style="display:inline-block; background:rgba(217, 78, 52, 0.2); padding:5px 15px; border-radius:20px; border:1px solid var(--accent); color:#ff6b6b; font-weight:700; font-size:0.85rem; margin-bottom:20px; text-transform:uppercase;">
-                    <i class="fas fa-fire"></i> Лишилося 12 наборів зі знижкою
-                </div>
+                <span class="hero-badge"
+                    style="display:inline-block; background: rgba(255,255,255,0.2); backdrop-filter:blur(5px); padding: 8px 16px; border-radius: 30px; border: 1px solid rgba(255,255,255,0.4); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 24px;">
+                    <i class="fas fa-leaf"></i> Direct Trade Ethiopia
+                </span>
 
-                <h1 style="color:white; margin-bottom:20px;">Кава, що змінює ранок</h1>
-                <p style="color:rgba(255,255,255,0.9); font-size:1.4rem; margin-bottom:30px; line-height:1.6;">
-                    Прямі поставки з ферм регіону Gedeo. Обсмажено для гурманів.
+                <h1
+                    style="font-family: var(--font-heading); font-size: 4.5rem; line-height: 1.1; margin-bottom: 24px; text-shadow: 0 4px 20px rgba(0,0,0,0.3);">
+                    Кава, що змінює ранок
+                </h1>
+
+                <p
+                    style="font-size: 1.3rem; line-height: 1.6; margin-bottom: 40px; color: rgba(255,255,255, 0.95); max-width: 650px;">
+                    Прямі поставки з ефіопських висот. **Обсмажуємо після замовлення**, щоб ви отримали найсвіжіший
+                    смак. Ваш персональний ритуал починається тут.
                 </p>
 
-                <div style="display:flex; flex-direction:column; align-items:center; gap:15px; margin-bottom:30px;">
-                    <div style="display:flex; gap:20px; justify-content:center; flex-wrap:wrap;">
-                        <!-- Primary CTA -->
-                        <a href="subscription.html" class="btn btn-primary"
-                            style="font-size:1.1rem; padding:16px 40px;">
-                            Оформити підписку
-                        </a>
-                        <!-- Secondary CTA -->
-                        <a href="shop.html" class="btn btn-secondary" style="border-color:white; color:white;">
-                            Подивитися каталог
-                        </a>
-                    </div>
+                <div class="hero-actions" style="display:flex; gap: 20px; flex-wrap: wrap; margin-bottom: 40px;">
+                    <a href="quiz.html" class="btn btn-primary"
+                        style="background-color: var(--accent); color: white; border:none; padding: 18px 40px; font-size: 1.1rem; box-shadow: 0 10px 30px rgba(168, 90, 61, 0.4);">
+                        Підібрати ідеальний сорт <span style="font-size:0.9em; opacity:0.8; margin-left:8px;">(тест 2
+                            хв)</span>
+                    </a>
+                    <a href="shop.html" class="btn btn-secondary"
+                        style="background: transparent; color: white; border: 2px solid white; padding: 18px 40px; font-size: 1.1rem;">
+                        Переглянути колекцію
+                    </a>
                 </div>
 
-                <!-- Trust / Social Proof -->
-                <div
-                    style="display:flex; justify-content:center; align-items:center; gap:15px; color:white; font-size:0.9rem;">
-                    <div style="display:flex; color:#f1c40f;">
+                <div class="hero-trust"
+                    style="display:flex; align-items:center; gap: 24px; font-size: 0.9rem; color: rgba(255,255,255,0.9); border-top: 1px solid rgba(255,255,255,0.2); padding-top: 24px; width: fit-content;">
+                    <div style="display:flex; gap: 5px; color: #FFD700;">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
                             class="fas fa-star"></i><i class="fas fa-star"></i>
                     </div>
-                    <span><b>500+</b> задоволених клієнтів</span>
-                    <span style="opacity:0.6;">|</span>
-                    <span><i class="fas fa-shield-alt"></i> Гарантія повернення</span>
+                    <span><b>500+</b> клієнтів</span>
+                    <span style="opacity: 0.5;">|</span>
+                    <span><i class="fas fa-truck" style="margin-right:8px;"></i>Безкоштовна доставка від 500₴</span>
+                    <span style="opacity: 0.5;">|</span>
+                    <span><i class="fas fa-undo" style="margin-right:8px;"></i>14 днів на повернення</span>
                 </div>
+
             </div>
         </div>
     </section>
 
-    <!-- STORY / VALUES -->
-    <section class="section bg-white">
+    <!-- PHILOSOPHY: OUR PRINCIPLES -->
+    <section class="section" style="background-color: var(--bg-main); padding: 100px 0;">
         <div class="container">
-            <div
-                style="display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap:60px; align-items:center;">
-                <div>
-                    <img src="img/story-v60.png" alt="Pour over coffee"
-                        style="border-radius:4px; box-shadow:var(--shadow-soft);">
+            <div class="philosophy-grid"
+                style="display:grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;">
+
+                <!-- Visual Side -->
+                <div class="philosophy-visual" style="display:grid; grid-template-columns: repeat(2, 1fr); gap: 20px;">
+                    <img src="https://images.unsplash.com/photo-1611162458324-a2286330a91f?w=600"
+                        style="border-radius: var(--radius); width:100%; height:280px; object-fit:cover; margin-top: 40px;">
+                    <img src="https://images.unsplash.com/photo-1525081905268-fc0b46e9d727?w=600"
+                        style="border-radius: var(--radius); width:100%; height:280px; object-fit:cover;">
                 </div>
-                <div>
-                    <h4>Філософія EthioDirect</h4>
-                    <h2>Більше, ніж просто зерно</h2>
-                    <p>Ми віримо, що ранковий ритуал має бути бездоганним. Тому ми прибрали всіх посередників між вами
-                        та ефіопським фермером.</p>
-                    <ul style="list-style:none; margin:20px 0;">
-                        <li style="margin-bottom:15px;"><i class="fas fa-check text-accent"
-                                style="margin-right:10px;"></i> Лише Specialty Grade (85+ балів)</li>
-                        <li style="margin-bottom:15px;"><i class="fas fa-check text-accent"
-                                style="margin-right:10px;"></i> Обсмажка під замовлення</li>
-                        <li style="margin-bottom:15px;"><i class="fas fa-check text-accent"
-                                style="margin-right:10px;"></i> Прозора історія кожного лоту</li>
-                    </ul>
-                    <a href="about.html" style="color:var(--accent); font-weight:600; text-decoration:underline;">Читати
-                        історію →</a>
+
+                <!-- Content Side -->
+                <div class="philosophy-content">
+                    <h4
+                        style="color: var(--secondary); text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem; margin-bottom: 16px;">
+                        Філософія EthioDirect</h4>
+                    <h2
+                        style="font-family: var(--font-heading); font-size: 3rem; color: var(--text-main); line-height: 1.2; margin-bottom: 32px;">
+                        Більше, ніж просто зерно.<br>Це історія походження.
+                    </h2>
+
+                    <div class="principles-list" style="display:flex; flex-direction:column; gap: 30px;">
+                        <div class="principle-item" style="display:flex; gap: 20px;">
+                            <div class="icon-box"
+                                style="width: 50px; height: 50px; background: #EFEBE0; border-radius: 50%; display:flex; align-items:center; justify-content:center; color: var(--secondary); flex-shrink:0;">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <div>
+                                <h3 style="font-family: var(--font-heading); font-size: 1.25rem; margin-bottom: 8px;">
+                                    Specialty Grade (85+)</h3>
+                                <p style="font-size: 0.95rem; color: var(--text-secondary);">Ми відбираємо лише 2%
+                                    найкращого врожаю. Жодних компромісів з якістю.</p>
+                            </div>
+                        </div>
+
+                        <div class="principle-item" style="display:flex; gap: 20px;">
+                            <div class="icon-box"
+                                style="width: 50px; height: 50px; background: #EFEBE0; border-radius: 50%; display:flex; align-items:center; justify-content:center; color: var(--secondary); flex-shrink:0;">
+                                <i class="fas fa-fire"></i>
+                            </div>
+                            <div>
+                                <h3 style="font-family: var(--font-heading); font-size: 1.25rem; margin-bottom: 8px;">
+                                    Обсмажка під замовлення</h3>
+                                <p style="font-size: 0.95rem; color: var(--text-secondary);">Кава потрапляє в піч лише
+                                    після того, як ви натиснете кнопку "Купити".</p>
+                            </div>
+                        </div>
+
+                        <div class="principle-item" style="display:flex; gap: 20px;">
+                            <div class="icon-box"
+                                style="width: 50px; height: 50px; background: #EFEBE0; border-radius: 50%; display:flex; align-items:center; justify-content:center; color: var(--secondary); flex-shrink:0;">
+                                <i class="fas fa-hand-holding-heart"></i>
+                            </div>
+                            <div>
+                                <h3 style="font-family: var(--font-heading); font-size: 1.25rem; margin-bottom: 8px;">
+                                    Чесна ціна для фермера</h3>
+                                <p style="font-size: 0.95rem; color: var(--text-secondary);">Ми платимо на 30% вище
+                                    ринкової ціни, підтримуючи розвиток регіону.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
             </div>
         </div>
     </section>
