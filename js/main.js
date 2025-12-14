@@ -2,12 +2,12 @@
 
 /* --- DATA --- */
 const PRODUCTS = [
-    { id: 1, name: 'Сидамо', region: 'Sidamo', desc: 'Классический эфиопский. Шоколад, орехи, мягкая кислинка.', price: 240, weight: 250, roast: 'medium', taste: ['🍫', '🥜'], method: ['espresso', 'turka'], image: 'https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=800' },
-    { id: 2, name: 'Йіргачеффе', region: 'Yirgacheffe', desc: 'Цветочный, цитрусовый. Идеален для фильтра.', price: 280, weight: 250, roast: 'light', taste: ['🌸', '🍋'], method: ['filter'], image: 'https://images.unsplash.com/photo-1583689426955-f21509a25b2a?w=800' },
-    { id: 3, name: 'Гуджі Натурал', region: 'Guji', desc: 'Ягодний вибух. Полуниця, манго, мед.', price: 320, weight: 250, roast: 'light', taste: ['🍓', '🥭'], method: ['filter'], image: 'https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=800' },
-    { id: 4, name: 'Еспресо Бленд', region: 'Blend', desc: 'Стабільний смак для еспресо. Шоколад, карамель.', price: 220, weight: 250, roast: 'dark', taste: ['🍫', '🍬'], method: ['espresso'], image: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=600&q=80' },
-    { id: 5, name: 'Лімму', region: 'Limmu', desc: 'Збалансований. Зелене яблуко, карамель.', price: 260, weight: 250, roast: 'medium', taste: ['🍏', '🍬'], method: ['espresso', 'filter'], image: 'https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&w=600&q=80' },
-    { id: 6, name: 'Харар', region: 'Harrar', desc: 'Дикий. Чорниця, вино, спеції.', price: 340, weight: 250, roast: 'light', taste: ['🫐', '🍷'], method: ['filter'], image: 'https://images.unsplash.com/photo-1442512595331-e89e7385a861?auto=format&fit=crop&w=600&q=80' }
+    { id: 1, name: 'Сидамо', region: 'Sidamo', desc: 'Классический эфиопский. Шоколад, орехи, мягкая кислинка.', price: 240, weight: 250, roast: 'medium', taste: ['🍫', '🥜'], method: ['espresso', 'turka'], image: 'https://images.unsplash.com/photo-1587734195507-6b7c8b6a3e5a?w=800' },
+    { id: 2, name: 'Йіргачеффе', region: 'Yirgacheffe', desc: 'Цветочный, цитрусовый. Идеален для фильтра.', price: 280, weight: 250, roast: 'light', taste: ['🌸', '🍋'], method: ['filter'], image: 'https://images.unsplash.com/photo-1510707577719-ae7c9b788690?w=800' },
+    { id: 3, name: 'Гуджі Натурал', region: 'Guji', desc: 'Ягодний вибух. Полуниця, манго, мед.', price: 320, weight: 250, roast: 'light', taste: ['🍓', '🥭'], method: ['filter'], image: 'https://images.unsplash.com/photo-1621262974917-76b4a39f60af?w=800' },
+    { id: 4, name: 'Еспресо Бленд', region: 'Blend', desc: 'Стабільний смак для еспресо. Шоколад, карамель.', price: 220, weight: 250, roast: 'dark', taste: ['🍫', '🍬'], method: ['espresso'], image: 'https://images.unsplash.com/photo-1611854779393-1b2ae9d98e70?w=800' },
+    { id: 5, name: 'Лімму', region: 'Limmu', desc: 'Збалансований. Зелене яблуко, карамель.', price: 260, weight: 250, roast: 'medium', taste: ['🍏', '🍬'], method: ['espresso', 'filter'], image: 'https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=800' },
+    { id: 6, name: 'Харар', region: 'Harrar', desc: 'Дикий. Чорниця, вино, спеції.', price: 340, weight: 250, roast: 'light', taste: ['🫐', '🍷'], method: ['filter'], image: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=800' }
 ];
 
 const SUBSCRIPTION_PLANS = [
@@ -157,11 +157,53 @@ function renderShop(filter = 'all') {
     if (!grid) return;
     grid.innerHTML = '';
     let filtered = PRODUCTS;
+
+    // Filter by Category/Roast/Method
     if (filter !== 'all') {
         filtered = PRODUCTS.filter(p => p.roast === filter || p.method.includes(filter));
     }
+
+    // Filter by Price
+    const minPrice = document.getElementById('price-min') ? parseInt(document.getElementById('price-min').value) || 0 : 0;
+    const maxPrice = document.getElementById('price-max') ? parseInt(document.getElementById('price-max').value) || 10000 : 10000;
+
+    filtered = filtered.filter(p => p.price >= minPrice && p.price <= maxPrice);
+
+    if (filtered.length === 0) {
+        grid.innerHTML = '<p class="text-center" style="grid-column:1/-1; padding:40px;">Товарів не знайдено 😔</p>';
+        return;
+    }
+
     filtered.forEach(p => grid.innerHTML += createProductCard(p));
 }
+
+function applyPriceFilter() {
+    // Determine active category filter if any, otherwise 'all'
+    const activeBtn = document.querySelector('.filter-btn.active');
+    const currentCategory = activeBtn ? activeBtn.dataset.filter : 'all';
+    renderShop(currentCategory);
+}
+
+// Mobile Menu Toggle
+document.addEventListener('DOMContentLoaded', () => {
+    const toggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('.nav-desktop');
+    if (toggle && nav) {
+        toggle.addEventListener('click', () => {
+            nav.classList.toggle('active');
+            // Change icon
+            const icon = toggle.querySelector('i');
+            if (nav.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+    }
+});
+
 
 function createProductCard(p) {
     return `
