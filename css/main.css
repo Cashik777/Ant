@@ -18,11 +18,13 @@
     --accent-gold: #D4A55A;
     /* Luxury / Price / Value */
 
+    --text-main: #E3D4B5;
+    /* Coffee Tint (Yellowish Cream) for main headings/nav */
     --text-dark: #1A0F0B;
     /* On Parchment */
-    --text-light: #FAF7F2;
+    --text-light: #F9F9F9;
     /* On Earth (Steam White) */
-    --text-muted: #7A6A5C;
+    --text-muted: #999;
     /* Secondary / Meta */
 
     --success: #3D5A40;
@@ -192,11 +194,13 @@ img {
 }
 
 .nav-link {
-    color: var(--text-light);
-    font-size: 0.9rem;
+    color: var(--text-main);
+    text-decoration: none;
     font-weight: 500;
+    font-size: 0.95rem;
+    transition: var(--transition);
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
     opacity: 0.8;
 }
 
@@ -210,6 +214,13 @@ img {
     display: flex;
     gap: 20px;
     align-items: center;
+    color: var(--text-main);
+}
+
+.header-actions i {
+    cursor: pointer;
+    transition: var(--transition);
+    color: var(--text-main);
 }
 
 .cart-trigger {
