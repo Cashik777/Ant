@@ -73,14 +73,14 @@
                                 style="margin-bottom:15px; font-size:1rem; text-transform:uppercase; letter-spacing:1px; color:#333;">
                                 Ціна (₴)</h3>
                             <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
-                                <input type="number" id="price-min" placeholder="0" value="0"
-                                    style="width:100%; padding:10px; border:1px solid #ddd; border-radius:6px; font-size:0.9rem;">
+                                <input type="number" id="price-min" placeholder="0" value=""
+                                    style="width:100%; padding:10px; border:1px solid #ddd; border-radius:6px; font-size:0.9rem;"
+                                    oninput="applyPriceFilter()">
                                 <span style="color:#999;">—</span>
-                                <input type="number" id="price-max" placeholder="2000" value="2000"
-                                    style="width:100%; padding:10px; border:1px solid #ddd; border-radius:6px; font-size:0.9rem;">
+                                <input type="number" id="price-max" placeholder="2000" value=""
+                                    style="width:100%; padding:10px; border:1px solid #ddd; border-radius:6px; font-size:0.9rem;"
+                                    oninput="applyPriceFilter()">
                             </div>
-                            <button id="apply-price" class="btn btn-primary btn-sm" style="width:100%;"
-                                onclick="applyPriceFilter()">Застосувати</button>
                         </div>
 
                         <!-- Roast Level Filter -->
