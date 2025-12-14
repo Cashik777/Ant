@@ -1,81 +1,410 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="uk">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Кофе Premium — EthioDirect</title>
-
-    <!-- FONTS & ICONS -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700&display=swap"
-        rel="stylesheet">
+    <title id="product-title">Кава Specialty — EthioDirect</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- STYLES -->
     <link rel="stylesheet" href="css/main.css">
-    <style>
-        .p-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: start;
-        }
-
-        @media(max-width: 768px) {
-            .p-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="css/product-page.css">
 </head>
 
 <body>
-    <!-- HEADER INJECTED -->
 
-    <main class="section bg-surface" style="padding-top: 50px;">
-        <div class="container p-grid">
-            <!-- GALLERY -->
-            <div class="p-gallery">
-                <div class="p-img-wrap"
-                    style="aspect-ratio: 1; background: white; border-radius: var(--radius-md); overflow: hidden;">
-                    <img id="p-main-img" src="" alt="Product Image"
-                        style="width: 100%; height: 100%; object-fit: contain;">
-                </div>
-            </div>
-
-            <!-- INFO -->
-            <div class="p-details">
-                <a href="shop.html"
-                    style="color: #999; font-size: 0.9rem; margin-bottom: 20px; display: inline-block;">&larr; Назад</a>
-
-                <h1 id="p-title" style="font-size: 3rem; margin-bottom: 20px;">Название</h1>
-                <div id="p-price"
-                    style="font-size: 2rem; color: var(--primary); font-weight: 600; margin-bottom: 30px;">0 ₴</div>
-
-                <p id="p-desc" style="font-size: 1.1rem; color: #555; margin-bottom: 40px;">
-                    Описание...
-                </p>
-
-                <!-- ACTIONS -->
-                <div
-                    style="background: white; padding: 30px; border-radius: var(--radius-md); box-shadow: var(--shadow-subtle);">
-                    <button class="btn btn-primary" id="add-to-cart-btn" style="width: 100%; margin-bottom: 15px;">
-                        В корзину (Разовая)
-                    </button>
-                    <button class="btn btn-secondary" onclick="window.location.href='subscription.html'"
-                        style="width: 100%;">
-                        Оформить подписку (-15%)
-                    </button>
-                </div>
+    <header class="header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">
+                <i class="fas fa-leaf text-accent" style="color:var(--accent);"></i>
+                <span style="font-family:var(--font-heading); letter-spacing:1px; font-size:1.5rem;">EthioDirect</span>
+            </a>
+            <nav class="nav-desktop">
+                <a href="shop.html" class="nav-link">Каталог</a>
+                <a href="subscription.html" class="nav-link">Підписка</a>
+                <a href="blog.html" class="nav-link">Історії</a>
+                <a href="about.html" class="nav-link">Про нас</a>
+            </nav>
+            <div class="header-actions">
+                <a href="account.html" class="nav-link"><i class="far fa-user"></i></a>
+                <div class="cart-trigger"><i class="fas fa-shopping-cart"></i><span class="cart-count">0</span></div>
             </div>
         </div>
+    </header>
+
+    <div class="overlay"></div>
+    <div class="drawer">
+        <div class="drawer-header">
+            <h3>Ваш кошик</h3><span class="cart-close" style="cursor:pointer;font-size:1.5rem;">&times;</span>
+        </div>
+        <div class="drawer-body" id="cart-list"></div>
+        <div class="drawer-footer">
+            <div style="display:flex;justify-content:space-between;margin-bottom:15px;font-weight:600;">
+                <span>Разом:</span><span id="cart-total">0 ₴</span>
+            </div>
+            <button class="btn btn-primary" style="width:100%;">Оформити замовлення</button>
+        </div>
+    </div>
+
+    <main>
+        <section class="section" style="padding-top:120px; background:white;">
+            <div class="container">
+                <!-- Breadcrumbs -->
+                <nav class="breadcrumbs" style="margin-bottom:30px;">
+                    <a href="index.html">Головна</a>
+                    <span>›</span>
+                    <a href="shop.html">Каталог</a>
+                    <span>›</span>
+                    <span id="breadcrumb-product">Завантаження...</span>
+                </nav>
+
+                <!-- Product Layout -->
+                <div class="product-layout">
+                    <!-- Left: Gallery -->
+                    <div class="product-gallery">
+                        <div class="gallery-main">
+                            <img id="main-image" src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=600"
+                                alt="Product">
+                            <button class="gallery-zoom" onclick="openImageModal()"><i
+                                    class="fas fa-search-plus"></i></button>
+                        </div>
+                        <div class="gallery-thumbs">
+                            <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=150" alt="View 1"
+                                onclick="changeMainImage(this.src)">
+                            <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=150" alt="View 2"
+                                onclick="changeMainImage(this.src)">
+                            <img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=150" alt="View 3"
+                                onclick="changeMainImage(this.src)">
+                            <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?w=150" alt="View 4"
+                                onclick="changeMainImage(this.src)">
+                        </div>
+                    </div>
+
+                    <!-- Right: Product Info -->
+                    <div class="product-info">
+                        <div class="product-badges">
+                            <span class="badge badge-new">New</span>
+                            <span class="badge badge-specialty">Specialty</span>
+                        </div>
+
+                        <h1 id="product-name">Завантаження...</h1>
+                        <p class="product-region" id="product-region">Регіон: Завантаження...</p>
+
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="rating-count">(24 відгуки)</span>
+                        </div>
+
+                        <div class="product-price" id="product-price-display">
+                            <span class="price-current">250 ₴</span>
+                            <span class="price-per-kg">/ 250г</span>
+                        </div>
+
+                        <div class="product-taste" id="product-taste">
+                            <strong>Смакові ноти:</strong>
+                            <div class="taste-tags">
+                                <span class="taste-tag">🍫 Шоколад</span>
+                                <span class="taste-tag">🍓 Ягоди</span>
+                                <span class="taste-tag">🌸 Квіти</span>
+                            </div>
+                        </div>
+
+                        <div class="product-quick-specs">
+                            <div class="spec-item">
+                                <i class="fas fa-fire"></i>
+                                <div>
+                                    <small>Обсмажка</small>
+                                    <strong id="spec-roast">Середня</strong>
+                                </div>
+                            </div>
+                            <div class="spec-item">
+                                <i class="fas fa-weight"></i>
+                                <div>
+                                    <small>Вага</small>
+                                    <strong id="spec-weight">250г</strong>
+                                </div>
+                            </div>
+                            <div class="spec-item">
+                                <i class="fas fa-coffee"></i>
+                                <div>
+                                    <small>Спосіб</small>
+                                    <strong id="spec-method">Універсальна</strong>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="product-actions">
+                            <div class="quantity-selector">
+                                <button onclick="changeQuantity(-1)">−</button>
+                                <input type="number" id="quantity" value="1" min="1" max="10" readonly>
+                                <button onclick="changeQuantity(1)">+</button>
+                            </div>
+                            <button class="btn btn-primary btn-add-to-cart" onclick="addToCartFromProduct()">
+                                <i class="fas fa-shopping-cart"></i> Додати в кошик
+                            </button>
+                            <button class="btn btn-outline" onclick="window.location.href='subscription.html'">
+                                <i class="fas fa-sync-alt"></i> Підписатись
+                            </button>
+                        </div>
+
+                        <div class="product-guarantees">
+                            <div class="guarantee-item">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Гарантія свіжості</span>
+                            </div>
+                            <div class="guarantee-item">
+                                <i class="fas fa-truck"></i>
+                                <span>Безкоштовна доставка від 500₴</span>
+                            </div>
+                            <div class="guarantee-item">
+                                <i class="fas fa-undo"></i>
+                                <span>Повернення 14 днів</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Tabs -->
+                <div class="product-tabs-container">
+                    <div class="tabs-nav">
+                        <button class="tab-btn active" data-tab="description">Опис</button>
+                        <button class="tab-btn" data-tab="specs">Характеристики</button>
+                        <button class="tab-btn" data-tab="brewing">Як заварювати</button>
+                        <button class="tab-btn" data-tab="reviews">Відгуки (24)</button>
+                    </div>
+
+                    <div class="tabs-content">
+                        <!-- Tab 1: Description -->
+                        <div class="tab-pane active" id="tab-description">
+                            <h3>Про цю каву</h3>
+                            <p id="product-description">Ця кава вирощена в екологічно чистих регіонах Ефіопії на висоті
+                                понад 1800 метрів над рівнем моря. Традиційна обробка та ручний збір урожаю забезпечують
+                                виняткову якість кожного зерна.</p>
+                            <p>Ідеально підходить як для еспресо, так і для альтернативних методів заварювання.
+                                Збалансований профіль смаку робить цю каву улюбленицею як початківців, так і досвідчених
+                                кавоманів.</p>
+                        </div>
+
+                        <!-- Tab 2: Specifications -->
+                        <div class="tab-pane" id="tab-specs">
+                            <h3>Детальні характеристики</h3>
+                            <table class="specs-table">
+                                <tr>
+                                    <td><strong>Регіон:</strong></td>
+                                    <td id="specs-region">-</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Обробка:</strong></td>
+                                    <td>Мита (Washed)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Висота вирощування:</strong></td>
+                                    <td>1800-2100 м</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Сорт:</strong></td>
+                                    <td>100% Arabica</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Обсмажка:</strong></td>
+                                    <td id="specs-roast">-</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>SCA оцінка:</strong></td>
+                                    <td>85+</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Кислотність:</strong></td>
+                                    <td>Середня</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Тіло:</strong></td>
+                                    <td>Середнє</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Вага:</strong></td>
+                                    <td>250г</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Упаковка:</strong></td>
+                                    <td>Крафт-пакет з клапаном</td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <!-- Tab 3: Brewing -->
+                        <div class="tab-pane" id="tab-brewing">
+                            <h3>Рекомендації по завар��ванню</h3>
+
+                            <div class="brewing-method">
+                                <h4><i class="fas fa-coffee"></i> Еспресо</h4>
+                                <p><strong>Дозування:</strong> 18г кави на 36г напою (1:2)</p>
+                                <p><strong>Помел:</strong> Дрібний</p>
+                                <p><strong>Температура:</strong> 92-94°C</p>
+                                <p><strong>Час екстракції:</strong> 25-30 секунд</p>
+                            </div>
+
+                            <div class="brewing-method">
+                                <h4><i class="fas fa-filter"></i> V60 / Пур-овер</h4>
+                                <p><strong>Дозування:</strong> 15г кави на 250мл води (1:16)</p>
+                                <p><strong>Помел:</strong> Середній</p>
+                                <p><strong>Температура:</strong> 93-96°C</p>
+                                <p><strong>Час:</strong> 2:30-3:00 хвилин</p>
+                            </div>
+
+                            <div class="brewing-method">
+                                <h4><i class="fas fa-mug-hot"></i> Френч-прес</h4>
+                                <p><strong>Дозування:</strong> 30г кави на 500мл води (1:16)</p>
+                                <p><strong>Помел:</strong> Грубий</p>
+                                <p><strong>Температура:</strong> 93-95°C</p>
+                                <p><strong>Час:</strong> 4-5 хвилин</p>
+                            </div>
+                        </div>
+
+                        <!-- Tab 4: Reviews -->
+                        <div class="tab-pane" id="tab-reviews">
+                            <div class="reviews-summary">
+                                <div class="reviews-average">
+                                    <div class="avg-number">4.5</div>
+                                    <div class="avg-stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                    <div class="reviews-total">На основі 24 відгуків</div>
+                                </div>
+                                <div class="reviews-bars">
+                                    <div class="rating-bar"><span>5★</span>
+                                        <div class="bar">
+                                            <div class="fill" style="width:70%"></div>
+                                        </div><span>17</span>
+                                    </div>
+                                    <div class="rating-bar"><span>4★</span>
+                                        <div class="bar">
+                                            <div class="fill" style="width:20%"></div>
+                                        </div><span>5</span>
+                                    </div>
+                                    <div class="rating-bar"><span>3★</span>
+                                        <div class="bar">
+                                            <div class="fill" style="width:8%"></div>
+                                        </div><span>2</span>
+                                    </div>
+                                    <div class="rating-bar"><span>2★</span>
+                                        <div class="bar">
+                                            <div class="fill" style="width:0%"></div>
+                                        </div><span>0</span>
+                                    </div>
+                                    <div class="rating-bar"><span>1★</span>
+                                        <div class="bar">
+                                            <div class="fill" style="width:0%"></div>
+                                        </div><span>0</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="reviews-list">
+                                <div class="review-card">
+                                    <div class="review-header">
+                                        <div class="review-author">
+                                            <div class="author-avatar">О</div>
+                                            <div>
+                                                <strong>Олена К.</strong>
+                                                <span class="review-date">15 грудня 2024</span>
+                                            </div>
+                                        </div>
+                                        <div class="review-stars">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                    </div>
+                                    <p class="review-text">Чудова кава! Смак збалансований, аромат неймовірний. Замовляю
+                                        вже вдруге. Рекомендую для ранкової кави.</p>
+                                    <div class="review-verified">✓ Підтверджена покупка</div>
+                                </div>
+
+                                <div class="review-card">
+                                    <div class="review-header">
+                                        <div class="review-author">
+                                            <div class="author-avatar">М</div>
+                                            <div>
+                                                <strong>Максим В.</strong>
+                                                <span class="review-date">10 грудня 2024</span>
+                                            </div>
+                                        </div>
+                                        <div class="review-stars">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="far fa-star"></i>
+                                        </div>
+                                    </div>
+                                    <p class="review-text">Добра кава за свої гроші. Трохи кисла для мене, але загалом
+                                        якість відмінна. Доставка швидка.</p>
+                                    <div class="review-verified">✓ Підтверджена покупка</div>
+                                </div>
+
+                                <button class="btn btn-outline" style="margin-top:30px;">Показати всі відгуки</button>
+                            </div>
+
+                            <div class="review-form-section">
+                                <h3>Залишити відгук</h3>
+                                <form class="review-form" onsubmit="submitReview(event)">
+                                    <div class="form-group">
+                                        <label>Ваша оцінка:</label>
+                                        <div class="star-input">
+                                            <i class="far fa-star" data-rating="1"></i>
+                                            <i class="far fa-star" data-rating="2"></i>
+                                            <i class="far fa-star" data-rating="3"></i>
+                                            <i class="far fa-star" data-rating="4"></i>
+                                            <i class="far fa-star" data-rating="5"></i>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Ваше ім'я:</label>
+                                        <input type="text" required placeholder="Введіть ваше ім'я">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Відгук:</label>
+                                        <textarea required placeholder="Поділіться враженнями про цю каву..."
+                                            rows="5"></textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Надіслати відгук</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Related Products -->
+                <div class="related-products">
+                    <h2>Схожі товари</h2>
+                    <div class="products-grid" id="related-products">
+                        <!-- JS Injected -->
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <script src="js/data.js"></script>
-    <script src="js/components.js"></script>
+    <!-- Image Modal -->
+    <div id="image-modal" class="image-modal" onclick="closeImageModal()">
+        <span class="modal-close">&times;</span>
+        <img class="modal-image" id="modal-image" src="">
+    </div>
+
     <script src="js/main.js"></script>
+    <script src="js/product-page.js"></script>
 </body>
 
 </html>
