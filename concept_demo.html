@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EthioDirect Rebrand Concept</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-earth: #1C1814;
+            --bg-parchment: #F5F1EB;
+            --accent-fire: #C34923;
+            --accent-fire-dim: #A53A1B;
+            --accent-gold: #D4A55A;
+            --text-dark: #1A0F0B;
+            --text-light: #FAF7F2;
+            --text-muted: #7A6A5C;
+        }
+
+        body {
+            margin: 0;
+            background-color: var(--bg-earth);
+            color: var(--text-light);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* HEADER (Simplified for Demo) */
+        header {
+            padding: 30px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--text-light);
+            letter-spacing: 1px;
+        }
+
+        .logo i {
+            color: var(--accent-gold);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            position: relative;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 5%;
+            background: radial-gradient(circle at 70% 50%, rgba(195, 73, 35, 0.15), transparent 60%);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            max-width: 1300px;
+            width: 100%;
+        }
+
+        .hero-content h1 {
+            font-size: 4.5rem;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+        }
+
+        .hero-content p {
+            font-size: 1.15rem;
+            color: rgba(250, 247, 242, 0.8);
+            margin-bottom: 40px;
+            max-width: 500px;
+            line-height: 1.7;
+            border-left: 2px solid var(--accent-gold);
+            padding-left: 20px;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .btn {
+            padding: 16px 32px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-fire);
+            color: white;
+            border: none;
+            box-shadow: 0 10px 30px rgba(195, 73, 35, 0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-fire-dim);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(195, 73, 35, 0.5);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid var(--accent-fire);
+            color: var(--text-light);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent-gold);
+            color: var(--accent-gold);
+        }
+
+        .hero-image-box {
+            position: relative;
+        }
+
+        .hero-image-box img {
+            width: 100%;
+            border-radius: 4px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            /* Placeholder for the macro shot described */
+            filter: brightness(0.9) contrast(1.1);
+        }
+
+        .trust-badges {
+            margin-top: 40px;
+            display: flex;
+            gap: 20px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .trust-badges i {
+            color: var(--accent-gold);
+            margin-right: 8px;
+        }
+
+        /* PRODUCT CARD DEMO (Curated Collection) */
+        .section-demo {
+            padding: 100px 5%;
+            background: linear-gradient(to bottom, var(--bg-earth), #25201c);
+            text-align: center;
+        }
+
+        .card-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 60px;
+        }
+
+        .product-card {
+            background: var(--bg-parchment);
+            color: var(--text-dark);
+            width: 380px;
+            border-radius: 2px;
+            overflow: hidden;
+            position: relative;
+            text-align: left;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        .badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: var(--accent-fire);
+            color: white;
+            padding: 8px 16px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            z-index: 2;
+        }
+
+        .card-img {
+            height: 300px;
+            width: 100%;
+            object-fit: cover;
+            /* Placeholder: Coffee bag on grain */
+            background-color: #ddd;
+        }
+
+        .card-body {
+            padding: 30px;
+        }
+
+        .card-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin: 0 0 10px 0;
+            color: var(--text-dark);
+        }
+
+        .card-desc {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .card-metrics {
+            display: flex;
+            gap: 15px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 25px;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            padding-top: 15px;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .price {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+        }
+
+        .btn-card {
+            background: var(--accent-fire);
+            color: white;
+            border: none;
+            padding: 14px 28px;
+            text-transform: uppercase;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-card:hover {
+            background: #A53A1B;
+        }
+
+        .stock-indicator {
+            margin-top: 15px;
+            font-size: 0.8rem;
+            color: #888;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo"><i class="fas fa-coffee"></i> ETHIODIRECT</div>
+        <nav style="display:flex; gap:30px;">
+            <a href="#" style="color:white; text-decoration:none;">Каталог</a>
+            <a href="#" style="color:var(--accent-gold); text-decoration:none;">Підписка</a>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION DEMO -->
+    <section class="hero">
+        <div class="hero-grid">
+            <div class="hero-content">
+                <h1>Кава, що просилася до вас</h1>
+                <p>Прямі поставки з висот Ефіопії. Обсмажуємо індивідуально після вашого замовлення. Ваша перша чашка —
+                    через 48 годин.</p>
+
+                <div class="btn-group">
+                    <a href="#" class="btn btn-primary">Обрати каву зараз</a>
+                    <a href="#" class="btn btn-secondary">Пройти тест смаку</a>
+                </div>
+
+                <div class="trust-badges">
+                    <span><i class="fas fa-truck"></i> Безкоштовна доставка >500₴</span>
+                    <span><i class="fas fa-fire"></i> Найсвіжіша обсмажка</span>
+                </div>
+            </div>
+
+            <div class="hero-image-box">
+                <!-- Using a placeholder image that fits the "dark/macro" vibe -->
+                <img src="https://images.unsplash.com/photo-1610632380989-680fe40816c6?q=80&w=800&auto=format&fit=crop"
+                    alt="EthioDirect Beans">
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUCT CARD DEMO -->
+    <section class="section-demo">
+        <h2 style="color:var(--text-light); margin-bottom:10px;">Найкраще з ефіопських висот</h2>
+        <p style="color:var(--accent-gold);">Кураторська підбірка specialty лотів</p>
+
+        <div class="card-container">
+            <div class="product-card">
+                <div class="badge">Бестселер</div>
+                <!-- Using a visually compatible image -->
+                <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?q=80&w=600&auto=format&fit=crop"
+                    class="card-img" alt="Coffee Bag">
+
+                <div class="card-body">
+                    <h3 class="card-title">Sidamo Grade 1</h3>
+                    <p class="card-desc">Глибокий шоколад, лісовий горіх, чорнослив</p>
+
+                    <div class="card-metrics">
+                        <span><i class="fas fa-mountain"></i> 2100м</span>
+                        <span><i class="fas fa-fire"></i> Середня</span>
+                    </div>
+
+                    <div class="card-footer">
+                        <div class="price">420₴</div>
+                        <button class="btn-card">Додати в кошик</button>
+                    </div>
+
+                    <div class="stock-indicator">
+                        <i class="fas fa-circle" style="color: var(--accent-fire); font-size: 8px;"></i>
+                        У наявності: 12 пачок (обсмажка сьогодні)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+
+</html>

@@ -205,21 +205,41 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+/* --- UTILS --- */
 function createProductCard(p) {
+    // New Premium Card Structure (Dark/Parchment Theme)
+    const delay = Math.floor(Math.random() * 200); // Stagger animation
+    const badge = p.id === 1 ? '<div class="p-badge">Бестселер</div>' : (p.id === 6 ? '<div class="p-badge" style="background:var(--accent-gold);">Raritety</div>' : '');
+
     return `
-    <div class="product-card">
-        <a href="product.html?id=${p.id}"><img src="${p.image}" alt="${p.name}"></a>
-        <div class="p-body">
-            <div class="p-region">${p.region}</div>
-            <h3><a href="product.html?id=${p.id}">${p.name}</a></h3>
-            <div class="p-taste">${p.taste.join(' ')}</div>
-            <div class="p-price">${p.price} ${store.currency} / ${p.weight}г</div>
-            <div class="p-actions">
-                <button class="btn btn-primary btn-sm" onclick="addToCart(${p.id})">Купити</button>
-                <button class="btn btn-outline btn-sm" onclick="location.href='subscription.html?product=${p.id}'">Підписка -10%</button>
+    <div class="product-card" style="animation: fadeIn 0.5s ${delay}ms forwards;">
+        ${badge}
+        <div class="p-img-box">
+            <a href="product.html?id=${p.id}">
+                <img src="${p.image}" alt="${p.name}" loading="lazy">
+            </a>
+        </div>
+        <div class="p-content">
+            <h3 class="p-title">${p.name}</h3>
+            <p class="p-desc">${p.desc}</p>
+            
+            <div class="p-metrics">
+                <span><i class="fas fa-mountain"></i> ${p.region}</span>
+                <span><i class="fas fa-fire"></i> ${p.roast}</span>
+            </div>
+
+            <div class="p-footer">
+                <div class="p-price">${p.price} ₴</div>
+                <div style="font-size:0.8rem; color:#888;">250 г</div>
+            </div>
+
+            <button class="p-btn" onclick="addToCart(${p.id})">Додати в кошик</button>
+            <div style="margin-top:10px; font-size:0.75rem; color:#999; text-align:center;">
+                <i class="fas fa-circle" style="color:var(--accent-fire); font-size:6px;"></i> Обсмажено вчора
             </div>
         </div>
-    </div>`;
+    </div>
+    `;
 }
 
 function initFilters() {
@@ -300,13 +320,17 @@ function renderCart() {
 
 /* --- DRAWER --- */
 function setupDrawer() {
-    document.querySelectorAll('.cart-trigger').forEach(t => t.addEventListener('click', openDrawer));
-    document.querySelectorAll('.cart-close, .overlay').forEach(c => c.addEventListener('click', closeDrawer));
+    const overlay = document.querySelector('.overlay');
+    if (overlay) {
+        overlay.addEventListener('click', closeDrawer);
+    }
 }
+
 function openDrawer() {
     document.querySelector('.drawer')?.classList.add('open');
     document.querySelector('.overlay')?.classList.add('open');
 }
+
 function closeDrawer() {
     document.querySelector('.drawer')?.classList.remove('open');
     document.querySelector('.overlay')?.classList.remove('open');
