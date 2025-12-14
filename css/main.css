@@ -3,42 +3,49 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap');
 
 :root {
-    /* 60% - Backgrounds */
-    --bg-main: #f9f7f2;
-    /* Light Cream */
-    --bg-secondary: #f0eadd;
-    /* Slightly Darker Cream */
+    /* 1. PALETTE: Sensory Basic */
+    --bg-main: #FAF6F2;
+    /* Ivory Crema - Warm Canvas */
+    --bg-card: #FFFFFF;
+    /* Pure White - Cards */
+    --bg-secondary: #F0EADD;
+    /* Slightly darker cream for sections */
 
-    /* 30% - Base Elements / Text */
-    --text-main: #2c241b;
-    /* Deep Coffee / Almost Black */
-    --text-secondary: #5c5046;
-    /* Medium Coffee Grey */
-    --primary: #2c241b;
-    /* Deep Coffee (Brand Base) */
+    /* 2. TEXT: Roasted Tones */
+    --text-main: #2C1810;
+    /* Espresso Roast - Primary Text */
+    --text-secondary: #5D4037;
+    /* Mocha Clay - Secondary Text */
+    --text-light: #8A7A5C;
+    /* Olive Gold - Subtle Text */
 
-    /* 10% - Accents & CTA */
-    --accent: #d94e34;
-    /* Saturated Orange-Red (CTA) */
-    --accent-hover: #c03d25;
+    /* 3. ACCENTS: Earth & Growth */
+    --accent: #A85A3D;
+    /* Terracotta - Primary CTA */
+    --accent-hover: #8B4831;
+    /* Deep Terracotta */
+    --secondary: #8A7A5C;
+    /* Olive Gold - Secondary Elements */
+    --success: #3D5A40;
+    /* Leaf Green - Success/Growth */
 
-    /* Functional */
-    --success: #27ae60;
-    --error: #e74c3c;
-    --border-color: #e0d6cc;
-    --shadow-soft: 0 4px 20px rgba(44, 36, 27, 0.08);
-    /* Warm shadow */
-    --transition: all 0.3s ease;
+    /* 4. UTILITY */
+    --border-color: #E6DCD3;
+    /* Soft Beige Border */
+    --shadow-soft: 0 10px 30px rgba(44, 24, 16, 0.05);
+    /* Warm, subtle shadow */
+    --shadow-hover: 0 20px 40px rgba(44, 24, 16, 0.12);
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
-    /* Typography */
-    --font-heading: 'Outfit', sans-serif;
+    /* 5. TYPOGRAPHY */
+    --font-heading: 'Playfair Display', serif;
+    /* Storytelling */
     --font-body: 'Inter', sans-serif;
+    /* Utility */
 
-    /* Spacing & Effects */
     --header-height: 80px;
-    --radius: 4px;
-    /* More classic/premium sharp corners */
-    --shadow-hover: 0 20px 50px -10px rgba(0, 0, 0, 0.15);
+    --radius: 12px;
+    /* Soft modern corners */
 }
 
 * {
