@@ -64,10 +64,9 @@ h1 {
     font-weight: 700;
     margin-bottom: 20px;
     line-height: 1.1;
-    color: #e0d0b0;
-    /* Matching Coffee Cream */
+    color: #ffd700;
+    /* Rich Gold */
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-    /* Boost readability */
 }
 
 .hero p {
@@ -117,11 +116,11 @@ a {
     transition: var(--transition);
 }
 
-/* HEADER LINKS & ICONS - COFFEE TINT */
+/* HEADER LINKS & ICONS - RICH COFFEE TINT */
 .nav-link {
     font-weight: 600;
-    color: #e0d0b0 !important;
-    /* "Coffee Cream" / Pale Gold */
+    color: #ffd700 !important;
+    /* Rich Gold/Coffee - unmistakable */
     text-transform: uppercase;
     font-size: 0.95rem;
     letter-spacing: 1px;
@@ -131,8 +130,8 @@ a {
 }
 
 .header-actions i {
-    color: #e0d0b0 !important;
-    /* Matching Coffee Cream */
+    color: #ffd700 !important;
+    /* Rich Gold/Coffee */
     font-size: 1.2rem;
     transition: color 0.3s;
 }
@@ -141,24 +140,24 @@ a {
 .nav-link:hover,
 .nav-link.active {
     color: #ffffff !important;
-    /* White on Hover for contrast */
+    /* White on Hover */
 }
 
-/* LOGO - KEEPS THE GOLD SHADE BUT SLIGHTLY RICHER */
+/* LOGO */
 .logo {
-    color: #e0c097 !important;
+    color: #ffd700 !important;
     text-shadow: none;
 }
 
 .logo span {
-    color: #e0c097 !important;
+    color: #ffd700 !important;
 }
 
 .menu-toggle {
     display: none;
     background: none;
     border: none;
-    color: #e0d0b0 !important;
+    color: #ffd700 !important;
     font-size: 1.8rem;
     cursor: pointer;
     z-index: 1002;
@@ -166,7 +165,7 @@ a {
 }
 
 .menu-toggle i {
-    color: #e0d0b0 !important;
+    color: #ffd700 !important;
 }
 
 .nav-link:hover::after,
