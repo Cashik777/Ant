@@ -736,3 +736,25 @@ img {
     left: 50%;
     transform: translateX(-50%);
 }
+
+/* Dashboard Grid Improvements */
+.dash-grid {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 40px;
+}
+
+.dash-sidebar {
+    position: sticky;
+    top: 100px;
+}
+
+@media (max-width: 768px) {
+    .dash-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dash-sidebar {
+        position: static;
+    }
+}
