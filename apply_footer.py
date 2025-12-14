@@ -7,6 +7,8 @@ with open('footer-template.html', 'r', encoding='utf-8') as f:
 
 # List of files to update (excluding ones that already have footer-pro)
 files_to_update = [
+    'shop.html',
+    'index.html',
     'product.html',
     'about.html', 
     'blog.html',
@@ -32,9 +34,9 @@ for filename in files_to_update:
             content = f.read()
         
         # Check if already has footer-pro
-        if 'footer-pro' in content:
-            print(f'Skip: {filename} already has footer-pro')
-            continue
+        # if 'footer-pro' in content:
+        #     print(f'Skip: {filename} already has footer-pro')
+        #     continue
         
         # Find and replace footer section
         # Pattern: from <footer to </footer>
