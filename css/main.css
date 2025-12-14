@@ -98,7 +98,7 @@ a {
     transition: var(--transition);
 }
 
-/* HEADER LINKS & BUTTON - FORCED HIGH CONTRAST */
+/* HEADER LINKS & ICONS - PURE WHITE */
 .nav-link {
     font-weight: 600;
     color: #ffffff !important;
@@ -108,12 +108,30 @@ a {
     padding: 5px 0;
     position: relative;
     transition: color 0.3s;
-    /* Removed text-shadow for cleaner white */
 }
 
+.header-actions i {
+    color: #ffffff !important;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+}
+
+.header-actions i:hover,
 .nav-link:hover,
 .nav-link.active {
-    color: var(--accent) !important;
+    color: #e0c097 !important;
+    /* Soft Coffee Gold on Hover */
+}
+
+/* LOGO - COFFEE GOLD SHADE */
+.logo {
+    color: #e0c097 !important;
+    /* "Coffee with morning change" - pleasant yellow/coffee */
+    text-shadow: none;
+}
+
+.logo span {
+    color: #e0c097 !important;
 }
 
 .menu-toggle {
