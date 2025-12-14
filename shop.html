@@ -21,6 +21,7 @@
             <nav class="nav-desktop">
                 <a href="shop.html" class="nav-link active">Каталог</a>
                 <a href="subscription.html" class="nav-link">Підписка</a>
+                <a href="gift-certificates.html" class="nav-link" style="color:var(--accent);">🎁 Сертифікати</a>
                 <a href="blog.html" class="nav-link">Історії</a>
                 <a href="about.html" class="nav-link">Про нас</a>
             </nav>
@@ -66,77 +67,106 @@
 
                         <!-- Price Range Filter -->
                         <div class="filter-group">
-                            <h4>Ціна</h4>
-                            <div class="price-range">
-                                <input type="range" id="price-min" min="0" max="500" value="0" step="10">
-                                <input type="range" id="price-max" min="0" max="500" value="500" step="10">
-                                <div class="price-display">
-                                    <span id="price-min-display">0</span> ₴ — <span id="price-max-display">500</span> ₴
+                            <h3>Ціна</h3>
+                            <div class="price-input"
+                                style="display:flex; justify-content:space-between; margin-bottom:15px; font-weight:600;">
+                                <div class="field">
+                                    <span>від</span>
+                                    <input type="number" class="input-min" value="0"
+                                        style="width:60px; border:none; background:transparent; font-weight:bold; font-family:inherit;">
+                                    ₴
                                 </div>
-                            </div>
-                        </div>
+                                <div class="field">
+                                    <span>до</span>
+                                    <div class="filter-group">
+                                        <h3>Ціна</h3>
+                                        <div class="price-input"
+                                            style="display:flex; justify-content:space-between; margin-bottom:15px; font-weight:600;">
+                                            <div class="field">
+                                                <span>від</span>
+                                                <input type="number" class="input-min" value="0"
+                                                    style="width:60px; border:none; background:transparent; font-weight:bold; font-family:inherit;">
+                                                ₴
+                                            </div>
+                                            <div class="field">
+                                                <span>до</span>
+                                                <input type="number" class="input-max" value="2000"
+                                                    style="width:60px; border:none; background:transparent; font-weight:bold; font-family:inherit;">
+                                                ₴
+                                            </div>
+                                        </div>
+                                        <div class="price-slider">
+                                            <div class="progress"></div>
+                                        </div>
+                                        <div class="range-input">
+                                            <input type="range" class="range-min" min="0" max="2500" value="0"
+                                                step="50">
+                                            <input type="range" class="range-max" min="0" max="2500" value="2000"
+                                                step="50">
+                                        </div>
+                                    </div>
 
-                        <!-- Roast Level Filter -->
-                        <div class="filter-group">
-                            <h4>Обсмажка</h4>
-                            <label class="filter-checkbox">
-                                <input type="checkbox" data-filter="roast" value="light">
-                                <span>Світла</span>
-                                <small>(фруктова, квіткова)</small>
-                            </label>
-                            <label class="filter-checkbox">
-                                <input type="checkbox" data-filter="roast" value="medium">
-                                <span>Середня</span>
-                                <small>(збалансована)</small>
-                            </label>
-                            <label class="filter-checkbox">
-                                <input type="checkbox" data-filter="roast" value="dark">
-                                <span>Темна</span>
-                                <small>(шоколадна, горіхова)</small>
-                            </label>
-                        </div>
+                                    <!-- Roast Level Filter -->
+                                    <div class="filter-group">
+                                        <h4>Обсмажка</h4>
+                                        <label class="filter-checkbox">
+                                            <input type="checkbox" data-filter="roast" value="light">
+                                            <span>Світла</span>
+                                            <small>(фруктова, квіткова)</small>
+                                        </label>
+                                        <label class="filter-checkbox">
+                                            <input type="checkbox" data-filter="roast" value="medium">
+                                            <span>Середня</span>
+                                            <small>(збалансована)</small>
+                                        </label>
+                                        <label class="filter-checkbox">
+                                            <input type="checkbox" data-filter="roast" value="dark">
+                                            <span>Темна</span>
+                                            <small>(шоколадна, горіхова)</small>
+                                        </label>
+                                    </div>
 
-                        <!-- Taste Notes Filter -->
-                        <div class="filter-group">
-                            <h4>Смакові ноти</h4>
-                            <label class="filter-checkbox">
-                                <input type="checkbox" data-filter="taste" value="chocolate">
-                                <span>🍫 Шоколад і горіхи</span>
-                            </label>
-                            <label class="filter-checkbox">
-                                <input type="checkbox" data-filter="taste" value="fruity">
-                                <span>🍓 Ягоди і фрукти</span>
-                            </label>
-                            <label class="filter-checkbox">
-                                <input type="checkbox" data-filter="taste" value="floral">
-                                <span>🌸 Квіткові ноти</span>
-                            </label>
-                            <label class="filter-checkbox">
-                                <input type="checkbox" data-filter="taste" value="spicy">
-                                <span>🌶️ Пряні</span>
-                            </label>
-                        </div>
+                                    <!-- Taste Notes Filter -->
+                                    <div class="filter-group">
+                                        <h4>Смакові ноти</h4>
+                                        <label class="filter-checkbox">
+                                            <input type="checkbox" data-filter="taste" value="chocolate">
+                                            <span>🍫 Шоколад і горіхи</span>
+                                        </label>
+                                        <label class="filter-checkbox">
+                                            <input type="checkbox" data-filter="taste" value="fruity">
+                                            <span>🍓 Ягоди і фрукти</span>
+                                        </label>
+                                        <label class="filter-checkbox">
+                                            <input type="checkbox" data-filter="taste" value="floral">
+                                            <span>🌸 Квіткові ноти</span>
+                                        </label>
+                                        <label class="filter-checkbox">
+                                            <input type="checkbox" data-filter="taste" value="spicy">
+                                            <span>🌶️ Пряні</span>
+                                        </label>
+                                    </div>
 
-                        <!-- Brewing Method Filter -->
-                        <div class="filter-group">
-                            <h4>Спосіб приготування</h4>
-                            <label class="filter-checkbox">
-                                <input type="checkbox" data-filter="method" value="espresso">
-                                <span>☕ Еспресо</span>
-                            </label>
-                            <label class="filter-checkbox">
-                                <input type="checkbox" data-filter="method" value="filter">
-                                <span>🫖 Фільтр</span>
-                            </label>
-                            <label class="filter-checkbox">
-                                <input type="checkbox" data-filter="method" value="turka">
-                                <span>🔥 Турка</span>
-                            </label>
-                            <label class="filter-checkbox">
-                                <input type="checkbox" data-filter="method" value="french">
-                                <span>🥤 Френч-прес</span>
-                            </label>
-                        </div>
+                                    <!-- Brewing Method Filter -->
+                                    <div class="filter-group">
+                                        <h4>Спосіб приготування</h4>
+                                        <label class="filter-checkbox">
+                                            <input type="checkbox" data-filter="method" value="espresso">
+                                            <span>☕ Еспресо</span>
+                                        </label>
+                                        <label class="filter-checkbox">
+                                            <input type="checkbox" data-filter="method" value="filter">
+                                            <span>🫖 Фільтр</span>
+                                        </label>
+                                        <label class="filter-checkbox">
+                                            <input type="checkbox" data-filter="method" value="turka">
+                                            <span>🔥 Турка</span>
+                                        </label>
+                                        <label class="filter-checkbox">
+                                            <input type="checkbox" data-filter="method" value="french">
+                                            <span>🥤 Френч-прес</span>
+                                        </label>
+                                    </div>
                     </aside>
 
                     <!-- Main Content Area -->

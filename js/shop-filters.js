@@ -3,12 +3,55 @@ let activeFilters = { price: [0, 500], roast: [], taste: [], method: [] };
 
 function initShopFilters() {
     // Price sliders
-    const priceMin = document.getElementById('price-min');
-    const priceMax = document.getElementById('price-max');
-    if (priceMin && priceMax) {
-        priceMin.addEventListener('input', updatePriceFilter);
-        priceMax.addEventListener('input', updatePriceFilter);
+    const rangeInput = document.querySelectorAll(".range-input input"),
+        priceInput = document.querySelectorAll(".price-input input"),
+        range = document.querySelector(".price-slider .progress");
+    let priceGap = 100;
+
+    // Initialize progress bar
+    if (range && rangeInput.length === 2) {
+        let minVal = parseInt(rangeInput[0].value),
+            maxVal = parseInt(rangeInput[1].value);
+        range.style.left = ((minVal / rangeInput[0].max) * 100) + "%";
+        range.style.right = (100 - (maxVal / rangeInput[1].max) * 100) + "%";
     }
+
+    rangeInput.forEach(input => {
+        input.addEventListener("input", e => {
+            let minVal = parseInt(rangeInput[0].value),
+                maxVal = parseInt(rangeInput[1].value);
+
+            if ((maxVal - minVal) < priceGap) {
+                if (e.target.className === "range-min") {
+                    rangeInput[0].value = maxVal - priceGap;
+                } else {
+                    rangeInput[1].value = minVal + priceGap;
+                }
+            } else {
+                priceInput[0].value = minVal;
+                priceInput[1].value = maxVal;
+                range.style.left = ((minVal / rangeInput[0].max) * 100) + "%";
+                range.style.right = (100 - (maxVal / rangeInput[1].max) * 100) + "%";
+            }
+        });
+    });
+
+    priceInput.forEach(input => {
+        input.addEventListener("input", e => {
+            let minPrice = parseInt(priceInput[0].value),
+                maxPrice = parseInt(priceInput[1].value);
+
+            if ((maxPrice - minPrice >= priceGap) && maxPrice <= rangeInput[1].max) {
+                if (e.target.classList.contains("input-min")) {
+                    rangeInput[0].value = minPrice;
+                    range.style.left = ((minPrice / rangeInput[0].max) * 100) + "%";
+                } else {
+                    rangeInput[1].value = maxPrice;
+                    range.style.right = (100 - (maxPrice / rangeInput[1].max) * 100) + "%";
+                }
+            }
+        });
+    });
 
     // Checkboxes
     document.querySelectorAll('.filter-checkbox input').forEach(checkbox => {
@@ -96,14 +139,56 @@ function getTasteCategories(tastes) {
 }
 
 function clearAllFilters() {
-    const priceMin = document.getElementById('price-min');
-    const priceMax = document.getElementById('price-max');
-    if (priceMin && priceMax) {
-        priceMin.value = 0;
-        priceMax.value = 500;
-        document.getElementById('price-min-display').textContent = 0;
-        document.getElementById('price-max-display').textContent = 500;
+    const rangeInput = document.querySelectorAll(".range-input input"),
+        priceInput = document.querySelectorAll(".price-input input"),
+        range = document.querySelector(".price-slider .progress");
+    let priceGap = 100;
+
+    // Initialize progress bar
+    if (range && rangeInput.length === 2) {
+        let minVal = parseInt(rangeInput[0].value),
+            maxVal = parseInt(rangeInput[1].value);
+        range.style.left = ((minVal / rangeInput[0].max) * 100) + "%";
+        range.style.right = (100 - (maxVal / rangeInput[1].max) * 100) + "%";
     }
+
+    rangeInput.forEach(input => {
+        input.addEventListener("input", e => {
+            let minVal = parseInt(rangeInput[0].value),
+                maxVal = parseInt(rangeInput[1].value);
+
+            if ((maxVal - minVal) < priceGap) {
+                if (e.target.className === "range-min") {
+                    rangeInput[0].value = maxVal - priceGap;
+                } else {
+                    rangeInput[1].value = minVal + priceGap;
+                }
+            } else {
+                priceInput[0].value = minVal;
+                priceInput[1].value = maxVal;
+                range.style.left = ((minVal / rangeInput[0].max) * 100) + "%";
+                range.style.right = (100 - (maxVal / rangeInput[1].max) * 100) + "%";
+            }
+        });
+    });
+
+    priceInput.forEach(input => {
+        input.addEventListener("input", e => {
+            let minPrice = parseInt(priceInput[0].value),
+                maxPrice = parseInt(priceInput[1].value);
+
+            if ((maxPrice - minPrice >= priceGap) && maxPrice <= rangeInput[1].max) {
+                if (e.target.classList.contains("input-min")) {
+                    rangeInput[0].value = minPrice;
+                    range.style.left = ((minPrice / rangeInput[0].max) * 100) + "%";
+                } else {
+                    rangeInput[1].value = maxPrice;
+                    range.style.right = (100 - (maxPrice / rangeInput[1].max) * 100) + "%";
+                }
+            }
+        });
+    });
+    document.getElementById('price-max-display').textContent = 500;
     document.querySelectorAll('.filter-checkbox input').forEach(cb => cb.checked = false);
     activeFilters = { price: [0, 500], roast: [], taste: [], method: [] };
     applyFilters();
