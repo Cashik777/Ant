@@ -54,7 +54,7 @@
 
     <!-- HEADER -->
 
-            <header class="header">
+    <header class="header">
         <div class="container header-inner">
             <a href="index.html" class="logo">
                 <i class="fas fa-leaf text-accent"></i>
@@ -95,20 +95,43 @@
     <section class="hero">
         <div class="container text-center">
             <div class="hero-content"
-                style="max-width:800px; margin:0 auto; padding:40px; background:rgba(255,255,255,0.1); backdrop-filter:blur(5px); border:1px solid rgba(255,255,255,0.2);">
-                <h4
-                    style="color:var(--secondary); font-family:var(--font-body); letter-spacing:3px; text-transform:uppercase; margin-bottom:15px;">
-                    Direct Trade Coffee</h4>
-                <h1 style="color:white; font-size:4rem; margin-bottom:20px;">Кава, що змінює ранок</h1>
-                <p style="color:rgba(255,255,255,0.95); font-size:1.3rem; margin-bottom:30px; font-weight:300;">
-                    Прямі поставки з ферм регіону Gedeo. Обсмажено в Одесі. <br>
-                    Сервіс, який дбає про те, щоб у вас завжди була ідеальниа чашка.
+                style="max-width:900px; margin:0 auto; padding:60px 40px; background:rgba(44, 36, 27, 0.7); backdrop-filter:blur(8px); border-radius:4px; border:1px solid rgba(255,255,255,0.1);">
+
+                <!-- Scarcity / Urgency Trigger -->
+                <div
+                    style="display:inline-block; background:rgba(217, 78, 52, 0.2); padding:5px 15px; border-radius:20px; border:1px solid var(--accent); color:#ff6b6b; font-weight:700; font-size:0.85rem; margin-bottom:20px; text-transform:uppercase;">
+                    <i class="fas fa-fire"></i> Лишилося 12 наборів зі знижкою
+                </div>
+
+                <h1 style="color:white; margin-bottom:20px;">Кава, що змінює ранок</h1>
+                <p style="color:rgba(255,255,255,0.9); font-size:1.4rem; margin-bottom:30px; line-height:1.6;">
+                    Прямі поставки з ферм регіону Gedeo. Обсмажено для гурманів.
                 </p>
-                <div style="display:flex;gap:20px;justify-content:center;">
-                    <a href="shop.html" class="btn btn-primary"
-                        style="background:white; color:var(--primary); border:none;">Обрати смак</a>
-                    <a href="quiz.html" class="btn btn-primary"
-                        style="background:transparent; border:1px solid white;">Пройти тест</a>
+
+                <div style="display:flex; flex-direction:column; align-items:center; gap:15px; margin-bottom:30px;">
+                    <div style="display:flex; gap:20px; justify-content:center; flex-wrap:wrap;">
+                        <!-- Primary CTA -->
+                        <a href="subscription.html" class="btn btn-primary"
+                            style="font-size:1.1rem; padding:16px 40px;">
+                            Оформити підписку
+                        </a>
+                        <!-- Secondary CTA -->
+                        <a href="shop.html" class="btn btn-secondary" style="border-color:white; color:white;">
+                            Подивитися каталог
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Trust / Social Proof -->
+                <div
+                    style="display:flex; justify-content:center; align-items:center; gap:15px; color:white; font-size:0.9rem;">
+                    <div style="display:flex; color:#f1c40f;">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <span><b>500+</b> задоволених клієнтів</span>
+                    <span style="opacity:0.6;">|</span>
+                    <span><i class="fas fa-shield-alt"></i> Гарантія повернення</span>
                 </div>
             </div>
         </div>
@@ -433,133 +456,135 @@
     <!-- PROFESSIONAL FOOTER COMPONENT -->
     <!-- PROFESSIONAL FOOTER COMPONENT -->
     <footer class="footer-pro">
-    <div class="container">
-        <!-- Main Footer Content -->
-        <div class="footer-grid">
-            <!-- Column 1: Brand -->
-            <div class="footer-col">
-                <h4 style="font-family:var(--font-heading); font-size:1.5rem; color:white; margin-bottom:20px;">
-                    <a href="index.html" style="text-decoration:none; color:white;">EthioDirect</a>
-                </h4>
-                <p style="color:#aaa; line-height:1.8; margin-bottom:20px;">Ми доставляємо справжню specialty каву прямо
-                    з ефіопських ферм до вашого дому. Свіжа обсмажка, чесна ціна, любов до кави.</p>
-                <div class="social-links">
-                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                    <a href="#" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
-                    <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-                </div>
-            </div>
-
-            <!-- Column 2: Shop -->
-            <div class="footer-col">
-                <h4>Магазин</h4>
-                <ul class="footer-links">
-                    <li><a href="shop.html">Весь каталог</a></li>
-                    <li><a href="subscription.html">Підписка на каву</a></li>
-                    <li><a href="gift-certificates.html">Сертифікати</a></li>
-                    <li><a href="b2b.html">B2B рішення</a></li>
-                    <li><a href="account.html">Особистий кабінет</a></li>
-                </ul>
-            </div>
-
-            <!-- Column 3: Support -->
-            <div class="footer-col">
-                <h4>Підтримка</h4>
-                <ul class="footer-links">
-                    <li><a href="delivery.html">Доставка та оплата</a></li>
-                    <li><a href="return.html">Повернення та обмін</a></li>
-                    <li><a href="faq.html">Часті питання</a></li>
-                    <li><a href="contacts.html">Контакти</a></li>
-                    <li><a href="about.html">Про нас</a></li>
-                </ul>
-            </div>
-
-            <!-- Column 4: Contacts -->
-            <div class="footer-col">
-                <h4>Контакти</h4>
-                <ul class="footer-contacts">
-                    <li><i class="fas fa-phone"></i> <a href="tel:+380501234567">+380 (50) 123-45-67</a></li>
-                    <li><i class="fas fa-envelope"></i> <a href="mailto:hello@ethiodirect.ua">hello@ethiodirect.ua</a>
-                    </li>
-                    <li><i class="fas fa-map-marker-alt"></i> Одеса, Україна</li>
-                    <li><i class="fas fa-clock"></i> Пн-Пт: 9:00-18:00</li>
-                </ul>
-            </div>
-
-            <!-- Column 5: Newsletter -->
-            <div class="footer-col">
-                <h4>Підписка на новини</h4>
-                <p style="color:#aaa; margin-bottom:15px; font-size:0.9rem;">Отримуйте акції, новинки та поради щодо
-                    заварювання</p>
-                <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
-                    <input type="email" placeholder="Ваш email" required>
-                    <button type="submit" class="btn-newsletter">Підписатись</button>
-                </form>
-            </div>
-        </div>
-
-        <!-- Trust Badges -->
-        <div class="footer-trust">
-            <div class="trust-badges">
-                <div class="trust-badge">
-                    <i class="fas fa-shield-alt"></i>
-                    <div>
-                        <strong>14 днів</strong>
-                        <span>повернення</span>
+        <div class="container">
+            <!-- Main Footer Content -->
+            <div class="footer-grid">
+                <!-- Column 1: Brand -->
+                <div class="footer-col">
+                    <h4 style="font-family:var(--font-heading); font-size:1.5rem; color:white; margin-bottom:20px;">
+                        <a href="index.html" style="text-decoration:none; color:white;">EthioDirect</a>
+                    </h4>
+                    <p style="color:#aaa; line-height:1.8; margin-bottom:20px;">Ми доставляємо справжню specialty каву
+                        прямо
+                        з ефіопських ферм до вашого дому. Свіжа обсмажка, чесна ціна, любов до кави.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+                        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
                     </div>
                 </div>
-                <div class="trust-badge">
-                    <i class="fas fa-coffee"></i>
-                    <div>
-                        <strong>100% Specialty</strong>
-                        <span>якість зерна</span>
-                    </div>
-                </div>
-                <div class="trust-badge">
-                    <i class="fas fa-shipping-fast"></i>
-                    <div>
-                        <strong>Безкоштовна</strong>
-                        <span>доставка від 500₴</span>
-                    </div>
-                </div>
-                <div class="trust-badge">
-                    <i class="fas fa-fire"></i>
-                    <div>
-                        <strong>Свіжа обсмажка</strong>
-                        <span>до 3 днів</span>
-                    </div>
-                </div>
-            </div>
-        </div>
 
-        <!-- Payment Methods -->
-        <div class="footer-payment">
-            <p style="color:#666; font-size:0.85rem; margin-bottom:15px;">Способи оплати:</p>
-            <div class="payment-icons">
-                <i class="fab fa-cc-visa" title="Visa"></i>
-                <i class="fab fa-cc-mastercard" title="Mastercard"></i>
-                <i class="fab fa-apple-pay" title="Apple Pay"></i>
-                <i class="fab fa-google-pay" title="Google Pay"></i>
-                <span class="payment-text">LiqPay</span>
-            </div>
-        </div>
+                <!-- Column 2: Shop -->
+                <div class="footer-col">
+                    <h4>Магазин</h4>
+                    <ul class="footer-links">
+                        <li><a href="shop.html">Весь каталог</a></li>
+                        <li><a href="subscription.html">Підписка на каву</a></li>
+                        <li><a href="gift-certificates.html">Сертифікати</a></li>
+                        <li><a href="b2b.html">B2B рішення</a></li>
+                        <li><a href="account.html">Особистий кабінет</a></li>
+                    </ul>
+                </div>
 
-        <!-- Bottom Bar -->
-        <div class="footer-bottom">
-            <div class="footer-bottom-left">
-                <p>&copy; 2025 EthioDirect. Всі права захищені.</p>
+                <!-- Column 3: Support -->
+                <div class="footer-col">
+                    <h4>Підтримка</h4>
+                    <ul class="footer-links">
+                        <li><a href="delivery.html">Доставка та оплата</a></li>
+                        <li><a href="return.html">Повернення та обмін</a></li>
+                        <li><a href="faq.html">Часті питання</a></li>
+                        <li><a href="contacts.html">Контакти</a></li>
+                        <li><a href="about.html">Про нас</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Contacts -->
+                <div class="footer-col">
+                    <h4>Контакти</h4>
+                    <ul class="footer-contacts">
+                        <li><i class="fas fa-phone"></i> <a href="tel:+380501234567">+380 (50) 123-45-67</a></li>
+                        <li><i class="fas fa-envelope"></i> <a
+                                href="mailto:hello@ethiodirect.ua">hello@ethiodirect.ua</a>
+                        </li>
+                        <li><i class="fas fa-map-marker-alt"></i> Одеса, Україна</li>
+                        <li><i class="fas fa-clock"></i> Пн-Пт: 9:00-18:00</li>
+                    </ul>
+                </div>
+
+                <!-- Column 5: Newsletter -->
+                <div class="footer-col">
+                    <h4>Підписка на новини</h4>
+                    <p style="color:#aaa; margin-bottom:15px; font-size:0.9rem;">Отримуйте акції, новинки та поради щодо
+                        заварювання</p>
+                    <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
+                        <input type="email" placeholder="Ваш email" required>
+                        <button type="submit" class="btn-newsletter">Підписатись</button>
+                    </form>
+                </div>
             </div>
-            <div class="footer-bottom-right">
-                <a href="privacy.html">Політика конфіденційності</a>
-                <span>·</span>
-                <a href="return.html">Умови повернення</a>
-                <span>·</span>
-                <a href="#">Публічна оферта</a>
+
+            <!-- Trust Badges -->
+            <div class="footer-trust">
+                <div class="trust-badges">
+                    <div class="trust-badge">
+                        <i class="fas fa-shield-alt"></i>
+                        <div>
+                            <strong>14 днів</strong>
+                            <span>повернення</span>
+                        </div>
+                    </div>
+                    <div class="trust-badge">
+                        <i class="fas fa-coffee"></i>
+                        <div>
+                            <strong>100% Specialty</strong>
+                            <span>якість зерна</span>
+                        </div>
+                    </div>
+                    <div class="trust-badge">
+                        <i class="fas fa-shipping-fast"></i>
+                        <div>
+                            <strong>Безкоштовна</strong>
+                            <span>доставка від 500₴</span>
+                        </div>
+                    </div>
+                    <div class="trust-badge">
+                        <i class="fas fa-fire"></i>
+                        <div>
+                            <strong>Свіжа обсмажка</strong>
+                            <span>до 3 днів</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment Methods -->
+            <div class="footer-payment">
+                <p style="color:#666; font-size:0.85rem; margin-bottom:15px;">Способи оплати:</p>
+                <div class="payment-icons">
+                    <i class="fab fa-cc-visa" title="Visa"></i>
+                    <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+                    <i class="fab fa-apple-pay" title="Apple Pay"></i>
+                    <i class="fab fa-google-pay" title="Google Pay"></i>
+                    <span class="payment-text">LiqPay</span>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="footer-bottom">
+                <div class="footer-bottom-left">
+                    <p>&copy; 2025 EthioDirect. Всі права захищені.</p>
+                </div>
+                <div class="footer-bottom-right">
+                    <a href="privacy.html">Політика конфіденційності</a>
+                    <span>·</span>
+                    <a href="return.html">Умови повернення</a>
+                    <span>·</span>
+                    <a href="#">Публічна оферта</a>
+                </div>
             </div>
         </div>
-    </div>
-</footer>
+    </footer>
 
     <script src="js/main.js"></script>
     <script src="js/conversion-widgets.js"></script>
