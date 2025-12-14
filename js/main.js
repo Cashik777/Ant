@@ -726,3 +726,125 @@ function subscribeNewsletter(event) {
 }
 
 window.subscribeNewsletter = subscribeNewsletter;
+/* --- QUIZ ENGINE (PHASE 3) --- */
+let currentQuestionIndex = 0;
+const userAnswers = {};
+
+function openQuiz() {
+    // Create Modal if not exists
+    if (!document.getElementById('quiz-modal')) {
+        const modalHTML = `
+        <div id="quiz-modal" class="modal-overlay" style="display:flex;">
+            <div class="quiz-card">
+                <button class="quiz-close" onclick="closeQuiz()">&times;</button>
+                <div id="quiz-content">
+                    <!-- Dynamic Content -->
+                </div>
+            </div>
+        </div>`;
+        document.body.insertAdjacentHTML('beforeend', modalHTML);
+    } else {
+        document.getElementById('quiz-modal').style.display = 'flex';
+    }
+    currentQuestionIndex = 0;
+    renderQuizStep();
+}
+
+function closeQuiz() {
+    const m = document.getElementById('quiz-modal');
+    if (m) m.style.display = 'none';
+}
+
+function renderQuizStep() {
+    const container = document.getElementById('quiz-content');
+    const q = QUIZ_QUESTIONS[currentQuestionIndex];
+
+    if (!q) {
+        showQuizResult();
+        return;
+    }
+
+    let html = `
+        <div class="quiz-step-indicator">Питання ${currentQuestionIndex + 1} з ${QUIZ_QUESTIONS.length}</div>
+        <h3 class="quiz-question">${q.text}</h3>
+        <div class="quiz-options">
+    `;
+
+    q.options.forEach(opt => {
+        html += `
+            <div class="quiz-option" onclick="handleQuizAnswer('${q.id}', '${opt.value}')">
+                <i class="fas ${opt.icon}"></i>
+                <span>${opt.text}</span>
+            </div>
+        `;
+    });
+
+    html += `</div>`;
+    container.innerHTML = html;
+}
+
+function handleQuizAnswer(qId, value) {
+    userAnswers[qId] = value;
+    currentQuestionIndex++;
+    // Add small delay for animation effect
+    setTimeout(renderQuizStep, 300);
+}
+
+function showQuizResult() {
+    const container = document.getElementById('quiz-content');
+
+    // Simple Logic Recommendation (Mock)
+    let recommendedProduct = PRODUCTS[0]; // Default Sidamo
+    if (userAnswers[2] === 'fruity') recommendedProduct = PRODUCTS[2]; // Guji
+    if (userAnswers[2] === 'floral') recommendedProduct = PRODUCTS[1]; // Yirga
+    if (userAnswers[1] === 'espresso') recommendedProduct = PRODUCTS[3]; // Blend
+
+    const html = `
+        <div class="quiz-result">
+            <div class="result-badge">98% Сумісність</div>
+            <h2>Ми знайшли ваш ідеал!</h2>
+            <img src="${recommendedProduct.image}" class="result-img" alt="${recommendedProduct.name}">
+            <h3>${recommendedProduct.name}</h3>
+            <p>${recommendedProduct.desc}</p>
+            <div class="result-actions">
+                <button class="btn btn-primary" onclick="addToCart(${recommendedProduct.id}); closeQuiz();">Спробувати зі знижкою 20%</button>
+                <button class="btn btn-secondary" onclick="closeQuiz()">Зберегти в профіль</button>
+            </div>
+        </div>
+    `;
+    container.innerHTML = html;
+}
+
+/* --- TOAST NOTIFICATIONS --- */
+function showToast(message) {
+    // Remove existing
+    const existing = document.querySelector('.toast-notification');
+    if (existing) existing.remove();
+
+    const toast = document.createElement('div');
+    toast.className = 'toast-notification';
+    toast.innerHTML = `<i class="fas fa-check-circle"></i> ${message}`;
+    document.body.appendChild(toast);
+
+    // Animate in
+    setTimeout(() => toast.classList.add('show'), 10);
+
+    // Remove
+    setTimeout(() => {
+        toast.classList.remove('show');
+        setTimeout(() => toast.remove(), 300);
+    }, 3000);
+}
+
+// Override addToCart to use Toast
+const originalAddToCart = addToCart;
+addToCart = function (id) {
+    const p = PRODUCTS.find(x => x.id === id);
+    if (p) {
+        store.cart.push({ ...p, cartId: Date.now(), qty: 1 });
+        renderCart();
+        showToast(`<b>${p.name}</b> додано до кошика!`);
+        // Optional: openDrawer(); // Maybe don't open drawer, just show toast for better flow? 
+        // User asked for "Notification", implies less intrusive than drawer opening.
+    }
+}
