@@ -212,45 +212,144 @@
         </div>
     </section>
 
-    <!-- FEATURED PRODUCTS -->
-    <section class="section">
-        <div class="container text-center">
-            <h2>Вибір тижня</h2>
-            <p style="max-width:600px; margin:0 auto 50px;">Найпопулярніші лоти, які обирають наші підписники.</p>
-            <div class="products-grid" id="featured-grid">
-                <!-- JS Injected -->
+    <!-- SELECTION OF THE WEEK (PREMIUM CARDS) -->
+    <section class="section" style="background-color: var(--bg-main);">
+        <div class="container">
+            <div class="section-header text-center" style="margin-bottom: 60px;">
+                <h4
+                    style="color:var(--accent); text-transform:uppercase; letter-spacing:2px; font-size:0.9rem; margin-bottom:10px;">
+                    Curated Collection</h4>
+                <h2 style="font-family:var(--font-heading); font-size:3rem; color:var(--text-main);">Вибір наших
+                    клієнтів</h2>
             </div>
-            <div style="margin-top:50px;">
-                <a href="shop.html" class="btn btn-primary">Весь каталог</a>
+
+            <div class="products-grid"
+                style="display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+
+                <!-- CARD 1: Sidamo -->
+                <div class="product-card-premium">
+                    <div class="p-image-box">
+                        <span class="p-badge">Bestseller</span>
+                        <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Sidamo">
+                    </div>
+                    <div class="p-content">
+                        <div class="p-region">Sidamo Region</div>
+                        <h3>Сидамо Grade 2</h3>
+                        <p class="p-desc">Класика. Глибокий смак темного шоколаду з відтінками лісового горіха.</p>
+                        <div class="p-footer">
+                            <div class="p-price">240 ₴</div>
+                            <button class="btn-add" onclick="addToCart(1)" aria-label="Add to cart">
+                                <i class="fas fa-shopping-basket"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CARD 2: Yirgacheffe -->
+                <div class="product-card-premium">
+                    <div class="p-image-box">
+                        <span class="p-badge" style="background:var(--secondary);">Barista Choice</span>
+                        <img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Yirgacheffe">
+                    </div>
+                    <div class="p-content">
+                        <div class="p-region">Yirgacheffe</div>
+                        <h3>Йіргачеффе Floral</h3>
+                        <p class="p-desc">Елегантний та легкий. Квітковий аромат з нотами жасмину та цитрусу.</p>
+                        <div class="p-footer">
+                            <div class="p-price">280 ₴</div>
+                            <button class="btn-add" onclick="addToCart(2)" aria-label="Add to cart">
+                                <i class="fas fa-shopping-basket"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CARD 3: Guji -->
+                <div class="product-card-premium">
+                    <div class="p-image-box">
+                        <span class="p-badge" style="background:#d63031;">New Lot</span>
+                        <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Guji">
+                    </div>
+                    <div class="p-content">
+                        <div class="p-region">Guji Zone</div>
+                        <h3>Гуджі Natural</h3>
+                        <p class="p-desc">Фруктовий вибух. Солодка полуниця, манго та медовий післясмак.</p>
+                        <div class="p-footer">
+                            <div class="p-price">320 ₴</div>
+                            <button class="btn-add" onclick="addToCart(3)" aria-label="Add to cart">
+                                <i class="fas fa-shopping-basket"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="text-center" style="margin-top: 50px;">
+                <a href="shop.html" class="btn btn-secondary" style="border-radius:50px; padding:12px 30px;">Переглянути
+                    весь каталог</a>
             </div>
         </div>
     </section>
 
-    <!-- SUBSCRIPTION EXPLAINER -->
-    <section class="section bg-white">
+    <!-- SMART SUBSCRIPTION JOURNEY -->
+    <section class="section" style="background-color: #EFEBE0; padding: 100px 0;">
         <div class="container">
-            <h2 class="text-center" style="margin-bottom:60px;">Розумна підписка</h2>
-            <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:40px;">
-                <div class="text-center" style="padding:30px; border:1px solid #eee;">
-                    <i class="fas fa-magic" style="font-size:3rem; color:var(--accent); margin-bottom:20px;"></i>
-                    <h3>Крок 1</h3>
-                    <p>Пройдіть короткий тест, щоб ми підібрали ідеальний сорт під ваш смак.</p>
+            <div class="text-center" style="max-width: 700px; margin: 0 auto 60px;">
+                <h4
+                    style="color:var(--accent); text-transform:uppercase; letter-spacing:2px; font-size:0.9rem; margin-bottom:10px;">
+                    Personal Club</h4>
+                <h2
+                    style="font-family:var(--font-heading); font-size:3rem; color:var(--text-main); margin-bottom:20px;">
+                    Ваш персональний кавовий клуб</h2>
+                <p style="font-size:1.1rem; color:var(--text-secondary);">Забудьте про муки вибору. Ми підберемо
+                    ідеальну каву під ваш смак і доставимо її свіжою.</p>
+            </div>
+
+            <div class="process-flow"
+                style="display:grid; grid-template-columns: repeat(3, 1fr); gap: 30px; position:relative;">
+                <!-- Step 1 -->
+                <div class="process-step-card">
+                    <i class="fas fa-tasks"></i>
+                    <h3>1. Тест смаку</h3>
+                    <p style="color:var(--text-secondary);">Ви відповідаєте на 3 прості питання про ваші смакові
+                        вподобання.</p>
                 </div>
-                <div class="text-center" style="padding:30px; border:1px solid #eee;">
-                    <i class="fas fa-fire" style="font-size:3rem; color:var(--accent); margin-bottom:20px;"></i>
-                    <h3>Крок 2</h3>
-                    <p>Обсмажуємо зерно спеціально під ваше замовлення, щоб зберегти максимум смаку.</p>
+
+                <!-- Step 2 -->
+                <div class="process-step-card">
+                    <i class="fas fa-gift"></i>
+                    <h3>2. Персоналізація</h3>
+                    <p style="color:var(--text-secondary);">Алгоритм підбирає ідеальний лот і ми смажимо його для вас.
+                    </p>
                 </div>
-                <div class="text-center" style="padding:30px; border:1px solid #eee;">
-                    <i class="fas fa-box" style="font-size:3rem; color:var(--accent); margin-bottom:20px;"></i>
-                    <h3>Крок 3</h3>
-                    <p>Кава приїжджає вчасно. Ви не думаєте про покупки, а просто п'єте смачну каву.</p>
+
+                <!-- Step 3 -->
+                <div class="process-step-card">
+                    <i class="fas fa-shipping-fast"></i>
+                    <h3>3. Ранкова магія</h3>
+                    <p style="color:var(--text-secondary);">Свіжа кава з'являється у вас вдома саме тоді, коли вона
+                        потрібна.</p>
                 </div>
             </div>
-            <div class="text-center" style="margin-top:50px;">
-                <a href="subscription.html" class="btn btn-primary">Створити підписку</a>
+
+            <div class="text-center" style="margin-top:60px;">
+                <a href="quiz.html" class="btn btn-primary"
+                    style="padding: 18px 45px; font-size: 1.1rem; box-shadow: 0 10px 30px rgba(168, 90, 61, 0.4);">
+                    Створити свій кавовий профіль
+                </a>
+                <p style="margin-top:15px; font-size:0.85rem; color:var(--text-secondary); opacity:0.8;">
+                    <i class="fas fa-undo"></i> Можна змінити або скасувати в 1 клік
+                </p>
             </div>
         </div>
+    </section>
+    <a href="subscription.html" class="btn btn-primary">Створити підписку</a>
+    </div>
+    </div>
     </section>
 
     <!-- GIFT CARD BANNER -->

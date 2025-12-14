@@ -403,99 +403,155 @@ img {
     border-radius: 10px;
 }
 
-/* CARDS */
-.card {
-    background: var(--bg-white);
+/* PREMIUM PRODUCT CARD (Selection of Week) */
+.product-card-premium {
+    background: var(--bg-card);
     border-radius: var(--radius);
-    padding: 30px;
-    box-shadow: var(--shadow);
+    overflow: hidden;
+    position: relative;
+    box-shadow: var(--shadow-soft);
     transition: var(--transition);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
-.card:hover {
-    transform: translateY(-10px);
+.product-card-premium:hover {
+    transform: translateY(-8px);
     box-shadow: var(--shadow-hover);
 }
 
-/* PRODUCT CARDS */
-.products-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 30px;
-}
-
-.product-card {
-    background: white;
-    border: none;
-    transition: all 0.4s ease;
+.product-card-premium .p-image-box {
     position: relative;
+    height: 260px;
     overflow: hidden;
 }
 
-.product-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-hover);
-}
-
-.product-card img {
-    height: 300px;
+.product-card-premium img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    transition: transform 0.6s ease;
+    transition: transform 0.8s ease;
 }
 
-.product-card:hover img {
-    transform: scale(1.05);
+.product-card-premium:hover img {
+    transform: scale(1.08);
+    /* Slow zoom */
 }
 
-.product-card .p-body {
-    padding: 20px;
+.product-card-premium .p-badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: var(--accent);
+    color: white;
+    padding: 6px 14px;
+    border-radius: 40px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    z-index: 2;
 }
 
-.product-card .p-region {
-    font-size: 0.8rem;
+.product-card-premium .p-content {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.product-card-premium .p-region {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
     color: var(--secondary);
     text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
     font-weight: 600;
 }
 
-.product-card h3 {
-    margin: 8px 0;
-    font-size: 1.1rem;
+.product-card-premium h3 {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    color: var(--text-main);
+    margin-bottom: 8px;
 }
 
-.product-card .p-taste {
+.product-card-premium .p-desc {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.product-card-premium .p-footer {
+    margin-top: auto;
     display: flex;
-    gap: 8px;
-    margin: 10px 0;
-    font-size: 1.2rem;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 15px;
+    border-top: 1px solid var(--border-color);
 }
 
-.product-card .p-price {
-    font-size: 1.3rem;
+.product-card-premium .p-price {
+    font-size: 1.4rem;
     font-weight: 700;
-    color: var(--primary);
+    color: var(--text-main);
 }
 
-.product-card .p-actions {
+.product-card-premium .btn-add {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 2px solid var(--secondary);
+    background: transparent;
+    color: var(--secondary);
     display: flex;
-    gap: 10px;
-    margin-top: 15px;
-}
-
-.product-card .p-actions .btn {
-    flex: 1;
-    padding: 10px;
-    font-size: 0.8rem;
-}
-
-/* FILTERS */
-.filters {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 40px;
+    align-items: center;
     justify-content: center;
+    transition: var(--transition);
+    cursor: pointer;
 }
+
+.product-card-premium .btn-add:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: white;
+    transform: scale(1.1);
+}
+
+/* SUBSCRIPTION PROCESS FLOW */
+.process-step-card {
+    background: var(--bg-card);
+    padding: 40px 30px;
+    border-radius: var(--radius);
+    text-align: center;
+    box-shadow: var(--shadow-soft);
+    border: 1px solid var(--border-color);
+    position: relative;
+    transition: var(--transition);
+}
+
+.process-step-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--secondary);
+}
+
+.process-step-card i {
+    font-size: 2.5rem;
+    color: var(--secondary);
+    margin-bottom: 24px;
+    display: inline-block;
+}
+
+.process-step-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+    color: var(--text-main);
+}
+
 
 .filter-btn {
     padding: 10px 20px;
