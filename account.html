@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Особистий кабінет — EthioDirect</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/main.css">
 </head>
@@ -14,16 +13,19 @@
 
     <header class="header">
         <div class="container header-inner">
-            <a href="index.html" class="logo"><i class="fas fa-seedling"></i> EthioDirect</a>
+            <a href="index.html" class="logo">
+                <i class="fas fa-leaf text-accent" style="color:var(--accent);"></i>
+                <span style="font-family:var(--font-heading); letter-spacing:1px; font-size:1.5rem;">EthioDirect</span>
+            </a>
             <nav class="nav-desktop">
-                <a href="shop.html" class="nav-link">Магазин</a>
+                <a href="shop.html" class="nav-link">Каталог</a>
                 <a href="subscription.html" class="nav-link">Підписка</a>
-                <a href="quiz.html" class="nav-link">Тест</a>
+                <a href="blog.html" class="nav-link">Історії</a>
                 <a href="about.html" class="nav-link">Про нас</a>
             </nav>
             <div class="header-actions">
                 <a href="account.html" class="nav-link active"><i class="far fa-user"></i></a>
-                <div class="cart-trigger"><i class="fas fa-shopping-bag"></i><span class="cart-count">0</span></div>
+                <div class="cart-trigger"><i class="fas fa-shopping-cart"></i><span class="cart-count">0</span></div>
             </div>
         </div>
     </header>
@@ -31,56 +33,150 @@
     <div class="overlay"></div>
     <div class="drawer">
         <div class="drawer-header">
-            <h3>Кошик</h3><span class="cart-close" style="cursor:pointer;font-size:1.5rem;">&times;</span>
+            <h3>Ваш кошик</h3><span class="cart-close" style="cursor:pointer;font-size:1.5rem;">&times;</span>
         </div>
         <div class="drawer-body" id="cart-list"></div>
         <div class="drawer-footer">
             <div style="display:flex;justify-content:space-between;margin-bottom:15px;font-weight:600;">
                 <span>Разом:</span><span id="cart-total">0 ₴</span></div>
-            <button class="btn btn-primary" style="width:100%;">Оформити</button>
+            <button class="btn btn-primary" style="width:100%;">Оформити замовлення</button>
         </div>
     </div>
 
-    <main class="section">
-        <div class="container dash-grid">
-            <aside class="dash-sidebar">
-                <div style="display:flex;align-items:center;gap:12px;margin-bottom:25px;">
-                    <div
-                        style="width:45px;height:45px;background:#eee;border-radius:50%;display:flex;align-items:center;justify-content:center;">
-                        <i class="fas fa-user" style="color:#999;"></i></div>
-                    <div><strong>Гість</strong><br><span style="font-size:0.85rem;color:#999;">coffee lover</span></div>
-                </div>
-                <nav>
-                    <a href="#" class="dash-link active">Огляд</a>
-                    <a href="#" class="dash-link">Мої замовлення</a>
-                    <a href="#" class="dash-link">Управління підпискою</a>
-                    <a href="#" class="dash-link">Адреси</a>
-                    <a href="#" class="dash-link">Бонуси</a>
-                    <a href="#" class="dash-link" style="color:var(--error);">Вийти</a>
-                </nav>
-            </aside>
+    <main>
+        <section class="section" style="padding-top:120px; background:white;">
+            <div class="container dash-grid">
+                <!-- SIDEBAR -->
+                <aside class="dash-sidebar">
+                    <div style="display:flex;align-items:center;gap:12px;margin-bottom:25px;">
+                        <div
+                            style="width:45px;height:45px;background:#eee;border-radius:50%;display:flex;align-items:center;justify-content:center;">
+                            <i class="fas fa-user" style="color:#999;"></i>
+                        </div>
+                        <div>
+                            <strong id="userName">Гість</strong><br>
+                            <span style="font-size:0.85rem;color:#999;" id="userEmail">guest@example.com</span>
+                        </div>
+                    </div>
+                    <nav>
+                        <a href="#" class="dash-link active" data-tab="overview">Огляд</a>
+                        <a href="#" class="dash-link" data-tab="subscription">Моя підписка</a>
+                        <a href="#" class="dash-link" data-tab="orders">Замовлення</a>
+                        <a href="#" class="dash-link" data-tab="settings">Налаштування</a>
+                        <a href="index.html" class="dash-link" style="color:var(--error);">Вийти</a>
+                    </nav>
+                </aside>
 
-            <section>
-                <h2 style="margin-bottom:25px;">Вітаємо! ☕</h2>
+                <!-- MAIN CONTENT -->
+                <section>
+                    <!-- OVERVIEW TAB -->
+                    <div id="tab-overview" class="dash-tab-content">
+                        <h2 style="margin-bottom:25px;">Вітаємо! ☕</h2>
 
-                <div class="dash-widget" id="sub-widget">
-                    <!-- JS renders subscription status -->
-                </div>
+                        <!-- Subscription Widget -->
+                        <div class="dash-widget" id="sub-widget-overview">
+                            <!-- JS renders here -->
+                        </div>
 
-                <div class="dash-widget">
-                    <h3 style="margin-bottom:15px;">Останні замовлення</h3>
-                    <p style="color:#999;">Ще немає замовлень. <a href="shop.html" style="color:var(--primary);">Перейти
-                            до магазину →</a></p>
-                </div>
+                        <!-- Recent Orders -->
+                        <div class="dash-widget">
+                            <h3 style="margin-bottom:15px;">Останні замовлення</h3>
+                            <div id="recent-orders">
+                                <p style="color:#999;">Завантаження...</p>
+                            </div>
+                        </div>
 
-                <div class="dash-widget">
-                    <h3 style="margin-bottom:15px;">Бонуси</h3>
-                    <p><strong style="font-size:1.5rem;color:var(--primary);">0</strong> балів</p>
-                    <p style="font-size:0.9rem;color:#999;">1 грн = 1 бал. 500 балів = 100₴ знижки.</p>
-                </div>
-            </section>
-        </div>
+                        <!-- Quick Actions -->
+                        <div class="dash-widget">
+                            <h3 style="margin-bottom:15px;">Швидкі дії</h3>
+                            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                                <a href="shop.html" class="btn btn-primary">Замовити каву</a>
+                                <a href="subscription.html" class="btn btn-outline">Створити підписку</a>
+                                <a href="quiz.html" class="btn btn-outline">Пройти тест</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SUBSCRIPTION TAB -->
+                    <div id="tab-subscription" class="dash-tab-content" style="display:none;">
+                        <h2 style="margin-bottom:25px;">Управління підпискою</h2>
+
+                        <div class="dash-widget" id="sub-widget-detail">
+                            <!-- JS renders here -->
+                        </div>
+
+                        <div class="dash-widget">
+                            <h3 style="margin-bottom:15px;">Історія доставок</h3>
+                            <div id="delivery-history">
+                                <!-- JS renders here -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ORDERS TAB -->
+                    <div id="tab-orders" class="dash-tab-content" style="display:none;">
+                        <h2 style="margin-bottom:25px;">Мої замовлення</h2>
+
+                        <div class="dash-widget">
+                            <div id="all-orders">
+                                <p style="color:#999;">Ще немає замовлень. <a href="shop.html"
+                                        style="color:var(--primary);">Перейти до магазину →</a></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SETTINGS TAB -->
+                    <div id="tab-settings" class="dash-tab-content" style="display:none;">
+                        <h2 style="margin-bottom:25px;">Налаштування</h2>
+
+                        <div class="dash-widget">
+                            <h3 style="margin-bottom:20px;">Персональні дані</h3>
+                            <form id="settings-form">
+                                <div style="margin-bottom:20px;">
+                                    <label style="display:block; margin-bottom:8px; font-weight:600;">Ім'я</label>
+                                    <input type="text" id="settings-name" value="Гість"
+                                        style="width:100%; padding:12px; border:1px solid #ddd; border-radius:4px; font-size:1rem;">
+                                </div>
+                                <div style="margin-bottom:20px;">
+                                    <label style="display:block; margin-bottom:8px; font-weight:600;">Email</label>
+                                    <input type="email" id="settings-email" value="guest@example.com"
+                                        style="width:100%; padding:12px; border:1px solid #ddd; border-radius:4px; font-size:1rem;">
+                                </div>
+                                <div style="margin-bottom:20px;">
+                                    <label style="display:block; margin-bottom:8px; font-weight:600;">Телефон</label>
+                                    <input type="tel" id="settings-phone" placeholder="+380..."
+                                        style="width:100%; padding:12px; border:1px solid #ddd; border-radius:4px; font-size:1rem;">
+                                </div>
+                                <button type="submit" class="btn btn-primary">Зберегти зміни</button>
+                            </form>
+                        </div>
+
+                        <div class="dash-widget">
+                            <h3 style="margin-bottom:20px;">Налаштування повідомлень</h3>
+                            <label
+                                style="display:flex; align-items:center; gap:10px; margin-bottom:15px; cursor:pointer;">
+                                <input type="checkbox" id="notif-email" checked>
+                                <span>Email-повідомлення про доставку</span>
+                            </label>
+                            <label
+                                style="display:flex; align-items:center; gap:10px; margin-bottom:15px; cursor:pointer;">
+                                <input type="checkbox" id="notif-promo">
+                                <span>Промо-акції та новини</span>
+                            </label>
+                            <label style="display:flex; align-items:center; gap:10px; cursor:pointer;">
+                                <input type="checkbox" id="notif-tips" checked>
+                                <span>Поради щодо заварювання</span>
+                            </label>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </section>
     </main>
+
+    <footer class="footer">
+        <div class="container text-center">© 2025 EthioDirect</div>
+    </footer>
 
     <script src="js/main.js"></script>
 </body>

@@ -439,12 +439,235 @@ function initDashboard() {
     `;
 }
 
-function pauseSub() {
-    if (store.user.subscription) {
-        store.user.subscription.status = store.user.subscription.status === 'active' ? 'paused' : 'active';
-        localStorage.setItem('ed_user', JSON.stringify(store.user));
-        initDashboard();
+
+/* --- DASHBOARD --- */
+function initDashboard() {
+    const sub = store.user.subscription;
+
+    // Render subscription widgets (both overview and detail tabs)
+    renderSubWidget('sub-widget-overview', true);
+    renderSubWidget('sub-widget-detail', false);
+
+    // Render orders
+    renderOrders();
+
+    // Render delivery history
+    renderDeliveryHistory();
+
+    // Tab switching
+    document.querySelectorAll('.dash-link[data-tab]').forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const tab = link.getAttribute('data-tab');
+            switchTab(tab);
+        });
+    });
+
+    // Settings form
+    const settingsForm = document.getElementById('settings-form');
+    if (settingsForm) {
+        settingsForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            saveSettings();
+        });
+    }
+
+    // Load user data
+    loadUserData();
+}
+
+function switchTab(tabName) {
+    // Hide all tabs
+    document.querySelectorAll('.dash-tab-content').forEach(tab => {
+        tab.style.display = 'none';
+    });
+
+    // Show selected tab
+    document.getElementById(`tab-${tabName}`).style.display = 'block';
+
+    // Update active link
+    document.querySelectorAll('.dash-link').forEach(link => {
+        link.classList.remove('active');
+    });
+    document.querySelector(`.dash-link[data-tab="${tabName}"]`).classList.add('active');
+}
+
+function renderSubWidget(widgetId, isCompact) {
+    const widget = document.getElementById(widgetId);
+    if (!widget) return;
+
+    const sub = store.user.subscription;
+
+    if (!sub) {
+        widget.innerHTML = isCompact
+            ? '<p>Немає активної підписки. <a href="subscription.html" style="color:var(--primary);">Оформити →</a></p>'
+            : '<p>У вас ще немає активної підписки.</p><a href="subscription.html" class="btn btn-primary">Оформити підписку</a>';
+        return;
+    }
+
+    const nextDate = new Date(sub.nextDelivery).toLocaleDateString('uk-UA');
+    const statusClass = sub.status === 'active' ? 'status-active' : 'status-paused';
+    const statusText = sub.status === 'active' ? 'Активна' : 'На паузі';
+
+    if (isCompact) {
+        widget.innerHTML = `
+            <h3 style="margin-bottom:15px;">Моя підписка</h3>
+            <span class="status-badge ${statusClass}">${statusText}</span>
+            <p style="margin-top:10px;"><strong>Наступна доставка:</strong> ${nextDate}</p>
+            <a href="#" onclick="switchTab('subscription'); return false;" style="color:var(--primary); font-weight:600; margin-top:10px; display:inline-block;">Управління →</a>
+        `;
+    } else {
+        widget.innerHTML = `
+            <div style="display:flex; justify-content:space-between; align-items:start; margin-bottom:20px;">
+                <div>
+                    <span class="status-badge ${statusClass}">${statusText}</span>
+                    <h3 style="margin-top:15px;">Наступна доставка: ${nextDate}</h3>
+                    <p style="margin-top:10px; color:#666;">
+                        <strong>Кава:</strong> ${sub.coffee === 'auto' ? 'Вибір обжарщика' : 'Конкретний сорт'}<br>
+                        <strong>Формат:</strong> ${sub.format === 'grain' ? 'Зерно' : 'Молотий'}<br>
+                        <strong>Частота:</strong> ${sub.frequency === 'month' ? 'Раз на місяць' : sub.frequency === '2weeks' ? 'Раз на 2 тижні' : 'Раз на 2 місяці'}<br>
+                        <strong>Вартість:</strong> ${sub.price}₴
+                    </p>
+                </div>
+            </div>
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                ${sub.status === 'active'
+                ? '<button class="btn btn-outline btn-sm" onclick="pauseSub()">⏸️ Пауза</button>'
+                : '<button class="btn btn-outline btn-sm" onclick="resumeSub()">▶️ Відновити</button>'}
+                <button class="btn btn-outline btn-sm" onclick="skipDelivery()">⏭️ Пропустити доставку</button>
+                <button class="btn btn-outline btn-sm" onclick="changeSub()">✏️ Змінити</button>
+                <button class="btn btn-outline btn-sm" style="color:var(--error);" onclick="cancelSub()">❌ Скасувати</button>
+            </div>
+        `;
     }
 }
-function skipDelivery() { alert('Доставку пропущено!'); }
-function cancelSub() { if (confirm('Точно скасувати підписку?')) { store.user.subscription = null; localStorage.setItem('ed_user', JSON.stringify(store.user)); initDashboard(); } }
+
+function renderOrders() {
+    const container = document.getElementById('recent-orders');
+    if (!container) return;
+
+    // Mock orders for demo
+    const orders = store.user.orders || [];
+
+    if (orders.length === 0) {
+        container.innerHTML = '<p style="color:#999;">Ще немає замовлень. <a href="shop.html" style="color:var(--primary);">Перейти до магазину →</a></p>';
+        return;
+    }
+
+    container.innerHTML = orders.slice(0, 3).map(order => `
+        <div style="padding:15px; border:1px solid #eee; border-radius:4px; margin-bottom:10px;">
+            <div style="display:flex; justify-content:space-between;">
+                <strong>${order.date}</strong>
+                <span style="color:var(--primary);">${order.total}₴</span>
+            </div>
+            <p style="margin:5px 0 0; color:#666;">${order.items}</p>
+        </div>
+    `).join('');
+}
+
+function renderDeliveryHistory() {
+    const container = document.getElementById('delivery-history');
+    if (!container) return;
+
+    const history = [
+        { date: '15 лютого 2024', product: 'Сидамо, 500г', status: 'Доставлено' },
+        { date: '15 січня 2024', product: 'Йіргачеффе, 500г', status: 'Доставлено' },
+        { date: '15 грудня 2023', product: 'Харрар, 500г', status: 'Доставлено' }
+    ];
+
+    container.innerHTML = `
+        <ul style="list-style:none; padding:0;">
+            ${history.map(h => `
+                <li style="padding:12px 0; border-bottom:1px solid #f0f0f0;">
+                    <strong>${h.date}</strong> — ${h.product} 
+                    <span style="color:var(--success); margin-left:10px;">✓ ${h.status}</span>
+                </li>
+            `).join('')}
+        </ul>
+    `;
+}
+
+function loadUserData() {
+    // Load from localStorage
+    const userName = document.getElementById('userName');
+    const userEmail = document.getElementById('userEmail');
+    const settingsName = document.getElementById('settings-name');
+    const settingsEmail = document.getElementById('settings-email');
+
+    if (store.user.name && store.user.name !== 'Guest') {
+        if (userName) userName.textContent = store.user.name;
+        if (settingsName) settingsName.value = store.user.name;
+    }
+
+    if (store.user.email) {
+        if (userEmail) userEmail.textContent = store.user.email;
+        if (settingsEmail) settingsEmail.value = store.user.email;
+    }
+}
+
+function saveSettings() {
+    const name = document.getElementById('settings-name').value;
+    const email = document.getElementById('settings-email').value;
+    const phone = document.getElementById('settings-phone').value;
+
+    store.user.name = name;
+    store.user.email = email;
+    store.user.phone = phone;
+
+    localStorage.setItem('ed_user', JSON.stringify(store.user));
+
+    alert('Налаштування збережено!');
+    loadUserData();
+}
+
+function pauseSub() {
+    if (!store.user.subscription) return;
+    store.user.subscription.status = 'paused';
+    localStorage.setItem('ed_user', JSON.stringify(store.user));
+    renderSubWidget('sub-widget-overview', true);
+    renderSubWidget('sub-widget-detail', false);
+    alert('Підписку поставлено на паузу. Доставки зупинені.');
+}
+
+function resumeSub() {
+    if (!store.user.subscription) return;
+    store.user.subscription.status = 'active';
+    localStorage.setItem('ed_user', JSON.stringify(store.user));
+    renderSubWidget('sub-widget-overview', true);
+    renderSubWidget('sub-widget-detail', false);
+    alert('Підписку відновлено!');
+}
+
+function skipDelivery() {
+    if (!store.user.subscription) return;
+    // Move next delivery forward
+    const current = new Date(store.user.subscription.nextDelivery);
+    current.setMonth(current.getMonth() + 1);
+    store.user.subscription.nextDelivery = current.toISOString();
+    localStorage.setItem('ed_user', JSON.stringify(store.user));
+    renderSubWidget('sub-widget-overview', true);
+    renderSubWidget('sub-widget-detail', false);
+    alert('Наступну доставку пропущено. Нова дата: ' + current.toLocaleDateString('uk-UA'));
+}
+
+function changeSub() {
+    window.location.href = 'subscription.html';
+}
+
+function cancelSub() {
+    if (confirm('Точно скасувати підписку? Це можна буде відмінити.')) {
+        store.user.subscription = null;
+        localStorage.setItem('ed_user', JSON.stringify(store.user));
+        renderSubWidget('sub-widget-overview', true);
+        renderSubWidget('sub-widget-detail', false);
+        alert('Підписку скасовано. Сподіваємось побачити вас знову!');
+    }
+}
+
+// Make functions global for inline onclick handlers
+window.switchTab = switchTab;
+window.pauseSub = pauseSub;
+window.resumeSub = resumeSub;
+window.skipDelivery = skipDelivery;
+window.changeSub = changeSub;
+window.cancelSub = cancelSub;
