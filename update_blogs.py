@@ -1,78 +1,17 @@
-<!DOCTYPE html>
-<html lang="uk">
+# Script to batch update remaining blog files with professional header and footer
+import re, glob, os
 
-<head>
-    <meta charset="UTF-8">
-    <title>Ефіопія — батьківщина кави — EthioDirect</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="../css/main.css">
-</head>
+# List of remaining files to update
+remaining_files = [
+    "espresso-guide.html", "ethiopia-origins.html", "french-press-guide.html",
+    "sca-grading.html", "specialty-coffee.html", "turka-guide.html",
+    "v60-guide.html", "yirgacheffe-region.html"
+]
 
-<body>
-    <header class="header">
-        <div class="container header-inner"><a href="../index.html" class="logo"><i
-                    class="fas fa-leaf text-accent"></i><span
-                    style="font-family:var(--font-heading); letter-spacing:1px; font-size:1.5rem;">EthioDirect</span></a>
-            <nav class="nav-desktop">
-                <a href="../shop.html" class="nav-link">Каталог</a>
-                <a href="../subscription.html" class="nav-link">Підписка</a>
-                <a href="../gift-certificates.html" class="nav-link">🎁 Сертифікати</a>
-                <a href="../blog.html" class="nav-link active">Історії</a>
-                <a href="../about.html" class="nav-link">Про нас</a>
-                <a href="#" class="nav-link" onclick="openQuiz(); return false;">Тест</a>
-            </nav>
-            <div class="header-actions"><a href="../account.html"><i class="far fa-user"></i></a>
-                <div class="cart-trigger" onclick="openDrawer()"><i class="fas fa-shopping-bag" style="font-size:1.2rem;"></i><span class="cart-count">0</span></div>
-            </div>
-            <button class="menu-toggle" aria-label="Menu"><i class="fas fa-bars"></i></button>
-        </div>
-    </header>
-    <main>
-        <article class="section" style="padding-top:120px; background:white;">
-            <div class="container" style="max-width:800px;">
-                <h1 style="font-size:2.5rem; text-align:center; margin-bottom:50px;">Ефіопія — батьківщина кави</h1>
-                <img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e3?w=1200" alt="Ethiopian coffee"
-                    style="width:100%; height:400px; object-fit:cover; border-radius:8px; margin-bottom:40px;">
-                <div style="line-height:1.8;">
-                    <p style="font-size:1.2rem; color:#666; margin-bottom:30px;">Кава почалася тут. В Ефіопії. Саме
-                        звідси рослина Coffea arabica поширилася світом. Розповідаємо про регіони та унікальність
-                        ефіопської кави.</p>
-                    <h2 style="color:var(--primary); margin-top:40px;">Легенда про козопаса Калді</h2>
-                    <p>За легендою, козопас Калді помітив, що його кози стають енергійнішими після їжі червоних ягід
-                        певного дерева. Спробувавши їх сам, відчув прилив сил. Так люди відкрили каву.</p>
-                    <h2 style="color:var(--primary); margin-top:40px;">Основні регіони</h2>
-                    <h3 style="margin-top:30px;">Yirgacheffe (Іргачеффе)</h3>
-                    <p>Найвідоміший регіон. Кава звідси славиться квітковими та цитрусовими нотами. Часто натуральної
-                        обробки з нотами чорниці.</p>
-                    <h3 style="margin-top:30px;">Sidamo (Сідамо)</h3>
-                    <p>Широкий регіон з різноманітними профілями. Від фруктових до винних відтінків.</p>
-                    <h3 style="margin-top:30px;">Harrar (Харрар)</h3>
-                    <p>Східна Ефіопія. Дика, інтенсивна кава з нотами чорниці та темного шоколаду.</p>
-                    <div style="background:var(--bg-main); padding:25px; border-radius:8px; margin:30px 0;"><strong>🌍
-                            Факт:</strong> В Ефіопії кава досі росте в дикій природі. Деякі лоти збирають з диких дерев
-                        у лісах.</div>
-                    <h2 style="color:var(--primary); margin-top:40px;">Що робить ефіопську каву особливою?</h2>
-                    <ul style="margin-left:30px;">
-                        <li><strong>Генетична різноманітність</strong> — тисячі природних сортів</li>
-                        <li><strong>Висота:</strong> 1500-2200м над рівнем моря</li>
-                        <li><strong>Ручна обробка</strong> — традиційні методи</li>
-                        <li><strong>Фруктовість</strong> — унікальні яскраві ноти</li>
-                    </ul>
-                    <div
-                        style="background:linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%); color:white; padding:40px; border-radius:8px; margin:50px 0; text-align:center;">
-                        <h3 style="color:white;">Спробуйте справжню ефіопську каву</h3>
-                        <p style="margin-bottom:20px;">Пряме походження від фермерів</p><a href="../shop.html"
-                            class="btn"
-                            style="background:white; color:var(--primary); display:inline-block; padding:15px 40px; text-decoration:none; border-radius:4px; font-weight:600;">До
-                            каталогу</a>
-                    </div>
-                </div>
-                <div style="text-align:center; margin-top:60px;"><a href="../blog.html" class="btn btn-outline">←
-                        Блог</a></div>
-            </div>
-        </article>
-    </main>
+blog_dir = r"c:\Users\Dgello\.gemini\antigravity\scratch\EthioDirect\blog"
 
+# Professional footer HTML
+footer = '''
     <!-- PROFESSIONAL FOOTER COMPONENT -->
     <footer class="footer-pro">
         <div class="container">
@@ -223,11 +162,55 @@
         </div>
     </div>
     <div class="toast" id="toast">
-        <i class="fas fa-check-circle" style="color:var(--success); font-size:1.2rem;"></i>
+        <i class="fas fa-check-circle" style="color:var(--success); font-size:1.2rem;\"></i>
         <span id="toast-msg">Товар додано</span>
     </div>
+'''
 
-    <script src="../js/main.js"></script>
-</body>
+for filename in remaining_files:
+    filepath = os.path.join(blog_dir, filename)
+    if not os.path.exists(filepath):
+        print(f"Skipping (not found): {filename}")
+        continue
+        
+    with open(filepath, 'r', encoding='utf-8') as f:
+        content = f.read()
+    
+    # Add footer before closing script tag if not already present
+    if 'footer-pro' not in content:
+        content = content.replace('    <script src="../js/main.js"></script>', footer + '\n    <script src="../js/main.js"></script>')
+        print(f"Added footer to: {filename}")
+    
+    # Fix header navigation - add missing items
+    if '🎁 Сертифікати' not in content:
+        # This is a simplified fix - replace entire nav
+        old_nav_pattern = r'<nav class="nav-desktop">.*?</nav>'
+        new_nav = '''<nav class="nav-desktop">
+                <a href="../shop.html" class="nav-link">Каталог</a>
+                <a href="../subscription.html" class="nav-link">Підписка</a>
+                <a href="../gift-certificates.html" class="nav-link">🎁 Сертифікати</a>
+                <a href="../blog.html" class="nav-link active">Історії</a>
+                <a href="../about.html" class="nav-link">Про нас</a>
+                <a href="#" class="nav-link" onclick="openQuiz(); return false;">Тест</a>
+            </nav>'''
+        content = re.sub(old_nav_pattern, new_nav, content, flags=re.DOTALL)
+        print(f"Updated header for: {filename}")
+    
+    # Fix cart icon
+    if 'fa-shopping-cart' in content:
+        content = content.replace('fa-shopping-cart', 'fa-shopping-bag')
+        content = content.replace('<div class="cart-trigger">', '<div class="cart-trigger" onclick="openDrawer()">')
+        content = content.replace('<i class="fas fa-shopping-bag"></i>', '<i class="fas fa-shopping-bag" style="font-size:1.2rem;"></i>')
+        print(f"Updated cart for: {filename}")
+    
+    # Add menu toggle if missing
+    if 'menu-toggle' not in content:
+        content = content.replace('</div>\n        </div>\n    </header>', '</div>\n            <button class="menu-toggle" aria-label="Menu"><i class="fas fa-bars"></i></button>\n        </div>\n    </header>')
+        print(f"Added menu toggle to: {filename}")
+    
+    with open(filepath, 'w', encoding='utf-8') as f:
+        f.write(content)
+    
+    print(f"Processed: {filename}")
 
-</html>
+print("\nAll remaining blog files updated successfully!")
