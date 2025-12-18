@@ -533,7 +533,9 @@ img {
 
 /* --- SUBSCRIPTION CLUB --- */
 .subscription-section {
-    background: var(--bg-surface);
+    background: var(--bg-main);
+    border-top: 1px solid rgba(42, 31, 10, 0.1);
+    border-bottom: 1px solid rgba(42, 31, 10, 0.1);
     text-align: center;
 }
 
@@ -555,29 +557,29 @@ img {
 .step-img {
     height: 150px;
     margin-bottom: 20px;
-    /* Placeholder for illustrations */
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--bg-card);
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 3rem;
-    color: var(--accent-gold);
+    color: var(--secondary);
     border-radius: var(--radius);
+    border: 2px solid rgba(42, 31, 10, 0.08);
 }
 
 .step-item h4 {
-    color: var(--text-light);
+    color: var(--text-dark);
     margin-bottom: 10px;
 }
 
 .step-item p {
-    color: var(--text-muted);
+    color: var(--text-light);
     font-size: 0.9rem;
 }
 
 /* --- TESTIMONIALS --- */
 .reviews-section {
-    background: var(--bg-earth);
+    background: var(--bg-section-alt);
 }
 
 .review-featured {
@@ -590,12 +592,12 @@ img {
     font-family: var(--font-heading);
     font-size: 2rem;
     font-style: italic;
-    color: var(--text-light);
+    color: var(--text-dark);
     margin-bottom: 20px;
 }
 
 .reviewer-meta {
-    color: var(--accent-gold);
+    color: var(--secondary);
     font-weight: 600;
 }
 
@@ -606,18 +608,25 @@ img {
 }
 
 .review-card {
-    background: rgba(255, 255, 255, 0.03);
+    background: white;
     padding: 25px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(42, 31, 10, 0.1);
+    border-radius: var(--radius);
+    transition: var(--transition);
+}
+
+.review-card:hover {
+    box-shadow: var(--shadow-medium);
+    border-color: var(--secondary);
 }
 
 .review-stars {
-    color: var(--accent-gold);
+    color: var(--secondary);
     margin-bottom: 10px;
 }
 
 .review-text {
-    color: #ccc;
+    color: var(--text-light);
     font-size: 0.95rem;
     margin-bottom: 15px;
 }
@@ -648,9 +657,10 @@ img {
 
 /* --- LEAD MAGNET --- */
 .lead-magnet {
-    background: var(--bg-parchment);
+    background: white;
     color: var(--text-dark);
     padding: 60px 0;
+    border-top: 1px solid rgba(42, 31, 10, 0.1);
 }
 
 .lead-content {
@@ -675,8 +685,15 @@ img {
 .lead-form input {
     flex: 1;
     padding: 15px;
-    border: 1px solid #ccc;
-    background: white;
+    border: 2px solid rgba(42, 31, 10, 0.2);
+    border-radius: var(--radius);
+    background: var(--bg-main);
+    transition: var(--transition);
+}
+
+.lead-form input:focus {
+    outline: none;
+    border-color: var(--primary);
 }
 
 .lead-form button {
@@ -684,12 +701,13 @@ img {
 }
 
 /* --- FOOTER --- */
-.footer {
-    background: #15120f;
+.footer,
+.footer-pro {
+    background: var(--footer-bg);
     padding: 80px 0 30px;
-    color: var(--text-muted);
+    color: var(--footer-text);
     font-size: 0.9rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .footer-grid {
@@ -700,16 +718,24 @@ img {
 }
 
 .footer-col h4 {
-    color: var(--text-light);
+    color: var(--text-white);
     margin-bottom: 20px;
+    font-size: 1.1rem;
 }
 
 .footer-links li {
     margin-bottom: 10px;
 }
 
+.footer-links a {
+    color: var(--footer-text);
+    opacity: 0.8;
+    transition: var(--transition);
+}
+
 .footer-links a:hover {
-    color: var(--accent-gold);
+    color: var(--secondary);
+    opacity: 1;
 }
 
 /* --- RESPONSIVE --- */
@@ -799,6 +825,7 @@ img {
     max-width: 500px;
     width: 90%;
 }
+
 /* === HERO SECTION IMPROVEMENTS === */
 .hero-cta {
     display: flex;
