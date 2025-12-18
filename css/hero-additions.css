@@ -1,0 +1,49 @@
+/* === HERO SECTION IMPROVEMENTS === */
+.hero-cta {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.hero-banner {
+    display: flex;
+    gap: 40px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: var(--radius);
+    border: 1px solid rgba(42, 31, 10, 0.1);
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.hero-banner span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.hero-banner i {
+    color: var(--primary);
+}
+
+/* === MENU TOGGLE === */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--text-dark);
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-desktop {
+        display: none;
+    }
+}
