@@ -53,7 +53,7 @@
 <body>
 
     <!-- HEADER PLACEHOLDER - Will be updated by script, but putting default here -->
-                <header class="header">
+    <header class="header">
         <div class="container header-inner">
             <a href="index.html" class="logo">
                 <i class="fas fa-leaf text-accent"></i>
@@ -83,53 +83,200 @@
         <div class="drawer-body" id="cart-list"></div>
         <div class="drawer-footer">
             <div style="display:flex;justify-content:space-between;margin-bottom:15px;font-weight:600;">
-                <span>Разом:</span><span id="cart-total">0 ₴</span></div>
+                <span>Разом:</span><span id="cart-total">0 ₴</span>
+            </div>
             <button class="btn btn-primary" style="width:100%;">Оформити замовлення</button>
         </div>
     </div>
 
     <main>
         <section class="section bg-white" style="padding-top:120px;">
-            <div class="container" style="max-width:800px;">
-                <h1 class="text-center" style="margin-bottom:50px;">Часті питання</h1>
+            <div class="container" style="max-width:900px;">
+                <h1 class="text-center" style="margin-bottom:20px;">Часті питання</h1>
+                <p class="text-center lead-text" style="max-width:600px; margin:0 auto 50px;">
+                    Все, що вам потрібно знати про нашу каву, доставку та підписку
+                </p>
+
+                <!-- FAQ Categories -->
+                <div class="faq-categories"
+                    style="display:flex; gap:15px; justify-content:center; margin-bottom:50px; flex-wrap:wrap;">
+                    <button class="filter-btn active" onclick="filterFAQ('all')">Всі питання</button>
+                    <button class="filter-btn" onclick="filterFAQ('quality')">Про каву</button>
+                    <button class="filter-btn" onclick="filterFAQ('delivery')">Доставка</button>
+                    <button class="filter-btn" onclick="filterFAQ('roast')">Обсмажка</button>
+                    <button class="filter-btn" onclick="filterFAQ('subscription')">Підписка</button>
+                </div>
 
                 <div class="faq-list">
-                    <div class="faq-item">
-                        <div class="faq-header">Як відбувається доставка? <i class="fas fa-chevron-down"></i></div>
+                    <!-- Quality Section -->
+                    <div class="faq-item" data-category="quality">
+                        <div class="faq-header">Звідки ваша кава? <i class="fas fa-chevron-down"></i></div>
                         <div class="faq-body">
-                            <p>Ми відправляємо замовлення Новою Поштою щодня. Якщо замовлення оформлено до 15:00, воно
-                                поїде в той же день. Доставка зазвичай займає 1-2 дні.</p>
+                            <p>Ми працюємо напряму з кооперативами та фермами в Ефіопії. Основні регіони: Yirgacheffe,
+                                Sidamo, Guji, Harrar. Кожен лот має сертифікат походження та можливість відстежити
+                                конкретну ферму.</p>
                         </div>
                     </div>
-                    <div class="faq-item">
-                        <div class="faq-header">Чи свіжа у вас кава? <i class="fas fa-chevron-down"></i></div>
+
+                    <div class="faq-item" data-category="quality">
+                        <div class="faq-header">Яка свіжість кави? <i class="fas fa-chevron-down"></i></div>
                         <div class="faq-body">
-                            <p>Так, ми смажимо каву невеликими партіями 2-3 рази на тиждень. Ви ніколи не отримаєте
-                                пачку, якій більше 14 днів з дати обсмажки.</p>
+                            <p>Ми обсмажуємо під замовлення 2-3 рази на тиждень. Від обсмажки до вашого дому — максимум
+                                3-5 днів. Дата обсмажки вказана на упаковці. Ви ніколи не отримаєте пачку старше 14
+                                днів.</p>
                         </div>
                     </div>
-                    <div class="faq-item">
+
+                    <div class="faq-item" data-category="quality">
+                        <div class="faq-header">Що таке Specialty кава? <i class="fas fa-chevron-down"></i></div>
+                        <div class="faq-body">
+                            <p>Це кава, яка отримала оцінку 80+ балів за шкалою SCA (Specialty Coffee Association).
+                                Тільки 5% світового врожаю відповідає цим стандартам. Наша кава оцінена на 83-87 балів
+                                сертифікованими Q-грейдерами.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="quality">
+                        <div class="faq-header">Чи є у вас органічна кава? <i class="fas fa-chevron-down"></i></div>
+                        <div class="faq-body">
+                            <p>Більшість наших лотів вирощені без пестицидів (органіка de facto), але формального
+                                сертифіката органік немає — це дорого для дрібних фермерів. Якщо для вас важливий
+                                сертифікат, напишіть нам — можемо знайти такий лот.</p>
+                        </div>
+                    </div>
+
+                    <!-- Delivery Section -->
+                    <div class="faq-item" data-category="delivery">
+                        <div class="faq-header">Як швидко доставка? <i class="fas fa-chevron-down"></i></div>
+                        <div class="faq-body">
+                            <p><strong>Великі міста</strong> (Київ, Одеса, Львів, Дніпро, Харків): 1-2 дні<br>
+                                <strong>Інші міста:</strong> 2-4 дні<br>
+                                <strong>Безкоштовна доставка</strong> від 500₴ Новою Поштою
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="delivery">
+                        <div class="faq-header">Чи можна забрати самовивозом? <i class="fas fa-chevron-down"></i></div>
+                        <div class="faq-body">
+                            <p>Так, selfcomplete з нашої обсмажувальні в Одесі (безкоштовно). Адресу та час роботи
+                                надішлемо після оформлення замовлення. Зазчай ready до видачі через 1-2 дні після
+                                замовлення.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="delivery">
+                        <div class="faq-header">Які способи оплати? <i class="fas fa-chevron-down"></i></div>
+                        <div class="faq-body">
+                            <p><strong>Онлайн (LiqPay):</strong> Visa, Mastercard, Apple Pay, Google Pay — без
+                                комісії<br>
+                                <strong>Накладений платіж:</strong> Нова Пошта, +40₴ до вартості
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="delivery">
+                        <div class="faq-header">Що якщо кава не сподобається? <i class="fas fa-chevron-down"></i></div>
+                        <div class="faq-body">
+                            <p>14 днів на повернення без пояснень. Відкрита упаковка — ok, якщо використано менше 50г
+                                (щоб ви могли спробувати). Повернемо гроші або запропонуємо інший сорт на ваш смак.</p>
+                        </div>
+                    </div>
+
+                    <!-- Roast Section -->
+                    <div class="faq-item" data-category="roast">
+                        <div class="faq-header">Який ступінь обсмажки обрати? <i class="fas fa-chevron-down"></i></div>
+                        <div class="faq-body">
+                            <p><strong>Світла:</strong> для фільтр-кави (V60, кемекс). Яскраві кислинки, фруктові
+                                ноти.<br>
+                                <strong>Середня:</strong> універсальна. Підійде для еспресо та фільтра.
+                                Збалансована.<br>
+                                <strong>Темна:</strong> для еспресо, молочних напоїв. М'яка, шоколадна, без кислинки.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="roast">
+                        <div class="faq-header">Як зберігати каву? <i class="fas fa-chevron-down"></i></div>
+                        <div class="faq-body">
+                            <p>Щільно закрита упаковка в темному сухому місці при кімнатній температурі. <strong>НЕ в
+                                    холодильнику!</strong> (утворюється конденсат). Розкриту упаковку використати за 2-4
+                                тижні для максимального смаку.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="roast">
+                        <div class="faq-header">Чи мелете ви каву? <i class="fas fa-chevron-down"></i></div>
+                        <div class="faq-body">
+                            <p>Рекомендуємо купувати в зернах і молоти перед завареванням (так смак зберігається краще).
+                                Але якщо у вас немає млинка — можемо змолоти безкоштовно. Вкажіть метод заварювання
+                                (еспресо/фільтр/турка/френч-прес) в коментарі до замовлення.</p>
+                        </div>
+                    </div>
+
+                    <!-- Subscription Section -->
+                    <div class="faq-item" data-category="subscription">
                         <div class="faq-header">Як працює підписка? <i class="fas fa-chevron-down"></i></div>
                         <div class="faq-body">
-                            <p>Ви обираєте тип кави та частоту доставки. Гроші списуються автоматично перед кожною
-                                відправкою. Ви можете поставити підписку на паузу або скасувати її в будь-який момент в
-                                особистому кабінеті.</p>
+                            <p>Щомісяця автоматично надсилаємо вибраний обсяг кави зі знижкою 10%. Перша доставка через
+                                3-5 днів після оформлення, далі — автоматично кожні 30 днів. Оплата списується перед
+                                кожною доставкою.</p>
                         </div>
                     </div>
-                    <div class="faq-item">
-                        <div class="faq-header">Який помел обрати? <i class="fas fa-chevron-down"></i></div>
+
+                    <div class="faq-item" data-category="subscription">
+                        <div class="faq-header">Чи можна змінити або скасувати підписку? <i
+                                class="fas fa-chevron-down"></i></div>
                         <div class="faq-body">
-                            <p>Для еспресо-машини — дрібний помел. Для гейзерної кавоварки — середній. Для фільтра та
-                                пуровера — середньо-великий. Для френч-преса — великий. Якщо сумніваєтесь, оберіть "в
-                                зернах" — це найкращий варіант для збереження смаку.</p>
+                            <p>Так, в особистому кабінеті в будь-який момент. Можна змінити сорт, дату доставки,
+                                кількість або поставити на паузу. <strong>Без штрафів і зобов'язань.</strong> Скасувати
+                                можна одним кліком.</p>
                         </div>
                     </div>
-                    <div class="faq-item">
-                        <div class="faq-header">Чи є у вас безкофеїнова кава? <i class="fas fa-chevron-down"></i></div>
+
+                    <div class="faq-item" data-category="subscription">
+                        <div class="faq-header">Чи можна пропустити місяць? <i class="fas fa-chevron-down"></i></div>
                         <div class="faq-body">
-                            <p>Так, у нас є Ефіопія Decaf, оброблена натуральним методом (Swiss Water або Sugar Cane),
-                                що зберігає смак регіону, але без кофеїну.</p>
+                            <p>Так, просто натисніть "Пропустити наступну доставку" в особистому кабінеті. Підписка
+                                відновиться автоматично в наступному місяці або коли ви захочете.</p>
                         </div>
+                    </div>
+
+                    <!-- B2B & Other -->
+                    <div class="faq-item" data-category="other">
+                        <div class="faq-header">Чи працюєте з кав'ярнями (B2B)? <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-body">
+                            <p>Так, постачаємо каву для кав'ярень та ресторанів. Оптові ціни від 5кг, програма
+                                консигнації, навчання баристів. Деталі: <a href="mailto:b2b@ethiodirect.ua"
+                                    style="color:var(--primary)">b2b@ethiodirect.ua</a></p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="other">
+                        <div class="faq-header">Чи можна купити подарунковий сертифікат? <i
+                                class="fas fa-chevron-down"></i></div>
+                        <div class="faq-body">
+                            <p>Так, номіналом 500₴, 1000₴ або довільна сума. Доступний електронний (на email) або
+                                фізичний (гарна картка поштою). Термін дії — 6 місяців. <a href="gift-certificates.html"
+                                    style="color:var(--primary)">Детальніше →</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact CTA -->
+                <div
+                    style="background:var(--bg-card); padding:40px; border-radius:var(--radius); text-align:center; margin-top:60px;">
+                    <h3 style="margin-bottom:15px; color:var(--text-dark);">Не знайшли відповідь?</h3>
+                    <p style="color:var(--text-light); margin-bottom:25px;">Пишіть в Telegram або на email —
+                        відповідаємо протягом години</p>
+                    <div style="display:flex; gap:15px; justify-content:center; flex-wrap:wrap;">
+                        <a href="mailto:hello@ethiodirect.ua" class="btn btn-primary">
+                            <i class="fas fa-envelope"></i> hello@ethiodirect.ua
+                        </a>
+                        <a href="#" class="btn btn-secondary">
+                            <i class="fab fa-telegram"></i> Telegram чат
+                        </a>
                     </div>
                 </div>
 
@@ -139,134 +286,137 @@
 
     <!-- Footer will be auto-replaced next run -->
     <footer class="footer-pro">
-    <div class="container">
-        <!-- Main Footer Content -->
-        <div class="footer-grid">
-            <!-- Column 1: Brand -->
-            <div class="footer-col">
-                <h4 style="font-family:var(--font-heading); font-size:1.5rem; color:white; margin-bottom:20px;">
-                    <a href="index.html" style="text-decoration:none; color:white;">EthioDirect</a>
-                </h4>
-                <p style="color:#aaa; line-height:1.8; margin-bottom:20px;">Ми доставляємо справжню specialty каву прямо
-                    з ефіопських ферм до вашого дому. Свіжа обсмажка, чесна ціна, любов до кави.</p>
-                <div class="social-links">
-                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                    <a href="#" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
-                    <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-                </div>
-            </div>
-
-            <!-- Column 2: Shop -->
-            <div class="footer-col">
-                <h4>Магазин</h4>
-                <ul class="footer-links">
-                    <li><a href="shop.html">Весь каталог</a></li>
-                    <li><a href="subscription.html">Підписка на каву</a></li>
-                    <li><a href="gift-certificates.html">Сертифікати</a></li>
-                    <li><a href="b2b.html">B2B рішення</a></li>
-                    <li><a href="account.html">Особистий кабінет</a></li>
-                </ul>
-            </div>
-
-            <!-- Column 3: Support -->
-            <div class="footer-col">
-                <h4>Підтримка</h4>
-                <ul class="footer-links">
-                    <li><a href="delivery.html">Доставка та оплата</a></li>
-                    <li><a href="return.html">Повернення та обмін</a></li>
-                    <li><a href="faq.html">Часті питання</a></li>
-                    <li><a href="contacts.html">Контакти</a></li>
-                    <li><a href="about.html">Про нас</a></li>
-                </ul>
-            </div>
-
-            <!-- Column 4: Contacts -->
-            <div class="footer-col">
-                <h4>Контакти</h4>
-                <ul class="footer-contacts">
-                    <li><i class="fas fa-phone"></i> <a href="tel:+380501234567">+380 (50) 123-45-67</a></li>
-                    <li><i class="fas fa-envelope"></i> <a href="mailto:hello@ethiodirect.ua">hello@ethiodirect.ua</a>
-                    </li>
-                    <li><i class="fas fa-map-marker-alt"></i> Одеса, Україна</li>
-                    <li><i class="fas fa-clock"></i> Пн-Пт: 9:00-18:00</li>
-                </ul>
-            </div>
-
-            <!-- Column 5: Newsletter -->
-            <div class="footer-col">
-                <h4>Підписка на новини</h4>
-                <p style="color:#aaa; margin-bottom:15px; font-size:0.9rem;">Отримуйте акції, новинки та поради щодо
-                    заварювання</p>
-                <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
-                    <input type="email" placeholder="Ваш email" required>
-                    <button type="submit" class="btn-newsletter">Підписатись</button>
-                </form>
-            </div>
-        </div>
-
-        <!-- Trust Badges -->
-        <div class="footer-trust">
-            <div class="trust-badges">
-                <div class="trust-badge">
-                    <i class="fas fa-shield-alt"></i>
-                    <div>
-                        <strong>14 днів</strong>
-                        <span>повернення</span>
+        <div class="container">
+            <!-- Main Footer Content -->
+            <div class="footer-grid">
+                <!-- Column 1: Brand -->
+                <div class="footer-col">
+                    <h4 style="font-family:var(--font-heading); font-size:1.5rem; color:white; margin-bottom:20px;">
+                        <a href="index.html" style="text-decoration:none; color:white;">EthioDirect</a>
+                    </h4>
+                    <p style="color:#aaa; line-height:1.8; margin-bottom:20px;">Ми доставляємо справжню specialty каву
+                        прямо
+                        з ефіопських ферм до вашого дому. Свіжа обсмажка, чесна ціна, любов до кави.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+                        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
                     </div>
                 </div>
-                <div class="trust-badge">
-                    <i class="fas fa-coffee"></i>
-                    <div>
-                        <strong>100% Specialty</strong>
-                        <span>якість зерна</span>
+
+                <!-- Column 2: Shop -->
+                <div class="footer-col">
+                    <h4>Магазин</h4>
+                    <ul class="footer-links">
+                        <li><a href="shop.html">Весь каталог</a></li>
+                        <li><a href="subscription.html">Підписка на каву</a></li>
+                        <li><a href="gift-certificates.html">Сертифікати</a></li>
+                        <li><a href="b2b.html">B2B рішення</a></li>
+                        <li><a href="account.html">Особистий кабінет</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Support -->
+                <div class="footer-col">
+                    <h4>Підтримка</h4>
+                    <ul class="footer-links">
+                        <li><a href="delivery.html">Доставка та оплата</a></li>
+                        <li><a href="return.html">Повернення та обмін</a></li>
+                        <li><a href="faq.html">Часті питання</a></li>
+                        <li><a href="contacts.html">Контакти</a></li>
+                        <li><a href="about.html">Про нас</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Contacts -->
+                <div class="footer-col">
+                    <h4>Контакти</h4>
+                    <ul class="footer-contacts">
+                        <li><i class="fas fa-phone"></i> <a href="tel:+380501234567">+380 (50) 123-45-67</a></li>
+                        <li><i class="fas fa-envelope"></i> <a
+                                href="mailto:hello@ethiodirect.ua">hello@ethiodirect.ua</a>
+                        </li>
+                        <li><i class="fas fa-map-marker-alt"></i> Одеса, Україна</li>
+                        <li><i class="fas fa-clock"></i> Пн-Пт: 9:00-18:00</li>
+                    </ul>
+                </div>
+
+                <!-- Column 5: Newsletter -->
+                <div class="footer-col">
+                    <h4>Підписка на новини</h4>
+                    <p style="color:#aaa; margin-bottom:15px; font-size:0.9rem;">Отримуйте акції, новинки та поради щодо
+                        заварювання</p>
+                    <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
+                        <input type="email" placeholder="Ваш email" required>
+                        <button type="submit" class="btn-newsletter">Підписатись</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Trust Badges -->
+            <div class="footer-trust">
+                <div class="trust-badges">
+                    <div class="trust-badge">
+                        <i class="fas fa-shield-alt"></i>
+                        <div>
+                            <strong>14 днів</strong>
+                            <span>повернення</span>
+                        </div>
+                    </div>
+                    <div class="trust-badge">
+                        <i class="fas fa-coffee"></i>
+                        <div>
+                            <strong>100% Specialty</strong>
+                            <span>якість зерна</span>
+                        </div>
+                    </div>
+                    <div class="trust-badge">
+                        <i class="fas fa-shipping-fast"></i>
+                        <div>
+                            <strong>Безкоштовна</strong>
+                            <span>доставка від 500₴</span>
+                        </div>
+                    </div>
+                    <div class="trust-badge">
+                        <i class="fas fa-fire"></i>
+                        <div>
+                            <strong>Свіжа обсмажка</strong>
+                            <span>до 3 днів</span>
+                        </div>
                     </div>
                 </div>
-                <div class="trust-badge">
-                    <i class="fas fa-shipping-fast"></i>
-                    <div>
-                        <strong>Безкоштовна</strong>
-                        <span>доставка від 500₴</span>
-                    </div>
+            </div>
+
+            <!-- Payment Methods -->
+            <div class="footer-payment">
+                <p style="color:#666; font-size:0.85rem; margin-bottom:15px;">Способи оплати:</p>
+                <div class="payment-icons">
+                    <i class="fab fa-cc-visa" title="Visa"></i>
+                    <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+                    <i class="fab fa-apple-pay" title="Apple Pay"></i>
+                    <i class="fab fa-google-pay" title="Google Pay"></i>
+                    <span class="payment-text">LiqPay</span>
                 </div>
-                <div class="trust-badge">
-                    <i class="fas fa-fire"></i>
-                    <div>
-                        <strong>Свіжа обсмажка</strong>
-                        <span>до 3 днів</span>
-                    </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="footer-bottom">
+                <div class="footer-bottom-left">
+                    <p>&copy; 2025 EthioDirect. Всі права захищені.</p>
+                </div>
+                <div class="footer-bottom-right">
+                    <a href="privacy.html">Політика конфіденційності</a>
+                    <span>·</span>
+                    <a href="return.html">Умови повернення</a>
+                    <span>·</span>
+                    <a href="#">Публічна оферта</a>
                 </div>
             </div>
         </div>
+    </footer>
 
-        <!-- Payment Methods -->
-        <div class="footer-payment">
-            <p style="color:#666; font-size:0.85rem; margin-bottom:15px;">Способи оплати:</p>
-            <div class="payment-icons">
-                <i class="fab fa-cc-visa" title="Visa"></i>
-                <i class="fab fa-cc-mastercard" title="Mastercard"></i>
-                <i class="fab fa-apple-pay" title="Apple Pay"></i>
-                <i class="fab fa-google-pay" title="Google Pay"></i>
-                <span class="payment-text">LiqPay</span>
-            </div>
-        </div>
-
-        <!-- Bottom Bar -->
-        <div class="footer-bottom">
-            <div class="footer-bottom-left">
-                <p>&copy; 2025 EthioDirect. Всі права захищені.</p>
-            </div>
-            <div class="footer-bottom-right">
-                <a href="privacy.html">Політика конфіденційності</a>
-                <span>·</span>
-                <a href="return.html">Умови повернення</a>
-                <span>·</span>
-                <a href="#">Публічна оферта</a>
-            </div>
-        </div>
-    </div>
-</footer>
-
+    <script src="js/faq-filter.js"></script>
     <script src="js/main.js"></script>
     <script>
         document.querySelectorAll('.faq-header').forEach(header => {
