@@ -14,7 +14,7 @@
 
 <body>
 
-        <!-- TOP BAR -->
+    <!-- TOP BAR -->
     <div class="top-bar">
         <div class="container top-bar-inner">
             <div class="top-bar-left">
@@ -24,11 +24,14 @@
             </div>
             <div class="top-bar-center">
                 <div class="promo-ticker">
-                    <span class="ticker-item">🔥 <strong data-i18n="topbar.promo_action">АКЦІЯ:</strong> <span data-i18n="topbar.promo_delivery">безкоштовна доставка від 500₴</span></span>
+                    <span class="ticker-item">🔥 <strong data-i18n="topbar.promo_action">АКЦІЯ:</strong> <span
+                            data-i18n="topbar.promo_delivery">безкоштовна доставка від 500₴</span></span>
                     <span class="ticker-divider">|</span>
-                    <span class="ticker-item">☕ <span data-i18n="topbar.promo_subscription">Підписка:</span> <strong data-i18n="topbar.promo_subscription_text">-10% на кожну доставку</strong></span>
+                    <span class="ticker-item">☕ <span data-i18n="topbar.promo_subscription">Підписка:</span> <strong
+                            data-i18n="topbar.promo_subscription_text">-10% на кожну доставку</strong></span>
                     <span class="ticker-divider">|</span>
-                    <span class="ticker-item">⚡ <span data-i18n="topbar.promo_roast">Свіжа обсмажка</span> <strong data-i18n="topbar.promo_roast_days">до 3 днів</strong></span>
+                    <span class="ticker-item">⚡ <span data-i18n="topbar.promo_roast">Свіжа обсмажка</span> <strong
+                            data-i18n="topbar.promo_roast_days">до 3 днів</strong></span>
                 </div>
             </div>
             <div class="top-bar-right">
@@ -39,7 +42,7 @@
         </div>
     </div>
 
-        <!-- HEADER -->
+    <!-- HEADER -->
     <header class="header">
         <div class="container header-inner">
             <a href="index.html" class="logo">
@@ -59,8 +62,7 @@
             <div class="header-search">
                 <div class="search-wrapper">
                     <input type="text" class="search-input" id="search-input" placeholder="Пошук кави..."
-                        data-i18n="search.placeholder" data-i18n-placeholder
-                        oninput="handleSearch(this.value)">
+                        data-i18n="search.placeholder" data-i18n-placeholder oninput="handleSearch(this.value)">
                     <button class="search-btn"><i class="fas fa-search"></i></button>
                     <div class="search-results" id="search-results"></div>
                 </div>
@@ -78,7 +80,8 @@
                     <div class="mini-cart" id="mini-cart">
                         <div class="mini-cart-header">
                             <h4 data-i18n="cart.title">Ваш кошик</h4>
-                            <span class="mini-cart-count" id="mini-cart-count"><span>0</span> <span data-i18n="cart.items">товарів</span></span>
+                            <span class="mini-cart-count" id="mini-cart-count"><span>0</span> <span
+                                    data-i18n="cart.items">товарів</span></span>
                         </div>
                         <div class="mini-cart-items" id="mini-cart-items"></div>
                         <div class="mini-cart-footer" id="mini-cart-footer">
@@ -87,16 +90,19 @@
                                 <span id="mini-cart-total">0 ₴</span>
                             </div>
                             <div class="mini-cart-shipping" id="mini-cart-shipping">
-                                <i class="fas fa-truck"></i> <span data-i18n="cart.free_shipping_progress">До безкоштовної доставки:</span> <strong>500 ₴</strong>
+                                <i class="fas fa-truck"></i> <span data-i18n="cart.free_shipping_progress">До
+                                    безкоштовної доставки:</span> <strong>500 ₴</strong>
                             </div>
                             <button class="mini-cart-btn" onclick="openDrawer()">
-                                <i class="fas fa-shopping-cart"></i> <span data-i18n="cart.checkout">Оформити замовлення</span>
+                                <i class="fas fa-shopping-cart"></i> <span data-i18n="cart.checkout">Оформити
+                                    замовлення</span>
                             </button>
                         </div>
                     </div>
                 </div>
 
-                <button class="menu-toggle" aria-label="Open menu" data-i18n="common.open_menu" data-i18n-aria data-i18n="common.open_menu" data-i18n-aria onclick="toggleMobileMenu()">
+                <button class="menu-toggle" aria-label="Open menu" data-i18n="common.open_menu" data-i18n-aria
+                    data-i18n="common.open_menu" data-i18n-aria onclick="toggleMobileMenu()">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
@@ -118,7 +124,8 @@
                     <div class="progress-fill" id="drawer-progress-fill" style="width: 0%;"></div>
                 </div>
                 <p class="progress-text" id="drawer-progress-text">
-                    <i class="fas fa-truck"></i> <span data-i18n="cart.free_shipping_progress">До безкоштовної доставки:</span> <strong>500 ₴</strong>
+                    <i class="fas fa-truck"></i> <span data-i18n="cart.free_shipping_progress">До безкоштовної
+                        доставки:</span> <strong>500 ₴</strong>
                 </p>
             </div>
             <div style="display:flex; justify-content:space-between; margin-bottom:15px; font-size:1.1rem;">
@@ -140,20 +147,24 @@
                     <div>
                         <span
                             style="display:inline-block; padding:8px 20px; background:var(--secondary); color:#1a1a1a; border-radius:30px; font-weight:700; font-size:0.85rem; margin-bottom:20px;">
-                            🔥 -10% НА КОЖНУ ДОСТАВКУ
+                            🔥 <span data-i18n="subscription_page.hero_badge">-10% НА КОЖНУ ДОСТАВКУ</span>
                         </span>
-                        <h1 style="font-size:3.5rem; color:white; margin-bottom:20px; line-height:1.2;">
+                        <h1 style="font-size:3.5rem; color:white; margin-bottom:20px; line-height:1.2;"
+                            data-i18n="subscription_page.hero_title">
                             Кава, яка приходить сама
                         </h1>
-                        <p style="font-size:1.3rem; opacity:0.9; margin-bottom:30px;">
+                        <p style="font-size:1.3rem; opacity:0.9; margin-bottom:30px;"
+                            data-i18n="subscription_page.hero_subtitle">
                             Обери смак, частоту, кількість — і насолоджуйся свіжообсмаженою кавою без зайвих клопотів.
                         </p>
                         <div style="display:flex; gap:20px; flex-wrap:wrap;">
-                            <a href="#plans" class="btn btn-primary" style="font-size:1.1rem; padding:16px 40px;">
+                            <a href="#plans" class="btn btn-primary" style="font-size:1.1rem; padding:16px 40px;"
+                                data-i18n="subscription_page.choose_plan">
                                 Обрати план
                             </a>
                             <a href="#how-it-works" class="btn btn-outline"
-                                style="color:white; border-color:rgba(255,255,255,0.3);">
+                                style="color:white; border-color:rgba(255,255,255,0.3);"
+                                data-i18n="subscription_page.how_it_works">
                                 Як це працює?
                             </a>
                         </div>
@@ -174,29 +185,33 @@
                     <div style="display:flex; align-items:center; justify-content:center; gap:15px;">
                         <i class="fas fa-percent" style="font-size:2rem; color:var(--primary);"></i>
                         <div style="text-align:left;">
-                            <strong>-10% знижка</strong>
-                            <p style="margin:0; font-size:0.85rem; color:var(--text-muted);">на кожну доставку</p>
+                            <strong data-i18n="subscription_page.benefit_discount">-10% знижка</strong>
+                            <p style="margin:0; font-size:0.85rem; color:var(--text-muted);"
+                                data-i18n="subscription_page.benefit_discount_text">на кожну доставку</p>
                         </div>
                     </div>
                     <div style="display:flex; align-items:center; justify-content:center; gap:15px;">
                         <i class="fas fa-shipping-fast" style="font-size:2rem; color:var(--success);"></i>
                         <div style="text-align:left;">
-                            <strong>Безкоштовна доставка</strong>
-                            <p style="margin:0; font-size:0.85rem; color:var(--text-muted);">завжди</p>
+                            <strong data-i18n="subscription_page.benefit_shipping">Безкоштовна доставка</strong>
+                            <p style="margin:0; font-size:0.85rem; color:var(--text-muted);"
+                                data-i18n="subscription_page.benefit_shipping_text">завжди</p>
                         </div>
                     </div>
                     <div style="display:flex; align-items:center; justify-content:center; gap:15px;">
                         <i class="fas fa-pause-circle" style="font-size:2rem; color:var(--secondary);"></i>
                         <div style="text-align:left;">
-                            <strong>Гнучке управління</strong>
-                            <p style="margin:0; font-size:0.85rem; color:var(--text-muted);">пауза будь-коли</p>
+                            <strong data-i18n="subscription_page.benefit_flexible">Гнучке управління</strong>
+                            <p style="margin:0; font-size:0.85rem; color:var(--text-muted);"
+                                data-i18n="subscription_page.benefit_flexible_text">пауза будь-коли</p>
                         </div>
                     </div>
                     <div style="display:flex; align-items:center; justify-content:center; gap:15px;">
                         <i class="fas fa-fire" style="font-size:2rem; color:#ff6b35;"></i>
                         <div style="text-align:left;">
-                            <strong>Свіжа обсмажка</strong>
-                            <p style="margin:0; font-size:0.85rem; color:var(--text-muted);">під ваше замовлення</p>
+                            <strong data-i18n="subscription_page.benefit_fresh">Свіжа обсмажка</strong>
+                            <p style="margin:0; font-size:0.85rem; color:var(--text-muted);"
+                                data-i18n="subscription_page.benefit_fresh_text">під ваше замовлення</p>
                         </div>
                     </div>
                 </div>
@@ -207,8 +222,10 @@
         <section class="section bg-white" id="plans">
             <div class="container">
                 <div class="text-center" style="margin-bottom:60px;">
-                    <h2 style="font-size:2.5rem; margin-bottom:15px;">Оберіть свій план</h2>
-                    <p style="color:var(--text-muted); font-size:1.1rem;">Відміна або пауза в будь-який момент. Без
+                    <h2 style="font-size:2.5rem; margin-bottom:15px;" data-i18n="subscription_page.plans_title">Оберіть
+                        свій план</h2>
+                    <p style="color:var(--text-muted); font-size:1.1rem;" data-i18n="subscription_page.plans_subtitle">
+                        Відміна або пауза в будь-який момент. Без
                         зобов'язань.</p>
                 </div>
 
@@ -282,8 +299,8 @@
                             </li>
                         </ul>
 
-                        <button class="btn"
-                            style="width:100%; background:white; color:var(--primary); font-weight:700;">Обрати
+                        <button class="btn" style="width:100%; background:white; color:var(--primary); font-weight:700;"
+                            data-i18n="subscription_page.choose_plan">Обрати
                             план</button>
                     </div>
 
@@ -326,7 +343,8 @@
         <!-- HOW IT WORKS -->
         <section class="section" id="how-it-works" style="background:#f9f9f9;">
             <div class="container">
-                <h2 class="text-center" style="margin-bottom:60px;">Як це працює?</h2>
+                <h2 class="text-center" style="margin-bottom:60px;" data-i18n="subscription_page.how_it_works">Як це
+                    працює?</h2>
 
                 <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:30px;">
                     <div style="text-align:center;">
@@ -364,7 +382,8 @@
         <!-- FAQ -->
         <section class="section bg-white">
             <div class="container" style="max-width:800px;">
-                <h2 class="text-center" style="margin-bottom:40px;">Часті питання</h2>
+                <h2 class="text-center" style="margin-bottom:40px;" data-i18n="subscription_page.faq_title">Часті
+                    питання</h2>
 
                 <div style="border-radius:12px; overflow:hidden; border:1px solid rgba(0,0,0,0.08);">
                     <div style="padding:20px; border-bottom:1px solid rgba(0,0,0,0.08);">
@@ -389,13 +408,16 @@
 
     <!-- FLOATING CONTACTS -->
     <div class="floating-contacts">
-        <a href="https://t.me/ethiodirect" class="float-btn telegram" title="Telegram" data-i18n="float_buttons.telegram" data-i18n-title>
+        <a href="https://t.me/ethiodirect" class="float-btn telegram" title="Telegram"
+            data-i18n="float_buttons.telegram" data-i18n-title>
             <i class="fab fa-telegram-plane"></i>
         </a>
-        <a href="viber://chat?number=+380501234567" class="float-btn viber" title="Viber" data-i18n="float_buttons.viber" data-i18n-title>
+        <a href="viber://chat?number=+380501234567" class="float-btn viber" title="Viber"
+            data-i18n="float_buttons.viber" data-i18n-title>
             <i class="fab fa-viber"></i>
         </a>
-        <a href="tel:+380501234567" class="float-btn phone" title="Зателефонувати" data-i18n="float_buttons.phone" data-i18n-title>
+        <a href="tel:+380501234567" class="float-btn phone" title="Зателефонувати" data-i18n="float_buttons.phone"
+            data-i18n-title>
             <i class="fas fa-phone-alt"></i>
         </a>
     </div>
@@ -407,7 +429,7 @@
     </div>
 
     <!-- FOOTER -->
-        <!-- FOOTER -->
+    <!-- FOOTER -->
     <footer class="footer-pro">
         <div class="container">
             <!-- Main Footer Content -->
@@ -417,12 +439,18 @@
                     <h4 style="font-family:var(--font-heading); font-size:1.5rem; color:white; margin-bottom:20px;">
                         <a href="index.html" style="text-decoration:none; color:white;">EthioDirect</a>
                     </h4>
-                    <p style="color:#aaa; line-height:1.8; margin-bottom:20px;" data-i18n="footer.description">Ми доставляємо справжню specialty каву прямо з ефіопських ферм до вашого дому. Свіжа обсмажка, чесна ціна, любов до кави.</p>
+                    <p style="color:#aaa; line-height:1.8; margin-bottom:20px;" data-i18n="footer.description">Ми
+                        доставляємо справжню specialty каву прямо з ефіопських ферм до вашого дому. Свіжа обсмажка,
+                        чесна ціна, любов до кави.</p>
                     <div class="social-links">
-                        <a href="#" aria-label="Instagram" data-i18n="social.instagram" data-i18n-aria><i class="fab fa-instagram"></i></a>
-                        <a href="#" aria-label="Facebook" data-i18n="social.facebook" data-i18n-aria><i class="fab fa-facebook"></i></a>
-                        <a href="#" aria-label="Telegram" data-i18n="social.telegram" data-i18n-aria><i class="fab fa-telegram"></i></a>
-                        <a href="#" aria-label="TikTok" data-i18n="social.tiktok" data-i18n-aria><i class="fab fa-tiktok"></i></a>
+                        <a href="#" aria-label="Instagram" data-i18n="social.instagram" data-i18n-aria><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Facebook" data-i18n="social.facebook" data-i18n-aria><i
+                                class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Telegram" data-i18n="social.telegram" data-i18n-aria><i
+                                class="fab fa-telegram"></i></a>
+                        <a href="#" aria-label="TikTok" data-i18n="social.tiktok" data-i18n-aria><i
+                                class="fab fa-tiktok"></i></a>
                     </div>
                 </div>
 
@@ -458,7 +486,8 @@
                         <li><i class="fas fa-envelope"></i> <a
                                 href="mailto:hello@ethiodirect.ua">hello@ethiodirect.ua</a>
                         </li>
-                        <li><i class="fas fa-map-marker-alt"></i> <span data-i18n="footer.location">Одеса, Україна</span></li>
+                        <li><i class="fas fa-map-marker-alt"></i> <span data-i18n="footer.location">Одеса,
+                                Україна</span></li>
                         <li><i class="fas fa-clock"></i> <span data-i18n="topbar.hours">Пн-Пт: 9:00-18:00</span></li>
                     </ul>
                 </div>
@@ -466,10 +495,13 @@
                 <!-- Column 5: Newsletter -->
                 <div class="footer-col">
                     <h4 data-i18n="footer.newsletter_title">Підписка на новини</h4>
-                    <p style="color:#aaa; margin-bottom:15px; font-size:0.9rem;" data-i18n="footer.newsletter_text">Отримуйте акції, новинки та поради щодо заварювання</p>
+                    <p style="color:#aaa; margin-bottom:15px; font-size:0.9rem;" data-i18n="footer.newsletter_text">
+                        Отримуйте акції, новинки та поради щодо заварювання</p>
                     <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
-                        <input type="email" placeholder="Ваш email" data-i18n="footer.newsletter_placeholder" data-i18n-placeholder required>
-                        <button type="submit" class="btn-newsletter" data-i18n="footer.newsletter_cta">Підписатись</button>
+                        <input type="email" placeholder="Ваш email" data-i18n="footer.newsletter_placeholder"
+                            data-i18n-placeholder required>
+                        <button type="submit" class="btn-newsletter"
+                            data-i18n="footer.newsletter_cta">Підписатись</button>
                     </form>
                 </div>
             </div>
@@ -513,7 +545,8 @@
                 <p style="color:#666; font-size:0.85rem; margin-bottom:15px;">Способи оплати:</p>
                 <div class="payment-icons">
                     <i class="fab fa-cc-visa" title="Visa" data-i18n="payment.visa" data-i18n-title></i>
-                    <i class="fab fa-cc-mastercard" title="Mastercard" data-i18n="payment.mastercard" data-i18n-title></i>
+                    <i class="fab fa-cc-mastercard" title="Mastercard" data-i18n="payment.mastercard"
+                        data-i18n-title></i>
                     <i class="fab fa-apple-pay" title="Apple Pay" data-i18n="payment.apple_pay" data-i18n-title></i>
                     <i class="fab fa-google-pay" title="Google Pay" data-i18n="payment.google_pay" data-i18n-title></i>
                     <span class="payment-text">LiqPay</span>
