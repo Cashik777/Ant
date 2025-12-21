@@ -2,13 +2,76 @@
 
 /* --- DATA --- */
 const PRODUCTS = [
-    { id: 1, name: 'Сидамо', region: 'Sidamo', desc: 'Классический эфиопский. Шоколад, орехи, мягкая кислинка.', price: 240, weight: 250, roast: 'medium', taste: ['🍫', '🥜'], method: ['espresso', 'turka'], image: 'https://images.unsplash.com/photo-1559056199-641a0ac8b55e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' },
-    { id: 2, name: 'Йіргачеффе', region: 'Yirgacheffe', desc: 'Цветочный, цитрусовый. Идеален для фильтра.', price: 280, weight: 250, roast: 'light', taste: ['🌸', '🍋'], method: ['filter'], image: 'https://images.unsplash.com/photo-1497935586351-b67a49e012bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' },
-    { id: 3, name: 'Гуджі Натурал', region: 'Guji', desc: 'Ягодний вибух. Полуниця, манго, мед.', price: 320, weight: 250, roast: 'light', taste: ['🍓', '🥭'], method: ['filter'], image: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' },
-    { id: 4, name: 'Еспресо Бленд', region: 'Blend', desc: 'Стабільний смак для еспресо. Шоколад, карамель.', price: 220, weight: 250, roast: 'dark', taste: ['🍫', '🍬'], method: ['espresso'], image: 'https://images.unsplash.com/photo-1550950158-d0d960dff51b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' },
-    { id: 5, name: 'Лімму', region: 'Limmu', desc: 'Збалансований. Зелене яблуко, карамель.', price: 260, weight: 250, roast: 'medium', taste: ['🍏', '🍬'], method: ['espresso', 'filter'], image: 'https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' },
-    { id: 6, name: 'Харар', region: 'Harrar', desc: 'Дикий. Чорниця, вино, спеції.', price: 340, weight: 250, roast: 'light', taste: ['🫐', '🍷'], method: ['filter'], image: 'https://images.unsplash.com/photo-1610632380989-680fe40816c6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' }
+    {
+        id: 1, name: 'Сидамо', region: 'Sidamo',
+        desc: 'Класичний ефіопський. Шоколад, горіхи, м\'яка кислинка.',
+        prices: { 250: 240, 500: 430, 1000: 820 },
+        oldPrices: { 250: 280, 500: 510, 1000: 980 },
+        weight: 250, roast: 'medium', taste: ['🍫', '🥜'],
+        method: ['espresso', 'turka'],
+        acidity: 2, body: 4, sweetness: 3,
+        soldCount: 1247, rating: 4.8,
+        image: 'https://images.unsplash.com/photo-1559056199-641a0ac8b55e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+    },
+    {
+        id: 2, name: 'Йіргачеффе', region: 'Yirgacheffe',
+        desc: 'Квітковий, цитрусовий. Ідеальний для фільтра.',
+        prices: { 250: 280, 500: 520, 1000: 980 },
+        oldPrices: { 250: 320, 500: 600, 1000: 1150 },
+        weight: 250, roast: 'light', taste: ['🌸', '🍋'],
+        method: ['filter'],
+        acidity: 4, body: 2, sweetness: 4,
+        soldCount: 892, rating: 4.9,
+        image: 'https://images.unsplash.com/photo-1497935586351-b67a49e012bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+    },
+    {
+        id: 3, name: 'Гуджі Натурал', region: 'Guji',
+        desc: 'Ягідний вибух. Полуниця, манго, мед.',
+        prices: { 250: 320, 500: 590, 1000: 1120 },
+        oldPrices: { 250: 380, 500: 720, 1000: 1400 },
+        weight: 250, roast: 'light', taste: ['🍓', '🥭'],
+        method: ['filter'],
+        acidity: 3, body: 3, sweetness: 5,
+        soldCount: 634, rating: 4.9,
+        image: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+    },
+    {
+        id: 4, name: 'Еспресо Бленд', region: 'Blend',
+        desc: 'Стабільний смак для еспресо. Шоколад, карамель.',
+        prices: { 250: 220, 500: 400, 1000: 760 },
+        oldPrices: { 250: 260, 500: 480, 1000: 920 },
+        weight: 250, roast: 'dark', taste: ['🍫', '🍬'],
+        method: ['espresso'],
+        acidity: 1, body: 5, sweetness: 3,
+        soldCount: 2156, rating: 4.7,
+        image: 'https://images.unsplash.com/photo-1550950158-d0d960dff51b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+    },
+    {
+        id: 5, name: 'Лімму', region: 'Limmu',
+        desc: 'Збалансований. Зелене яблуко, карамель.',
+        prices: { 250: 260, 500: 480, 1000: 920 },
+        oldPrices: { 250: 300, 500: 560, 1000: 1080 },
+        weight: 250, roast: 'medium', taste: ['🍏', '🍬'],
+        method: ['espresso', 'filter'],
+        acidity: 3, body: 3, sweetness: 4,
+        soldCount: 421, rating: 4.6,
+        image: 'https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+    },
+    {
+        id: 6, name: 'Харар', region: 'Harrar',
+        desc: 'Дикий. Чорниця, вино, спеції.',
+        prices: { 250: 340, 500: 640, 1000: 1220 },
+        oldPrices: { 250: 420, 500: 800, 1000: 1540 },
+        weight: 250, roast: 'light', taste: ['🫐', '🍷'],
+        method: ['filter'],
+        acidity: 4, body: 2, sweetness: 3,
+        soldCount: 287, rating: 4.8,
+        image: 'https://images.unsplash.com/photo-1610632380989-680fe40816c6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+    }
 ];
+
+// State for product selections (weight, qty per product)
+const productSelections = {};
 
 const SUBSCRIPTION_PLANS = [
     { id: 'espresso', name: 'Домашній еспресо', desc: 'Темна обжарка, 500г/міс', price: 450, roast: 'dark', weight: 500 },
@@ -114,6 +177,7 @@ class Subscription {
 
 /* --- INIT --- */
 document.addEventListener('DOMContentLoaded', () => {
+    initABTest();
     initUI();
     initPageLogic();
     renderCart();
@@ -124,6 +188,71 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+/* --- A/B TEST FRAMEWORK --- */
+const AB_TESTS = {
+    hero_cta: {
+        variants: [
+            { id: 'control', text: 'Обрати свіжу каву', icon: 'fa-fire' },
+            { id: 'variant_a', text: 'Спробувати specialty каву', icon: 'fa-coffee' },
+            { id: 'variant_b', text: 'Замовити зараз — від 240₴', icon: 'fa-shopping-cart' }
+        ],
+        selector: '.btn-hero',
+        active: true
+    }
+};
+
+function initABTest() {
+    // Get or assign variant
+    let variant = localStorage.getItem('ab_hero_cta');
+
+    if (!variant && AB_TESTS.hero_cta.active) {
+        // Assign random variant
+        const variants = AB_TESTS.hero_cta.variants;
+        variant = variants[Math.floor(Math.random() * variants.length)].id;
+        localStorage.setItem('ab_hero_cta', variant);
+    }
+
+    // Apply variant
+    if (variant && AB_TESTS.hero_cta.active) {
+        const test = AB_TESTS.hero_cta;
+        const selectedVariant = test.variants.find(v => v.id === variant);
+        if (selectedVariant) {
+            const btn = document.querySelector(test.selector);
+            if (btn) {
+                btn.innerHTML = `<i class="fas ${selectedVariant.icon}"></i> ${selectedVariant.text}`;
+            }
+            // Track impression
+            trackABEvent('hero_cta', variant, 'impression');
+        }
+    }
+}
+
+function trackABEvent(testName, variant, action) {
+    // Store event locally for analysis
+    const events = JSON.parse(localStorage.getItem('ab_events') || '[]');
+    events.push({
+        test: testName,
+        variant: variant,
+        action: action,
+        timestamp: new Date().toISOString()
+    });
+    localStorage.setItem('ab_events', JSON.stringify(events));
+
+    // Console log for dev
+    console.log(`[A/B] ${testName}: ${variant} - ${action}`);
+}
+
+// Track CTA clicks
+document.addEventListener('click', (e) => {
+    const heroBtn = e.target.closest('.btn-hero');
+    if (heroBtn) {
+        const variant = localStorage.getItem('ab_hero_cta') || 'control';
+        trackABEvent('hero_cta', variant, 'click');
+    }
+});
+
+window.trackABEvent = trackABEvent;
+
 function initUI() {
     setupDrawer();
     const header = document.querySelector('.header');
@@ -133,6 +262,20 @@ function initUI() {
         });
     }
 }
+
+// Mobile Menu Toggle
+function toggleMobileMenu() {
+    const nav = document.getElementById('nav-mobile');
+    const toggle = document.querySelector('.menu-toggle i');
+    if (nav) {
+        nav.classList.toggle('open');
+        if (toggle) {
+            toggle.classList.toggle('fa-bars');
+            toggle.classList.toggle('fa-times');
+        }
+    }
+}
+window.toggleMobileMenu = toggleMobileMenu;
 
 function initPageLogic() {
     const path = window.location.pathname;
@@ -207,40 +350,386 @@ document.addEventListener('DOMContentLoaded', () => {
 
 /* --- UTILS --- */
 function createProductCard(p) {
-    // New Premium Card Structure (Dark/Parchment Theme)
-    const delay = Math.floor(Math.random() * 200); // Stagger animation
-    const badge = p.id === 1 ? '<div class="p-badge">Бестселер</div>' : (p.id === 6 ? '<div class="p-badge" style="background:var(--accent-gold);">Raritety</div>' : '');
+    // Initialize selection state for this product
+    if (!productSelections[p.id]) {
+        productSelections[p.id] = { weight: 250, qty: 1, grind: 'beans' };
+    }
+    const sel = productSelections[p.id];
+    const currentPrice = p.prices[sel.weight];
+    const oldPrice = p.oldPrices[sel.weight];
+    const discount = Math.round((1 - currentPrice / oldPrice) * 100);
+
+    // Badges
+    const badges = [];
+    if (p.id === 4) badges.push('<div class="p-badge p-badge-bestseller"><i class="fas fa-fire"></i> Хіт продажів</div>');
+    if (discount >= 15) badges.push(`<div class="p-badge p-badge-discount">-${discount}%</div>`);
+    if (p.id === 6) badges.push('<div class="p-badge p-badge-rare"><i class="fas fa-gem"></i> Рарітет</div>');
+    if (p.soldCount < 300) badges.push('<div class="p-badge p-badge-new"><i class="fas fa-sparkles"></i> Новинка</div>');
+
+    // Simulated stock levels for urgency
+    const stockLevels = { 1: 12, 2: 5, 3: 3, 4: 18, 5: 8, 6: 2 };
+    const stock = stockLevels[p.id] || 10;
+    const stockClass = stock <= 5 ? 'low-stock' : '';
+
+    // Roast labels
+    const roastLabels = { light: 'Світла', medium: 'Середня', dark: 'Темна' };
+
+    // Taste profile dots generator
+    const renderDots = (value, max = 5) => {
+        let dots = '';
+        for (let i = 1; i <= max; i++) {
+            dots += `<span class="taste-dot ${i <= value ? 'active' : ''}"></span>`;
+        }
+        return dots;
+    };
+
+    // Rating stars
+    const renderStars = (rating) => {
+        const fullStars = Math.floor(rating);
+        const hasHalf = rating % 1 >= 0.5;
+        let stars = '';
+        for (let i = 0; i < fullStars; i++) stars += '<i class="fas fa-star"></i>';
+        if (hasHalf) stars += '<i class="fas fa-star-half-alt"></i>';
+        return stars;
+    };
+
+    const altText = `${p.name} — ефіопська кава ${roastLabels[p.roast]} обсмажки з нотами ${p.taste.join(' ')}, регіон ${p.region}`;
 
     return `
-    <div class="product-card" style="animation: fadeIn 0.5s ${delay}ms forwards;">
-        ${badge}
+    <div class="product-card ${stockClass}" data-product-id="${p.id}">
+        <div class="p-badges">${badges.join('')}</div>
         <div class="p-img-box">
             <a href="product.html?id=${p.id}">
-                <img src="${p.image}" alt="${p.name}" loading="lazy">
+                <img src="${p.image}" alt="${altText}" loading="lazy">
             </a>
+            ${stock <= 5 ? `<div class="p-stock-warning"><i class="fas fa-exclamation-triangle"></i> Залишилось ${stock} шт</div>` : ''}
         </div>
         <div class="p-content">
-            <h3 class="p-title">${p.name}</h3>
+            <div class="p-header">
+                <h3 class="p-title"><a href="product.html?id=${p.id}">${p.name}</a></h3>
+                <div class="p-rating">
+                    <span class="stars">${renderStars(p.rating)}</span>
+                    <span class="rating-value">${p.rating}</span>
+                </div>
+            </div>
+            
+            <p class="p-region"><i class="fas fa-map-marker-alt"></i> ${p.region} · ${roastLabels[p.roast]} обсмажка</p>
             <p class="p-desc">${p.desc}</p>
             
-            <div class="p-metrics">
-                <span><i class="fas fa-mountain"></i> ${p.region}</span>
-                <span><i class="fas fa-fire"></i> ${p.roast}</span>
+            <!-- Taste Profile -->
+            <div class="taste-profile">
+                <div class="taste-row">
+                    <span class="taste-label">Кислотність</span>
+                    <div class="taste-dots">${renderDots(p.acidity)}</div>
+                </div>
+                <div class="taste-row">
+                    <span class="taste-label">Тіло</span>
+                    <div class="taste-dots">${renderDots(p.body)}</div>
+                </div>
+                <div class="taste-row">
+                    <span class="taste-label">Солодкість</span>
+                    <div class="taste-dots">${renderDots(p.sweetness)}</div>
+                </div>
+            </div>
+            
+            <!-- Weight Selector -->
+            <div class="weight-selector" data-product-id="${p.id}">
+                <button class="weight-btn ${sel.weight === 250 ? 'active' : ''}" onclick="selectWeight(${p.id}, 250)">250г</button>
+                <button class="weight-btn ${sel.weight === 500 ? 'active' : ''}" onclick="selectWeight(${p.id}, 500)">500г</button>
+                <button class="weight-btn ${sel.weight === 1000 ? 'active' : ''}" onclick="selectWeight(${p.id}, 1000)">1 кг</button>
+            </div>
+            
+            <!-- Grind Selector -->
+            <div class="grind-selector" data-product-id="${p.id}">
+                <button class="grind-btn ${sel.grind === 'beans' || !sel.grind ? 'active' : ''}" onclick="selectGrind(${p.id}, 'beans')">
+                    <span class="grind-icon">🫘</span>
+                    <span class="grind-label">Зерно</span>
+                </button>
+                <button class="grind-btn ${sel.grind === 'espresso' ? 'active' : ''}" onclick="selectGrind(${p.id}, 'espresso')">
+                    <span class="grind-icon">☕</span>
+                    <span class="grind-label">Еспресо</span>
+                </button>
+                <button class="grind-btn ${sel.grind === 'filter' ? 'active' : ''}" onclick="selectGrind(${p.id}, 'filter')">
+                    <span class="grind-icon">🫖</span>
+                    <span class="grind-label">Фільтр</span>
+                </button>
+                <button class="grind-btn ${sel.grind === 'turka' ? 'active' : ''}" onclick="selectGrind(${p.id}, 'turka')">
+                    <span class="grind-icon">🏺</span>
+                    <span class="grind-label">Турка</span>
+                </button>
             </div>
 
-            <div class="p-footer">
-                <div class="p-price">${p.price} ₴</div>
-                <div style="font-size:0.8rem; color:#888;">250 г</div>
+            <!-- Price Block -->
+            <div class="p-price-block">
+                <div class="p-price-main">
+                    <span class="p-price-old">${oldPrice} ₴</span>
+                    <span class="p-price-current" id="price-${p.id}">${currentPrice} ₴</span>
+                </div>
+                <div class="p-economy">Економія: <strong>${oldPrice - currentPrice} ₴</strong></div>
             </div>
 
-            <button class="p-btn" onclick="addToCart(${p.id})">Додати в кошик</button>
-            <div style="margin-top:10px; font-size:0.75rem; color:#999; text-align:center;">
-                <i class="fas fa-circle" style="color:var(--accent-fire); font-size:6px;"></i> Обсмажено вчора
+            <!-- Quantity & Add to Cart -->
+            <div class="p-actions">
+                <div class="qty-controls">
+                    <button class="qty-btn" onclick="changeQty(${p.id}, -1)">−</button>
+                    <span class="qty-value" id="qty-${p.id}">${sel.qty}</span>
+                    <button class="qty-btn" onclick="changeQty(${p.id}, 1)">+</button>
+                </div>
+                <button class="p-btn-add" onclick="addToCartWithOptions(${p.id})">
+                    <i class="fas fa-shopping-cart"></i> Додати
+                </button>
+            </div>
+            
+            <!-- Social Proof -->
+            <div class="p-social-proof">
+                <i class="fas fa-users"></i> Вже купили <strong>${p.soldCount}</strong> людей
             </div>
         </div>
     </div>
     `;
 }
+
+// Weight selector handler
+function selectWeight(productId, weight) {
+    productSelections[productId] = productSelections[productId] || { weight: 250, qty: 1 };
+    productSelections[productId].weight = weight;
+
+    const p = PRODUCTS.find(x => x.id === productId);
+    const currentPrice = p.prices[weight];
+    const oldPrice = p.oldPrices[weight];
+
+    // Update price display
+    const priceEl = document.getElementById(`price-${productId}`);
+    if (priceEl) priceEl.textContent = currentPrice + ' ₴';
+
+    // Update old price
+    const card = document.querySelector(`[data-product-id="${productId}"]`);
+    if (card) {
+        const oldPriceEl = card.querySelector('.p-price-old');
+        const economyEl = card.querySelector('.p-economy strong');
+        if (oldPriceEl) oldPriceEl.textContent = oldPrice + ' ₴';
+        if (economyEl) economyEl.textContent = (oldPrice - currentPrice) + ' ₴';
+    }
+
+    // Update active button
+    const selector = document.querySelector(`.weight-selector[data-product-id="${productId}"]`);
+    if (selector) {
+        selector.querySelectorAll('.weight-btn').forEach(btn => btn.classList.remove('active'));
+        selector.querySelector(`.weight-btn:nth-child(${weight === 250 ? 1 : weight === 500 ? 2 : 3})`).classList.add('active');
+    }
+}
+
+// Quantity control handler
+function changeQty(productId, delta) {
+    productSelections[productId] = productSelections[productId] || { weight: 250, qty: 1, grind: 'beans' };
+    let newQty = productSelections[productId].qty + delta;
+    if (newQty < 1) newQty = 1;
+    if (newQty > 10) newQty = 10;
+    productSelections[productId].qty = newQty;
+
+    const qtyEl = document.getElementById(`qty-${productId}`);
+    if (qtyEl) qtyEl.textContent = newQty;
+}
+
+// Grind selector handler
+function selectGrind(productId, grind) {
+    productSelections[productId] = productSelections[productId] || { weight: 250, qty: 1, grind: 'beans' };
+    productSelections[productId].grind = grind;
+
+    // Update active button
+    const selector = document.querySelector(`.grind-selector[data-product-id="${productId}"]`);
+    if (selector) {
+        selector.querySelectorAll('.grind-btn').forEach(btn => btn.classList.remove('active'));
+        const activeBtn = selector.querySelector(`.grind-btn:nth-child(${grind === 'beans' ? 1 : grind === 'espresso' ? 2 : grind === 'filter' ? 3 : 4})`);
+        if (activeBtn) activeBtn.classList.add('active');
+    }
+}
+
+// Add to cart with selected weight, quantity and grind
+function addToCartWithOptions(productId) {
+    const p = PRODUCTS.find(x => x.id === productId);
+    if (!p) return;
+
+    const sel = productSelections[productId] || { weight: 250, qty: 1, grind: 'beans' };
+    const price = p.prices[sel.weight];
+    const grindLabel = getGrindLabel(sel.grind);
+
+    for (let i = 0; i < sel.qty; i++) {
+        store.cart.push({
+            ...p,
+            cartId: Date.now() + i,
+            qty: 1,
+            selectedWeight: sel.weight,
+            selectedGrind: sel.grind,
+            price: price
+        });
+    }
+
+    renderCart();
+    showToast(`${p.name} (${sel.weight}г, ${grindLabel}) додано!`);
+    openMiniCart();
+
+    // Reset quantity after adding
+    productSelections[productId].qty = 1;
+    const qtyEl = document.getElementById(`qty-${productId}`);
+    if (qtyEl) qtyEl.textContent = '1';
+}
+
+// Make selectGrind globally available
+window.selectGrind = selectGrind;
+
+// Toast notification
+function showToast(message) {
+    const toast = document.getElementById('toast');
+    const msgEl = document.getElementById('toast-msg');
+    if (toast && msgEl) {
+        msgEl.textContent = message;
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 3000);
+    }
+}
+
+/* ========================================
+   SEARCH FUNCTIONALITY
+   ======================================== */
+function handleSearch(query) {
+    const resultsContainer = document.getElementById('search-results');
+    if (!resultsContainer) return;
+
+    if (query.length < 2) {
+        resultsContainer.classList.remove('active');
+        return;
+    }
+
+    const q = query.toLowerCase();
+    const results = PRODUCTS.filter(p =>
+        p.name.toLowerCase().includes(q) ||
+        p.region.toLowerCase().includes(q) ||
+        p.desc.toLowerCase().includes(q)
+    );
+
+    if (results.length === 0) {
+        resultsContainer.innerHTML = `
+            <div style="padding: 20px; text-align: center; color: var(--text-muted);">
+                <i class="fas fa-search" style="font-size: 2rem; margin-bottom: 10px; color: #ddd;"></i>
+                <p>Нічого не знайдено для "${query}"</p>
+            </div>
+        `;
+    } else {
+        resultsContainer.innerHTML = results.map(p => `
+            <a href="product.html?id=${p.id}" class="search-result-item">
+                <img src="${p.image}" alt="${p.name}">
+                <div class="search-result-info">
+                    <div class="search-result-name">${p.name}</div>
+                    <div class="search-result-price">від ${p.prices[250]} ₴</div>
+                </div>
+            </a>
+        `).join('');
+    }
+
+    resultsContainer.classList.add('active');
+}
+
+// Close search results when clicking outside
+document.addEventListener('click', (e) => {
+    const searchWrapper = document.querySelector('.search-wrapper');
+    const resultsContainer = document.getElementById('search-results');
+    if (searchWrapper && resultsContainer && !searchWrapper.contains(e.target)) {
+        resultsContainer.classList.remove('active');
+    }
+});
+
+/* ========================================
+   MINI-CART FUNCTIONALITY
+   ======================================== */
+function renderMiniCart() {
+    const itemsContainer = document.getElementById('mini-cart-items');
+    const countEl = document.getElementById('mini-cart-count');
+    const totalEl = document.getElementById('mini-cart-total');
+    const shippingEl = document.getElementById('mini-cart-shipping');
+    const footerEl = document.getElementById('mini-cart-footer');
+
+    if (!itemsContainer) return;
+
+    const count = store.cart.length;
+    if (countEl) {
+        const word = count === 1 ? 'товар' : (count < 5 ? 'товари' : 'товарів');
+        countEl.textContent = `${count} ${word}`;
+    }
+
+    if (count === 0) {
+        itemsContainer.innerHTML = `
+            <div class="mini-cart-empty">
+                <i class="fas fa-mug-hot"></i>
+                <p>Ваш кошик порожній</p>
+                <a href="shop.html" style="color: var(--primary); font-weight: 600;">Перейти до каталогу →</a>
+            </div>
+        `;
+        if (footerEl) footerEl.style.display = 'none';
+        return;
+    }
+
+    if (footerEl) footerEl.style.display = 'block';
+
+    // Show last 3 items
+    const displayItems = store.cart.slice(-3).reverse();
+    let sum = 0;
+    store.cart.forEach(item => sum += item.price);
+
+    itemsContainer.innerHTML = displayItems.map(item => `
+        <div class="mini-cart-item">
+            <img src="${item.image}" alt="${item.name}">
+            <div class="mini-cart-item-info">
+                <div class="mini-cart-item-name">${item.name}</div>
+                <div class="mini-cart-item-meta">${item.selectedWeight || 250}г</div>
+            </div>
+            <div class="mini-cart-item-price">${item.price} ₴</div>
+            <button class="mini-cart-item-remove" onclick="removeFromCart(${item.cartId}); event.stopPropagation();">×</button>
+        </div>
+    `).join('');
+
+    if (store.cart.length > 3) {
+        itemsContainer.innerHTML += `
+            <div style="text-align: center; padding: 10px; color: var(--text-muted); font-size: 0.85rem;">
+                + ще ${store.cart.length - 3} товарів
+            </div>
+        `;
+    }
+
+    if (totalEl) totalEl.textContent = sum + ' ₴';
+
+    // Update shipping message
+    if (shippingEl) {
+        if (sum >= 500) {
+            shippingEl.innerHTML = `<i class="fas fa-check-circle"></i> Безкоштовна доставка!`;
+            shippingEl.style.color = 'var(--success)';
+        } else {
+            const remaining = 500 - sum;
+            shippingEl.innerHTML = `<i class="fas fa-truck"></i> До безкоштовної доставки: <strong>${remaining} ₴</strong>`;
+            shippingEl.style.color = '';
+        }
+    }
+}
+
+function openMiniCart() {
+    const miniCart = document.getElementById('mini-cart');
+    if (miniCart) {
+        miniCart.classList.add('active');
+        renderMiniCart();
+
+        // Auto-hide after 3 seconds
+        setTimeout(() => {
+            miniCart.classList.remove('active');
+        }, 3000);
+    }
+}
+
+// Make functions globally available
+window.handleSearch = handleSearch;
+window.selectWeight = selectWeight;
+window.changeQty = changeQty;
+window.addToCartWithOptions = addToCartWithOptions;
+window.openMiniCart = openMiniCart;
 
 function initFilters() {
     document.querySelectorAll('.filter-btn').forEach(btn => {
@@ -271,9 +760,11 @@ function initProductPage() {
 function addToCart(id) {
     const p = PRODUCTS.find(x => x.id === id);
     if (!p) return;
-    store.cart.push({ ...p, cartId: Date.now(), qty: 1 });
+    const price = p.prices ? p.prices[250] : p.price;
+    store.cart.push({ ...p, cartId: Date.now(), qty: 1, selectedWeight: 250, price: price });
     renderCart();
-    openDrawer();
+    showToast(`${p.name} додано в кошик!`);
+    openMiniCart();
 }
 
 function removeFromCart(cartId) {
@@ -292,12 +783,13 @@ function renderCart() {
     if (store.cart.length === 0) {
         list.innerHTML = `
             <div style="text-align:center; padding:40px 20px;">
-                <i class="fas fa-mug-hot" style="font-size:3rem; color:#eee; margin-bottom:20px;"></i>
-                <p style="color:var(--text-secondary); margin-bottom:20px;">Ваша чашка поки що порожня...</p>
-                <a href="index.html#featured" class="btn btn-primary btn-sm" onclick="document.querySelector('.drawer').classList.remove('open'); document.querySelector('.overlay').classList.remove('open');">Заповнити чашку смаком</a>
+                <i class="fas fa-mug-hot" style="font-size:3rem; color:#eee; margin-bottom:20px; display:block;"></i>
+                <p style="color:var(--text-muted); margin-bottom:20px;">Ваша чашка поки що порожня...</p>
+                <a href="shop.html" class="btn btn-primary btn-sm" onclick="closeDrawer();">Перейти до каталогу</a>
             </div>
         `;
         if (total) total.innerText = '0 ' + store.currency;
+        updateShippingProgress(0);
         return;
     }
 
@@ -305,17 +797,64 @@ function renderCart() {
     list.innerHTML = '';
     store.cart.forEach(item => {
         sum += item.price;
+        const grindLabel = item.selectedGrind ? getGrindLabel(item.selectedGrind) : 'Зерно';
         list.innerHTML += `
         <div class="cart-item">
             <img src="${item.image}" alt="${item.name}">
             <div style="flex:1;">
-                <h4 style="font-size:0.95rem; margin-bottom:4px;">${item.name}</h4>
-                <p style="margin:0; font-size:0.9rem; color:var(--primary);">${item.price} ${store.currency}</p>
+                <h4 style="font-size:0.95rem; margin-bottom:4px; font-weight:600;">${item.name}</h4>
+                <p style="margin:0; font-size:0.8rem; color:var(--text-muted);">
+                    ${item.selectedWeight || 250}г • ${grindLabel}
+                </p>
+                <p style="margin:5px 0 0; font-size:0.95rem; color:var(--primary); font-weight:700;">${item.price} ${store.currency}</p>
             </div>
-            <button onclick="removeFromCart(${item.cartId})" style="background:none; border:none; color:#999; cursor:pointer; font-size:1.3rem;">&times;</button>
+            <button onclick="removeFromCart(${item.cartId})" style="background:none; border:none; color:#999; cursor:pointer; font-size:1.3rem; padding:5px;">&times;</button>
         </div>`;
     });
     if (total) total.innerText = sum + ' ' + store.currency;
+
+    // Update shipping progress bar
+    updateShippingProgress(sum);
+
+    // Also update mini-cart
+    renderMiniCart();
+}
+
+/* --- SHIPPING PROGRESS BAR --- */
+const FREE_SHIPPING_THRESHOLD = 500;
+
+function updateShippingProgress(currentTotal) {
+    const progressFill = document.getElementById('drawer-progress-fill');
+    const progressText = document.getElementById('drawer-progress-text');
+
+    if (!progressFill || !progressText) return;
+
+    const percentage = Math.min((currentTotal / FREE_SHIPPING_THRESHOLD) * 100, 100);
+    progressFill.style.width = percentage + '%';
+
+    if (currentTotal >= FREE_SHIPPING_THRESHOLD) {
+        progressText.innerHTML = '<i class="fas fa-check-circle"></i> <strong>Безкоштовна доставка!</strong>';
+        progressText.classList.add('progress-complete');
+        progressFill.style.background = 'linear-gradient(90deg, #3D5A40, #4CAF50)';
+    } else {
+        const remaining = FREE_SHIPPING_THRESHOLD - currentTotal;
+        progressText.innerHTML = `<i class="fas fa-truck"></i> До безкоштовної доставки: <strong>${remaining} ₴</strong>`;
+        progressText.classList.remove('progress-complete');
+        progressFill.style.background = 'linear-gradient(90deg, var(--success), #4CAF50)';
+    }
+}
+
+/* --- GRIND OPTIONS --- */
+const GRIND_OPTIONS = [
+    { id: 'beans', label: 'Зерно', icon: '🫘' },
+    { id: 'espresso', label: 'Еспресо', icon: '☕' },
+    { id: 'filter', label: 'Фільтр', icon: '🫖' },
+    { id: 'turka', label: 'Турка', icon: '🏺' }
+];
+
+function getGrindLabel(grindId) {
+    const option = GRIND_OPTIONS.find(g => g.id === grindId);
+    return option ? option.label : 'Зерно';
 }
 
 /* --- DRAWER --- */
@@ -376,17 +915,88 @@ function selectQuizOption(value) {
 }
 
 function showQuizResult() {
-    const recommended = PRODUCTS[Math.floor(Math.random() * PRODUCTS.length)];
+    // Personalization scoring algorithm
+    const answers = store.quizAnswers;
+    const scores = {};
+
+    // Initialize scores for each product
+    PRODUCTS.forEach(p => scores[p.id] = { score: 0, reasons: [] });
+
+    // Question 1: Brewing method
+    const method = answers[1];
+    PRODUCTS.forEach(p => {
+        if (p.method.includes(method)) {
+            scores[p.id].score += 30;
+            const methodNames = { espresso: 'еспресо', filter: 'фільтру', turka: 'турки', french: 'френч-преса' };
+            scores[p.id].reasons.push(`Ідеально для ${methodNames[method] || method}`);
+        }
+    });
+
+    // Question 2: Taste preference
+    const taste = answers[2];
+    PRODUCTS.forEach(p => {
+        const tasteMap = {
+            'chocolate': ['🍫', '🥜', '🍬'],
+            'fruity': ['🍓', '🥭', '🍋', '🍏', '🫐'],
+            'floral': ['🌸'],
+            'spicy': ['🍷', '🌶️']
+        };
+        const matches = p.taste.filter(t => (tasteMap[taste] || []).includes(t));
+        if (matches.length > 0) {
+            scores[p.id].score += 25 * matches.length;
+            const tasteNames = { chocolate: 'шоколадний', fruity: 'фруктовий', floral: 'квітковий', spicy: 'пряний' };
+            scores[p.id].reasons.push(`${tasteNames[taste]} профіль смаку`);
+        }
+    });
+
+    // Question 3: Strength preference
+    const strength = answers[3];
+    const roastMap = { light: 'light', medium: 'medium', strong: 'dark' };
+    PRODUCTS.forEach(p => {
+        if (p.roast === roastMap[strength]) {
+            scores[p.id].score += 20;
+            const strengthNames = { light: 'легка', medium: 'збалансована', strong: 'насичена' };
+            scores[p.id].reasons.push(`${strengthNames[strength]} обсмажка`);
+        }
+    });
+
+    // Question 4: Frequency (affects recommendation emphasis)
+    const freq = answers[4];
+    if (freq === 'daily' || freq === 'addict') {
+        // Recommend subscription-friendly products
+        PRODUCTS.forEach(p => {
+            if (p.price <= 280) {
+                scores[p.id].score += 10;
+            }
+        });
+    }
+
+    // Question 5: Priority (taste, energy, ritual, health)
+    const priority = answers[5];
+    if (priority === 'taste') {
+        // Boost specialty high-score products
+        PRODUCTS.filter(p => p.price >= 300).forEach(p => scores[p.id].score += 15);
+    }
+
+    // Find top recommendation
+    const sorted = Object.entries(scores).sort((a, b) => b[1].score - a[1].score);
+    const topId = parseInt(sorted[0][0]);
+    const recommended = PRODUCTS.find(p => p.id === topId);
+    const reasons = scores[topId].reasons.slice(0, 3).join(' • ');
+
     const container = document.getElementById('quiz-content');
     container.innerHTML = `
         <div class="text-center" style="background:white; padding:50px; border-radius:var(--radius);">
             <i class="fas fa-check-circle" style="font-size:4rem; color:var(--success); margin-bottom:20px;"></i>
             <h2>Ваша ідеальна кава:</h2>
             <h1 style="color:var(--primary); margin:20px 0;">${recommended.name}</h1>
-            <p>${recommended.desc}</p>
-            <div style="margin-top:30px; display:flex; gap:15px; justify-content:center;">
-                <button class="btn btn-primary" onclick="addToCart(${recommended.id})">Додати в кошик</button>
-                <a href="subscription.html?product=${recommended.id}" class="btn btn-outline">Оформити підписку</a>
+            <p style="margin-bottom:15px;">${recommended.desc}</p>
+            <p style="font-size:0.9rem; color:var(--text-muted); margin-bottom:25px;">
+                <strong>Чому саме ця:</strong> ${reasons || 'Збалансований вибір для вас'}
+            </p>
+            <div style="margin-top:30px; display:flex; gap:15px; justify-content:center; flex-wrap:wrap;">
+                <button class="btn btn-primary" onclick="addToCart(${recommended.id}); closeQuiz();">Додати в кошик — ${recommended.price}₴</button>
+                <a href="subscription.html?product=${recommended.id}" class="btn btn-secondary">Оформити підписку -10%</a>
             </div>
         </div>
     `;
@@ -878,3 +1488,378 @@ addToCart = function (id) {
         // User asked for "Notification", implies less intrusive than drawer opening.
     }
 }
+
+/* ========================================
+   LANGUAGE SWITCHER - FULL SITE TRANSLATION
+   ======================================== */
+const TRANSLATIONS = {
+    uk: {
+        // Navigation
+        catalog: 'Каталог',
+        subscription: 'Підписка',
+        certificates: 'Сертифікати',
+        stories: 'Історії',
+        about: 'Про нас',
+        test: 'Тест',
+        // Search
+        search: 'Пошук кави...',
+        // Cart
+        cart: 'Ваш кошик',
+        cartEmpty: 'Ваша чашка поки що порожня...',
+        goToCatalog: 'Перейти до каталогу',
+        total: 'Разом:',
+        checkout: 'Оформити замовлення',
+        freeShipping: 'До безкоштовної доставки:',
+        freeShippingDone: 'Безкоштовна доставка!',
+        addToCart: 'Додати',
+        // Product
+        weight: 'Вага',
+        grind: 'Помол',
+        beans: 'Зерно',
+        espresso: 'Еспресо',
+        filter: 'Фільтр',
+        turka: 'Турка',
+        // Top bar
+        phone: '+380 (50) 123-45-67',
+        workHours: 'Пн-Пт: 9:00-18:00',
+        promoFreeShipping: 'безкоштовна доставка від 500₴',
+        promoSubscription: 'Підписка: -10% на кожну доставку',
+        promoFresh: 'Свіжа обсмажка до 3 днів',
+        // Footer
+        footerShop: 'Магазин',
+        footerSupport: 'Підтримка',
+        footerContacts: 'Контакти',
+        footerNewsletter: 'Підписка на новини',
+        footerNewsletterDesc: 'Отримуйте акції, новинки та поради щодо заварювання',
+        footerSubscribe: 'Підписатись',
+        fullCatalog: 'Весь каталог',
+        coffeeSubscription: 'Підписка на каву',
+        giftCertificates: 'Сертифікати',
+        b2bSolutions: 'B2B рішення',
+        personalAccount: 'Особистий кабінет',
+        deliveryPayment: 'Доставка та оплата',
+        returnExchange: 'Повернення та обмін',
+        faq: 'Часті питання',
+        contacts: 'Контакти',
+        aboutUs: 'Про нас',
+        city: 'Одеса, Україна',
+        // Trust badges
+        return14days: '14 днів',
+        returnLabel: 'повернення',
+        specialty100: '100% Specialty',
+        qualityLabel: 'якість зерна',
+        freeDelivery: 'Безкоштовна',
+        freeDeliveryLabel: 'доставка від 500₴',
+        freshRoast: 'Свіжа обсмажка',
+        freshRoastLabel: 'до 3 днів',
+        // Payment
+        paymentMethods: 'Способи оплати:',
+        // Footer bottom
+        allRightsReserved: 'Всі права захищені.',
+        privacyPolicy: 'Політика конфіденційності',
+        returnTerms: 'Умови повернення',
+        publicOffer: 'Публічна оферта',
+        // Common
+        orderNow: 'Замовити',
+        learnMore: 'Детальніше',
+        yourEmail: 'Ваш email'
+    },
+    ru: {
+        // Navigation
+        catalog: 'Каталог',
+        subscription: 'Подписка',
+        certificates: 'Сертификаты',
+        stories: 'Истории',
+        about: 'О нас',
+        test: 'Тест',
+        // Search
+        search: 'Поиск кофе...',
+        // Cart
+        cart: 'Ваша корзина',
+        cartEmpty: 'Ваша чашка пока пустая...',
+        goToCatalog: 'Перейти в каталог',
+        total: 'Итого:',
+        checkout: 'Оформить заказ',
+        freeShipping: 'До бесплатной доставки:',
+        freeShippingDone: 'Бесплатная доставка!',
+        addToCart: 'Добавить',
+        // Product
+        weight: 'Вес',
+        grind: 'Помол',
+        beans: 'Зерно',
+        espresso: 'Эспрессо',
+        filter: 'Фильтр',
+        turka: 'Турка',
+        // Top bar
+        phone: '+380 (50) 123-45-67',
+        workHours: 'Пн-Пт: 9:00-18:00',
+        promoFreeShipping: 'бесплатная доставка от 500₴',
+        promoSubscription: 'Подписка: -10% на каждую доставку',
+        promoFresh: 'Свежая обжарка до 3 дней',
+        // Footer
+        footerShop: 'Магазин',
+        footerSupport: 'Поддержка',
+        footerContacts: 'Контакты',
+        footerNewsletter: 'Подписка на новости',
+        footerNewsletterDesc: 'Получайте акции, новинки и советы по завариванию',
+        footerSubscribe: 'Подписаться',
+        fullCatalog: 'Весь каталог',
+        coffeeSubscription: 'Подписка на кофе',
+        giftCertificates: 'Сертификаты',
+        b2bSolutions: 'B2B решения',
+        personalAccount: 'Личный кабинет',
+        deliveryPayment: 'Доставка и оплата',
+        returnExchange: 'Возврат и обмен',
+        faq: 'Частые вопросы',
+        contacts: 'Контакты',
+        aboutUs: 'О нас',
+        city: 'Одесса, Украина',
+        // Trust badges
+        return14days: '14 дней',
+        returnLabel: 'возврат',
+        specialty100: '100% Specialty',
+        qualityLabel: 'качество зерна',
+        freeDelivery: 'Бесплатная',
+        freeDeliveryLabel: 'доставка от 500₴',
+        freshRoast: 'Свежая обжарка',
+        freshRoastLabel: 'до 3 дней',
+        // Payment
+        paymentMethods: 'Способы оплаты:',
+        // Footer bottom
+        allRightsReserved: 'Все права защищены.',
+        privacyPolicy: 'Политика конфиденциальности',
+        returnTerms: 'Условия возврата',
+        publicOffer: 'Публичная оферта',
+        // Common
+        orderNow: 'Заказать',
+        learnMore: 'Подробнее',
+        yourEmail: 'Ваш email'
+    },
+    en: {
+        // Navigation
+        catalog: 'Catalog',
+        subscription: 'Subscription',
+        certificates: 'Gift Cards',
+        stories: 'Stories',
+        about: 'About Us',
+        test: 'Quiz',
+        // Search
+        search: 'Search coffee...',
+        // Cart
+        cart: 'Your Cart',
+        cartEmpty: 'Your cup is empty...',
+        goToCatalog: 'Go to Catalog',
+        total: 'Total:',
+        checkout: 'Checkout',
+        freeShipping: 'Until free shipping:',
+        freeShippingDone: 'Free shipping!',
+        addToCart: 'Add to Cart',
+        // Product
+        weight: 'Weight',
+        grind: 'Grind',
+        beans: 'Beans',
+        espresso: 'Espresso',
+        filter: 'Filter',
+        turka: 'Turkish',
+        // Top bar
+        phone: '+380 (50) 123-45-67',
+        workHours: 'Mon-Fri: 9:00-18:00',
+        promoFreeShipping: 'free shipping from 500₴',
+        promoSubscription: 'Subscription: -10% on each delivery',
+        promoFresh: 'Fresh roast up to 3 days',
+        // Footer
+        footerShop: 'Shop',
+        footerSupport: 'Support',
+        footerContacts: 'Contacts',
+        footerNewsletter: 'Newsletter',
+        footerNewsletterDesc: 'Get deals, news and brewing tips',
+        footerSubscribe: 'Subscribe',
+        fullCatalog: 'Full Catalog',
+        coffeeSubscription: 'Coffee Subscription',
+        giftCertificates: 'Gift Cards',
+        b2bSolutions: 'B2B Solutions',
+        personalAccount: 'My Account',
+        deliveryPayment: 'Delivery & Payment',
+        returnExchange: 'Returns & Exchanges',
+        faq: 'FAQ',
+        contacts: 'Contacts',
+        aboutUs: 'About Us',
+        city: 'Odesa, Ukraine',
+        // Trust badges
+        return14days: '14 days',
+        returnLabel: 'returns',
+        specialty100: '100% Specialty',
+        qualityLabel: 'bean quality',
+        freeDelivery: 'Free',
+        freeDeliveryLabel: 'shipping from 500₴',
+        freshRoast: 'Fresh Roast',
+        freshRoastLabel: 'up to 3 days',
+        // Payment
+        paymentMethods: 'Payment methods:',
+        // Footer bottom
+        allRightsReserved: 'All rights reserved.',
+        privacyPolicy: 'Privacy Policy',
+        returnTerms: 'Return Policy',
+        publicOffer: 'Terms of Service',
+        // Common
+        orderNow: 'Order Now',
+        learnMore: 'Learn More',
+        yourEmail: 'Your email'
+    }
+};
+
+function switchLang(lang) {
+    // Prevent default action
+    event && event.preventDefault();
+
+    // Save to localStorage
+    localStorage.setItem('ed_lang', lang);
+
+    // Update active state on lang switches
+    document.querySelectorAll('.lang-switch').forEach(el => {
+        el.classList.remove('active');
+        const txt = el.textContent.trim().toUpperCase();
+        if ((lang === 'uk' && txt === 'UA') || (lang === 'ru' && txt === 'RU') || (lang === 'en' && txt === 'EN')) {
+            el.classList.add('active');
+        }
+    });
+
+    // Apply translations
+    applyTranslations(lang);
+
+    // Show toast
+    const messages = {
+        uk: 'Мова змінена на українську',
+        ru: 'Язык изменён на русский',
+        en: 'Language changed to English'
+    };
+    if (typeof showToast === 'function') {
+        showToast(messages[lang] || messages.uk);
+    }
+}
+
+function applyTranslations(lang) {
+    const t = TRANSLATIONS[lang] || TRANSLATIONS.uk;
+
+    // Update all elements with data-translate attribute
+    document.querySelectorAll('[data-translate]').forEach(el => {
+        const key = el.getAttribute('data-translate');
+        if (t[key]) {
+            el.textContent = t[key];
+        }
+    });
+
+    // Update nav links by href
+    document.querySelectorAll('.nav-desktop .nav-link').forEach(link => {
+        const href = link.getAttribute('href');
+        if (href && href.includes('shop.html')) link.textContent = t.catalog;
+        if (href && href.includes('subscription.html')) link.textContent = t.subscription;
+        if (href && href.includes('gift-certificates.html')) link.textContent = t.certificates;
+        if (href && href.includes('blog.html')) link.textContent = t.stories;
+        if (href && href.includes('about.html')) link.textContent = t.about;
+        if (href && href.includes('quiz.html')) link.textContent = t.test;
+    });
+
+    // Update search placeholder 
+    const searchInput = document.getElementById('search-input');
+    if (searchInput) searchInput.placeholder = t.search;
+
+    // Update drawer header
+    const drawerHeader = document.querySelector('.drawer-header h3');
+    if (drawerHeader) {
+        drawerHeader.innerHTML = `<i class="fas fa-shopping-bag" style="margin-right:10px; color:var(--primary);"></i> ${t.cart}`;
+    }
+
+    // Update footer section titles
+    document.querySelectorAll('.footer-col h4').forEach((h4, index) => {
+        const text = h4.textContent.trim().toLowerCase();
+        if (text.includes('магазин') || text.includes('shop')) h4.textContent = t.footerShop;
+        if (text.includes('підтримка') || text.includes('поддержка') || text.includes('support')) h4.textContent = t.footerSupport;
+        if (text.includes('контакт') || text.includes('contact')) h4.textContent = t.footerContacts;
+        if (text.includes('підписка на новини') || text.includes('подписка на новости') || text.includes('newsletter')) h4.textContent = t.footerNewsletter;
+    });
+
+    // Update footer links
+    document.querySelectorAll('.footer-links a').forEach(link => {
+        const href = link.getAttribute('href');
+        if (href) {
+            if (href.includes('shop.html')) link.textContent = t.fullCatalog;
+            if (href.includes('subscription.html')) link.textContent = t.coffeeSubscription;
+            if (href.includes('gift-certificates.html')) link.textContent = t.giftCertificates;
+            if (href.includes('b2b.html')) link.textContent = t.b2bSolutions;
+            if (href.includes('account.html')) link.textContent = t.personalAccount;
+            if (href.includes('delivery.html')) link.textContent = t.deliveryPayment;
+            if (href.includes('return.html')) link.textContent = t.returnExchange;
+            if (href.includes('faq.html')) link.textContent = t.faq;
+            if (href.includes('contacts.html')) link.textContent = t.contacts;
+            if (href.includes('about.html')) link.textContent = t.aboutUs;
+        }
+    });
+
+    // Update trust badges
+    document.querySelectorAll('.trust-badge').forEach(badge => {
+        const icon = badge.querySelector('i');
+        const strong = badge.querySelector('strong');
+        const span = badge.querySelector('span');
+        if (icon && strong && span) {
+            const iconClass = icon.className;
+            if (iconClass.includes('shield')) {
+                strong.textContent = t.return14days;
+                span.textContent = t.returnLabel;
+            }
+            if (iconClass.includes('coffee')) {
+                strong.textContent = t.specialty100;
+                span.textContent = t.qualityLabel;
+            }
+            if (iconClass.includes('shipping')) {
+                strong.textContent = t.freeDelivery;
+                span.textContent = t.freeDeliveryLabel;
+            }
+            if (iconClass.includes('fire')) {
+                strong.textContent = t.freshRoast;
+                span.textContent = t.freshRoastLabel;
+            }
+        }
+    });
+
+    // Update newsletter form
+    document.querySelectorAll('.newsletter-form input[type="email"]').forEach(input => {
+        input.placeholder = t.yourEmail;
+    });
+    document.querySelectorAll('.newsletter-form button, .btn-newsletter').forEach(btn => {
+        btn.textContent = t.footerSubscribe;
+    });
+
+    // Update footer bottom links
+    document.querySelectorAll('.footer-bottom-right a').forEach(link => {
+        const href = link.getAttribute('href');
+        if (href) {
+            if (href.includes('privacy')) link.textContent = t.privacyPolicy;
+            if (href.includes('return')) link.textContent = t.returnTerms;
+            if (href === '#' || href.includes('offer')) link.textContent = t.publicOffer;
+        }
+    });
+}
+
+// Initialize language on page load
+document.addEventListener('DOMContentLoaded', () => {
+    const savedLang = localStorage.getItem('ed_lang') || 'uk';
+
+    // Update active state on lang switches
+    document.querySelectorAll('.lang-switch').forEach(el => {
+        el.classList.remove('active');
+        const langText = el.textContent.trim().toUpperCase();
+        if ((savedLang === 'uk' && langText === 'UA') ||
+            (savedLang === 'ru' && langText === 'RU') ||
+            (savedLang === 'en' && langText === 'EN')) {
+            el.classList.add('active');
+        }
+    });
+
+    // Always apply translations on load
+    applyTranslations(savedLang);
+});
+
+// Make switchLang globally available
+window.switchLang = switchLang;
+

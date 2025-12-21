@@ -1,0 +1,286 @@
+{
+    "site": {
+        "title": "EthioDirect — Кофе, который просился к вам"
+    },
+    "nav": {
+        "catalog": "Каталог",
+        "subscription": "Подписка",
+        "certificates": "Сертификаты",
+        "stories": "Истории",
+        "about": "О нас",
+        "test": "Тест вкуса"
+    },
+    "topbar": {
+        "phone": "+380 (50) 123-45-67",
+        "hours": "Пн-Пт: 9:00-18:00",
+        "promo_action": "АКЦИЯ:",
+        "promo_delivery": "бесплатная доставка от 500₴",
+        "promo_subscription": "Подписка:",
+        "promo_subscription_text": "-10% на каждую доставку",
+        "promo_roast": "Свежая обжарка",
+        "promo_roast_days": "до 3 дней"
+    },
+    "search": {
+        "placeholder": "Поиск кофе...",
+        "no_results": "Ничего не найдено"
+    },
+    "float_buttons": {
+        "telegram": "Написать в Telegram",
+        "viber": "Написать в Viber",
+        "phone": "Позвонить"
+    },
+    "hero": {
+        "badge": "100% SPECIALTY КОФЕ",
+        "title": "Настоящий эфиопский кофе свежей обжарки",
+        "subtitle": "От гор Эфиопии — к вашей чашке",
+        "text": "Мы доставляем зерно напрямую с эфиопских ферм и обжариваем под каждый заказ. Только свежая обжарка до 3 дней.",
+        "cta": "Выбрать кофе",
+        "quiz_text": "Не знаете что выбрать?",
+        "quiz_link": "Пройдите тест вкуса"
+    },
+    "trust": {
+        "clients": "довольных клиентов",
+        "farmers": "Напрямую от фермеров",
+        "specialty": "85+ баллов SCA"
+    },
+    "philosophy": {
+        "title": "Это больше, чем кофе.",
+        "subtitle": "Это — Путь.",
+        "specialty_title": "Specialty 85+",
+        "specialty_text": "Только отборное зерно класса Specialty. Никаких компромиссов с качеством.",
+        "roast_title": "Огонь Обжарки",
+        "roast_text": "Обжариваем только под ваш заказ. Вы получаете его на пике вкуса.",
+        "price_title": "Честная Цена",
+        "price_text": "Прямой импорт без посредников. Вы платите фермеру, а не перекупщику.",
+        "cta": "Выбрать свой сорт"
+    },
+    "collection": {
+        "title": "Лучшее с эфиопских высокогорий",
+        "filter_all": "Все лоты",
+        "filter_fruity": "Фруктовые",
+        "filter_chocolate": "Шоколадные",
+        "filter_floral": "Цветочные",
+        "view_all": "Все сорта в наличии"
+    },
+    "subscription": {
+        "title": "Кофейный Клуб",
+        "subtitle": "Ваш персональный сомелье. Кофе появляется у вас дома именно тогда, когда нужен.",
+        "regular_title": "Разовая покупка",
+        "regular_price": "✗ Полная цена",
+        "regular_delivery": "✗ Доставка от 500₴",
+        "regular_remember": "✗ Нужно помнить заказать",
+        "sub_title": "Подписка",
+        "sub_badge": "ВЫГОДНЕЕ",
+        "sub_discount": "✓ -10% на каждую доставку",
+        "sub_delivery": "✓ Бесплатная доставка всегда",
+        "sub_auto": "✓ Автоматически — кофе сам приходит",
+        "cancel_note": "Отменить или изменить можно в любое время в 1 клик",
+        "step1_title": "1. Тест вкуса",
+        "step1_text": "Ответьте на 5 вопросов о ваших предпочтениях. Алгоритм подберёт идеальный сорт.",
+        "step2_title": "2. Персонализация",
+        "step2_text": "Выбираете частоту (1-4 раза в месяц) и объём. Первая доставка — через 3 дня.",
+        "step3_title": "3. Ритуал",
+        "step3_text": "Кофе приходит автоматически. Отменить можно в 1 клик. Скидка 10% на подписку.",
+        "cta": "Начать тест вкуса",
+        "social_proof": "{{count}} человек оформили подписку в этом месяце"
+    },
+    "stats": {
+        "clients": "Довольных клиентов",
+        "sca": "Баллы SCA Specialty",
+        "delivery": "От заказа до чашки",
+        "origin": "Прямое происхождение"
+    },
+    "reviews": {
+        "featured_text": "\"Это не просто напиток, это путешествие. Я почувствовала разницу с первого глотка. Теперь магазинный кофе для меня просто не существует.\"",
+        "featured_author": "— Елена К., Киев • Подписка на Guji Natural",
+        "review1_name": "Андрей М.",
+        "review1_city": "Львов",
+        "review1_text": "Быстрая доставка и невероятный аромат, который наполняет всю квартиру.",
+        "review2_name": "Марина С.",
+        "review2_city": "Одесса",
+        "review2_text": "Сервис на высоте. Очень удобно, что не надо думать, когда заказывать следующую пачку.",
+        "review3_name": "Виктор П.",
+        "review3_city": "Киев",
+        "review3_text": "Спасибо за возможность попробовать разные сорта! Харрар — мой фаворит.",
+        "join_text": "Присоединяйтесь к",
+        "coffee_lovers": "довольных кофеманов",
+        "subscribe_cta": "Оформить подписку со скидкой 10%"
+    },
+    "lead": {
+        "title": "Начните свой путь в мире Specialty",
+        "text": "Скачайте наш бесплатный PDF-гид «Как выбирать эфиопский кофе».",
+        "text_bold": "бесплатный PDF-гид",
+        "placeholder": "Ваш Email",
+        "cta": "Получить гид",
+        "success": "Гид отправлен на вашу почту!"
+    },
+    "footer": {
+        "description": "Мы доставляем настоящий specialty кофе прямо с эфиопских ферм к вам домой. Свежая обжарка, честная цена, любовь к кофе.",
+        "shop_title": "Магазин",
+        "catalog": "Весь каталог",
+        "subscription": "Подписка на кофе",
+        "certificates": "Сертификаты",
+        "b2b": "B2B решения",
+        "account": "Личный кабинет",
+        "support_title": "Поддержка",
+        "delivery": "Доставка и оплата",
+        "return": "Возврат и обмен",
+        "faq": "Частые вопросы",
+        "contacts": "Контакты",
+        "about": "О нас",
+        "contacts_title": "Контакты",
+        "location": "Одесса, Украина",
+        "newsletter_title": "Подписка на новости",
+        "newsletter_text": "Получайте акции, новинки и советы по завариванию",
+        "newsletter_placeholder": "Ваш email",
+        "newsletter_cta": "Подписаться",
+        "trust_return": "14 дней возврат",
+        "trust_specialty": "100% Specialty качество зерна",
+        "trust_shipping": "Бесплатная доставка от 500₴",
+        "trust_roast": "Свежая обжарка до 3 дней",
+        "payment_methods": "Способы оплаты:",
+        "copyright": "© 2025 EthioDirect. Все права защищены.",
+        "privacy": "Политика конфиденциальности",
+        "terms": "Условия возврата",
+        "offer": "Публичная оферта"
+    },
+    "cart": {
+        "title": "Ваша корзина",
+        "items": "товаров",
+        "items_single": "товар",
+        "items_few": "товара",
+        "subtotal": "Итого:",
+        "free_shipping_progress": "До бесплатной доставки:",
+        "free_shipping_done": "Бесплатная доставка!",
+        "checkout": "Оформить заказ",
+        "secure_payment": "Безопасная оплата",
+        "return_policy": "14 дней на возврат",
+        "empty": "Корзина пуста",
+        "continue_shopping": "Продолжить покупки"
+    },
+    "product": {
+        "add_to_cart": "В корзину",
+        "added_to_cart": "Добавлено!",
+        "quick_view": "Быстрый просмотр",
+        "weight": "Вес",
+        "grind": "Помол",
+        "whole_beans": "Зерно",
+        "filter": "Фильтр",
+        "espresso": "Эспрессо",
+        "turka": "Турка",
+        "french_press": "Френч-пресс",
+        "in_stock": "В наличии",
+        "out_of_stock": "Нет в наличии",
+        "roast_date": "Дата обжарки",
+        "origin": "Происхождение",
+        "flavor": "Вкусовые ноты",
+        "roast_level": "Степень обжарки",
+        "processing": "Обработка",
+        "altitude": "Высота",
+        "sca_score": "Баллы SCA"
+    },
+    "common": {
+        "action": "АКЦИЯ",
+        "new": "НОВИНКА",
+        "bestseller": "ХИТЫ ПРОДАЖ",
+        "sale": "СКИДКА",
+        "close": "Закрыть",
+        "loading": "Загрузка...",
+        "error": "Ошибка",
+        "success": "Успешно",
+        "product_added": "Товар добавлен в корзину",
+        "currency": "₴",
+        "from": "от",
+        "view_more": "Смотреть больше",
+        "read_more": "Читать далее",
+        "back": "Назад",
+        "next": "Далее",
+        "submit": "Отправить",
+        "cancel": "Отмена",
+        "save": "Сохранить",
+        "delete": "Удалить",
+        "edit": "Редактировать",
+        "per_item": "за шт.",
+        "open_menu": "Открыть меню"
+    },
+    "shop": {
+        "title": "Каталог кофе",
+        "sort": "Сортировка",
+        "sort_popular": "По популярности",
+        "sort_price_asc": "Цена: от низкой",
+        "sort_price_desc": "Цена: от высокой",
+        "sort_new": "Новинки",
+        "filter_price": "Цена",
+        "filter_roast": "Обжарка",
+        "filter_taste": "Вкус",
+        "roast_light": "Светлая",
+        "roast_medium": "Средняя",
+        "roast_dark": "Тёмная",
+        "apply_filters": "Применить",
+        "clear_filters": "Сбросить",
+        "showing": "Показано",
+        "of": "из",
+        "products": "товаров"
+    },
+    "about": {
+        "page_title": "О нас",
+        "our_story": "Наша история",
+        "our_mission": "Наша миссия",
+        "our_values": "Наши ценности"
+    },
+    "contacts": {
+        "page_title": "Контакты",
+        "form_name": "Ваше имя",
+        "form_email": "Ваш email",
+        "form_message": "Ваше сообщение",
+        "form_submit": "Отправить",
+        "form_success": "Спасибо! Мы свяжемся с вами в ближайшее время."
+    },
+    "delivery": {
+        "page_title": "Доставка и оплата",
+        "shipping_title": "Способы доставки",
+        "payment_title": "Способы оплаты"
+    },
+    "faq": {
+        "page_title": "Частые вопросы",
+        "search_placeholder": "Поиск вопросов..."
+    },
+    "gift": {
+        "page_title": "Подарочные сертификаты",
+        "select_amount": "Выберите номинал",
+        "buy_now": "Купить сейчас"
+    },
+    "account": {
+        "page_title": "Личный кабинет",
+        "login": "Войти",
+        "register": "Зарегистрироваться",
+        "logout": "Выйти",
+        "my_orders": "Мои заказы",
+        "my_subscription": "Моя подписка",
+        "settings": "Настройки"
+    },
+    "quiz": {
+        "title": "Тест вкуса",
+        "subtitle": "Найдите свой идеальный кофе за 5 вопросов",
+        "start": "Начать тест",
+        "question": "Вопрос",
+        "of": "из",
+        "next": "Далее",
+        "prev": "Назад",
+        "see_results": "Посмотреть результаты",
+        "your_match": "Ваш идеальный кофе"
+    },
+    "social": {
+        "instagram": "Мы в Instagram",
+        "facebook": "Мы в Facebook",
+        "telegram": "Наш Telegram канал",
+        "tiktok": "Мы в TikTok"
+    },
+    "payment": {
+        "visa": "Оплата Visa",
+        "mastercard": "Оплата Mastercard",
+        "apple_pay": "Оплата Apple Pay",
+        "google_pay": "Оплата Google Pay",
+        "privatbank": "Оплата ПриватБанк"
+    }
+}

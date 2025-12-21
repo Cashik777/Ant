@@ -11,306 +11,432 @@
 
 <body>
 
-                    <header class="header">
+        <!-- TOP BAR -->
+    <div class="top-bar">
+        <div class="container top-bar-inner">
+            <div class="top-bar-left">
+                <span><i class="fas fa-phone-alt"></i> <span data-i18n="topbar.phone">+380 (50) 123-45-67</span></span>
+                <span class="divider-dot">•</span>
+                <span><i class="fas fa-clock"></i> <span data-i18n="topbar.hours">Пн-Пт: 9:00-18:00</span></span>
+            </div>
+            <div class="top-bar-center">
+                <div class="promo-ticker">
+                    <span class="ticker-item">🔥 <strong data-i18n="topbar.promo_action">АКЦІЯ:</strong> <span data-i18n="topbar.promo_delivery">безкоштовна доставка від 500₴</span></span>
+                    <span class="ticker-divider">|</span>
+                    <span class="ticker-item">☕ <span data-i18n="topbar.promo_subscription">Підписка:</span> <strong data-i18n="topbar.promo_subscription_text">-10% на кожну доставку</strong></span>
+                    <span class="ticker-divider">|</span>
+                    <span class="ticker-item">⚡ <span data-i18n="topbar.promo_roast">Свіжа обсмажка</span> <strong data-i18n="topbar.promo_roast_days">до 3 днів</strong></span>
+                </div>
+            </div>
+            <div class="top-bar-right">
+                <a href="#" translate="no" class="active" onclick="setLanguage('uk'); return false;">UA</a>
+                <a href="#" translate="no" onclick="setLanguage('ru'); return false;">RU</a>
+                <a href="#" translate="no" onclick="setLanguage('en'); return false;">EN</a>
+            </div>
+        </div>
+    </div>
+
+        <!-- HEADER -->
+    <header class="header">
         <div class="container header-inner">
             <a href="index.html" class="logo">
-                <i class="fas fa-leaf text-accent"></i>
-                <span style="font-family:var(--font-heading); letter-spacing:1px; font-size:1.5rem;">EthioDirect</span>
+                <i class="fas fa-certificate"></i> ETHIODIRECT
             </a>
+
             <nav class="nav-desktop">
-                <a href="shop.html" class="nav-link">Каталог</a>
-                <a href="subscription.html" class="nav-link">Підписка</a>
-                <a href="gift-certificates.html" class="nav-link">🎁 Сертифікати</a>
-                <a href="blog.html" class="nav-link">Історії</a>
-                <a href="about.html" class="nav-link">Про нас</a>
-                <a href="quiz.html" class="nav-link">Тест</a>
+                <a href="shop.html" class="nav-link" data-i18n="nav.catalog">Каталог</a>
+                <a href="subscription.html" class="nav-link" data-i18n="nav.subscription">Підписка</a>
+                <a href="gift-certificates.html" class="nav-link" data-i18n="nav.certificates">Сертифікати</a>
+                <a href="blog.html" class="nav-link" data-i18n="nav.stories">Історії</a>
+                <a href="about.html" class="nav-link" data-i18n="nav.about">Про нас</a>
+                <a href="quiz.html" class="nav-link" data-i18n="nav.test">Тест</a>
             </nav>
+
+            <!-- Search Bar -->
+            <div class="header-search">
+                <div class="search-wrapper">
+                    <input type="text" class="search-input" id="search-input" placeholder="Пошук кави..."
+                        data-i18n="search.placeholder" data-i18n-placeholder
+                        oninput="handleSearch(this.value)">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                    <div class="search-results" id="search-results"></div>
+                </div>
+            </div>
+
             <div class="header-actions">
                 <a href="account.html"><i class="far fa-user"></i></a>
-                <div class="cart-trigger"><i class="fas fa-shopping-cart"></i><span class="cart-count">0</span></div>
+
+                <!-- Cart with Mini-Cart Dropdown -->
+                <div class="cart-wrapper">
+                    <div class="cart-trigger" onclick="openDrawer()">
+                        <i class="fas fa-shopping-bag" style="font-size:1.2rem;"></i>
+                        <span class="cart-count">0</span>
+                    </div>
+                    <div class="mini-cart" id="mini-cart">
+                        <div class="mini-cart-header">
+                            <h4 data-i18n="cart.title">Ваш кошик</h4>
+                            <span class="mini-cart-count" id="mini-cart-count"><span>0</span> <span data-i18n="cart.items">товарів</span></span>
+                        </div>
+                        <div class="mini-cart-items" id="mini-cart-items"></div>
+                        <div class="mini-cart-footer" id="mini-cart-footer">
+                            <div class="mini-cart-subtotal">
+                                <strong data-i18n="cart.subtotal">Разом:</strong>
+                                <span id="mini-cart-total">0 ₴</span>
+                            </div>
+                            <div class="mini-cart-shipping" id="mini-cart-shipping">
+                                <i class="fas fa-truck"></i> <span data-i18n="cart.free_shipping_progress">До безкоштовної доставки:</span> <strong>500 ₴</strong>
+                            </div>
+                            <button class="mini-cart-btn" onclick="openDrawer()">
+                                <i class="fas fa-shopping-cart"></i> <span data-i18n="cart.checkout">Оформити замовлення</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="menu-toggle" aria-label="Open menu" data-i18n="common.open_menu" data-i18n-aria data-i18n="common.open_menu" data-i18n-aria onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
-            <button class="menu-toggle" aria-label="Menu"><i class="fas fa-bars"></i></button>
         </div>
     </header>
 
+    <!-- DRAWER CART -->
     <div class="overlay"></div>
     <div class="drawer">
         <div class="drawer-header">
-            <h3>Ваш кошик</h3><span class="cart-close" style="cursor:pointer;font-size:1.5rem;">&times;</span>
+            <h3><i class="fas fa-shopping-bag" style="margin-right:10px; color:var(--primary);"></i> Ваш кошик</h3>
+            <button onclick="closeDrawer()"
+                style="background:none;border:none;font-size:1.5rem;color:var(--text-dark);cursor:pointer;">&times;</button>
         </div>
         <div class="drawer-body" id="cart-list"></div>
         <div class="drawer-footer">
-            <div style="display:flex;justify-content:space-between;margin-bottom:15px;font-weight:600;">
-                <span>Разом:</span><span id="cart-total">0 ₴</span></div>
-            <button class="btn btn-primary" style="width:100%;">Оформити замовлення</button>
+            <div class="free-shipping-progress" id="drawer-shipping-progress">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="drawer-progress-fill" style="width: 0%;"></div>
+                </div>
+                <p class="progress-text" id="drawer-progress-text">
+                    <i class="fas fa-truck"></i> <span data-i18n="cart.free_shipping_progress">До безкоштовної доставки:</span> <strong>500 ₴</strong>
+                </p>
+            </div>
+            <div style="display:flex; justify-content:space-between; margin-bottom:15px; font-size:1.1rem;">
+                <span data-i18n="cart.subtotal">Разом:</span>
+                <span id="cart-total" style="font-weight:700; color:var(--primary); font-size:1.3rem;">0 ₴</span>
+            </div>
+            <button class="btn btn-primary" style="width:100%;">
+                <i class="fas fa-lock" style="margin-right:8px;"></i> Оформити замовлення
+            </button>
         </div>
     </div>
 
     <main>
-        <section class="section" style="padding-top:120px; background:white;">
-            <div class="container dash-grid">
-                <!-- SIDEBAR -->
-                <aside class="dash-sidebar">
-                    <div style="display:flex;align-items:center;gap:12px;margin-bottom:25px;">
+        <!-- PAGE HERO -->
+        <section
+            style="padding-top:150px; background:linear-gradient(135deg, var(--bg-main) 0%, #f5f0e6 100%); padding-bottom:40px;">
+            <div class="container">
+                <h1 style="font-size:2.5rem; margin-bottom:10px;">Особистий кабінет</h1>
+                <p style="color:var(--text-muted); font-size:1.1rem;">Керуйте замовленнями, підпискою та особистими
+                    даними</p>
+            </div>
+        </section>
+
+        <!-- ACCOUNT CONTENT -->
+        <section class="section" style="padding-top:40px;">
+            <div class="container">
+                <div style="display:grid; grid-template-columns:280px 1fr; gap:40px;">
+
+                    <!-- SIDEBAR -->
+                    <aside
+                        style="background:white; padding:30px; border-radius:12px; box-shadow:0 5px 20px rgba(0,0,0,0.05); height:fit-content;">
+                        <!-- User Info -->
                         <div
-                            style="width:45px;height:45px;background:#eee;border-radius:50%;display:flex;align-items:center;justify-content:center;">
-                            <i class="fas fa-user" style="color:#999;"></i>
-                        </div>
-                        <div>
-                            <strong id="userName">Гість</strong><br>
-                            <span style="font-size:0.85rem;color:#999;" id="userEmail">guest@example.com</span>
-                        </div>
-                    </div>
-                    <nav>
-                        <a href="#" class="dash-link active" data-tab="overview">Огляд</a>
-                        <a href="#" class="dash-link" data-tab="subscription">Моя підписка</a>
-                        <a href="#" class="dash-link" data-tab="orders">Замовлення</a>
-                        <a href="#" class="dash-link" data-tab="settings">Налаштування</a>
-                        <a href="index.html" class="dash-link" style="color:var(--error);">Вийти</a>
-                    </nav>
-                </aside>
-
-                <!-- MAIN CONTENT -->
-                <section>
-                    <!-- OVERVIEW TAB -->
-                    <div id="tab-overview" class="dash-tab-content">
-                        <h2 style="margin-bottom:25px;">Вітаємо! ☕</h2>
-
-                        <!-- Subscription Widget -->
-                        <div class="dash-widget" id="sub-widget-overview">
-                            <!-- JS renders here -->
+                            style="text-align:center; margin-bottom:30px; padding-bottom:30px; border-bottom:1px solid #eee;">
+                            <div
+                                style="width:80px; height:80px; background:linear-gradient(135deg, var(--primary), #6D4C41); border-radius:50%; margin:0 auto 15px; display:flex; align-items:center; justify-content:center;">
+                                <i class="fas fa-user" style="font-size:2rem; color:white;"></i>
+                            </div>
+                            <h3 style="margin-bottom:5px;">Гість</h3>
+                            <p style="color:var(--text-muted); font-size:0.9rem;">guest@example.com</p>
                         </div>
 
-                        <!-- Recent Orders -->
-                        <div class="dash-widget">
-                            <h3 style="margin-bottom:15px;">Останні замовлення</h3>
-                            <div id="recent-orders">
-                                <p style="color:#999;">Завантаження...</p>
+                        <!-- Menu -->
+                        <nav style="display:flex; flex-direction:column; gap:5px;">
+                            <a href="#" class="account-menu-item active"
+                                style="display:flex; align-items:center; gap:12px; padding:12px 15px; border-radius:8px; text-decoration:none; color:var(--text-dark); background:rgba(139,69,69,0.08); font-weight:600;">
+                                <i class="fas fa-box"></i> Мої замовлення
+                            </a>
+                            <a href="#" class="account-menu-item"
+                                style="display:flex; align-items:center; gap:12px; padding:12px 15px; border-radius:8px; text-decoration:none; color:var(--text-muted);">
+                                <i class="fas fa-sync-alt"></i> Моя підписка
+                            </a>
+                            <a href="#" class="account-menu-item"
+                                style="display:flex; align-items:center; gap:12px; padding:12px 15px; border-radius:8px; text-decoration:none; color:var(--text-muted);">
+                                <i class="fas fa-heart"></i> Обране
+                            </a>
+                            <a href="#" class="account-menu-item"
+                                style="display:flex; align-items:center; gap:12px; padding:12px 15px; border-radius:8px; text-decoration:none; color:var(--text-muted);">
+                                <i class="fas fa-map-marker-alt"></i> Адреси доставки
+                            </a>
+                            <a href="#" class="account-menu-item"
+                                style="display:flex; align-items:center; gap:12px; padding:12px 15px; border-radius:8px; text-decoration:none; color:var(--text-muted);">
+                                <i class="fas fa-cog"></i> Налаштування
+                            </a>
+                            <hr style="border:none; border-top:1px solid #eee; margin:15px 0;">
+                            <a href="#" class="account-menu-item"
+                                style="display:flex; align-items:center; gap:12px; padding:12px 15px; border-radius:8px; text-decoration:none; color:#dc3545;">
+                                <i class="fas fa-sign-out-alt"></i> Вийти
+                            </a>
+                        </nav>
+                    </aside>
+
+                    <!-- MAIN CONTENT -->
+                    <div>
+                        <!-- Orders -->
+                        <div
+                            style="background:white; padding:30px; border-radius:12px; box-shadow:0 5px 20px rgba(0,0,0,0.05); margin-bottom:30px;">
+                            <h2 style="margin-bottom:25px; font-size:1.5rem;">Мої замовлення</h2>
+
+                            <!-- Order Example -->
+                            <div style="border:1px solid #eee; border-radius:12px; padding:20px; margin-bottom:20px;">
+                                <div
+                                    style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px;">
+                                    <div>
+                                        <span style="font-weight:700; font-size:1.1rem;">#12345</span>
+                                        <span style="color:var(--text-muted); margin-left:15px;">20 грудня 2025</span>
+                                    </div>
+                                    <span
+                                        style="background:#d4edda; color:#155724; padding:5px 15px; border-radius:20px; font-size:0.85rem; font-weight:600;">Доставлено</span>
+                                </div>
+                                <div style="display:flex; gap:20px; align-items:center;">
+                                    <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=100"
+                                        style="width:60px; height:60px; border-radius:8px; object-fit:cover;">
+                                    <div style="flex:1;">
+                                        <h4 style="margin-bottom:5px;">Yirgacheffe Natural 500г</h4>
+                                        <p style="color:var(--text-muted); font-size:0.9rem;">Світла обсмажка, зерно</p>
+                                    </div>
+                                    <div style="text-align:right;">
+                                        <div style="font-weight:700; color:var(--primary);">430 ₴</div>
+                                    </div>
+                                </div>
+                                <div
+                                    style="margin-top:15px; padding-top:15px; border-top:1px solid #eee; display:flex; gap:15px;">
+                                    <a href="#" style="color:var(--primary); text-decoration:none; font-size:0.9rem;"><i
+                                            class="fas fa-redo"></i> Повторити замовлення</a>
+                                    <a href="#"
+                                        style="color:var(--text-muted); text-decoration:none; font-size:0.9rem;"><i
+                                            class="fas fa-file-alt"></i> Деталі</a>
+                                </div>
+                            </div>
+
+                            <!-- Another Order -->
+                            <div style="border:1px solid #eee; border-radius:12px; padding:20px;">
+                                <div
+                                    style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px;">
+                                    <div>
+                                        <span style="font-weight:700; font-size:1.1rem;">#12344</span>
+                                        <span style="color:var(--text-muted); margin-left:15px;">15 грудня 2025</span>
+                                    </div>
+                                    <span
+                                        style="background:#fff3cd; color:#856404; padding:5px 15px; border-radius:20px; font-size:0.85rem; font-weight:600;">В
+                                        дорозі</span>
+                                </div>
+                                <div style="display:flex; gap:20px; align-items:center;">
+                                    <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=100"
+                                        style="width:60px; height:60px; border-radius:8px; object-fit:cover;">
+                                    <div style="flex:1;">
+                                        <h4 style="margin-bottom:5px;">Guji Washed 1кг</h4>
+                                        <p style="color:var(--text-muted); font-size:0.9rem;">Середня обсмажка, еспресо
+                                        </p>
+                                    </div>
+                                    <div style="text-align:right;">
+                                        <div style="font-weight:700; color:var(--primary);">820 ₴</div>
+                                    </div>
+                                </div>
+                                <div style="margin-top:15px; padding-top:15px; border-top:1px solid #eee;">
+                                    <div style="display:flex; align-items:center; gap:10px;">
+                                        <i class="fas fa-truck" style="color:var(--primary);"></i>
+                                        <span style="font-size:0.9rem;">Нова Пошта: 20450123456789</span>
+                                        <a href="#"
+                                            style="color:var(--primary); text-decoration:none; font-size:0.9rem; margin-left:auto;">Відстежити
+                                            →</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
                         <!-- Quick Actions -->
-                        <div class="dash-widget">
-                            <h3 style="margin-bottom:15px;">Швидкі дії</h3>
-                            <div style="display:flex; gap:10px; flex-wrap:wrap;">
-                                <a href="shop.html" class="btn btn-primary">Замовити каву</a>
-                                <a href="subscription.html" class="btn btn-outline">Створити підписку</a>
-                                <a href="quiz.html" class="btn btn-outline">Пройти тест</a>
-                            </div>
+                        <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:20px;">
+                            <a href="shop.html"
+                                style="background:white; padding:25px; border-radius:12px; text-align:center; text-decoration:none; color:var(--text-dark); box-shadow:0 5px 20px rgba(0,0,0,0.05); transition:all 0.3s;">
+                                <i class="fas fa-shopping-bag"
+                                    style="font-size:2rem; color:var(--primary); margin-bottom:10px;"></i>
+                                <h4>Замовити каву</h4>
+                            </a>
+                            <a href="subscription.html"
+                                style="background:white; padding:25px; border-radius:12px; text-align:center; text-decoration:none; color:var(--text-dark); box-shadow:0 5px 20px rgba(0,0,0,0.05); transition:all 0.3s;">
+                                <i class="fas fa-sync-alt"
+                                    style="font-size:2rem; color:var(--success); margin-bottom:10px;"></i>
+                                <h4>Оформити підписку</h4>
+                            </a>
+                            <a href="gift-certificates.html"
+                                style="background:white; padding:25px; border-radius:12px; text-align:center; text-decoration:none; color:var(--text-dark); box-shadow:0 5px 20px rgba(0,0,0,0.05); transition:all 0.3s;">
+                                <i class="fas fa-gift"
+                                    style="font-size:2rem; color:var(--secondary); margin-bottom:10px;"></i>
+                                <h4>Подарунковий сертифікат</h4>
+                            </a>
                         </div>
                     </div>
-
-                    <!-- SUBSCRIPTION TAB -->
-                    <div id="tab-subscription" class="dash-tab-content" style="display:none;">
-                        <h2 style="margin-bottom:25px;">Управління підпискою</h2>
-
-                        <div class="dash-widget" id="sub-widget-detail">
-                            <!-- JS renders here -->
-                        </div>
-
-                        <div class="dash-widget">
-                            <h3 style="margin-bottom:15px;">Історія доставок</h3>
-                            <div id="delivery-history">
-                                <!-- JS renders here -->
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- ORDERS TAB -->
-                    <div id="tab-orders" class="dash-tab-content" style="display:none;">
-                        <h2 style="margin-bottom:25px;">Мої замовлення</h2>
-
-                        <div class="dash-widget">
-                            <div id="all-orders">
-                                <p style="color:#999;">Ще немає замовлень. <a href="shop.html"
-                                        style="color:var(--primary);">Перейти до магазину →</a></p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- SETTINGS TAB -->
-                    <div id="tab-settings" class="dash-tab-content" style="display:none;">
-                        <h2 style="margin-bottom:25px;">Налаштування</h2>
-
-                        <div class="dash-widget">
-                            <h3 style="margin-bottom:20px;">Персональні дані</h3>
-                            <form id="settings-form">
-                                <div style="margin-bottom:20px;">
-                                    <label style="display:block; margin-bottom:8px; font-weight:600;">Ім'я</label>
-                                    <input type="text" id="settings-name" value="Гість"
-                                        style="width:100%; padding:12px; border:1px solid #ddd; border-radius:4px; font-size:1rem;">
-                                </div>
-                                <div style="margin-bottom:20px;">
-                                    <label style="display:block; margin-bottom:8px; font-weight:600;">Email</label>
-                                    <input type="email" id="settings-email" value="guest@example.com"
-                                        style="width:100%; padding:12px; border:1px solid #ddd; border-radius:4px; font-size:1rem;">
-                                </div>
-                                <div style="margin-bottom:20px;">
-                                    <label style="display:block; margin-bottom:8px; font-weight:600;">Телефон</label>
-                                    <input type="tel" id="settings-phone" placeholder="+380..."
-                                        style="width:100%; padding:12px; border:1px solid #ddd; border-radius:4px; font-size:1rem;">
-                                </div>
-                                <button type="submit" class="btn btn-primary">Зберегти зміни</button>
-                            </form>
-                        </div>
-
-                        <div class="dash-widget">
-                            <h3 style="margin-bottom:20px;">Налаштування повідомлень</h3>
-                            <label
-                                style="display:flex; align-items:center; gap:10px; margin-bottom:15px; cursor:pointer;">
-                                <input type="checkbox" id="notif-email" checked>
-                                <span>Email-повідомлення про доставку</span>
-                            </label>
-                            <label
-                                style="display:flex; align-items:center; gap:10px; margin-bottom:15px; cursor:pointer;">
-                                <input type="checkbox" id="notif-promo">
-                                <span>Промо-акції та новини</span>
-                            </label>
-                            <label style="display:flex; align-items:center; gap:10px; cursor:pointer;">
-                                <input type="checkbox" id="notif-tips" checked>
-                                <span>Поради щодо заварювання</span>
-                            </label>
-                        </div>
-                    </div>
-                </section>
+                </div>
             </div>
         </section>
     </main>
 
-    <!-- PROFESSIONAL FOOTER COMPONENT -->
-<!-- PROFESSIONAL FOOTER COMPONENT -->
-<!-- PROFESSIONAL FOOTER COMPONENT -->
-<!-- PROFESSIONAL FOOTER COMPONENT -->
-<footer class="footer-pro">
-    <div class="container">
-        <!-- Main Footer Content -->
-        <div class="footer-grid">
-            <!-- Column 1: Brand -->
-            <div class="footer-col">
-                <h4 style="font-family:var(--font-heading); font-size:1.5rem; color:white; margin-bottom:20px;">
-                    <a href="index.html" style="text-decoration:none; color:white;">EthioDirect</a>
-                </h4>
-                <p style="color:#aaa; line-height:1.8; margin-bottom:20px;">Ми доставляємо справжню specialty каву прямо
-                    з ефіопських ферм до вашого дому. Свіжа обсмажка, чесна ціна, любов до кави.</p>
-                <div class="social-links">
-                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                    <a href="#" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
-                    <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-                </div>
-            </div>
-
-            <!-- Column 2: Shop -->
-            <div class="footer-col">
-                <h4>Магазин</h4>
-                <ul class="footer-links">
-                    <li><a href="shop.html">Весь каталог</a></li>
-                    <li><a href="subscription.html">Підписка на каву</a></li>
-                    <li><a href="gift-certificates.html">Сертифікати</a></li>
-                    <li><a href="b2b.html">B2B рішення</a></li>
-                    <li><a href="account.html">Особистий кабінет</a></li>
-                </ul>
-            </div>
-
-            <!-- Column 3: Support -->
-            <div class="footer-col">
-                <h4>Підтримка</h4>
-                <ul class="footer-links">
-                    <li><a href="delivery.html">Доставка та оплата</a></li>
-                    <li><a href="return.html">Повернення та обмін</a></li>
-                    <li><a href="faq.html">Часті питання</a></li>
-                    <li><a href="contacts.html">Контакти</a></li>
-                    <li><a href="about.html">Про нас</a></li>
-                </ul>
-            </div>
-
-            <!-- Column 4: Contacts -->
-            <div class="footer-col">
-                <h4>Контакти</h4>
-                <ul class="footer-contacts">
-                    <li><i class="fas fa-phone"></i> <a href="tel:+380501234567">+380 (50) 123-45-67</a></li>
-                    <li><i class="fas fa-envelope"></i> <a href="mailto:hello@ethiodirect.ua">hello@ethiodirect.ua</a>
-                    </li>
-                    <li><i class="fas fa-map-marker-alt"></i> Одеса, Україна</li>
-                    <li><i class="fas fa-clock"></i> Пн-Пт: 9:00-18:00</li>
-                </ul>
-            </div>
-
-            <!-- Column 5: Newsletter -->
-            <div class="footer-col">
-                <h4>Підписка на новини</h4>
-                <p style="color:#aaa; margin-bottom:15px; font-size:0.9rem;">Отримуйте акції, новинки та поради щодо
-                    заварювання</p>
-                <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
-                    <input type="email" placeholder="Ваш email" required>
-                    <button type="submit" class="btn-newsletter">Підписатись</button>
-                </form>
-            </div>
-        </div>
-
-        <!-- Trust Badges -->
-        <div class="footer-trust">
-            <div class="trust-badges">
-                <div class="trust-badge">
-                    <i class="fas fa-shield-alt"></i>
-                    <div>
-                        <strong>14 днів</strong>
-                        <span>повернення</span>
-                    </div>
-                </div>
-                <div class="trust-badge">
-                    <i class="fas fa-coffee"></i>
-                    <div>
-                        <strong>100% Specialty</strong>
-                        <span>якість зерна</span>
-                    </div>
-                </div>
-                <div class="trust-badge">
-                    <i class="fas fa-shipping-fast"></i>
-                    <div>
-                        <strong>Безкоштовна</strong>
-                        <span>доставка від 500₴</span>
-                    </div>
-                </div>
-                <div class="trust-badge">
-                    <i class="fas fa-fire"></i>
-                    <div>
-                        <strong>Свіжа обсмажка</strong>
-                        <span>до 3 днів</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Payment Methods -->
-        <div class="footer-payment">
-            <p style="color:#666; font-size:0.85rem; margin-bottom:15px;">Способи оплати:</p>
-            <div class="payment-icons">
-                <i class="fab fa-cc-visa" title="Visa"></i>
-                <i class="fab fa-cc-mastercard" title="Mastercard"></i>
-                <i class="fab fa-apple-pay" title="Apple Pay"></i>
-                <i class="fab fa-google-pay" title="Google Pay"></i>
-                <span class="payment-text">LiqPay</span>
-            </div>
-        </div>
-
-        <!-- Bottom Bar -->
-        <div class="footer-bottom">
-            <div class="footer-bottom-left">
-                <p>&copy; 2025 EthioDirect. Всі права захищені.</p>
-            </div>
-            <div class="footer-bottom-right">
-                <a href="privacy.html">Політика конфіденційності</a>
-                <span>·</span>
-                <a href="return.html">Умови повернення</a>
-                <span>·</span>
-                <a href="#">Публічна оферта</a>
-            </div>
-        </div>
+    <!-- FLOATING CONTACTS -->
+    <div class="floating-contacts">
+        <a href="https://t.me/ethiodirect" class="float-btn telegram" title="Telegram" data-i18n="float_buttons.telegram" data-i18n-title><i
+                class="fab fa-telegram-plane"></i></a>
+        <a href="viber://chat?number=+380501234567" class="float-btn viber" title="Viber" data-i18n="float_buttons.viber" data-i18n-title><i
+                class="fab fa-viber"></i></a>
+        <a href="tel:+380501234567" class="float-btn phone" title="Зателефонувати" data-i18n="float_buttons.phone" data-i18n-title><i class="fas fa-phone-alt"></i></a>
     </div>
-</footer>
+
+    <!-- TOAST -->
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle"></i>
+        <span id="toast-msg">Готово</span>
+    </div>
+
+    <!-- FOOTER -->
+        <!-- FOOTER -->
+    <footer class="footer-pro">
+        <div class="container">
+            <!-- Main Footer Content -->
+            <div class="footer-grid">
+                <!-- Column 1: Brand -->
+                <div class="footer-col">
+                    <h4 style="font-family:var(--font-heading); font-size:1.5rem; color:white; margin-bottom:20px;">
+                        <a href="index.html" style="text-decoration:none; color:white;">EthioDirect</a>
+                    </h4>
+                    <p style="color:#aaa; line-height:1.8; margin-bottom:20px;" data-i18n="footer.description">Ми доставляємо справжню specialty каву прямо з ефіопських ферм до вашого дому. Свіжа обсмажка, чесна ціна, любов до кави.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Instagram" data-i18n="social.instagram" data-i18n-aria><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Facebook" data-i18n="social.facebook" data-i18n-aria><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Telegram" data-i18n="social.telegram" data-i18n-aria><i class="fab fa-telegram"></i></a>
+                        <a href="#" aria-label="TikTok" data-i18n="social.tiktok" data-i18n-aria><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Shop -->
+                <div class="footer-col">
+                    <h4 data-i18n="footer.shop_title">Магазин</h4>
+                    <ul class="footer-links">
+                        <li><a href="shop.html" data-i18n="footer.catalog">Весь каталог</a></li>
+                        <li><a href="subscription.html" data-i18n="footer.subscription">Підписка на каву</a></li>
+                        <li><a href="gift-certificates.html" data-i18n="nav.certificates">Сертифікати</a></li>
+                        <li><a href="b2b.html" data-i18n="footer.b2b">B2B рішення</a></li>
+                        <li><a href="account.html" data-i18n="footer.account">Особистий кабінет</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Support -->
+                <div class="footer-col">
+                    <h4 data-i18n="footer.support_title">Підтримка</h4>
+                    <ul class="footer-links">
+                        <li><a href="delivery.html" data-i18n="footer.delivery">Доставка та оплата</a></li>
+                        <li><a href="return.html" data-i18n="footer.return">Повернення та обмін</a></li>
+                        <li><a href="faq.html" data-i18n="footer.faq">Часті питання</a></li>
+                        <li><a href="contacts.html" data-i18n="footer.contacts">Контакти</a></li>
+                        <li><a href="about.html" data-i18n="nav.about">Про нас</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Contacts -->
+                <div class="footer-col">
+                    <h4 data-i18n="footer.contacts_title">Контакти</h4>
+                    <ul class="footer-contacts">
+                        <li><i class="fas fa-phone"></i> <a href="tel:+380501234567">+380 (50) 123-45-67</a></li>
+                        <li><i class="fas fa-envelope"></i> <a
+                                href="mailto:hello@ethiodirect.ua">hello@ethiodirect.ua</a>
+                        </li>
+                        <li><i class="fas fa-map-marker-alt"></i> <span data-i18n="footer.location">Одеса, Україна</span></li>
+                        <li><i class="fas fa-clock"></i> <span data-i18n="topbar.hours">Пн-Пт: 9:00-18:00</span></li>
+                    </ul>
+                </div>
+
+                <!-- Column 5: Newsletter -->
+                <div class="footer-col">
+                    <h4 data-i18n="footer.newsletter_title">Підписка на новини</h4>
+                    <p style="color:#aaa; margin-bottom:15px; font-size:0.9rem;" data-i18n="footer.newsletter_text">Отримуйте акції, новинки та поради щодо заварювання</p>
+                    <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
+                        <input type="email" placeholder="Ваш email" data-i18n="footer.newsletter_placeholder" data-i18n-placeholder required>
+                        <button type="submit" class="btn-newsletter" data-i18n="footer.newsletter_cta">Підписатись</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Trust Badges -->
+            <div class="footer-trust">
+                <div class="trust-badges">
+                    <div class="trust-badge">
+                        <i class="fas fa-shield-alt"></i>
+                        <div>
+                            <strong>14 днів</strong>
+                            <span>повернення</span>
+                        </div>
+                    </div>
+                    <div class="trust-badge">
+                        <i class="fas fa-coffee"></i>
+                        <div>
+                            <strong>100% Specialty</strong>
+                            <span>якість зерна</span>
+                        </div>
+                    </div>
+                    <div class="trust-badge">
+                        <i class="fas fa-shipping-fast"></i>
+                        <div>
+                            <strong>Безкоштовна</strong>
+                            <span>доставка від 500₴</span>
+                        </div>
+                    </div>
+                    <div class="trust-badge">
+                        <i class="fas fa-fire"></i>
+                        <div>
+                            <strong>Свіжа обсмажка</strong>
+                            <span>до 3 днів</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment Methods -->
+            <div class="footer-payment">
+                <p style="color:#666; font-size:0.85rem; margin-bottom:15px;">Способи оплати:</p>
+                <div class="payment-icons">
+                    <i class="fab fa-cc-visa" title="Visa" data-i18n="payment.visa" data-i18n-title></i>
+                    <i class="fab fa-cc-mastercard" title="Mastercard" data-i18n="payment.mastercard" data-i18n-title></i>
+                    <i class="fab fa-apple-pay" title="Apple Pay" data-i18n="payment.apple_pay" data-i18n-title></i>
+                    <i class="fab fa-google-pay" title="Google Pay" data-i18n="payment.google_pay" data-i18n-title></i>
+                    <span class="payment-text">LiqPay</span>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="footer-bottom">
+                <div class="footer-bottom-left">
+                    <p>&copy; 2025 EthioDirect. Всі права захищені.</p>
+                </div>
+                <div class="footer-bottom-right">
+                    <a href="privacy.html" data-i18n="footer.privacy">Політика конфіденційності</a>
+                    <span>·</span>
+                    <a href="return.html" data-i18n="footer.terms">Умови повернення</a>
+                    <span>·</span>
+                    <a href="#" data-i18n="footer.offer">Публічна оферта</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <script src="js/main.js"></script>
+    <script src="js/i18n.js"></script>
 </body>
 
 </html>

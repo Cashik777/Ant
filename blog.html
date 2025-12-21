@@ -4,370 +4,669 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Блог про каву — EthioDirect</title>
+    <title>Історії про каву — EthioDirect</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/ux-enhancements.css">
     <style>
-        .filter-btn {
+        .blog-hero {
+            padding-top: 140px;
+            background: linear-gradient(135deg, #2a1f0a 0%, #4a3520 100%);
+            color: white;
+            padding-bottom: 60px;
+            text-align: center;
+        }
+
+        .blog-hero h1 {
+            font-size: 3rem;
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .blog-hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .blog-categories {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .blog-cat-btn {
             padding: 10px 25px;
-            border: 2px solid var(--primary);
-            background: white;
-            color: var(--primary);
-            border-radius: 25px;
-            cursor: pointer;
+            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            text-decoration: none;
             font-weight: 600;
             transition: all 0.3s;
         }
 
-        .filter-btn.active {
-            background: var(--primary);
-            color: white;
+        .blog-cat-btn:hover,
+        .blog-cat-btn.active {
+            background: var(--secondary);
+            color: #1a1a1a;
         }
 
-        .filter-btn:hover {
-            background: var(--primary);
-            color: white;
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
         }
 
-        .blog-card {
+        .article-card {
             background: white;
-            border-radius: 12px;
+            border-radius: 16px;
             overflow: hidden;
-            box-shadow: var(--shadow-soft);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
             transition: all 0.3s;
         }
 
-        .blog-card.hidden {
-            display: none;
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+        }
+
+        .article-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .article-content {
+            padding: 25px;
+        }
+
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+        }
+
+        .article-category {
+            background: rgba(139, 69, 69, 0.1);
+            color: var(--primary);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        .article-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .article-card h3 a {
+            color: var(--text-dark);
+            text-decoration: none;
+        }
+
+        .article-card h3 a:hover {
+            color: var(--primary);
+        }
+
+        .article-excerpt {
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+
+        .article-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+
+        .article-read-more {
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .article-read-more:hover {
+            text-decoration: underline;
+        }
+
+        .featured-article {
+            grid-column: span 2;
+        }
+
+        .featured-article img {
+            height: 300px;
+        }
+
+        .featured-article h3 {
+            font-size: 1.5rem;
+        }
+
+        @media (max-width: 992px) {
+            .articles-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .featured-article {
+                grid-column: span 2;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .articles-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .featured-article {
+                grid-column: span 1;
+            }
+
+            .blog-hero h1 {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
 
 <body>
+
+        <!-- TOP BAR -->
+    <div class="top-bar">
+        <div class="container top-bar-inner">
+            <div class="top-bar-left">
+                <span><i class="fas fa-phone-alt"></i> <span data-i18n="topbar.phone">+380 (50) 123-45-67</span></span>
+                <span class="divider-dot">•</span>
+                <span><i class="fas fa-clock"></i> <span data-i18n="topbar.hours">Пн-Пт: 9:00-18:00</span></span>
+            </div>
+            <div class="top-bar-center">
+                <div class="promo-ticker">
+                    <span class="ticker-item">🔥 <strong data-i18n="topbar.promo_action">АКЦІЯ:</strong> <span data-i18n="topbar.promo_delivery">безкоштовна доставка від 500₴</span></span>
+                    <span class="ticker-divider">|</span>
+                    <span class="ticker-item">☕ <span data-i18n="topbar.promo_subscription">Підписка:</span> <strong data-i18n="topbar.promo_subscription_text">-10% на кожну доставку</strong></span>
+                    <span class="ticker-divider">|</span>
+                    <span class="ticker-item">⚡ <span data-i18n="topbar.promo_roast">Свіжа обсмажка</span> <strong data-i18n="topbar.promo_roast_days">до 3 днів</strong></span>
+                </div>
+            </div>
+            <div class="top-bar-right">
+                <a href="#" translate="no" class="active" onclick="setLanguage('uk'); return false;">UA</a>
+                <a href="#" translate="no" onclick="setLanguage('ru'); return false;">RU</a>
+                <a href="#" translate="no" onclick="setLanguage('en'); return false;">EN</a>
+            </div>
+        </div>
+    </div>
+
+        <!-- HEADER -->
     <header class="header">
         <div class="container header-inner">
             <a href="index.html" class="logo">
-                <i class="fas fa-leaf text-accent"></i>
-                <span style="font-family:var(--font-heading); letter-spacing:1px; font-size:1.5rem;">EthioDirect</span>
+                <i class="fas fa-certificate"></i> ETHIODIRECT
             </a>
+
             <nav class="nav-desktop">
-                <a href="shop.html" class="nav-link">Каталог</a>
-                <a href="subscription.html" class="nav-link">Підписка</a>
-                <a href="gift-certificates.html" class="nav-link">🎁 Сертифікати</a>
-                <a href="blog.html" class="nav-link active">Історії</a>
-                <a href="about.html" class="nav-link">Про нас</a>
-                <a href="#" class="nav-link" onclick="openQuiz(); return false;">Тест</a>
+                <a href="shop.html" class="nav-link" data-i18n="nav.catalog">Каталог</a>
+                <a href="subscription.html" class="nav-link" data-i18n="nav.subscription">Підписка</a>
+                <a href="gift-certificates.html" class="nav-link" data-i18n="nav.certificates">Сертифікати</a>
+                <a href="blog.html" class="nav-link active" data-i18n="nav.stories">Історії</a>
+                <a href="about.html" class="nav-link" data-i18n="nav.about">Про нас</a>
+                <a href="quiz.html" class="nav-link" data-i18n="nav.test">Тест</a>
             </nav>
+
+            <!-- Search Bar -->
+            <div class="header-search">
+                <div class="search-wrapper">
+                    <input type="text" class="search-input" id="search-input" placeholder="Пошук кави..."
+                        data-i18n="search.placeholder" data-i18n-placeholder
+                        oninput="handleSearch(this.value)">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                    <div class="search-results" id="search-results"></div>
+                </div>
+            </div>
+
             <div class="header-actions">
                 <a href="account.html"><i class="far fa-user"></i></a>
-                <div class="cart-trigger"><i class="fas fa-shopping-cart"></i><span class="cart-count">0</span></div>
+
+                <!-- Cart with Mini-Cart Dropdown -->
+                <div class="cart-wrapper">
+                    <div class="cart-trigger" onclick="openDrawer()">
+                        <i class="fas fa-shopping-bag" style="font-size:1.2rem;"></i>
+                        <span class="cart-count">0</span>
+                    </div>
+                    <div class="mini-cart" id="mini-cart">
+                        <div class="mini-cart-header">
+                            <h4 data-i18n="cart.title">Ваш кошик</h4>
+                            <span class="mini-cart-count" id="mini-cart-count"><span>0</span> <span data-i18n="cart.items">товарів</span></span>
+                        </div>
+                        <div class="mini-cart-items" id="mini-cart-items"></div>
+                        <div class="mini-cart-footer" id="mini-cart-footer">
+                            <div class="mini-cart-subtotal">
+                                <strong data-i18n="cart.subtotal">Разом:</strong>
+                                <span id="mini-cart-total">0 ₴</span>
+                            </div>
+                            <div class="mini-cart-shipping" id="mini-cart-shipping">
+                                <i class="fas fa-truck"></i> <span data-i18n="cart.free_shipping_progress">До безкоштовної доставки:</span> <strong>500 ₴</strong>
+                            </div>
+                            <button class="mini-cart-btn" onclick="openDrawer()">
+                                <i class="fas fa-shopping-cart"></i> <span data-i18n="cart.checkout">Оформити замовлення</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="menu-toggle" aria-label="Open menu" data-i18n="common.open_menu" data-i18n-aria data-i18n="common.open_menu" data-i18n-aria onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
-            <button class="menu-toggle" aria-label="Menu"><i class="fas fa-bars"></i></button>
         </div>
     </header>
 
+    <!-- DRAWER CART -->
     <div class="overlay"></div>
     <div class="drawer">
         <div class="drawer-header">
-            <h3>Ваш кошик</h3><span class="cart-close" style="cursor:pointer;font-size:1.5rem;">&times;</span>
+            <h3><i class="fas fa-shopping-bag" style="margin-right:10px; color:var(--primary);"></i> Ваш кошик</h3>
+            <button onclick="closeDrawer()"
+                style="background:none;border:none;font-size:1.5rem;cursor:pointer;">&times;</button>
         </div>
         <div class="drawer-body" id="cart-list"></div>
         <div class="drawer-footer">
-            <div style="display:flex;justify-content:space-between;margin-bottom:15px;font-weight:600;">
-                <span>Разом:</span><span id="cart-total">0 ₴</span>
+            <div class="free-shipping-progress" id="drawer-shipping-progress">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="drawer-progress-fill"></div>
+                </div>
+                <p class="progress-text" id="drawer-progress-text"><i class="fas fa-truck"></i> До безкоштовної
+                    доставки: <strong>500 ₴</strong></p>
             </div>
-            <button class="btn btn-primary" style="width:100%;">Оформити замовлення</button>
+            <div style="display:flex; justify-content:space-between; margin-bottom:15px;">
+                <span data-i18n="cart.subtotal">Разом:</span><span id="cart-total" style="font-weight:700; color:var(--primary);">0 ₴</span>
+            </div>
+            <button class="btn btn-primary" style="width:100%;"><i class="fas fa-lock"></i> Оформити замовлення</button>
         </div>
     </div>
 
     <main>
-        <section class="section"
-            style="padding-top:120px; background:linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%); color:white; text-align:center;">
+        <!-- HERO -->
+        <section class="blog-hero">
             <div class="container">
-                <h1 style="font-size:3rem; color:white; margin-bottom:20px;">Кавовий блог</h1>
-                <p style="font-size:1.2rem; max-width:600px; margin:0 auto; opacity:0.95;">Все про specialty каву: від
-                    зерна до чашки. 15 детальних статей.</p>
+                <h1>Історії про каву</h1>
+                <p>Занурюйтесь у світ specialty кави: від плантацій Ефіопії до вашої чашки</p>
+                <div class="blog-categories">
+                    <a href="#" class="blog-cat-btn active">Усі</a>
+                    <a href="#" class="blog-cat-btn">Про каву</a>
+                    <a href="#" class="blog-cat-btn">Рецепти</a>
+                    <a href="#" class="blog-cat-btn">Обладнання</a>
+                    <a href="#" class="blog-cat-btn">Поради</a>
+                </div>
             </div>
         </section>
 
-        <section class="section" style="background:white; padding-top:40px;">
+        <!-- ARTICLES -->
+        <section class="section" style="background:#f9f9f9;">
             <div class="container">
-                <div style="display:flex; gap:15px; justify-content:center; flex-wrap:wrap; margin-bottom:50px;">
-                    <button class="filter-btn active" onclick="filterBlog('all')">Всі статті (15)</button>
-                    <button class="filter-btn" onclick="filterBlog('basics')">Основи (5)</button>
-                    <button class="filter-btn" onclick="filterBlog('brewing')">Заварювання (5)</button>
-                    <button class="filter-btn" onclick="filterBlog('origins')">Походження (5)</button>
-                </div>
+                <div class="articles-grid">
 
-                <div class="blog-grid"
-                    style="display:grid; grid-template-columns:repeat(auto-fill, minmax(350px, 1fr)); gap:40px;">
-
-                    <!-- Article 1 -->
-                    <article class="blog-card hover-lift" data-category="basics">
-                        <a href="blog/specialty-coffee.html" style="text-decoration:none; color:inherit;">
-                            <img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                                style="width:100%; height:220px; object-fit:cover;">
-                            <div style="padding:25px;">
-                                <span
-                                    style="display:inline-block; background:var(--bg-main); padding:5px 12px; border-radius:15px; font-size:0.85rem; color:var(--accent); font-weight:600; margin-bottom:15px;">BASICS</span>
-                                <h3 style="font-size:1.4rem; margin-bottom:15px;">Що таке Specialty кава?</h3>
-                                <p style="color:#666; margin-bottom:20px;">Детальний гід про specialty каву: SCA
-                                    грейдинг, відмінності від комерційної...</p>
-                                <div style="color:#999; font-size:0.9rem;"><i class="far fa-clock"></i> 7 хв</div>
-                            </div>
+                    <!-- FEATURED Article 1 -->
+                    <article class="article-card featured-article">
+                        <a href="articles/what-is-specialty.html">
+                            <img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=800"
+                                alt="Specialty кава">
                         </a>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-category">Про каву</span>
+                                <span><i class="far fa-clock"></i> 5 хв читання</span>
+                                <span><i class="far fa-calendar"></i> 18 грудня 2025</span>
+                            </div>
+                            <h3><a href="articles/what-is-specialty.html">Що таке Specialty кава і чому вона коштує
+                                    дорожче</a></h3>
+                            <p class="article-excerpt">Розбираємось, чим відрізняється specialty кава від звичайної, як
+                                її оцінюють професіонали та чому вона варта кожної копійки. Дізнайтесь про систему
+                                оцінювання SCA та що означають бали 80+.</p>
+                            <div class="article-footer">
+                                <a href="articles/what-is-specialty.html" class="article-read-more">Читати далі →</a>
+                                <span style="color:var(--text-muted); font-size:0.85rem;"><i class="far fa-eye"></i>
+                                    2.4k переглядів</span>
+                            </div>
+                        </div>
                     </article>
 
                     <!-- Article 2 -->
-                    <article class="blog-card hover-lift" data-category="basics">
-                        <a href="blog/arabica-vs-robusta.html" style="text-decoration:none; color:inherit;">
-                            <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                                style="width:100%; height:220px; object-fit:cover;">
-                            <div style="padding:25px;">
-                                <span
-                                    style="display:inline-block; background:var(--bg-main); padding:5px 12px; border-radius:15px; font-size:0.85rem; color:var(--accent); font-weight:600; margin-bottom:15px;">BASICS</span>
-                                <h3 style="font-size:1.4rem; margin-bottom:15px;">Arabica vs Robusta</h3>
-                                <p style="color:#666; margin-bottom:20px;">Порівняння двох видів кави: смак, якість,
-                                    вирощування...</p>
-                                <div style="color:#999; font-size:0.9rem;"><i class="far fa-clock"></i> 6 хв</div>
-                            </div>
+                    <article class="article-card">
+                        <a href="articles/ethiopia-coffee-origin.html">
+                            <img src="https://images.unsplash.com/photo-1504630083234-14187a9df0f5?w=600"
+                                alt="Ефіопія батьківщина кави">
                         </a>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-category">Про каву</span>
+                                <span><i class="far fa-clock"></i> 4 хв</span>
+                            </div>
+                            <h3><a href="articles/ethiopia-coffee-origin.html">Ефіопія — батьківщина кави: легенда про
+                                    пастуха Калді</a></h3>
+                            <p class="article-excerpt">Історія про те, як козопас випадково відкрив магію кавових ягід
+                                понад 1000 років тому...</p>
+                            <div class="article-footer">
+                                <a href="articles/ethiopia-coffee-origin.html" class="article-read-more">Читати →</a>
+                            </div>
+                        </div>
                     </article>
 
                     <!-- Article 3 -->
-                    <article class="blog-card hover-lift" data-category="basics">
-                        <a href="blog/brewing-methods.html" style="text-decoration:none; color:inherit;">
-                            <img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                                style="width:100%; height:220px; object-fit:cover;">
-                            <div style="padding:25px;">
-                                <span
-                                    style="display:inline-block; background:var(--bg-main); padding:5px 12px; border-radius:15px; font-size:0.85rem; color:var(--accent); font-weight:600; margin-bottom:15px;">BASICS</span>
-                                <h3 style="font-size:1.4rem; margin-bottom:15px;">5 способів заварювання</h3>
-                                <p style="color:#666; margin-bottom:20px;">Еспресо, V60, турка, френч-прес, аеропрес —
-                                    який обрати?</p>
-                                <div style="color:#999; font-size:0.9rem;"><i class="far fa-clock"></i> 8 хв</div>
-                            </div>
+                    <article class="article-card">
+                        <a href="articles/how-to-brew-v60.html">
+                            <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600"
+                                alt="V60 приготування">
                         </a>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-category">Рецепти</span>
+                                <span><i class="far fa-clock"></i> 4 хв</span>
+                            </div>
+                            <h3><a href="articles/how-to-brew-v60.html">Ідеальний V60: покроковий рецепт від бариста</a>
+                            </h3>
+                            <p class="article-excerpt">Детальна інструкція з приготування кави методом пуровер.
+                                Пропорції, температура, техніка заливання.</p>
+                            <div class="article-footer">
+                                <a href="articles/how-to-brew-v60.html" class="article-read-more">Читати →</a>
+                            </div>
+                        </div>
                     </article>
 
                     <!-- Article 4 -->
-                    <article class="blog-card hover-lift" data-category="basics">
-                        <a href="blog/coffee-storage.html" style="text-decoration:none; color:inherit;">
-                            <img src="https://images.unsplash.com/photo-1511537632536-b7a575805d78?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                                style="width:100%; height:220px; object-fit:cover;">
-                            <div style="padding:25px;">
-                                <span
-                                    style="display:inline-block; background:var(--bg-main); padding:5px 12px; border-radius:15px; font-size:0.85rem; color:var(--accent); font-weight:600; margin-bottom:15px;">BASICS</span>
-                                <h3 style="font-size:1.4rem; margin-bottom:15px;">Як зберігати каву</h3>
-                                <p style="color:#666; margin-bottom:20px;">5 ворогів кави, правила зберігання, чи можна
-                                    заморожувати...</p>
-                                <div style="color:#999; font-size:0.9rem;"><i class="far fa-clock"></i> 5 хв</div>
-                            </div>
+                    <article class="article-card">
+                        <a href="articles/light-vs-dark-roast.html">
+                            <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=600"
+                                alt="Обсмажка кави">
                         </a>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-category">Про каву</span>
+                                <span><i class="far fa-clock"></i> 3 хв</span>
+                            </div>
+                            <h3><a href="articles/light-vs-dark-roast.html">Світла чи темна обсмажка: що обрати?</a>
+                            </h3>
+                            <p class="article-excerpt">Порівняння смакових профілів, рівнів кофеїну та рекомендації для
+                                різних способів приготування.</p>
+                            <div class="article-footer">
+                                <a href="articles/light-vs-dark-roast.html" class="article-read-more">Читати →</a>
+                            </div>
+                        </div>
                     </article>
 
                     <!-- Article 5 -->
-                    <article class="blog-card hover-lift" data-category="basics">
-                        <a href="blog/sca-grading.html" style="text-decoration:none; color:inherit;">
-                            <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                                style="width:100%; height:220px; object-fit:cover;">
-                            <div style="padding:25px;">
-                                <span
-                                    style="display:inline-block; background:var(--bg-main); padding:5px 12px; border-radius:15px; font-size:0.85rem; color:var(--accent); font-weight:600; margin-bottom:15px;">BASICS</span>
-                                <h3 style="font-size:1.4rem; margin-bottom:15px;">SCA оцінка кави</h3>
-                                <p style="color:#666; margin-bottom:20px;">Що означають цифри 80-100 балів, 10 критеріїв
-                                    оцінки...</p>
-                                <div style="color:#999; font-size:0.9rem;"><i class="far fa-clock"></i> 5 хв</div>
-                            </div>
+                    <article class="article-card">
+                        <a href="articles/coffee-storage.html">
+                            <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=600"
+                                alt="Зберігання кави">
                         </a>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-category">Поради</span>
+                                <span><i class="far fa-clock"></i> 3 хв</span>
+                            </div>
+                            <h3><a href="articles/coffee-storage.html">Як правильно зберігати каву: 5 головних
+                                    правил</a></h3>
+                            <p class="article-excerpt">Ворогі свіжості кави та прості правила, які допоможуть зберегти
+                                аромат надовго.</p>
+                            <div class="article-footer">
+                                <a href="articles/coffee-storage.html" class="article-read-more">Читати →</a>
+                            </div>
+                        </div>
                     </article>
 
                     <!-- Article 6 -->
-                    <article class="blog-card hover-lift" data-category="brewing">
-                        <a href="blog/espresso-guide.html" style="text-decoration:none; color:inherit;">
-                            <img src="https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                                style="width:100%; height:220px; object-fit:cover;">
-                            <div style="padding:25px;">
-                                <span
-                                    style="display:inline-block; background:var(--bg-main); padding:5px 12px; border-radius:15px; font-size:0.85rem; color:var(--primary); font-weight:600; margin-bottom:15px;">BREWING</span>
-                                <h3 style="font-size:1.4rem; margin-bottom:15px;">Еспресо вдома</h3>
-                                <p style="color:#666; margin-bottom:20px;">Покроковий гід: дозування, темперування,
-                                    екстракція...</p>
-                                <div style="color:#999; font-size:0.9rem;"><i class="far fa-clock"></i> 6 хв</div>
-                            </div>
+                    <article class="article-card">
+                        <a href="articles/yirgacheffe-region.html">
+                            <img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?w=600"
+                                alt="Йіргачеффе регіон">
                         </a>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-category">Про каву</span>
+                                <span><i class="far fa-clock"></i> 5 хв</span>
+                            </div>
+                            <h3><a href="articles/yirgacheffe-region.html">Йіргачеффе: перлина ефіопської кави</a></h3>
+                            <p class="article-excerpt">Чому цей регіон виробляє одну з найдорожчих кав у світі та які
+                                смаки в ній шукати.</p>
+                            <div class="article-footer">
+                                <a href="articles/yirgacheffe-region.html" class="article-read-more">Читати →</a>
+                            </div>
+                        </div>
                     </article>
 
                     <!-- Article 7 -->
-                    <article class="blog-card hover-lift" data-category="brewing">
-                        <a href="blog/v60-guide.html" style="text-decoration:none; color:inherit;">
-                            <img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?w=600"
-                                style="width:100%; height:220px; object-fit:cover;">
-                            <div style="padding:25px;">
-                                <span
-                                    style="display:inline-block; background:var(--bg-main); padding:5px 12px; border-radius:15px; font-size:0.85rem; color:var(--primary); font-weight:600; margin-bottom:15px;">BREWING</span>
-                                <h3 style="font-size:1.4rem; margin-bottom:15px;">V60 пур-овер</h3>
-                                <p style="color:#666; margin-bottom:20px;">Техніка bloom, два проливання, найчистіша
-                                    чашка...</p>
-                                <div style="color:#999; font-size:0.9rem;"><i class="far fa-clock"></i> 5 хв</div>
-                            </div>
+                    <article class="article-card">
+                        <a href="articles/espresso-mistakes.html">
+                            <img src="https://images.unsplash.com/photo-1610889556528-9a770e32642f?w=600"
+                                alt="Еспресо помилки">
                         </a>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-category">Поради</span>
+                                <span><i class="far fa-clock"></i> 4 хв</span>
+                            </div>
+                            <h3><a href="articles/espresso-mistakes.html">7 помилок при приготуванні еспресо вдома</a>
+                            </h3>
+                            <p class="article-excerpt">Чому ваш еспресо гіркий або кислий? Розбираємо типові помилки та
+                                як їх уникнути.</p>
+                            <div class="article-footer">
+                                <a href="articles/espresso-mistakes.html" class="article-read-more">Читати →</a>
+                            </div>
+                        </div>
                     </article>
 
                     <!-- Article 8 -->
-                    <article class="blog-card hover-lift" data-category="brewing">
-                        <a href="blog/turka-guide.html" style="text-decoration:none; color:inherit;">
-                            <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?w=600"
-                                style="width:100%; height:220px; object-fit:cover;">
-                            <div style="padding:25px;">
-                                <span
-                                    style="display:inline-block; background:var(--bg-main); padding:5px 12px; border-radius:15px; font-size:0.85rem; color:var(--primary); font-weight:600; margin-bottom:15px;">BREWING</span>
-                                <h3 style="font-size:1.4rem; margin-bottom:15px;">Кава в турці</h3>
-                                <p style="color:#666; margin-bottom:20px;">Класичний спосіб: піна, вогонь, секрети
-                                    східної кави...</p>
-                                <div style="color:#999; font-size:0.9rem;"><i class="far fa-clock"></i> 5 хв</div>
-                            </div>
+                    <article class="article-card">
+                        <a href="articles/cold-brew-recipe.html">
+                            <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=600"
+                                alt="Cold brew">
                         </a>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-category">Рецепти</span>
+                                <span><i class="far fa-clock"></i> 3 хв</span>
+                            </div>
+                            <h3><a href="articles/cold-brew-recipe.html">Cold Brew вдома: простий рецепт на 5 літрів</a>
+                            </h3>
+                            <p class="article-excerpt">Як приготувати освіжаючу каву холодного заварювання без
+                                спеціального обладнання.</p>
+                            <div class="article-footer">
+                                <a href="articles/cold-brew-recipe.html" class="article-read-more">Читати →</a>
+                            </div>
+                        </div>
                     </article>
 
                     <!-- Article 9 -->
-                    <article class="blog-card hover-lift" data-category="brewing">
-                        <a href="blog/french-press-guide.html" style="text-decoration:none; color:inherit;">
-                            <img src="https://images.unsplash.com/photo-1520970014086-2208d157c9e2?w=600"
-                                style="width:100%; height:220px; object-fit:cover;">
-                            <div style="padding:25px;">
-                                <span
-                                    style="display:inline-block; background:var(--bg-main); padding:5px 12px; border-radius:15px; font-size:0.85rem; color:var(--primary); font-weight:600; margin-bottom:15px;">BREWING</span>
-                                <h3 style="font-size:1.4rem; margin-bottom:15px;">Френч-прес</h3>
-                                <p style="color:#666; margin-bottom:20px;">Найпростіший метод: 4 хвилини, грубий помел,
-                                    відпочинок...</p>
-                                <div style="color:#999; font-size:0.9rem;"><i class="far fa-clock"></i> 4 хв</div>
-                            </div>
+                    <article class="article-card">
+                        <a href="articles/grinder-guide.html">
+                            <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600"
+                                alt="Кавомолка">
                         </a>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-category">Обладнання</span>
+                                <span><i class="far fa-clock"></i> 5 хв</span>
+                            </div>
+                            <h3><a href="articles/grinder-guide.html">Як обрати кавомолку: повний гід для
+                                    початківців</a></h3>
+                            <p class="article-excerpt">Жорнова чи ножова? Ручна чи електрична? Розбираємось у типах
+                                кавомолок та їх перевагах.</p>
+                            <div class="article-footer">
+                                <a href="articles/grinder-guide.html" class="article-read-more">Читати →</a>
+                            </div>
+                        </div>
                     </article>
 
                     <!-- Article 10 -->
-                    <article class="blog-card hover-lift" data-category="brewing">
-                        <a href="blog/cold-brew-guide.html" style="text-decoration:none; color:inherit;">
-                            <img src="https://images.unsplash.com/photo-1517487881594-2787fef5ebf7?w=600"
-                                style="width:100%; height:220px; object-fit:cover;">
-                            <div style="padding:25px;">
-                                <span
-                                    style="display:inline-block; background:var(--bg-main); padding:5px 12px; border-radius:15px; font-size:0.85rem; color:var(--primary); font-weight:600; margin-bottom:15px;">BREWING</span>
-                                <h3 style="font-size:1.4rem; margin-bottom:15px;">Cold Brew</h3>
-                                <p style="color:#666; margin-bottom:20px;">12-24 години екстракції, солодкий без
-                                    гіркоти, літній рецепт...</p>
-                                <div style="color:#999; font-size:0.9rem;"><i class="far fa-clock"></i> 5 хв</div>
-                            </div>
+                    <article class="article-card">
+                        <a href="articles/natural-vs-washed.html">
+                            <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=600"
+                                alt="Обробка кави">
                         </a>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-category">Про каву</span>
+                                <span><i class="far fa-clock"></i> 4 хв</span>
+                            </div>
+                            <h3><a href="articles/natural-vs-washed.html">Natural vs Washed: як обробка впливає на
+                                    смак</a></h3>
+                            <p class="article-excerpt">Різниця між сухою та митою обробкою зерна і чому це важливо для
+                                вашої чашки.</p>
+                            <div class="article-footer">
+                                <a href="articles/natural-vs-washed.html" class="article-read-more">Читати →</a>
+                            </div>
+                        </div>
                     </article>
 
                     <!-- Article 11 -->
-                    <article class="blog-card hover-lift" data-category="origins">
-                        <a href="blog/ethiopia-origins.html" style="text-decoration:none; color:inherit;">
-                            <img src="https://images.unsplash.com/photo-1596489397223-5e3e2b4f62e8?w=600"
-                                style="width:100%; height:220px; object-fit:cover;">
-                            <div style="padding:25px;">
-                                <span
-                                    style="display:inline-block; background:var(--bg-main); padding:5px 12px; border-radius:15px; font-size:0.85rem; color:#c17817; font-weight:600; margin-bottom:15px;">ORIGINS</span>
-                                <h3 style="font-size:1.4rem; margin-bottom:15px;">Ефіопія — батьківщина кави</h3>
-                                <p style="color:#666; margin-bottom:20px;">Легенда Калді, регіони Yirgacheffe, Sidamo,
-                                    Harrar...</p>
-                                <div style="color:#999; font-size:0.9rem;"><i class="far fa-clock"></i> 6 хв</div>
-                            </div>
+                    <article class="article-card">
+                        <a href="articles/caffeine-myths.html">
+                            <img src="https://images.unsplash.com/photo-1512568400610-62da28bc8a13?w=600"
+                                alt="Кофеїн міфи">
                         </a>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-category">Поради</span>
+                                <span><i class="far fa-clock"></i> 4 хв</span>
+                            </div>
+                            <h3><a href="articles/caffeine-myths.html">5 міфів про кофеїн, у які всі вірять</a></h3>
+                            <p class="article-excerpt">Чи правда, що темна обсмажка містить більше кофеїну? Розвінчуємо
+                                популярні міфи.</p>
+                            <div class="article-footer">
+                                <a href="articles/caffeine-myths.html" class="article-read-more">Читати →</a>
+                            </div>
+                        </div>
                     </article>
 
                     <!-- Article 12 -->
-                    <article class="blog-card hover-lift" data-category="origins">
-                        <a href="blog/yirgacheffe-region.html" style="text-decoration:none; color:inherit;">
-                            <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=600"
-                                style="width:100%; height:220px; object-fit:cover;">
-                            <div style="padding:25px;">
-                                <span
-                                    style="display:inline-block; background:var(--bg-main); padding:5px 12px; border-radius:15px; font-size:0.85rem; color:#c17817; font-weight:600; margin-bottom:15px;">ORIGINS</span>
-                                <h3 style="font-size:1.4rem; margin-bottom:15px;">Yirgacheffe регіон</h3>
-                                <p style="color:#666; margin-bottom:20px;">Жасмин, чорниця, 1700-2200м, найвідоміша кава
-                                    Ефіопії...</p>
-                                <div style="color:#999; font-size:0.9rem;"><i class="far fa-clock"></i> 6 хв</div>
-                            </div>
+                    <article class="article-card">
+                        <a href="articles/aeropress-recipes.html">
+                            <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=600"
+                                alt="Аеропрес">
                         </a>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-category">Рецепти</span>
+                                <span><i class="far fa-clock"></i> 4 хв</span>
+                            </div>
+                            <h3><a href="articles/aeropress-recipes.html">3 рецепти для Аеропреса від чемпіонів</a></h3>
+                            <p class="article-excerpt">Перевірені рецепти переможців чемпіонатів з аеропресу для
+                                ідеальної чашки вдома.</p>
+                            <div class="article-footer">
+                                <a href="articles/aeropress-recipes.html" class="article-read-more">Читати →</a>
+                            </div>
+                        </div>
                     </article>
 
                     <!-- Article 13 -->
-                    <article class="blog-card hover-lift" data-category="origins">
-                        <a href="blog/coffee-processing.html" style="text-decoration:none; color:inherit;">
-                            <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=600"
-                                style="width:100%; height:220px; object-fit:cover;">
-                            <div style="padding:25px;">
-                                <span
-                                    style="display:inline-block; background:var(--bg-main); padding:5px 12px; border-radius:15px; font-size:0.85rem; color:#c17817; font-weight:600; margin-bottom:15px;">ORIGINS</span>
-                                <h3 style="font-size:1.4rem; margin-bottom:15px;">Обробка кави</h3>
-                                <p style="color:#666; margin-bottom:20px;">Мита vs натуральна vs honey — як це впливає
-                                    на смак...</p>
-                                <div style="color:#999; font-size:0.9rem;"><i class="far fa-clock"></i> 6 хв</div>
-                            </div>
+                    <article class="article-card">
+                        <a href="articles/water-for-coffee.html">
+                            <img src="https://images.unsplash.com/photo-1434494878577-86c23bcb06b9?w=600"
+                                alt="Вода для кави">
                         </a>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-category">Поради</span>
+                                <span><i class="far fa-clock"></i> 3 хв</span>
+                            </div>
+                            <h3><a href="articles/water-for-coffee.html">Яка вода потрібна для ідеальної кави?</a></h3>
+                            <p class="article-excerpt">98% вашої чашки — це вода. Розбираємось, чому вона важлива та яку
+                                обрати.</p>
+                            <div class="article-footer">
+                                <a href="articles/water-for-coffee.html" class="article-read-more">Читати →</a>
+                            </div>
+                        </div>
                     </article>
 
                     <!-- Article 14 -->
-                    <article class="blog-card hover-lift" data-category="origins">
-                        <a href="blog/bean-to-cup.html" style="text-decoration:none; color:inherit;">
-                            <img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=600"
-                                style="width:100%; height:220px; object-fit:cover;">
-                            <div style="padding:25px;">
-                                <span
-                                    style="display:inline-block; background:var(--bg-main); padding:5px 12px; border-radius:15px; font-size:0.85rem; color:#c17817; font-weight:600; margin-bottom:15px;">ORIGINS</span>
-                                <h3 style="font-size:1.4rem; margin-bottom:15px;">Від зерна до чашки</h3>
-                                <p style="color:#666; margin-bottom:20px;">8 етапів подорожі specialty кави від ферми до
-                                    вас...</p>
-                                <div style="color:#999; font-size:0.9rem;"><i class="far fa-clock"></i> 7 хв</div>
-                            </div>
+                    <article class="article-card">
+                        <a href="articles/sidamo-guide.html">
+                            <img src="https://images.unsplash.com/photo-1610632380989-680fe40816c6?w=600"
+                                alt="Сідамо регіон">
                         </a>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-category">Про каву</span>
+                                <span><i class="far fa-clock"></i> 4 хв</span>
+                            </div>
+                            <h3><a href="articles/sidamo-guide.html">Сідамо: класика ефіопської кави</a></h3>
+                            <p class="article-excerpt">Все про найпопулярніший регіон виробництва кави в Ефіопії та його
+                                унікальний терруар.</p>
+                            <div class="article-footer">
+                                <a href="articles/sidamo-guide.html" class="article-read-more">Читати →</a>
+                            </div>
+                        </div>
                     </article>
 
                     <!-- Article 15 -->
-                    <article class="blog-card hover-lift" data-category="origins">
-                        <a href="blog/coffee-seasonality.html" style="text-decoration:none; color:inherit;">
-                            <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600"
-                                style="width:100%; height:220px; object-fit:cover;">
-                            <div style="padding:25px;">
-                                <span
-                                    style="display:inline-block; background:var(--bg-main); padding:5px 12px; border-radius:15px; font-size:0.85rem; color:#c17817; font-weight:600; margin-bottom:15px;">ORIGINS</span>
-                                <h3 style="font-size:1.4rem; margin-bottom:15px;">Сезонність кави</h3>
-                                <p style="color:#666; margin-bottom:20px;">Календар урожаю, коли купувати свіжу каву,
-                                    crop year...</p>
-                                <div style="color:#999; font-size:0.9rem;"><i class="far fa-clock"></i> 6 хв</div>
-                            </div>
+                    <article class="article-card">
+                        <a href="articles/turka-recipe.html">
+                            <img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?w=600"
+                                alt="Кава в турці">
                         </a>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-category">Рецепти</span>
+                                <span><i class="far fa-clock"></i> 4 хв</span>
+                            </div>
+                            <h3><a href="articles/turka-recipe.html">Кава по-турецьки: секрети ідеального джезве</a>
+                            </h3>
+                            <p class="article-excerpt">Традиційний метод приготування, який зберігся крізь століття.
+                                Покроковий рецепт.</p>
+                            <div class="article-footer">
+                                <a href="articles/turka-recipe.html" class="article-read-more">Читати →</a>
+                            </div>
+                        </div>
                     </article>
 
                 </div>
+
+                <!-- Load More -->
+                <div style="text-align:center; margin-top:50px;">
+                    <p style="color:var(--text-muted); margin-bottom:20px;">Показано 15 з 15 статей</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter CTA -->
+        <section
+            style="background:linear-gradient(135deg, var(--primary), #6D4C41); padding:60px 0; text-align:center;">
+            <div class="container">
+                <h2 style="color:white; margin-bottom:15px;">Підпишіться на кавові новини</h2>
+                <p
+                    style="color:rgba(255,255,255,0.9); margin-bottom:30px; max-width:500px; margin-left:auto; margin-right:auto;">
+                    Отримуйте нові статті, рецепти та ексклюзивні пропозиції на вашу пошту</p>
+                <form
+                    style="display:flex; gap:15px; max-width:450px; margin:0 auto; flex-wrap:wrap; justify-content:center;"
+                    onsubmit="subscribeNewsletter(event)">
+                    <input type="email" placeholder="Ваш email" required
+                        style="flex:1; min-width:250px; padding:15px 20px; border:none; border-radius:8px; font-size:1rem;">
+                    <button type="submit" class="btn"
+                        style="background:var(--secondary); color:#1a1a1a; padding:15px 30px; font-weight:700;" data-i18n="footer.newsletter_cta">Підписатись</button>
+                </form>
             </div>
         </section>
     </main>
 
-    <!-- NEWSLETTER CTA -->
-    <section class="section" style="background:var(--accent); color:white; text-align:center; padding:60px 0;">
-        <div class="container">
-            <i class="fas fa-envelope-open-text" style="font-size:3rem; margin-bottom:20px;"></i>
-            <h2 style="color:white; margin-bottom:15px; font-size:2.5rem;">Не пропускайте нові історії</h2>
-            <p style="margin-bottom:30px; opacity:0.9; font-size:1.2rem;">Підпишіться на розсилку та отримайте гід по
-                заварюванню безкоштовно.</p>
-            <form class="newsletter-form" style="max-width:500px; margin:0 auto; display:flex; gap:10px;">
-                <input type="email" placeholder="Ваш Email"
-                    style="flex:1; padding:15px 25px; border-radius:30px; border:none; outline:none; font-size:1rem;">
-                <button type="submit" class="btn"
-                    style="background:var(--bg-dark); color:white; border-radius:30px; padding:15px 30px; font-weight:600; cursor:pointer; border:none;">Підписатися</button>
-            </form>
-        </div>
-    </section>
+    <!-- FLOATING CONTACTS -->
+    <div class="floating-contacts">
+        <a href="https://t.me/ethiodirect" class="float-btn telegram"><i class="fab fa-telegram-plane"></i></a>
+        <a href="viber://chat?number=+380501234567" class="float-btn viber"><i class="fab fa-viber"></i></a>
+        <a href="tel:+380501234567" class="float-btn phone"><i class="fas fa-phone-alt"></i></a>
+    </div>
+
+    <!-- TOAST -->
+    <div class="toast" id="toast"><i class="fas fa-check-circle"></i><span id="toast-msg">Готово</span></div>
 
     <!-- FOOTER -->
-    <!-- PROFESSIONAL FOOTER COMPONENT -->
-    <!-- PROFESSIONAL FOOTER COMPONENT -->
-    <!-- PROFESSIONAL FOOTER COMPONENT -->
+        <!-- FOOTER -->
     <footer class="footer-pro">
         <div class="container">
             <!-- Main Footer Content -->
@@ -377,62 +676,59 @@
                     <h4 style="font-family:var(--font-heading); font-size:1.5rem; color:white; margin-bottom:20px;">
                         <a href="index.html" style="text-decoration:none; color:white;">EthioDirect</a>
                     </h4>
-                    <p style="color:#aaa; line-height:1.8; margin-bottom:20px;">Ми доставляємо справжню specialty каву
-                        прямо
-                        з ефіопських ферм до вашого дому. Свіжа обсмажка, чесна ціна, любов до кави.</p>
+                    <p style="color:#aaa; line-height:1.8; margin-bottom:20px;" data-i18n="footer.description">Ми доставляємо справжню specialty каву прямо з ефіопських ферм до вашого дому. Свіжа обсмажка, чесна ціна, любов до кави.</p>
                     <div class="social-links">
-                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                        <a href="#" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
-                        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" aria-label="Instagram" data-i18n="social.instagram" data-i18n-aria><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Facebook" data-i18n="social.facebook" data-i18n-aria><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Telegram" data-i18n="social.telegram" data-i18n-aria><i class="fab fa-telegram"></i></a>
+                        <a href="#" aria-label="TikTok" data-i18n="social.tiktok" data-i18n-aria><i class="fab fa-tiktok"></i></a>
                     </div>
                 </div>
 
                 <!-- Column 2: Shop -->
                 <div class="footer-col">
-                    <h4>Магазин</h4>
+                    <h4 data-i18n="footer.shop_title">Магазин</h4>
                     <ul class="footer-links">
-                        <li><a href="shop.html">Весь каталог</a></li>
-                        <li><a href="subscription.html">Підписка на каву</a></li>
-                        <li><a href="gift-certificates.html">Сертифікати</a></li>
-                        <li><a href="b2b.html">B2B рішення</a></li>
-                        <li><a href="account.html">Особистий кабінет</a></li>
+                        <li><a href="shop.html" data-i18n="footer.catalog">Весь каталог</a></li>
+                        <li><a href="subscription.html" data-i18n="footer.subscription">Підписка на каву</a></li>
+                        <li><a href="gift-certificates.html" data-i18n="nav.certificates">Сертифікати</a></li>
+                        <li><a href="b2b.html" data-i18n="footer.b2b">B2B рішення</a></li>
+                        <li><a href="account.html" data-i18n="footer.account">Особистий кабінет</a></li>
                     </ul>
                 </div>
 
                 <!-- Column 3: Support -->
                 <div class="footer-col">
-                    <h4>Підтримка</h4>
+                    <h4 data-i18n="footer.support_title">Підтримка</h4>
                     <ul class="footer-links">
-                        <li><a href="delivery.html">Доставка та оплата</a></li>
-                        <li><a href="return.html">Повернення та обмін</a></li>
-                        <li><a href="faq.html">Часті питання</a></li>
-                        <li><a href="contacts.html">Контакти</a></li>
-                        <li><a href="about.html">Про нас</a></li>
+                        <li><a href="delivery.html" data-i18n="footer.delivery">Доставка та оплата</a></li>
+                        <li><a href="return.html" data-i18n="footer.return">Повернення та обмін</a></li>
+                        <li><a href="faq.html" data-i18n="footer.faq">Часті питання</a></li>
+                        <li><a href="contacts.html" data-i18n="footer.contacts">Контакти</a></li>
+                        <li><a href="about.html" data-i18n="nav.about">Про нас</a></li>
                     </ul>
                 </div>
 
                 <!-- Column 4: Contacts -->
                 <div class="footer-col">
-                    <h4>Контакти</h4>
+                    <h4 data-i18n="footer.contacts_title">Контакти</h4>
                     <ul class="footer-contacts">
                         <li><i class="fas fa-phone"></i> <a href="tel:+380501234567">+380 (50) 123-45-67</a></li>
                         <li><i class="fas fa-envelope"></i> <a
                                 href="mailto:hello@ethiodirect.ua">hello@ethiodirect.ua</a>
                         </li>
-                        <li><i class="fas fa-map-marker-alt"></i> Одеса, Україна</li>
-                        <li><i class="fas fa-clock"></i> Пн-Пт: 9:00-18:00</li>
+                        <li><i class="fas fa-map-marker-alt"></i> <span data-i18n="footer.location">Одеса, Україна</span></li>
+                        <li><i class="fas fa-clock"></i> <span data-i18n="topbar.hours">Пн-Пт: 9:00-18:00</span></li>
                     </ul>
                 </div>
 
                 <!-- Column 5: Newsletter -->
                 <div class="footer-col">
-                    <h4>Підписка на новини</h4>
-                    <p style="color:#aaa; margin-bottom:15px; font-size:0.9rem;">Отримуйте акції, новинки та поради щодо
-                        заварювання</p>
+                    <h4 data-i18n="footer.newsletter_title">Підписка на новини</h4>
+                    <p style="color:#aaa; margin-bottom:15px; font-size:0.9rem;" data-i18n="footer.newsletter_text">Отримуйте акції, новинки та поради щодо заварювання</p>
                     <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
-                        <input type="email" placeholder="Ваш email" required>
-                        <button type="submit" class="btn-newsletter">Підписатись</button>
+                        <input type="email" placeholder="Ваш email" data-i18n="footer.newsletter_placeholder" data-i18n-placeholder required>
+                        <button type="submit" class="btn-newsletter" data-i18n="footer.newsletter_cta">Підписатись</button>
                     </form>
                 </div>
             </div>
@@ -475,10 +771,10 @@
             <div class="footer-payment">
                 <p style="color:#666; font-size:0.85rem; margin-bottom:15px;">Способи оплати:</p>
                 <div class="payment-icons">
-                    <i class="fab fa-cc-visa" title="Visa"></i>
-                    <i class="fab fa-cc-mastercard" title="Mastercard"></i>
-                    <i class="fab fa-apple-pay" title="Apple Pay"></i>
-                    <i class="fab fa-google-pay" title="Google Pay"></i>
+                    <i class="fab fa-cc-visa" title="Visa" data-i18n="payment.visa" data-i18n-title></i>
+                    <i class="fab fa-cc-mastercard" title="Mastercard" data-i18n="payment.mastercard" data-i18n-title></i>
+                    <i class="fab fa-apple-pay" title="Apple Pay" data-i18n="payment.apple_pay" data-i18n-title></i>
+                    <i class="fab fa-google-pay" title="Google Pay" data-i18n="payment.google_pay" data-i18n-title></i>
                     <span class="payment-text">LiqPay</span>
                 </div>
             </div>
@@ -489,40 +785,18 @@
                     <p>&copy; 2025 EthioDirect. Всі права захищені.</p>
                 </div>
                 <div class="footer-bottom-right">
-                    <a href="privacy.html">Політика конфіденційності</a>
+                    <a href="privacy.html" data-i18n="footer.privacy">Політика конфіденційності</a>
                     <span>·</span>
-                    <a href="return.html">Умови повернення</a>
+                    <a href="return.html" data-i18n="footer.terms">Умови повернення</a>
                     <span>·</span>
-                    <a href="#">Публічна оферта</a>
+                    <a href="#" data-i18n="footer.offer">Публічна оферта</a>
                 </div>
             </div>
         </div>
     </footer>
 
     <script src="js/main.js"></script>
-    <script>
-        function filterBlog(category) {
-            const cards = document.querySelectorAll('.blog-card');
-            const buttons = document.querySelectorAll('.filter-btn');
-
-            buttons.forEach(btn => {
-                btn.classList.remove('active');
-                if (btn.onclick.toString().includes(category)) {
-                    btn.classList.add('active');
-                }
-            });
-
-            cards.forEach(card => {
-                if (category === 'all' || card.dataset.category === category) {
-                    card.classList.remove('hidden');
-                    card.style.display = 'block';
-                } else {
-                    card.classList.add('hidden');
-                    card.style.display = 'none';
-                }
-            });
-        }
-    </script>
+    <script src="js/i18n.js"></script>
 </body>
 
 </html>

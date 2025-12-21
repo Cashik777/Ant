@@ -12,6 +12,34 @@
 
 <body>
 
+    <!-- TOP BAR - Competitor Feature -->
+    <div class="top-bar">
+        <div class="container top-bar-inner">
+            <div class="top-bar-left">
+                <span><i class="fas fa-phone-alt"></i> <span data-i18n="topbar.phone">+380 (50) 123-45-67</span></span>
+                <span class="divider-dot">•</span>
+                <span><i class="fas fa-clock"></i> <span data-i18n="topbar.hours">Пн-Пт: 9:00-18:00</span></span>
+            </div>
+            <div class="top-bar-center">
+                <div class="promo-ticker">
+                    <span class="ticker-item">🔥 <strong data-i18n="topbar.promo_action">АКЦІЯ:</strong> <span
+                            data-i18n="topbar.promo_delivery">безкоштовна доставка від 500₴</span></span>
+                    <span class="ticker-divider">|</span>
+                    <span class="ticker-item">☕ <span data-i18n="topbar.promo_subscription">Підписка:</span> <strong
+                            data-i18n="topbar.promo_subscription_text">-10% на кожну доставку</strong></span>
+                    <span class="ticker-divider">|</span>
+                    <span class="ticker-item">⚡ <span data-i18n="topbar.promo_roast">Свіжа обсмажка</span> <strong
+                            data-i18n="topbar.promo_roast_days">до 3 днів</strong></span>
+                </div>
+            </div>
+            <div class="top-bar-right">
+                <a href="#" translate="no" class="active" onclick="setLanguage('uk'); return false;">UA</a>
+                <a href="#" translate="no" onclick="setLanguage('ru'); return false;">RU</a>
+                <a href="#" translate="no" onclick="setLanguage('en'); return false;">EN</a>
+            </div>
+        </div>
+    </div>
+
     <!-- HEADER -->
     <header class="header">
         <div class="container header-inner">
@@ -20,48 +48,127 @@
             </a>
 
             <nav class="nav-desktop">
-                <a href="shop.html" class="nav-link">Каталог</a>
-                <a href="subscription.html" class="nav-link">Підписка</a>
-                <a href="gift-certificates.html" class="nav-link">Сертифікати</a>
-                <a href="blog.html" class="nav-link">Історії</a>
-                <a href="about.html" class="nav-link">Про нас</a>
-                <a href="#" class="nav-link" onclick="openQuiz(); return false;">Тест</a>
+                <a href="shop.html" class="nav-link" data-i18n="nav.catalog">Каталог</a>
+                <a href="subscription.html" class="nav-link" data-i18n="nav.subscription">Підписка</a>
+                <a href="gift-certificates.html" class="nav-link" data-i18n="nav.certificates">Сертифікати</a>
+                <a href="blog.html" class="nav-link" data-i18n="nav.stories">Історії</a>
+                <a href="about.html" class="nav-link" data-i18n="nav.about">Про нас</a>
             </nav>
+
+            <!-- Search Bar -->
+            <div class="header-search">
+                <div class="search-wrapper">
+                    <input type="text" class="search-input" id="search-input" placeholder="Пошук кави..."
+                        data-i18n="search.placeholder" data-i18n-placeholder oninput="handleSearch(this.value)">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                    <div class="search-results" id="search-results"></div>
+                </div>
+            </div>
 
             <div class="header-actions">
                 <a href="account.html"><i class="far fa-user"></i></a>
-                <div class="cart-trigger" onclick="openDrawer()">
-                    <i class="fas fa-shopping-bag" style="font-size:1.2rem;"></i>
-                    <span class="cart-count">0</span>
+
+                <!-- Cart with Mini-Cart Dropdown -->
+                <div class="cart-wrapper">
+                    <div class="cart-trigger" onclick="openDrawer()">
+                        <i class="fas fa-shopping-bag" style="font-size:1.2rem;"></i>
+                        <span class="cart-count">0</span>
+                    </div>
+                    <div class="mini-cart" id="mini-cart">
+                        <div class="mini-cart-header">
+                            <h4 data-i18n="cart.title">Ваш кошик</h4>
+                            <span class="mini-cart-count" id="mini-cart-count"><span>0</span> <span
+                                    data-i18n="cart.items">товарів</span></span>
+                        </div>
+                        <div class="mini-cart-items" id="mini-cart-items">
+                            <!-- Items rendered by JS -->
+                        </div>
+                        <div class="mini-cart-footer" id="mini-cart-footer">
+                            <div class="mini-cart-subtotal">
+                                <strong data-i18n="cart.subtotal">Разом:</strong>
+                                <span id="mini-cart-total">0 ₴</span>
+                            </div>
+                            <div class="mini-cart-shipping" id="mini-cart-shipping">
+                                <i class="fas fa-truck"></i> <span data-i18n="cart.free_shipping_progress">До
+                                    безкоштовної доставки:</span> <strong>500 ₴</strong>
+                            </div>
+                            <button class="mini-cart-btn" onclick="openDrawer()">
+                                <i class="fas fa-shopping-cart"></i> <span data-i18n="cart.checkout">Оформити
+                                    замовлення</span>
+                            </button>
+                        </div>
+                    </div>
                 </div>
+
+                <button class="menu-toggle" aria-label="Open menu" data-i18n="common.open_menu" data-i18n-aria data-i18n="common.open_menu" data-i18n-aria onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
         </div>
     </header>
 
-    <!-- HERO SECTION -->
+    <!-- MOBILE NAVIGATION -->
+    <nav class="nav-mobile" id="nav-mobile">
+        <a href="shop.html" data-i18n="nav.catalog">Каталог</a>
+        <a href="subscription.html" data-i18n="nav.subscription">Підписка</a>
+        <a href="#" onclick="openQuiz(); toggleMobileMenu(); return false;">Тест смаку</a>
+        <a href="gift-certificates.html" data-i18n="nav.certificates">Сертифікати</a>
+        <a href="about.html" data-i18n="nav.about">Про нас</a>
+        <a href="contacts.html" data-i18n="footer.contacts">Контакти</a>
+    </nav>
+
+    <!-- HERO SECTION - OPTIMIZED FOR CONVERSION -->
     <section class="hero">
         <div class="container hero-grid">
             <div class="hero-content">
-                <h1>Кава, що просилася до вас</h1>
-                <p>Прямі поставки з висот Ефіопії. Обсмажуємо індивідуально після вашого замовлення. Ваша перша чашка —
-                    через 48 годин.</p>
+                <!-- Premium Badge -->
+                <div class="premium-badge"><i class="fas fa-star"></i> <span data-i18n="hero.badge">100% SPECIALTY
+                        КАВА</span></div>
 
-                <div style="display:flex; gap:20px; flex-wrap:wrap;">
-                    <a href="#collection" class="btn btn-primary">Обрати каву зараз</a>
-                    <button onclick="openQuiz()" class="btn btn-secondary">Пройти тест смаку</button>
+                <!-- Main Headline with Price Anchor -->
+                <h1><span data-i18n="hero.title">Справжня ефіопська кава свіжої обсмажки</span><br>
+                    <span class="hero-subtitle" data-i18n="hero.subtitle">Від гір Ефіопії — до вашої чашки</span>
+                </h1>
+
+                <!-- Value Proposition -->
+                <p class="hero-lead" data-i18n="hero.text">
+                    Ми доставляємо зерно напряму з ефіопських ферм і смажимо під кожне замовлення. Тільки свіжа обсмажка
+                    до 3 днів.
+                </p>
+
+                <!-- Primary CTA -->
+                <div class="hero-cta-wrapper">
+                    <a href="#collection" class="btn btn-primary btn-hero">
+                        <i class="fas fa-fire"></i>
+                        <span data-i18n="hero.cta">Обрати каву</span>
+                    </a>
+                    <a href="#" onclick="openQuiz(); return false;" class="hero-secondary-link">
+                        <span data-i18n="hero.quiz_text">Не знаєте що обрати?</span> <strong
+                            data-i18n="hero.quiz_link">Пройдіть тест смаку</strong> →
+                    </a>
                 </div>
 
-                <div style="margin-top:40px; color:var(--text-muted); font-size:0.85rem; display:flex; gap:20px;">
-                    <span><i class="fas fa-check" style="color:var(--accent-gold);"></i> Безкоштовна доставка
-                        >500₴</span>
-                    <span><i class="fas fa-fire" style="color:var(--accent-gold);"></i> Обсмажка 2-3 рази на
-                        тиждень</span>
+                <!-- Trust Signals -->
+                <div class="hero-trust">
+                    <div class="trust-item">
+                        <i class="fas fa-users"></i>
+                        <span><strong>2500+</strong> <span data-i18n="trust.clients">задоволених
+                                клієнтів</span></span>
+                    </div>
+                    <div class="trust-item">
+                        <i class="fas fa-truck"></i>
+                        <span data-i18n="trust.farmers">Напряму від фермерів</span>
+                    </div>
+                    <div class="trust-item">
+                        <i class="fas fa-undo"></i>
+                        <span data-i18n="trust.specialty">85+ балів SCA</span>
+                    </div>
                 </div>
             </div>
 
             <div class="hero-image">
                 <img src="https://images.unsplash.com/photo-1610632380989-680fe40816c6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                    alt="EthioDirect Beans">
+                    alt="Свіжообсмажені зерна ефіопської кави Specialty класу в крафтовій упаковці">
             </div>
         </div>
     </section>
@@ -70,25 +177,37 @@
     <section class="section" style="background:#1C1814;">
         <div class="container">
             <div class="section-title">
-                <h2>Це більше, ніж кава. <span>Це — Шлях.</span></h2>
+                <h2><span data-i18n="philosophy.title">Це більше, ніж кава.</span> <span
+                        data-i18n="philosophy.subtitle">Це — Шлях.</span></h2>
             </div>
 
             <div class="philosophy-grid">
                 <div class="phil-card">
                     <div class="phil-icon"><i class="fas fa-star"></i></div>
-                    <h3>Specialty 85+</h3>
-                    <p>Тільки добірне зерно класу Specialty. Ніяких компромісів з якістю.</p>
+                    <h3 data-i18n="philosophy.specialty_title">Specialty 85+</h3>
+                    <p data-i18n="philosophy.specialty_text">Тільки добірне зерно класу Specialty. Ніяких компромісів з
+                        якістю.</p>
                 </div>
                 <div class="phil-card">
                     <div class="phil-icon"><i class="fas fa-fire"></i></div>
-                    <h3>Вогонь Обсмажки</h3>
-                    <p>Смажимо лише під ваше замовлення. Ви отримуєте її на піку смаку.</p>
+                    <h3 data-i18n="philosophy.roast_title">Вогонь Обсмажки</h3>
+                    <p data-i18n="philosophy.roast_text">Смажимо лише під ваше замовлення. Ви отримуєте її на піку
+                        смаку.</p>
                 </div>
                 <div class="phil-card">
                     <div class="phil-icon"><i class="fas fa-handshake"></i></div>
-                    <h3>Чесна Ціна</h3>
-                    <p>Прямий імпорт без посередників. Ви платите фермеру, а не перекупнику.</p>
+                    <h3 data-i18n="philosophy.price_title">Чесна Ціна</h3>
+                    <p data-i18n="philosophy.price_text">Прямий імпорт без посередників. Ви платите фермеру, а не
+                        перекупнику.</p>
                 </div>
+            </div>
+
+            <!-- CTA after Philosophy -->
+            <div style="text-align:center; margin-top:50px;">
+                <a href="#collection" class="btn btn-primary btn-large">
+                    <i class="fas fa-coffee"></i>
+                    <span data-i18n="philosophy.cta">Обрати свій сорт</span>
+                </a>
             </div>
         </div>
     </section>
@@ -97,14 +216,18 @@
     <section class="section collection-section" id="collection">
         <div class="container">
             <div class="section-title">
-                <h2>Найкраще з ефіопських висот</h2>
+                <h2 data-i18n="collection.title">Найкраще з ефіопських висот</h2>
             </div>
 
             <div class="filters">
-                <button class="filter-btn active" onclick="filterProducts('all')">Всі лоти</button>
-                <button class="filter-btn" onclick="filterProducts('fruity')">Фруктові</button>
-                <button class="filter-btn" onclick="filterProducts('chocolate')">Шоколадні</button>
-                <button class="filter-btn" onclick="filterProducts('floral')">Квіткові</button>
+                <button class="filter-btn active" onclick="filterProducts('all')" data-i18n="collection.filter_all">Всі
+                    лоти</button>
+                <button class="filter-btn" onclick="filterProducts('fruity')"
+                    data-i18n="collection.filter_fruity">Фруктові</button>
+                <button class="filter-btn" onclick="filterProducts('chocolate')"
+                    data-i18n="collection.filter_chocolate">Шоколадні</button>
+                <button class="filter-btn" onclick="filterProducts('floral')"
+                    data-i18n="collection.filter_floral">Квіткові</button>
             </div>
 
             <div class="products-grid" id="featured-grid">
@@ -112,7 +235,7 @@
             </div>
 
             <div style="text-align:center; margin-top:60px;">
-                <a href="shop.html" class="btn btn-secondary">Всі сорти в наявності</a>
+                <a href="shop.html" class="btn btn-secondary" data-i18n="collection.view_all">Всі сорти в наявності</a>
             </div>
         </div>
     </section>
@@ -121,33 +244,78 @@
     <section class="subscription-section section">
         <div class="container">
             <div class="section-title">
-                <h2>Кавовий <span>Клуб</span></h2>
-                <p style="max-width:600px; margin:0 auto; margin-top:20px; color:var(--text-light);">
-                    Ваш персональний сомельє. Кава з'являється у вас вдома саме тоді, коли потрібна.
+                <h2><span data-i18n="subscription.title">Кавовий Клуб</span></h2>
+                <p style="max-width:600px; margin:0 auto; margin-top:20px; color:var(--text-light);"
+                    data-i18n="subscription.subtitle">Ваш персональний сомельє. Кава з'являється у вас вдома саме тоді,
+                    коли потрібна.</p>
+            </div>
+
+            <!-- Subscription Benefits Comparison -->
+            <div class="sub-comparison"
+                style="max-width:800px; margin:0 auto 50px; background:var(--bg-card); border-radius:var(--radius); padding:30px; border:2px solid var(--secondary);">
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:30px; text-align:center;">
+                    <div>
+                        <h4 style="color:var(--text-muted); margin-bottom:15px; font-weight:400;"
+                            data-i18n="subscription.regular_title">Разова покупка</h4>
+                        <ul style="list-style:none; text-align:left; color:var(--text-light); font-size:0.9rem;">
+                            <li style="padding:8px 0;" data-i18n="subscription.regular_price">✗ Повна ціна</li>
+                            <li style="padding:8px 0;" data-i18n="subscription.regular_delivery">✗ Доставка від 500₴
+                            </li>
+                            <li style="padding:8px 0;" data-i18n="subscription.regular_remember">✗ Потрібно пам'ятати
+                                замовити</li>
+                        </ul>
+                    </div>
+                    <div
+                        style="background:var(--primary-light); border-radius:var(--radius); padding:20px; position:relative;">
+                        <div style="position:absolute; top:-12px; left:50%; transform:translateX(-50%); background:var(--primary); color:white; padding:4px 16px; border-radius:20px; font-size:0.75rem; font-weight:700;"
+                            data-i18n="subscription.sub_badge">ВИГІДНІШЕ</div>
+                        <h4 style="color:var(--primary); margin-bottom:15px; font-weight:700;"
+                            data-i18n="subscription.sub_title">Підписка</h4>
+                        <ul style="list-style:none; text-align:left; color:var(--text-dark); font-size:0.9rem;">
+                            <li style="padding:8px 0;" data-i18n="subscription.sub_discount">✓ -10% на кожну доставку
+                            </li>
+                            <li style="padding:8px 0;" data-i18n="subscription.sub_delivery">✓ Безкоштовна доставка
+                                завжди</li>
+                            <li style="padding:8px 0;" data-i18n="subscription.sub_auto">✓ Автоматично — кава сама
+                                приходить</li>
+                        </ul>
+                    </div>
+                </div>
+                <p style="text-align:center; margin-top:20px; font-size:0.85rem; color:var(--text-muted);">
+                    <i class="fas fa-lock" style="margin-right:5px;"></i> <span
+                        data-i18n="subscription.cancel_note">Скасувати або змінити можна будь-коли в 1 клік</span>
                 </p>
             </div>
+
             <div class="steps-grid">
                 <div class="step-item">
                     <div class="step-img"><i class="fas fa-clipboard-list"></i></div>
-                    <h4>1. Тест смаку</h4>
-                    <p>Відповідайте на 5 питань про ваші вподобання. Алгоритм підбере ідеальний сорт.</p>
+                    <h4 data-i18n="subscription.step1_title">1. Тест смаку</h4>
+                    <p data-i18n="subscription.step1_text">Відповідайте на 5 питань про ваші вподобання. Алгоритм
+                        підбере ідеальний сорт.</p>
                 </div>
                 <div class="step-item">
                     <div class="step-img"><i class="fas fa-coffee"></i></div>
-                    <h4>2. Персоналізація</h4>
-                    <p>Обираєте частоту (1-4 рази на місяць) та обсяг. Перша доставка — через 3 дні.</p>
+                    <h4 data-i18n="subscription.step2_title">2. Персоналізація</h4>
+                    <p data-i18n="subscription.step2_text">Обираєте частоту (1-4 рази на місяць) та обсяг. Перша
+                        доставка — через 3 дні.</p>
                 </div>
                 <div class="step-item">
                     <div class="step-img"><i class="fas fa-truck"></i></div>
-                    <h4>3. Ритуал</h4>
-                    <p>Кава приходить автоматично. Скасувати можна в 1 клік. Знижка 10% на підписку.</p>
+                    <h4 data-i18n="subscription.step3_title">3. Ритуал</h4>
+                    <p data-i18n="subscription.step3_text">Кава приходить автоматично. Скасувати можна в 1 клік. Знижка
+                        10% на підписку.</p>
                 </div>
             </div>
             <div style="text-align:center; margin-top:40px;">
                 <a href="subscription.html" class="btn btn-primary btn-large">
                     <i class="fas fa-rocket"></i>
-                    Розпочати тест смаку
+                    <span data-i18n="subscription.cta">Розпочати тест смаку</span>
                 </a>
+                <p style="margin-top:15px; font-size:0.85rem; color:var(--text-muted);">
+                    <i class="fas fa-users" style="color:var(--primary);"></i>
+                    <strong>847 людей</strong> оформили підписку цього місяця
+                </p>
             </div>
         </div>
     </section>
@@ -159,19 +327,19 @@
                 style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:40px; max-width:1000px; margin:0 auto;">
                 <div class="stat-card">
                     <div class="stat-number">2500+</div>
-                    <div class="stat-label">Задоволених клієнтів</div>
+                    <div class="stat-label" data-i18n="stats.clients">Задоволених клієнтів</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-number">85+</div>
-                    <div class="stat-label">Бали SCA Specialty</div>
+                    <div class="stat-label" data-i18n="stats.sca">Бали SCA Specialty</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-number">48год</div>
-                    <div class="stat-label">Від замовлення до чашки</div>
+                    <div class="stat-label" data-i18n="stats.delivery">Від замовлення до чашки</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-number">100%</div>
-                    <div class="stat-label">Пряме походження</div>
+                    <div class="stat-label" data-i18n="stats.origin">Пряме походження</div>
                 </div>
             </div>
         </div>
@@ -181,31 +349,66 @@
     <section class="section reviews-section">
         <div class="container">
             <div class="review-featured">
-                <div class="big-quote">"Це не просто напій, це подорож. Я відчула різницю з першого ковтка. Тепер
-                    магазинна кава для мене просто не існує."</div>
-                <div class="reviewer-meta">— Олена К., Київ • Підписка на Guji Natural</div>
+                <div class="big-quote" data-i18n="reviews.featured_text">"Це не просто напій, це подорож. Я відчула
+                    різницю з першого ковтка. Тепер магазинна кава для мене просто не існує."</div>
+                <div class="reviewer-meta" data-i18n="reviews.featured_author">— Олена К., Київ • Підписка на Guji
+                    Natural</div>
             </div>
 
             <div class="reviews-grid">
                 <div class="review-card">
+                    <div class="review-header">
+                        <img src="img/avatars/customer_avatar_andriy_1766168261518.png" alt="Андрій М."
+                            class="review-avatar">
+                        <div>
+                            <strong>Андрій М.</strong>
+                            <span>Львів</span>
+                        </div>
+                    </div>
                     <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
                             class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                     <p class="review-text">Швидка доставка і неймовірний аромат, який наповнює всю квартиру.</p>
-                    <div class="author-info"><strong>Андрій М.</strong><span>Львів</span></div>
                 </div>
                 <div class="review-card">
+                    <div class="review-header">
+                        <img src="img/avatars/customer_avatar_maryna_1766168282210.png" alt="Марина С."
+                            class="review-avatar">
+                        <div>
+                            <strong>Марина С.</strong>
+                            <span>Одеса</span>
+                        </div>
+                    </div>
                     <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
                             class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                     <p class="review-text">Сервіс на висоті. Дуже зручно, що не треба думати, коли замовляти наступну
                         пачку.</p>
-                    <div class="author-info"><strong>Марина С.</strong><span>Одеса</span></div>
                 </div>
                 <div class="review-card">
+                    <div class="review-header">
+                        <img src="img/avatars/customer_avatar_viktor_1766168296639.png" alt="Віктор П."
+                            class="review-avatar">
+                        <div>
+                            <strong>Віктор П.</strong>
+                            <span>Київ</span>
+                        </div>
+                    </div>
                     <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
                             class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                     <p class="review-text">Дякую за можливість спробувати різні сорти! Харрар — це мій фаворит.</p>
-                    <div class="author-info"><strong>Віктор П.</strong><span>Київ</span></div>
                 </div>
+            </div>
+
+            <!-- CTA after Reviews -->
+            <div style="text-align:center; margin-top:50px;">
+                <p style="font-size:1.1rem; color:var(--text-light); margin-bottom:20px;">
+                    <span data-i18n="reviews.join_text">Приєднуйтесь до</span> <strong
+                        style="color:var(--primary);">2500+</strong> <span data-i18n="reviews.coffee_lovers">задоволених
+                        кавоманів</span>
+                </p>
+                <a href="subscription.html" class="btn btn-primary btn-large">
+                    <i class="fas fa-heart"></i> <span data-i18n="reviews.subscribe_cta">Оформити підписку зі знижкою
+                        10%</span>
+                </a>
             </div>
         </div>
     </section>
@@ -215,12 +418,13 @@
         <div class="container">
             <div class="lead-content">
                 <div class="lead-text">
-                    <h3>Почніть свій шлях у світі Specialty</h3>
-                    <p>Завантажте наш <strong>безкоштовний PDF-гід</strong> «Як обирати ефіопську каву».</p>
+                    <h3 data-i18n="lead.title">Почніть свій шлях у світі Specialty</h3>
+                    <p data-i18n="lead.text">Завантажте наш безкоштовний PDF-гід «Як обирати ефіопську каву».</p>
                 </div>
                 <form class="lead-form" onsubmit="event.preventDefault(); alert('Гід відправлено на вашу пошту!');">
-                    <input type="email" placeholder="Ваш Email" required>
-                    <button type="submit" class="btn btn-primary">Отримати гід</button>
+                    <input type="email" placeholder="Ваш Email" data-i18n="lead.placeholder" data-i18n-placeholder
+                        required>
+                    <button type="submit" class="btn btn-primary" data-i18n="lead.cta">Отримати гід</button>
                 </form>
             </div>
         </div>
@@ -237,62 +441,65 @@
                     <h4 style="font-family:var(--font-heading); font-size:1.5rem; color:white; margin-bottom:20px;">
                         <a href="index.html" style="text-decoration:none; color:white;">EthioDirect</a>
                     </h4>
-                    <p style="color:#aaa; line-height:1.8; margin-bottom:20px;">Ми доставляємо справжню specialty каву
-                        прямо
-                        з ефіопських ферм до вашого дому. Свіжа обсмажка, чесна ціна, любов до кави.</p>
+                    <p style="color:#aaa; line-height:1.8; margin-bottom:20px;" data-i18n="footer.description">Ми
+                        доставляємо справжню specialty каву прямо з ефіопських ферм до вашого дому. Свіжа обсмажка,
+                        чесна ціна, любов до кави.</p>
                     <div class="social-links">
-                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                        <a href="#" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
-                        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" aria-label="Instagram" data-i18n="social.instagram" data-i18n-aria><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Facebook" data-i18n="social.facebook" data-i18n-aria><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Telegram" data-i18n="social.telegram" data-i18n-aria><i class="fab fa-telegram"></i></a>
+                        <a href="#" aria-label="TikTok" data-i18n="social.tiktok" data-i18n-aria><i class="fab fa-tiktok"></i></a>
                     </div>
                 </div>
 
                 <!-- Column 2: Shop -->
                 <div class="footer-col">
-                    <h4>Магазин</h4>
+                    <h4 data-i18n="footer.shop_title">Магазин</h4>
                     <ul class="footer-links">
-                        <li><a href="shop.html">Весь каталог</a></li>
-                        <li><a href="subscription.html">Підписка на каву</a></li>
-                        <li><a href="gift-certificates.html">Сертифікати</a></li>
-                        <li><a href="b2b.html">B2B рішення</a></li>
-                        <li><a href="account.html">Особистий кабінет</a></li>
+                        <li><a href="shop.html" data-i18n="footer.catalog">Весь каталог</a></li>
+                        <li><a href="subscription.html" data-i18n="footer.subscription">Підписка на каву</a></li>
+                        <li><a href="gift-certificates.html" data-i18n="nav.certificates">Сертифікати</a></li>
+                        <li><a href="b2b.html" data-i18n="footer.b2b">B2B рішення</a></li>
+                        <li><a href="account.html" data-i18n="footer.account">Особистий кабінет</a></li>
                     </ul>
                 </div>
 
                 <!-- Column 3: Support -->
                 <div class="footer-col">
-                    <h4>Підтримка</h4>
+                    <h4 data-i18n="footer.support_title">Підтримка</h4>
                     <ul class="footer-links">
-                        <li><a href="delivery.html">Доставка та оплата</a></li>
-                        <li><a href="return.html">Повернення та обмін</a></li>
-                        <li><a href="faq.html">Часті питання</a></li>
-                        <li><a href="contacts.html">Контакти</a></li>
-                        <li><a href="about.html">Про нас</a></li>
+                        <li><a href="delivery.html" data-i18n="footer.delivery">Доставка та оплата</a></li>
+                        <li><a href="return.html" data-i18n="footer.return">Повернення та обмін</a></li>
+                        <li><a href="faq.html" data-i18n="footer.faq">Часті питання</a></li>
+                        <li><a href="contacts.html" data-i18n="footer.contacts">Контакти</a></li>
+                        <li><a href="about.html" data-i18n="nav.about">Про нас</a></li>
                     </ul>
                 </div>
 
                 <!-- Column 4: Contacts -->
                 <div class="footer-col">
-                    <h4>Контакти</h4>
+                    <h4 data-i18n="footer.contacts_title">Контакти</h4>
                     <ul class="footer-contacts">
                         <li><i class="fas fa-phone"></i> <a href="tel:+380501234567">+380 (50) 123-45-67</a></li>
                         <li><i class="fas fa-envelope"></i> <a
                                 href="mailto:hello@ethiodirect.ua">hello@ethiodirect.ua</a>
                         </li>
-                        <li><i class="fas fa-map-marker-alt"></i> Одеса, Україна</li>
-                        <li><i class="fas fa-clock"></i> Пн-Пт: 9:00-18:00</li>
+                        <li><i class="fas fa-map-marker-alt"></i> <span data-i18n="footer.location">Одеса,
+                                Україна</span></li>
+                        <li><i class="fas fa-clock"></i> <span data-i18n="topbar.hours">Пн-Пт: 9:00-18:00</span></li>
                     </ul>
                 </div>
 
                 <!-- Column 5: Newsletter -->
                 <div class="footer-col">
-                    <h4>Підписка на новини</h4>
-                    <p style="color:#aaa; margin-bottom:15px; font-size:0.9rem;">Отримуйте акції, новинки та поради щодо
-                        заварювання</p>
+                    <h4 data-i18n="footer.newsletter_title">Підписка на новини</h4>
+                    <p style="color:#aaa; margin-bottom:15px; font-size:0.9rem;" data-i18n="footer.newsletter_text">
+                        Отримуйте акції, новинки та поради щодо заварювання</p>
                     <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
-                        <input type="email" placeholder="Ваш email" required>
-                        <button type="submit" class="btn-newsletter">Підписатись</button>
+                        <input type="email" placeholder="Ваш email" data-i18n="footer.newsletter_placeholder"
+                            data-i18n-placeholder required>
+                        <button type="submit" class="btn-newsletter"
+                            data-i18n="footer.newsletter_cta">Підписатись</button>
                     </form>
                 </div>
             </div>
@@ -335,10 +542,10 @@
             <div class="footer-payment">
                 <p style="color:#666; font-size:0.85rem; margin-bottom:15px;">Способи оплати:</p>
                 <div class="payment-icons">
-                    <i class="fab fa-cc-visa" title="Visa"></i>
-                    <i class="fab fa-cc-mastercard" title="Mastercard"></i>
-                    <i class="fab fa-apple-pay" title="Apple Pay"></i>
-                    <i class="fab fa-google-pay" title="Google Pay"></i>
+                    <i class="fab fa-cc-visa" title="Visa" data-i18n="payment.visa" data-i18n-title></i>
+                    <i class="fab fa-cc-mastercard" title="Mastercard" data-i18n="payment.mastercard" data-i18n-title></i>
+                    <i class="fab fa-apple-pay" title="Apple Pay" data-i18n="payment.apple_pay" data-i18n-title></i>
+                    <i class="fab fa-google-pay" title="Google Pay" data-i18n="payment.google_pay" data-i18n-title></i>
                     <span class="payment-text">LiqPay</span>
                 </div>
             </div>
@@ -349,11 +556,11 @@
                     <p>&copy; 2025 EthioDirect. Всі права захищені.</p>
                 </div>
                 <div class="footer-bottom-right">
-                    <a href="privacy.html">Політика конфіденційності</a>
+                    <a href="privacy.html" data-i18n="footer.privacy">Політика конфіденційності</a>
                     <span>·</span>
-                    <a href="return.html">Умови повернення</a>
+                    <a href="return.html" data-i18n="footer.terms">Умови повернення</a>
                     <span>·</span>
-                    <a href="#">Публічна оферта</a>
+                    <a href="#" data-i18n="footer.offer">Публічна оферта</a>
                 </div>
             </div>
         </div>
@@ -363,23 +570,56 @@
     <div class="overlay"></div>
     <div class="drawer">
         <div class="drawer-header">
-            <h3>Ваш кошик</h3>
+            <h3><i class="fas fa-shopping-bag" style="margin-right:10px; color:var(--primary);"></i> Ваш кошик</h3>
             <button onclick="closeDrawer()"
                 style="background:none;border:none;font-size:1.5rem;color:var(--text-dark);cursor:pointer;">&times;</button>
         </div>
         <div class="drawer-body" id="cart-list"></div>
         <div class="drawer-footer">
-            <div style="display:flex; justify-content:space-between; margin-bottom:20px; font-weight:700;">
-                <span>Разом:</span>
-                <span id="cart-total">0 ₴</span>
+            <!-- Free Shipping Progress Bar -->
+            <div class="free-shipping-progress" id="drawer-shipping-progress">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="drawer-progress-fill" style="width: 0%;"></div>
+                </div>
+                <p class="progress-text" id="drawer-progress-text">
+                    <i class="fas fa-truck"></i> <span data-i18n="cart.free_shipping_progress">До безкоштовної
+                        доставки:</span> <strong>500 ₴</strong>
+                </p>
             </div>
-            <button class="btn btn-primary" style="width:100%;">Оформити замовлення</button>
+
+            <div style="display:flex; justify-content:space-between; margin-bottom:15px; font-size:1.1rem;">
+                <span data-i18n="cart.subtotal">Разом:</span>
+                <span id="cart-total" style="font-weight:700; color:var(--primary); font-size:1.3rem;">0 ₴</span>
+            </div>
+            <button class="btn btn-primary" style="width:100%;">
+                <i class="fas fa-lock" style="margin-right:8px;"></i>
+                Оформити замовлення
+            </button>
+            <p style="text-align:center; margin-top:12px; font-size:0.8rem; color:var(--text-muted);">
+                <i class="fas fa-shield-alt"></i> Безпечна оплата • <i class="fas fa-undo"></i> 14 днів на повернення
+            </p>
         </div>
+    </div>
+
+    <!-- FLOATING CONTACT BUTTONS -->
+    <div class="floating-contacts">
+        <a href="https://t.me/ethiodirect" class="float-btn telegram" title="Написати в Telegram"
+            data-i18n="float_buttons.telegram" data-i18n-title>
+            <i class="fab fa-telegram-plane"></i>
+        </a>
+        <a href="viber://chat?number=+380501234567" class="float-btn viber" title="Написати в Viber"
+            data-i18n="float_buttons.viber" data-i18n-title>
+            <i class="fab fa-viber"></i>
+        </a>
+        <a href="tel:+380501234567" class="float-btn phone" title="Зателефонувати" data-i18n="float_buttons.phone"
+            data-i18n-title>
+            <i class="fas fa-phone-alt"></i>
+        </a>
     </div>
 
     <!-- TOAST -->
     <div class="toast" id="toast">
-        <i class="fas fa-check-circle" style="color:var(--success); font-size:1.2rem;"></i>
+        <i class="fas fa-check-circle"></i>
         <span id="toast-msg">Товар додано</span>
     </div>
 
@@ -413,6 +653,7 @@
             event.target.classList.add('active');
         }
     </script>
+    <script src="js/i18n.js"></script>
 </body>
 
 </html>

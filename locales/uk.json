@@ -1,0 +1,286 @@
+{
+    "site": {
+        "title": "EthioDirect — Кава, що просилася до вас"
+    },
+    "nav": {
+        "catalog": "Каталог",
+        "subscription": "Підписка",
+        "certificates": "Сертифікати",
+        "stories": "Історії",
+        "about": "Про нас",
+        "test": "Тест смаку"
+    },
+    "topbar": {
+        "phone": "+380 (50) 123-45-67",
+        "hours": "Пн-Пт: 9:00-18:00",
+        "promo_action": "АКЦІЯ:",
+        "promo_delivery": "безкоштовна доставка від 500₴",
+        "promo_subscription": "Підписка:",
+        "promo_subscription_text": "-10% на кожну доставку",
+        "promo_roast": "Свіжа обсмажка",
+        "promo_roast_days": "до 3 днів"
+    },
+    "search": {
+        "placeholder": "Пошук кави...",
+        "no_results": "Нічого не знайдено"
+    },
+    "float_buttons": {
+        "telegram": "Написати в Telegram",
+        "viber": "Написати в Viber",
+        "phone": "Зателефонувати"
+    },
+    "hero": {
+        "badge": "100% SPECIALTY КАВА",
+        "title": "Справжня ефіопська кава свіжої обсмажки",
+        "subtitle": "Від гір Ефіопії — до вашої чашки",
+        "text": "Ми доставляємо зерно напряму з ефіопських ферм і смажимо під кожне замовлення. Тільки свіжа обсмажка до 3 днів.",
+        "cta": "Обрати каву",
+        "quiz_text": "Не знаєте що обрати?",
+        "quiz_link": "Пройдіть тест смаку"
+    },
+    "trust": {
+        "clients": "задоволених клієнтів",
+        "farmers": "Напряму від фермерів",
+        "specialty": "85+ балів SCA"
+    },
+    "philosophy": {
+        "title": "Це більше, ніж кава.",
+        "subtitle": "Це — Шлях.",
+        "specialty_title": "Specialty 85+",
+        "specialty_text": "Тільки добірне зерно класу Specialty. Ніяких компромісів з якістю.",
+        "roast_title": "Вогонь Обсмажки",
+        "roast_text": "Смажимо лише під ваше замовлення. Ви отримуєте її на піку смаку.",
+        "price_title": "Чесна Ціна",
+        "price_text": "Прямий імпорт без посередників. Ви платите фермеру, а не перекупнику.",
+        "cta": "Обрати свій сорт"
+    },
+    "collection": {
+        "title": "Найкраще з ефіопських висот",
+        "filter_all": "Всі лоти",
+        "filter_fruity": "Фруктові",
+        "filter_chocolate": "Шоколадні",
+        "filter_floral": "Квіткові",
+        "view_all": "Всі сорти в наявності"
+    },
+    "subscription": {
+        "title": "Кавовий Клуб",
+        "subtitle": "Ваш персональний сомельє. Кава з'являється у вас вдома саме тоді, коли потрібна.",
+        "regular_title": "Разова покупка",
+        "regular_price": "✗ Повна ціна",
+        "regular_delivery": "✗ Доставка від 500₴",
+        "regular_remember": "✗ Потрібно пам'ятати замовити",
+        "sub_title": "Підписка",
+        "sub_badge": "ВИГІДНІШЕ",
+        "sub_discount": "✓ -10% на кожну доставку",
+        "sub_delivery": "✓ Безкоштовна доставка завжди",
+        "sub_auto": "✓ Автоматично — кава сама приходить",
+        "cancel_note": "Скасувати або змінити можна будь-коли в 1 клік",
+        "step1_title": "1. Тест смаку",
+        "step1_text": "Відповідайте на 5 питань про ваші вподобання. Алгоритм підбере ідеальний сорт.",
+        "step2_title": "2. Персоналізація",
+        "step2_text": "Обираєте частоту (1-4 рази на місяць) та обсяг. Перша доставка — через 3 дні.",
+        "step3_title": "3. Ритуал",
+        "step3_text": "Кава приходить автоматично. Скасувати можна в 1 клік. Знижка 10% на підписку.",
+        "cta": "Розпочати тест смаку",
+        "social_proof": "{{count}} людей оформили підписку цього місяця"
+    },
+    "stats": {
+        "clients": "Задоволених клієнтів",
+        "sca": "Бали SCA Specialty",
+        "delivery": "Від замовлення до чашки",
+        "origin": "Пряме походження"
+    },
+    "reviews": {
+        "featured_text": "\"Це не просто напій, це подорож. Я відчула різницю з першого ковтка. Тепер магазинна кава для мене просто не існує.\"",
+        "featured_author": "— Олена К., Київ • Підписка на Guji Natural",
+        "review1_name": "Андрій М.",
+        "review1_city": "Львів",
+        "review1_text": "Швидка доставка і неймовірний аромат, який наповнює всю квартиру.",
+        "review2_name": "Марина С.",
+        "review2_city": "Одеса",
+        "review2_text": "Сервіс на висоті. Дуже зручно, що не треба думати, коли замовляти наступну пачку.",
+        "review3_name": "Віктор П.",
+        "review3_city": "Київ",
+        "review3_text": "Дякую за можливість спробувати різні сорти! Харрар — це мій фаворит.",
+        "join_text": "Приєднуйтесь до",
+        "coffee_lovers": "задоволених кавоманів",
+        "subscribe_cta": "Оформити підписку зі знижкою 10%"
+    },
+    "lead": {
+        "title": "Почніть свій шлях у світі Specialty",
+        "text": "Завантажте наш безкоштовний PDF-гід «Як обирати ефіопську каву».",
+        "text_bold": "безкоштовний PDF-гід",
+        "placeholder": "Ваш Email",
+        "cta": "Отримати гід",
+        "success": "Гід відправлено на вашу пошту!"
+    },
+    "footer": {
+        "description": "Ми доставляємо справжню specialty каву прямо з ефіопських ферм до вашого дому. Свіжа обсмажка, чесна ціна, любов до кави.",
+        "shop_title": "Магазин",
+        "catalog": "Весь каталог",
+        "subscription": "Підписка на каву",
+        "certificates": "Сертифікати",
+        "b2b": "B2B рішення",
+        "account": "Особистий кабінет",
+        "support_title": "Підтримка",
+        "delivery": "Доставка та оплата",
+        "return": "Повернення та обмін",
+        "faq": "Часті питання",
+        "contacts": "Контакти",
+        "about": "Про нас",
+        "contacts_title": "Контакти",
+        "location": "Одеса, Україна",
+        "newsletter_title": "Підписка на новини",
+        "newsletter_text": "Отримуйте акції, новинки та поради щодо заварювання",
+        "newsletter_placeholder": "Ваш email",
+        "newsletter_cta": "Підписатись",
+        "trust_return": "14 днів повернення",
+        "trust_specialty": "100% Specialty якість зерна",
+        "trust_shipping": "Безкоштовна доставка від 500₴",
+        "trust_roast": "Свіжа обсмажка до 3 днів",
+        "payment_methods": "Способи оплати:",
+        "copyright": "© 2025 EthioDirect. Всі права захищені.",
+        "privacy": "Політика конфіденційності",
+        "terms": "Умови повернення",
+        "offer": "Публічна оферта"
+    },
+    "cart": {
+        "title": "Ваш кошик",
+        "items": "товарів",
+        "items_single": "товар",
+        "items_few": "товари",
+        "subtotal": "Разом:",
+        "free_shipping_progress": "До безкоштовної доставки:",
+        "free_shipping_done": "Безкоштовна доставка!",
+        "checkout": "Оформити замовлення",
+        "secure_payment": "Безпечна оплата",
+        "return_policy": "14 днів на повернення",
+        "empty": "Кошик порожній",
+        "continue_shopping": "Продовжити покупки"
+    },
+    "product": {
+        "add_to_cart": "До кошика",
+        "added_to_cart": "Додано!",
+        "quick_view": "Швидкий перегляд",
+        "weight": "Вага",
+        "grind": "Помол",
+        "whole_beans": "Зерно",
+        "filter": "Фільтр",
+        "espresso": "Еспресо",
+        "turka": "Турка",
+        "french_press": "Френч-прес",
+        "in_stock": "В наявності",
+        "out_of_stock": "Немає в наявності",
+        "roast_date": "Дата обсмажки",
+        "origin": "Походження",
+        "flavor": "Смакові ноти",
+        "roast_level": "Ступінь обсмажки",
+        "processing": "Обробка",
+        "altitude": "Висота",
+        "sca_score": "Бали SCA"
+    },
+    "common": {
+        "action": "АКЦІЯ",
+        "new": "НОВИНКА",
+        "bestseller": "ХІТИ ПРОДАЖУ",
+        "sale": "ЗНИЖКА",
+        "close": "Закрити",
+        "loading": "Завантаження...",
+        "error": "Помилка",
+        "success": "Успішно",
+        "product_added": "Товар додано до кошика",
+        "currency": "₴",
+        "from": "від",
+        "view_more": "Дивитись більше",
+        "read_more": "Читати далі",
+        "back": "Назад",
+        "next": "Далі",
+        "submit": "Надіслати",
+        "cancel": "Скасувати",
+        "save": "Зберегти",
+        "delete": "Видалити",
+        "edit": "Редагувати",
+        "per_item": "за шт.",
+        "open_menu": "Відкрити меню"
+    },
+    "shop": {
+        "title": "Каталог кави",
+        "sort": "Сортування",
+        "sort_popular": "За популярністю",
+        "sort_price_asc": "Ціна: від низької",
+        "sort_price_desc": "Ціна: від високої",
+        "sort_new": "Новинки",
+        "filter_price": "Ціна",
+        "filter_roast": "Обсмажка",
+        "filter_taste": "Смак",
+        "roast_light": "Світла",
+        "roast_medium": "Середня",
+        "roast_dark": "Темна",
+        "apply_filters": "Застосувати",
+        "clear_filters": "Скинути",
+        "showing": "Показано",
+        "of": "з",
+        "products": "товарів"
+    },
+    "about": {
+        "page_title": "Про нас",
+        "our_story": "Наша історія",
+        "our_mission": "Наша місія",
+        "our_values": "Наші цінності"
+    },
+    "contacts": {
+        "page_title": "Контакти",
+        "form_name": "Ваше ім'я",
+        "form_email": "Ваш email",
+        "form_message": "Ваше повідомлення",
+        "form_submit": "Надіслати",
+        "form_success": "Дякуємо! Ми зв'яжемось з вами найближчим часом."
+    },
+    "delivery": {
+        "page_title": "Доставка та оплата",
+        "shipping_title": "Способи доставки",
+        "payment_title": "Способи оплати"
+    },
+    "faq": {
+        "page_title": "Часті питання",
+        "search_placeholder": "Пошук питань..."
+    },
+    "gift": {
+        "page_title": "Подарункові сертифікати",
+        "select_amount": "Оберіть номінал",
+        "buy_now": "Придбати зараз"
+    },
+    "account": {
+        "page_title": "Особистий кабінет",
+        "login": "Увійти",
+        "register": "Зареєструватись",
+        "logout": "Вийти",
+        "my_orders": "Мої замовлення",
+        "my_subscription": "Моя підписка",
+        "settings": "Налаштування"
+    },
+    "quiz": {
+        "title": "Тест смаку",
+        "subtitle": "Знайдіть свою ідеальну каву за 5 питань",
+        "start": "Розпочати тест",
+        "question": "Питання",
+        "of": "з",
+        "next": "Далі",
+        "prev": "Назад",
+        "see_results": "Побачити результати",
+        "your_match": "Ваша ідеальна кава"
+    },
+    "social": {
+        "instagram": "Ми в Instagram",
+        "facebook": "Ми в Facebook",
+        "telegram": "Наш Telegram канал",
+        "tiktok": "Ми в TikTok"
+    },
+    "payment": {
+        "visa": "Оплата Visa",
+        "mastercard": "Оплата Mastercard",
+        "apple_pay": "Оплата Apple Pay",
+        "google_pay": "Оплата Google Pay",
+        "privatbank": "Оплата ПриватБанк"
+    }
+}

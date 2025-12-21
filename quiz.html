@@ -4,73 +4,957 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Тест — EthioDirect</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Тест смаку — EthioDirect</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/quiz.css">
+    <style>
+        .quiz-hero {
+            padding-top: 140px;
+            background: linear-gradient(135deg, #1a1207 0%, #3d2d14 50%, #2a1f0a 100%);
+            color: white;
+            padding-bottom: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quiz-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -30%;
+            width: 80%;
+            height: 200%;
+            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23d4a574' fill-opacity='0.05' d='M44.5,-76.4C58.3,-69.3,70.5,-58.1,79.2,-44.3C87.9,-30.5,93.1,-14.1,92.1,1.6C91,17.2,83.7,33.1,73.2,45.8C62.7,58.5,49,67.9,34.3,74.8C19.6,81.6,3.9,85.9,-11.4,84.8C-26.7,83.7,-41.6,77.2,-54.8,67.7C-68,58.2,-79.5,45.7,-85.4,31C-91.3,16.2,-91.6,-0.8,-86.9,-16.1C-82.2,-31.4,-72.5,-45,-60.1,-53.5C-47.7,-62,-32.6,-65.4,-18.2,-69.4C-3.8,-73.4,9.9,-78,24.5,-79.2C39.1,-80.4,54.6,-78.2,44.5,-76.4Z' transform='translate(100 100)'/%3E%3C/svg%3E") no-repeat center;
+            background-size: contain;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(5deg);
+            }
+        }
+
+        .quiz-hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding-bottom: 60px;
+        }
+
+        .quiz-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 25px;
+            background: linear-gradient(135deg, var(--secondary), #f0b90b);
+            color: #1a1a1a;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 30px rgba(212, 165, 116, 0.3);
+        }
+
+        .quiz-hero h1 {
+            font-size: 3.5rem;
+            color: white;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .quiz-hero p {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .benefit-pills {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .benefit-pill {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 12px 20px;
+            border-radius: 30px;
+            font-size: 0.95rem;
+        }
+
+        .benefit-pill i {
+            color: var(--secondary);
+        }
+
+        /* Quiz Container */
+        .quiz-section {
+            background: linear-gradient(180deg, #f5f0e6 0%, #fcfaf6 100%);
+            padding: 0 0 80px;
+            margin-top: -30px;
+        }
+
+        .quiz-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .quiz-container {
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Progress Bar */
+        .quiz-progress-bar {
+            height: 6px;
+            background: #eee;
+            position: relative;
+        }
+
+        .quiz-progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            width: 20%;
+            transition: width 0.5s ease;
+            border-radius: 0 3px 3px 0;
+        }
+
+        .quiz-progress-steps {
+            display: flex;
+            justify-content: space-between;
+            padding: 25px 40px;
+            background: #fafafa;
+            border-bottom: 1px solid #eee;
+        }
+
+        .progress-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            flex: 1;
+            position: relative;
+        }
+
+        .progress-step::after {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 50%;
+            width: 100%;
+            height: 2px;
+            background: #ddd;
+            z-index: 0;
+        }
+
+        .progress-step:last-child::after {
+            display: none;
+        }
+
+        .step-circle {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: #888;
+            position: relative;
+            z-index: 1;
+            transition: all 0.3s;
+        }
+
+        .progress-step.active .step-circle {
+            background: var(--primary);
+            color: white;
+            transform: scale(1.15);
+            box-shadow: 0 4px 15px rgba(139, 69, 69, 0.4);
+        }
+
+        .progress-step.completed .step-circle {
+            background: var(--success);
+            color: white;
+        }
+
+        .progress-step.completed::after {
+            background: var(--success);
+        }
+
+        .step-label {
+            font-size: 0.75rem;
+            color: #999;
+            text-align: center;
+        }
+
+        .progress-step.active .step-label {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* Quiz Content */
+        .quiz-content {
+            padding: 50px 50px 40px;
+        }
+
+        .quiz-step {
+            animation: slideIn 0.4s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .quiz-question {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .quiz-question h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+        }
+
+        .quiz-question p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        /* Quiz Options */
+        .quiz-options {
+            display: grid;
+            gap: 16px;
+        }
+
+        .quiz-options.grid-2 {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .quiz-option {
+            padding: 24px;
+            border: 2px solid #eee;
+            border-radius: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            background: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quiz-option::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .quiz-option:hover {
+            border-color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(139, 69, 69, 0.1);
+        }
+
+        .quiz-option.selected {
+            border-color: var(--primary);
+            background: linear-gradient(135deg, rgba(139, 69, 69, 0.05), rgba(212, 165, 116, 0.05));
+        }
+
+        .quiz-option.selected::after {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: var(--primary);
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+        }
+
+        .quiz-option-icon {
+            font-size: 2.5rem;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f5f0e6;
+            border-radius: 12px;
+            flex-shrink: 0;
+        }
+
+        .quiz-option-text h4 {
+            margin: 0 0 6px;
+            font-size: 1.15rem;
+            color: var(--text-dark);
+        }
+
+        .quiz-option-text p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* Quiz Navigation */
+        .quiz-nav {
+            display: flex;
+            justify-content: space-between;
+            padding: 30px 50px;
+            border-top: 1px solid #eee;
+            background: #fafafa;
+        }
+
+        .quiz-nav .btn {
+            min-width: 150px;
+        }
+
+        .btn-back {
+            background: transparent;
+            border: 2px solid #ddd;
+            color: var(--text-muted);
+        }
+
+        .btn-back:hover {
+            border-color: var(--text-dark);
+            color: var(--text-dark);
+        }
+
+        /* Result */
+        .quiz-result {
+            text-align: center;
+            padding: 50px;
+        }
+
+        .result-confetti {
+            font-size: 5rem;
+            margin-bottom: 30px;
+            animation: bounce 0.6s ease;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+        }
+
+        .result-title {
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+        }
+
+        .result-coffee-name {
+            font-size: 2.5rem;
+            color: var(--text-dark);
+            margin-bottom: 30px;
+        }
+
+        .result-card {
+            background: linear-gradient(135deg, #f9f6f0, #f5f0e6);
+            padding: 40px;
+            border-radius: 20px;
+            margin: 0 auto 30px;
+            max-width: 500px;
+        }
+
+        .result-card img {
+            width: 180px;
+            height: 180px;
+            border-radius: 16px;
+            object-fit: cover;
+            margin-bottom: 25px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .result-meta {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .result-meta span {
+            background: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .result-tags {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 25px;
+        }
+
+        .result-tag {
+            background: rgba(139, 69, 69, 0.1);
+            color: var(--primary);
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .result-price {
+            margin-bottom: 20px;
+        }
+
+        .result-old-price {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 1.2rem;
+        }
+
+        .result-new-price {
+            color: var(--primary);
+            font-size: 2rem;
+            font-weight: 700;
+            margin-left: 10px;
+        }
+
+        .result-discount {
+            background: var(--success);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 10px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-left: 10px;
+        }
+
+        .result-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .result-actions .btn-primary {
+            font-size: 1.15rem;
+            padding: 18px 50px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .quiz-hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .quiz-hero p {
+                font-size: 1.1rem;
+            }
+
+            .quiz-content {
+                padding: 30px 20px;
+            }
+
+            .quiz-nav {
+                padding: 20px;
+            }
+
+            .quiz-options.grid-2 {
+                grid-template-columns: 1fr;
+            }
+
+            .quiz-progress-steps {
+                padding: 20px;
+            }
+
+            .step-label {
+                display: none;
+            }
+
+            .quiz-result {
+                padding: 30px 20px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <header class="header">
-        <div class="container header-inner">
-            <a href="index.html" class="logo">
-                <i class="fas fa-leaf text-accent"></i>
-                <span style="font-family:var(--font-heading); letter-spacing:1px; font-size:1.5rem;">EthioDirect</span>
-            </a>
-            <nav class="nav-desktop">
-                <a href="shop.html" class="nav-link">Каталог</a>
-                <a href="subscription.html" class="nav-link">Підписка</a>
-                <a href="gift-certificates.html" class="nav-link">🎁 Сертифікати</a>
-                <a href="blog.html" class="nav-link">Історії</a>
-                <a href="about.html" class="nav-link">Про нас</a>
-                <a href="quiz.html" class="nav-link active">Тест</a>
-            </nav>
-            <div class="header-actions">
-                <a href="account.html"><i class="far fa-user"></i></a>
-                <div class="cart-trigger"><i class="fas fa-shopping-cart"></i><span class="cart-count">0</span></div>
+        <!-- TOP BAR -->
+    <div class="top-bar">
+        <div class="container top-bar-inner">
+            <div class="top-bar-left">
+                <span><i class="fas fa-phone-alt"></i> <span data-i18n="topbar.phone">+380 (50) 123-45-67</span></span>
+                <span class="divider-dot">•</span>
+                <span><i class="fas fa-clock"></i> <span data-i18n="topbar.hours">Пн-Пт: 9:00-18:00</span></span>
             </div>
-            <button class="menu-toggle" aria-label="Menu"><i class="fas fa-bars"></i></button>
-        </div>
-    </header>
-
-    <div class="overlay"></div>
-    <div class="drawer">
-        <div class="drawer-header">
-            <h3>Кошик</h3><span class="cart-close" style="cursor:pointer;font-size:1.5rem;">&times;</span>
-        </div>
-        <div class="drawer-body" id="cart-list"></div>
-        <div class="drawer-footer">
-            <div style="display:flex;justify-content:space-between;margin-bottom:15px;font-weight:600;">
-                <span>Разом:</span><span id="cart-total">0 ₴</span>
+            <div class="top-bar-center">
+                <div class="promo-ticker">
+                    <span class="ticker-item">🔥 <strong data-i18n="topbar.promo_action">АКЦІЯ:</strong> <span data-i18n="topbar.promo_delivery">безкоштовна доставка від 500₴</span></span>
+                    <span class="ticker-divider">|</span>
+                    <span class="ticker-item">☕ <span data-i18n="topbar.promo_subscription">Підписка:</span> <strong data-i18n="topbar.promo_subscription_text">-10% на кожну доставку</strong></span>
+                    <span class="ticker-divider">|</span>
+                    <span class="ticker-item">⚡ <span data-i18n="topbar.promo_roast">Свіжа обсмажка</span> <strong data-i18n="topbar.promo_roast_days">до 3 днів</strong></span>
+                </div>
             </div>
-            <button class="btn btn-primary" style="width:100%;">Оформити</button>
+            <div class="top-bar-right">
+                <a href="#" translate="no" class="active" onclick="setLanguage('uk'); return false;">UA</a>
+                <a href="#" translate="no" onclick="setLanguage('ru'); return false;">RU</a>
+                <a href="#" translate="no" onclick="setLanguage('en'); return false;">EN</a>
+            </div>
         </div>
     </div>
 
-    <main class="section">
-        <div class="container quiz-container">
-            <h1 class="text-center" style="margin-bottom:10px;">Яка кава вам підходить?</h1>
-            <p class="text-center" style="margin-bottom:40px;">5 простих питань — персональна рекомендація.</p>
+        <!-- HEADER -->
+    <header class="header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">
+                <i class="fas fa-certificate"></i> ETHIODIRECT
+            </a>
 
-            <div class="quiz-progress">
-                <div class="quiz-progress-bar" style="width:20%;"></div>
+            <nav class="nav-desktop">
+                <a href="shop.html" class="nav-link" data-i18n="nav.catalog">Каталог</a>
+                <a href="subscription.html" class="nav-link" data-i18n="nav.subscription">Підписка</a>
+                <a href="gift-certificates.html" class="nav-link" data-i18n="nav.certificates">Сертифікати</a>
+                <a href="blog.html" class="nav-link" data-i18n="nav.stories">Історії</a>
+                <a href="about.html" class="nav-link" data-i18n="nav.about">Про нас</a>
+                <a href="quiz.html" class="nav-link active" data-i18n="nav.test">Тест</a>
+            </nav>
+
+            <!-- Search Bar -->
+            <div class="header-search">
+                <div class="search-wrapper">
+                    <input type="text" class="search-input" id="search-input" placeholder="Пошук кави..."
+                        data-i18n="search.placeholder" data-i18n-placeholder
+                        oninput="handleSearch(this.value)">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                    <div class="search-results" id="search-results"></div>
+                </div>
             </div>
 
-            <div id="quiz-content">
-                <!-- JS renders quiz here -->
+            <div class="header-actions">
+                <a href="account.html"><i class="far fa-user"></i></a>
+
+                <!-- Cart with Mini-Cart Dropdown -->
+                <div class="cart-wrapper">
+                    <div class="cart-trigger" onclick="openDrawer()">
+                        <i class="fas fa-shopping-bag" style="font-size:1.2rem;"></i>
+                        <span class="cart-count">0</span>
+                    </div>
+                    <div class="mini-cart" id="mini-cart">
+                        <div class="mini-cart-header">
+                            <h4 data-i18n="cart.title">Ваш кошик</h4>
+                            <span class="mini-cart-count" id="mini-cart-count"><span>0</span> <span data-i18n="cart.items">товарів</span></span>
+                        </div>
+                        <div class="mini-cart-items" id="mini-cart-items"></div>
+                        <div class="mini-cart-footer" id="mini-cart-footer">
+                            <div class="mini-cart-subtotal">
+                                <strong data-i18n="cart.subtotal">Разом:</strong>
+                                <span id="mini-cart-total">0 ₴</span>
+                            </div>
+                            <div class="mini-cart-shipping" id="mini-cart-shipping">
+                                <i class="fas fa-truck"></i> <span data-i18n="cart.free_shipping_progress">До безкоштовної доставки:</span> <strong>500 ₴</strong>
+                            </div>
+                            <button class="mini-cart-btn" onclick="openDrawer()">
+                                <i class="fas fa-shopping-cart"></i> <span data-i18n="cart.checkout">Оформити замовлення</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="menu-toggle" aria-label="Open menu" data-i18n="common.open_menu" data-i18n-aria data-i18n="common.open_menu" data-i18n-aria onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
         </div>
+    </header>
+
+    <main>
+        <!-- HERO -->
+        <section class="quiz-hero">
+            <div class="container">
+                <div class="quiz-hero-content">
+                    <span class="quiz-badge">
+                        <i class="fas fa-magic"></i>
+                        5 ПИТАНЬ • 2 ХВИЛИНИ
+                    </span>
+                    <h1>Знайдіть свою<br>ідеальну каву</h1>
+                    <p>Відповідайте на прості питання — і ми підберемо сорт, який точно вам сподобається</p>
+                    <div class="benefit-pills">
+                        <span class="benefit-pill"><i class="fas fa-gift"></i> Знижка -10% на результат</span>
+                        <span class="benefit-pill"><i class="fas fa-bolt"></i> Миттєва рекомендація</span>
+                        <span class="benefit-pill"><i class="fas fa-thumbs-up"></i> 98% точність</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- QUIZ -->
+        <section class="quiz-section">
+            <div class="quiz-wrapper">
+                <div class="quiz-container" id="quiz-container">
+
+                    <!-- Progress Bar -->
+                    <div class="quiz-progress-bar">
+                        <div class="quiz-progress-fill" id="progress-fill"></div>
+                    </div>
+
+                    <!-- Progress Steps -->
+                    <div class="quiz-progress-steps" id="quiz-progress">
+                        <div class="progress-step active" data-step="1">
+                            <div class="step-circle">1</div>
+                            <span class="step-label">Спосіб</span>
+                        </div>
+                        <div class="progress-step" data-step="2">
+                            <div class="step-circle">2</div>
+                            <span class="step-label">Смак</span>
+                        </div>
+                        <div class="progress-step" data-step="3">
+                            <div class="step-circle">3</div>
+                            <span class="step-label">Метод</span>
+                        </div>
+                        <div class="progress-step" data-step="4">
+                            <div class="step-circle">4</div>
+                            <span class="step-label">Міцність</span>
+                        </div>
+                        <div class="progress-step" data-step="5">
+                            <div class="step-circle">5</div>
+                            <span class="step-label">Обсяг</span>
+                        </div>
+                    </div>
+
+                    <!-- Question 1 -->
+                    <div class="quiz-step" id="step-1">
+                        <div class="quiz-content">
+                            <div class="quiz-question">
+                                <h2>Як ви зазвичай п'єте каву?</h2>
+                                <p>Оберіть найближчий варіант</p>
+                            </div>
+                            <div class="quiz-options">
+                                <div class="quiz-option" onclick="selectOption(this, 1, 'black')">
+                                    <span class="quiz-option-icon">☕</span>
+                                    <div class="quiz-option-text">
+                                        <h4>Чорна, без нічого</h4>
+                                        <p>Максимальний смак зерна</p>
+                                    </div>
+                                </div>
+                                <div class="quiz-option" onclick="selectOption(this, 1, 'milk')">
+                                    <span class="quiz-option-icon">🥛</span>
+                                    <div class="quiz-option-text">
+                                        <h4>З молоком</h4>
+                                        <p>Капучіно, лате, флет-вайт</p>
+                                    </div>
+                                </div>
+                                <div class="quiz-option" onclick="selectOption(this, 1, 'sweet')">
+                                    <span class="quiz-option-icon">🍬</span>
+                                    <div class="quiz-option-text">
+                                        <h4>З молоком і цукром</h4>
+                                        <p>Солодко та ніжно</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="quiz-nav">
+                            <div></div>
+                            <button class="btn btn-primary" onclick="nextStep(1)" id="next-1" disabled>Далі <i
+                                    class="fas fa-arrow-right" style="margin-left:8px;"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- Question 2 -->
+                    <div class="quiz-step" id="step-2" style="display:none;">
+                        <div class="quiz-content">
+                            <div class="quiz-question">
+                                <h2>Які смаки вам подобаються?</h2>
+                                <p>Оберіть улюблений профіль</p>
+                            </div>
+                            <div class="quiz-options">
+                                <div class="quiz-option" onclick="selectOption(this, 2, 'fruity')">
+                                    <span class="quiz-option-icon">🍓</span>
+                                    <div class="quiz-option-text">
+                                        <h4>Фруктові, ягідні</h4>
+                                        <p>Яскрава кислинка, свіжість</p>
+                                    </div>
+                                </div>
+                                <div class="quiz-option" onclick="selectOption(this, 2, 'chocolate')">
+                                    <span class="quiz-option-icon">🍫</span>
+                                    <div class="quiz-option-text">
+                                        <h4>Шоколадні, горіхові</h4>
+                                        <p>Класичний, насичений смак</p>
+                                    </div>
+                                </div>
+                                <div class="quiz-option" onclick="selectOption(this, 2, 'floral')">
+                                    <span class="quiz-option-icon">🌸</span>
+                                    <div class="quiz-option-text">
+                                        <h4>Квіткові, чайні</h4>
+                                        <p>Ніжний, делікатний аромат</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="quiz-nav">
+                            <button class="btn btn-back" onclick="prevStep(2)"><i class="fas fa-arrow-left"
+                                    style="margin-right:8px;"></i> Назад</button>
+                            <button class="btn btn-primary" onclick="nextStep(2)" id="next-2" disabled>Далі <i
+                                    class="fas fa-arrow-right" style="margin-left:8px;"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- Question 3 -->
+                    <div class="quiz-step" id="step-3" style="display:none;">
+                        <div class="quiz-content">
+                            <div class="quiz-question">
+                                <h2>Як ви готуєте каву вдома?</h2>
+                                <p>Від цього залежить рекомендація обсмажки</p>
+                            </div>
+                            <div class="quiz-options grid-2">
+                                <div class="quiz-option" onclick="selectOption(this, 3, 'espresso')">
+                                    <span class="quiz-option-icon">☕</span>
+                                    <div class="quiz-option-text">
+                                        <h4>Еспресо-машина</h4>
+                                        <p>Автомат або ріжкова</p>
+                                    </div>
+                                </div>
+                                <div class="quiz-option" onclick="selectOption(this, 3, 'filter')">
+                                    <span class="quiz-option-icon">🫖</span>
+                                    <div class="quiz-option-text">
+                                        <h4>Пуровер / Кемекс</h4>
+                                        <p>Фільтр-методи</p>
+                                    </div>
+                                </div>
+                                <div class="quiz-option" onclick="selectOption(this, 3, 'turka')">
+                                    <span class="quiz-option-icon">🔥</span>
+                                    <div class="quiz-option-text">
+                                        <h4>Турка / Мока</h4>
+                                        <p>Традиційний спосіб</p>
+                                    </div>
+                                </div>
+                                <div class="quiz-option" onclick="selectOption(this, 3, 'french')">
+                                    <span class="quiz-option-icon">🥤</span>
+                                    <div class="quiz-option-text">
+                                        <h4>Френч-прес</h4>
+                                        <p>Імерсійне заварювання</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="quiz-nav">
+                            <button class="btn btn-back" onclick="prevStep(3)"><i class="fas fa-arrow-left"
+                                    style="margin-right:8px;"></i> Назад</button>
+                            <button class="btn btn-primary" onclick="nextStep(3)" id="next-3" disabled>Далі <i
+                                    class="fas fa-arrow-right" style="margin-left:8px;"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- Question 4 -->
+                    <div class="quiz-step" id="step-4" style="display:none;">
+                        <div class="quiz-content">
+                            <div class="quiz-question">
+                                <h2>Наскільки міцну каву ви любите?</h2>
+                                <p>Це вплине на рекомендацію обсмажки</p>
+                            </div>
+                            <div class="quiz-options">
+                                <div class="quiz-option" onclick="selectOption(this, 4, 'light')">
+                                    <span class="quiz-option-icon">🌅</span>
+                                    <div class="quiz-option-text">
+                                        <h4>Легка</h4>
+                                        <p>М'який смак, більше кислинки</p>
+                                    </div>
+                                </div>
+                                <div class="quiz-option" onclick="selectOption(this, 4, 'medium')">
+                                    <span class="quiz-option-icon">☀️</span>
+                                    <div class="quiz-option-text">
+                                        <h4>Збалансована</h4>
+                                        <p>Золота середина</p>
+                                    </div>
+                                </div>
+                                <div class="quiz-option" onclick="selectOption(this, 4, 'strong')">
+                                    <span class="quiz-option-icon">🌙</span>
+                                    <div class="quiz-option-text">
+                                        <h4>Насичена</h4>
+                                        <p>Щільне тіло, мінімум кислинки</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="quiz-nav">
+                            <button class="btn btn-back" onclick="prevStep(4)"><i class="fas fa-arrow-left"
+                                    style="margin-right:8px;"></i> Назад</button>
+                            <button class="btn btn-primary" onclick="nextStep(4)" id="next-4" disabled>Далі <i
+                                    class="fas fa-arrow-right" style="margin-left:8px;"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- Question 5 -->
+                    <div class="quiz-step" id="step-5" style="display:none;">
+                        <div class="quiz-content">
+                            <div class="quiz-question">
+                                <h2>Як часто ви п'єте каву?</h2>
+                                <p>Допоможе підібрати обсяг</p>
+                            </div>
+                            <div class="quiz-options">
+                                <div class="quiz-option" onclick="selectOption(this, 5, 'rare')">
+                                    <span class="quiz-option-icon">1️⃣</span>
+                                    <div class="quiz-option-text">
+                                        <h4>1 чашка на день</h4>
+                                        <p>250г вистачить на 2 тижні</p>
+                                    </div>
+                                </div>
+                                <div class="quiz-option" onclick="selectOption(this, 5, 'regular')">
+                                    <span class="quiz-option-icon">2️⃣</span>
+                                    <div class="quiz-option-text">
+                                        <h4>2-3 чашки на день</h4>
+                                        <p>500г вистачить на 2 тижні</p>
+                                    </div>
+                                </div>
+                                <div class="quiz-option" onclick="selectOption(this, 5, 'addict')">
+                                    <span class="quiz-option-icon">☕</span>
+                                    <div class="quiz-option-text">
+                                        <h4>4+ чашки на день</h4>
+                                        <p>1кг вистачить на 2 тижні</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="quiz-nav">
+                            <button class="btn btn-back" onclick="prevStep(5)"><i class="fas fa-arrow-left"
+                                    style="margin-right:8px;"></i> Назад</button>
+                            <button class="btn btn-primary" onclick="showResult()" id="next-5" disabled>Показати
+                                результат <i class="fas fa-magic" style="margin-left:8px;"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- Result -->
+                    <div class="quiz-step" id="step-result" style="display:none;">
+                        <div class="quiz-result">
+                            <div class="result-confetti">🎉</div>
+                            <p class="result-title">Ваша ідеальна кава:</p>
+                            <h2 class="result-coffee-name">Yirgacheffe Natural</h2>
+
+                            <div class="result-card">
+                                <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=300"
+                                    alt="Yirgacheffe">
+                                <div class="result-meta">
+                                    <span><i class="fas fa-map-marker-alt"></i> Регіон Gedeo</span>
+                                    <span><i class="fas fa-fire"></i> Світла обсмажка</span>
+                                    <span><i class="fas fa-star"></i> 87 балів SCA</span>
+                                </div>
+                                <div class="result-tags">
+                                    <span class="result-tag">🍓 Полуниця</span>
+                                    <span class="result-tag">🫐 Чорниця</span>
+                                    <span class="result-tag">🌸 Жасмін</span>
+                                </div>
+                                <div class="result-price">
+                                    <span class="result-old-price">290₴</span>
+                                    <span class="result-new-price">261₴</span>
+                                    <span class="result-discount">-10%</span>
+                                </div>
+                            </div>
+
+                            <div class="result-actions">
+                                <a href="shop.html" class="btn btn-primary">
+                                    <i class="fas fa-shopping-cart" style="margin-right:10px;"></i>
+                                    Замовити зі знижкою
+                                </a>
+                                <a href="#" onclick="restartQuiz(); return false;" style="color:var(--text-muted);">
+                                    <i class="fas fa-redo" style="margin-right:5px;"></i> Пройти тест знову
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
     </main>
 
-    <script src="js/data.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/quiz.js"></script>
-    <!-- PROFESSIONAL FOOTER COMPONENT -->
-    <!-- PROFESSIONAL FOOTER COMPONENT -->
-    <!-- PROFESSIONAL FOOTER COMPONENT -->
-    <!-- PROFESSIONAL FOOTER COMPONENT -->
+    <!-- FLOATING CONTACTS -->
+        <!-- CART & MODALS -->
+    <div class="overlay"></div>
+    <div class="drawer">
+        <div class="drawer-header">
+            <h3><i class="fas fa-shopping-bag" style="margin-right:10px; color:var(--primary);"></i> Ваш кошик</h3>
+            <button onclick="closeDrawer()"
+                style="background:none;border:none;font-size:1.5rem;color:var(--text-dark);cursor:pointer;">&times;</button>
+        </div>
+        <div class="drawer-body" id="cart-list"></div>
+        <div class="drawer-footer">
+            <!-- Free Shipping Progress Bar -->
+            <div class="free-shipping-progress" id="drawer-shipping-progress">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="drawer-progress-fill" style="width: 0%;"></div>
+                </div>
+                <p class="progress-text" id="drawer-progress-text">
+                    <i class="fas fa-truck"></i> <span data-i18n="cart.free_shipping_progress">До безкоштовної доставки:</span> <strong>500 ₴</strong>
+                </p>
+            </div>
+
+            <div style="display:flex; justify-content:space-between; margin-bottom:15px; font-size:1.1rem;">
+                <span data-i18n="cart.subtotal">Разом:</span>
+                <span id="cart-total" style="font-weight:700; color:var(--primary); font-size:1.3rem;">0 ₴</span>
+            </div>
+            <button class="btn btn-primary" style="width:100%;">
+                <i class="fas fa-lock" style="margin-right:8px;"></i>
+                Оформити замовлення
+            </button>
+            <p style="text-align:center; margin-top:12px; font-size:0.8rem; color:var(--text-muted);">
+                <i class="fas fa-shield-alt"></i> Безпечна оплата • <i class="fas fa-undo"></i> 14 днів на повернення
+            </p>
+        </div>
+    </div>
+
+    <div class="floating-contacts">
+        <a href="https://t.me/ethiodirect" class="float-btn telegram"><i class="fab fa-telegram-plane"></i></a>
+        <a href="tel:+380501234567" class="float-btn phone"><i class="fas fa-phone-alt"></i></a>
+    </div>
+
+    <!-- FOOTER -->
+        <!-- FOOTER -->
     <footer class="footer-pro">
         <div class="container">
             <!-- Main Footer Content -->
@@ -80,62 +964,59 @@
                     <h4 style="font-family:var(--font-heading); font-size:1.5rem; color:white; margin-bottom:20px;">
                         <a href="index.html" style="text-decoration:none; color:white;">EthioDirect</a>
                     </h4>
-                    <p style="color:#aaa; line-height:1.8; margin-bottom:20px;">Ми доставляємо справжню specialty каву
-                        прямо
-                        з ефіопських ферм до вашого дому. Свіжа обсмажка, чесна ціна, любов до кави.</p>
+                    <p style="color:#aaa; line-height:1.8; margin-bottom:20px;" data-i18n="footer.description">Ми доставляємо справжню specialty каву прямо з ефіопських ферм до вашого дому. Свіжа обсмажка, чесна ціна, любов до кави.</p>
                     <div class="social-links">
-                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                        <a href="#" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
-                        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" aria-label="Instagram" data-i18n="social.instagram" data-i18n-aria><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Facebook" data-i18n="social.facebook" data-i18n-aria><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Telegram" data-i18n="social.telegram" data-i18n-aria><i class="fab fa-telegram"></i></a>
+                        <a href="#" aria-label="TikTok" data-i18n="social.tiktok" data-i18n-aria><i class="fab fa-tiktok"></i></a>
                     </div>
                 </div>
 
                 <!-- Column 2: Shop -->
                 <div class="footer-col">
-                    <h4>Магазин</h4>
+                    <h4 data-i18n="footer.shop_title">Магазин</h4>
                     <ul class="footer-links">
-                        <li><a href="shop.html">Весь каталог</a></li>
-                        <li><a href="subscription.html">Підписка на каву</a></li>
-                        <li><a href="gift-certificates.html">Сертифікати</a></li>
-                        <li><a href="b2b.html">B2B рішення</a></li>
-                        <li><a href="account.html">Особистий кабінет</a></li>
+                        <li><a href="shop.html" data-i18n="footer.catalog">Весь каталог</a></li>
+                        <li><a href="subscription.html" data-i18n="footer.subscription">Підписка на каву</a></li>
+                        <li><a href="gift-certificates.html" data-i18n="nav.certificates">Сертифікати</a></li>
+                        <li><a href="b2b.html" data-i18n="footer.b2b">B2B рішення</a></li>
+                        <li><a href="account.html" data-i18n="footer.account">Особистий кабінет</a></li>
                     </ul>
                 </div>
 
                 <!-- Column 3: Support -->
                 <div class="footer-col">
-                    <h4>Підтримка</h4>
+                    <h4 data-i18n="footer.support_title">Підтримка</h4>
                     <ul class="footer-links">
-                        <li><a href="delivery.html">Доставка та оплата</a></li>
-                        <li><a href="return.html">Повернення та обмін</a></li>
-                        <li><a href="faq.html">Часті питання</a></li>
-                        <li><a href="contacts.html">Контакти</a></li>
-                        <li><a href="about.html">Про нас</a></li>
+                        <li><a href="delivery.html" data-i18n="footer.delivery">Доставка та оплата</a></li>
+                        <li><a href="return.html" data-i18n="footer.return">Повернення та обмін</a></li>
+                        <li><a href="faq.html" data-i18n="footer.faq">Часті питання</a></li>
+                        <li><a href="contacts.html" data-i18n="footer.contacts">Контакти</a></li>
+                        <li><a href="about.html" data-i18n="nav.about">Про нас</a></li>
                     </ul>
                 </div>
 
                 <!-- Column 4: Contacts -->
                 <div class="footer-col">
-                    <h4>Контакти</h4>
+                    <h4 data-i18n="footer.contacts_title">Контакти</h4>
                     <ul class="footer-contacts">
                         <li><i class="fas fa-phone"></i> <a href="tel:+380501234567">+380 (50) 123-45-67</a></li>
                         <li><i class="fas fa-envelope"></i> <a
                                 href="mailto:hello@ethiodirect.ua">hello@ethiodirect.ua</a>
                         </li>
-                        <li><i class="fas fa-map-marker-alt"></i> Одеса, Україна</li>
-                        <li><i class="fas fa-clock"></i> Пн-Пт: 9:00-18:00</li>
+                        <li><i class="fas fa-map-marker-alt"></i> <span data-i18n="footer.location">Одеса, Україна</span></li>
+                        <li><i class="fas fa-clock"></i> <span data-i18n="topbar.hours">Пн-Пт: 9:00-18:00</span></li>
                     </ul>
                 </div>
 
                 <!-- Column 5: Newsletter -->
                 <div class="footer-col">
-                    <h4>Підписка на новини</h4>
-                    <p style="color:#aaa; margin-bottom:15px; font-size:0.9rem;">Отримуйте акції, новинки та поради щодо
-                        заварювання</p>
+                    <h4 data-i18n="footer.newsletter_title">Підписка на новини</h4>
+                    <p style="color:#aaa; margin-bottom:15px; font-size:0.9rem;" data-i18n="footer.newsletter_text">Отримуйте акції, новинки та поради щодо заварювання</p>
                     <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
-                        <input type="email" placeholder="Ваш email" required>
-                        <button type="submit" class="btn-newsletter">Підписатись</button>
+                        <input type="email" placeholder="Ваш email" data-i18n="footer.newsletter_placeholder" data-i18n-placeholder required>
+                        <button type="submit" class="btn-newsletter" data-i18n="footer.newsletter_cta">Підписатись</button>
                     </form>
                 </div>
             </div>
@@ -178,10 +1059,10 @@
             <div class="footer-payment">
                 <p style="color:#666; font-size:0.85rem; margin-bottom:15px;">Способи оплати:</p>
                 <div class="payment-icons">
-                    <i class="fab fa-cc-visa" title="Visa"></i>
-                    <i class="fab fa-cc-mastercard" title="Mastercard"></i>
-                    <i class="fab fa-apple-pay" title="Apple Pay"></i>
-                    <i class="fab fa-google-pay" title="Google Pay"></i>
+                    <i class="fab fa-cc-visa" title="Visa" data-i18n="payment.visa" data-i18n-title></i>
+                    <i class="fab fa-cc-mastercard" title="Mastercard" data-i18n="payment.mastercard" data-i18n-title></i>
+                    <i class="fab fa-apple-pay" title="Apple Pay" data-i18n="payment.apple_pay" data-i18n-title></i>
+                    <i class="fab fa-google-pay" title="Google Pay" data-i18n="payment.google_pay" data-i18n-title></i>
                     <span class="payment-text">LiqPay</span>
                 </div>
             </div>
@@ -192,15 +1073,76 @@
                     <p>&copy; 2025 EthioDirect. Всі права захищені.</p>
                 </div>
                 <div class="footer-bottom-right">
-                    <a href="privacy.html">Політика конфіденційності</a>
+                    <a href="privacy.html" data-i18n="footer.privacy">Політика конфіденційності</a>
                     <span>·</span>
-                    <a href="return.html">Умови повернення</a>
+                    <a href="return.html" data-i18n="footer.terms">Умови повернення</a>
                     <span>·</span>
-                    <a href="#">Публічна оферта</a>
+                    <a href="#" data-i18n="footer.offer">Публічна оферта</a>
                 </div>
             </div>
         </div>
     </footer>
+
+        <!-- TOAST -->
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle"></i>
+        <span id="toast-msg">Товар додано</span>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script>
+        const answers = {};
+
+        function selectOption(el, step, value) {
+            el.parentElement.querySelectorAll('.quiz-option').forEach(opt => opt.classList.remove('selected'));
+            el.classList.add('selected');
+            answers[step] = value;
+            document.getElementById('next-' + step).disabled = false;
+        }
+
+        function nextStep(current) {
+            document.getElementById('step-' + current).style.display = 'none';
+            document.getElementById('step-' + (current + 1)).style.display = 'block';
+            updateProgress(current + 1);
+        }
+
+        function prevStep(current) {
+            document.getElementById('step-' + current).style.display = 'none';
+            document.getElementById('step-' + (current - 1)).style.display = 'block';
+            updateProgress(current - 1);
+        }
+
+        function updateProgress(step) {
+            // Update progress bar
+            document.getElementById('progress-fill').style.width = (step * 20) + '%';
+
+            // Update step indicators
+            document.querySelectorAll('.progress-step').forEach((el, i) => {
+                el.classList.remove('active', 'completed');
+                if (i + 1 < step) el.classList.add('completed');
+                if (i + 1 === step) el.classList.add('active');
+            });
+        }
+
+        function showResult() {
+            document.getElementById('step-5').style.display = 'none';
+            document.getElementById('step-result').style.display = 'block';
+            document.getElementById('quiz-progress').style.display = 'none';
+            document.querySelector('.quiz-progress-bar').style.display = 'none';
+        }
+
+        function restartQuiz() {
+            Object.keys(answers).forEach(k => delete answers[k]);
+            document.querySelectorAll('.quiz-option').forEach(opt => opt.classList.remove('selected'));
+            document.querySelectorAll('[id^="next-"]').forEach(btn => btn.disabled = true);
+            document.querySelectorAll('.quiz-step').forEach(step => step.style.display = 'none');
+            document.getElementById('step-1').style.display = 'block';
+            document.getElementById('quiz-progress').style.display = 'flex';
+            document.querySelector('.quiz-progress-bar').style.display = 'block';
+            updateProgress(1);
+        }
+    </script>
+    <script src="js/i18n.js"></script>
 </body>
 
 </html>

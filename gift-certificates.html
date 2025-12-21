@@ -7,149 +7,231 @@
     <title>Подарункові сертифікати — EthioDirect</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/ux-enhancements.css">
 </head>
 
 <body>
-                    <header class="header">
+
+        <!-- TOP BAR -->
+    <div class="top-bar">
+        <div class="container top-bar-inner">
+            <div class="top-bar-left">
+                <span><i class="fas fa-phone-alt"></i> <span data-i18n="topbar.phone">+380 (50) 123-45-67</span></span>
+                <span class="divider-dot">•</span>
+                <span><i class="fas fa-clock"></i> <span data-i18n="topbar.hours">Пн-Пт: 9:00-18:00</span></span>
+            </div>
+            <div class="top-bar-center">
+                <div class="promo-ticker">
+                    <span class="ticker-item">🔥 <strong data-i18n="topbar.promo_action">АКЦІЯ:</strong> <span data-i18n="topbar.promo_delivery">безкоштовна доставка від 500₴</span></span>
+                    <span class="ticker-divider">|</span>
+                    <span class="ticker-item">☕ <span data-i18n="topbar.promo_subscription">Підписка:</span> <strong data-i18n="topbar.promo_subscription_text">-10% на кожну доставку</strong></span>
+                    <span class="ticker-divider">|</span>
+                    <span class="ticker-item">⚡ <span data-i18n="topbar.promo_roast">Свіжа обсмажка</span> <strong data-i18n="topbar.promo_roast_days">до 3 днів</strong></span>
+                </div>
+            </div>
+            <div class="top-bar-right">
+                <a href="#" translate="no" class="active" onclick="setLanguage('uk'); return false;">UA</a>
+                <a href="#" translate="no" onclick="setLanguage('ru'); return false;">RU</a>
+                <a href="#" translate="no" onclick="setLanguage('en'); return false;">EN</a>
+            </div>
+        </div>
+    </div>
+
+        <!-- HEADER -->
+    <header class="header">
         <div class="container header-inner">
             <a href="index.html" class="logo">
-                <i class="fas fa-leaf text-accent"></i>
-                <span style="font-family:var(--font-heading); letter-spacing:1px; font-size:1.5rem;">EthioDirect</span>
+                <i class="fas fa-certificate"></i> ETHIODIRECT
             </a>
+
             <nav class="nav-desktop">
-                <a href="shop.html" class="nav-link">Каталог</a>
-                <a href="subscription.html" class="nav-link">Підписка</a>
-                <a href="gift-certificates.html" class="nav-link active">🎁 Сертифікати</a>
-                <a href="blog.html" class="nav-link">Історії</a>
-                <a href="about.html" class="nav-link">Про нас</a>
-                <a href="quiz.html" class="nav-link">Тест</a>
+                <a href="shop.html" class="nav-link" data-i18n="nav.catalog">Каталог</a>
+                <a href="subscription.html" class="nav-link" data-i18n="nav.subscription">Підписка</a>
+                <a href="gift-certificates.html" class="nav-link active" data-i18n="nav.certificates">Сертифікати</a>
+                <a href="blog.html" class="nav-link" data-i18n="nav.stories">Історії</a>
+                <a href="about.html" class="nav-link" data-i18n="nav.about">Про нас</a>
+                <a href="quiz.html" class="nav-link" data-i18n="nav.test">Тест</a>
             </nav>
+
+            <!-- Search Bar -->
+            <div class="header-search">
+                <div class="search-wrapper">
+                    <input type="text" class="search-input" id="search-input" placeholder="Пошук кави..."
+                        data-i18n="search.placeholder" data-i18n-placeholder
+                        oninput="handleSearch(this.value)">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                    <div class="search-results" id="search-results"></div>
+                </div>
+            </div>
+
             <div class="header-actions">
                 <a href="account.html"><i class="far fa-user"></i></a>
-                <div class="cart-trigger"><i class="fas fa-shopping-cart"></i><span class="cart-count">0</span></div>
+
+                <!-- Cart with Mini-Cart Dropdown -->
+                <div class="cart-wrapper">
+                    <div class="cart-trigger" onclick="openDrawer()">
+                        <i class="fas fa-shopping-bag" style="font-size:1.2rem;"></i>
+                        <span class="cart-count">0</span>
+                    </div>
+                    <div class="mini-cart" id="mini-cart">
+                        <div class="mini-cart-header">
+                            <h4 data-i18n="cart.title">Ваш кошик</h4>
+                            <span class="mini-cart-count" id="mini-cart-count"><span>0</span> <span data-i18n="cart.items">товарів</span></span>
+                        </div>
+                        <div class="mini-cart-items" id="mini-cart-items"></div>
+                        <div class="mini-cart-footer" id="mini-cart-footer">
+                            <div class="mini-cart-subtotal">
+                                <strong data-i18n="cart.subtotal">Разом:</strong>
+                                <span id="mini-cart-total">0 ₴</span>
+                            </div>
+                            <div class="mini-cart-shipping" id="mini-cart-shipping">
+                                <i class="fas fa-truck"></i> <span data-i18n="cart.free_shipping_progress">До безкоштовної доставки:</span> <strong>500 ₴</strong>
+                            </div>
+                            <button class="mini-cart-btn" onclick="openDrawer()">
+                                <i class="fas fa-shopping-cart"></i> <span data-i18n="cart.checkout">Оформити замовлення</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="menu-toggle" aria-label="Open menu" data-i18n="common.open_menu" data-i18n-aria data-i18n="common.open_menu" data-i18n-aria onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
-            <button class="menu-toggle" aria-label="Menu"><i class="fas fa-bars"></i></button>
         </div>
     </header>
 
+    <!-- DRAWER CART -->
     <div class="overlay"></div>
     <div class="drawer">
         <div class="drawer-header">
-            <h3>Ваш кошик</h3><span class="cart-close" style="cursor:pointer;font-size:1.5rem;">&times;</span>
+            <h3><i class="fas fa-shopping-bag" style="margin-right:10px; color:var(--primary);"></i> Ваш кошик</h3>
+            <button onclick="closeDrawer()"
+                style="background:none;border:none;font-size:1.5rem;color:var(--text-dark);cursor:pointer;">&times;</button>
         </div>
         <div class="drawer-body" id="cart-list"></div>
         <div class="drawer-footer">
-            <div style="display:flex;justify-content:space-between;margin-bottom:15px;font-weight:600;">
-                <span>Разом:</span><span id="cart-total">0 ₴</span>
+            <div class="free-shipping-progress" id="drawer-shipping-progress">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="drawer-progress-fill" style="width: 0%;"></div>
+                </div>
+                <p class="progress-text" id="drawer-progress-text">
+                    <i class="fas fa-truck"></i> <span data-i18n="cart.free_shipping_progress">До безкоштовної доставки:</span> <strong>500 ₴</strong>
+                </p>
             </div>
-            <button class="btn btn-primary" style="width:100%;">Оформити замовлення</button>
+            <div style="display:flex; justify-content:space-between; margin-bottom:15px; font-size:1.1rem;">
+                <span data-i18n="cart.subtotal">Разом:</span>
+                <span id="cart-total" style="font-weight:700; color:var(--primary); font-size:1.3rem;">0 ₴</span>
+            </div>
+            <button class="btn btn-primary" style="width:100%;">
+                <i class="fas fa-lock" style="margin-right:8px;"></i> Оформити замовлення
+            </button>
         </div>
     </div>
 
     <main>
         <!-- HERO -->
         <section class="section"
-            style="padding-top:120px; background:linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%); color:white; text-align:center;">
+            style="padding-top:160px; background:linear-gradient(135deg, #2a1f0a 0%, #4a3520 100%); color:white; min-height:50vh; display:flex; align-items:center;">
             <div class="container">
-                <i class="fas fa-gift" style="font-size:4rem; margin-bottom:20px; opacity:0.9;"></i>
-                <h1 style="font-size:3rem; color:white; margin-bottom:20px;">Подарункові сертифікати</h1>
-                <p style="font-size:1.2rem; max-width:600px; margin:0 auto; opacity:0.95;">Подаруйте смак справжньої
-                    specialty кави. Сертифікат надсилається email одразу після оплати.</p>
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center;">
+                    <div>
+                        <span
+                            style="display:inline-block; padding:8px 20px; background:var(--secondary); color:#1a1a1a; border-radius:30px; font-weight:700; font-size:0.85rem; margin-bottom:20px;">
+                            🎁 ІДЕАЛЬНИЙ ПОДАРУНОК
+                        </span>
+                        <h1 style="font-size:3rem; color:white; margin-bottom:20px; line-height:1.2;">
+                            Подарункові сертифікати
+                        </h1>
+                        <p style="font-size:1.2rem; opacity:0.9; margin-bottom:30px;">
+                            Подаруйте справжню ефіопську каву. Сертифікат доставляється миттєво на email у красивому
+                            PDF-форматі.
+                        </p>
+                        <div style="display:flex; gap:20px; flex-wrap:wrap;">
+                            <a href="#create" class="btn btn-primary" style="font-size:1.1rem; padding:16px 40px;">
+                                Створити сертифікат
+                            </a>
+                        </div>
+                    </div>
+                    <div style="text-align:center;">
+                        <!-- Certificate Preview -->
+                        <div
+                            style="background:linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%); padding:40px; border-radius:16px; box-shadow:0 30px 60px rgba(0,0,0,0.4); transform:rotate(-3deg);">
+                            <div style="text-align:center; margin-bottom:20px;">
+                                <i class="fas fa-gift" style="font-size:2.5rem; color:var(--secondary);"></i>
+                            </div>
+                            <h3 style="color:white; font-size:1.3rem; margin-bottom:10px;">Подарунковий сертифікат</h3>
+                            <p style="color:#aaa; font-size:0.9rem; margin-bottom:30px;">EthioDirect Coffee</p>
+                            <div style="font-size:3rem; font-weight:700; color:var(--secondary);">500₴</div>
+                            <p style="color:#666; font-size:0.8rem; margin-top:20px;">XXXX-XXXX-XXXX</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- MAIN CONTENT -->
-        <section class="section" style="background:white;">
-            <div class="container" style="max-width:1200px;">
-                <div style="display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start;">
+        <!-- CREATE CERTIFICATE -->
+        <section class="section bg-white" id="create">
+            <div class="container">
+                <h2 class="text-center" style="margin-bottom:50px;">Створіть сертифікат</h2>
 
-                    <!-- LEFT: FORM -->
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:60px; max-width:1100px; margin:0 auto;">
+
+                    <!-- FORM -->
                     <div>
-                        <h2 style="margin-bottom:30px;">Створити сертифікат</h2>
-
-                        <!-- Amount Selection -->
+                        <!-- Amount -->
                         <div style="margin-bottom:30px;">
-                            <label style="display:block; font-weight:600; margin-bottom:15px; font-size:1.1rem;">Номінал
-                                сертифікату</label>
-                            <div
-                                style="display:grid; grid-template-columns:repeat(2, 1fr); gap:15px; margin-bottom:15px;">
-                                <button class="amount-btn active" onclick="selectAmount(500)" data-amount="500"
-                                    style="padding:20px; border:2px solid var(--primary); background:var(--primary); color:white; border-radius:8px; cursor:pointer; font-weight:600; font-size:1.1rem; transition:all 0.3s;">
-                                    500 ₴
-                                </button>
-                                <button class="amount-btn" onclick="selectAmount(1000)" data-amount="1000"
-                                    style="padding:20px; border:2px solid #ddd; background:white; color:var(--text); border-radius:8px; cursor:pointer; font-weight:600; font-size:1.1rem; transition:all 0.3s;">
-                                    1000 ₴
-                                </button>
-                                <button class="amount-btn" onclick="selectAmount(1500)" data-amount="1500"
-                                    style="padding:20px; border:2px solid #ddd; background:white; color:var(--text); border-radius:8px; cursor:pointer; font-weight:600; font-size:1.1rem; transition:all 0.3s;">
-                                    1500 ₴
-                                </button>
-                                <button class="amount-btn" onclick="selectAmount(2000)" data-amount="2000"
-                                    style="padding:20px; border:2px solid #ddd; background:white; color:var(--text); border-radius:8px; cursor:pointer; font-weight:600; font-size:1.1rem; transition:all 0.3s;">
-                                    2000 ₴
-                                </button>
+                            <label style="display:block; margin-bottom:15px; font-weight:600;">Оберіть номінал:</label>
+                            <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:10px;">
+                                <button class="amount-btn" onclick="selectAmount(this, 300)"
+                                    style="padding:15px; border:2px solid #eee; border-radius:8px; background:white; font-size:1.1rem; font-weight:600; cursor:pointer; transition:all 0.3s;">300₴</button>
+                                <button class="amount-btn active" onclick="selectAmount(this, 500)"
+                                    style="padding:15px; border:2px solid var(--primary); border-radius:8px; background:rgba(139,69,69,0.05); font-size:1.1rem; font-weight:600; cursor:pointer;">500₴</button>
+                                <button class="amount-btn" onclick="selectAmount(this, 1000)"
+                                    style="padding:15px; border:2px solid #eee; border-radius:8px; background:white; font-size:1.1rem; font-weight:600; cursor:pointer; transition:all 0.3s;">1000₴</button>
+                                <button class="amount-btn" onclick="selectAmount(this, 2000)"
+                                    style="padding:15px; border:2px solid #eee; border-radius:8px; background:white; font-size:1.1rem; font-weight:600; cursor:pointer; transition:all 0.3s;">2000₴</button>
                             </div>
-                            <div style="position:relative;">
-                                <input type="number" id="customAmount" placeholder="Або введіть свою суму..." min="100"
-                                    max="10000"
-                                    style="width:100%; padding:15px; border:2px solid #ddd; border-radius:8px; font-size:1rem;"
-                                    oninput="selectAmount(this.value)">
-                                <span
-                                    style="position:absolute; right:15px; top:50%; transform:translateY(-50%); color:#999; font-weight:600;">₴</span>
+                            <div style="margin-top:15px;">
+                                <input type="number" id="custom-amount" placeholder="Або введіть свою суму"
+                                    style="width:100%; padding:15px; border:2px solid #eee; border-radius:8px; font-size:1rem;">
                             </div>
                         </div>
 
-                        <!-- Personalization -->
-                        <div style="margin-bottom:30px;">
-                            <label
-                                style="display:block; font-weight:600; margin-bottom:15px; font-size:1.1rem;">Персоналізація</label>
-
-                            <div style="margin-bottom:15px;">
-                                <label style="display:block; margin-bottom:8px; color:#666;">Кому (ім'я
-                                    одержувача)</label>
-                                <input type="text" id="recipientName" placeholder="Наприклад: Олена"
-                                    style="width:100%; padding:12px; border:2px solid #e0e0e0; border-radius:4px; font-size:1rem;"
-                                    oninput="updatePreview()">
-                            </div>
-
-                            <div style="margin-bottom:15px;">
-                                <label style="display:block; margin-bottom:8px; color:#666;">Від кого</label>
-                                <input type="text" id="senderName" placeholder="Наприклад: Андрій"
-                                    style="width:100%; padding:12px; border:2px solid #e0e0e0; border-radius:4px; font-size:1rem;"
-                                    oninput="updatePreview()">
-                            </div>
-
-                            <div style="margin-bottom:15px;">
-                                <label style="display:block; margin-bottom:8px; color:#666;">Привітання
-                                    (опціонально)</label>
-                                <textarea id="giftMessage" rows="3"
-                                    placeholder="З Днем народження! Насолоджуйся найкращою кавою..."
-                                    style="width:100%; padding:12px; border:2px solid #e0e0e0; border-radius:4px; font-size:1rem; resize:vertical;"
-                                    oninput="updatePreview()"></textarea>
-                            </div>
+                        <!-- Recipient -->
+                        <div style="margin-bottom:20px;">
+                            <label style="display:block; margin-bottom:8px; font-weight:600;">Кому (ім'я
+                                отримувача):</label>
+                            <input type="text" id="recipient" placeholder="Наприклад: Олена"
+                                style="width:100%; padding:15px; border:2px solid #eee; border-radius:8px; font-size:1rem;">
                         </div>
 
-                        <!-- Delivery -->
-                        <div style="margin-bottom:30px;">
-                            <label
-                                style="display:block; font-weight:600; margin-bottom:15px; font-size:1.1rem;">Доставка</label>
-                            <div style="background:var(--bg-main); padding:20px; border-radius:8px;">
-                                <label style="display:block; margin-bottom:8px; color:#666;">Email одержувача</label>
-                                <input type="email" id="recipientEmail" placeholder="example@email.com"
-                                    style="width:100%; padding:12px; border:2px solid #e0e0e0; border-radius:4px; font-size:1rem; margin-bottom:15px;">
+                        <!-- Sender -->
+                        <div style="margin-bottom:20px;">
+                            <label style="display:block; margin-bottom:8px; font-weight:600;">Від кого:</label>
+                            <input type="text" id="sender" placeholder="Ваше ім'я"
+                                style="width:100%; padding:15px; border:2px solid #eee; border-radius:8px; font-size:1rem;">
+                        </div>
 
-                                <div style="display:flex; align-items:center; gap:10px; color:#666; font-size:0.9rem;">
-                                    <i class="fas fa-info-circle" style="color:var(--accent);"></i>
-                                    <span>Сертифікат буде відправлено одразу після оплати у форматі PDF</span>
-                                </div>
-                            </div>
+                        <!-- Message -->
+                        <div style="margin-bottom:20px;">
+                            <label style="display:block; margin-bottom:8px; font-weight:600;">Побажання
+                                (опціонально):</label>
+                            <textarea id="message" placeholder="Напишіть кілька теплих слів..." rows="3"
+                                style="width:100%; padding:15px; border:2px solid #eee; border-radius:8px; font-size:1rem; resize:vertical;"></textarea>
+                        </div>
+
+                        <!-- Email -->
+                        <div style="margin-bottom:30px;">
+                            <label style="display:block; margin-bottom:8px; font-weight:600;">Email для доставки
+                                сертифікату:</label>
+                            <input type="email" id="email" placeholder="email@example.com"
+                                style="width:100%; padding:15px; border:2px solid #eee; border-radius:8px; font-size:1rem;">
                         </div>
 
                         <!-- CTA -->
-                        <button onclick="purchaseCertificate()" class="btn"
-                            style="width:100%; padding:18px; background:linear-gradient(135deg, var(--primary), var(--accent)); color:white; border:none; font-size:1.2rem; font-weight:600; border-radius:8px; cursor:pointer;">
+                        <button onclick="purchaseCertificate()" class="btn btn-primary"
+                            style="width:100%; padding:18px; font-size:1.1rem;">
+                            <i class="fas fa-gift" style="margin-right:10px;"></i>
                             Оплатити <span id="totalPrice">500</span> ₴
                         </button>
 
@@ -157,65 +239,48 @@
                             style="margin-top:20px; padding:20px; background:#f0f9ff; border-left:4px solid #0ea5e9; border-radius:4px;">
                             <p style="margin:0; color:#0369a1; font-size:0.95rem;">
                                 <i class="fas fa-shield-alt"></i> <strong>Гарантія:</strong> Сертифікат дійсний 1 рік з
-                                дати покупки. Можна використати частинами.
+                                дати покупки.
                             </p>
                         </div>
                     </div>
 
-                    <!-- RIGHT: PREVIEW -->
+                    <!-- PREVIEW -->
                     <div style="position:sticky; top:100px;">
                         <h3 style="margin-bottom:20px; text-align:center;">Попередній перегляд</h3>
-
-                        <!-- Certificate Card -->
-                        <div id="certificatePreview"
+                        <div
                             style="background:linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%); padding:50px 40px; border-radius:16px; box-shadow:0 20px 60px rgba(0,0,0,0.3); position:relative; overflow:hidden;">
-                            <!-- Decorative elements -->
                             <div
-                                style="position:absolute; top:-50px; right:-50px; width:200px; height:200px; background:var(--accent); opacity:0.1; border-radius:50%;">
+                                style="position:absolute; top:-50px; right:-50px; width:200px; height:200px; background:var(--secondary); opacity:0.1; border-radius:50%;">
                             </div>
                             <div
                                 style="position:absolute; bottom:-30px; left:-30px; width:150px; height:150px; background:var(--primary); opacity:0.1; border-radius:50%;">
                             </div>
-
-                            <!-- Content -->
                             <div style="position:relative; z-index:10;">
                                 <div style="text-align:center; margin-bottom:30px;">
                                     <i class="fas fa-gift"
-                                        style="font-size:3rem; color:var(--accent); margin-bottom:15px;"></i>
-                                    <h2
-                                        style="color:white; font-size:1.8rem; margin-bottom:10px; font-family:var(--font-heading);">
-                                        Подарунковий сертифікат</h2>
+                                        style="font-size:3rem; color:var(--secondary); margin-bottom:15px;"></i>
+                                    <h2 style="color:white; font-size:1.8rem; margin-bottom:10px;">Подарунковий
+                                        сертифікат</h2>
                                     <p style="color:#aaa; font-size:0.95rem;">EthioDirect Specialty Coffee</p>
                                 </div>
-
-                                <!-- Amount -->
                                 <div
                                     style="text-align:center; margin:40px 0; padding:30px; background:rgba(255,255,255,0.05); border-radius:12px; border:2px dashed rgba(255,255,255,0.2);">
-                                    <div style="font-size:3.5rem; font-weight:700; color:var(--accent); font-family:var(--font-heading);"
+                                    <div style="font-size:3.5rem; font-weight:700; color:var(--secondary);"
                                         id="previewAmount">500</div>
                                     <div style="font-size:1.5rem; color:white; margin-top:-10px;">гривень</div>
                                 </div>
-
-                                <!-- Personalization -->
                                 <div style="margin-bottom:30px; text-align:center;">
                                     <div style="margin-bottom:15px;">
                                         <span style="color:#999; font-size:0.85rem;">Кому:</span>
                                         <div style="color:white; font-size:1.3rem; font-weight:600; margin-top:5px;"
                                             id="previewRecipient">_____________</div>
                                     </div>
-                                    <div style="margin-bottom:20px;">
+                                    <div>
                                         <span style="color:#999; font-size:0.85rem;">Від:</span>
                                         <div style="color:white; font-size:1.1rem; margin-top:5px;" id="previewSender">
                                             _____________</div>
                                     </div>
-                                    <div id="previewMessageBlock"
-                                        style="display:none; padding:20px; background:rgba(255,255,255,0.05); border-radius:8px; margin-top:20px;">
-                                        <p style="color:#ddd; font-style:italic; line-height:1.6; margin:0;"
-                                            id="previewMessage"></p>
-                                    </div>
                                 </div>
-
-                                <!-- Code -->
                                 <div
                                     style="text-align:center; padding-top:20px; border-top:1px solid rgba(255,255,255,0.1);">
                                     <span
@@ -224,17 +289,10 @@
                                     <div
                                         style="color:white; font-family:monospace; font-size:1.1rem; margin-top:8px; letter-spacing:2px;">
                                         XXXX-XXXX-XXXX</div>
-                                    <p style="color:#666; font-size:0.75rem; margin-top:15px; margin-bottom:0;">Дійсний
-                                        до <span id="expiryDate"></span></p>
                                 </div>
                             </div>
                         </div>
-
-                        <p style="text-align:center; color:#999; font-size:0.85rem; margin-top:20px;">
-                            * Фактичний сертифікат буде містити унікальний код
-                        </p>
                     </div>
-
                 </div>
             </div>
         </section>
@@ -243,186 +301,247 @@
         <section class="section" style="background:var(--bg-main);">
             <div class="container text-center">
                 <h2 style="margin-bottom:50px;">Чому це ідеальний подарунок?</h2>
-                <div
-                    style="display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:40px; align-items:stretch;">
+                <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:40px;">
                     <div
-                        style="background:white; padding:30px; border-radius:12px; box-shadow:0 10px 30px rgba(0,0,0,0.05); height:100%;">
-                        <i class="fas fa-heart" style="font-size:3rem; color:var(--accent); margin-bottom:20px;"></i>
+                        style="background:white; padding:30px; border-radius:12px; box-shadow:0 10px 30px rgba(0,0,0,0.05);">
+                        <i class="fas fa-heart" style="font-size:3rem; color:var(--primary); margin-bottom:20px;"></i>
                         <h3 style="margin-bottom:15px;">Для кавоманів</h3>
                         <p style="color:#666;">Specialty кава 85+ SCA балів — те, що вони справді оцінять</p>
                     </div>
                     <div
-                        style="background:white; padding:30px; border-radius:12px; box-shadow:0 10px 30px rgba(0,0,0,0.05); height:100%;">
-                        <i class="fas fa-clock" style="font-size:3rem; color:var(--accent); margin-bottom:20px;"></i>
+                        style="background:white; padding:30px; border-radius:12px; box-shadow:0 10px 30px rgba(0,0,0,0.05);">
+                        <i class="fas fa-clock" style="font-size:3rem; color:var(--primary); margin-bottom:20px;"></i>
                         <h3 style="margin-bottom:15px;">Миттєво</h3>
-                        <p style="color:#666;">Не треба нікуди їхати — PDF сертифікат на email за хвилину</p>
+                        <p style="color:#666;">PDF сертифікат на email за хвилину — не треба нікуди їхати</p>
                     </div>
                     <div
-                        style="background:white; padding:30px; border-radius:12px; box-shadow:0 10px 30px rgba(0,0,0,0.05); height:100%;">
-                        <i class="fas fa-star" style="font-size:3rem; color:var(--accent); margin-bottom:20px;"></i>
-                        <h3 style="margin-bottom:15px;">Без термінів</h3>
-                        <p style="color:#666;">Дійсний рік, можна використати частинами</p>
+                        style="background:white; padding:30px; border-radius:12px; box-shadow:0 10px 30px rgba(0,0,0,0.05);">
+                        <i class="fas fa-redo" style="font-size:3rem; color:var(--primary); margin-bottom:20px;"></i>
+                        <h3 style="margin-bottom:15px;">Гнучкість</h3>
+                        <p style="color:#666;">Дійсний рік, можна використати частинами на кілька покупок</p>
                     </div>
                     <div
-                        style="background:white; padding:30px; border-radius:12px; box-shadow:0 10px 30px rgba(0,0,0,0.05); height:100%;">
-                        <i class="fas fa-gift" style="font-size:3rem; color:var(--accent); margin-bottom:20px;"></i>
+                        style="background:white; padding:30px; border-radius:12px; box-shadow:0 10px 30px rgba(0,0,0,0.05);">
+                        <i class="fas fa-gift" style="font-size:3rem; color:var(--primary); margin-bottom:20px;"></i>
                         <h3 style="margin-bottom:15px;">Краса дизайну</h3>
                         <p style="color:#666;">Стильний PDF, який приємно дарувати і отримувати</p>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- NEWSLETTER CTA -->
-        <section class="section" style="background:#f9f9f9; text-align:center; padding:60px 0;">
+
+        <!-- CTA -->
+        <section class="section" style="background:var(--primary); text-align:center; padding:60px 0;">
             <div class="container">
-                <i class="fas fa-paper-plane" style="font-size:3rem; color:var(--accent); margin-bottom:20px;"></i>
-                <h2 style="margin-bottom:15px; font-size:2.5rem;">Хочете знижку на сертифікат?</h2>
-                <p style="margin-bottom:30px; color:#666; font-size:1.2rem;">Підпишіться та отримайте -10% промокод на
-                    першу покупку.</p>
-                <form class="newsletter-form" style="max-width:500px; margin:0 auto; display:flex; gap:10px;">
-                    <input type="email" placeholder="Ваш Email"
-                        style="flex:1; padding:15px 25px; border-radius:30px; border:1px solid #ddd; outline:none; font-size:1rem;">
-                    <button type="submit" class="btn"
-                        style="background:var(--accent); color:white; border-radius:30px; padding:15px 30px; font-weight:600; cursor:pointer; border:none;">Отримати
-                        код</button>
-                </form>
+                <h2 style="color:white; margin-bottom:20px;">Залишились питання?</h2>
+                <p style="color:rgba(255,255,255,0.8); margin-bottom:30px;">Напишіть нам — допоможемо обрати ідеальний
+                    подарунок!</p>
+                <a href="contacts.html" class="btn"
+                    style="background:white; color:var(--primary); font-size:1.1rem; padding:16px 40px;">
+                    <i class="fas fa-comments" style="margin-right:10px;"></i> Зв'язатися з нами
+                </a>
             </div>
         </section>
     </main>
 
-    <!-- FOOTER -->
-    <!-- PROFESSIONAL FOOTER COMPONENT -->
-    <footer class="footer-pro">
-    <div class="container">
-        <!-- Main Footer Content -->
-        <div class="footer-grid">
-            <!-- Column 1: Brand -->
-            <div class="footer-col">
-                <h4 style="font-family:var(--font-heading); font-size:1.5rem; color:white; margin-bottom:20px;">
-                    <a href="index.html" style="text-decoration:none; color:white;">EthioDirect</a>
-                </h4>
-                <p style="color:#aaa; line-height:1.8; margin-bottom:20px;">Ми доставляємо справжню specialty каву прямо
-                    з ефіопських ферм до вашого дому. Свіжа обсмажка, чесна ціна, любов до кави.</p>
-                <div class="social-links">
-                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                    <a href="#" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
-                    <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-                </div>
-            </div>
-
-            <!-- Column 2: Shop -->
-            <div class="footer-col">
-                <h4>Магазин</h4>
-                <ul class="footer-links">
-                    <li><a href="shop.html">Весь каталог</a></li>
-                    <li><a href="subscription.html">Підписка на каву</a></li>
-                    <li><a href="gift-certificates.html">Сертифікати</a></li>
-                    <li><a href="b2b.html">B2B рішення</a></li>
-                    <li><a href="account.html">Особистий кабінет</a></li>
-                </ul>
-            </div>
-
-            <!-- Column 3: Support -->
-            <div class="footer-col">
-                <h4>Підтримка</h4>
-                <ul class="footer-links">
-                    <li><a href="delivery.html">Доставка та оплата</a></li>
-                    <li><a href="return.html">Повернення та обмін</a></li>
-                    <li><a href="faq.html">Часті питання</a></li>
-                    <li><a href="contacts.html">Контакти</a></li>
-                    <li><a href="about.html">Про нас</a></li>
-                </ul>
-            </div>
-
-            <!-- Column 4: Contacts -->
-            <div class="footer-col">
-                <h4>Контакти</h4>
-                <ul class="footer-contacts">
-                    <li><i class="fas fa-phone"></i> <a href="tel:+380501234567">+380 (50) 123-45-67</a></li>
-                    <li><i class="fas fa-envelope"></i> <a href="mailto:hello@ethiodirect.ua">hello@ethiodirect.ua</a>
-                    </li>
-                    <li><i class="fas fa-map-marker-alt"></i> Одеса, Україна</li>
-                    <li><i class="fas fa-clock"></i> Пн-Пт: 9:00-18:00</li>
-                </ul>
-            </div>
-
-            <!-- Column 5: Newsletter -->
-            <div class="footer-col">
-                <h4>Підписка на новини</h4>
-                <p style="color:#aaa; margin-bottom:15px; font-size:0.9rem;">Отримуйте акції, новинки та поради щодо
-                    заварювання</p>
-                <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
-                    <input type="email" placeholder="Ваш email" required>
-                    <button type="submit" class="btn-newsletter">Підписатись</button>
-                </form>
-            </div>
-        </div>
-
-        <!-- Trust Badges -->
-        <div class="footer-trust">
-            <div class="trust-badges">
-                <div class="trust-badge">
-                    <i class="fas fa-shield-alt"></i>
-                    <div>
-                        <strong>14 днів</strong>
-                        <span>повернення</span>
-                    </div>
-                </div>
-                <div class="trust-badge">
-                    <i class="fas fa-coffee"></i>
-                    <div>
-                        <strong>100% Specialty</strong>
-                        <span>якість зерна</span>
-                    </div>
-                </div>
-                <div class="trust-badge">
-                    <i class="fas fa-shipping-fast"></i>
-                    <div>
-                        <strong>Безкоштовна</strong>
-                        <span>доставка від 500₴</span>
-                    </div>
-                </div>
-                <div class="trust-badge">
-                    <i class="fas fa-fire"></i>
-                    <div>
-                        <strong>Свіжа обсмажка</strong>
-                        <span>до 3 днів</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Payment Methods -->
-        <div class="footer-payment">
-            <p style="color:#666; font-size:0.85rem; margin-bottom:15px;">Способи оплати:</p>
-            <div class="payment-icons">
-                <i class="fab fa-cc-visa" title="Visa"></i>
-                <i class="fab fa-cc-mastercard" title="Mastercard"></i>
-                <i class="fab fa-apple-pay" title="Apple Pay"></i>
-                <i class="fab fa-google-pay" title="Google Pay"></i>
-                <span class="payment-text">LiqPay</span>
-            </div>
-        </div>
-
-        <!-- Bottom Bar -->
-        <div class="footer-bottom">
-            <div class="footer-bottom-left">
-                <p>&copy; 2025 EthioDirect. Всі права захищені.</p>
-            </div>
-            <div class="footer-bottom-right">
-                <a href="privacy.html">Політика конфіденційності</a>
-                <span>·</span>
-                <a href="return.html">Умови повернення</a>
-                <span>·</span>
-                <a href="#">Публічна оферта</a>
-            </div>
-        </div>
+    <!-- FLOATING CONTACTS -->
+    <div class="floating-contacts">
+        <a href="https://t.me/ethiodirect" class="float-btn telegram" title="Telegram" data-i18n="float_buttons.telegram" data-i18n-title>
+            <i class="fab fa-telegram-plane"></i>
+        </a>
+        <a href="viber://chat?number=+380501234567" class="float-btn viber" title="Viber" data-i18n="float_buttons.viber" data-i18n-title>
+            <i class="fab fa-viber"></i>
+        </a>
+        <a href="tel:+380501234567" class="float-btn phone" title="Зателефонувати" data-i18n="float_buttons.phone" data-i18n-title>
+            <i class="fas fa-phone-alt"></i>
+        </a>
     </div>
-</footer>
+
+    <!-- TOAST -->
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle"></i>
+        <span id="toast-msg">Готово!</span>
+    </div>
+
+    <!-- FOOTER -->
+        <!-- FOOTER -->
+    <footer class="footer-pro">
+        <div class="container">
+            <!-- Main Footer Content -->
+            <div class="footer-grid">
+                <!-- Column 1: Brand -->
+                <div class="footer-col">
+                    <h4 style="font-family:var(--font-heading); font-size:1.5rem; color:white; margin-bottom:20px;">
+                        <a href="index.html" style="text-decoration:none; color:white;">EthioDirect</a>
+                    </h4>
+                    <p style="color:#aaa; line-height:1.8; margin-bottom:20px;" data-i18n="footer.description">Ми доставляємо справжню specialty каву прямо з ефіопських ферм до вашого дому. Свіжа обсмажка, чесна ціна, любов до кави.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Instagram" data-i18n="social.instagram" data-i18n-aria><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Facebook" data-i18n="social.facebook" data-i18n-aria><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Telegram" data-i18n="social.telegram" data-i18n-aria><i class="fab fa-telegram"></i></a>
+                        <a href="#" aria-label="TikTok" data-i18n="social.tiktok" data-i18n-aria><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Shop -->
+                <div class="footer-col">
+                    <h4 data-i18n="footer.shop_title">Магазин</h4>
+                    <ul class="footer-links">
+                        <li><a href="shop.html" data-i18n="footer.catalog">Весь каталог</a></li>
+                        <li><a href="subscription.html" data-i18n="footer.subscription">Підписка на каву</a></li>
+                        <li><a href="gift-certificates.html" data-i18n="nav.certificates">Сертифікати</a></li>
+                        <li><a href="b2b.html" data-i18n="footer.b2b">B2B рішення</a></li>
+                        <li><a href="account.html" data-i18n="footer.account">Особистий кабінет</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Support -->
+                <div class="footer-col">
+                    <h4 data-i18n="footer.support_title">Підтримка</h4>
+                    <ul class="footer-links">
+                        <li><a href="delivery.html" data-i18n="footer.delivery">Доставка та оплата</a></li>
+                        <li><a href="return.html" data-i18n="footer.return">Повернення та обмін</a></li>
+                        <li><a href="faq.html" data-i18n="footer.faq">Часті питання</a></li>
+                        <li><a href="contacts.html" data-i18n="footer.contacts">Контакти</a></li>
+                        <li><a href="about.html" data-i18n="nav.about">Про нас</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Contacts -->
+                <div class="footer-col">
+                    <h4 data-i18n="footer.contacts_title">Контакти</h4>
+                    <ul class="footer-contacts">
+                        <li><i class="fas fa-phone"></i> <a href="tel:+380501234567">+380 (50) 123-45-67</a></li>
+                        <li><i class="fas fa-envelope"></i> <a
+                                href="mailto:hello@ethiodirect.ua">hello@ethiodirect.ua</a>
+                        </li>
+                        <li><i class="fas fa-map-marker-alt"></i> <span data-i18n="footer.location">Одеса, Україна</span></li>
+                        <li><i class="fas fa-clock"></i> <span data-i18n="topbar.hours">Пн-Пт: 9:00-18:00</span></li>
+                    </ul>
+                </div>
+
+                <!-- Column 5: Newsletter -->
+                <div class="footer-col">
+                    <h4 data-i18n="footer.newsletter_title">Підписка на новини</h4>
+                    <p style="color:#aaa; margin-bottom:15px; font-size:0.9rem;" data-i18n="footer.newsletter_text">Отримуйте акції, новинки та поради щодо заварювання</p>
+                    <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
+                        <input type="email" placeholder="Ваш email" data-i18n="footer.newsletter_placeholder" data-i18n-placeholder required>
+                        <button type="submit" class="btn-newsletter" data-i18n="footer.newsletter_cta">Підписатись</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Trust Badges -->
+            <div class="footer-trust">
+                <div class="trust-badges">
+                    <div class="trust-badge">
+                        <i class="fas fa-shield-alt"></i>
+                        <div>
+                            <strong>14 днів</strong>
+                            <span>повернення</span>
+                        </div>
+                    </div>
+                    <div class="trust-badge">
+                        <i class="fas fa-coffee"></i>
+                        <div>
+                            <strong>100% Specialty</strong>
+                            <span>якість зерна</span>
+                        </div>
+                    </div>
+                    <div class="trust-badge">
+                        <i class="fas fa-shipping-fast"></i>
+                        <div>
+                            <strong>Безкоштовна</strong>
+                            <span>доставка від 500₴</span>
+                        </div>
+                    </div>
+                    <div class="trust-badge">
+                        <i class="fas fa-fire"></i>
+                        <div>
+                            <strong>Свіжа обсмажка</strong>
+                            <span>до 3 днів</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment Methods -->
+            <div class="footer-payment">
+                <p style="color:#666; font-size:0.85rem; margin-bottom:15px;">Способи оплати:</p>
+                <div class="payment-icons">
+                    <i class="fab fa-cc-visa" title="Visa" data-i18n="payment.visa" data-i18n-title></i>
+                    <i class="fab fa-cc-mastercard" title="Mastercard" data-i18n="payment.mastercard" data-i18n-title></i>
+                    <i class="fab fa-apple-pay" title="Apple Pay" data-i18n="payment.apple_pay" data-i18n-title></i>
+                    <i class="fab fa-google-pay" title="Google Pay" data-i18n="payment.google_pay" data-i18n-title></i>
+                    <span class="payment-text">LiqPay</span>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="footer-bottom">
+                <div class="footer-bottom-left">
+                    <p>&copy; 2025 EthioDirect. Всі права захищені.</p>
+                </div>
+                <div class="footer-bottom-right">
+                    <a href="privacy.html" data-i18n="footer.privacy">Політика конфіденційності</a>
+                    <span>·</span>
+                    <a href="return.html" data-i18n="footer.terms">Умови повернення</a>
+                    <span>·</span>
+                    <a href="#" data-i18n="footer.offer">Публічна оферта</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <script src="js/main.js"></script>
-    <script src="js/gift-certificates.js"></script>
+    <script>
+        let selectedAmount = 500;
+
+        function selectAmount(btn, amount) {
+            document.querySelectorAll('.amount-btn').forEach(b => {
+                b.style.borderColor = '#eee';
+                b.style.background = 'white';
+            });
+            btn.style.borderColor = 'var(--primary)';
+            btn.style.background = 'rgba(139,69,69,0.05)';
+            selectedAmount = amount;
+            updatePreview();
+        }
+
+        function updatePreview() {
+            document.getElementById('previewAmount').textContent = selectedAmount;
+            document.getElementById('totalPrice').textContent = selectedAmount;
+
+            const recipient = document.getElementById('recipient').value;
+            const sender = document.getElementById('sender').value;
+
+            document.getElementById('previewRecipient').textContent = recipient || '_____________';
+            document.getElementById('previewSender').textContent = sender || '_____________';
+        }
+
+        document.getElementById('recipient').addEventListener('input', updatePreview);
+        document.getElementById('sender').addEventListener('input', updatePreview);
+        document.getElementById('custom-amount').addEventListener('input', function () {
+            if (this.value) {
+                selectedAmount = parseInt(this.value) || 500;
+                document.querySelectorAll('.amount-btn').forEach(b => {
+                    b.style.borderColor = '#eee';
+                    b.style.background = 'white';
+                });
+                updatePreview();
+            }
+        });
+
+        function purchaseCertificate() {
+            const email = document.getElementById('email').value;
+            if (!email) {
+                alert('Будь ласка, введіть email для доставки сертифікату');
+                return;
+            }
+            showToast('Сертифікат створено! Перевірте email.');
+        }
+    </script>
+    <script src="js/i18n.js"></script>
 </body>
 
 </html>

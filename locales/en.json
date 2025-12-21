@@ -1,0 +1,286 @@
+{
+    "site": {
+        "title": "EthioDirect — Coffee That Was Waiting for You"
+    },
+    "nav": {
+        "catalog": "Catalog",
+        "subscription": "Subscription",
+        "certificates": "Gift Cards",
+        "stories": "Stories",
+        "about": "About Us",
+        "test": "Taste Test"
+    },
+    "topbar": {
+        "phone": "+380 (50) 123-45-67",
+        "hours": "Mon-Fri: 9:00-18:00",
+        "promo_action": "SALE:",
+        "promo_delivery": "free shipping from 500₴",
+        "promo_subscription": "Subscription:",
+        "promo_subscription_text": "-10% on every delivery",
+        "promo_roast": "Fresh roast",
+        "promo_roast_days": "within 3 days"
+    },
+    "search": {
+        "placeholder": "Search coffee...",
+        "no_results": "Nothing found"
+    },
+    "float_buttons": {
+        "telegram": "Message on Telegram",
+        "viber": "Message on Viber",
+        "phone": "Call us"
+    },
+    "hero": {
+        "badge": "100% SPECIALTY COFFEE",
+        "title": "Authentic Ethiopian Coffee, Freshly Roasted",
+        "subtitle": "From Ethiopian Mountains — To Your Cup",
+        "text": "We deliver beans directly from Ethiopian farms and roast them for each order. Only fresh roast within 3 days.",
+        "cta": "Choose Coffee",
+        "quiz_text": "Don't know what to choose?",
+        "quiz_link": "Take the taste test"
+    },
+    "trust": {
+        "clients": "satisfied customers",
+        "farmers": "Direct from farmers",
+        "specialty": "85+ SCA score"
+    },
+    "philosophy": {
+        "title": "This is more than coffee.",
+        "subtitle": "This is — The Way.",
+        "specialty_title": "Specialty 85+",
+        "specialty_text": "Only select Specialty grade beans. No compromises with quality.",
+        "roast_title": "The Fire of Roast",
+        "roast_text": "We roast only for your order. You receive it at peak flavor.",
+        "price_title": "Fair Price",
+        "price_text": "Direct import without middlemen. You pay the farmer, not the reseller.",
+        "cta": "Choose your variety"
+    },
+    "collection": {
+        "title": "Best from Ethiopian Highlands",
+        "filter_all": "All lots",
+        "filter_fruity": "Fruity",
+        "filter_chocolate": "Chocolate",
+        "filter_floral": "Floral",
+        "view_all": "All varieties in stock"
+    },
+    "subscription": {
+        "title": "Coffee Club",
+        "subtitle": "Your personal sommelier. Coffee arrives at your home exactly when needed.",
+        "regular_title": "One-time purchase",
+        "regular_price": "✗ Full price",
+        "regular_delivery": "✗ Shipping from 500₴",
+        "regular_remember": "✗ Need to remember to order",
+        "sub_title": "Subscription",
+        "sub_badge": "BETTER VALUE",
+        "sub_discount": "✓ -10% on every delivery",
+        "sub_delivery": "✓ Free shipping always",
+        "sub_auto": "✓ Automatic — coffee arrives by itself",
+        "cancel_note": "Cancel or modify anytime with 1 click",
+        "step1_title": "1. Taste Test",
+        "step1_text": "Answer 5 questions about your preferences. Algorithm will find your perfect variety.",
+        "step2_title": "2. Personalization",
+        "step2_text": "Choose frequency (1-4 times per month) and volume. First delivery — in 3 days.",
+        "step3_title": "3. Ritual",
+        "step3_text": "Coffee arrives automatically. Cancel anytime with 1 click. 10% subscription discount.",
+        "cta": "Start taste test",
+        "social_proof": "{{count}} people subscribed this month"
+    },
+    "stats": {
+        "clients": "Satisfied customers",
+        "sca": "SCA Specialty score",
+        "delivery": "From order to cup",
+        "origin": "Direct origin"
+    },
+    "reviews": {
+        "featured_text": "\"This is not just a drink, it's a journey. I felt the difference from the first sip. Now store coffee simply doesn't exist for me.\"",
+        "featured_author": "— Elena K., Kyiv • Subscription to Guji Natural",
+        "review1_name": "Andrii M.",
+        "review1_city": "Lviv",
+        "review1_text": "Fast delivery and incredible aroma that fills the entire apartment.",
+        "review2_name": "Marina S.",
+        "review2_city": "Odesa",
+        "review2_text": "Service is excellent. Very convenient not to think about when to order the next pack.",
+        "review3_name": "Viktor P.",
+        "review3_city": "Kyiv",
+        "review3_text": "Thank you for the opportunity to try different varieties! Harrar is my favorite.",
+        "join_text": "Join",
+        "coffee_lovers": "satisfied coffee lovers",
+        "subscribe_cta": "Subscribe with 10% discount"
+    },
+    "lead": {
+        "title": "Start Your Journey in the World of Specialty",
+        "text": "Download our free PDF guide \"How to Choose Ethiopian Coffee\".",
+        "text_bold": "free PDF guide",
+        "placeholder": "Your Email",
+        "cta": "Get the guide",
+        "success": "Guide sent to your email!"
+    },
+    "footer": {
+        "description": "We deliver authentic specialty coffee directly from Ethiopian farms to your home. Fresh roast, fair price, love for coffee.",
+        "shop_title": "Shop",
+        "catalog": "Full catalog",
+        "subscription": "Coffee subscription",
+        "certificates": "Gift cards",
+        "b2b": "B2B solutions",
+        "account": "My account",
+        "support_title": "Support",
+        "delivery": "Shipping & Payment",
+        "return": "Returns & Exchanges",
+        "faq": "FAQ",
+        "contacts": "Contact Us",
+        "about": "About Us",
+        "contacts_title": "Contact",
+        "location": "Odesa, Ukraine",
+        "newsletter_title": "Newsletter",
+        "newsletter_text": "Get deals, new arrivals and brewing tips",
+        "newsletter_placeholder": "Your email",
+        "newsletter_cta": "Subscribe",
+        "trust_return": "14-day returns",
+        "trust_specialty": "100% Specialty bean quality",
+        "trust_shipping": "Free shipping from 500₴",
+        "trust_roast": "Fresh roast within 3 days",
+        "payment_methods": "Payment methods:",
+        "copyright": "© 2025 EthioDirect. All rights reserved.",
+        "privacy": "Privacy Policy",
+        "terms": "Return Policy",
+        "offer": "Public Offer"
+    },
+    "cart": {
+        "title": "Your Cart",
+        "items": "items",
+        "items_single": "item",
+        "items_few": "items",
+        "subtotal": "Total:",
+        "free_shipping_progress": "Until free shipping:",
+        "free_shipping_done": "Free shipping!",
+        "checkout": "Checkout",
+        "secure_payment": "Secure payment",
+        "return_policy": "14-day returns",
+        "empty": "Cart is empty",
+        "continue_shopping": "Continue shopping"
+    },
+    "product": {
+        "add_to_cart": "Add to Cart",
+        "added_to_cart": "Added!",
+        "quick_view": "Quick view",
+        "weight": "Weight",
+        "grind": "Grind",
+        "whole_beans": "Whole beans",
+        "filter": "Filter",
+        "espresso": "Espresso",
+        "turka": "Turkish",
+        "french_press": "French press",
+        "in_stock": "In stock",
+        "out_of_stock": "Out of stock",
+        "roast_date": "Roast date",
+        "origin": "Origin",
+        "flavor": "Flavor notes",
+        "roast_level": "Roast level",
+        "processing": "Processing",
+        "altitude": "Altitude",
+        "sca_score": "SCA score"
+    },
+    "common": {
+        "action": "SALE",
+        "new": "NEW",
+        "bestseller": "BESTSELLERS",
+        "sale": "SALE",
+        "close": "Close",
+        "loading": "Loading...",
+        "error": "Error",
+        "success": "Success",
+        "product_added": "Product added to cart",
+        "currency": "₴",
+        "from": "from",
+        "view_more": "View more",
+        "read_more": "Read more",
+        "back": "Back",
+        "next": "Next",
+        "submit": "Submit",
+        "cancel": "Cancel",
+        "save": "Save",
+        "delete": "Delete",
+        "edit": "Edit",
+        "per_item": "each",
+        "open_menu": "Open menu"
+    },
+    "shop": {
+        "title": "Coffee Catalog",
+        "sort": "Sort by",
+        "sort_popular": "Popularity",
+        "sort_price_asc": "Price: low to high",
+        "sort_price_desc": "Price: high to low",
+        "sort_new": "New arrivals",
+        "filter_price": "Price",
+        "filter_roast": "Roast",
+        "filter_taste": "Taste",
+        "roast_light": "Light",
+        "roast_medium": "Medium",
+        "roast_dark": "Dark",
+        "apply_filters": "Apply",
+        "clear_filters": "Clear",
+        "showing": "Showing",
+        "of": "of",
+        "products": "products"
+    },
+    "about": {
+        "page_title": "About Us",
+        "our_story": "Our Story",
+        "our_mission": "Our Mission",
+        "our_values": "Our Values"
+    },
+    "contacts": {
+        "page_title": "Contact Us",
+        "form_name": "Your name",
+        "form_email": "Your email",
+        "form_message": "Your message",
+        "form_submit": "Send",
+        "form_success": "Thank you! We will contact you soon."
+    },
+    "delivery": {
+        "page_title": "Shipping & Payment",
+        "shipping_title": "Shipping Methods",
+        "payment_title": "Payment Methods"
+    },
+    "faq": {
+        "page_title": "FAQ",
+        "search_placeholder": "Search questions..."
+    },
+    "gift": {
+        "page_title": "Gift Cards",
+        "select_amount": "Select amount",
+        "buy_now": "Buy now"
+    },
+    "account": {
+        "page_title": "My Account",
+        "login": "Log in",
+        "register": "Sign up",
+        "logout": "Log out",
+        "my_orders": "My orders",
+        "my_subscription": "My subscription",
+        "settings": "Settings"
+    },
+    "quiz": {
+        "title": "Taste Test",
+        "subtitle": "Find your perfect coffee in 5 questions",
+        "start": "Start test",
+        "question": "Question",
+        "of": "of",
+        "next": "Next",
+        "prev": "Back",
+        "see_results": "See results",
+        "your_match": "Your perfect coffee"
+    },
+    "social": {
+        "instagram": "Follow us on Instagram",
+        "facebook": "Follow us on Facebook",
+        "telegram": "Our Telegram channel",
+        "tiktok": "Follow us on TikTok"
+    },
+    "payment": {
+        "visa": "Pay with Visa",
+        "mastercard": "Pay with Mastercard",
+        "apple_pay": "Pay with Apple Pay",
+        "google_pay": "Pay with Google Pay",
+        "privatbank": "Pay with PrivatBank"
+    }
+}

@@ -1,22 +1,61 @@
-# EthioDirect Website
+# EthioDirect
 
-Полноценный многостраничный веб-сайт кофейни (MPA).
+Premium Ethiopian specialty coffee e-commerce website with full multilingual support.
 
-## Структура
-- `index.html` - Главная страница
-- `shop.html` - Магазин с фильтрами
-- `subscription.html` - Конструктор подписки
-- `about.html`, `blog.html`, `b2b.html` ... - Информационные страницы
-- `js/` - Скрипты (логика корзины, компоненты)
-- `css/` - Стили (премиум дизайн)
+## Features
 
-## Как запустить на GitHub Pages
-1. Убедитесь, что код загружен в репозиторий.
-2. Зайдите в **Settings** (Настройки) репозитория на GitHub.
-3. Перейдите в раздел **Pages** (слева в меню).
-4. В пункте **Build and deployment** -> **Branch** выберите `main` и папку `/(root)`.
-5. Нажмите **Save**.
-6. Через минуту ссылка на ваш сайт появится сверху (например, `https://cashik777.github.io/Ant/`).
+- 🌍 **Multilingual** — Ukrainian, Russian, English with instant switching
+- ☕ **Specialty Coffee** — Ethiopian single-origin beans
+- 📦 **Subscription Service** — Coffee club with personalized recommendations
+- 🎁 **Gift Certificates** — Digital gift cards
+- 📱 **Responsive** — Mobile-first design
 
-## Локальный запуск
-Просто откройте `index.html` в любом браузере.
+## Tech Stack
+
+- **Frontend**: HTML5, CSS3, Vanilla JavaScript
+- **i18n**: Custom lightweight engine (no dependencies)
+- **Styling**: Custom CSS with CSS variables
+
+## i18n System
+
+Custom production-ready internationalization engine:
+- No external dependencies
+- Browser language detection
+- Fallback chain: current → EN → UK
+- Nested key support (`nav.catalog`)
+- Interpolation (`{{count}} items`)
+- Attribute translation (placeholder, title, alt, aria-label)
+- localStorage persistence
+
+### Adding New Language
+
+1. Create `locales/de.json` (copy structure from `uk.json`)
+2. Add to `supportedLangs` in `js/i18n.js`
+3. Add button in header
+
+## Pages
+
+- Home (index.html)
+- Catalog (shop.html)
+- Subscription (subscription.html)
+- Gift Cards (gift-certificates.html)
+- Blog (blog.html + articles)
+- About (about.html)
+- FAQ (faq.html)
+- Contacts (contacts.html)
+- Delivery (delivery.html)
+- Account (account.html)
+
+## Development
+
+```bash
+# Start local server
+python -m http.server 8080
+
+# Open in browser
+http://localhost:8080
+```
+
+## License
+
+MIT

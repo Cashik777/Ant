@@ -11,6 +11,31 @@
 
 <body>
 
+    <!-- TOP BAR - Competitor Feature -->
+    <div class="top-bar">
+        <div class="container top-bar-inner">
+            <div class="top-bar-left">
+                <span><i class="fas fa-phone-alt"></i> <span data-i18n="topbar.phone">+380 (50) 123-45-67</span></span>
+                <span class="divider-dot">•</span>
+                <span><i class="fas fa-clock"></i> <span data-i18n="topbar.hours">Пн-Пт: 9:00-18:00</span></span>
+            </div>
+            <div class="top-bar-center">
+                <div class="promo-ticker">
+                    <span class="ticker-item">🔥 <strong data-i18n="topbar.promo_action">АКЦІЯ:</strong> <span data-i18n="topbar.promo_delivery">безкоштовна доставка від 500₴</span></span>
+                    <span class="ticker-divider">|</span>
+                    <span class="ticker-item">☕ <span data-i18n="topbar.promo_subscription">Підписка:</span> <strong data-i18n="topbar.promo_subscription_text">-10% на кожну доставку</strong></span>
+                    <span class="ticker-divider">|</span>
+                    <span class="ticker-item">⚡ <span data-i18n="topbar.promo_roast">Свіжа обсмажка</span> <strong data-i18n="topbar.promo_roast_days">до 3 днів</strong></span>
+                </div>
+            </div>
+                        <div class="top-bar-right">
+                <a href="#" translate="no" class="active" onclick="setLanguage('uk'); return false;">UA</a>
+                <a href="#" translate="no" onclick="setLanguage('ru'); return false;">RU</a>
+                <a href="#" translate="no" onclick="setLanguage('en'); return false;">EN</a>
+            </div>
+        </div>
+    </div>
+
                     <header class="header">
         <div class="container header-inner">
             <a href="index.html" class="logo">
@@ -18,12 +43,12 @@
                 <span style="font-family:var(--font-heading); letter-spacing:1px; font-size:1.5rem;">EthioDirect</span>
             </a>
             <nav class="nav-desktop">
-                <a href="shop.html" class="nav-link">Каталог</a>
-                <a href="subscription.html" class="nav-link">Підписка</a>
+                <a href="shop.html" class="nav-link" data-i18n="nav.catalog">Каталог</a>
+                <a href="subscription.html" class="nav-link" data-i18n="nav.subscription">Підписка</a>
                 <a href="gift-certificates.html" class="nav-link">🎁 Сертифікати</a>
-                <a href="blog.html" class="nav-link">Історії</a>
-                <a href="about.html" class="nav-link">Про нас</a>
-                <a href="quiz.html" class="nav-link">Тест</a>
+                <a href="blog.html" class="nav-link" data-i18n="nav.stories">Історії</a>
+                <a href="about.html" class="nav-link" data-i18n="nav.about">Про нас</a>
+                <a href="quiz.html" class="nav-link" data-i18n="nav.test">Тест</a>
             </nav>
             <div class="header-actions">
                 <a href="account.html"><i class="far fa-user"></i></a>
@@ -33,192 +58,49 @@
         </div>
     </header>
 
-    <div class="overlay"></div>
+        <div class="overlay"></div>
     <div class="drawer">
         <div class="drawer-header">
-            <h3>Ваш кошик</h3><span class="cart-close" style="cursor:pointer;font-size:1.5rem;">&times;</span>
+            <h3><i class="fas fa-shopping-bag" style="margin-right:10px; color:var(--primary);"></i> Ваш кошик</h3>
+            <button onclick="closeDrawer()"
+                style="background:none;border:none;font-size:1.5rem;color:var(--text-dark);cursor:pointer;">&times;</button>
         </div>
         <div class="drawer-body" id="cart-list"></div>
         <div class="drawer-footer">
-            <div style="display:flex;justify-content:space-between;margin-bottom:15px;font-weight:600;">
-                <span>Разом:</span><span id="cart-total">0 ₴</span></div>
-            <button class="btn btn-primary" style="width:100%;">Оформити замовлення</button>
+            <!-- Free Shipping Progress Bar -->
+            <div class="free-shipping-progress" id="drawer-shipping-progress">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="drawer-progress-fill" style="width: 0%;"></div>
+                </div>
+                <p class="progress-text" id="drawer-progress-text">
+                    <i class="fas fa-truck"></i> <span data-i18n="cart.free_shipping_progress">До безкоштовної доставки:</span> <strong>500 ₴</strong>
+                </p>
+            </div>
+            
+            <div style="display:flex; justify-content:space-between; margin-bottom:15px; font-size:1.1rem;">
+                <span data-i18n="cart.subtotal">Разом:</span>
+                <span id="cart-total" style="font-weight:700; color:var(--primary); font-size:1.3rem;">0 ₴</span>
+            </div>
+            <button class="btn btn-primary" style="width:100%;">
+                <i class="fas fa-lock" style="margin-right:8px;"></i>
+                Оформити замовлення
+            </button>
+            <p style="text-align:center; margin-top:12px; font-size:0.8rem; color:var(--text-muted);">
+                <i class="fas fa-shield-alt"></i> Безпечна оплата • <i class="fas fa-undo"></i> 14 днів на повернення
+            </p>
         </div>
     </div>
 
-    <main>
-        <section class="section" style="padding-top:120px; background:white;">
-            <div class="container" style="max-width:900px;">
-                <h1 class="text-center">Політика конфіденційності</h1>
-                <p class="text-center" style="color:var(--text-muted); margin-bottom:50px;">Останнє оновлення: 14 грудня
-                    2024</p>
-
-                <div style="line-height:1.8;">
-                    <h3>1. Збір інформації</h3>
-                    <p>Ми збираємо наступну інформацію:</p>
-                    <ul style="margin-bottom:30px;">
-                        <li>Ім'я, email, телефон (при реєстрації)</li>
-                        <li>Адреса доставки</li>
-                        <li>Історія замовлень та переваги</li>
-                        <li>Дані cookies для покращення досвіду</li>
-                    </ul>
-
-                    <h3>2. Використання даних</h3>
-                    <p>Ваші дані використовуються для:</p>
-                    <ul style="margin-bottom:30px;">
-                        <li>Обробки та доставки замовлень</li>
-                        <li>Персоналізації рекомендацій</li>
-                        <li>Відправки важливих оновлень про підписку</li>
-                        <li>Покращення якості сервісу</li>
-                    </ul>
-
-                    <h3>3. Захист даних</h3>
-                    <p style="margin-bottom:30px;">Ми використовуємо SSL-шифрування для захисту ваших персональних
-                        даних. Ваша платіжна інформація обробляється через захищені платіжні системи (LiqPay/Fondy) і не
-                        зберігається на наших серверах.</p>
-
-                    <h3>4. Передача третім особам</h3>
-                    <p style="margin-bottom:30px;">Ми НЕ продаємо ваші дані. Інформація передається лише Новій Пошті для
-                        доставки та платіжним системам для обробки платежів.</p>
-
-                    <h3>5. Ваші права (GDPR)</h3>
-                    <ul style="margin-bottom:30px;">
-                        <li>Право на доступ до ваших даних</li>
-                        <li>Право на виправлення неточних даних</li>
-                        <li>Право на видалення даних ("право на забуття")</li>
-                        <li>Право відкликати згоду на обробку</li>
-                    </ul>
-
-                    <h3>6. Cookies</h3>
-                    <p style="margin-bottom:30px;">Ми використовуємо cookies для зберігання кошика та налаштувань. Ви
-                        можете відключити cookies у налаштуваннях браузера, але це може вплинути на функціональність
-                        сайту.</p>
-
-                    <h3>7. Зміни політики</h3>
-                    <p style="margin-bottom:30px;">Ми можемо оновлювати цю політику. Про суттєві зміни ми повідомимо вас
-                        email.</p>
-
-                    <h3>8. Контакти</h3>
-                    <p>З питань про обробку даних пишіть: <a href="mailto:privacy@ethiodirect.ua"
-                            style="color:var(--primary); text-decoration:underline;">privacy@ethiodirect.ua</a></p>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- PROFESSIONAL FOOTER COMPONENT -->
-<!-- PROFESSIONAL FOOTER COMPONENT -->
-<!-- PROFESSIONAL FOOTER COMPONENT -->
-<!-- PROFESSIONAL FOOTER COMPONENT -->
-<footer class="footer-pro">
-    <div class="container">
-        <!-- Main Footer Content -->
-        <div class="footer-grid">
-            <!-- Column 1: Brand -->
-            <div class="footer-col">
-                <h4 style="font-family:var(--font-heading); font-size:1.5rem; color:white; margin-bottom:20px;">
-                    <a href="index.html" style="text-decoration:none; color:white;">EthioDirect</a>
-                </h4>
-                <p style="color:#aaa; line-height:1.8; margin-bottom:20px;">Ми доставляємо справжню specialty каву прямо
-                    з ефіопських ферм до вашого дому. Свіжа обсмажка, чесна ціна, любов до кави.</p>
-                <div class="social-links">
-                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                    <a href="#" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
-                    <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-                </div>
-            </div>
-
-            <!-- Column 2: Shop -->
-            <div class="footer-col">
-                <h4>Магазин</h4>
-                <ul class="footer-links">
-                    <li><a href="shop.html">Весь каталог</a></li>
-                    <li><a href="subscription.html">Підписка на каву</a></li>
-                    <li><a href="gift-certificates.html">Сертифікати</a></li>
-                    <li><a href="b2b.html">B2B рішення</a></li>
-                    <li><a href="account.html">Особистий кабінет</a></li>
-                </ul>
-            </div>
-
-            <!-- Column 3: Support -->
-            <div class="footer-col">
-                <h4>Підтримка</h4>
-                <ul class="footer-links">
-                    <li><a href="delivery.html">Доставка та оплата</a></li>
-                    <li><a href="return.html">Повернення та обмін</a></li>
-                    <li><a href="faq.html">Часті питання</a></li>
-                    <li><a href="contacts.html">Контакти</a></li>
-                    <li><a href="about.html">Про нас</a></li>
-                </ul>
-            </div>
-
-            <!-- Column 4: Contacts -->
-            <div class="footer-col">
-                <h4>Контакти</h4>
-                <ul class="footer-contacts">
-                    <li><i class="fas fa-phone"></i> <a href="tel:+380501234567">+380 (50) 123-45-67</a></li>
-                    <li><i class="fas fa-envelope"></i> <a href="mailto:hello@ethiodirect.ua">hello@ethiodirect.ua</a>
-                    </li>
-                    <li><i class="fas fa-map-marker-alt"></i> Одеса, Україна</li>
-                    <li><i class="fas fa-clock"></i> Пн-Пт: 9:00-18:00</li>
-                </ul>
-            </div>
-
-            <!-- Column 5: Newsletter -->
-            <div class="footer-col">
-                <h4>Підписка на новини</h4>
-                <p style="color:#aaa; margin-bottom:15px; font-size:0.9rem;">Отримуйте акції, новинки та поради щодо
-                    заварювання</p>
-                <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
-                    <input type="email" placeholder="Ваш email" required>
-                    <button type="submit" class="btn-newsletter">Підписатись</button>
-                </form>
-            </div>
-        </div>
-
-        <!-- Trust Badges -->
-        <div class="footer-trust">
-            <div class="trust-badges">
-                <div class="trust-badge">
-                    <i class="fas fa-shield-alt"></i>
-                    <div>
-                        <strong>14 днів</strong>
-                        <span>повернення</span>
-                    </div>
-                </div>
-                <div class="trust-badge">
-                    <i class="fas fa-coffee"></i>
-                    <div>
-                        <strong>100% Specialty</strong>
-                        <span>якість зерна</span>
-                    </div>
-                </div>
-                <div class="trust-badge">
-                    <i class="fas fa-shipping-fast"></i>
-                    <div>
-                        <strong>Безкоштовна</strong>
-                        <span>доставка від 500₴</span>
-                    </div>
-                </div>
-                <div class="trust-badge">
-                    <i class="fas fa-fire"></i>
-                    <div>
-                        <strong>Свіжа обсмажка</strong>
-                        <span>до 3 днів</span>
-                    </div>
-                </div>
-            </div>
         </div>
 
         <!-- Payment Methods -->
         <div class="footer-payment">
             <p style="color:#666; font-size:0.85rem; margin-bottom:15px;">Способи оплати:</p>
             <div class="payment-icons">
-                <i class="fab fa-cc-visa" title="Visa"></i>
-                <i class="fab fa-cc-mastercard" title="Mastercard"></i>
-                <i class="fab fa-apple-pay" title="Apple Pay"></i>
-                <i class="fab fa-google-pay" title="Google Pay"></i>
+                <i class="fab fa-cc-visa" title="Visa" data-i18n="payment.visa" data-i18n-title></i>
+                <i class="fab fa-cc-mastercard" title="Mastercard" data-i18n="payment.mastercard" data-i18n-title></i>
+                <i class="fab fa-apple-pay" title="Apple Pay" data-i18n="payment.apple_pay" data-i18n-title></i>
+                <i class="fab fa-google-pay" title="Google Pay" data-i18n="payment.google_pay" data-i18n-title></i>
                 <span class="payment-text">LiqPay</span>
             </div>
         </div>
@@ -229,17 +111,38 @@
                 <p>&copy; 2025 EthioDirect. Всі права захищені.</p>
             </div>
             <div class="footer-bottom-right">
-                <a href="privacy.html">Політика конфіденційності</a>
+                <a href="privacy.html" data-i18n="footer.privacy">Політика конфіденційності</a>
                 <span>·</span>
-                <a href="return.html">Умови повернення</a>
+                <a href="return.html" data-i18n="footer.terms">Умови повернення</a>
                 <span>·</span>
-                <a href="#">Публічна оферта</a>
+                <a href="#" data-i18n="footer.offer">Публічна оферта</a>
             </div>
         </div>
     </div>
 </footer>
+    <!-- FLOATING CONTACT BUTTONS -->
+    <div class="floating-contacts">
+        <a href="https://t.me/ethiodirect" class="float-btn telegram" title="Написати в Telegram" data-i18n="float_buttons.telegram" data-i18n-title>
+            <i class="fab fa-telegram-plane"></i>
+        </a>
+        <a href="viber://chat?number=+380501234567" class="float-btn viber" title="Написати в Viber" data-i18n="float_buttons.viber" data-i18n-title>
+            <i class="fab fa-viber"></i>
+        </a>
+        <a href="tel:+380501234567" class="float-btn phone" title="Зателефонувати" data-i18n="float_buttons.phone" data-i18n-title>
+            <i class="fas fa-phone-alt"></i>
+        </a>
+    </div>
+
+    <!-- TOAST -->
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle"></i>
+        <span id="toast-msg">Товар додано</span>
+    </div>
+
+
 
     <script src="js/main.js"></script>
+    <script src="js/i18n.js"></script>
 </body>
 
 </html>

@@ -7,164 +7,244 @@
     <title>Магазин — EthioDirect</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/shop-filters.css">
 </head>
 
 <body>
 
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        <div class="container top-bar-inner">
+            <div class="top-bar-left">
+                <span><i class="fas fa-phone-alt"></i> <span data-i18n="topbar.phone">+380 (50) 123-45-67</span></span>
+                <span class="divider-dot">•</span>
+                <span><i class="fas fa-clock"></i> <span data-i18n="topbar.hours">Пн-Пт: 9:00-18:00</span></span>
+            </div>
+            <div class="top-bar-center">
+                <div class="promo-ticker">
+                    <span class="ticker-item">🔥 <strong data-i18n="topbar.promo_action">АКЦІЯ:</strong> <span data-i18n="topbar.promo_delivery">безкоштовна доставка від 500₴</span></span>
+                    <span class="ticker-divider">|</span>
+                    <span class="ticker-item">☕ <span data-i18n="topbar.promo_subscription">Підписка:</span> <strong data-i18n="topbar.promo_subscription_text">-10% на кожну доставку</strong></span>
+                    <span class="ticker-divider">|</span>
+                    <span class="ticker-item">⚡ <span data-i18n="topbar.promo_roast">Свіжа обсмажка</span> <strong data-i18n="topbar.promo_roast_days">до 3 днів</strong></span>
+                </div>
+            </div>
+            <div class="top-bar-right">
+                <a href="#" translate="no" class="active" onclick="setLanguage('uk'); return false;">UA</a>
+                <a href="#" translate="no" onclick="setLanguage('ru'); return false;">RU</a>
+                <a href="#" translate="no" onclick="setLanguage('en'); return false;">EN</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- HEADER -->
     <header class="header">
         <div class="container header-inner">
             <a href="index.html" class="logo">
-                <i class="fas fa-leaf text-accent"></i>
-                <span style="font-family:var(--font-heading); letter-spacing:1px; font-size:1.5rem;">EthioDirect</span>
+                <i class="fas fa-certificate"></i> ETHIODIRECT
             </a>
+
             <nav class="nav-desktop">
-                <a href="shop.html" class="nav-link active">Каталог</a>
-                <a href="subscription.html" class="nav-link">Підписка</a>
-                <a href="gift-certificates.html" class="nav-link">🎁 Сертифікати</a>
-                <a href="blog.html" class="nav-link">Історії</a>
-                <a href="about.html" class="nav-link">Про нас</a>
-                <a href="#" class="nav-link" onclick="openQuiz(); return false;">Тест</a>
+                <a href="shop.html" class="nav-link active" data-i18n="nav.catalog">Каталог</a>
+                <a href="subscription.html" class="nav-link" data-i18n="nav.subscription">Підписка</a>
+                <a href="gift-certificates.html" class="nav-link" data-i18n="nav.certificates">Сертифікати</a>
+                <a href="blog.html" class="nav-link" data-i18n="nav.stories">Історії</a>
+                <a href="about.html" class="nav-link" data-i18n="nav.about">Про нас</a>
+                <a href="quiz.html" class="nav-link" data-i18n="nav.test">Тест</a>
             </nav>
+
+            <!-- Search Bar -->
+            <div class="header-search">
+                <div class="search-wrapper">
+                    <input type="text" class="search-input" id="search-input" placeholder="Пошук кави..."
+                        data-i18n="search.placeholder" data-i18n-placeholder
+                        oninput="handleSearch(this.value)">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                    <div class="search-results" id="search-results"></div>
+                </div>
+            </div>
+
             <div class="header-actions">
                 <a href="account.html"><i class="far fa-user"></i></a>
-                <div class="cart-trigger"><i class="fas fa-shopping-cart"></i><span class="cart-count">0</span></div>
+
+                <!-- Cart with Mini-Cart Dropdown -->
+                <div class="cart-wrapper">
+                    <div class="cart-trigger" onclick="openDrawer()">
+                        <i class="fas fa-shopping-bag" style="font-size:1.2rem;"></i>
+                        <span class="cart-count">0</span>
+                    </div>
+                    <div class="mini-cart" id="mini-cart">
+                        <div class="mini-cart-header">
+                            <h4 data-i18n="cart.title">Ваш кошик</h4>
+                            <span class="mini-cart-count" id="mini-cart-count"><span>0</span> <span data-i18n="cart.items">товарів</span></span>
+                        </div>
+                        <div class="mini-cart-items" id="mini-cart-items"></div>
+                        <div class="mini-cart-footer" id="mini-cart-footer">
+                            <div class="mini-cart-subtotal">
+                                <strong data-i18n="cart.subtotal">Разом:</strong>
+                                <span id="mini-cart-total">0 ₴</span>
+                            </div>
+                            <div class="mini-cart-shipping" id="mini-cart-shipping">
+                                <i class="fas fa-truck"></i> <span data-i18n="cart.free_shipping_progress">До безкоштовної доставки:</span> <strong>500 ₴</strong>
+                            </div>
+                            <button class="mini-cart-btn" onclick="openDrawer()">
+                                <i class="fas fa-shopping-cart"></i> <span data-i18n="cart.checkout">Оформити замовлення</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="menu-toggle" aria-label="Open menu" data-i18n="common.open_menu" data-i18n-aria data-i18n="common.open_menu" data-i18n-aria onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
-            <button class="menu-toggle" aria-label="Menu"><i class="fas fa-bars"></i></button>
         </div>
     </header>
 
+    <!-- MOBILE NAV -->
+    <nav class="nav-mobile" id="nav-mobile">
+        <a href="shop.html" data-i18n="nav.catalog">Каталог</a>
+        <a href="subscription.html" data-i18n="nav.subscription">Підписка</a>
+        <a href="quiz.html">Тест смаку</a>
+        <a href="gift-certificates.html" data-i18n="nav.certificates">Сертифікати</a>
+        <a href="about.html" data-i18n="nav.about">Про нас</a>
+        <a href="contacts.html" data-i18n="footer.contacts">Контакти</a>
+    </nav>
+
+    <!-- DRAWER CART -->
     <div class="overlay"></div>
     <div class="drawer">
         <div class="drawer-header">
-            <h3>Ваш кошик</h3><span class="cart-close" style="cursor:pointer;font-size:1.5rem;">&times;</span>
+            <h3><i class="fas fa-shopping-bag" style="margin-right:10px; color:var(--primary);"></i> <span
+                    data-i18n="cart_title">Ваш кошик</span></h3>
+            <button onclick="closeDrawer()"
+                style="background:none;border:none;font-size:1.5rem;color:var(--text-dark);cursor:pointer;">&times;</button>
         </div>
         <div class="drawer-body" id="cart-list"></div>
         <div class="drawer-footer">
-            <div style="display:flex;justify-content:space-between;margin-bottom:15px;font-weight:600;">
-                <span>Разом:</span><span id="cart-total">0 ₴</span>
+            <div class="free-shipping-progress" id="drawer-shipping-progress">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="drawer-progress-fill" style="width: 0%;"></div>
+                </div>
+                <p class="progress-text" id="drawer-progress-text">
+                    <i class="fas fa-truck"></i> <span data-i18n="cart_free_shipping">До безкоштовної доставки:</span>
+                    <strong>500 ₴</strong>
+                </p>
             </div>
-            <button class="btn btn-primary" style="width:100%;">Оформити замовлення</button>
+            <div style="display:flex; justify-content:space-between; margin-bottom:15px; font-size:1.1rem;">
+                <span data-i18n="cart_total" data-i18n="cart.subtotal">Разом:</span>
+                <span id="cart-total" style="font-weight:700; color:var(--primary); font-size:1.3rem;">0 ₴</span>
+            </div>
+            <button class="btn btn-primary" style="width:100%;">
+                <i class="fas fa-lock" style="margin-right:8px;"></i> <span data-i18n="cart_checkout">Оформити
+                    замовлення</span>
+            </button>
+            <p style="text-align:center; margin-top:12px; font-size:0.8rem; color:var(--text-muted);"
+                data-i18n="cart_secure">
+                <i class="fas fa-shield-alt"></i> Безпечна оплата • <i class="fas fa-undo"></i> 14 днів на повернення
+            </p>
         </div>
     </div>
 
     <main>
-        <section class="section" style="padding-top:120px; background:#f9f9f9;">
+        <!-- PAGE HERO -->
+        <section
+            style="padding-top:150px; background:linear-gradient(135deg, var(--bg-main) 0%, #f5f0e6 100%); padding-bottom:40px;">
             <div class="container">
-                <!-- Breadcrumbs -->
-                <nav class="breadcrumbs" style="margin-bottom:30px;">
-                    <a href="index.html">Головна</a>
-                    <span>›</span>
-                    <span>Каталог</span>
-                </nav>
+                <h1 style="font-size:2.5rem; margin-bottom:10px;" data-i18n="shop_title">Каталог кави</h1>
+                <p style="color:var(--text-muted); font-size:1.1rem;" data-i18n="shop_subtitle">Оберіть свій ідеальний
+                    смак</p>
+            </div>
+        </section>
 
-                <!-- Shop Layout with Sidebar -->
-                <div class="shop-layout">
-                    <!-- Sidebar Filters -->
-                    <aside class="shop-sidebar">
-                        <div class="filter-section">
-                            <h3>Фільтри</h3>
-                            <button class="btn-clear-filters" onclick="clearAllFilters()">Очистити всі</button>
+        <!-- SHOP CONTENT -->
+        <section class="section" style="padding-top:40px;">
+            <div class="container">
+                <div style="display:grid; grid-template-columns:260px 1fr; gap:40px;">
+
+                    <!-- FILTERS SIDEBAR -->
+                    <aside
+                        style="background:white; padding:25px; border-radius:12px; box-shadow:0 5px 20px rgba(0,0,0,0.05); height:fit-content; position:sticky; top:120px;">
+                        <h3 style="margin-bottom:25px; font-size:1.2rem;">Фільтри</h3>
+
+                        <!-- Roast -->
+                        <div style="margin-bottom:25px;">
+                            <h4 style="font-size:0.9rem; margin-bottom:15px; color:var(--text-muted); text-transform:uppercase; letter-spacing:1px;"
+                                data-i18n="filter_roast">
+                                Обсмажка</h4>
+                            <label
+                                style="display:flex; align-items:center; gap:10px; margin-bottom:10px; cursor:pointer;">
+                                <input type="checkbox" id="filter-light" onchange="applyFilters()"> <span
+                                    data-i18n="filter_light">Світла</span>
+                            </label>
+                            <label
+                                style="display:flex; align-items:center; gap:10px; margin-bottom:10px; cursor:pointer;">
+                                <input type="checkbox" id="filter-medium" onchange="applyFilters()"> <span
+                                    data-i18n="filter_medium">Середня</span>
+                            </label>
+                            <label style="display:flex; align-items:center; gap:10px; cursor:pointer;">
+                                <input type="checkbox" id="filter-dark" onchange="applyFilters()"> <span
+                                    data-i18n="filter_dark">Темна</span>
+                            </label>
                         </div>
 
-                        <!-- Price Range Filter -->
-                        <div class="filter-group" style="padding:15px 0;">
-                            <h3
-                                style="margin-bottom:15px; font-size:1rem; text-transform:uppercase; letter-spacing:1px; color:#333;">
-                                Ціна (₴)</h3>
-                            <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
-                                <input type="number" id="price-min" placeholder="0" value=""
-                                    style="width:100%; padding:10px; border:1px solid #ddd; border-radius:6px; font-size:0.9rem;"
-                                    oninput="applyPriceFilter()">
-                                <span style="color:#999;">—</span>
-                                <input type="number" id="price-max" placeholder="2000" value=""
-                                    style="width:100%; padding:10px; border:1px solid #ddd; border-radius:6px; font-size:0.9rem;"
-                                    oninput="applyPriceFilter()">
+                        <!-- Taste -->
+                        <div style="margin-bottom:25px;">
+                            <h4
+                                style="font-size:0.9rem; margin-bottom:15px; color:var(--text-muted); text-transform:uppercase; letter-spacing:1px;">
+                                Смак</h4>
+                            <label
+                                style="display:flex; align-items:center; gap:10px; margin-bottom:10px; cursor:pointer;">
+                                <input type="checkbox" id="filter-fruity" onchange="applyFilters()"> 🍓 Фруктовий
+                            </label>
+                            <label
+                                style="display:flex; align-items:center; gap:10px; margin-bottom:10px; cursor:pointer;">
+                                <input type="checkbox" id="filter-chocolate" onchange="applyFilters()"> 🍫 Шоколадний
+                            </label>
+                            <label style="display:flex; align-items:center; gap:10px; cursor:pointer;">
+                                <input type="checkbox" id="filter-floral" onchange="applyFilters()"> 🌸 Квітковий
+                            </label>
+                        </div>
+
+                        <!-- Price -->
+                        <div style="margin-bottom:25px;">
+                            <h4
+                                style="font-size:0.9rem; margin-bottom:15px; color:var(--text-muted); text-transform:uppercase; letter-spacing:1px;">
+                                Ціна</h4>
+                            <div style="display:flex; gap:10px; align-items:center;">
+                                <input type="number" id="price-min" placeholder="від"
+                                    style="width:80px; padding:8px; border:1px solid #ddd; border-radius:6px;">
+                                <span>—</span>
+                                <input type="number" id="price-max" placeholder="до"
+                                    style="width:80px; padding:8px; border:1px solid #ddd; border-radius:6px;">
                             </div>
                         </div>
 
-                        <!-- Roast Level Filter -->
-                        <div class="filter-group">
-                            <h4>Обсмажка</h4>
-                            <label class="filter-checkbox">
-                                <input type="checkbox" data-filter="roast" value="light">
-                                <span>Світла</span>
-                                <small>(фруктова, квіткова)</small>
-                            </label>
-                            <label class="filter-checkbox">
-                                <input type="checkbox" data-filter="roast" value="medium">
-                                <span>Середня</span>
-                                <small>(збалансована)</small>
-                            </label>
-                            <label class="filter-checkbox">
-                                <input type="checkbox" data-filter="roast" value="dark">
-                                <span>Темна</span>
-                                <small>(шоколадна, горіхова)</small>
-                            </label>
+                        <!-- Sort -->
+                        <div style="margin-bottom:25px;">
+                            <h4
+                                style="font-size:0.9rem; margin-bottom:15px; color:var(--text-muted); text-transform:uppercase; letter-spacing:1px;">
+                                Сортування</h4>
+                            <select id="sort-select" onchange="applyFilters()"
+                                style="width:100%; padding:10px; border:1px solid #ddd; border-radius:6px;">
+                                <option value="popular">За популярністю</option>
+                                <option value="price-asc">Ціна: від низької</option>
+                                <option value="price-desc">Ціна: від високої</option>
+                                <option value="rating">За рейтингом</option>
+                            </select>
                         </div>
 
-                        <!-- Taste Notes Filter -->
-                        <div class="filter-group">
-                            <h4>Смакові ноти</h4>
-                            <label class="filter-checkbox">
-                                <input type="checkbox" data-filter="taste" value="chocolate">
-                                <span>🍫 Шоколад і горіхи</span>
-                            </label>
-                            <label class="filter-checkbox">
-                                <input type="checkbox" data-filter="taste" value="fruity">
-                                <span>🍓 Ягоди і фрукти</span>
-                            </label>
-                            <label class="filter-checkbox">
-                                <input type="checkbox" data-filter="taste" value="floral">
-                                <span>🌸 Квіткові ноти</span>
-                            </label>
-                            <label class="filter-checkbox">
-                                <input type="checkbox" data-filter="taste" value="spicy">
-                                <span>🌶️ Пряні</span>
-                            </label>
-                        </div>
-
-                        <!-- Brewing Method Filter -->
-                        <div class="filter-group">
-                            <h4>Спосіб приготування</h4>
-                            <label class="filter-checkbox">
-                                <input type="checkbox" data-filter="method" value="espresso">
-                                <span>☕ Еспресо</span>
-                            </label>
-                            <label class="filter-checkbox">
-                                <input type="checkbox" data-filter="method" value="filter">
-                                <span>🫖 Фільтр</span>
-                            </label>
-                            <label class="filter-checkbox">
-                                <input type="checkbox" data-filter="method" value="turka">
-                                <span>🔥 Турка</span>
-                            </label>
-                            <label class="filter-checkbox">
-                                <input type="checkbox" data-filter="method" value="french">
-                                <span>🥤 Френч-прес</span>
-                            </label>
-                        </div>
+                        <button onclick="clearAllFilters()" class="btn btn-outline" style="width:100%;">
+                            <i class="fas fa-times"></i> Скинути фільтри
+                        </button>
                     </aside>
 
-                    <!-- Main Content Area -->
-                    <div class="shop-content">
-                        <!-- Top Bar -->
-                        <div class="shop-toolbar">
-                            <div class="results-info">
-                                Знайдено: <strong id="results-count">6</strong> товарів
-                            </div>
-                            <div class="shop-controls">
-                                <select id="sort-select" onchange="sortProducts(this.value)">
-                                    <option value="popular">Популярні</option>
-                                    <option value="price-asc">Ціна: зростання</option>
-                                    <option value="price-desc">Ціна: спадання</option>
-                                    <option value="new">Новинки</option>
-                                </select>
-                                <div class="view-switcher">
-                                    <button class="view-btn active" data-view="grid"><i class="fas fa-th"></i></button>
-                                    <button class="view-btn" data-view="list"><i class="fas fa-list"></i></button>
-                                </div>
-                            </div>
+                    <!-- PRODUCTS -->
+                    <div>
+                        <!-- Results count -->
+                        <div
+                            style="display:flex; justify-content:space-between; align-items:center; margin-bottom:30px;">
+                            <p style="color:var(--text-muted);">Знайдено: <strong id="products-count">0</strong> товарів
+                            </p>
                         </div>
 
                         <!-- Products Grid -->
@@ -172,7 +252,7 @@
                             <!-- JS Injected -->
                         </div>
 
-                        <!-- No Results Message -->
+                        <!-- No Results -->
                         <div id="no-results" style="display:none; text-align:center; padding:60px 20px;">
                             <i class="fas fa-search" style="font-size:4rem; color:#ccc; margin-bottom:20px;"></i>
                             <h3>Нічого не знайдено</h3>
@@ -186,10 +266,27 @@
         </section>
     </main>
 
-    <!-- PROFESSIONAL FOOTER COMPONENT -->
-    <!-- PROFESSIONAL FOOTER COMPONENT -->
-    <!-- PROFESSIONAL FOOTER COMPONENT -->
-    <!-- PROFESSIONAL FOOTER COMPONENT -->
+    <!-- FLOATING CONTACTS -->
+    <div class="floating-contacts">
+        <a href="https://t.me/ethiodirect" class="float-btn telegram" title="Telegram" data-i18n="float_buttons.telegram" data-i18n-title>
+            <i class="fab fa-telegram-plane"></i>
+        </a>
+        <a href="viber://chat?number=+380501234567" class="float-btn viber" title="Viber" data-i18n="float_buttons.viber" data-i18n-title>
+            <i class="fab fa-viber"></i>
+        </a>
+        <a href="tel:+380501234567" class="float-btn phone" title="Зателефонувати" data-i18n="float_buttons.phone" data-i18n-title>
+            <i class="fas fa-phone-alt"></i>
+        </a>
+    </div>
+
+    <!-- TOAST -->
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle"></i>
+        <span id="toast-msg">Товар додано</span>
+    </div>
+
+    <!-- FOOTER -->
+    <!-- FOOTER -->
     <footer class="footer-pro">
         <div class="container">
             <!-- Main Footer Content -->
@@ -199,62 +296,59 @@
                     <h4 style="font-family:var(--font-heading); font-size:1.5rem; color:white; margin-bottom:20px;">
                         <a href="index.html" style="text-decoration:none; color:white;">EthioDirect</a>
                     </h4>
-                    <p style="color:#aaa; line-height:1.8; margin-bottom:20px;">Ми доставляємо справжню specialty каву
-                        прямо
-                        з ефіопських ферм до вашого дому. Свіжа обсмажка, чесна ціна, любов до кави.</p>
+                    <p style="color:#aaa; line-height:1.8; margin-bottom:20px;" data-i18n="footer.description">Ми доставляємо справжню specialty каву прямо з ефіопських ферм до вашого дому. Свіжа обсмажка, чесна ціна, любов до кави.</p>
                     <div class="social-links">
-                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                        <a href="#" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
-                        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" aria-label="Instagram" data-i18n="social.instagram" data-i18n-aria><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Facebook" data-i18n="social.facebook" data-i18n-aria><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Telegram" data-i18n="social.telegram" data-i18n-aria><i class="fab fa-telegram"></i></a>
+                        <a href="#" aria-label="TikTok" data-i18n="social.tiktok" data-i18n-aria><i class="fab fa-tiktok"></i></a>
                     </div>
                 </div>
 
                 <!-- Column 2: Shop -->
                 <div class="footer-col">
-                    <h4>Магазин</h4>
+                    <h4 data-i18n="footer.shop_title">Магазин</h4>
                     <ul class="footer-links">
-                        <li><a href="shop.html">Весь каталог</a></li>
-                        <li><a href="subscription.html">Підписка на каву</a></li>
-                        <li><a href="gift-certificates.html">Сертифікати</a></li>
-                        <li><a href="b2b.html">B2B рішення</a></li>
-                        <li><a href="account.html">Особистий кабінет</a></li>
+                        <li><a href="shop.html" data-i18n="footer.catalog">Весь каталог</a></li>
+                        <li><a href="subscription.html" data-i18n="footer.subscription">Підписка на каву</a></li>
+                        <li><a href="gift-certificates.html" data-i18n="nav.certificates">Сертифікати</a></li>
+                        <li><a href="b2b.html" data-i18n="footer.b2b">B2B рішення</a></li>
+                        <li><a href="account.html" data-i18n="footer.account">Особистий кабінет</a></li>
                     </ul>
                 </div>
 
                 <!-- Column 3: Support -->
                 <div class="footer-col">
-                    <h4>Підтримка</h4>
+                    <h4 data-i18n="footer.support_title">Підтримка</h4>
                     <ul class="footer-links">
-                        <li><a href="delivery.html">Доставка та оплата</a></li>
-                        <li><a href="return.html">Повернення та обмін</a></li>
-                        <li><a href="faq.html">Часті питання</a></li>
-                        <li><a href="contacts.html">Контакти</a></li>
-                        <li><a href="about.html">Про нас</a></li>
+                        <li><a href="delivery.html" data-i18n="footer.delivery">Доставка та оплата</a></li>
+                        <li><a href="return.html" data-i18n="footer.return">Повернення та обмін</a></li>
+                        <li><a href="faq.html" data-i18n="footer.faq">Часті питання</a></li>
+                        <li><a href="contacts.html" data-i18n="footer.contacts">Контакти</a></li>
+                        <li><a href="about.html" data-i18n="nav.about">Про нас</a></li>
                     </ul>
                 </div>
 
                 <!-- Column 4: Contacts -->
                 <div class="footer-col">
-                    <h4>Контакти</h4>
+                    <h4 data-i18n="footer.contacts_title">Контакти</h4>
                     <ul class="footer-contacts">
                         <li><i class="fas fa-phone"></i> <a href="tel:+380501234567">+380 (50) 123-45-67</a></li>
                         <li><i class="fas fa-envelope"></i> <a
                                 href="mailto:hello@ethiodirect.ua">hello@ethiodirect.ua</a>
                         </li>
-                        <li><i class="fas fa-map-marker-alt"></i> Одеса, Україна</li>
-                        <li><i class="fas fa-clock"></i> Пн-Пт: 9:00-18:00</li>
+                        <li><i class="fas fa-map-marker-alt"></i> <span data-i18n="footer.location">Одеса, Україна</span></li>
+                        <li><i class="fas fa-clock"></i> <span data-i18n="topbar.hours">Пн-Пт: 9:00-18:00</span></li>
                     </ul>
                 </div>
 
                 <!-- Column 5: Newsletter -->
                 <div class="footer-col">
-                    <h4>Підписка на новини</h4>
-                    <p style="color:#aaa; margin-bottom:15px; font-size:0.9rem;">Отримуйте акції, новинки та поради щодо
-                        заварювання</p>
+                    <h4 data-i18n="footer.newsletter_title">Підписка на новини</h4>
+                    <p style="color:#aaa; margin-bottom:15px; font-size:0.9rem;" data-i18n="footer.newsletter_text">Отримуйте акції, новинки та поради щодо заварювання</p>
                     <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
-                        <input type="email" placeholder="Ваш email" required>
-                        <button type="submit" class="btn-newsletter">Підписатись</button>
+                        <input type="email" placeholder="Ваш email" data-i18n="footer.newsletter_placeholder" data-i18n-placeholder required>
+                        <button type="submit" class="btn-newsletter" data-i18n="footer.newsletter_cta">Підписатись</button>
                     </form>
                 </div>
             </div>
@@ -297,10 +391,10 @@
             <div class="footer-payment">
                 <p style="color:#666; font-size:0.85rem; margin-bottom:15px;">Способи оплати:</p>
                 <div class="payment-icons">
-                    <i class="fab fa-cc-visa" title="Visa"></i>
-                    <i class="fab fa-cc-mastercard" title="Mastercard"></i>
-                    <i class="fab fa-apple-pay" title="Apple Pay"></i>
-                    <i class="fab fa-google-pay" title="Google Pay"></i>
+                    <i class="fab fa-cc-visa" title="Visa" data-i18n="payment.visa" data-i18n-title></i>
+                    <i class="fab fa-cc-mastercard" title="Mastercard" data-i18n="payment.mastercard" data-i18n-title></i>
+                    <i class="fab fa-apple-pay" title="Apple Pay" data-i18n="payment.apple_pay" data-i18n-title></i>
+                    <i class="fab fa-google-pay" title="Google Pay" data-i18n="payment.google_pay" data-i18n-title></i>
                     <span class="payment-text">LiqPay</span>
                 </div>
             </div>
@@ -311,18 +405,50 @@
                     <p>&copy; 2025 EthioDirect. Всі права захищені.</p>
                 </div>
                 <div class="footer-bottom-right">
-                    <a href="privacy.html">Політика конфіденційності</a>
+                    <a href="privacy.html" data-i18n="footer.privacy">Політика конфіденційності</a>
                     <span>·</span>
-                    <a href="return.html">Умови повернення</a>
+                    <a href="return.html" data-i18n="footer.terms">Умови повернення</a>
                     <span>·</span>
-                    <a href="#">Публічна оферта</a>
+                    <a href="#" data-i18n="footer.offer">Публічна оферта</a>
                 </div>
             </div>
         </div>
     </footer>
 
     <script src="js/main.js"></script>
-    <script src="js/shop-filters.js"></script>
+    <script>
+        // Render all products on load
+        document.addEventListener('DOMContentLoaded', () => {
+            renderShopProducts();
+        });
+
+        function renderShopProducts() {
+            const grid = document.getElementById('products-grid');
+            const countEl = document.getElementById('products-count');
+
+            if (typeof PRODUCTS === 'undefined') {
+                grid.innerHTML = '<p>Завантаження...</p>';
+                return;
+            }
+
+            grid.innerHTML = PRODUCTS.map(p => createProductCard(p)).join('');
+            countEl.textContent = PRODUCTS.length;
+        }
+
+        function applyFilters() {
+            // Simple filter demo
+            renderShopProducts();
+        }
+
+        function clearAllFilters() {
+            document.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+            document.getElementById('price-min').value = '';
+            document.getElementById('price-max').value = '';
+            document.getElementById('sort-select').value = 'popular';
+            renderShopProducts();
+        }
+    </script>
+    <script src="js/i18n.js"></script>
 </body>
 
 </html>
