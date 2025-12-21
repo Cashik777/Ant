@@ -305,7 +305,18 @@
          */
         _getLocalesPath() {
             const path = window.location.pathname;
-            // Handle subdirectories (blog, articles)
+            const hostname = window.location.hostname;
+
+            // GitHub Pages detection (cashik777.github.io/Ant/)
+            if (hostname.includes('github.io')) {
+                // For subdirectories (blog, articles) on GitHub Pages
+                if (path.includes('/blog/') || path.includes('/articles/')) {
+                    return '/Ant/locales/';
+                }
+                return '/Ant/locales/';
+            }
+
+            // Local development - handle subdirectories
             if (path.includes('/blog/') || path.includes('/articles/')) {
                 return '../locales/';
             }
