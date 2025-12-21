@@ -186,6 +186,19 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('ed_cart', JSON.stringify(store.cart));
         localStorage.setItem('ed_user', JSON.stringify(store.user));
     });
+
+    // Re-render products when language changes
+    document.addEventListener('languageChanged', () => {
+        const path = window.location.pathname;
+        if (path.endsWith('index.html') || path.endsWith('/') || path === '' || path.endsWith('/Ant/')) {
+            renderFeatured();
+        }
+        if (path.includes('shop.html')) {
+            renderShop();
+        }
+        renderCart();
+        renderMiniCart();
+    });
 });
 
 /* --- A/B TEST FRAMEWORK --- */
@@ -359,20 +372,56 @@ function createProductCard(p) {
     const oldPrice = p.oldPrices[sel.weight];
     const discount = Math.round((1 - currentPrice / oldPrice) * 100);
 
-    // Badges
+    // Get product name and description from i18n
+    const productKeys = {
+        1: 'sidamo', 2: 'yirgacheffe', 3: 'guji',
+        4: 'espresso_blend', 5: 'limmu', 6: 'harrar'
+    };
+    const productKey = productKeys[p.id] || 'sidamo';
+    const productName = typeof t === 'function' ? t(`product.${productKey}`) : p.name;
+    const productDesc = typeof t === 'function' ? t(`product.${productKey}_desc`) : p.desc;
+
+    // Badges with i18n
     const badges = [];
-    if (p.id === 4) badges.push('<div class="p-badge p-badge-bestseller"><i class="fas fa-fire"></i> Хіт продажів</div>');
+    const bestsellerText = typeof t === 'function' ? t('product.bestseller') : 'Хіт продажів';
+    const rareText = typeof t === 'function' ? t('product.rare') : 'Рарітет';
+    const newText = typeof t === 'function' ? t('product.new') : 'Новинка';
+
+    if (p.id === 4) badges.push(`<div class="p-badge p-badge-bestseller"><i class="fas fa-fire"></i> ${bestsellerText}</div>`);
     if (discount >= 15) badges.push(`<div class="p-badge p-badge-discount">-${discount}%</div>`);
-    if (p.id === 6) badges.push('<div class="p-badge p-badge-rare"><i class="fas fa-gem"></i> Рарітет</div>');
-    if (p.soldCount < 300) badges.push('<div class="p-badge p-badge-new"><i class="fas fa-sparkles"></i> Новинка</div>');
+    if (p.id === 6) badges.push(`<div class="p-badge p-badge-rare"><i class="fas fa-gem"></i> ${rareText}</div>`);
+    if (p.soldCount < 300) badges.push(`<div class="p-badge p-badge-new"><i class="fas fa-sparkles"></i> ${newText}</div>`);
 
     // Simulated stock levels for urgency
     const stockLevels = { 1: 12, 2: 5, 3: 3, 4: 18, 5: 8, 6: 2 };
     const stock = stockLevels[p.id] || 10;
     const stockClass = stock <= 5 ? 'low-stock' : '';
 
-    // Roast labels
-    const roastLabels = { light: 'Світла', medium: 'Середня', dark: 'Темна' };
+    // Roast labels with i18n
+    const roastLabels = {
+        light: typeof t === 'function' ? t('product.roast_light') : 'Світла обсмажка',
+        medium: typeof t === 'function' ? t('product.roast_medium') : 'Середня обсмажка',
+        dark: typeof t === 'function' ? t('product.roast_dark') : 'Темна обсмажка'
+    };
+
+    // Taste profile labels with i18n
+    const acidityLabel = typeof t === 'function' ? t('product.acidity') : 'Кислотність';
+    const bodyLabel = typeof t === 'function' ? t('product.body') : 'Тіло';
+    const sweetnessLabel = typeof t === 'function' ? t('product.sweetness') : 'Солодкість';
+
+    // Grind labels with i18n
+    const grindLabels = {
+        beans: typeof t === 'function' ? t('product.whole_beans') : 'Зерно',
+        espresso: typeof t === 'function' ? t('product.espresso') : 'Еспресо',
+        filter: typeof t === 'function' ? t('product.filter') : 'Фільтр',
+        turka: typeof t === 'function' ? t('product.turka') : 'Турка'
+    };
+
+    // Other labels
+    const addButtonText = typeof t === 'function' ? t('product.add') : 'Додати';
+    const economyText = typeof t === 'function' ? t('product.economy') : 'Економія';
+    const stockLeftText = typeof t === 'function' ? t('product.stock_left', { count: stock }) : `Залишилось ${stock} шт`;
+    const alreadyBoughtText = typeof t === 'function' ? t('product.already_bought', { count: p.soldCount }) : `Вже купили ${p.soldCount} людей`;
 
     // Taste profile dots generator
     const renderDots = (value, max = 5) => {
@@ -393,7 +442,7 @@ function createProductCard(p) {
         return stars;
     };
 
-    const altText = `${p.name} — ефіопська кава ${roastLabels[p.roast]} обсмажки з нотами ${p.taste.join(' ')}, регіон ${p.region}`;
+    const altText = `${productName} — Ethiopian coffee ${roastLabels[p.roast]}, region ${p.region}`;
 
     return `
     <div class="product-card ${stockClass}" data-product-id="${p.id}">
@@ -402,60 +451,60 @@ function createProductCard(p) {
             <a href="product.html?id=${p.id}">
                 <img src="${p.image}" alt="${altText}" loading="lazy">
             </a>
-            ${stock <= 5 ? `<div class="p-stock-warning"><i class="fas fa-exclamation-triangle"></i> Залишилось ${stock} шт</div>` : ''}
+            ${stock <= 5 ? `<div class="p-stock-warning"><i class="fas fa-exclamation-triangle"></i> ${stockLeftText}</div>` : ''}
         </div>
         <div class="p-content">
             <div class="p-header">
-                <h3 class="p-title"><a href="product.html?id=${p.id}">${p.name}</a></h3>
+                <h3 class="p-title"><a href="product.html?id=${p.id}">${productName}</a></h3>
                 <div class="p-rating">
                     <span class="stars">${renderStars(p.rating)}</span>
                     <span class="rating-value">${p.rating}</span>
                 </div>
             </div>
             
-            <p class="p-region"><i class="fas fa-map-marker-alt"></i> ${p.region} · ${roastLabels[p.roast]} обсмажка</p>
-            <p class="p-desc">${p.desc}</p>
+            <p class="p-region"><i class="fas fa-map-marker-alt"></i> ${p.region} · ${roastLabels[p.roast]}</p>
+            <p class="p-desc">${productDesc}</p>
             
             <!-- Taste Profile -->
             <div class="taste-profile">
                 <div class="taste-row">
-                    <span class="taste-label">Кислотність</span>
+                    <span class="taste-label">${acidityLabel}</span>
                     <div class="taste-dots">${renderDots(p.acidity)}</div>
                 </div>
                 <div class="taste-row">
-                    <span class="taste-label">Тіло</span>
+                    <span class="taste-label">${bodyLabel}</span>
                     <div class="taste-dots">${renderDots(p.body)}</div>
                 </div>
                 <div class="taste-row">
-                    <span class="taste-label">Солодкість</span>
+                    <span class="taste-label">${sweetnessLabel}</span>
                     <div class="taste-dots">${renderDots(p.sweetness)}</div>
                 </div>
             </div>
             
             <!-- Weight Selector -->
             <div class="weight-selector" data-product-id="${p.id}">
-                <button class="weight-btn ${sel.weight === 250 ? 'active' : ''}" onclick="selectWeight(${p.id}, 250)">250г</button>
-                <button class="weight-btn ${sel.weight === 500 ? 'active' : ''}" onclick="selectWeight(${p.id}, 500)">500г</button>
-                <button class="weight-btn ${sel.weight === 1000 ? 'active' : ''}" onclick="selectWeight(${p.id}, 1000)">1 кг</button>
+                <button class="weight-btn ${sel.weight === 250 ? 'active' : ''}" onclick="selectWeight(${p.id}, 250)">250g</button>
+                <button class="weight-btn ${sel.weight === 500 ? 'active' : ''}" onclick="selectWeight(${p.id}, 500)">500g</button>
+                <button class="weight-btn ${sel.weight === 1000 ? 'active' : ''}" onclick="selectWeight(${p.id}, 1000)">1 kg</button>
             </div>
             
             <!-- Grind Selector -->
             <div class="grind-selector" data-product-id="${p.id}">
                 <button class="grind-btn ${sel.grind === 'beans' || !sel.grind ? 'active' : ''}" onclick="selectGrind(${p.id}, 'beans')">
                     <span class="grind-icon">🫘</span>
-                    <span class="grind-label">Зерно</span>
+                    <span class="grind-label">${grindLabels.beans}</span>
                 </button>
                 <button class="grind-btn ${sel.grind === 'espresso' ? 'active' : ''}" onclick="selectGrind(${p.id}, 'espresso')">
                     <span class="grind-icon">☕</span>
-                    <span class="grind-label">Еспресо</span>
+                    <span class="grind-label">${grindLabels.espresso}</span>
                 </button>
                 <button class="grind-btn ${sel.grind === 'filter' ? 'active' : ''}" onclick="selectGrind(${p.id}, 'filter')">
                     <span class="grind-icon">🫖</span>
-                    <span class="grind-label">Фільтр</span>
+                    <span class="grind-label">${grindLabels.filter}</span>
                 </button>
                 <button class="grind-btn ${sel.grind === 'turka' ? 'active' : ''}" onclick="selectGrind(${p.id}, 'turka')">
                     <span class="grind-icon">🏺</span>
-                    <span class="grind-label">Турка</span>
+                    <span class="grind-label">${grindLabels.turka}</span>
                 </button>
             </div>
 
@@ -465,7 +514,7 @@ function createProductCard(p) {
                     <span class="p-price-old">${oldPrice} ₴</span>
                     <span class="p-price-current" id="price-${p.id}">${currentPrice} ₴</span>
                 </div>
-                <div class="p-economy">Економія: <strong>${oldPrice - currentPrice} ₴</strong></div>
+                <div class="p-economy">${economyText}: <strong>${oldPrice - currentPrice} ₴</strong></div>
             </div>
 
             <!-- Quantity & Add to Cart -->
@@ -476,13 +525,13 @@ function createProductCard(p) {
                     <button class="qty-btn" onclick="changeQty(${p.id}, 1)">+</button>
                 </div>
                 <button class="p-btn-add" onclick="addToCartWithOptions(${p.id})">
-                    <i class="fas fa-shopping-cart"></i> Додати
+                    <i class="fas fa-shopping-cart"></i> ${addButtonText}
                 </button>
             </div>
             
             <!-- Social Proof -->
             <div class="p-social-proof">
-                <i class="fas fa-users"></i> Вже купили <strong>${p.soldCount}</strong> людей
+                <i class="fas fa-users"></i> ${alreadyBoughtText}
             </div>
         </div>
     </div>
