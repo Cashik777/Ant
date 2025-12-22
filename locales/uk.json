@@ -257,7 +257,10 @@
         "price_from": "від",
         "price_to": "до",
         "found": "Знайдено:",
-        "products_count": "товарів"
+        "products_count": "товарів",
+        "sort_rating": "За рейтингом",
+        "nothing_found": "Нічого не знайдено",
+        "try_change_filters": "Спробуйте змінити фільтри"
     },
     "about": {
         "page_title": "Про нас",

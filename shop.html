@@ -220,29 +220,30 @@
                                 data-i18n="shop.filter_price">Ціна</h4>
                             <div style="display:flex; gap:10px; align-items:center;">
                                 <input type="number" id="price-min" placeholder="від"
+                                    data-i18n-placeholder="shop.price_from"
                                     style="width:80px; padding:8px; border:1px solid #ddd; border-radius:6px;">
                                 <span>—</span>
                                 <input type="number" id="price-max" placeholder="до"
+                                    data-i18n-placeholder="shop.price_to"
                                     style="width:80px; padding:8px; border:1px solid #ddd; border-radius:6px;">
                             </div>
                         </div>
 
                         <!-- Sort -->
                         <div style="margin-bottom:25px;">
-                            <h4
-                                style="font-size:0.9rem; margin-bottom:15px; color:var(--text-muted); text-transform:uppercase; letter-spacing:1px;">
-                                Сортування</h4>
+                            <h4 style="font-size:0.9rem; margin-bottom:15px; color:var(--text-muted); text-transform:uppercase; letter-spacing:1px;"
+                                data-i18n="shop.sort">Сортування</h4>
                             <select id="sort-select" onchange="applyFilters()"
                                 style="width:100%; padding:10px; border:1px solid #ddd; border-radius:6px;">
-                                <option value="popular">За популярністю</option>
-                                <option value="price-asc">Ціна: від низької</option>
-                                <option value="price-desc">Ціна: від високої</option>
-                                <option value="rating">За рейтингом</option>
+                                <option value="popular" data-i18n="shop.sort_popular">За популярністю</option>
+                                <option value="price-asc" data-i18n="shop.sort_price_asc">Ціна: від низької</option>
+                                <option value="price-desc" data-i18n="shop.sort_price_desc">Ціна: від високої</option>
+                                <option value="rating" data-i18n="shop.sort_rating">За рейтингом</option>
                             </select>
                         </div>
 
                         <button onclick="clearAllFilters()" class="btn btn-outline" style="width:100%;">
-                            <i class="fas fa-times"></i> Скинути фільтри
+                            <i class="fas fa-times"></i> <span data-i18n="shop.clear_filters">Скинути фільтри</span>
                         </button>
                     </aside>
 
@@ -251,7 +252,9 @@
                         <!-- Results count -->
                         <div
                             style="display:flex; justify-content:space-between; align-items:center; margin-bottom:30px;">
-                            <p style="color:var(--text-muted);">Знайдено: <strong id="products-count">0</strong> товарів
+                            <p style="color:var(--text-muted);" id="results-text">
+                                <span data-i18n="shop.found">Знайдено:</span> <strong id="products-count">0</strong>
+                                <span data-i18n="shop.products_count">товарів</span>
                             </p>
                         </div>
 
@@ -263,10 +266,10 @@
                         <!-- No Results -->
                         <div id="no-results" style="display:none; text-align:center; padding:60px 20px;">
                             <i class="fas fa-search" style="font-size:4rem; color:#ccc; margin-bottom:20px;"></i>
-                            <h3>Нічого не знайдено</h3>
-                            <p style="color:#999;">Спробуйте змінити фільтри</p>
-                            <button class="btn btn-primary" onclick="clearAllFilters()"
-                                style="margin-top:20px;">Очистити фільтри</button>
+                            <h3 data-i18n="shop.nothing_found">Нічого не знайдено</h3>
+                            <p style="color:#999;" data-i18n="shop.try_change_filters">Спробуйте змінити фільтри</p>
+                            <button class="btn btn-primary" onclick="clearAllFilters()" style="margin-top:20px;"
+                                data-i18n="shop.clear_filters">Очистити фільтри</button>
                         </div>
                     </div>
                 </div>

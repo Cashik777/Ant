@@ -257,7 +257,10 @@
         "price_from": "from",
         "price_to": "to",
         "found": "Found:",
-        "products_count": "products"
+        "products_count": "products",
+        "sort_rating": "Rating",
+        "nothing_found": "Nothing Found",
+        "try_change_filters": "Try changing filters"
     },
     "about": {
         "page_title": "About Us",

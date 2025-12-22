@@ -257,7 +257,10 @@
         "price_from": "от",
         "price_to": "до",
         "found": "Найдено:",
-        "products_count": "товаров"
+        "products_count": "товаров",
+        "sort_rating": "По рейтингу",
+        "nothing_found": "Ничего не найдено",
+        "try_change_filters": "Попробуйте изменить фильтры"
     },
     "about": {
         "page_title": "О нас",
