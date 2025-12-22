@@ -146,6 +146,15 @@
         // Update HTML lang attribute
         document.documentElement.lang = currentLang;
 
+        // Translate page title
+        const titleKey = document.documentElement.getAttribute('data-i18n-title');
+        if (titleKey) {
+            const translatedTitle = t(titleKey);
+            if (translatedTitle !== titleKey) {
+                document.title = translatedTitle;
+            }
+        }
+
         // Dispatch event for dynamic content (on both window and document for compatibility)
         const event = new CustomEvent('languageChanged', { detail: { lang: currentLang } });
         window.dispatchEvent(event);

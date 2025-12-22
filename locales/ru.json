@@ -367,5 +367,19 @@
         "faq_change_a": "Конечно! Вы можете изменить сорт кофе, обжарку и помол перед каждой доставкой.",
         "faq_payment_q": "Когда списываются средства?",
         "faq_payment_a": "Оплата списывается автоматически за 2 дня до запланированной доставки."
+    },
+    "pages": {
+        "shop": "Магазин — EthioDirect",
+        "home": "EthioDirect — Кофе, который ждал вас",
+        "subscription": "Подписка — EthioDirect",
+        "about": "О нас — EthioDirect",
+        "contacts": "Контакты — EthioDirect",
+        "blog": "Блог — EthioDirect",
+        "delivery": "Доставка и оплата — EthioDirect",
+        "faq": "Частые вопросы — EthioDirect",
+        "quiz": "Тест вкуса — EthioDirect",
+        "account": "Личный кабинет — EthioDirect",
+        "b2b": "B2B — EthioDirect",
+        "gift": "Подарочные сертификаты — EthioDirect"
     }
 }

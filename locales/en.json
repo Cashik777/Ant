@@ -367,5 +367,19 @@
         "faq_change_a": "Of course! You can change the coffee variety, roast, and grind before each delivery.",
         "faq_payment_q": "When are funds charged?",
         "faq_payment_a": "Payment is automatically charged 2 days before the scheduled delivery."
+    },
+    "pages": {
+        "shop": "Shop — EthioDirect",
+        "home": "EthioDirect — Coffee That Was Waiting for You",
+        "subscription": "Subscription — EthioDirect",
+        "about": "About Us — EthioDirect",
+        "contacts": "Contact Us — EthioDirect",
+        "blog": "Blog — EthioDirect",
+        "delivery": "Shipping & Payment — EthioDirect",
+        "faq": "FAQ — EthioDirect",
+        "quiz": "Taste Quiz — EthioDirect",
+        "account": "My Account — EthioDirect",
+        "b2b": "B2B — EthioDirect",
+        "gift": "Gift Cards — EthioDirect"
     }
 }

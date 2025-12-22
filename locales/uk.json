@@ -367,5 +367,19 @@
         "faq_change_a": "Звичайно! Ви можете змінити сорт кави, обсмажку та помол перед кожною доставкою.",
         "faq_payment_q": "Коли списуються кошти?",
         "faq_payment_a": "Оплата списується автоматично за 2 дні до запланованої доставки."
+    },
+    "pages": {
+        "shop": "Магазин — EthioDirect",
+        "home": "EthioDirect — Кава, що просилася до вас",
+        "subscription": "Підписка — EthioDirect",
+        "about": "Про нас — EthioDirect",
+        "contacts": "Контакти — EthioDirect",
+        "blog": "Блог — EthioDirect",
+        "delivery": "Доставка та оплата — EthioDirect",
+        "faq": "Часті питання — EthioDirect",
+        "quiz": "Тест смаку — EthioDirect",
+        "account": "Особистий кабінет — EthioDirect",
+        "b2b": "B2B — EthioDirect",
+        "gift": "Подарункові сертифікати — EthioDirect"
     }
 }
