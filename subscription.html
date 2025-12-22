@@ -113,7 +113,7 @@
     <div class="overlay"></div>
     <div class="drawer">
         <div class="drawer-header">
-            <h3><i class="fas fa-shopping-bag" style="margin-right:10px; color:var(--primary);"></i> Ваш кошик</h3>
+            <h3><i class="fas fa-shopping-bag" style="margin-right:10px; color:var(--primary);"></i> <span data-i18n="cart.your_cart">Ваш кошик</span></h3>
             <button onclick="closeDrawer()"
                 style="background:none;border:none;font-size:1.5rem;color:var(--text-dark);cursor:pointer;">&times;</button>
         </div>
@@ -124,17 +124,14 @@
                     <div class="progress-fill" id="drawer-progress-fill" style="width: 0%;"></div>
                 </div>
                 <p class="progress-text" id="drawer-progress-text">
-                    <i class="fas fa-truck"></i> <span data-i18n="cart.free_shipping_progress">До безкоштовної
-                        доставки:</span> <strong>500 ₴</strong>
+                    <i class="fas fa-truck"></i> <span data-i18n="cart.free_shipping_progress" data-i18n="cart.free_shipping_progress">До безкоштовної доставки:</span> <strong>500 ₴</strong>
                 </p>
             </div>
             <div style="display:flex; justify-content:space-between; margin-bottom:15px; font-size:1.1rem;">
-                <span data-i18n="cart.subtotal">Разом:</span>
+                <span data-i18n="cart.subtotal" data-i18n="cart.subtotal">Разом:</span>
                 <span id="cart-total" style="font-weight:700; color:var(--primary); font-size:1.3rem;">0 ₴</span>
             </div>
-            <button class="btn btn-primary" style="width:100%;">
-                <i class="fas fa-lock" style="margin-right:8px;"></i> Оформити замовлення
-            </button>
+            <button class="btn btn-primary" style="width:100%;"><i class="fas fa-lock"></i> <span data-i18n="cart.checkout">Оформити замовлення</span></button>
         </div>
     </div>
 
