@@ -334,7 +334,11 @@ function renderShop(filter = 'all') {
     const minPrice = document.getElementById('price-min') ? parseInt(document.getElementById('price-min').value) || 0 : 0;
     const maxPrice = document.getElementById('price-max') ? parseInt(document.getElementById('price-max').value) || 10000 : 10000;
 
-    filtered = filtered.filter(p => p.price >= minPrice && p.price <= maxPrice);
+    // Use base price (250g) for filtering
+    filtered = filtered.filter(p => {
+        const basePrice = p.prices[250];
+        return basePrice >= minPrice && basePrice <= maxPrice;
+    });
 
     if (filtered.length === 0) {
         grid.innerHTML = '<p class="text-center" style="grid-column:1/-1; padding:40px;">Товарів не знайдено 😔</p>';
