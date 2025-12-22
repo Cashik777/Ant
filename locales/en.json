@@ -36,7 +36,10 @@
         "text": "We deliver beans directly from Ethiopian farms and roast them for each order. Only fresh roast within 3 days.",
         "cta": "Choose Coffee",
         "quiz_text": "Don't know what to choose?",
-        "quiz_link": "Take the taste test"
+        "quiz_link": "Take the taste test",
+        "hero_cta_control": "Choose Fresh Coffee",
+        "hero_cta_variant_a": "Try Specialty Coffee",
+        "hero_cta_variant_b": "Order Now — from 240₴"
     },
     "trust": {
         "clients": "satisfied customers",
@@ -142,7 +145,15 @@
         "copyright": "© 2025 EthioDirect. All rights reserved.",
         "privacy": "Privacy Policy",
         "terms": "Return Policy",
-        "offer": "Public Offer"
+        "offer": "Public Offer",
+        "badge_return_days": "14 Days",
+        "badge_return": "Returns",
+        "badge_specialty": "100% Specialty",
+        "badge_quality": "Bean Quality",
+        "badge_free": "Free",
+        "badge_shipping": "Shipping over 500₴",
+        "badge_fresh": "Fresh Roast",
+        "badge_days": "Within 3 Days"
     },
     "cart": {
         "title": "Your Cart",

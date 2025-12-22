@@ -192,6 +192,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const path = window.location.pathname;
         if (path.endsWith('index.html') || path.endsWith('/') || path === '' || path.endsWith('/Ant/')) {
             renderFeatured();
+            // Re-apply A/B test variant with new translations
+            const variant = localStorage.getItem('ab_hero_cta');
+            if (variant && typeof applyABTestVariant === 'function') {
+                applyABTestVariant(variant);
+            }
         }
         if (path.includes('shop.html')) {
             renderShop();
@@ -205,9 +210,9 @@ document.addEventListener('DOMContentLoaded', () => {
 const AB_TESTS = {
     hero_cta: {
         variants: [
-            { id: 'control', text: 'Обрати свіжу каву', icon: 'fa-fire' },
-            { id: 'variant_a', text: 'Спробувати specialty каву', icon: 'fa-coffee' },
-            { id: 'variant_b', text: 'Замовити зараз — від 240₴', icon: 'fa-shopping-cart' }
+            { id: 'control', textKey: 'hero.hero_cta_control', icon: 'fa-fire' },
+            { id: 'variant_a', textKey: 'hero.hero_cta_variant_a', icon: 'fa-coffee' },
+            { id: 'variant_b', textKey: 'hero.hero_cta_variant_b', icon: 'fa-shopping-cart' }
         ],
         selector: '.btn-hero',
         active: true
@@ -227,15 +232,21 @@ function initABTest() {
 
     // Apply variant
     if (variant && AB_TESTS.hero_cta.active) {
-        const test = AB_TESTS.hero_cta;
-        const selectedVariant = test.variants.find(v => v.id === variant);
-        if (selectedVariant) {
-            const btn = document.querySelector(test.selector);
-            if (btn) {
-                btn.innerHTML = `<i class="fas ${selectedVariant.icon}"></i> ${selectedVariant.text}`;
-            }
-            // Track impression
-            trackABEvent('hero_cta', variant, 'impression');
+        applyABTestVariant(variant);
+        // Track impression
+        trackABEvent('hero_cta', variant, 'impression');
+    }
+}
+
+function applyABTestVariant(variant) {
+    const test = AB_TESTS.hero_cta;
+    const selectedVariant = test.variants.find(v => v.id === variant);
+    if (selectedVariant) {
+        const btn = document.querySelector(test.selector);
+        if (btn) {
+            // Use translation if t() function available
+            const text = typeof t === 'function' ? t(selectedVariant.textKey) : selectedVariant.textKey;
+            btn.innerHTML = `<i class="fas ${selectedVariant.icon}"></i> <span data-i18n="${selectedVariant.textKey}">${text}</span>`;
         }
     }
 }
