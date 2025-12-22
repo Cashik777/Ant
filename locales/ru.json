@@ -248,7 +248,16 @@
         "clear_filters": "Сбросить",
         "showing": "Показано",
         "of": "из",
-        "products": "товаров"
+        "products": "товаров",
+        "subtitle": "Выберите свой идеальный вкус",
+        "filters": "Фильтры",
+        "taste_fruity": "Фруктовый",
+        "taste_chocolate": "Шоколадный",
+        "taste_floral": "Цветочный",
+        "price_from": "от",
+        "price_to": "до",
+        "found": "Найдено:",
+        "products_count": "товаров"
     },
     "about": {
         "page_title": "О нас",

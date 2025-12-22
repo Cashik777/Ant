@@ -1,177 +1,202 @@
-/* ===== ETHIODIRECT - COMPLETE i18n SOLUTION ===== */
-/* Uses Google Translate for full page translation */
-/* Buttons: UA / RU / EN */
-
+/**
+ * EthioDirect i18n System v3.0
+ * Simple, reliable language switching for UA/RU/EN
+ * Works with flat keys in JSON files
+ */
 (function () {
     'use strict';
 
+    // ===== CONFIGURATION =====
     const CONFIG = {
         defaultLang: 'uk',
+        supportedLangs: ['uk', 'ru', 'en'],
         storageKey: 'ed_language',
-        pageLanguage: 'uk'
+        localesPath: null  // Auto-detected
     };
 
-    // ===== GOOGLE TRANSLATE SETUP =====
+    // Cache for loaded translations
+    let translations = {};
+    let currentLang = CONFIG.defaultLang;
 
-    function createTranslateWidget() {
-        // Create hidden container for Google Translate
-        if (!document.getElementById('google_translate_element')) {
-            const div = document.createElement('div');
-            div.id = 'google_translate_element';
-            div.style.cssText = 'display:none !important;';
-            document.body.insertBefore(div, document.body.firstChild);
-        }
-    }
+    // ===== PATH DETECTION =====
+    function getLocalesPath() {
+        if (CONFIG.localesPath) return CONFIG.localesPath;
 
-    function loadGoogleTranslateScript() {
-        if (document.querySelector('script[src*="translate.google.com"]')) return;
+        const hostname = window.location.hostname;
+        const pathname = window.location.pathname;
 
-        const script = document.createElement('script');
-        script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
-        script.async = true;
-        script.onerror = function () {
-            console.error('[i18n] Failed to load Google Translate. Falling back to page reload.');
-        };
-        document.head.appendChild(script);
-        console.log('[i18n] Google Translate script loading...');
-    }
-
-    // Google Translate callback - must be global
-    window.googleTranslateElementInit = function () {
-        new google.translate.TranslateElement({
-            pageLanguage: CONFIG.pageLanguage,
-            includedLanguages: 'uk,ru,en',
-            autoDisplay: false,
-            multilanguagePage: false
-        }, 'google_translate_element');
-
-        // Apply saved language after widget loads
-        setTimeout(function () {
-            const saved = localStorage.getItem(CONFIG.storageKey);
-            if (saved && saved !== CONFIG.pageLanguage) {
-                translateTo(saved);
+        // GitHub Pages detection
+        if (hostname.includes('github.io')) {
+            const match = pathname.match(/^\/([^\/]+)\//);
+            if (match) {
+                CONFIG.localesPath = '/' + match[1] + '/locales/';
+                return CONFIG.localesPath;
             }
-            updateButtons(saved || CONFIG.pageLanguage);
-        }, 1000);
-    };
-
-    // ===== TRANSLATION FUNCTIONS =====
-
-    function translateTo(lang) {
-        const select = document.querySelector('.goog-te-combo');
-
-        if (!select) {
-            // Widget not ready, retry
-            setTimeout(function () { translateTo(lang); }, 500);
-            return;
         }
 
-        if (lang === 'uk' || lang === CONFIG.pageLanguage) {
-            // Reset to original (Ukrainian)
-            resetTranslation();
+        // Local development - detect depth
+        const depth = (pathname.match(/\//g) || []).length - 1;
+        if (depth > 0 && (pathname.includes('/articles/') || pathname.includes('/blog/'))) {
+            CONFIG.localesPath = '../locales/';
         } else {
-            // Translate to selected language
-            select.value = lang;
-            select.dispatchEvent(new Event('change', { bubbles: true }));
+            CONFIG.localesPath = 'locales/';
+        }
+        return CONFIG.localesPath;
+    }
+
+    // ===== TRANSLATION LOADING =====
+    async function loadTranslations(lang) {
+        if (translations[lang]) {
+            return translations[lang];
+        }
+
+        const path = getLocalesPath() + lang + '.json';
+        try {
+            const response = await fetch(path);
+            if (!response.ok) throw new Error('HTTP ' + response.status);
+            const data = await response.json();
+            translations[lang] = flattenObject(data);
+            console.log('[i18n] Loaded ' + lang + '.json (' + Object.keys(translations[lang]).length + ' keys)');
+            return translations[lang];
+        } catch (err) {
+            console.error('[i18n] Failed to load ' + path + ':', err.message);
+            return {};
         }
     }
 
-    function resetTranslation() {
-        // Try to use Google's restore function
-        const iframe = document.querySelector('.goog-te-banner-frame');
-        if (iframe && iframe.contentDocument) {
-            const btn = iframe.contentDocument.querySelector('.goog-te-button button');
-            if (btn) {
-                btn.click();
-                return;
+    // Flatten nested JSON to dot notation
+    function flattenObject(obj, prefix = '') {
+        const result = {};
+        for (const key in obj) {
+            const fullKey = prefix ? prefix + '.' + key : key;
+            if (typeof obj[key] === 'object' && obj[key] !== null && !Array.isArray(obj[key])) {
+                Object.assign(result, flattenObject(obj[key], fullKey));
+            } else {
+                result[fullKey] = obj[key];
             }
         }
+        return result;
+    }
 
-        // Clear via combo
-        const select = document.querySelector('.goog-te-combo');
-        if (select) {
-            select.value = '';
-            select.dispatchEvent(new Event('change', { bubbles: true }));
+    // ===== TRANSLATION FUNCTION =====
+    function t(key, params) {
+        const dict = translations[currentLang] || {};
+        let text = dict[key];
+
+        if (text === undefined) {
+            // Fallback to English, then Ukrainian
+            text = (translations['en'] || {})[key] || (translations['uk'] || {})[key] || key;
         }
 
-        // Clear cookies
-        document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-        document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.' + window.location.hostname;
-
-        // Reload if still translated
-        setTimeout(function () {
-            if (document.body.classList.contains('translated-ltr') ||
-                document.body.classList.contains('translated-rtl')) {
-                window.location.reload();
+        // Interpolation: replace {{param}} with values
+        if (params && typeof text === 'string') {
+            for (const p in params) {
+                text = text.replace(new RegExp('\\{\\{' + p + '\\}\\}', 'g'), params[p]);
             }
-        }, 300);
+        }
+        return text;
+    }
+
+    // ===== DOM TRANSLATION =====
+    function translatePage() {
+        // Text content
+        document.querySelectorAll('[data-i18n]').forEach(function (el) {
+            const key = el.getAttribute('data-i18n');
+            if (key) {
+                const text = t(key);
+                if (text !== key) {
+                    el.textContent = text;
+                }
+            }
+        });
+
+        // Placeholders
+        document.querySelectorAll('[data-i18n-placeholder]').forEach(function (el) {
+            const key = el.getAttribute('data-i18n-placeholder');
+            if (key) {
+                const text = t(key);
+                if (text !== key) {
+                    el.placeholder = text;
+                }
+            }
+        });
+
+        // Titles (tooltips)
+        document.querySelectorAll('[data-i18n-title]').forEach(function (el) {
+            const key = el.getAttribute('data-i18n-title');
+            if (key) {
+                const text = t(key);
+                if (text !== key) {
+                    el.title = text;
+                }
+            }
+        });
+
+        // Aria-labels
+        document.querySelectorAll('[data-i18n-aria]').forEach(function (el) {
+            const key = el.getAttribute('data-i18n-aria');
+            if (key) {
+                const text = t(key);
+                if (text !== key) {
+                    el.setAttribute('aria-label', text);
+                }
+            }
+        });
+
+        // Update HTML lang attribute
+        document.documentElement.lang = currentLang;
+
+        // Dispatch event for dynamic content (on both window and document for compatibility)
+        const event = new CustomEvent('languageChanged', { detail: { lang: currentLang } });
+        window.dispatchEvent(event);
+        document.dispatchEvent(event);
     }
 
     // ===== BUTTON STATE =====
-
-    function updateButtons(lang) {
-        const buttons = document.querySelectorAll('.lang-btn, .top-bar-right a[onclick*="setLanguage"]');
-
-        buttons.forEach(function (btn) {
+    function updateButtons() {
+        document.querySelectorAll('.lang-btn, .top-bar-right a[onclick*="setLanguage"]').forEach(function (btn) {
             btn.classList.remove('active');
             const text = btn.textContent.trim().toUpperCase();
 
-            if ((lang === 'uk' && text === 'UA') ||
-                (lang === 'ru' && text === 'RU') ||
-                (lang === 'en' && text === 'EN')) {
+            if ((currentLang === 'uk' && text === 'UA') ||
+                (currentLang === 'ru' && text === 'RU') ||
+                (currentLang === 'en' && text === 'EN')) {
                 btn.classList.add('active');
             }
         });
     }
 
     // ===== PUBLIC API =====
-
-    window.setLanguage = function (lang) {
-        // Save preference
-        localStorage.setItem(CONFIG.storageKey, lang);
-
-        // Set cookies for cross-page persistence
-        const domain = window.location.hostname;
-        if (lang === 'uk') {
-            document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-            document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.' + domain;
-        } else {
-            const val = '/uk/' + lang;
-            document.cookie = 'googtrans=' + val + '; path=/;';
-            document.cookie = 'googtrans=' + val + '; path=/; domain=.' + domain;
+    async function setLanguage(lang) {
+        if (!CONFIG.supportedLangs.includes(lang)) {
+            console.warn('[i18n] Unsupported language:', lang);
+            return;
         }
 
-        // Update button states
-        updateButtons(lang);
+        currentLang = lang;
+        localStorage.setItem(CONFIG.storageKey, lang);
 
-        // Do translation
-        translateTo(lang);
-    };
+        // Load translations if needed
+        await loadTranslations(lang);
 
-    // ===== CSS INJECTION =====
+        // Apply to page
+        translatePage();
+        updateButtons();
 
+        console.log('[i18n] Language set to:', lang);
+    }
+
+    function getCurrentLanguage() {
+        return currentLang;
+    }
+
+    // ===== CSS FOR BUTTONS =====
     function injectStyles() {
-        if (document.getElementById('gt-custom-styles')) return;
+        if (document.getElementById('i18n-styles')) return;
 
         const style = document.createElement('style');
-        style.id = 'gt-custom-styles';
+        style.id = 'i18n-styles';
         style.textContent = `
-            /* Hide Google Translate UI */
-            .goog-te-banner-frame { display: none !important; }
-            .goog-te-menu-frame { display: none !important; }
-            body { top: 0 !important; }
-            .skiptranslate { display: none !important; height: 0 !important; }
-            #google_translate_element { display: none !important; }
-            .goog-te-gadget { display: none !important; }
-            html.translated-ltr, html.translated-rtl { margin-top: 0 !important; }
-            body.translated-ltr, body.translated-rtl { margin-top: 0 !important; top: 0 !important; }
-
-            /* Keep buttons untranslated */
-            .top-bar-right a, .lang-btn {
-                font-style: normal !important;
-            }
-
-            /* Language button styles */
             .top-bar-right a, .lang-btn {
                 color: rgba(255,255,255,0.7);
                 text-decoration: none;
@@ -181,7 +206,6 @@
                 border-radius: 4px;
                 margin: 0 2px;
                 transition: all 0.2s ease;
-                display: inline-block;
                 cursor: pointer;
             }
             .top-bar-right a:hover, .lang-btn:hover {
@@ -196,17 +220,32 @@
         document.head.appendChild(style);
     }
 
-    // ===== INIT =====
-
-    function init() {
+    // ===== INITIALIZATION =====
+    async function init() {
         injectStyles();
-        createTranslateWidget();
-        loadGoogleTranslateScript();
 
-        // Set initial button state
+        // Get saved or default language
         const saved = localStorage.getItem(CONFIG.storageKey);
-        updateButtons(saved || CONFIG.pageLanguage);
+        currentLang = saved && CONFIG.supportedLangs.includes(saved) ? saved : CONFIG.defaultLang;
+
+        // Preload all languages for fast switching
+        await Promise.all([
+            loadTranslations('uk'),
+            loadTranslations('ru'),
+            loadTranslations('en')
+        ]);
+
+        // Apply translations
+        translatePage();
+        updateButtons();
+
+        console.log('[i18n] Initialized with language:', currentLang);
     }
+
+    // Export to window
+    window.setLanguage = setLanguage;
+    window.getCurrentLanguage = getCurrentLanguage;
+    window.t = t;
 
     // Run on DOM ready
     if (document.readyState === 'loading') {
@@ -214,5 +253,4 @@
     } else {
         init();
     }
-
 })();

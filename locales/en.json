@@ -248,7 +248,16 @@
         "clear_filters": "Clear",
         "showing": "Showing",
         "of": "of",
-        "products": "products"
+        "products": "products",
+        "subtitle": "Choose your perfect taste",
+        "filters": "Filters",
+        "taste_fruity": "Fruity",
+        "taste_chocolate": "Chocolate",
+        "taste_floral": "Floral",
+        "price_from": "from",
+        "price_to": "to",
+        "found": "Found:",
+        "products_count": "products"
     },
     "about": {
         "page_title": "About Us",
