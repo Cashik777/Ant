@@ -1824,5 +1824,36 @@
         "email": "Email",
         "message": "Message",
         "submit": "Submit"
+    },
+    "return_page": {
+        "title": "Returns & Exchange",
+        "subtitle": "If the coffee didn't suit you — we'll fix it",
+        "guarantee_title": "14-Day Satisfaction Guarantee",
+        "guarantee_text": "If you didn't like the coffee — get a refund or receive another variety for free",
+        "how_to_title": "How to Return?",
+        "step1_title": "Contact Us",
+        "step1_text": "Write to us at hello@ethiodirect.ua or via Telegram/Viber. Indicate your order number and reason for return.",
+        "step2_title": "Ship the Product",
+        "step2_text": "Pack the coffee and ship via Nova Poshta to our address.",
+        "step3_title": "Get Refund or Replacement",
+        "step3_text": "After receiving the product, we'll refund within 1-3 business days.",
+        "conditions_title": "Return Conditions",
+        "accept_title": "We Accept Returns",
+        "accept_1": "Unopened package",
+        "accept_2": "Damaged package on delivery",
+        "accept_3": "Order mismatch",
+        "accept_4": "Didn't like the taste",
+        "reject_title": "We Don't Accept",
+        "reject_1": "Opened package without defects",
+        "reject_2": "Product purchased over 14 days ago",
+        "exchange_title": "Product Exchange",
+        "exchange_text": "If you want to exchange coffee for another variety — it's free!",
+        "exchange_btn": "Contact for Exchange",
+        "questions_title": "Have Questions?",
+        "questions_text": "We're always ready to help with returns or exchanges"
+    },
+    "privacy_page": {
+        "title": "Privacy Policy",
+        "subtitle": "How We Protect Your Data"
     }
 }
