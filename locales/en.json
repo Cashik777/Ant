@@ -1007,7 +1007,7 @@
             "title": "Arabica vs Robusta: The Full Truth About Two Coffee Types",
             "category": "About Coffee",
             "reading_time": "8 min read",
-            "intro": "When you choose coffee at the store, the package often says '100% Arabica'. But why is this so important? And is Robusta really that bad?",
+            "intro": "\"100% Arabica\" — you've seen this on every other coffee pack. But what does it really mean? And why does Robusta have such a bad reputation? Let's explore the two main coffee types in detail.",
             "differences_title": "Main Differences",
             "arabica_title": "Arabica: The Queen of Coffee",
             "growing_title": "Growing Conditions",
@@ -1049,13 +1049,18 @@
             "h3_5": "Is Robusta Always Bad?",
             "h3_6": "Benefits of Quality Robusta",
             "h3_7": "Choose 100% Arabica if:",
-            "h3_8": "Robusta may work if:"
+            "h3_8": "Robusta may work if:",
+            "p1": "Arabica is a demanding beauty. It needs special growing conditions and careful attention.",
+            "p2": "Arabica is famous for its complex flavor with fruity, floral, and sweet notes.",
+            "p3": "Robusta is a hardy plant that withstands tougher conditions and yields more coffee.",
+            "p4": "Quality Robusta has its place in the coffee world and can be very tasty.",
+            "p5": "The problem isn't Robusta itself, but that low-quality Robusta is often used to cheapen blends."
         },
         "bean_to_cup": {
             "title": "From Bean to Cup: The Journey of Coffee",
             "category": "About Coffee",
             "reading_time": "6 min read",
-            "intro": "Every cup of coffee is the result of meticulous work by hundreds of people across different continents. Learn the journey of the bean.",
+            "intro": "Each cup of coffee is the result of a journey that begins in distant tropical countries. Learn about all the stages of this fascinating path.",
             "planting_title": "Growing",
             "harvesting_title": "Harvesting",
             "processing_title": "Processing",
@@ -1080,13 +1085,17 @@
             "h2_6": "Grinding",
             "h2_7": "Brewing",
             "h2_8": "Enjoyment",
-            "h3_1": "Try the Result"
+            "h3_1": "Try the Result",
+            "p1": "Coffee grows only in the \"coffee belt\" — the region between the Tropics of Cancer and Capricorn.",
+            "p2": "Harvesting is meticulous work, especially for specialty coffee picked by hand.",
+            "p3": "After harvesting, the cherries are processed — either washed or naturally.",
+            "p4": "Roasting is the moment when green beans transform into aromatic coffee."
         },
         "brewing_methods": {
             "title": "All Coffee Brewing Methods: Complete Guide",
             "category": "Recipes",
             "reading_time": "10 min read",
-            "intro": "There are countless ways to brew coffee. Each method reveals different aspects of the bean's flavor.",
+            "intro": "There are countless ways to brew coffee, and each reveals different aspects of flavor. Let's break down all popular methods.",
             "pour_over_title": "Pour Over",
             "v60_title": "V60",
             "chemex_title": "Chemex",
@@ -1123,13 +1132,17 @@
             "h3_8": "Moka Pot",
             "h3_9": "Aeropress",
             "h3_10": "Turkish Pot",
-            "h3_11": "Percolator"
+            "h3_11": "Percolator",
+            "p1": "Immersion methods (French press, cold brew) give a rich, full-bodied taste.",
+            "p2": "Drip methods (V60, Kalita, Chemex) create a clean, bright taste.",
+            "p3": "Pressure methods (espresso, moka) produce a concentrated, intense drink.",
+            "p4": "The choice of method depends on your preferences and time you're willing to spend."
         },
         "coffee_processing": {
             "title": "Coffee Processing: From Cherry to Bean",
             "category": "Processing",
             "reading_time": "7 min read",
-            "intro": "After harvest, the coffee cherry undergoes processing. This stage is critically important for the final taste.",
+            "intro": "Processing is one of the most important stages that determines the final taste of coffee. Let's break down three main methods.",
             "natural_title": "Natural (Dry) Processing",
             "washed_title": "Washed Processing",
             "honey_title": "Honey Processing",
@@ -1149,13 +1162,16 @@
             "h3_2": "Natural Cons",
             "h3_3": "Washed Pros",
             "h3_4": "Washed Cons",
-            "h3_5": "Honey Processing Types"
+            "h3_5": "Honey Processing Types",
+            "p1": "In natural processing, the cherry dries whole. This gives a sweet, fruity taste.",
+            "p2": "Washed processing removes the pulp before drying. Result — a clean, bright taste.",
+            "p3": "Honey processing is a golden mean between the two methods."
         },
         "coffee_seasonality": {
             "title": "Coffee Seasonality: When to Drink Fresh Coffee",
             "category": "About Coffee",
             "reading_time": "5 min read",
-            "intro": "Coffee is a seasonal product, like fruits or vegetables. Each region has its harvest season.",
+            "intro": "Coffee is a seasonal product, like fruits or vegetables. Each region has its own harvest season.",
             "harvest_title": "Harvest Seasons in Different Countries",
             "ethiopia_title": "Ethiopia",
             "freshness_title": "How It Affects Freshness",
@@ -1172,7 +1188,10 @@
             "h2_4": "Colombia",
             "h2_5": "Brazil",
             "h2_6": "How to Choose Fresh Coffee?",
-            "h3_1": "Tips"
+            "h3_1": "Tips",
+            "p1": "Ethiopia: November-February. Best fresh coffee available from February to May.",
+            "p2": "Colombia has two harvests per year: October-February and April-June.",
+            "p3": "Brazil: May-September. The world's largest coffee producer."
         },
         "blog_coffee_storage": {
             "title": "How to Store Coffee Properly",
@@ -1189,7 +1208,7 @@
             "title": "Cold Brew: Complete Guide to Cold Brewing",
             "category": "Recipes",
             "reading_time": "6 min read",
-            "intro": "Cold brew is the perfect drink for hot days. It's smooth, sweet, and without bitterness.",
+            "intro": "Cold brew is the perfect drink for hot days. It's smooth, sweet, and almost bitter-free.",
             "what_is_title": "What is Cold Brew?",
             "recipe_title": "Basic Recipe",
             "ratio_title": "Ratios",
@@ -1205,13 +1224,16 @@
             "h2_2": "Benefits",
             "h2_3": "Recipe",
             "h2_4": "Tips",
-            "h3_1": "Try Cold Brew"
+            "h3_1": "Try Cold Brew",
+            "p1": "Cold brew is coffee brewed with cold water for 12-24 hours.",
+            "p2": "Unlike iced coffee, cold brew is never heated, giving a smoother taste.",
+            "p3": "Ratio for cold brew: 1:8 (coffee to water). Grind — coarse, like for French press."
         },
         "espresso_guide": {
             "title": "Espresso at Home: Complete Beginner's Guide",
             "category": "Recipes",
             "reading_time": "10 min read",
-            "intro": "Espresso is the foundation of many coffee drinks. Here's how to make it at home.",
+            "intro": "Espresso is the foundation of most coffee drinks. Here's how to make it at home like a pro.",
             "equipment_title": "Required Equipment",
             "grind_title": "Grind",
             "recipe_title": "Basic Recipe",
@@ -1232,13 +1254,16 @@
             "h3_2": "Grinder",
             "h3_3": "Timer and Scale",
             "h3_4": "Sour Shot",
-            "h3_5": "Bitter Shot"
+            "h3_5": "Bitter Shot",
+            "p1": "For espresso you need a quality machine, good grinder, and fresh coffee.",
+            "p2": "Standard recipe: 18-20g coffee, 36-40g drink in 25-30 seconds.",
+            "p3": "If shot is sour — grind is too coarse. Bitter — too fine."
         },
         "ethiopia_origins": {
             "title": "Ethiopia: Cradle of Coffee and Its Regions",
             "category": "About Coffee",
             "reading_time": "7 min read",
-            "intro": "Ethiopia is the birthplace of coffee. More genetic varieties of Arabica grow here than anywhere else in the world.",
+            "intro": "Ethiopia is the birthplace of coffee and still produces some of the world's best. Learn about its legendary regions.",
             "history_title": "Discovery History",
             "regions_title": "Main Regions",
             "yirgacheffe_title": "Yirgacheffe",
@@ -1259,13 +1284,17 @@
             "h3_1": "Harrar",
             "h3_2": "Limu",
             "h3_3": "Jimma",
-            "h3_4": "Tepi"
+            "h3_4": "Tepi",
+            "p1": "Yirgacheffe — the most famous region, known for floral, citrus taste.",
+            "p2": "Sidamo — a larger region with diverse profiles, from berry to chocolate.",
+            "p3": "Guji — a rising star region with bright fruity notes.",
+            "p4": "Harrar — known for natural processing and berry, wine notes."
         },
         "french_press_guide": {
             "title": "French Press: The Perfect Recipe",
             "category": "Recipes",
             "reading_time": "4 min read",
-            "intro": "French press is one of the simplest brewing methods. Here's how to get the best results.",
+            "intro": "French press is the simplest way to make delicious coffee at home. Here's a step-by-step recipe.",
             "equipment_title": "What You Need",
             "recipe_title": "Recipe",
             "tips_title": "Tips",
@@ -1278,13 +1307,16 @@
             "h2_1": "Equipment",
             "h2_2": "Recipe",
             "h2_3": "Tips",
-            "h3_1": "Try It"
+            "h3_1": "Try It",
+            "p1": "You need: French press, 30g coarse ground coffee, 500ml water at 94°C.",
+            "p2": "Add coffee, pour water, wait 4 minutes, slowly press the plunger.",
+            "p3": "Pour immediately into cups — otherwise it will keep extracting and become bitter."
         },
         "sca_grading": {
             "title": "How Coffee is Graded: The SCA System",
             "category": "About Coffee",
             "reading_time": "6 min read",
-            "intro": "SCA (Specialty Coffee Association) created a standardized coffee quality grading system.",
+            "intro": "SCA (Specialty Coffee Association) created a standardized coffee quality grading system. Here's how it works.",
             "scale_title": "Grading Scale",
             "criteria_title": "Evaluation Criteria",
             "specialty_title": "What is Specialty?",
@@ -1299,13 +1331,16 @@
             "h2_2": "Grading Criteria",
             "h2_3": "Score Scale",
             "h2_4": "Cupping Process",
-            "h3_1": "Try 85+"
+            "h3_1": "Try 85+",
+            "p1": "Coffee is graded on a 100-point scale. Beans scoring 80+ receive specialty status.",
+            "p2": "11 criteria are evaluated: aroma, flavor, aftertaste, acidity, body, balance, sweetness, and more.",
+            "p3": "Cupping is the professional tasting process where each flavor aspect is evaluated."
         },
         "specialty_coffee": {
             "title": "What is Specialty Coffee?",
             "category": "About Coffee",
             "reading_time": "5 min read",
-            "intro": "Specialty coffee isn't just a marketing term — it's a clearly defined concept with specific criteria.",
+            "intro": "Specialty coffee isn't a marketing term — it's a clearly defined concept with specific criteria.",
             "definition_title": "Definition",
             "grading_title": "Grading System",
             "difference_title": "Differences from Commercial Coffee",
@@ -1329,13 +1364,16 @@
             "h3_3": "Brewing",
             "h3_4": "Terroir",
             "h3_5": "Processing",
-            "h3_6": "Fresh Roasting"
+            "h3_6": "Fresh Roasting",
+            "p1": "Specialty is coffee with an SCA score of 80 points or higher. That's about 3% of all coffee worldwide.",
+            "p2": "The difference from commercial coffee is in bean quality, roast freshness, and origin transparency.",
+            "p3": "Specialty costs more because it requires hand-picking, careful processing, and fresh roasting."
         },
         "turka_guide": {
             "title": "Turkish Coffee: Traditional Recipe",
             "category": "Recipes",
             "reading_time": "5 min read",
-            "intro": "Turkish coffee is the oldest brewing method, over 500 years old.",
+            "intro": "Turkish coffee (cezve) is the oldest brewing method, over 500 years old.",
             "history_title": "History",
             "equipment_title": "Choosing a Cezve",
             "recipe_title": "Classic Recipe",
@@ -1354,13 +1392,16 @@
             "h3_1": "Cezve",
             "h3_2": "Grind",
             "h3_3": "Water",
-            "h3_4": "Serving"
+            "h3_4": "Serving",
+            "p1": "The cezve should be copper with a thick bottom for even heating.",
+            "p2": "Grind — finest possible, like powder. Ratio: 7g coffee per 60ml cold water.",
+            "p3": "Heat slowly, never boil. When foam starts to rise — remove from heat."
         },
         "v60_guide": {
             "title": "V60: The Art of Pour Over",
             "category": "Recipes",
             "reading_time": "6 min read",
-            "intro": "V60 is a favorite method of baristas worldwide. Here's how to master it at home.",
+            "intro": "V60 is a favorite method of baristas worldwide. It gives a clean, bright taste and lets you control every aspect of brewing.",
             "equipment_title": "Equipment",
             "recipe_title": "Basic Recipe",
             "technique_title": "Pouring Technique",
@@ -1379,7 +1420,10 @@
             "h3_1": "Pre-infusion",
             "h3_2": "First Pour",
             "h3_3": "Second Pour",
-            "h3_4": "Final Pour"
+            "h3_4": "Final Pour",
+            "p1": "You need: V60, paper filters, gooseneck kettle, scale, 15g coffee, 250ml water at 94°C.",
+            "p2": "Pre-infusion: pour 30ml water over coffee and wait 30-45 seconds.",
+            "p3": "Continue pouring water in circles from center to edges. Total time: 2:30-3:00."
         },
         "blog_yirgacheffe": {
             "title": "Yirgacheffe: Ethiopia's Most Famous Region",
@@ -1404,7 +1448,7 @@
             "subtitle": "How to preserve coffee freshness and aroma as long as possible.",
             "category": "Tips",
             "reading_time": "4 min read",
-            "intro": "Proper storage is key to enjoying coffee flavor for a long time.",
+            "intro": "Proper storage is key to preserving coffee taste and aroma. Here's what you need to know.",
             "h2_enemies": "Enemies of Freshness",
             "h2_containers": "The Ideal Container",
             "h2_tips": "Practical Tips",
@@ -1418,14 +1462,17 @@
             "h3_2": "Moisture",
             "h3_3": "Heat",
             "h3_4": "Light",
-            "h3_5": "Foreign Odors"
+            "h3_5": "Foreign Odors",
+            "p1": "Five main enemies of coffee: oxygen, moisture, heat, light, and foreign odors.",
+            "p2": "The ideal container — opaque, airtight, with a one-way valve for gas release.",
+            "p3": "Ground coffee keeps up to 2 weeks, beans — up to 4 weeks after roasting."
         },
         "yirgacheffe_region": {
             "title": "Yirgacheffe: The Gem of Ethiopian Coffee",
             "subtitle": "Why this region produces one of the world's most expensive coffees.",
             "category": "About Coffee",
             "reading_time": "5 min read",
-            "intro": "Yirgacheffe is a legendary Ethiopian region known for its floral and citrusy coffee.",
+            "intro": "Yirgacheffe is a legendary Ethiopian region known for its floral and citrusy coffee of the highest quality.",
             "h2_geography": "Geography and Climate",
             "h2_flavor": "Flavor Profile",
             "h2_processing": "Processing Methods",
@@ -1439,7 +1486,11 @@
             "h2_5": "Why Special?",
             "h3_1": "Washed Processing",
             "h3_2": "Natural Processing",
-            "h3_3": "Try Yirgacheffe"
+            "h3_3": "Try Yirgacheffe",
+            "p1": "The region is located at 1700-2200 meters in the Gedeo zone of southern Ethiopia.",
+            "p2": "Flavor profile: bright floral notes (jasmine, bergamot), citrus acidity, tea-like body.",
+            "p3": "Washed processing gives clean, bright taste. Natural — sweeter, more berry-like.",
+            "p4": "Yirgacheffe is considered one of the world's best terroirs for growing coffee."
         }
     }
 }
