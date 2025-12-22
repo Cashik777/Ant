@@ -403,7 +403,7 @@ function createProductCard(p) {
     const newText = typeof t === 'function' ? t('product.new') : 'Новинка';
 
     if (p.id === 4) badges.push(`<div class="p-badge p-badge-bestseller"><i class="fas fa-fire"></i> ${bestsellerText}</div>`);
-    if (discount >= 15) badges.push(`<div class="p-badge p-badge-discount">-${discount}%</div>`);
+    if (discount >= 20) badges.push(`<div class="p-badge p-badge-discount">-${discount}%</div>`);
     if (p.id === 6) badges.push(`<div class="p-badge p-badge-rare"><i class="fas fa-gem"></i> ${rareText}</div>`);
     if (p.soldCount < 300) badges.push(`<div class="p-badge p-badge-new"><i class="fas fa-sparkles"></i> ${newText}</div>`);
 
