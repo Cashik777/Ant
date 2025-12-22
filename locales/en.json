@@ -88,10 +88,12 @@
         "social_proof": "{{count}} people subscribed this month"
     },
     "stats": {
-        "clients": "Satisfied customers",
-        "sca": "SCA Specialty score",
-        "delivery": "From order to cup",
-        "origin": "Direct origin"
+        "clients": "Happy Customers",
+        "sca": "SCA Specialty Points",
+        "delivery": "From Order to Cup",
+        "origin": "Direct Origin",
+        "hours": "hrs",
+        "subscribers": "people subscribed"
     },
     "reviews": {
         "featured_text": "\"This is not just a drink, it's a journey. I felt the difference from the first sip. Store-bought coffee no longer exists for me.\"",
@@ -125,8 +127,8 @@
     "footer": {
         "description": "We deliver authentic specialty coffee directly from Ethiopian farms to your home.",
         "shop_title": "Shop",
-        "catalog": "Full Catalog",
-        "subscription": "Coffee Subscription",
+        "catalog": "Catalog",
+        "subscription": "Subscription",
         "certificates": "Gift cards",
         "b2b": "B2B Solutions",
         "account": "My Account",
@@ -139,7 +141,7 @@
         "contacts_title": "Contacts",
         "location": "Odessa, Ukraine",
         "newsletter_title": "Newsletter",
-        "newsletter_text": "Get deals, news and tips",
+        "newsletter_text": "New arrivals and special offers",
         "newsletter_placeholder": "Your email",
         "newsletter_cta": "Subscribe",
         "trust_return": "14-day returns",
@@ -147,7 +149,7 @@
         "trust_shipping": "Free shipping from 500₴",
         "trust_roast": "Fresh roast within 3 days",
         "payment_methods": "Payment Methods:",
-        "copyright": "© 2025 EthioDirect. All rights reserved.",
+        "copyright": "All rights reserved",
         "privacy": "Privacy Policy",
         "terms": "Return Policy",
         "offer": "Public Offer",
@@ -159,7 +161,15 @@
         "badge_shipping": "shipping from 500₴",
         "badge_fresh": "Fresh Roast",
         "badge_days": "up to 3 days",
-        "all_rights": "All rights reserved"
+        "all_rights": "All rights reserved",
+        "about_text": "We import the best specialty coffee directly from Ethiopian farms",
+        "quick_links": "Quick Links",
+        "about_link": "About Us",
+        "help": "Help",
+        "returns": "Returns",
+        "newsletter": "Newsletter",
+        "subscribe_btn": "Subscribe",
+        "safe_payment": "Secure Payment"
     },
     "cart": {
         "title": "Your Cart",
@@ -403,8 +413,8 @@
     },
     "subscription_page": {
         "hero_badge": "-10% ON EVERY DELIVERY",
-        "hero_title": "Coffee That Comes to You",
-        "hero_subtitle": "Choose taste, frequency, quantity — and enjoy freshly roasted coffee without hassle.",
+        "hero_title": "Fresh Coffee Subscription",
+        "hero_subtitle": "Choose a plan and receive the freshest coffee without ordering hassle",
         "choose_plan": "Choose Plan",
         "how_it_works": "How It Works",
         "benefit_discount": "-10% discount",
@@ -467,7 +477,8 @@
         "step3_title": "Receive",
         "step3_text": "Fresh coffee arrives automatically",
         "step4_title": "Enjoy!",
-        "step4_text": "We take care of your coffee"
+        "step4_text": "We take care of your coffee",
+        "g_month": "g/month"
     },
     "pages": {
         "shop": "Shop — EthioDirect",
@@ -1645,9 +1656,9 @@
         "sender_label": "From:",
         "sender_placeholder": "Your name",
         "message_label": "Message (optional):",
-        "message_placeholder": "Write your message...",
+        "message_placeholder": "Write a few warm words...",
         "email_label": "Email for certificate delivery:",
-        "pay_btn": "Pay",
+        "pay_btn": "Pay Now",
         "guarantee": "Guarantee: Certificate valid for 1 year from purchase date.",
         "preview_label": "Preview",
         "uah": "UAH",
@@ -1667,7 +1678,9 @@
         "questions_text": "Contact us — we'll help you choose the perfect gift!",
         "contact_btn": "Contact Us",
         "email_placeholder": "email@example.com",
-        "buy_btn": "Buy Certificate"
+        "buy_btn": "Buy Certificate",
+        "name_placeholder": "e.g.: Elena",
+        "validity_text": "Certificate valid for 1 year from purchase"
     },
     "about_page": {
         "hero_badge": "OUR STORY",
@@ -1708,7 +1721,18 @@
         "process_title": "Our Process",
         "try_title": "Ready to Try?",
         "try_text": "Order your first pack today",
-        "try_btn": "Choose Coffee"
+        "try_btn": "Choose Coffee",
+        "team_member1_name": "Alexander",
+        "team_member1_role": "Founder",
+        "team_member2_name": "Marina",
+        "team_member2_role": "Head Roaster",
+        "team_member3_name": "Igor",
+        "team_member3_role": "Q-Grader",
+        "timeline_2018": "First trip to Ethiopia",
+        "timeline_2019": "EthioDirect Launch",
+        "timeline_2020": "1000+ customers",
+        "timeline_2021": "Own roastery",
+        "timeline_2023": "Subscription & B2B"
     },
     "quiz_page": {
         "title": "Quiz: Which Coffee Suits You?",
@@ -2141,5 +2165,19 @@
             "subtitle": "Ethiopia's unique region",
             "intro": "Yirgacheffe is Ethiopia's most prestigious coffee region with unique floral notes."
         }
+    },
+    "lead_magnet": {
+        "title": "Free Guide: 7 Secrets to Perfect Coffee at Home",
+        "text": "Get a PDF with practical tips from our baristas",
+        "email_placeholder": "Your email",
+        "btn": "Get Free Guide",
+        "downloaded": "people downloaded"
+    },
+    "blog_page": {
+        "hero_title": "Coffee Stories",
+        "hero_subtitle": "Learn more about coffee, brewing methods, and Ethiopian culture",
+        "all_posts": "All Posts",
+        "read_more": "Read More →",
+        "min_read": "min read"
     }
 }
