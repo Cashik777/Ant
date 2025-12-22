@@ -398,14 +398,8 @@ function createProductCard(p) {
 
     // Badges with i18n
     const badges = [];
-    const bestsellerText = typeof t === 'function' ? t('product.bestseller') : 'Хіт продажів';
-    const rareText = typeof t === 'function' ? t('product.rare') : 'Рарітет';
-    const newText = typeof t === 'function' ? t('product.new') : 'Новинка';
-
-    if (p.id === 4) badges.push(`<div class="p-badge p-badge-bestseller"><i class="fas fa-fire"></i> ${bestsellerText}</div>`);
+    // Only show significant discount badges (20%+)
     if (discount >= 20) badges.push(`<div class="p-badge p-badge-discount">-${discount}%</div>`);
-    if (p.id === 6) badges.push(`<div class="p-badge p-badge-rare"><i class="fas fa-gem"></i> ${rareText}</div>`);
-    if (p.soldCount < 300) badges.push(`<div class="p-badge p-badge-new"><i class="fas fa-sparkles"></i> ${newText}</div>`);
 
     // Simulated stock levels for urgency
     const stockLevels = { 1: 12, 2: 5, 3: 3, 4: 18, 5: 8, 6: 2 };

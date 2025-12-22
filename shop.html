@@ -157,7 +157,7 @@
         <section
             style="padding-top:150px; background:linear-gradient(135deg, var(--bg-main) 0%, #f5f0e6 100%); padding-bottom:40px;">
             <div class="container">
-                <h1 style="font-size:2.5rem; margin-bottom:10px;" data-i18n="shop.title">Каталог кави</h1>
+                <h1 style="font-size:2.5rem; margin-bottom:10px;" data-i18n="shop.title" data-i18n="shop.title">Каталог кави</h1>
                 <p style="color:var(--text-muted); font-size:1.1rem;" data-i18n="shop.subtitle">Оберіть свій ідеальний
                     смак</p>
             </div>
@@ -171,7 +171,7 @@
                     <!-- FILTERS SIDEBAR -->
                     <aside
                         style="background:white; padding:25px; border-radius:12px; box-shadow:0 5px 20px rgba(0,0,0,0.05); height:fit-content; position:sticky; top:120px;">
-                        <h3 style="margin-bottom:25px; font-size:1.2rem;" data-i18n="shop.filters">Фільтри</h3>
+                        <h3 style="margin-bottom:25px; font-size:1.2rem;" data-i18n="shop.filters" data-i18n="shop.filters">Фільтри</h3>
 
                         <!-- Roast -->
                         <div style="margin-bottom:25px;">
@@ -181,16 +181,16 @@
                             <label
                                 style="display:flex; align-items:center; gap:10px; margin-bottom:10px; cursor:pointer;">
                                 <input type="checkbox" id="filter-light" onchange="applyFilters()"> <span
-                                    data-i18n="shop.roast_light">Світла</span>
+                                    data-i18n="shop.roast_light" data-i18n="shop.roast_light">Світла</span>
                             </label>
                             <label
                                 style="display:flex; align-items:center; gap:10px; margin-bottom:10px; cursor:pointer;">
                                 <input type="checkbox" id="filter-medium" onchange="applyFilters()"> <span
-                                    data-i18n="shop.roast_medium">Середня</span>
+                                    data-i18n="shop.roast_medium" data-i18n="shop.roast_medium">Середня</span>
                             </label>
                             <label style="display:flex; align-items:center; gap:10px; cursor:pointer;">
                                 <input type="checkbox" id="filter-dark" onchange="applyFilters()"> <span
-                                    data-i18n="shop.roast_dark">Темна</span>
+                                    data-i18n="shop.roast_dark" data-i18n="shop.roast_dark">Темна</span>
                             </label>
                         </div>
 
@@ -217,7 +217,7 @@
                         <!-- Price -->
                         <div style="margin-bottom:25px;">
                             <h4 style="font-size:0.9rem; margin-bottom:15px; color:var(--text-muted); text-transform:uppercase; letter-spacing:1px;"
-                                data-i18n="shop.filter_price">Ціна</h4>
+                                data-i18n="shop.filter_price" data-i18n="shop.filter_price">Ціна</h4>
                             <div style="display:flex; gap:10px; align-items:center;">
                                 <input type="number" id="price-min" placeholder="від"
                                     data-i18n-placeholder="shop.price_from"
@@ -243,7 +243,7 @@
                         </div>
 
                         <button onclick="clearAllFilters()" class="btn btn-outline" style="width:100%;">
-                            <i class="fas fa-times"></i> <span data-i18n="shop.clear_filters">Скинути фільтри</span>
+                            <i class="fas fa-times"></i> <span data-i18n="shop.clear_filters" data-i18n="shop.clear_filters">Скинути фільтри</span>
                         </button>
                     </aside>
 
