@@ -585,7 +585,11 @@
             "h2_ideal": "Ideal Water for Coffee",
             "p_ideal": "Per SCA recommendations: TDS (total dissolved solids) 75-250 ppm, pH 6.5-7.5. Simplest option — filtered water or quality bottled water.",
             "h2_avoid": "What to Avoid",
-            "p_avoid": "Distilled water — too soft. Tap water (in most cities) — contains chlorine and is too hard. High-mineral water — will overpower coffee taste."
+            "p_avoid": "Distilled water — too soft. Tap water (in most cities) — contains chlorine and is too hard. High-mineral water — will overpower coffee taste.",
+            "h2_1": "Why Does Water Matter?",
+            "h2_2": "Ideal Water per SCA",
+            "h2_3": "What Water to Use?",
+            "h2_4": "What to Avoid?"
         },
         "yirgacheffe": {
             "title": "Yirgacheffe: The Gem of Ethiopian Coffee",
@@ -719,7 +723,13 @@
             "h2_caffeine": "The Caffeine Myth",
             "p_caffeine": "Many believe that dark roast is \"stronger\" and contains more caffeine. Actually, this is a myth! The caffeine content is almost the same across all roasts, and sometimes light roast even contains slightly more.",
             "h2_choose": "How to Choose?",
-            "p_choose": "For alternative methods (V60, Aeropress) light roast works better. For espresso — medium or dark. For Turkish coffee — dark. But most importantly — experiment!"
+            "p_choose": "For alternative methods (V60, Aeropress) light roast works better. For espresso — medium or dark. For Turkish coffee — dark. But most importantly — experiment!",
+            "h2_1": "What Happens During Roasting?",
+            "h2_2": "Light Roast",
+            "h2_3": "Medium Roast",
+            "h2_4": "Dark Roast",
+            "h2_5": "The Caffeine Myth",
+            "h2_6": "How to Choose?"
         },
         "natural_vs_washed": {
             "title": "Natural vs Washed: How Processing Affects Taste",
@@ -740,7 +750,10 @@
             "h2_natural": "Natural Processing (Dry)",
             "p_natural": "In natural processing, the cherry dries whole — with the pulp. The process takes 2-4 weeks. Result: rich, sweet taste with fruity and berry notes.",
             "h2_difference": "Key Differences",
-            "p_difference": "Washed coffee is more \"clean\" with clear notes. Natural is more \"wild\" with deep fruity flavors. Both methods have their fans."
+            "p_difference": "Washed coffee is more \"clean\" with clear notes. Natural is more \"wild\" with deep fruity flavors. Both methods have their fans.",
+            "h2_1": "Washed Processing",
+            "h2_2": "Natural Processing",
+            "h2_3": "Flavor Comparison"
         },
         "grinder_guide": {
             "title": "How to Choose a Coffee Grinder: Complete Beginner's Guide",
@@ -760,7 +773,16 @@
             "h2_manual": "Manual vs Electric",
             "p_manual": "Manual — cheaper, quiet, compact. Downside: need to crank 1-2 minutes. Electric — fast and convenient, but more expensive.",
             "h2_recommend": "Our Recommendations",
-            "p_recommend": "To start: manual Timemore C2 or Hario Skerton. For espresso: Baratza Encore or 1Zpresso JX-Pro."
+            "p_recommend": "To start: manual Timemore C2 or Hario Skerton. For espresso: Baratza Encore or 1Zpresso JX-Pro.",
+            "h2_1": "Why Do You Need a Grinder?",
+            "h2_2": "Types of Grinders",
+            "h2_3": "Manual Grinders",
+            "h2_4": "Electric Grinders",
+            "h2_5": "What to Choose?",
+            "h3_1": "Blade Grinders",
+            "h3_2": "Burr Grinders",
+            "h3_3": "Flat Burrs",
+            "h3_4": "Conical Burrs"
         },
         "aeropress_recipes": {
             "title": "3 Aeropress Recipes from Champions",
@@ -780,7 +802,8 @@
             "h2_inverted": "Inverted Method",
             "p_inverted": "Aeropress inverted. 17g coffee, 220ml water 92°C. Steep 2 minutes, flip, press.",
             "h2_champion": "2023 Champion Recipe",
-            "p_champion": "12g coffee, 200ml water 78°C. Very fine grind. Time: 2:00. Result: rich, sweet taste."
+            "p_champion": "12g coffee, 200ml water 78°C. Very fine grind. Time: 2:00. Result: rich, sweet taste.",
+            "h2_1": "Champion Recipes"
         },
         "cold_brew_recipe": {
             "title": "Cold Brew at Home: Simple Recipe for 5 Liters",
@@ -800,7 +823,11 @@
             "p_ratio": "Ratio: 1:8 (100g coffee to 800ml water). Coarse grind, like for French press.",
             "p_steps": "Mix coffee with cold water in a jar. Leave in fridge for 12-24 hours. Strain through filter. Concentrate can be diluted with water/milk 1:1.",
             "h2_tips": "Tips",
-            "p_tips": "Use coffees with fruity notes — they shine in cold brew. Store concentrate up to 2 weeks in fridge."
+            "p_tips": "Use coffees with fruity notes — they shine in cold brew. Store concentrate up to 2 weeks in fridge.",
+            "h2_1": "What is Cold Brew?",
+            "h2_2": "Equipment",
+            "h2_3": "Recipe",
+            "h2_4": "Tips"
         },
         "espresso_mistakes": {
             "title": "7 Mistakes When Making Espresso at Home",
@@ -827,7 +854,15 @@
             "h2_clean": "6. Dirty Group Head",
             "p_clean": "Clean the group after every shot. Old oils = bitter taste.",
             "h2_ratio": "7. Wrong Ratio",
-            "p_ratio": "Classic: 1:2 (18g coffee = 36g drink) in 25-30 seconds."
+            "p_ratio": "Classic: 1:2 (18g coffee = 36g drink) in 25-30 seconds.",
+            "h2_1": "Top Mistakes",
+            "h3_1": "1. Wrong Grind",
+            "h3_2": "2. Inaccurate Dose",
+            "h3_3": "3. Wrong Temperature",
+            "h3_4": "4. Stale Coffee",
+            "h3_5": "5. Uneven Tamping",
+            "h3_6": "6. Dirty Group Head",
+            "h3_7": "7. Wrong Ratio"
         },
         "turka_recipe": {
             "title": "Turkish Coffee: Secrets of Perfect Cezve",
@@ -849,7 +884,11 @@
             "p_step3": "Heat slowly on lowest flame. Never boil!",
             "p_step4": "When foam starts to rise — remove from heat. Repeat 2-3 times for richness.",
             "h2_tips": "Secrets",
-            "p_tips": "Don't stir after heating starts. Use dark roast. Serve with a glass of cold water."
+            "p_tips": "Don't stir after heating starts. Use dark roast. Serve with a glass of cold water.",
+            "h2_1": "History",
+            "h2_2": "Equipment",
+            "h2_3": "Recipe",
+            "h2_4": "Secrets"
         },
         "how_to_brew_v60": {
             "title": "Perfect V60: Step-by-Step Recipe from a Barista",
@@ -872,7 +911,16 @@
             "p_step2": "Add ground coffee (medium-fine, like sea salt) and make a well in the center.",
             "p_step3": "Start with pre-infusion: pour 30ml water, wait 30-45 seconds while coffee \"blooms.\"",
             "p_step4": "Continue pouring water in circles, from center to edges. Total brew time: 2:30-3:00.",
-            "cta_text": "We recommend light roast for the best flavor"
+            "cta_text": "We recommend light roast for the best flavor",
+            "h2_1": "What You Need",
+            "h2_2": "Ratios",
+            "h2_3": "Step-by-Step Recipe",
+            "h3_1": "Step 1",
+            "h3_2": "Step 2",
+            "h3_3": "Step 3",
+            "h3_4": "Step 4",
+            "h3_5": "Step 5",
+            "h3_6": "Step 6"
         },
         "coffee_storage": {
             "title": "How to Store Coffee Properly: 5 Key Rules",
@@ -897,7 +945,16 @@
             "p_smells": "<strong>Foreign odors</strong> — coffee easily absorbs them",
             "h2_tips": "Storage Tips",
             "p_tips": "Keep coffee in airtight packaging, in a dark cool place. Not in the fridge! Ground coffee keeps 2 weeks, beans — up to a month after roasting.",
-            "cta_text": "We roast to order — you'll receive the freshest coffee"
+            "cta_text": "We roast to order — you'll receive the freshest coffee",
+            "h2_1": "5 Enemies of Freshness",
+            "h2_2": "How to Store Properly",
+            "h2_3": "How Long Does Coffee Keep?",
+            "h2_4": "Can You Store in the Fridge?",
+            "h3_1": "Oxygen",
+            "h3_2": "Moisture",
+            "h3_3": "Heat",
+            "h3_4": "Light",
+            "h3_5": "Foreign Odors"
         },
         "caffeine_myths": {
             "title": "5 Caffeine Myths Everyone Believes",
@@ -920,7 +977,13 @@
             "h2_myth4": "Myth 4: Caffeine is Addictive",
             "p_myth4": "PARTLY TRUE. Tolerance develops, but it's not addiction in the medical sense. Withdrawal is mild discomfort for 1-2 days.",
             "h2_myth5": "Myth 5: Decaf is Completely Caffeine-Free",
-            "p_myth5": "FALSE. Decaf contains 2-15 mg caffeine per cup (regular has 80-100 mg)."
+            "p_myth5": "FALSE. Decaf contains 2-15 mg caffeine per cup (regular has 80-100 mg).",
+            "h2_1": "Popular Myths",
+            "h3_1": "Myth 1: Dark Roast is Stronger",
+            "h3_2": "Myth 2: Espresso Has the Most Caffeine",
+            "h3_3": "Myth 3: Caffeine Dehydrates",
+            "h3_4": "Myth 4: Caffeine is Addictive",
+            "h3_5": "Myth 5: Decaf is Caffeine-Free"
         }
     },
     "blog": {
