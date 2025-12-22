@@ -406,7 +406,9 @@
         "quiz": "Тест вкуса — EthioDirect",
         "account": "Личный кабинет — EthioDirect",
         "b2b": "B2B — EthioDirect",
-        "gift": "Подарочные сертификаты — EthioDirect"
+        "gift": "Подарочные сертификаты — EthioDirect",
+        "blog_title": "Истории о кофе",
+        "blog_subtitle": "Погружайтесь в мир specialty кофе: от плантаций Эфиопии до вашей чашки"
     },
     "articles": {
         "sidamo_guide": {
@@ -928,6 +930,13 @@
             "processing_title": "Методы обработки",
             "cta_title": "Попробуйте Yirgacheffe",
             "cta_button": "В каталог"
-        }
+        },
+        "cat_all": "Все",
+        "cat_about": "О кофе",
+        "cat_recipes": "Рецепты",
+        "cat_equipment": "Оборудование",
+        "cat_tips": "Советы",
+        "read_more": "Читать далее →",
+        "views": "просмотров"
     }
 }

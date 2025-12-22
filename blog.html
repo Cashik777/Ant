@@ -178,7 +178,7 @@
 
 <body>
 
-        <!-- TOP BAR -->
+    <!-- TOP BAR -->
     <div class="top-bar">
         <div class="container top-bar-inner">
             <div class="top-bar-left">
@@ -188,11 +188,14 @@
             </div>
             <div class="top-bar-center">
                 <div class="promo-ticker">
-                    <span class="ticker-item">🔥 <strong data-i18n="topbar.promo_action">АКЦІЯ:</strong> <span data-i18n="topbar.promo_delivery">безкоштовна доставка від 500₴</span></span>
+                    <span class="ticker-item">🔥 <strong data-i18n="topbar.promo_action">АКЦІЯ:</strong> <span
+                            data-i18n="topbar.promo_delivery">безкоштовна доставка від 500₴</span></span>
                     <span class="ticker-divider">|</span>
-                    <span class="ticker-item">☕ <span data-i18n="topbar.promo_subscription">Підписка:</span> <strong data-i18n="topbar.promo_subscription_text">-10% на кожну доставку</strong></span>
+                    <span class="ticker-item">☕ <span data-i18n="topbar.promo_subscription">Підписка:</span> <strong
+                            data-i18n="topbar.promo_subscription_text">-10% на кожну доставку</strong></span>
                     <span class="ticker-divider">|</span>
-                    <span class="ticker-item">⚡ <span data-i18n="topbar.promo_roast">Свіжа обсмажка</span> <strong data-i18n="topbar.promo_roast_days">до 3 днів</strong></span>
+                    <span class="ticker-item">⚡ <span data-i18n="topbar.promo_roast">Свіжа обсмажка</span> <strong
+                            data-i18n="topbar.promo_roast_days">до 3 днів</strong></span>
                 </div>
             </div>
             <div class="top-bar-right">
@@ -203,7 +206,7 @@
         </div>
     </div>
 
-        <!-- HEADER -->
+    <!-- HEADER -->
     <header class="header">
         <div class="container header-inner">
             <a href="index.html" class="logo">
@@ -223,8 +226,7 @@
             <div class="header-search">
                 <div class="search-wrapper">
                     <input type="text" class="search-input" id="search-input" placeholder="Пошук кави..."
-                        data-i18n-placeholder="search.placeholder"
-                        oninput="handleSearch(this.value)">
+                        data-i18n-placeholder="search.placeholder" oninput="handleSearch(this.value)">
                     <button class="search-btn"><i class="fas fa-search"></i></button>
                     <div class="search-results" id="search-results"></div>
                 </div>
@@ -242,7 +244,8 @@
                     <div class="mini-cart" id="mini-cart">
                         <div class="mini-cart-header">
                             <h4 data-i18n="cart.title">Ваш кошик</h4>
-                            <span class="mini-cart-count" id="mini-cart-count"><span>0</span> <span data-i18n="cart.items">товарів</span></span>
+                            <span class="mini-cart-count" id="mini-cart-count"><span>0</span> <span
+                                    data-i18n="cart.items">товарів</span></span>
                         </div>
                         <div class="mini-cart-items" id="mini-cart-items"></div>
                         <div class="mini-cart-footer" id="mini-cart-footer">
@@ -251,16 +254,19 @@
                                 <span id="mini-cart-total">0 ₴</span>
                             </div>
                             <div class="mini-cart-shipping" id="mini-cart-shipping">
-                                <i class="fas fa-truck"></i> <span data-i18n="cart.free_shipping_progress">До безкоштовної доставки:</span> <strong>500 ₴</strong>
+                                <i class="fas fa-truck"></i> <span data-i18n="cart.free_shipping_progress">До
+                                    безкоштовної доставки:</span> <strong>500 ₴</strong>
                             </div>
                             <button class="mini-cart-btn" onclick="openDrawer()">
-                                <i class="fas fa-shopping-cart"></i> <span data-i18n="cart.checkout">Оформити замовлення</span>
+                                <i class="fas fa-shopping-cart"></i> <span data-i18n="cart.checkout">Оформити
+                                    замовлення</span>
                             </button>
                         </div>
                     </div>
                 </div>
 
-                <button class="menu-toggle" aria-label="Open menu" data-i18n="common.open_menu" data-i18n-aria data-i18n="common.open_menu" data-i18n-aria onclick="toggleMobileMenu()">
+                <button class="menu-toggle" aria-label="Open menu" data-i18n="common.open_menu" data-i18n-aria
+                    data-i18n="common.open_menu" data-i18n-aria onclick="toggleMobileMenu()">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
@@ -285,7 +291,8 @@
                     доставки: <strong>500 ₴</strong></p>
             </div>
             <div style="display:flex; justify-content:space-between; margin-bottom:15px;">
-                <span data-i18n="cart.subtotal">Разом:</span><span id="cart-total" style="font-weight:700; color:var(--primary);">0 ₴</span>
+                <span data-i18n="cart.subtotal">Разом:</span><span id="cart-total"
+                    style="font-weight:700; color:var(--primary);">0 ₴</span>
             </div>
             <button class="btn btn-primary" style="width:100%;"><i class="fas fa-lock"></i> Оформити замовлення</button>
         </div>
@@ -295,14 +302,15 @@
         <!-- HERO -->
         <section class="blog-hero">
             <div class="container">
-                <h1>Історії про каву</h1>
-                <p>Занурюйтесь у світ specialty кави: від плантацій Ефіопії до вашої чашки</p>
+                <h1 data-i18n="pages.blog_title">Історії про каву</h1>
+                <p data-i18n="pages.blog_subtitle">Занурюйтесь у світ specialty кави: від плантацій Ефіопії до вашої
+                    чашки</p>
                 <div class="blog-categories">
-                    <a href="#" class="blog-cat-btn active">Усі</a>
-                    <a href="#" class="blog-cat-btn">Про каву</a>
-                    <a href="#" class="blog-cat-btn">Рецепти</a>
-                    <a href="#" class="blog-cat-btn">Обладнання</a>
-                    <a href="#" class="blog-cat-btn">Поради</a>
+                    <a href="#" class="blog-cat-btn active" data-i18n="blog.cat_all">Усі</a>
+                    <a href="#" class="blog-cat-btn" data-i18n="blog.cat_about">Про каву</a>
+                    <a href="#" class="blog-cat-btn" data-i18n="blog.cat_recipes">Рецепти</a>
+                    <a href="#" class="blog-cat-btn" data-i18n="blog.cat_equipment">Обладнання</a>
+                    <a href="#" class="blog-cat-btn" data-i18n="blog.cat_tips">Поради</a>
                 </div>
             </div>
         </section>
@@ -649,7 +657,8 @@
                     <input type="email" placeholder="Ваш email" required
                         style="flex:1; min-width:250px; padding:15px 20px; border:none; border-radius:8px; font-size:1rem;">
                     <button type="submit" class="btn"
-                        style="background:var(--secondary); color:#1a1a1a; padding:15px 30px; font-weight:700;" data-i18n="footer.newsletter_cta">Підписатись</button>
+                        style="background:var(--secondary); color:#1a1a1a; padding:15px 30px; font-weight:700;"
+                        data-i18n="footer.newsletter_cta">Підписатись</button>
                 </form>
             </div>
         </section>
@@ -666,7 +675,7 @@
     <div class="toast" id="toast"><i class="fas fa-check-circle"></i><span id="toast-msg">Готово</span></div>
 
     <!-- FOOTER -->
-        <!-- FOOTER -->
+    <!-- FOOTER -->
     <footer class="footer-pro">
         <div class="container">
             <!-- Main Footer Content -->
@@ -676,12 +685,18 @@
                     <h4 style="font-family:var(--font-heading); font-size:1.5rem; color:white; margin-bottom:20px;">
                         <a href="index.html" style="text-decoration:none; color:white;">EthioDirect</a>
                     </h4>
-                    <p style="color:#aaa; line-height:1.8; margin-bottom:20px;" data-i18n="footer.description">Ми доставляємо справжню specialty каву прямо з ефіопських ферм до вашого дому. Свіжа обсмажка, чесна ціна, любов до кави.</p>
+                    <p style="color:#aaa; line-height:1.8; margin-bottom:20px;" data-i18n="footer.description">Ми
+                        доставляємо справжню specialty каву прямо з ефіопських ферм до вашого дому. Свіжа обсмажка,
+                        чесна ціна, любов до кави.</p>
                     <div class="social-links">
-                        <a href="#" aria-label="Instagram" data-i18n="social.instagram" data-i18n-aria><i class="fab fa-instagram"></i></a>
-                        <a href="#" aria-label="Facebook" data-i18n="social.facebook" data-i18n-aria><i class="fab fa-facebook"></i></a>
-                        <a href="#" aria-label="Telegram" data-i18n="social.telegram" data-i18n-aria><i class="fab fa-telegram"></i></a>
-                        <a href="#" aria-label="TikTok" data-i18n="social.tiktok" data-i18n-aria><i class="fab fa-tiktok"></i></a>
+                        <a href="#" aria-label="Instagram" data-i18n="social.instagram" data-i18n-aria><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Facebook" data-i18n="social.facebook" data-i18n-aria><i
+                                class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Telegram" data-i18n="social.telegram" data-i18n-aria><i
+                                class="fab fa-telegram"></i></a>
+                        <a href="#" aria-label="TikTok" data-i18n="social.tiktok" data-i18n-aria><i
+                                class="fab fa-tiktok"></i></a>
                     </div>
                 </div>
 
@@ -717,7 +732,8 @@
                         <li><i class="fas fa-envelope"></i> <a
                                 href="mailto:hello@ethiodirect.ua">hello@ethiodirect.ua</a>
                         </li>
-                        <li><i class="fas fa-map-marker-alt"></i> <span data-i18n="footer.location">Одеса, Україна</span></li>
+                        <li><i class="fas fa-map-marker-alt"></i> <span data-i18n="footer.location">Одеса,
+                                Україна</span></li>
                         <li><i class="fas fa-clock"></i> <span data-i18n="topbar.hours">Пн-Пт: 9:00-18:00</span></li>
                     </ul>
                 </div>
@@ -725,10 +741,13 @@
                 <!-- Column 5: Newsletter -->
                 <div class="footer-col">
                     <h4 data-i18n="footer.newsletter_title">Підписка на новини</h4>
-                    <p style="color:#aaa; margin-bottom:15px; font-size:0.9rem;" data-i18n="footer.newsletter_text">Отримуйте акції, новинки та поради щодо заварювання</p>
+                    <p style="color:#aaa; margin-bottom:15px; font-size:0.9rem;" data-i18n="footer.newsletter_text">
+                        Отримуйте акції, новинки та поради щодо заварювання</p>
                     <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
-                        <input type="email" placeholder="Ваш email" data-i18n="footer.newsletter_placeholder" data-i18n-placeholder required>
-                        <button type="submit" class="btn-newsletter" data-i18n="footer.newsletter_cta">Підписатись</button>
+                        <input type="email" placeholder="Ваш email" data-i18n="footer.newsletter_placeholder"
+                            data-i18n-placeholder required>
+                        <button type="submit" class="btn-newsletter"
+                            data-i18n="footer.newsletter_cta">Підписатись</button>
                     </form>
                 </div>
             </div>
@@ -772,7 +791,8 @@
                 <p style="color:#666; font-size:0.85rem; margin-bottom:15px;">Способи оплати:</p>
                 <div class="payment-icons">
                     <i class="fab fa-cc-visa" title="Visa" data-i18n="payment.visa" data-i18n-title></i>
-                    <i class="fab fa-cc-mastercard" title="Mastercard" data-i18n="payment.mastercard" data-i18n-title></i>
+                    <i class="fab fa-cc-mastercard" title="Mastercard" data-i18n="payment.mastercard"
+                        data-i18n-title></i>
                     <i class="fab fa-apple-pay" title="Apple Pay" data-i18n="payment.apple_pay" data-i18n-title></i>
                     <i class="fab fa-google-pay" title="Google Pay" data-i18n="payment.google_pay" data-i18n-title></i>
                     <span class="payment-text">LiqPay</span>

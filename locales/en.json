@@ -406,7 +406,9 @@
         "quiz": "Taste Quiz — EthioDirect",
         "account": "My Account — EthioDirect",
         "b2b": "B2B — EthioDirect",
-        "gift": "Gift Cards — EthioDirect"
+        "gift": "Gift Cards — EthioDirect",
+        "blog_title": "Coffee Stories",
+        "blog_subtitle": "Dive into the world of specialty coffee: from Ethiopian plantations to your cup"
     },
     "articles": {
         "sidamo_guide": {
@@ -928,6 +930,13 @@
             "processing_title": "Processing Methods",
             "cta_title": "Try Yirgacheffe",
             "cta_button": "To Catalog"
-        }
+        },
+        "cat_all": "All",
+        "cat_about": "About Coffee",
+        "cat_recipes": "Recipes",
+        "cat_equipment": "Equipment",
+        "cat_tips": "Tips",
+        "read_more": "Read more →",
+        "views": "views"
     }
 }
