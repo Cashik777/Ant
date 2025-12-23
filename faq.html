@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="uk" data-i18n-title="pages.faq">
 
 <head>
@@ -85,7 +85,7 @@
 
 <body>
 
-        <!-- TOP BAR -->
+    <!-- TOP BAR -->
     <div class="top-bar">
         <div class="container top-bar-inner">
             <div class="top-bar-left">
@@ -95,11 +95,14 @@
             </div>
             <div class="top-bar-center">
                 <div class="promo-ticker">
-                    <span class="ticker-item">🔥 <strong data-i18n="topbar.promo_action">АКЦІЯ:</strong> <span data-i18n="topbar.promo_delivery">безкоштовна доставка від 500₴</span></span>
+                    <span class="ticker-item">🔥 <strong data-i18n="topbar.promo_action">АКЦІЯ:</strong> <span
+                            data-i18n="topbar.promo_delivery">безкоштовна доставка від 500₴</span></span>
                     <span class="ticker-divider">|</span>
-                    <span class="ticker-item">☕ <span data-i18n="topbar.promo_subscription">Підписка:</span> <strong data-i18n="topbar.promo_subscription_text">-10% на кожну доставку</strong></span>
+                    <span class="ticker-item">☕ <span data-i18n="topbar.promo_subscription">Підписка:</span> <strong
+                            data-i18n="topbar.promo_subscription_text">-10% на кожну доставку</strong></span>
                     <span class="ticker-divider">|</span>
-                    <span class="ticker-item">⚡ <span data-i18n="topbar.promo_roast">Свіжа обсмажка</span> <strong data-i18n="topbar.promo_roast_days">до 3 днів</strong></span>
+                    <span class="ticker-item">⚡ <span data-i18n="topbar.promo_roast">Свіжа обсмажка</span> <strong
+                            data-i18n="topbar.promo_roast_days">до 3 днів</strong></span>
                 </div>
             </div>
             <div class="top-bar-right">
@@ -110,7 +113,7 @@
         </div>
     </div>
 
-        <!-- HEADER -->
+    <!-- HEADER -->
     <header class="header">
         <div class="container header-inner">
             <a href="index.html" class="logo">
@@ -130,8 +133,7 @@
             <div class="header-search">
                 <div class="search-wrapper">
                     <input type="text" class="search-input" id="search-input" placeholder="Пошук кави..."
-                        data-i18n-placeholder="search.placeholder"
-                        oninput="handleSearch(this.value)">
+                        data-i18n-placeholder="search.placeholder" oninput="handleSearch(this.value)">
                     <button class="search-btn"><i class="fas fa-search"></i></button>
                     <div class="search-results" id="search-results"></div>
                 </div>
@@ -149,7 +151,8 @@
                     <div class="mini-cart" id="mini-cart">
                         <div class="mini-cart-header">
                             <h4 data-i18n="cart.title">Ваш кошик</h4>
-                            <span class="mini-cart-count" id="mini-cart-count"><span>0</span> <span data-i18n="cart.items">товарів</span></span>
+                            <span class="mini-cart-count" id="mini-cart-count"><span>0</span> <span
+                                    data-i18n="cart.items">товарів</span></span>
                         </div>
                         <div class="mini-cart-items" id="mini-cart-items"></div>
                         <div class="mini-cart-footer" id="mini-cart-footer">
@@ -158,16 +161,20 @@
                                 <span id="mini-cart-total">0 ₴</span>
                             </div>
                             <div class="mini-cart-shipping" id="mini-cart-shipping">
-                                <i class="fas fa-truck"></i> <span data-i18n="cart.free_shipping_progress" data-i18n="cart.free_shipping_progress">До безкоштовної доставки:</span> <strong>500 ₴</strong>
+                                <i class="fas fa-truck"></i> <span data-i18n="cart.free_shipping_progress"
+                                    data-i18n="cart.free_shipping_progress">До безкоштовної доставки:</span> <strong>500
+                                    ₴</strong>
                             </div>
                             <button class="mini-cart-btn" onclick="openDrawer()">
-                                <i class="fas fa-shopping-cart"></i> <span data-i18n="cart.checkout" data-i18n="cart.checkout">Оформити замовлення</span>
+                                <i class="fas fa-shopping-cart"></i> <span data-i18n="cart.checkout"
+                                    data-i18n="cart.checkout">Оформити замовлення</span>
                             </button>
                         </div>
                     </div>
                 </div>
 
-                <button class="menu-toggle" aria-label="Open menu" data-i18n="common.open_menu" data-i18n-aria data-i18n="common.open_menu" data-i18n-aria onclick="toggleMobileMenu()">
+                <button class="menu-toggle" aria-label="Open menu" data-i18n="common.open_menu" data-i18n-aria
+                    data-i18n="common.open_menu" data-i18n-aria onclick="toggleMobileMenu()">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
@@ -178,7 +185,8 @@
     <div class="overlay"></div>
     <div class="drawer">
         <div class="drawer-header">
-            <h3><i class="fas fa-shopping-bag" style="margin-right:10px; color:var(--primary);"></i> <span data-i18n="cart.your_cart">Ваш кошик</span></h3>
+            <h3><i class="fas fa-shopping-bag" style="margin-right:10px; color:var(--primary);"></i> <span
+                    data-i18n="cart.your_cart">Ваш кошик</span></h3>
             <button onclick="closeDrawer()"
                 style="background:none;border:none;font-size:1.5rem;cursor:pointer;">&times;</button>
         </div>
@@ -192,9 +200,11 @@
                     доставки: <strong>500 ₴</strong></p>
             </div>
             <div style="display:flex; justify-content:space-between; margin-bottom:15px;">
-                <span data-i18n="cart.subtotal" data-i18n="cart.subtotal">Разом:</span><span id="cart-total" style="font-weight:700; color:var(--primary);">0 ₴</span>
+                <span data-i18n="cart.subtotal" data-i18n="cart.subtotal">Разом:</span><span id="cart-total"
+                    style="font-weight:700; color:var(--primary);">0 ₴</span>
             </div>
-            <button class="btn btn-primary" style="width:100%;"><i class="fas fa-lock"></i> <span data-i18n="cart.checkout">Оформити замовлення</span></button>
+            <button class="btn btn-primary" style="width:100%;"><i class="fas fa-lock"></i> <span
+                    data-i18n="cart.checkout">Оформити замовлення</span></button>
         </div>
     </div>
 
@@ -203,8 +213,9 @@
         <section
             style="padding-top:150px; background:linear-gradient(135deg, var(--bg-main), #f5f0e6); padding-bottom:40px;">
             <div class="container text-center">
-                <h1 style="font-size:2.5rem; margin-bottom:10px;" data-i18n="faq_page.title" data-i18n="faq.title" data-i18n="faq_page.title">Часті питання</h1>
-                <p style="color:var(--text-muted); font-size:1.1rem;">Відповіді на популярні запитання про каву,
+                <h1 style="font-size:2.5rem; margin-bottom:10px;" data-i18n="faq_page.title">Часті питання</h1>
+                <p style="color:var(--text-muted); font-size:1.1rem;" data-i18n="faq_page.subtitle">Відповіді на
+                    популярні запитання про каву,
                     доставку та оплату</p>
             </div>
         </section>
@@ -218,16 +229,18 @@
                     <div
                         style="background:linear-gradient(135deg, var(--primary), #6D4C41); padding:30px; border-radius:16px; margin-bottom:50px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px;">
                         <div style="color:white;">
-                            <h3 style="color:white; margin-bottom:5px;">Не знайшли відповідь?</h3>
-                            <p style="opacity:0.9;">Напишіть нам — відповідаємо за 15 хвилин</p>
+                            <h3 style="color:white; margin-bottom:5px;" data-i18n="faq_page.not_found_title">Не знайшли
+                                відповідь?</h3>
+                            <p style="opacity:0.9;" data-i18n="faq_page.not_found_text">Напишіть нам — відповідаємо за
+                                15 хвилин</p>
                         </div>
                         <div style="display:flex; gap:15px;">
                             <a href="https://t.me/ethiodirect" class="btn"
                                 style="background:white; color:var(--primary);"><i class="fab fa-telegram"></i>
-                                Telegram</a>
+                                <span data-i18n="faq_page.btn_telegram">Telegram</span></a>
                             <a href="tel:+380501234567" class="btn"
                                 style="background:rgba(255,255,255,0.2); color:white;"><i class="fas fa-phone"></i>
-                                Зателефонувати</a>
+                                <span data-i18n="faq_page.btn_phone">Зателефонувати</span></a>
                         </div>
                     </div>
 
@@ -235,16 +248,16 @@
                     <div class="faq-category">
                         <div class="faq-category-title">
                             <div class="faq-category-icon"><i class="fas fa-truck"></i></div>
-                            <h2>Доставка</h2>
+                            <h2 data-i18n="faq_page.cat_delivery">Доставка</h2>
                         </div>
 
                         <div class="faq-item">
-                            <div class="faq-question" onclick="toggleFaq(this)">
+                            <div class="faq-question" onclick="toggleFaq(this)" data-i18n="faq_page.q_delivery_cost">
                                 Скільки коштує доставка?
                                 <i class="fas fa-chevron-down"></i>
                             </div>
                             <div class="faq-answer">
-                                <div class="faq-answer-content">
+                                <div class="faq-answer-content" data-i18n="faq_page.a_delivery_cost">
                                     Доставка <strong>безкоштовна</strong> при замовленні від 500₴. Для замовлень менше
                                     500₴ вартість доставки Новою Поштою становить 65-85₴ залежно від міста. Також
                                     доступна кур'єрська доставка в Одесі (80₴) та Укрпошта (45₴).
@@ -253,12 +266,12 @@
                         </div>
 
                         <div class="faq-item">
-                            <div class="faq-question" onclick="toggleFaq(this)">
+                            <div class="faq-question" onclick="toggleFaq(this)" data-i18n="faq_page.q_delivery_speed">
                                 Як швидко ви відправляєте замовлення?
                                 <i class="fas fa-chevron-down"></i>
                             </div>
                             <div class="faq-answer">
-                                <div class="faq-answer-content">
+                                <div class="faq-answer-content" data-i18n="faq_page.a_delivery_speed">
                                     Ми смажимо каву <strong>під ваше замовлення</strong>, тому відправка відбувається
                                     протягом 1-2 робочих днів. Якщо замовлення оформлено до 14:00 в робочий день і
                                     обраний сорт є в наявності — відправимо того ж дня.
@@ -267,12 +280,12 @@
                         </div>
 
                         <div class="faq-item">
-                            <div class="faq-question" onclick="toggleFaq(this)">
+                            <div class="faq-question" onclick="toggleFaq(this)" data-i18n="faq_page.q_pickup">
                                 Чи можна забрати замовлення самовивозом?
                                 <i class="fas fa-chevron-down"></i>
                             </div>
                             <div class="faq-answer">
-                                <div class="faq-answer-content">
+                                <div class="faq-answer-content" data-i18n="faq_page.a_pickup">
                                     Так! Самовивіз доступний за адресою в Одесі. Напишіть нам перед візитом, щоб ми
                                     підготували ваше замовлення. Самовивіз — безкоштовний.
                                 </div>
@@ -286,16 +299,17 @@
                             <div class="faq-category-icon"
                                 style="background:linear-gradient(135deg, var(--secondary), #f0b90b);"><i
                                     class="fas fa-coffee"></i></div>
-                            <h2>Про каву</h2>
+                            <h2 data-i18n="faq_page.cat_coffee">Про каву</h2>
                         </div>
 
                         <div class="faq-item">
-                            <div class="faq-question" onclick="toggleFaq(this)">
+                            <div class="faq-question" onclick="toggleFaq(this)"
+                                data-i18n="faq_page.q_what_is_specialty">
                                 Що таке Specialty кава?
                                 <i class="fas fa-chevron-down"></i>
                             </div>
                             <div class="faq-answer">
-                                <div class="faq-answer-content">
+                                <div class="faq-answer-content" data-i18n="faq_page.a_what_is_specialty">
                                     <strong>Specialty кава</strong> — це кава вищого ґатунку, яка отримала оцінку від 80
                                     до 100 балів за шкалою SCA (Specialty Coffee Association). Наша кава має оцінку 85+
                                     балів, що означає відсутність дефектів та яскравий, складний смаковий профіль. Це
@@ -305,12 +319,12 @@
                         </div>
 
                         <div class="faq-item">
-                            <div class="faq-question" onclick="toggleFaq(this)">
+                            <div class="faq-question" onclick="toggleFaq(this)" data-i18n="faq_page.q_why_ethiopia">
                                 Чому ефіопська кава особлива?
                                 <i class="fas fa-chevron-down"></i>
                             </div>
                             <div class="faq-answer">
-                                <div class="faq-answer-content">
+                                <div class="faq-answer-content" data-i18n="faq_page.a_why_ethiopia">
                                     Ефіопія — <strong>батьківщина кави</strong>. Тут кава росте природно вже тисячі
                                     років. Завдяки унікальному терруару (висота 1800-2200м, вулканічні ґрунти) ефіопська
                                     кава має неповторні смакові ноти: квіткові, фруктові, ягідні, яких немає в кави з
@@ -320,12 +334,12 @@
                         </div>
 
                         <div class="faq-item">
-                            <div class="faq-question" onclick="toggleFaq(this)">
+                            <div class="faq-question" onclick="toggleFaq(this)" data-i18n="faq_page.q_espresso_choice">
                                 Яку каву обрати для еспресо?
                                 <i class="fas fa-chevron-down"></i>
                             </div>
                             <div class="faq-answer">
-                                <div class="faq-answer-content">
+                                <div class="faq-answer-content" data-i18n="faq_page.a_espresso_choice">
                                     Для еспресо рекомендуємо каву <strong>середньої або темної обсмажки</strong>. Вона
                                     дає більш щільне тіло та традиційний "кавовий" смак. Сорти Sidamo та Harrar чудово
                                     підходять для еспресо. Якщо любите яскравість — спробуйте світлу обсмажку
@@ -335,12 +349,12 @@
                         </div>
 
                         <div class="faq-item">
-                            <div class="faq-question" onclick="toggleFaq(this)">
+                            <div class="faq-question" onclick="toggleFaq(this)" data-i18n="faq_page.q_storage">
                                 Як зберігати каву?
                                 <i class="fas fa-chevron-down"></i>
                             </div>
                             <div class="faq-answer">
-                                <div class="faq-answer-content">
+                                <div class="faq-answer-content" data-i18n="faq_page.a_storage">
                                     Зберігайте каву в <strong>герметичній упаковці</strong>, в темному місці при
                                     кімнатній температурі. Не ставте в холодильник! Після відкриття намагайтесь
                                     використати протягом 2-3 тижнів. Мелена кава зберігається менше — до 7 днів.
@@ -355,16 +369,16 @@
                             <div class="faq-category-icon"
                                 style="background:linear-gradient(135deg, var(--success), #4CAF50);"><i
                                     class="fas fa-credit-card"></i></div>
-                            <h2>Оплата</h2>
+                            <h2 data-i18n="faq_page.cat_payment">Оплата</h2>
                         </div>
 
                         <div class="faq-item">
-                            <div class="faq-question" onclick="toggleFaq(this)">
+                            <div class="faq-question" onclick="toggleFaq(this)" data-i18n="faq_page.q_payment_methods">
                                 Які способи оплати доступні?
                                 <i class="fas fa-chevron-down"></i>
                             </div>
                             <div class="faq-answer">
-                                <div class="faq-answer-content">
+                                <div class="faq-answer-content" data-i18n="faq_page.a_payment_methods">
                                     Ми приймаємо: <strong>Visa/Mastercard</strong>, Apple Pay, Google Pay, LiqPay,
                                     оплату на картку ФОП, та накладений платіж Новою Поштою (комісія 2% + 20₴). Для B2B
                                     клієнтів — безготівковий розрахунок за рахунком.
@@ -373,12 +387,12 @@
                         </div>
 
                         <div class="faq-item">
-                            <div class="faq-question" onclick="toggleFaq(this)">
+                            <div class="faq-question" onclick="toggleFaq(this)" data-i18n="faq_page.q_online_safe">
                                 Чи безпечна онлайн-оплата?
                                 <i class="fas fa-chevron-down"></i>
                             </div>
                             <div class="faq-answer">
-                                <div class="faq-answer-content">
+                                <div class="faq-answer-content" data-i18n="faq_page.a_online_safe">
                                     Так! Ми використовуємо <strong>LiqPay від ПриватБанку</strong> — один з
                                     найбезпечніших платіжних сервісів. Всі транзакції захищені 3D Secure. Ми не
                                     зберігаємо дані вашої картки.
@@ -393,16 +407,16 @@
                             <div class="faq-category-icon"
                                 style="background:linear-gradient(135deg, #9c27b0, #673ab7);"><i
                                     class="fas fa-sync-alt"></i></div>
-                            <h2>Підписка</h2>
+                            <h2 data-i18n="faq_page.cat_subscription">Підписка</h2>
                         </div>
 
                         <div class="faq-item">
-                            <div class="faq-question" onclick="toggleFaq(this)">
+                            <div class="faq-question" onclick="toggleFaq(this)" data-i18n="faq_page.q_what_is_sub">
                                 Що таке підписка на каву?
                                 <i class="fas fa-chevron-down"></i>
                             </div>
                             <div class="faq-answer">
-                                <div class="faq-answer-content">
+                                <div class="faq-answer-content" data-i18n="faq_page.a_what_is_sub">
                                     Підписка — це <strong>автоматична доставка</strong> вашої улюбленої кави з обраною
                                     періодичністю (1-4 рази на місяць). Ви економите 10% на кожній доставці, отримуєте
                                     безкоштовну доставку та завжди маєте свіжу каву вдома.
@@ -411,12 +425,12 @@
                         </div>
 
                         <div class="faq-item">
-                            <div class="faq-question" onclick="toggleFaq(this)">
+                            <div class="faq-question" onclick="toggleFaq(this)" data-i18n="faq_page.q_cancel_sub">
                                 Чи можна скасувати підписку?
                                 <i class="fas fa-chevron-down"></i>
                             </div>
                             <div class="faq-answer">
-                                <div class="faq-answer-content">
+                                <div class="faq-answer-content" data-i18n="faq_page.a_cancel_sub">
                                     Так, <strong>в будь-який момент</strong>! Без штрафів та пояснень. Просто напишіть
                                     нам або скасуйте в особистому кабінеті. Якщо потрібно пропустити одну доставку — теж
                                     не проблема.
@@ -432,10 +446,11 @@
         <!-- CTA -->
         <section style="background:var(--bg-main); padding:60px 0; text-align:center;">
             <div class="container">
-                <h2 style="margin-bottom:20px;">Залишились питання?</h2>
-                <p style="color:var(--text-muted); margin-bottom:30px;">Ми відповідаємо в месенджерах за 15 хвилин</p>
+                <h2 style="margin-bottom:20px;" data-i18n="faq_page.cta_title">Залишились питання?</h2>
+                <p style="color:var(--text-muted); margin-bottom:30px;" data-i18n="faq_page.cta_subtitle">Ми
+                    відповідаємо в месенджерах за 15 хвилин</p>
                 <a href="contacts.html" class="btn btn-primary" style="font-size:1.1rem; padding:16px 40px;">
-                    <i class="fas fa-comments"></i> Зв'язатися з нами
+                    <i class="fas fa-comments"></i> <span data-i18n="faq_page.cta_btn">Зв'язатися з нами</span>
                 </a>
             </div>
         </section>
@@ -452,7 +467,7 @@
     <div class="toast" id="toast"><i class="fas fa-check-circle"></i><span id="toast-msg">Готово</span></div>
 
     <!-- FOOTER -->
-        <!-- FOOTER -->
+    <!-- FOOTER -->
     <footer class="footer-pro">
         <div class="container">
             <!-- Main Footer Content -->
@@ -462,12 +477,18 @@
                     <h4 style="font-family:var(--font-heading); font-size:1.5rem; color:white; margin-bottom:20px;">
                         <a href="index.html" style="text-decoration:none; color:white;">EthioDirect</a>
                     </h4>
-                    <p style="color:#aaa; line-height:1.8; margin-bottom:20px;" data-i18n="footer.description">Ми доставляємо справжню specialty каву прямо з ефіопських ферм до вашого дому. Свіжа обсмажка, чесна ціна, любов до кави.</p>
+                    <p style="color:#aaa; line-height:1.8; margin-bottom:20px;" data-i18n="footer.description">Ми
+                        доставляємо справжню specialty каву прямо з ефіопських ферм до вашого дому. Свіжа обсмажка,
+                        чесна ціна, любов до кави.</p>
                     <div class="social-links">
-                        <a href="#" aria-label="Instagram" data-i18n="social.instagram" data-i18n-aria><i class="fab fa-instagram"></i></a>
-                        <a href="#" aria-label="Facebook" data-i18n="social.facebook" data-i18n-aria><i class="fab fa-facebook"></i></a>
-                        <a href="#" aria-label="Telegram" data-i18n="social.telegram" data-i18n-aria><i class="fab fa-telegram"></i></a>
-                        <a href="#" aria-label="TikTok" data-i18n="social.tiktok" data-i18n-aria><i class="fab fa-tiktok"></i></a>
+                        <a href="#" aria-label="Instagram" data-i18n="social.instagram" data-i18n-aria><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Facebook" data-i18n="social.facebook" data-i18n-aria><i
+                                class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Telegram" data-i18n="social.telegram" data-i18n-aria><i
+                                class="fab fa-telegram"></i></a>
+                        <a href="#" aria-label="TikTok" data-i18n="social.tiktok" data-i18n-aria><i
+                                class="fab fa-tiktok"></i></a>
                     </div>
                 </div>
 
@@ -489,7 +510,7 @@
                     <ul class="footer-links">
                         <li><a href="delivery.html" data-i18n="footer.delivery">Доставка та оплата</a></li>
                         <li><a href="return.html" data-i18n="footer.return">Повернення та обмін</a></li>
-                        <li><a href="faq.html" data-i18n="footer.faq" data-i18n="faq_page.title" data-i18n="faq.title">Часті питання</a></li>
+                        <li><a href="faq.html" data-i18n="footer.faq">Часті питання</a></li>
                         <li><a href="contacts.html" data-i18n="footer.contacts">Контакти</a></li>
                         <li><a href="about.html" data-i18n="nav.about">Про нас</a></li>
                     </ul>
@@ -503,7 +524,8 @@
                         <li><i class="fas fa-envelope"></i> <a
                                 href="mailto:hello@ethiodirect.ua">hello@ethiodirect.ua</a>
                         </li>
-                        <li><i class="fas fa-map-marker-alt"></i> <span data-i18n="footer.location">Одеса, Україна</span></li>
+                        <li><i class="fas fa-map-marker-alt"></i> <span data-i18n="footer.location">Одеса,
+                                Україна</span></li>
                         <li><i class="fas fa-clock"></i> <span data-i18n="topbar.hours">Пн-Пт: 9:00-18:00</span></li>
                     </ul>
                 </div>
@@ -511,10 +533,13 @@
                 <!-- Column 5: Newsletter -->
                 <div class="footer-col">
                     <h4 data-i18n="footer.newsletter_title">Підписка на новини</h4>
-                    <p style="color:#aaa; margin-bottom:15px; font-size:0.9rem;" data-i18n="footer.newsletter_text">Отримуйте акції, новинки та поради щодо заварювання</p>
+                    <p style="color:#aaa; margin-bottom:15px; font-size:0.9rem;" data-i18n="footer.newsletter_text">
+                        Отримуйте акції, новинки та поради щодо заварювання</p>
                     <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
-                        <input type="email" placeholder="Ваш email" data-i18n="footer.newsletter_placeholder" data-i18n-placeholder required>
-                        <button type="submit" class="btn-newsletter" data-i18n="footer.newsletter_cta">Підписатись</button>
+                        <input type="email" placeholder="Ваш email" data-i18n="footer.newsletter_placeholder"
+                            data-i18n-placeholder required>
+                        <button type="submit" class="btn-newsletter"
+                            data-i18n="footer.newsletter_cta">Підписатись</button>
                     </form>
                 </div>
             </div>
@@ -558,7 +583,8 @@
                 <p style="color:#666; font-size:0.85rem; margin-bottom:15px;">Способи оплати:</p>
                 <div class="payment-icons">
                     <i class="fab fa-cc-visa" title="Visa" data-i18n="payment.visa" data-i18n-title></i>
-                    <i class="fab fa-cc-mastercard" title="Mastercard" data-i18n="payment.mastercard" data-i18n-title></i>
+                    <i class="fab fa-cc-mastercard" title="Mastercard" data-i18n="payment.mastercard"
+                        data-i18n-title></i>
                     <i class="fab fa-apple-pay" title="Apple Pay" data-i18n="payment.apple_pay" data-i18n-title></i>
                     <i class="fab fa-google-pay" title="Google Pay" data-i18n="payment.google_pay" data-i18n-title></i>
                     <span class="payment-text">LiqPay</span>
@@ -588,6 +614,7 @@
             item.classList.toggle('active');
         }
     </script>
+    <script src="js/translations.js"></script>
     <script src="js/i18n.js"></script>
 </body>
 

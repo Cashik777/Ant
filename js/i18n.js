@@ -18,48 +18,25 @@
     let translations = {};
     let currentLang = CONFIG.defaultLang;
 
-    // ===== PATH DETECTION =====
-    function getLocalesPath() {
-        if (CONFIG.localesPath) return CONFIG.localesPath;
-
-        const hostname = window.location.hostname;
-        const pathname = window.location.pathname;
-
-        // GitHub Pages detection
-        if (hostname.includes('github.io')) {
-            const match = pathname.match(/^\/([^\/]+)\//);
-            if (match) {
-                CONFIG.localesPath = '/' + match[1] + '/locales/';
-                return CONFIG.localesPath;
-            }
-        }
-
-        // Local development - detect depth
-        const depth = (pathname.match(/\//g) || []).length - 1;
-        if (depth > 0 && (pathname.includes('/articles/') || pathname.includes('/blog/'))) {
-            CONFIG.localesPath = '../locales/';
-        } else {
-            CONFIG.localesPath = 'locales/';
-        }
-        return CONFIG.localesPath;
-    }
-
     // ===== TRANSLATION LOADING =====
     async function loadTranslations(lang) {
         if (translations[lang]) {
             return translations[lang];
         }
 
-        const path = getLocalesPath() + lang + '.json';
         try {
-            const response = await fetch(path);
-            if (!response.ok) throw new Error('HTTP ' + response.status);
-            const data = await response.json();
-            translations[lang] = flattenObject(data);
-            console.log('[i18n] Loaded ' + lang + '.json (' + Object.keys(translations[lang]).length + ' keys)');
-            return translations[lang];
+            if (window.LOCALES && window.LOCALES[lang]) {
+                const data = window.LOCALES[lang];
+                translations[lang] = flattenObject(data);
+                console.log('[i18n] Loaded ' + lang + ' from local data (' + Object.keys(translations[lang]).length + ' keys)');
+                return translations[lang];
+            } else {
+                throw new Error('Local data for ' + lang + ' not found');
+            }
         } catch (err) {
-            console.error('[i18n] Failed to load ' + path + ':', err.message);
+            console.error('[i18n] Failed to load ' + lang + ':', err.message);
+            // Fallback to empty if not found
+            translations[lang] = {};
             return {};
         }
     }
