@@ -1640,7 +1640,9 @@
         "min_read": "min read",
         "related": "Related Articles",
         "share": "Share",
-        "published": "Published"
+        "published": "Published",
+        "newsletter_title": "Subscribe to Coffee News",
+        "newsletter_text": "Get new articles, recipes and exclusive offers delivered to your inbox"
     },
     "gift_page": {
         "hero_badge": "🎁 PERFECT GIFT",
