@@ -94,6 +94,7 @@ window.LOCALES = {
             "delivery": "Від замовлення до чашки",
             "origin": "Пряме походження",
             "hours": "год",
+            "hours_48": "48год",
             "subscribers": "людей оформили підписку"
         },
         "reviews": {
@@ -461,7 +462,10 @@ window.LOCALES = {
             "result_roast": "Світла обсмажка",
             "result_sca": "балів SCA",
             "result_order": "Замовити зі знижкою",
-            "result_restart": "Пройти тест знову"
+            "result_restart": "Пройти тест знову",
+            "taste_strawberry": "Полуниця",
+            "taste_blueberry": "Чорниця",
+            "taste_jasmine": "Жасмін"
         },
         "social": {
             "instagram": "Ми в Instagram",
@@ -2547,6 +2551,7 @@ window.LOCALES = {
             "delivery": "От заказа до чашки",
             "origin": "Прямое происхождение",
             "hours": "час",
+            "hours_48": "48ч",
             "subscribers": "человек оформили подписку"
         },
         "reviews": {
@@ -2914,7 +2919,10 @@ window.LOCALES = {
             "result_roast": "Светлая обжарка",
             "result_sca": "баллов SCA",
             "result_order": "Заказать со скидкой",
-            "result_restart": "Пройти тест снова"
+            "result_restart": "Пройти тест снова",
+            "taste_strawberry": "Клубника",
+            "taste_blueberry": "Черника",
+            "taste_jasmine": "Жасмин"
         },
         "social": {
             "instagram": "Мы в Instagram",
@@ -5007,6 +5015,7 @@ window.LOCALES = {
             "delivery": "From Order to Cup",
             "origin": "Direct Origin",
             "hours": "hrs",
+            "hours_48": "48h",
             "subscribers": "people subscribed"
         },
         "reviews": {
@@ -5374,7 +5383,10 @@ window.LOCALES = {
             "result_roast": "Light roast",
             "result_sca": "SCA points",
             "result_order": "Order with discount",
-            "result_restart": "Take test again"
+            "result_restart": "Take test again",
+            "taste_strawberry": "Strawberry",
+            "taste_blueberry": "Blueberry",
+            "taste_jasmine": "Jasmine"
         },
         "social": {
             "instagram": "Follow us on Instagram",

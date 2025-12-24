@@ -308,11 +308,12 @@
                 <p data-i18n="pages.blog_subtitle">Занурюйтесь у світ specialty кави: від плантацій Ефіопії до вашої
                     чашки</p>
                 <div class="blog-categories">
-                    <a href="#" class="blog-cat-btn active" data-i18n="blog.cat_all">Усі</a>
-                    <a href="#" class="blog-cat-btn" data-i18n="blog.cat_about">Про каву</a>
-                    <a href="#" class="blog-cat-btn" data-i18n="blog.cat_recipes">Рецепти</a>
-                    <a href="#" class="blog-cat-btn" data-i18n="blog.cat_equipment">Обладнання</a>
-                    <a href="#" class="blog-cat-btn" data-i18n="blog.cat_tips">Поради</a>
+                    <a href="#" class="blog-cat-btn active" data-filter="all" data-i18n="blog.cat_all">Усі</a>
+                    <a href="#" class="blog-cat-btn" data-filter="about" data-i18n="blog.cat_about">Про каву</a>
+                    <a href="#" class="blog-cat-btn" data-filter="recipes" data-i18n="blog.cat_recipes">Рецепти</a>
+                    <a href="#" class="blog-cat-btn" data-filter="equipment"
+                        data-i18n="blog.cat_equipment">Обладнання</a>
+                    <a href="#" class="blog-cat-btn" data-filter="tips" data-i18n="blog.cat_tips">Поради</a>
                 </div>
             </div>
         </section>
@@ -323,14 +324,14 @@
                 <div class="articles-grid">
 
                     <!-- FEATURED Article 1 -->
-                    <article class="article-card featured-article">
+                    <article class="article-card featured-article" data-category="about">
                         <a href="articles/what-is-specialty.html">
                             <img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=800"
                                 alt="Specialty кава">
                         </a>
                         <div class="article-content">
                             <div class="article-meta">
-                                <span class="article-category">Про каву</span>
+                                <span class="article-category" data-i18n="blog.cat_about">Про каву</span>
                                 <span><i class="far fa-clock"></i> 5 хв читання</span>
                                 <span><i class="far fa-calendar"></i> 18 грудня 2025</span>
                             </div>
@@ -349,14 +350,14 @@
                     </article>
 
                     <!-- Article 2 -->
-                    <article class="article-card">
+                    <article class="article-card" data-category="about">
                         <a href="articles/ethiopia-coffee-origin.html">
                             <img src="https://images.unsplash.com/photo-1504630083234-14187a9df0f5?w=600"
                                 alt="Ефіопія батьківщина кави">
                         </a>
                         <div class="article-content">
                             <div class="article-meta">
-                                <span class="article-category">Про каву</span>
+                                <span class="article-category" data-i18n="blog.cat_about">Про каву</span>
                                 <span><i class="far fa-clock"></i> 4 хв</span>
                             </div>
                             <h3><a href="articles/ethiopia-coffee-origin.html">Ефіопія — батьківщина кави: легенда про
@@ -370,14 +371,14 @@
                     </article>
 
                     <!-- Article 3 -->
-                    <article class="article-card">
+                    <article class="article-card" data-category="recipes">
                         <a href="articles/how-to-brew-v60.html">
                             <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600"
                                 alt="V60 приготування">
                         </a>
                         <div class="article-content">
                             <div class="article-meta">
-                                <span class="article-category">Рецепти</span>
+                                <span class="article-category" data-i18n="blog.cat_recipes">Рецепти</span>
                                 <span><i class="far fa-clock"></i> 4 хв</span>
                             </div>
                             <h3><a href="articles/how-to-brew-v60.html">Ідеальний V60: покроковий рецепт від бариста</a>
@@ -391,14 +392,14 @@
                     </article>
 
                     <!-- Article 4 -->
-                    <article class="article-card">
+                    <article class="article-card" data-category="about">
                         <a href="articles/light-vs-dark-roast.html">
                             <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=600"
                                 alt="Обсмажка кави">
                         </a>
                         <div class="article-content">
                             <div class="article-meta">
-                                <span class="article-category">Про каву</span>
+                                <span class="article-category" data-i18n="blog.cat_about">Про каву</span>
                                 <span><i class="far fa-clock"></i> 3 хв</span>
                             </div>
                             <h3><a href="articles/light-vs-dark-roast.html">Світла чи темна обсмажка: що обрати?</a>
@@ -412,14 +413,14 @@
                     </article>
 
                     <!-- Article 5 -->
-                    <article class="article-card">
+                    <article class="article-card" data-category="tips">
                         <a href="articles/coffee-storage.html">
                             <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=600"
                                 alt="Зберігання кави">
                         </a>
                         <div class="article-content">
                             <div class="article-meta">
-                                <span class="article-category">Поради</span>
+                                <span class="article-category" data-i18n="blog.cat_tips">Поради</span>
                                 <span><i class="far fa-clock"></i> 3 хв</span>
                             </div>
                             <h3><a href="articles/coffee-storage.html">Як правильно зберігати каву: 5 головних
@@ -433,14 +434,14 @@
                     </article>
 
                     <!-- Article 6 -->
-                    <article class="article-card">
+                    <article class="article-card" data-category="about">
                         <a href="articles/yirgacheffe-region.html">
                             <img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?w=600"
                                 alt="Йіргачеффе регіон">
                         </a>
                         <div class="article-content">
                             <div class="article-meta">
-                                <span class="article-category">Про каву</span>
+                                <span class="article-category" data-i18n="blog.cat_about">Про каву</span>
                                 <span><i class="far fa-clock"></i> 5 хв</span>
                             </div>
                             <h3><a href="articles/yirgacheffe-region.html">Йіргачеффе: перлина ефіопської кави</a></h3>
@@ -453,14 +454,14 @@
                     </article>
 
                     <!-- Article 7 -->
-                    <article class="article-card">
+                    <article class="article-card" data-category="tips">
                         <a href="articles/espresso-mistakes.html">
                             <img src="https://images.unsplash.com/photo-1610889556528-9a770e32642f?w=600"
                                 alt="Еспресо помилки">
                         </a>
                         <div class="article-content">
                             <div class="article-meta">
-                                <span class="article-category">Поради</span>
+                                <span class="article-category" data-i18n="blog.cat_tips">Поради</span>
                                 <span><i class="far fa-clock"></i> 4 хв</span>
                             </div>
                             <h3><a href="articles/espresso-mistakes.html">7 помилок при приготуванні еспресо вдома</a>
@@ -474,14 +475,14 @@
                     </article>
 
                     <!-- Article 8 -->
-                    <article class="article-card">
+                    <article class="article-card" data-category="recipes">
                         <a href="articles/cold-brew-recipe.html">
                             <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=600"
                                 alt="Cold brew">
                         </a>
                         <div class="article-content">
                             <div class="article-meta">
-                                <span class="article-category">Рецепти</span>
+                                <span class="article-category" data-i18n="blog.cat_recipes">Рецепти</span>
                                 <span><i class="far fa-clock"></i> 3 хв</span>
                             </div>
                             <h3><a href="articles/cold-brew-recipe.html">Cold Brew вдома: простий рецепт на 5 літрів</a>
@@ -495,14 +496,14 @@
                     </article>
 
                     <!-- Article 9 -->
-                    <article class="article-card">
+                    <article class="article-card" data-category="equipment">
                         <a href="articles/grinder-guide.html">
                             <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600"
                                 alt="Кавомолка">
                         </a>
                         <div class="article-content">
                             <div class="article-meta">
-                                <span class="article-category">Обладнання</span>
+                                <span class="article-category" data-i18n="blog.cat_equipment">Обладнання</span>
                                 <span><i class="far fa-clock"></i> 5 хв</span>
                             </div>
                             <h3><a href="articles/grinder-guide.html">Як обрати кавомолку: повний гід для
@@ -516,14 +517,14 @@
                     </article>
 
                     <!-- Article 10 -->
-                    <article class="article-card">
+                    <article class="article-card" data-category="about">
                         <a href="articles/natural-vs-washed.html">
                             <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=600"
                                 alt="Обробка кави">
                         </a>
                         <div class="article-content">
                             <div class="article-meta">
-                                <span class="article-category">Про каву</span>
+                                <span class="article-category" data-i18n="blog.cat_about">Про каву</span>
                                 <span><i class="far fa-clock"></i> 4 хв</span>
                             </div>
                             <h3><a href="articles/natural-vs-washed.html">Natural vs Washed: як обробка впливає на
@@ -824,6 +825,33 @@
     <script src="js/main.js"></script>
     <script src="js/translations.js"></script>
     <script src="js/i18n.js"></script>
+    <script>
+        // Blog Category Filter
+        document.addEventListener('DOMContentLoaded', function () {
+            const filterBtns = document.querySelectorAll('.blog-cat-btn');
+            const articles = document.querySelectorAll('.article-card');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    // Update active button
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+
+                    const filter = this.dataset.filter;
+
+                    articles.forEach(article => {
+                        if (filter === 'all' || article.dataset.category === filter) {
+                            article.style.display = '';
+                        } else {
+                            article.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>

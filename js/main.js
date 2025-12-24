@@ -711,7 +711,7 @@ function renderMiniCart() {
 
     const count = store.cart.length;
     if (countEl) {
-        const word = count === 1 ? 'товар' : (count < 5 ? 'товари' : 'товарів');
+        const word = count === 1 ? t('cart.items_single') : (count < 5 ? t('cart.items_few') : t('cart.items'));
         countEl.textContent = `${count} ${word}`;
     }
 
@@ -719,8 +719,8 @@ function renderMiniCart() {
         itemsContainer.innerHTML = `
             <div class="mini-cart-empty">
                 <i class="fas fa-mug-hot"></i>
-                <p>Ваш кошик порожній</p>
-                <a href="shop.html" style="color: var(--primary); font-weight: 600;">Перейти до каталогу →</a>
+                <p>${t('cart.empty')}</p>
+                <a href="shop.html" style="color: var(--primary); font-weight: 600;">${t('cart.to_catalog')}</a>
             </div>
         `;
         if (footerEl) footerEl.style.display = 'none';

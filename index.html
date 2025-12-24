@@ -335,7 +335,7 @@
                     <div class="stat-label" data-i18n="stats.sca">Бали SCA Specialty</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number">48год</div>
+                    <div class="stat-number" data-i18n="stats.hours_48">48год</div>
                     <div class="stat-label" data-i18n="stats.delivery">Від замовлення до чашки</div>
                 </div>
                 <div class="stat-card">
@@ -505,8 +505,9 @@
                     <p style="color:#aaa; margin-bottom:15px; font-size:0.9rem;" data-i18n="footer.newsletter_text">
                         Отримуйте акції, новинки та поради щодо заварювання</p>
                     <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
-                        <input type="email" placeholder="Ваш email" data-i18n-placeholder="lead_magnet.email_placeholder" data-i18n="footer.newsletter_placeholder"
-                            data-i18n-placeholder required>
+                        <input type="email" placeholder="Ваш email"
+                            data-i18n-placeholder="lead_magnet.email_placeholder"
+                            data-i18n="footer.newsletter_placeholder" data-i18n-placeholder required>
                         <button type="submit" class="btn-newsletter"
                             data-i18n="footer.newsletter_cta">Підписатись</button>
                     </form>
@@ -663,7 +664,8 @@
             event.target.classList.add('active');
         }
     </script>
-    <script src="js/translations.js"></script><script src="js/i18n.js"></script>
+    <script src="js/translations.js"></script>
+    <script src="js/i18n.js"></script>
 </body>
 
 </html>
