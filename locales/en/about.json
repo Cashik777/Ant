@@ -51,10 +51,13 @@
         "team_subtitle": "The people behind every cup",
         "team_alex_name": "Alexander",
         "team_alex_role": "Founder, Q-Grader",
+        "team_alex_text": "Certified cupper. Responsible for bean selection and roast profiling.",
         "team_maria_name": "Maria",
         "team_maria_role": "Roaster",
+        "team_maria_text": "Master roaster with 5+ years of specialty coffee experience.",
         "team_ivan_name": "Ivan",
         "team_ivan_role": "Logistics",
+        "team_ivan_text": "Handles delivery and farmer communication.",
         "cta_title": "Ready to try?",
         "cta_text": "Order a sample set of 3 varieties with 15% discount",
         "cta_button": "Choose Coffee"

@@ -60,11 +60,20 @@
         "btn_next": "Далі",
         "btn_back": "Назад",
         "btn_show_result": "Показати результат",
+        "btn_result": "Показати результат",
         "result_title": "Ваша ідеальна кава:",
         "result_region": "Регіон",
         "result_roast": "Обсмажка",
         "result_sca": "балів SCA",
         "result_order": "Замовити зі знижкою",
-        "result_restart": "Пройти тест знову"
+        "result_restart": "Пройти тест знову",
+        "taste_strawberry": "Полуниця",
+        "taste_mango": "Манго",
+        "taste_honey": "Мед",
+        "taste_blueberry": "Чорниця",
+        "taste_chocolate": "Шоколад",
+        "taste_caramel": "Карамель",
+        "taste_citrus": "Цитрус",
+        "taste_floral": "Квіткові ноти"
     }
 }

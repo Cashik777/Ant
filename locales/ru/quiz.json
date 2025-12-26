@@ -60,11 +60,20 @@
         "btn_next": "Далее",
         "btn_back": "Назад",
         "btn_show_result": "Показать результат",
+        "btn_result": "Показать результат",
         "result_title": "Ваш идеальный кофе:",
         "result_region": "Регион",
         "result_roast": "Обжарка",
         "result_sca": "баллов SCA",
         "result_order": "Заказать со скидкой",
-        "result_restart": "Пройти тест снова"
+        "result_restart": "Пройти тест снова",
+        "taste_strawberry": "Клубника",
+        "taste_mango": "Манго",
+        "taste_honey": "Мёд",
+        "taste_blueberry": "Черника",
+        "taste_chocolate": "Шоколад",
+        "taste_caramel": "Карамель",
+        "taste_citrus": "Цитрус",
+        "taste_floral": "Цветочные ноты"
     }
 }

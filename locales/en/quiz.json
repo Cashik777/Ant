@@ -60,11 +60,20 @@
         "btn_next": "Next",
         "btn_back": "Back",
         "btn_show_result": "Show Result",
+        "btn_result": "Show Result",
         "result_title": "Your Perfect Coffee:",
         "result_region": "Region",
         "result_roast": "Roast",
         "result_sca": "SCA points",
         "result_order": "Order with Discount",
-        "result_restart": "Take Test Again"
+        "result_restart": "Take Test Again",
+        "taste_strawberry": "Strawberry",
+        "taste_mango": "Mango",
+        "taste_honey": "Honey",
+        "taste_blueberry": "Blueberry",
+        "taste_chocolate": "Chocolate",
+        "taste_caramel": "Caramel",
+        "taste_citrus": "Citrus",
+        "taste_floral": "Floral notes"
     }
 }
