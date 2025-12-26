@@ -2,62 +2,30 @@
     "meta": {
         "title": "Каталог кави — EthioDirect"
     },
-    "page": {
-        "title": "Каталог кави",
-        "subtitle": "Specialty кава з Ефіопії з доставкою по Україні"
-    },
-    "filters": {
-        "title": "Фільтри",
-        "all": "Усі",
-        "region": "Регіон",
-        "roast": "Обсмажка",
-        "process": "Обробка",
-        "price": "Ціна",
-        "sort": "Сортування",
-        "clear": "Скинути"
-    },
-    "regions": {
-        "yirgacheffe": "Yirgacheffe",
-        "sidamo": "Sidamo",
-        "guji": "Guji",
-        "limu": "Limu",
-        "harrar": "Harrar"
-    },
-    "roasts": {
-        "light": "Світла",
-        "medium": "Середня",
-        "dark": "Темна",
-        "omni": "Омні"
-    },
-    "processes": {
-        "washed": "Мита",
-        "natural": "Натуральна",
-        "honey": "Хані"
-    },
-    "sort_options": {
-        "popular": "За популярністю",
-        "price_asc": "Спочатку дешевші",
-        "price_desc": "Спочатку дорожчі",
-        "newest": "Новинки",
-        "rating": "За рейтингом"
-    },
-    "product": {
-        "add_to_cart": "Додати в кошик",
-        "quick_view": "Швидкий перегляд",
-        "out_of_stock": "Немає в наявності",
-        "notify_me": "Повідомити про наявність",
-        "sca_score": "балів SCA",
-        "weight": "Вага",
-        "grind": "Помел"
-    },
-    "empty": {
-        "title": "За вашим запитом нічого не знайдено",
-        "text": "Спробуйте змінити фільтри",
-        "reset": "Скинути фільтри"
-    },
-    "results": {
-        "showing": "Показано",
-        "of": "з",
-        "products": "товарів"
-    }
+    "title": "Каталог кави",
+    "subtitle": "Оберіть свій ідеальний сорт ефіопської specialty кави",
+    "filters": "Фільтри",
+    "filter_roast": "Обсмажка",
+    "filter_taste": "Смак",
+    "filter_price": "Ціна",
+    "sort": "Сортування",
+    "roast_light": "Світла",
+    "roast_medium": "Середня",
+    "roast_dark": "Темна",
+    "taste_fruity": "Фруктовий",
+    "taste_chocolate": "Шоколадний",
+    "taste_floral": "Квітковий",
+    "price_from": "Від",
+    "price_to": "До",
+    "sort_popular": "За популярністю",
+    "sort_price_asc": "Спочатку дешевші",
+    "sort_price_desc": "Спочатку дорожчі",
+    "sort_new": "Новинки",
+    "sort_rating": "За рейтингом",
+    "results_showing": "Показано",
+    "results_of": "з",
+    "results_products": "товарів",
+    "empty_title": "За вашим запитом нічого не знайдено",
+    "empty_text": "Спробуйте змінити фільтри",
+    "reset_filters": "Скинути фільтри"
 }

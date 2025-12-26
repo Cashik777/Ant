@@ -2,62 +2,30 @@
     "meta": {
         "title": "Каталог кофе — EthioDirect"
     },
-    "page": {
-        "title": "Каталог кофе",
-        "subtitle": "Specialty кофе из Эфиопии с доставкой по Украине"
-    },
-    "filters": {
-        "title": "Фильтры",
-        "all": "Все",
-        "region": "Регион",
-        "roast": "Обжарка",
-        "process": "Обработка",
-        "price": "Цена",
-        "sort": "Сортировка",
-        "clear": "Сбросить"
-    },
-    "regions": {
-        "yirgacheffe": "Yirgacheffe",
-        "sidamo": "Sidamo",
-        "guji": "Guji",
-        "limu": "Limu",
-        "harrar": "Harrar"
-    },
-    "roasts": {
-        "light": "Светлая",
-        "medium": "Средняя",
-        "dark": "Тёмная",
-        "omni": "Омни"
-    },
-    "processes": {
-        "washed": "Мытая",
-        "natural": "Натуральная",
-        "honey": "Хани"
-    },
-    "sort_options": {
-        "popular": "По популярности",
-        "price_asc": "Сначала дешевле",
-        "price_desc": "Сначала дороже",
-        "newest": "Новинки",
-        "rating": "По рейтингу"
-    },
-    "product": {
-        "add_to_cart": "Добавить в корзину",
-        "quick_view": "Быстрый просмотр",
-        "out_of_stock": "Нет в наличии",
-        "notify_me": "Сообщить о наличии",
-        "sca_score": "баллов SCA",
-        "weight": "Вес",
-        "grind": "Помол"
-    },
-    "empty": {
-        "title": "По вашему запросу ничего не найдено",
-        "text": "Попробуйте изменить фильтры",
-        "reset": "Сбросить фильтры"
-    },
-    "results": {
-        "showing": "Показано",
-        "of": "из",
-        "products": "товаров"
-    }
+    "title": "Каталог кофе",
+    "subtitle": "Выберите свой идеальный сорт эфиопского specialty кофе",
+    "filters": "Фильтры",
+    "filter_roast": "Обжарка",
+    "filter_taste": "Вкус",
+    "filter_price": "Цена",
+    "sort": "Сортировка",
+    "roast_light": "Светлая",
+    "roast_medium": "Средняя",
+    "roast_dark": "Темная",
+    "taste_fruity": "Фруктовый",
+    "taste_chocolate": "Шоколадный",
+    "taste_floral": "Цветочный",
+    "price_from": "От",
+    "price_to": "До",
+    "sort_popular": "По популярности",
+    "sort_price_asc": "Сначала дешевле",
+    "sort_price_desc": "Сначала дороже",
+    "sort_new": "Новинки",
+    "sort_rating": "По рейтингу",
+    "results_showing": "Показано",
+    "results_of": "из",
+    "results_products": "товаров",
+    "empty_title": "По вашему запросу ничего не найдено",
+    "empty_text": "Попробуйте изменить фильтры",
+    "reset_filters": "Сбросить фильтры"
 }
