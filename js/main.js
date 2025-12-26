@@ -204,6 +204,19 @@ document.addEventListener('DOMContentLoaded', () => {
         renderCart();
         renderMiniCart();
     });
+
+    // Re-render products when i18n is fully initialized (translations loaded)
+    document.addEventListener('i18nReady', () => {
+        const path = window.location.pathname;
+        if (path.endsWith('index.html') || path.endsWith('/') || path === '' || path.endsWith('/Ant/')) {
+            renderFeatured();
+        }
+        if (path.includes('shop.html')) {
+            renderShop();
+        }
+        renderCart();
+        renderMiniCart();
+    });
 });
 
 /* --- A/B TEST FRAMEWORK --- */

@@ -438,6 +438,9 @@
 
             this.isInitialized = true;
             console.log(`[i18n] Initialized with locale: ${initialLocale}`);
+
+            // Dispatch event to notify other scripts that i18n is ready
+            document.dispatchEvent(new CustomEvent('i18nReady', { detail: { locale: initialLocale } }));
         }
 
         /**
