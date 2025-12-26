@@ -81,6 +81,7 @@
     },
     "product": {
         "add_to_cart": "Add to Cart",
+        "add": "Add",
         "weight": "Weight",
         "grind": "Grind",
         "beans": "Beans",

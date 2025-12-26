@@ -2,53 +2,71 @@
     "meta": {
         "title": "About Us — EthioDirect"
     },
-    "page": {
-        "title": "About Us",
-        "subtitle": "The EthioDirect Story"
+    "about_page": {
+        "hero_badge": "OUR STORY",
+        "feature_direct": "Direct Sourcing",
+        "feature_fresh": "Fresh Roast",
+        "feature_sca": "85+ SCA Score",
+        "stat_clients_number": "2500+",
+        "stat_clients": "happy customers",
+        "stat_sca_number": "85+",
+        "stat_sca": "SCA Specialty Score",
+        "stat_delivery_number": "48h",
+        "stat_delivery": "From order to delivery",
+        "stat_direct_number": "100%",
+        "stat_direct": "Direct origin",
+        "why_ethiopia_title": "Why Ethiopia?",
+        "why_ethiopia_text_1": "Ethiopia is the birthplace of coffee. Here, at altitudes of 1700-2200 meters, arabica cultivation began over 1000 years ago.",
+        "why_ethiopia_text_2": "Each of our lots is a unique story, a unique terroir, a special flavor profile.",
+        "tag_floral": "🌸 Floral notes",
+        "tag_berry": "🍓 Berry flavor",
+        "tag_chocolate": "🍫 Chocolate sweetness",
+        "values_subtitle": "What makes us special and different from others",
+        "value_fresh_title": "Fresh Roast",
+        "value_fresh_text": "We roast coffee only for your order. No old stock.",
+        "value_fair_title": "Fair Trade",
+        "value_fair_text": "Direct sourcing means fair prices for farmers. You support real people.",
+        "value_quality_title": "Specialty Only",
+        "value_quality_text": "We work exclusively with 85+ SCA score beans. That's top 3% of all coffee.",
+        "path_title": "Our Journey",
+        "path_subtitle": "How we came to direct specialty coffee sourcing",
+        "path_2020_title": "First trip to Ethiopia",
+        "path_2020_text": "Alexander traveled to Ethiopia and fell in love with real specialty coffee.",
+        "path_2021_title": "Launch of EthioDirect",
+        "path_2021_text": "First batch from Yirgacheffe region. 50 customers. The beginning of a big journey.",
+        "path_2022_title": "Own Roastery",
+        "path_2022_text": "Purchased professional Giesen W6 roaster. Opened showroom in Odessa.",
+        "path_2024_title": "2500+ customers",
+        "path_2024_text": "Over 2500 regular customers. Partnership with 15+ cafes.",
+        "process_title": "Our Process",
+        "process_subtitle": "From green beans to your cup",
+        "process_step1_title": "Bean Selection",
+        "process_step1_text": "Only specialty-grade 85+ from verified farmers.",
+        "process_step2_title": "Profiling",
+        "process_step2_text": "Individual roast profile for each lot.",
+        "process_step3_title": "Roasting",
+        "process_step3_text": "Small batch roasting for each order.",
+        "process_step4_title": "Shipping",
+        "process_step4_text": "Coffee reaches you within 48 hours — at peak freshness.",
+        "team_subtitle": "The people behind every cup",
+        "team_alex_name": "Alexander",
+        "team_alex_role": "Founder, Q-Grader",
+        "team_maria_name": "Maria",
+        "team_maria_role": "Roaster",
+        "team_ivan_name": "Ivan",
+        "team_ivan_role": "Logistics",
+        "cta_title": "Ready to try?",
+        "cta_text": "Order a sample set of 3 varieties with 15% discount",
+        "cta_button": "Choose Coffee"
     },
     "hero": {
-        "title": "Coffee That Changes Lives",
-        "text": "We are the bridge between Ethiopian farmers and Ukrainian coffee lovers"
-    },
-    "story": {
-        "title": "Our Story",
-        "p1": "EthioDirect was born from a passion for authentic Ethiopian coffee.",
-        "p2": "We work directly with farmers, ensuring fair payment.",
-        "p3": "Every bag is a story of a specific farm and the people who grew this coffee."
-    },
-    "mission": {
-        "title": "Our Mission",
-        "text": "To bring the authentic taste of Ethiopian specialty coffee to every Ukrainian"
+        "title": "From Ethiopian highlands to your cup",
+        "text": "We are a team of coffee enthusiasts who built a direct bridge between Ethiopian farmers and Ukrainian coffee lovers."
     },
     "values": {
-        "title": "Our Values",
-        "quality": {
-            "title": "Quality",
-            "text": "Only specialty coffee rated 85+ SCA points"
-        },
-        "transparency": {
-            "title": "Transparency",
-            "text": "We know the origin of every bean"
-        },
-        "fairness": {
-            "title": "Fairness",
-            "text": "Fair payment to farmers"
-        },
-        "freshness": {
-            "title": "Freshness",
-            "text": "Roasted for each order"
-        }
+        "title": "Our Values"
     },
     "team": {
-        "title": "Our Team",
-        "text": "We are a team of coffee enthusiasts from Odesa"
-    },
-    "partners": {
-        "title": "Our Partners",
-        "text": "Working with the best farms in Ethiopia"
-    },
-    "cta": {
-        "title": "Try Our Coffee",
-        "button": "Go to Catalog"
+        "title": "Our Team"
     }
 }

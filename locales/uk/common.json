@@ -81,6 +81,7 @@
   },
   "product": {
     "add_to_cart": "В кошик",
+    "add": "Додати",
     "weight": "Вага",
     "grind": "Помол",
     "beans": "Зерно",
