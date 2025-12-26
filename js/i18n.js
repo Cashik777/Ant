@@ -18,7 +18,11 @@
         constructor(options = {}) {
             this.defaultLocale = options.defaultLocale || 'uk';
             this.supportedLocales = options.supportedLocales || ['uk', 'ru', 'en'];
-            this.localesPath = options.localesPath || '/locales';
+
+            // Detect base path from script location or current URL
+            this.basePath = this._detectBasePath();
+            this.localesPath = options.localesPath || (this.basePath + 'locales');
+
             this.storageKey = options.storageKey || 'ethiodirect_locale';
 
             this.translations = {};
@@ -28,6 +32,33 @@
 
             // Callbacks
             this.onLocaleChange = options.onLocaleChange || null;
+        }
+
+        /**
+         * Detect base path for loading resources
+         * Works for both root pages and subdirectory pages (articles/, blog/)
+         * @returns {string}
+         */
+        _detectBasePath() {
+            // Try to get path from script src
+            const scripts = document.getElementsByTagName('script');
+            for (let script of scripts) {
+                const src = script.src || '';
+                if (src.includes('i18n.js')) {
+                    // Extract base path (everything before 'js/i18n.js')
+                    const idx = src.indexOf('js/i18n.js');
+                    if (idx !== -1) {
+                        return src.substring(0, idx);
+                    }
+                }
+            }
+
+            // Fallback: detect from current path
+            const path = window.location.pathname;
+            if (path.includes('/articles/') || path.includes('/blog/')) {
+                return '../';
+            }
+            return '';
         }
 
         /**
@@ -435,7 +466,7 @@
     const i18n = new I18n({
         defaultLocale: 'uk',
         supportedLocales: ['uk', 'ru', 'en'],
-        localesPath: '/locales',
+        // localesPath is auto-detected from script location
         onLocaleChange: function (locale) {
             // Custom callback when locale changes
             // Can be used to re-render dynamic content
