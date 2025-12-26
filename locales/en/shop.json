@@ -27,5 +27,8 @@
     "results_products": "products",
     "empty_title": "No products found",
     "empty_text": "Try changing your filters",
-    "reset_filters": "Reset Filters"
+    "reset_filters": "Reset Filters",
+    "found": "Found",
+    "products_count": "products",
+    "clear_filters": "Clear Filters"
 }

@@ -27,5 +27,8 @@
     "results_products": "товарів",
     "empty_title": "За вашим запитом нічого не знайдено",
     "empty_text": "Спробуйте змінити фільтри",
-    "reset_filters": "Скинути фільтри"
+    "reset_filters": "Скинути фільтри",
+    "found": "Знайдено",
+    "products_count": "товарів",
+    "clear_filters": "Скинути фільтри"
 }

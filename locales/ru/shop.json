@@ -27,5 +27,8 @@
     "results_products": "товаров",
     "empty_title": "По вашему запросу ничего не найдено",
     "empty_text": "Попробуйте изменить фильтры",
-    "reset_filters": "Сбросить фильтры"
+    "reset_filters": "Сбросить фильтры",
+    "found": "Найдено",
+    "products_count": "товаров",
+    "clear_filters": "Сбросить фильтры"
 }
