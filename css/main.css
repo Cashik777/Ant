@@ -2728,14 +2728,25 @@ body {
 
 @media (max-width: 768px) {
     .floating-contacts {
-        bottom: 20px;
-        right: 20px;
+        bottom: 15px;
+        right: 15px;
+        gap: 8px;
     }
 
     .float-btn {
-        width: 50px;
-        height: 50px;
-        font-size: 1.3rem;
+        width: 44px;
+        height: 44px;
+        font-size: 1.1rem;
+        opacity: 0.85;
+    }
+
+    .float-btn:hover {
+        opacity: 1;
+    }
+
+    /* Hide pulse animation on mobile to reduce distraction */
+    .float-btn.phone::after {
+        display: none;
     }
 }
 

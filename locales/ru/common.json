@@ -150,6 +150,8 @@
         "back": "Назад",
         "back_to_articles": "к статьям",
         "topbar_free_delivery": "Бесплатная доставка от 500₴",
-        "order_now": "Заказать"
+        "order_now": "Заказать",
+        "open_menu": "Меню",
+        "close_menu": "Закрыть меню"
     }
 }

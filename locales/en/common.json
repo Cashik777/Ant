@@ -150,6 +150,8 @@
         "back": "Back",
         "back_to_articles": "to articles",
         "topbar_free_delivery": "Free shipping from 500₴",
-        "order_now": "Order Now"
+        "order_now": "Order Now",
+        "open_menu": "Menu",
+        "close_menu": "Close menu"
     }
 }
