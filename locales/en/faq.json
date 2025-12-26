@@ -1,0 +1,66 @@
+{
+    "meta": {
+        "title": "FAQ — EthioDirect"
+    },
+    "page": {
+        "title": "Frequently Asked Questions",
+        "subtitle": "Answers to popular questions about our coffee and service"
+    },
+    "categories": {
+        "ordering": "Ordering",
+        "delivery": "Delivery",
+        "payment": "Payment",
+        "products": "Products",
+        "subscription": "Subscription",
+        "returns": "Returns"
+    },
+    "ordering": {
+        "q1": "How do I place an order?",
+        "a1": "Select coffee, add to cart and checkout. It takes less than 2 minutes.",
+        "q2": "Can I change my order after placing it?",
+        "a2": "Yes, contact us within 1 hour of ordering.",
+        "q3": "What is the minimum order?",
+        "a3": "There's no minimum. Order from 1 bag."
+    },
+    "delivery_faq": {
+        "q1": "How fast do you deliver?",
+        "a1": "Via Nova Poshta 1-3 days. Orders before 14:00 ship same day.",
+        "q2": "Do you ship internationally?",
+        "a2": "Currently we only ship within Ukraine.",
+        "q3": "How much does delivery cost?",
+        "a3": "Free from 500₴. Below that — carrier rates."
+    },
+    "payment_faq": {
+        "q1": "What payment methods are available?",
+        "a1": "Card online, Apple Pay, Google Pay, cash on delivery.",
+        "q2": "Is payment on the site secure?",
+        "a2": "Yes, we use secure connection and certified payment systems."
+    },
+    "products_faq": {
+        "q1": "How long does coffee stay fresh?",
+        "a1": "We recommend drinking within 4-6 weeks after roasting.",
+        "q2": "What's the difference between light and dark roast?",
+        "a2": "Light — more acidity, fruity notes. Dark — bitterness, chocolate tones.",
+        "q3": "Can I order ground coffee?",
+        "a3": "Yes, you can choose grind for your brewing method."
+    },
+    "subscription_faq": {
+        "q1": "How does the subscription work?",
+        "a1": "You choose coffee, frequency and volume. We deliver automatically with 10% off.",
+        "q2": "Can I pause my subscription?",
+        "a2": "Yes, anytime in your account.",
+        "q3": "How do I change coffee in my subscription?",
+        "a3": "Go to Account → Subscriptions → Edit."
+    },
+    "returns_faq": {
+        "q1": "How do I return an item?",
+        "a1": "Contact us within 14 days. We'll arrange the return.",
+        "q2": "Will you refund an opened bag?",
+        "a2": "If you didn't like the coffee — yes. We value your trust."
+    },
+    "contact": {
+        "title": "Didn't find an answer?",
+        "text": "Write to us and we'll reply within an hour.",
+        "button": "Contact Us"
+    }
+}

@@ -1,0 +1,86 @@
+{
+    "meta": {
+        "title": "Coffee Subscription — EthioDirect"
+    },
+    "page": {
+        "title": "Coffee Subscription",
+        "subtitle": "Fresh coffee every month with 10% off"
+    },
+    "hero": {
+        "badge": "Subscription",
+        "title": "Coffee That Finds You",
+        "text": "Choose your coffee, frequency and enjoy fresh roasts worry-free"
+    },
+    "benefits": {
+        "title": "Subscription Benefits",
+        "discount": {
+            "title": "10% Off",
+            "text": "On every delivery"
+        },
+        "fresh": {
+            "title": "Always Fresh",
+            "text": "Roasted for your delivery"
+        },
+        "flexible": {
+            "title": "Flexible",
+            "text": "Change, skip, or cancel anytime"
+        },
+        "free_shipping": {
+            "title": "Free Shipping",
+            "text": "From 500₴ per order"
+        }
+    },
+    "steps": {
+        "title": "How It Works",
+        "step1": {
+            "title": "Choose Coffee",
+            "text": "One variety or a mix to your taste"
+        },
+        "step2": {
+            "title": "Set Frequency",
+            "text": "Weekly, bi-weekly or monthly"
+        },
+        "step3": {
+            "title": "Receive at Home",
+            "text": "Fresh coffee arrives on time"
+        }
+    },
+    "frequency": {
+        "title": "Delivery Frequency",
+        "weekly": "Weekly",
+        "biweekly": "Every 2 Weeks",
+        "monthly": "Monthly",
+        "custom": "Custom Schedule"
+    },
+    "plans": {
+        "title": "Choose a Plan",
+        "basic": {
+            "title": "Basic",
+            "weight": "250g",
+            "price": "from 299₴/month"
+        },
+        "standard": {
+            "title": "Standard",
+            "weight": "500g",
+            "price": "from 549₴/month",
+            "popular": "Popular"
+        },
+        "family": {
+            "title": "Family",
+            "weight": "1 kg",
+            "price": "from 999₴/month"
+        }
+    },
+    "cta": {
+        "start": "Start Subscription",
+        "customize": "Customize",
+        "gift": "Gift a Subscription"
+    },
+    "faq": {
+        "title": "Subscription FAQ",
+        "q1": "Can I cancel my subscription?",
+        "a1": "Yes, anytime in your account.",
+        "q2": "How do I change my coffee?",
+        "a2": "Easy! Go to your account and choose a new variety."
+    }
+}

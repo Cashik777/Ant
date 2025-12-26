@@ -1,0 +1,83 @@
+{
+    "meta": {
+        "title": "B2B — EthioDirect"
+    },
+    "page": {
+        "title": "Coffee for Business",
+        "subtitle": "Specialty coffee for cafes, restaurants and offices"
+    },
+    "hero": {
+        "badge": "For Business",
+        "title": "Become Our Partner",
+        "text": "We offer premium Ethiopian coffee on special terms for businesses"
+    },
+    "benefits": {
+        "title": "Partnership Benefits",
+        "wholesale": {
+            "title": "Wholesale Prices",
+            "text": "Up to 30% off retail prices"
+        },
+        "fresh": {
+            "title": "Fresh Roasting",
+            "text": "Roasted for each order"
+        },
+        "delivery": {
+            "title": "Free Delivery",
+            "text": "For orders over 5 kg"
+        },
+        "support": {
+            "title": "Personal Manager",
+            "text": "Consultation and support 24/7"
+        },
+        "training": {
+            "title": "Staff Training",
+            "text": "Workshops for your baristas"
+        },
+        "equipment": {
+            "title": "Equipment",
+            "text": "Help with choosing equipment"
+        }
+    },
+    "segments": {
+        "title": "Who It's For",
+        "cafes": {
+            "title": "Cafes",
+            "text": "Unique specialty selection for your menu"
+        },
+        "restaurants": {
+            "title": "Restaurants",
+            "text": "Premium coffee for your cuisine"
+        },
+        "offices": {
+            "title": "Offices",
+            "text": "Quality coffee for a productive team"
+        },
+        "hotels": {
+            "title": "Hotels",
+            "text": "Impressive coffee experience for guests"
+        }
+    },
+    "form": {
+        "title": "Submit Request",
+        "name": "Name",
+        "company": "Company Name",
+        "email": "Email",
+        "phone": "Phone",
+        "volume": "Estimated Volume (kg/month)",
+        "message": "Comment",
+        "submit": "Submit Request",
+        "success": "Thank you! We'll contact you within 24 hours.",
+        "volumes": {
+            "small": "up to 10 kg",
+            "medium": "10-50 kg",
+            "large": "50-100 kg",
+            "enterprise": "over 100 kg"
+        }
+    },
+    "cta": {
+        "title": "Ready to Start?",
+        "text": "Submit a request and we'll prepare a custom offer",
+        "button": "Discuss Partnership",
+        "phone": "Or call us"
+    }
+}

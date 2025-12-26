@@ -1,0 +1,91 @@
+{
+    "meta": {
+        "title": "EthioDirect — Coffee That Was Waiting for You",
+        "description": "Authentic Ethiopian coffee, freshly roasted. Delivered directly from Ethiopian farms."
+    },
+    "hero": {
+        "badge": "100% SPECIALTY COFFEE",
+        "title": "Authentic Ethiopian Coffee, Freshly Roasted",
+        "subtitle": "From Ethiopian Mountains — To Your Cup",
+        "text": "We deliver beans directly from Ethiopian farms and roast them for each order. Only fresh roast within 3 days.",
+        "cta": "Choose Coffee",
+        "quiz_text": "Don't know what to choose?",
+        "quiz_link": "Take the taste test"
+    },
+    "trust": {
+        "clients": "satisfied customers",
+        "farmers": "Direct from farmers",
+        "specialty": "85+ SCA score"
+    },
+    "philosophy": {
+        "title": "This is more than coffee.",
+        "subtitle": "This is — The Way.",
+        "specialty_title": "Specialty 85+",
+        "specialty_text": "Only select Specialty grade beans. No compromises with quality.",
+        "roast_title": "The Fire of Roast",
+        "roast_text": "We roast only for your order. You receive it at peak flavor.",
+        "price_title": "Fair Price",
+        "price_text": "Direct import without middlemen. You pay the farmer, not the reseller.",
+        "cta": "Choose your variety"
+    },
+    "collection": {
+        "title": "Best from Ethiopian Highlands",
+        "filter_all": "All lots",
+        "filter_fruity": "Fruity",
+        "filter_chocolate": "Chocolate",
+        "filter_floral": "Floral",
+        "view_all": "All varieties in stock"
+    },
+    "subscription": {
+        "title": "Coffee Club",
+        "subtitle": "Your personal sommelier. Coffee arrives at your home exactly when needed.",
+        "regular_title": "One-time purchase",
+        "regular_price": "✗ Full price",
+        "regular_delivery": "✗ Shipping from 500₴",
+        "regular_remember": "✗ Need to remember to order",
+        "sub_title": "Subscription",
+        "sub_badge": "BETTER VALUE",
+        "sub_discount": "✓ -10% on every delivery",
+        "sub_delivery": "✓ Free shipping always",
+        "sub_auto": "✓ Automatic — coffee arrives by itself",
+        "cancel_note": "Cancel or modify anytime with 1 click",
+        "step1_title": "1. Taste Test",
+        "step1_text": "Answer 5 questions about your preferences. Algorithm will find your perfect variety.",
+        "step2_title": "2. Personalization",
+        "step2_text": "Choose frequency (1-4 times per month) and volume. First delivery — in 3 days.",
+        "step3_title": "3. Ritual",
+        "step3_text": "Coffee arrives automatically. Cancel anytime with 1 click. 10% subscription discount.",
+        "cta": "Start taste test",
+        "social_proof": "{{count}} people subscribed this month"
+    },
+    "stats": {
+        "clients": "Happy Customers",
+        "sca": "SCA Specialty Points",
+        "delivery": "From Order to Cup",
+        "origin": "Direct Origin",
+        "hours_48": "48h"
+    },
+    "reviews": {
+        "title": "What Our Customers Say",
+        "featured_text": "\"This is not just a drink, it's a journey. I felt the difference from the first sip. Store-bought coffee no longer exists for me.\"",
+        "featured_author": "— Olena K., Kyiv • Guji Natural Subscription",
+        "review1_name": "Andriy M.",
+        "review1_city": "Lviv",
+        "review1_text": "Fast delivery and incredible aroma that fills the entire apartment.",
+        "review2_name": "Marina S.",
+        "review2_city": "Odessa",
+        "review2_text": "Excellent service. Very convenient not having to think about when to order the next pack.",
+        "review3_name": "Viktor P.",
+        "review3_city": "Kyiv",
+        "review3_text": "Thank you for the opportunity to try different varieties! Harrar is my favorite.",
+        "join_text": "Join",
+        "coffee_lovers": "happy coffee lovers",
+        "subscribe_cta": "Subscribe with 10% off"
+    },
+    "lead": {
+        "title": "Start Your Journey in the World of Specialty",
+        "text": "Download our free PDF guide \"How to Choose Ethiopian Coffee\".",
+        "placeholder": "Your Email",
+        "cta": "Get the guide"
+    }
+}

@@ -1,0 +1,63 @@
+{
+    "meta": {
+        "title": "Каталог кави — EthioDirect"
+    },
+    "page": {
+        "title": "Каталог кави",
+        "subtitle": "Specialty кава з Ефіопії з доставкою по Україні"
+    },
+    "filters": {
+        "title": "Фільтри",
+        "all": "Усі",
+        "region": "Регіон",
+        "roast": "Обсмажка",
+        "process": "Обробка",
+        "price": "Ціна",
+        "sort": "Сортування",
+        "clear": "Скинути"
+    },
+    "regions": {
+        "yirgacheffe": "Yirgacheffe",
+        "sidamo": "Sidamo",
+        "guji": "Guji",
+        "limu": "Limu",
+        "harrar": "Harrar"
+    },
+    "roasts": {
+        "light": "Світла",
+        "medium": "Середня",
+        "dark": "Темна",
+        "omni": "Омні"
+    },
+    "processes": {
+        "washed": "Мита",
+        "natural": "Натуральна",
+        "honey": "Хані"
+    },
+    "sort_options": {
+        "popular": "За популярністю",
+        "price_asc": "Спочатку дешевші",
+        "price_desc": "Спочатку дорожчі",
+        "newest": "Новинки",
+        "rating": "За рейтингом"
+    },
+    "product": {
+        "add_to_cart": "Додати в кошик",
+        "quick_view": "Швидкий перегляд",
+        "out_of_stock": "Немає в наявності",
+        "notify_me": "Повідомити про наявність",
+        "sca_score": "балів SCA",
+        "weight": "Вага",
+        "grind": "Помел"
+    },
+    "empty": {
+        "title": "За вашим запитом нічого не знайдено",
+        "text": "Спробуйте змінити фільтри",
+        "reset": "Скинути фільтри"
+    },
+    "results": {
+        "showing": "Показано",
+        "of": "з",
+        "products": "товарів"
+    }
+}

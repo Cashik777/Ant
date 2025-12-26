@@ -1,0 +1,55 @@
+{
+    "meta": {
+        "title": "Особистий кабінет — EthioDirect"
+    },
+    "page": {
+        "title": "Особистий кабінет",
+        "subtitle": "Керуйте замовленнями, підпискою та особистими даними",
+        "guest": "Гість"
+    },
+    "sidebar": {
+        "my_orders": "Мої замовлення",
+        "my_subscription": "Моя підписка",
+        "favorites": "Обране",
+        "addresses": "Адреси доставки",
+        "settings": "Налаштування",
+        "logout": "Вийти"
+    },
+    "orders": {
+        "title": "Мої замовлення",
+        "delivered": "Доставлено",
+        "in_transit": "В дорозі",
+        "reorder": "Повторити замовлення",
+        "details": "Деталі",
+        "track": "Відстежити"
+    },
+    "quick_actions": {
+        "order_coffee": "Замовити каву",
+        "subscribe": "Оформити підписку",
+        "gift_card": "Подарунковий сертифікат"
+    },
+    "tabs": {
+        "orders": "Мої замовлення",
+        "profile": "Профіль",
+        "addresses": "Адреси доставки",
+        "subscriptions": "Підписки",
+        "wishlist": "Список бажань",
+        "settings": "Налаштування"
+    },
+    "auth": {
+        "login": "Вхід",
+        "register": "Реєстрація",
+        "email": "Email",
+        "password": "Пароль",
+        "forgot_password": "Забули пароль?",
+        "remember_me": "Запам'ятати мене",
+        "login_btn": "Увійти",
+        "register_btn": "Зареєструватися",
+        "or": "або",
+        "google": "Увійти через Google",
+        "facebook": "Увійти через Facebook",
+        "no_account": "Немає акаунту?",
+        "have_account": "Вже є акаунт?",
+        "logout": "Вийти"
+    }
+}

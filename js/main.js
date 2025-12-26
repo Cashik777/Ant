@@ -759,11 +759,11 @@ function renderMiniCart() {
     // Update shipping message
     if (shippingEl) {
         if (sum >= 500) {
-            shippingEl.innerHTML = `<i class="fas fa-check-circle"></i> Безкоштовна доставка!`;
+            shippingEl.innerHTML = `<i class="fas fa-check-circle"></i> ${t('cart.free_shipping_done')}`;
             shippingEl.style.color = 'var(--success)';
         } else {
             const remaining = 500 - sum;
-            shippingEl.innerHTML = `<i class="fas fa-truck"></i> До безкоштовної доставки: <strong>${remaining} ₴</strong>`;
+            shippingEl.innerHTML = `<i class="fas fa-truck"></i> ${t('cart.free_shipping_progress')} <strong>${remaining} ₴</strong>`;
             shippingEl.style.color = '';
         }
     }
@@ -842,8 +842,8 @@ function renderCart() {
         list.innerHTML = `
             <div style="text-align:center; padding:40px 20px;">
                 <i class="fas fa-mug-hot" style="font-size:3rem; color:#eee; margin-bottom:20px; display:block;"></i>
-                <p style="color:var(--text-muted); margin-bottom:20px;">Ваша чашка поки що порожня...</p>
-                <a href="shop.html" class="btn btn-primary btn-sm" onclick="closeDrawer();">Перейти до каталогу</a>
+                <p style="color:var(--text-muted); margin-bottom:20px;">${t('cart.empty')}</p>
+                <a href="shop.html" class="btn btn-primary btn-sm" onclick="closeDrawer();">${t('cart.to_catalog')}</a>
             </div>
         `;
         if (total) total.innerText = '0 ' + store.currency;
@@ -891,12 +891,12 @@ function updateShippingProgress(currentTotal) {
     progressFill.style.width = percentage + '%';
 
     if (currentTotal >= FREE_SHIPPING_THRESHOLD) {
-        progressText.innerHTML = '<i class="fas fa-check-circle"></i> <strong>Безкоштовна доставка!</strong>';
+        progressText.innerHTML = `<i class="fas fa-check-circle"></i> <strong>${t('cart.free_shipping_done')}</strong>`;
         progressText.classList.add('progress-complete');
         progressFill.style.background = 'linear-gradient(90deg, #3D5A40, #4CAF50)';
     } else {
         const remaining = FREE_SHIPPING_THRESHOLD - currentTotal;
-        progressText.innerHTML = `<i class="fas fa-truck"></i> До безкоштовної доставки: <strong>${remaining} ₴</strong>`;
+        progressText.innerHTML = `<i class="fas fa-truck"></i> ${t('cart.free_shipping_progress')} <strong>${remaining} ₴</strong>`;
         progressText.classList.remove('progress-complete');
         progressFill.style.background = 'linear-gradient(90deg, var(--success), #4CAF50)';
     }

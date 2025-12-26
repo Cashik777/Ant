@@ -1,0 +1,55 @@
+{
+    "meta": {
+        "title": "My Account — EthioDirect"
+    },
+    "page": {
+        "title": "My Account",
+        "subtitle": "Manage orders, subscription and personal info",
+        "guest": "Guest"
+    },
+    "sidebar": {
+        "my_orders": "My Orders",
+        "my_subscription": "My Subscription",
+        "favorites": "Favorites",
+        "addresses": "Delivery Addresses",
+        "settings": "Settings",
+        "logout": "Log Out"
+    },
+    "orders": {
+        "title": "My Orders",
+        "delivered": "Delivered",
+        "in_transit": "In Transit",
+        "reorder": "Reorder",
+        "details": "Details",
+        "track": "Track"
+    },
+    "quick_actions": {
+        "order_coffee": "Order Coffee",
+        "subscribe": "Start Subscription",
+        "gift_card": "Gift Certificate"
+    },
+    "tabs": {
+        "orders": "My Orders",
+        "profile": "Profile",
+        "addresses": "Shipping Addresses",
+        "subscriptions": "Subscriptions",
+        "wishlist": "Wishlist",
+        "settings": "Settings"
+    },
+    "auth": {
+        "login": "Login",
+        "register": "Register",
+        "email": "Email",
+        "password": "Password",
+        "forgot_password": "Forgot Password?",
+        "remember_me": "Remember Me",
+        "login_btn": "Sign In",
+        "register_btn": "Sign Up",
+        "or": "or",
+        "google": "Sign in with Google",
+        "facebook": "Sign in with Facebook",
+        "no_account": "Don't have an account?",
+        "have_account": "Already have an account?",
+        "logout": "Log Out"
+    }
+}

@@ -1,0 +1,63 @@
+{
+    "meta": {
+        "title": "Coffee Catalog — EthioDirect"
+    },
+    "page": {
+        "title": "Coffee Catalog",
+        "subtitle": "Specialty coffee from Ethiopia with delivery across Ukraine"
+    },
+    "filters": {
+        "title": "Filters",
+        "all": "All",
+        "region": "Region",
+        "roast": "Roast",
+        "process": "Process",
+        "price": "Price",
+        "sort": "Sort",
+        "clear": "Clear"
+    },
+    "regions": {
+        "yirgacheffe": "Yirgacheffe",
+        "sidamo": "Sidamo",
+        "guji": "Guji",
+        "limu": "Limu",
+        "harrar": "Harrar"
+    },
+    "roasts": {
+        "light": "Light",
+        "medium": "Medium",
+        "dark": "Dark",
+        "omni": "Omni"
+    },
+    "processes": {
+        "washed": "Washed",
+        "natural": "Natural",
+        "honey": "Honey"
+    },
+    "sort_options": {
+        "popular": "Most Popular",
+        "price_asc": "Price: Low to High",
+        "price_desc": "Price: High to Low",
+        "newest": "Newest",
+        "rating": "By Rating"
+    },
+    "product": {
+        "add_to_cart": "Add to Cart",
+        "quick_view": "Quick View",
+        "out_of_stock": "Out of Stock",
+        "notify_me": "Notify When Available",
+        "sca_score": "SCA Score",
+        "weight": "Weight",
+        "grind": "Grind"
+    },
+    "empty": {
+        "title": "No products found",
+        "text": "Try adjusting your filters",
+        "reset": "Reset Filters"
+    },
+    "results": {
+        "showing": "Showing",
+        "of": "of",
+        "products": "products"
+    }
+}

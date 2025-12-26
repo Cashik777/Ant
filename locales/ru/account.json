@@ -1,0 +1,55 @@
+{
+    "meta": {
+        "title": "Личный кабинет — EthioDirect"
+    },
+    "page": {
+        "title": "Личный кабинет",
+        "subtitle": "Управляйте заказами, подпиской и личными данными",
+        "guest": "Гость"
+    },
+    "sidebar": {
+        "my_orders": "Мои заказы",
+        "my_subscription": "Моя подписка",
+        "favorites": "Избранное",
+        "addresses": "Адреса доставки",
+        "settings": "Настройки",
+        "logout": "Выйти"
+    },
+    "orders": {
+        "title": "Мои заказы",
+        "delivered": "Доставлен",
+        "in_transit": "В пути",
+        "reorder": "Повторить заказ",
+        "details": "Детали",
+        "track": "Отследить"
+    },
+    "quick_actions": {
+        "order_coffee": "Заказать кофе",
+        "subscribe": "Оформить подписку",
+        "gift_card": "Подарочный сертификат"
+    },
+    "tabs": {
+        "orders": "Мои заказы",
+        "profile": "Профиль",
+        "addresses": "Адреса доставки",
+        "subscriptions": "Подписки",
+        "wishlist": "Список желаний",
+        "settings": "Настройки"
+    },
+    "auth": {
+        "login": "Вход",
+        "register": "Регистрация",
+        "email": "Email",
+        "password": "Пароль",
+        "forgot_password": "Забыли пароль?",
+        "remember_me": "Запомнить меня",
+        "login_btn": "Войти",
+        "register_btn": "Зарегистрироваться",
+        "or": "или",
+        "google": "Войти через Google",
+        "facebook": "Войти через Facebook",
+        "no_account": "Нет аккаунта?",
+        "have_account": "Уже есть аккаунт?",
+        "logout": "Выйти"
+    }
+}

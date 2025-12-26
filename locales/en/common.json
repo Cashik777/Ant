@@ -1,0 +1,118 @@
+{
+    "nav": {
+        "catalog": "Catalog",
+        "subscription": "Subscription",
+        "certificates": "Gift Cards",
+        "stories": "Stories",
+        "about": "About Us",
+        "test": "Taste Quiz"
+    },
+    "topbar": {
+        "phone": "+380 (50) 123-45-67",
+        "hours": "Mon-Fri: 9:00-18:00",
+        "promo_action": "SALE:",
+        "promo_delivery": "free shipping from 500₴",
+        "promo_subscription": "Subscription:",
+        "promo_subscription_text": "-10% on every delivery",
+        "promo_roast": "Fresh roast",
+        "promo_roast_days": "within 3 days"
+    },
+    "search": {
+        "placeholder": "Search coffee...",
+        "no_results": "Nothing found"
+    },
+    "cart": {
+        "title": "Your Cart",
+        "your_cart": "Your Cart",
+        "empty": "Your cup is empty...",
+        "to_catalog": "Go to Catalog",
+        "checkout": "Checkout",
+        "subtotal": "Subtotal:",
+        "items": "items",
+        "items_single": "item",
+        "items_few": "items",
+        "free_shipping_progress": "Until free shipping:",
+        "free_shipping_done": "Free shipping!",
+        "safe_payment": "Secure Payment",
+        "return_days": "14-day returns"
+    },
+    "footer": {
+        "description": "We deliver authentic specialty coffee directly from Ethiopian farms to your home.",
+        "shop_title": "Shop",
+        "catalog": "Full Catalog",
+        "subscription": "Coffee Subscription",
+        "certificates": "Gift Cards",
+        "b2b": "B2B Solutions",
+        "account": "My Account",
+        "support_title": "Support",
+        "delivery": "Delivery & Payment",
+        "return": "Returns & Exchange",
+        "faq": "FAQ",
+        "contacts": "Contacts",
+        "about": "About Us",
+        "contacts_title": "Contacts",
+        "location": "Odesa, Ukraine",
+        "newsletter_title": "Newsletter",
+        "newsletter_text": "Get deals, news and brewing tips",
+        "newsletter_placeholder": "Your email",
+        "newsletter_cta": "Subscribe",
+        "badge_return_days": "14 days",
+        "badge_return": "returns",
+        "badge_specialty": "100% Specialty",
+        "badge_quality": "bean quality",
+        "badge_free": "Free",
+        "badge_shipping": "shipping from 500₴",
+        "badge_fresh": "Fresh Roast",
+        "badge_days": "up to 3 days",
+        "payment_methods": "Payment methods:",
+        "copyright": "© 2025 EthioDirect. All rights reserved.",
+        "privacy": "Privacy Policy",
+        "terms": "Return Policy",
+        "offer": "Public Offer"
+    },
+    "buttons": {
+        "add_to_cart": "Add to Cart",
+        "buy_now": "Buy Now",
+        "learn_more": "Learn More",
+        "subscribe": "Subscribe",
+        "order_now": "Order Now",
+        "back": "Back",
+        "next": "Next"
+    },
+    "product": {
+        "add_to_cart": "Add to Cart",
+        "weight": "Weight",
+        "grind": "Grind",
+        "beans": "Beans",
+        "espresso": "Espresso",
+        "filter": "Filter",
+        "turka": "Turkish",
+        "in_stock": "In Stock",
+        "bestseller": "Bestseller",
+        "new": "New",
+        "rare": "Rare"
+    },
+    "float_buttons": {
+        "telegram": "Message on Telegram",
+        "viber": "Message on Viber",
+        "phone": "Call us"
+    },
+    "social": {
+        "instagram": "Follow us on Instagram",
+        "facebook": "Follow us on Facebook",
+        "telegram": "Our Telegram channel",
+        "tiktok": "Follow us on TikTok"
+    },
+    "payment": {
+        "visa": "Pay with Visa",
+        "mastercard": "Pay with Mastercard",
+        "apple_pay": "Pay with Apple Pay",
+        "google_pay": "Pay with Google Pay"
+    },
+    "common": {
+        "back": "Back",
+        "back_to_articles": "to articles",
+        "topbar_free_delivery": "Free shipping from 500₴",
+        "order_now": "Order Now"
+    }
+}

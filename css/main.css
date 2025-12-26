@@ -2906,3 +2906,60 @@ body {
         grid-template-columns: 1.5fr 1fr 1fr 1fr 1.5fr;
     }
 }
+
+/* ========================================
+   LANGUAGE SWITCHER (i18n)
+   ======================================== */
+.language-switcher {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.lang-btn {
+    background: transparent;
+    border: 1px solid rgba(42, 31, 10, 0.2);
+    padding: 5px 12px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    cursor: pointer;
+    color: var(--text-muted);
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.lang-btn:hover {
+    background: var(--primary-light);
+    color: var(--text-dark);
+    border-color: var(--primary);
+}
+
+.lang-btn.active {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+}
+
+/* Top bar language switcher specific styles */
+.top-bar .language-switcher {
+    margin-left: auto;
+}
+
+.top-bar .lang-btn {
+    border-color: rgba(255, 255, 255, 0.3);
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.top-bar .lang-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.top-bar .lang-btn.active {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+}

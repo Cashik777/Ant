@@ -1,0 +1,118 @@
+{
+  "nav": {
+    "catalog": "Каталог",
+    "subscription": "Підписка",
+    "certificates": "Сертифікати",
+    "stories": "Історії",
+    "about": "Про нас",
+    "test": "Тест смаку"
+  },
+  "topbar": {
+    "phone": "+380 (50) 123-45-67",
+    "hours": "Пн-Пт: 9:00-18:00",
+    "promo_action": "АКЦІЯ:",
+    "promo_delivery": "безкоштовна доставка від 500₴",
+    "promo_subscription": "Підписка:",
+    "promo_subscription_text": "-10% на кожну доставку",
+    "promo_roast": "Свіжа обсмажка",
+    "promo_roast_days": "до 3 днів"
+  },
+  "search": {
+    "placeholder": "Пошук кави...",
+    "no_results": "Нічого не знайдено"
+  },
+  "cart": {
+    "title": "Ваш кошик",
+    "your_cart": "Ваш кошик",
+    "empty": "Ваша чашка поки що порожня...",
+    "to_catalog": "Перейти до каталогу",
+    "checkout": "Оформити замовлення",
+    "subtotal": "Разом:",
+    "items": "товарів",
+    "items_single": "товар",
+    "items_few": "товари",
+    "free_shipping_progress": "До безкоштовної доставки:",
+    "free_shipping_done": "Безкоштовна доставка!",
+    "safe_payment": "Безпечна оплата",
+    "return_days": "14 днів на повернення"
+  },
+  "footer": {
+    "description": "Ми доставляємо справжню specialty каву прямо з ефіопських ферм до вашого дому.",
+    "shop_title": "Магазин",
+    "catalog": "Весь каталог",
+    "subscription": "Підписка на каву",
+    "certificates": "Сертифікати",
+    "b2b": "B2B рішення",
+    "account": "Особистий кабінет",
+    "support_title": "Підтримка",
+    "delivery": "Доставка та оплата",
+    "return": "Повернення та обмін",
+    "faq": "Часті питання",
+    "contacts": "Контакти",
+    "about": "Про нас",
+    "contacts_title": "Контакти",
+    "location": "Одеса, Україна",
+    "newsletter_title": "Підписка на новини",
+    "newsletter_text": "Отримуйте акції, новинки та поради щодо заварювання",
+    "newsletter_placeholder": "Ваш email",
+    "newsletter_cta": "Підписатись",
+    "badge_return_days": "14 днів",
+    "badge_return": "повернення",
+    "badge_specialty": "100% Specialty",
+    "badge_quality": "якість зерна",
+    "badge_free": "Безкоштовна",
+    "badge_shipping": "доставка від 500₴",
+    "badge_fresh": "Свіжа обсмажка",
+    "badge_days": "до 3 днів",
+    "payment_methods": "Способи оплати:",
+    "copyright": "© 2025 EthioDirect. Всі права захищені.",
+    "privacy": "Політика конфіденційності",
+    "terms": "Умови повернення",
+    "offer": "Публічна оферта"
+  },
+  "buttons": {
+    "add_to_cart": "Додати в кошик",
+    "buy_now": "Купити зараз",
+    "learn_more": "Детальніше",
+    "subscribe": "Підписатись",
+    "order_now": "Замовити",
+    "back": "Назад",
+    "next": "Далі"
+  },
+  "product": {
+    "add_to_cart": "В кошик",
+    "weight": "Вага",
+    "grind": "Помол",
+    "beans": "Зерно",
+    "espresso": "Еспресо",
+    "filter": "Фільтр",
+    "turka": "Турка",
+    "in_stock": "В наявності",
+    "bestseller": "Хіт продажів",
+    "new": "Новинка",
+    "rare": "Раритет"
+  },
+  "float_buttons": {
+    "telegram": "Написати в Telegram",
+    "viber": "Написати в Viber",
+    "phone": "Зателефонувати"
+  },
+  "social": {
+    "instagram": "Ми в Instagram",
+    "facebook": "Ми в Facebook",
+    "telegram": "Наш Telegram канал",
+    "tiktok": "Ми в TikTok"
+  },
+  "payment": {
+    "visa": "Оплата Visa",
+    "mastercard": "Оплата Mastercard",
+    "apple_pay": "Оплата Apple Pay",
+    "google_pay": "Оплата Google Pay"
+  },
+  "common": {
+    "back": "Назад",
+    "back_to_articles": "до статей",
+    "topbar_free_delivery": "Безкоштовна доставка від 500₴",
+    "order_now": "Замовити каву"
+  }
+}

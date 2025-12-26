@@ -1,0 +1,59 @@
+{
+    "meta": {
+        "title": "Gift Cards — EthioDirect"
+    },
+    "page": {
+        "title": "Gift Cards",
+        "subtitle": "The perfect gift for coffee lovers"
+    },
+    "hero": {
+        "title": "Give the Taste of Ethiopia",
+        "text": "A gift card for any amount — let the recipient choose their coffee"
+    },
+    "amounts": {
+        "title": "Choose Amount",
+        "custom": "Custom Amount",
+        "from": "from",
+        "to": "to"
+    },
+    "features": {
+        "title": "Why It's the Perfect Gift",
+        "choice": {
+            "title": "Freedom of Choice",
+            "text": "Recipient chooses their own coffee"
+        },
+        "delivery": {
+            "title": "Instant Delivery",
+            "text": "Email with gift card in 1 minute"
+        },
+        "validity": {
+            "title": "Valid for 1 Year",
+            "text": "No restrictions on use"
+        },
+        "design": {
+            "title": "Beautiful Design",
+            "text": "Can print or forward"
+        }
+    },
+    "form": {
+        "title": "Create Gift Card",
+        "recipient_name": "Recipient's Name",
+        "recipient_email": "Recipient's Email",
+        "sender_name": "Your Name",
+        "message": "Message (optional)",
+        "message_placeholder": "Write a greeting...",
+        "send_date": "Send Date",
+        "send_now": "Send Now",
+        "schedule": "Schedule"
+    },
+    "cta": {
+        "buy": "Buy Gift Card",
+        "preview": "Preview",
+        "add_to_cart": "Add to Cart"
+    },
+    "corporate": {
+        "title": "Corporate Gifts",
+        "text": "Order gift cards for your team or clients",
+        "button": "Learn More"
+    }
+}

@@ -1,10 +1,17 @@
 ﻿<!DOCTYPE html>
-<html lang="uk" data-i18n-title="pages.blog">
+<html lang="uk">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Історії про каву — EthioDirect</title>
+
+    <!-- SEO: hreflang -->
+    <link rel="canonical" href="https://ethiodirect.ua/blog.html">
+    <link rel="alternate" hreflang="uk" href="https://ethiodirect.ua/blog.html">
+    <link rel="alternate" hreflang="ru" href="https://ethiodirect.ua/blog.html?lang=ru">
+    <link rel="alternate" hreflang="en" href="https://ethiodirect.ua/blog.html?lang=en">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/main.css">
     <style>
@@ -198,10 +205,10 @@
                             data-i18n="topbar.promo_roast_days">до 3 днів</strong></span>
                 </div>
             </div>
-            <div class="top-bar-right">
-                <a href="#" translate="no" class="active" onclick="setLanguage('uk'); return false;">UA</a>
-                <a href="#" translate="no" onclick="setLanguage('ru'); return false;">RU</a>
-                <a href="#" translate="no" onclick="setLanguage('en'); return false;">EN</a>
+            <div class="top-bar-right language-switcher">
+                <button data-lang="uk" onclick="setLanguage('uk')" class="lang-btn active" translate="no">UK</button>
+                <button data-lang="ru" onclick="setLanguage('ru')" class="lang-btn" translate="no">RU</button>
+                <button data-lang="en" onclick="setLanguage('en')" class="lang-btn" translate="no">EN</button>
             </div>
         </div>
     </div>
@@ -292,7 +299,7 @@
                     доставки: <strong>500 ₴</strong></p>
             </div>
             <div style="display:flex; justify-content:space-between; margin-bottom:15px;">
-                <span data-i18n="cart.subtotal" data-i18n="cart.subtotal">Разом:</span><span id="cart-total"
+                <span data-i18n="cart.subtotal">Разом:</span><span id="cart-total"
                     style="font-weight:700; color:var(--primary);">0 ₴</span>
             </div>
             <button class="btn btn-primary" style="width:100%;"><i class="fas fa-lock"></i> <span
@@ -304,16 +311,16 @@
         <!-- HERO -->
         <section class="blog-hero">
             <div class="container">
-                <h1 data-i18n="pages.blog_title">Історії про каву</h1>
-                <p data-i18n="pages.blog_subtitle">Занурюйтесь у світ specialty кави: від плантацій Ефіопії до вашої
+                <h1 data-i18n="page.title">Історії про каву</h1>
+                <p data-i18n="page.subtitle">Занурюйтесь у світ specialty кави: від плантацій Ефіопії до вашої
                     чашки</p>
                 <div class="blog-categories">
-                    <a href="#" class="blog-cat-btn active" data-filter="all" data-i18n="blog.cat_all">Усі</a>
-                    <a href="#" class="blog-cat-btn" data-filter="about" data-i18n="blog.cat_about">Про каву</a>
-                    <a href="#" class="blog-cat-btn" data-filter="recipes" data-i18n="blog.cat_recipes">Рецепти</a>
+                    <a href="#" class="blog-cat-btn active" data-filter="all" data-i18n="categories.all">Усі</a>
+                    <a href="#" class="blog-cat-btn" data-filter="about" data-i18n="categories.about">Про каву</a>
+                    <a href="#" class="blog-cat-btn" data-filter="recipes" data-i18n="categories.recipes">Рецепти</a>
                     <a href="#" class="blog-cat-btn" data-filter="equipment"
-                        data-i18n="blog.cat_equipment">Обладнання</a>
-                    <a href="#" class="blog-cat-btn" data-filter="tips" data-i18n="blog.cat_tips">Поради</a>
+                        data-i18n="categories.equipment">Обладнання</a>
+                    <a href="#" class="blog-cat-btn" data-filter="tips" data-i18n="categories.tips">Поради</a>
                 </div>
             </div>
         </section>
@@ -331,18 +338,20 @@
                         </a>
                         <div class="article-content">
                             <div class="article-meta">
-                                <span class="article-category" data-i18n="blog.cat_about">Про каву</span>
+                                <span class="article-category" data-i18n="categories.about">Про каву</span>
                                 <span><i class="far fa-clock"></i> 5 хв читання</span>
                                 <span><i class="far fa-calendar"></i> 18 грудня 2025</span>
                             </div>
-                            <h3><a href="articles/what-is-specialty.html">Що таке Specialty кава і чому вона коштує
+                            <h3><a href="articles/what-is-specialty.html" data-i18n="articles.article_1.title">Що таке
+                                    Specialty кава і чому вона коштує
                                     дорожче</a></h3>
-                            <p class="article-excerpt">Розбираємось, чим відрізняється specialty кава від звичайної, як
+                            <p class="article-excerpt" data-i18n="articles.article_1.excerpt">Розбираємось, чим
+                                відрізняється specialty кава від звичайної, як
                                 її оцінюють професіонали та чому вона варта кожної копійки. Дізнайтесь про систему
                                 оцінювання SCA та що означають бали 80+.</p>
                             <div class="article-footer">
                                 <a href="articles/what-is-specialty.html" class="article-read-more"
-                                    data-i18n="blog.read_more">Читати далі →</a>
+                                    data-i18n="read_more">Читати далі →</a>
                                 <span style="color:var(--text-muted); font-size:0.85rem;"><i class="far fa-eye"></i>
                                     2.4k переглядів</span>
                             </div>
@@ -357,15 +366,18 @@
                         </a>
                         <div class="article-content">
                             <div class="article-meta">
-                                <span class="article-category" data-i18n="blog.cat_about">Про каву</span>
+                                <span class="article-category" data-i18n="categories.about">Про каву</span>
                                 <span><i class="far fa-clock"></i> 4 хв</span>
                             </div>
-                            <h3><a href="articles/ethiopia-coffee-origin.html">Ефіопія — батьківщина кави: легенда про
+                            <h3><a href="articles/ethiopia-coffee-origin.html"
+                                    data-i18n="articles.article_2.title">Ефіопія — батьківщина кави: легенда про
                                     пастуха Калді</a></h3>
-                            <p class="article-excerpt">Історія про те, як козопас випадково відкрив магію кавових ягід
+                            <p class="article-excerpt" data-i18n="articles.article_2.excerpt">Історія про те, як козопас
+                                випадково відкрив магію кавових ягід
                                 понад 1000 років тому...</p>
                             <div class="article-footer">
-                                <a href="articles/ethiopia-coffee-origin.html" class="article-read-more">Читати →</a>
+                                <a href="articles/ethiopia-coffee-origin.html" class="article-read-more"
+                                    data-i18n="read">Читати →</a>
                             </div>
                         </div>
                     </article>
@@ -378,15 +390,18 @@
                         </a>
                         <div class="article-content">
                             <div class="article-meta">
-                                <span class="article-category" data-i18n="blog.cat_recipes">Рецепти</span>
+                                <span class="article-category" data-i18n="categories.recipes">Рецепти</span>
                                 <span><i class="far fa-clock"></i> 4 хв</span>
                             </div>
-                            <h3><a href="articles/how-to-brew-v60.html">Ідеальний V60: покроковий рецепт від бариста</a>
+                            <h3><a href="articles/how-to-brew-v60.html" data-i18n="articles.article_3.title">Ідеальний
+                                    V60: покроковий рецепт від бариста</a>
                             </h3>
-                            <p class="article-excerpt">Детальна інструкція з приготування кави методом пуровер.
+                            <p class="article-excerpt" data-i18n="articles.article_3.excerpt">Детальна інструкція з
+                                приготування кави методом пуровер.
                                 Пропорції, температура, техніка заливання.</p>
                             <div class="article-footer">
-                                <a href="articles/how-to-brew-v60.html" class="article-read-more">Читати →</a>
+                                <a href="articles/how-to-brew-v60.html" class="article-read-more"
+                                    data-i18n="read">Читати →</a>
                             </div>
                         </div>
                     </article>
@@ -399,15 +414,18 @@
                         </a>
                         <div class="article-content">
                             <div class="article-meta">
-                                <span class="article-category" data-i18n="blog.cat_about">Про каву</span>
+                                <span class="article-category" data-i18n="categories.about">Про каву</span>
                                 <span><i class="far fa-clock"></i> 3 хв</span>
                             </div>
-                            <h3><a href="articles/light-vs-dark-roast.html">Світла чи темна обсмажка: що обрати?</a>
+                            <h3><a href="articles/light-vs-dark-roast.html" data-i18n="articles.article_4.title">Світла
+                                    чи темна обсмажка: що обрати?</a>
                             </h3>
-                            <p class="article-excerpt">Порівняння смакових профілів, рівнів кофеїну та рекомендації для
+                            <p class="article-excerpt" data-i18n="articles.article_4.excerpt">Порівняння смакових
+                                профілів, рівнів кофеїну та рекомендації для
                                 різних способів приготування.</p>
                             <div class="article-footer">
-                                <a href="articles/light-vs-dark-roast.html" class="article-read-more">Читати →</a>
+                                <a href="articles/light-vs-dark-roast.html" class="article-read-more"
+                                    data-i18n="read">Читати →</a>
                             </div>
                         </div>
                     </article>
@@ -420,15 +438,18 @@
                         </a>
                         <div class="article-content">
                             <div class="article-meta">
-                                <span class="article-category" data-i18n="blog.cat_tips">Поради</span>
+                                <span class="article-category" data-i18n="categories.tips">Поради</span>
                                 <span><i class="far fa-clock"></i> 3 хв</span>
                             </div>
-                            <h3><a href="articles/coffee-storage.html">Як правильно зберігати каву: 5 головних
+                            <h3><a href="articles/coffee-storage.html" data-i18n="articles.article_5.title">Як правильно
+                                    зберігати каву: 5 головних
                                     правил</a></h3>
-                            <p class="article-excerpt">Ворогі свіжості кави та прості правила, які допоможуть зберегти
+                            <p class="article-excerpt" data-i18n="articles.article_5.excerpt">Ворогі свіжості кави та
+                                прості правила, які допоможуть зберегти
                                 аромат надовго.</p>
                             <div class="article-footer">
-                                <a href="articles/coffee-storage.html" class="article-read-more">Читати →</a>
+                                <a href="articles/coffee-storage.html" class="article-read-more" data-i18n="read">Читати
+                                    →</a>
                             </div>
                         </div>
                     </article>
@@ -441,14 +462,17 @@
                         </a>
                         <div class="article-content">
                             <div class="article-meta">
-                                <span class="article-category" data-i18n="blog.cat_about">Про каву</span>
+                                <span class="article-category" data-i18n="categories.about">Про каву</span>
                                 <span><i class="far fa-clock"></i> 5 хв</span>
                             </div>
-                            <h3><a href="articles/yirgacheffe-region.html">Йіргачеффе: перлина ефіопської кави</a></h3>
-                            <p class="article-excerpt">Чому цей регіон виробляє одну з найдорожчих кав у світі та які
+                            <h3><a href="articles/yirgacheffe-region.html"
+                                    data-i18n="articles.article_6.title">Йіргачеффе: перлина ефіопської кави</a></h3>
+                            <p class="article-excerpt" data-i18n="articles.article_6.excerpt">Чому цей регіон виробляє
+                                одну з найдорожчих кав у світі та які
                                 смаки в ній шукати.</p>
                             <div class="article-footer">
-                                <a href="articles/yirgacheffe-region.html" class="article-read-more">Читати →</a>
+                                <a href="articles/yirgacheffe-region.html" class="article-read-more"
+                                    data-i18n="read">Читати →</a>
                             </div>
                         </div>
                     </article>
@@ -461,15 +485,18 @@
                         </a>
                         <div class="article-content">
                             <div class="article-meta">
-                                <span class="article-category" data-i18n="blog.cat_tips">Поради</span>
+                                <span class="article-category" data-i18n="categories.tips">Поради</span>
                                 <span><i class="far fa-clock"></i> 4 хв</span>
                             </div>
-                            <h3><a href="articles/espresso-mistakes.html">7 помилок при приготуванні еспресо вдома</a>
+                            <h3><a href="articles/espresso-mistakes.html" data-i18n="articles.article_7.title">7 помилок
+                                    при приготуванні еспресо вдома</a>
                             </h3>
-                            <p class="article-excerpt">Чому ваш еспресо гіркий або кислий? Розбираємо типові помилки та
+                            <p class="article-excerpt" data-i18n="articles.article_7.excerpt">Чому ваш еспресо гіркий
+                                або кислий? Розбираємо типові помилки та
                                 як їх уникнути.</p>
                             <div class="article-footer">
-                                <a href="articles/espresso-mistakes.html" class="article-read-more">Читати →</a>
+                                <a href="articles/espresso-mistakes.html" class="article-read-more"
+                                    data-i18n="read">Читати →</a>
                             </div>
                         </div>
                     </article>
@@ -482,15 +509,18 @@
                         </a>
                         <div class="article-content">
                             <div class="article-meta">
-                                <span class="article-category" data-i18n="blog.cat_recipes">Рецепти</span>
+                                <span class="article-category" data-i18n="categories.recipes">Рецепти</span>
                                 <span><i class="far fa-clock"></i> 3 хв</span>
                             </div>
-                            <h3><a href="articles/cold-brew-recipe.html">Cold Brew вдома: простий рецепт на 5 літрів</a>
+                            <h3><a href="articles/cold-brew-recipe.html" data-i18n="articles.article_8.title">Cold Brew
+                                    вдома: простий рецепт на 5 літрів</a>
                             </h3>
-                            <p class="article-excerpt">Як приготувати освіжаючу каву холодного заварювання без
+                            <p class="article-excerpt" data-i18n="articles.article_8.excerpt">Як приготувати освіжаючу
+                                каву холодного заварювання без
                                 спеціального обладнання.</p>
                             <div class="article-footer">
-                                <a href="articles/cold-brew-recipe.html" class="article-read-more">Читати →</a>
+                                <a href="articles/cold-brew-recipe.html" class="article-read-more"
+                                    data-i18n="read">Читати →</a>
                             </div>
                         </div>
                     </article>
@@ -503,15 +533,18 @@
                         </a>
                         <div class="article-content">
                             <div class="article-meta">
-                                <span class="article-category" data-i18n="blog.cat_equipment">Обладнання</span>
+                                <span class="article-category" data-i18n="categories.equipment">Обладнання</span>
                                 <span><i class="far fa-clock"></i> 5 хв</span>
                             </div>
-                            <h3><a href="articles/grinder-guide.html">Як обрати кавомолку: повний гід для
+                            <h3><a href="articles/grinder-guide.html" data-i18n="articles.article_9.title">Як обрати
+                                    кавомолку: повний гід для
                                     початківців</a></h3>
-                            <p class="article-excerpt">Жорнова чи ножова? Ручна чи електрична? Розбираємось у типах
+                            <p class="article-excerpt" data-i18n="articles.article_9.excerpt">Жорнова чи ножова? Ручна
+                                чи електрична? Розбираємось у типах
                                 кавомолок та їх перевагах.</p>
                             <div class="article-footer">
-                                <a href="articles/grinder-guide.html" class="article-read-more">Читати →</a>
+                                <a href="articles/grinder-guide.html" class="article-read-more" data-i18n="read">Читати
+                                    →</a>
                             </div>
                         </div>
                     </article>
@@ -524,21 +557,24 @@
                         </a>
                         <div class="article-content">
                             <div class="article-meta">
-                                <span class="article-category" data-i18n="blog.cat_about">Про каву</span>
+                                <span class="article-category" data-i18n="categories.about">Про каву</span>
                                 <span><i class="far fa-clock"></i> 4 хв</span>
                             </div>
-                            <h3><a href="articles/natural-vs-washed.html">Natural vs Washed: як обробка впливає на
+                            <h3><a href="articles/natural-vs-washed.html" data-i18n="articles.article_10.title">Natural
+                                    vs Washed: як обробка впливає на
                                     смак</a></h3>
-                            <p class="article-excerpt">Різниця між сухою та митою обробкою зерна і чому це важливо для
+                            <p class="article-excerpt" data-i18n="articles.article_10.excerpt">Різниця між сухою та
+                                митою обробкою зерна і чому це важливо для
                                 вашої чашки.</p>
                             <div class="article-footer">
-                                <a href="articles/natural-vs-washed.html" class="article-read-more">Читати →</a>
+                                <a href="articles/natural-vs-washed.html" class="article-read-more"
+                                    data-i18n="read">Читати →</a>
                             </div>
                         </div>
                     </article>
 
                     <!-- Article 11 -->
-                    <article class="article-card">
+                    <article class="article-card" data-category="tips">
                         <a href="articles/caffeine-myths.html">
                             <img src="https://images.unsplash.com/photo-1512568400610-62da28bc8a13?w=600"
                                 alt="Кофеїн міфи">
@@ -548,17 +584,20 @@
                                 <span class="article-category">Поради</span>
                                 <span><i class="far fa-clock"></i> 4 хв</span>
                             </div>
-                            <h3><a href="articles/caffeine-myths.html">5 міфів про кофеїн, у які всі вірять</a></h3>
-                            <p class="article-excerpt">Чи правда, що темна обсмажка містить більше кофеїну? Розвінчуємо
+                            <h3><a href="articles/caffeine-myths.html" data-i18n="articles.article_11.title">5 міфів про
+                                    кофеїн, у які всі вірять</a></h3>
+                            <p class="article-excerpt" data-i18n="articles.article_11.excerpt">Чи правда, що темна
+                                обсмажка містить більше кофеїну? Розвінчуємо
                                 популярні міфи.</p>
                             <div class="article-footer">
-                                <a href="articles/caffeine-myths.html" class="article-read-more">Читати →</a>
+                                <a href="articles/caffeine-myths.html" class="article-read-more" data-i18n="read">Читати
+                                    →</a>
                             </div>
                         </div>
                     </article>
 
                     <!-- Article 12 -->
-                    <article class="article-card">
+                    <article class="article-card" data-category="recipes">
                         <a href="articles/aeropress-recipes.html">
                             <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=600"
                                 alt="Аеропрес">
@@ -568,17 +607,20 @@
                                 <span class="article-category">Рецепти</span>
                                 <span><i class="far fa-clock"></i> 4 хв</span>
                             </div>
-                            <h3><a href="articles/aeropress-recipes.html">3 рецепти для Аеропреса від чемпіонів</a></h3>
-                            <p class="article-excerpt">Перевірені рецепти переможців чемпіонатів з аеропресу для
+                            <h3><a href="articles/aeropress-recipes.html" data-i18n="articles.article_12.title">3
+                                    рецепти для Аеропреса від чемпіонів</a></h3>
+                            <p class="article-excerpt" data-i18n="articles.article_12.excerpt">Перевірені рецепти
+                                переможців чемпіонатів з аеропресу для
                                 ідеальної чашки вдома.</p>
                             <div class="article-footer">
-                                <a href="articles/aeropress-recipes.html" class="article-read-more">Читати →</a>
+                                <a href="articles/aeropress-recipes.html" class="article-read-more"
+                                    data-i18n="read">Читати →</a>
                             </div>
                         </div>
                     </article>
 
                     <!-- Article 13 -->
-                    <article class="article-card">
+                    <article class="article-card" data-category="tips">
                         <a href="articles/water-for-coffee.html">
                             <img src="https://images.unsplash.com/photo-1434494878577-86c23bcb06b9?w=600"
                                 alt="Вода для кави">
@@ -588,17 +630,20 @@
                                 <span class="article-category">Поради</span>
                                 <span><i class="far fa-clock"></i> 3 хв</span>
                             </div>
-                            <h3><a href="articles/water-for-coffee.html">Яка вода потрібна для ідеальної кави?</a></h3>
-                            <p class="article-excerpt">98% вашої чашки — це вода. Розбираємось, чому вона важлива та яку
+                            <h3><a href="articles/water-for-coffee.html" data-i18n="articles.article_13.title">Яка вода
+                                    потрібна для ідеальної кави?</a></h3>
+                            <p class="article-excerpt" data-i18n="articles.article_13.excerpt">98% вашої чашки — це
+                                вода. Розбираємось, чому вона важлива та яку
                                 обрати.</p>
                             <div class="article-footer">
-                                <a href="articles/water-for-coffee.html" class="article-read-more">Читати →</a>
+                                <a href="articles/water-for-coffee.html" class="article-read-more"
+                                    data-i18n="read">Читати →</a>
                             </div>
                         </div>
                     </article>
 
                     <!-- Article 14 -->
-                    <article class="article-card">
+                    <article class="article-card" data-category="about">
                         <a href="articles/sidamo-guide.html">
                             <img src="https://images.unsplash.com/photo-1610632380989-680fe40816c6?w=600"
                                 alt="Сідамо регіон">
@@ -608,17 +653,20 @@
                                 <span class="article-category">Про каву</span>
                                 <span><i class="far fa-clock"></i> 4 хв</span>
                             </div>
-                            <h3><a href="articles/sidamo-guide.html">Сідамо: класика ефіопської кави</a></h3>
-                            <p class="article-excerpt">Все про найпопулярніший регіон виробництва кави в Ефіопії та його
+                            <h3><a href="articles/sidamo-guide.html" data-i18n="articles.article_14.title">Сідамо:
+                                    класика ефіопської кави</a></h3>
+                            <p class="article-excerpt" data-i18n="articles.article_14.excerpt">Все про найпопулярніший
+                                регіон виробництва кави в Ефіопії та його
                                 унікальний терруар.</p>
                             <div class="article-footer">
-                                <a href="articles/sidamo-guide.html" class="article-read-more">Читати →</a>
+                                <a href="articles/sidamo-guide.html" class="article-read-more" data-i18n="read">Читати
+                                    →</a>
                             </div>
                         </div>
                     </article>
 
                     <!-- Article 15 -->
-                    <article class="article-card">
+                    <article class="article-card" data-category="recipes">
                         <a href="articles/turka-recipe.html">
                             <img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?w=600"
                                 alt="Кава в турці">
@@ -628,12 +676,15 @@
                                 <span class="article-category">Рецепти</span>
                                 <span><i class="far fa-clock"></i> 4 хв</span>
                             </div>
-                            <h3><a href="articles/turka-recipe.html">Кава по-турецьки: секрети ідеального джезве</a>
+                            <h3><a href="articles/turka-recipe.html" data-i18n="articles.article_15.title">Кава
+                                    по-турецьки: секрети ідеального джезве</a>
                             </h3>
-                            <p class="article-excerpt">Традиційний метод приготування, який зберігся крізь століття.
+                            <p class="article-excerpt" data-i18n="articles.article_15.excerpt">Традиційний метод
+                                приготування, який зберігся крізь століття.
                                 Покроковий рецепт.</p>
                             <div class="article-footer">
-                                <a href="articles/turka-recipe.html" class="article-read-more">Читати →</a>
+                                <a href="articles/turka-recipe.html" class="article-read-more" data-i18n="read">Читати
+                                    →</a>
                             </div>
                         </div>
                     </article>
@@ -642,7 +693,7 @@
 
                 <!-- Load More -->
                 <div style="text-align:center; margin-top:50px;">
-                    <p style="color:var(--text-muted); margin-bottom:20px;" data-i18n="blog.articles_count">Показано 15
+                    <p style="color:var(--text-muted); margin-bottom:20px;" data-i18n="articles_count">Показано 15
                         з 15 статей</p>
                 </div>
             </div>
@@ -652,10 +703,10 @@
         <section
             style="background:linear-gradient(135deg, var(--primary), #6D4C41); padding:60px 0; text-align:center;">
             <div class="container">
-                <h2 style="color:white; margin-bottom:15px;" data-i18n="blog.newsletter_title">Підпишіться на кавові
+                <h2 style="color:white; margin-bottom:15px;" data-i18n="newsletter_title">Підпишіться на кавові
                     новини</h2>
                 <p style="color:rgba(255,255,255,0.9); margin-bottom:30px; max-width:500px; margin-left:auto; margin-right:auto;"
-                    data-i18n="blog.newsletter_text">
+                    data-i18n="newsletter_text">
                     Отримуйте нові статті, рецепти та ексклюзивні пропозиції на вашу пошту</p>
                 <form
                     style="display:flex; gap:15px; max-width:450px; margin:0 auto; flex-wrap:wrap; justify-content:center;"
@@ -696,14 +747,10 @@
                         доставляємо справжню specialty каву прямо з ефіопських ферм до вашого дому. Свіжа обсмажка,
                         чесна ціна, любов до кави.</p>
                     <div class="social-links">
-                        <a href="#" aria-label="Instagram" data-i18n="social.instagram" data-i18n-aria><i
-                                class="fab fa-instagram"></i></a>
-                        <a href="#" aria-label="Facebook" data-i18n="social.facebook" data-i18n-aria><i
-                                class="fab fa-facebook"></i></a>
-                        <a href="#" aria-label="Telegram" data-i18n="social.telegram" data-i18n-aria><i
-                                class="fab fa-telegram"></i></a>
-                        <a href="#" aria-label="TikTok" data-i18n="social.tiktok" data-i18n-aria><i
-                                class="fab fa-tiktok"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+                        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
                     </div>
                 </div>
 
@@ -751,8 +798,8 @@
                     <p style="color:#aaa; margin-bottom:15px; font-size:0.9rem;" data-i18n="footer.newsletter_text">
                         Отримуйте акції, новинки та поради щодо заварювання</p>
                     <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
-                        <input type="email" placeholder="Ваш email" data-i18n="footer.newsletter_placeholder"
-                            data-i18n-placeholder required>
+                        <input type="email" placeholder="Ваш email"
+                            data-i18n-placeholder="footer.newsletter_placeholder" required>
                         <button type="submit" class="btn-newsletter"
                             data-i18n="footer.newsletter_cta">Підписатись</button>
                     </form>
@@ -795,13 +842,13 @@
 
             <!-- Payment Methods -->
             <div class="footer-payment">
-                <p style="color:#666; font-size:0.85rem; margin-bottom:15px;">Способи оплати:</p>
+                <p style="color:#666; font-size:0.85rem; margin-bottom:15px;" data-i18n="footer.payment_methods">Способи
+                    оплати:</p>
                 <div class="payment-icons">
-                    <i class="fab fa-cc-visa" title="Visa" data-i18n="payment.visa" data-i18n-title></i>
-                    <i class="fab fa-cc-mastercard" title="Mastercard" data-i18n="payment.mastercard"
-                        data-i18n-title></i>
-                    <i class="fab fa-apple-pay" title="Apple Pay" data-i18n="payment.apple_pay" data-i18n-title></i>
-                    <i class="fab fa-google-pay" title="Google Pay" data-i18n="payment.google_pay" data-i18n-title></i>
+                    <i class="fab fa-cc-visa" title="Visa"></i>
+                    <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+                    <i class="fab fa-apple-pay" title="Apple Pay"></i>
+                    <i class="fab fa-google-pay" title="Google Pay"></i>
                     <span class="payment-text">LiqPay</span>
                 </div>
             </div>
@@ -823,8 +870,8 @@
     </footer>
 
     <script src="js/main.js"></script>
-    <script src="js/translations.js"></script>
-    <script src="js/i18n.js"></script>
+    <!-- New production i18n system -->
+    <script src="js/i18n.js?v=2.0"></script>
     <script>
         // Blog Category Filter
         document.addEventListener('DOMContentLoaded', function () {

@@ -1,205 +1,183 @@
 ﻿<!DOCTYPE html>
-<html lang="uk" data-i18n-title="articles.yirgacheffe.title">
-
+<html lang="uk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Йіргачеффе — EthioDirect</title>
+    <title>Кава Yirgacheffe — EthioDirect</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../css/main.css">
     <style>
-        .article-header {
-            padding-top: 140px;
-            background: linear-gradient(135deg, #2a1f0a, #4a3520);
-            color: white;
-            padding-bottom: 60px;
-        }
-
-        .article-header .container {
-            max-width: 800px;
-        }
-
-        .article-header h1 {
-            font-size: 2.5rem;
-            color: white;
-            margin-bottom: 20px;
-        }
-
-        .article-body {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 60px 20px;
-        }
-
-        .article-body h2 {
-            font-size: 1.8rem;
-            margin: 40px 0 20px;
-        }
-
-        .article-body p {
-            font-size: 1.1rem;
-            line-height: 1.9;
-            color: #444;
-            margin-bottom: 20px;
-        }
-
-        .article-body ul {
-            margin: 20px 0;
-            padding-left: 25px;
-        }
-
-        .article-body li {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 12px;
-        }
-
-        .article-image {
-            width: 100%;
-            border-radius: 12px;
-            margin: 30px 0;
-        }
-
-        .article-quote {
-            background: #f5f0e6;
-            border-left: 4px solid var(--primary);
-            padding: 25px;
-            margin: 30px 0;
-            font-style: italic;
-        }
-
-        .taste-card {
-            background: #f5f0e6;
-            padding: 25px;
-            border-radius: 12px;
-            margin: 20px 0;
-        }
+        .article-header { padding-top: 140px; background: linear-gradient(135deg, #2a1f0a, #4a3520); color: white; padding-bottom: 60px; }
+        .article-header .container { max-width: 800px; }
+        .article-header h1 { font-size: 2.5rem; color: white; margin-bottom: 20px; }
+        .article-body { max-width: 800px; margin: 0 auto; padding: 60px 20px; }
+        .article-body h2 { font-size: 1.8rem; margin: 40px 0 20px; }
+        .article-body p { font-size: 1.1rem; line-height: 1.9; color: #444; margin-bottom: 20px; }
+        .article-image { width: 100%; border-radius: 12px; margin: 30px 0; }
+        .info-card { background: #f5f0e6; padding: 20px; border-radius: 12px; margin: 20px 0; }
     </style>
 </head>
-
 <body>
-    <div class="top-bar">
-        <div class="container top-bar-inner">
-            <div class="top-bar-left"><span><i class="fas fa-phone-alt"></i> <span data-i18n="topbar.phone">+380 (50)
-                        123-45-67</span></span></div>
-            <div class="top-bar-center"><span data-i18n="common.topbar_free_delivery">🔥 Безкоштовна доставка від
-                    500₴</span></div>
-            <div class="top-bar-right">
-                <a href="#" translate="no" class="active" onclick="setLanguage('uk'); return false;">UA</a>
-                <a href="#" translate="no" onclick="setLanguage('ru'); return false;">RU</a>
-                <a href="#" translate="no" onclick="setLanguage('en'); return false;">EN</a>
-            </div>
-        </div>
-    </div>
-    <header class="header">
-        <div class="container header-inner"><a href="../index.html" class="logo"><i class="fas fa-certificate"></i>
-                ETHIODIRECT</a>
-            <nav class="nav-desktop"><a href="../shop.html" class="nav-link" data-i18n="nav.catalog">Каталог</a><a
-                    href="../blog.html" class="nav-link active" data-i18n="nav.stories">Історії</a><a
-                    href="../about.html" class="nav-link" data-i18n="nav.about">Про нас</a></nav>
-        </div>
-    </header>
-
-    <main>
-        <section class="article-header">
-            <div class="container">
-                <a href="../blog.html" style="color:rgba(255,255,255,0.7); text-decoration:none;"><i
-                        class="fas fa-arrow-left"></i> <span data-i18n="common.back">Назад</span></a>
-                <h1 style="margin-top:20px;" data-i18n="articles.yirgacheffe.title">Йіргачеффе: перлина ефіопської кави
-                </h1>
-                <p style="opacity:0.9;" data-i18n="articles.yirgacheffe.subtitle">Чому цей регіон виробляє одну з
-                    найдорожчих кав у світі</p>
-            </div>
-        </section>
-
+    <div class="top-bar"><div class="container top-bar-inner">
+        <div class="top-bar-left"><span><i class="fas fa-phone-alt"></i> <span data-i18n="topbar.phone">+380 (50) 123-45-67</span></span></div>
+        <div class="top-bar-center"><div class="promo-ticker"><span class="ticker-item">🔥 <strong data-i18n="topbar.promo_action">АКЦІЯ:</strong> <span data-i18n="topbar.promo_delivery">безкоштовна доставка від 500₴</span></span></div></div>
+        <div class="top-bar-right language-switcher"><button data-lang="uk" onclick="setLanguage('uk')" class="lang-btn active" translate="no">UK</button><button data-lang="ru" onclick="setLanguage('ru')" class="lang-btn" translate="no">RU</button><button data-lang="en" onclick="setLanguage('en')" class="lang-btn" translate="no">EN</button></div>
+    </div></div>
+    <header class="header"><div class="container header-inner">
+        <a href="../index.html" class="logo"><i class="fas fa-certificate"></i> ETHIODIRECT</a>
+        <nav class="nav-desktop"><a href="../shop.html" class="nav-link" data-i18n="nav.catalog">Каталог</a><a href="../subscription.html" class="nav-link" data-i18n="nav.subscription">Підписка</a><a href="../gift-certificates.html" class="nav-link" data-i18n="nav.certificates">Сертифікати</a><a href="../blog.html" class="nav-link active" data-i18n="nav.stories">Історії</a><a href="../about.html" class="nav-link" data-i18n="nav.about">Про нас</a><a href="../quiz.html" class="nav-link" data-i18n="nav.test">Тест</a></nav>
+        <div class="header-actions"><a href="../account.html"><i class="far fa-user"></i></a><div class="cart-wrapper"><div class="cart-trigger" onclick="openDrawer()"><i class="fas fa-shopping-bag"></i><span class="cart-count">0</span></div></div><button class="menu-toggle" onclick="toggleMobileMenu()"><i class="fas fa-bars"></i></button></div>
+    </div></header>
+    <div class="overlay"></div>
+    <div class="drawer"><div class="drawer-header"><h3><span data-i18n="cart.your_cart">Ваш кошик</span></h3><button onclick="closeDrawer()" style="background:none;border:none;font-size:1.5rem;cursor:pointer;">&times;</button></div><div class="drawer-body" id="cart-list"></div><div class="drawer-footer"><button class="btn btn-primary" style="width:100%;"><span data-i18n="cart.checkout">Оформити</span></button></div></div>    <main>
+        <section class="article-header"><div class="container">
+            <a href="../blog.html" style="color:rgba(255,255,255,0.7); text-decoration:none;"><i class="fas fa-arrow-left"></i> <span data-i18n="common.back">Назад</span></a>
+            <h1 style="margin-top:20px;" data-i18n="articles.yirgacheffe.title">Кава з регіону Yirgacheffe: чому вона особлива?</h1>
+            <p style="opacity:0.9;" data-i18n="articles.yirgacheffe.subtitle">Знайомство з легендарним терруаром</p>
+        </div></section>
         <article class="article-body">
-            <img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?w=1200" alt="Йіргачеффе"
-                class="article-image">
-
-            <p data-i18n="articles.yirgacheffe.intro">Якщо specialty кава — це найкраща кава у світі, то Yirgacheffe —
-                це "best of the best". Цей маленький регіон на півдні Ефіопії виробляє каву, яка регулярно отримує 90+
-                балів від найвимогливіших експертів.</p>
-
-            <h2 data-i18n="articles.yirgacheffe.location_title">Де знаходиться Йіргачеффе</h2>
-            <p data-i18n="articles.yirgacheffe.location_text">Yirgacheffe — це маленьке містечко і навколишній регіон у
-                зоні Gedeo, що в регіоні Sidamo (SNNPR) південної Ефіопії. Висота — 1700-2200 метрів над рівнем моря, що
-                створює ідеальні умови для повільного дозрівання ягід.</p>
-
-            <div class="taste-card">
-                <h3 style="margin-top:0;" data-i18n="articles.yirgacheffe.taste_title">🌸 Смаковий профіль Yirgacheffe
-                </h3>
-                <ul style="margin-bottom:0;">
-                    <li><strong data-i18n="articles.yirgacheffe.aroma_label">Аромат:</strong> <span
-                            data-i18n="articles.yirgacheffe.aroma_value">жасмин, бергамот, квіткові ноти</span></li>
-                    <li><strong data-i18n="articles.yirgacheffe.taste_label">Смак:</strong> <span
-                            data-i18n="articles.yirgacheffe.taste_value">цитрус (лимон, апельсин), чай, мед</span></li>
-                    <li><strong data-i18n="articles.yirgacheffe.acidity_label">Кислотність:</strong> <span
-                            data-i18n="articles.yirgacheffe.acidity_value">яскрава, соковита (як цитрусовий сік)</span>
-                    </li>
-                    <li><strong data-i18n="articles.yirgacheffe.body_label">Тіло:</strong> <span
-                            data-i18n="articles.yirgacheffe.body_value">легке, шовковисте, чайне</span></li>
-                    <li><strong data-i18n="articles.yirgacheffe.aftertaste_label">Післясмак:</strong> <span
-                            data-i18n="articles.yirgacheffe.aftertaste_value">тривалий, солодкий, квітковий</span></li>
-                </ul>
-            </div>
-
-            <h2 data-i18n="articles.yirgacheffe.unique_title">Чому Йіргачеффе унікальна?</h2>
-
-            <h3 data-i18n="articles.yirgacheffe.terroir_title">Терруар</h3>
-            <p data-i18n="articles.yirgacheffe.terroir_text">Вулканічні ґрунти багаті мінералами, рівномірний клімат з
-                сезонами дощів, висока висота — все це створює унікальний "терруар", подібний до відомих винних
-                регіонів.</p>
-
-            <h3 data-i18n="articles.yirgacheffe.genetics_title">Генетика</h3>
-            <p data-i18n="articles.yirgacheffe.genetics_text">Тут росте унікальний підвид арабіки — Ethiopian Heirloom
-                (ефіопський реліктовий). Це не культивований сорт, а дикі різновиди, що збереглися тисячоліттями.</p>
-
-            <h3 data-i18n="articles.yirgacheffe.processing_title">Обробка</h3>
-            <p data-i18n="articles.yirgacheffe.processing_text">Більшість кави Yirgacheffe обробляється митим способом
-                (washed), що підкреслює її чистоту та квіткові ноти. Натурально оброблена трапляється рідше, але має ще
-                інтенсивніший ягідний смак.</p>
-
-            <div class="article-quote" data-i18n="articles.yirgacheffe.quote">"Yirgacheffe — це не просто кава. Це
-                парфуми у чашці. Закрий очі — і ти в квітковому саду."</div>
-
-            <h2 data-i18n="articles.yirgacheffe.brew_title">Як готувати Yirgacheffe</h2>
-            <ul>
-                <li><strong data-i18n="articles.yirgacheffe.roast_label">Обсмажка:</strong> <span
-                        data-i18n="articles.yirgacheffe.roast_value">тільки світла або дуже легка середня</span></li>
-                <li><strong data-i18n="articles.yirgacheffe.method_label">Спосіб:</strong> <span
-                        data-i18n="articles.yirgacheffe.method_value">фільтр (V60, Chemex), аеропрес</span></li>
-                <li><strong data-i18n="articles.yirgacheffe.not_rec_label">НЕ рекомендуємо:</strong> <span
-                        data-i18n="articles.yirgacheffe.not_rec_value">турку або еспресо — затьмарить ніжні ноти</span>
-                </li>
-                <li><strong data-i18n="articles.yirgacheffe.water_label">Вода:</strong> <span
-                        data-i18n="articles.yirgacheffe.water_value">94-96°C, м'яка, фільтрована</span></li>
-            </ul>
-
-            <h2 data-i18n="articles.yirgacheffe.our_title">Наша Yirgacheffe</h2>
-            <p data-i18n="articles.yirgacheffe.our_text">Ми працюємо напряму з кооперативом у регіоні Kochere (одним з
-                найкращих мікрорегіонів Yirgacheffe). Наша кава має оцінку 88 балів SCA та яскравий профіль: жасмин,
-                бергамот, лимонна цедра.</p>
-
-            <div
-                style="background:var(--primary); padding:40px; border-radius:16px; text-align:center; margin-top:40px;">
-                <h3 style="color:white;" data-i18n="articles.yirgacheffe.cta_title">Спробуйте нашу Yirgacheffe</h3>
-                <p style="color:rgba(255,255,255,0.9);" data-i18n="articles.yirgacheffe.cta_text">Квіткова, цитрусова,
-                    неймовірно ароматна</p>
-                <a href="../shop.html" class="btn" style="background:var(--secondary); color:#1a1a1a; margin-top:15px;"
-                    data-i18n="common.order_now">Замовити</a>
+            <img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=1200" alt="Yirgacheffe" class="article-image">
+            <p data-i18n="articles.yirgacheffe.p_1">Yirgacheffe — одна з найвідоміших кавових зон у світі.</p>
+            <h2 data-i18n="articles.yirgacheffe.h2_1">Де знаходиться</h2>
+            <p data-i18n="articles.yirgacheffe.p_2">Південна Ефіопія, регіон Гедео. 1700-2200м над рівнем моря.</p>
+            <h2 data-i18n="articles.yirgacheffe.h2_2">Унікальний терруар</h2>
+            <p data-i18n="articles.yirgacheffe.terroir">Клімат, грунт і традиційне вирощування створюють унікальний смак.</p>
+            <h2 data-i18n="articles.yirgacheffe.h2_3">Смаковий профіль</h2>
+            <p data-i18n="articles.yirgacheffe.flavor_profile">Яскрава, квіткова, цитрусова. Бергамот, жасмін, лимон.</p>
+            <h2 data-i18n="articles.yirgacheffe.h2_4">Як заварювати</h2>
+            <p data-i18n="articles.yirgacheffe.p_3">Краще всього — пуровер методи.</p>
+            <div class="article-cta" style="background: linear-gradient(135deg, #2a1f0a, #4a3520); padding: 40px; border-radius: 12px; text-align: center; margin-top: 40px;">
+                <h3 style="color: white;" data-i18n="articles.yirgacheffe.cta_title">Спробуйте нашу Yirgacheffe</h3>
+                <a href="../shop.html" class="btn btn-primary" data-i18n="common.order_now">Замовити</a>
             </div>
         </article>
     </main>
+    <!-- FLOATING CONTACTS -->
+    <div class="floating-contacts">
+        <a href="https://t.me/ethiodirect" class="float-btn telegram"><i class="fab fa-telegram-plane"></i></a>
+        <a href="viber://chat?number=+380501234567" class="float-btn viber"><i class="fab fa-viber"></i></a>
+        <a href="tel:+380501234567" class="float-btn phone"><i class="fas fa-phone-alt"></i></a>
+    </div>
 
+    <!-- FOOTER -->
     <footer class="footer-pro">
         <div class="container">
+            <div class="footer-grid">
+                <!-- Column 1: Brand -->
+                <div class="footer-col">
+                    <h4 style="font-family:var(--font-heading); font-size:1.5rem; color:white; margin-bottom:20px;">
+                        <a href="../index.html" style="text-decoration:none; color:white;">EthioDirect</a>
+                    </h4>
+                    <p style="color:#aaa; line-height:1.8; margin-bottom:20px;" data-i18n="footer.description">Ми доставляємо справжню specialty каву прямо з ефіопських ферм до вашого дому.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+                        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                <!-- Column 2: Shop -->
+                <div class="footer-col">
+                    <h4 data-i18n="footer.shop_title">Магазин</h4>
+                    <ul class="footer-links">
+                        <li><a href="../shop.html" data-i18n="footer.catalog">Весь каталог</a></li>
+                        <li><a href="../subscription.html" data-i18n="footer.subscription">Підписка на каву</a></li>
+                        <li><a href="../gift-certificates.html" data-i18n="nav.certificates">Сертифікати</a></li>
+                        <li><a href="../b2b.html" data-i18n="footer.b2b">B2B рішення</a></li>
+                    </ul>
+                </div>
+                <!-- Column 3: Support -->
+                <div class="footer-col">
+                    <h4 data-i18n="footer.support_title">Підтримка</h4>
+                    <ul class="footer-links">
+                        <li><a href="../delivery.html" data-i18n="footer.delivery">Доставка та оплата</a></li>
+                        <li><a href="../faq.html" data-i18n="footer.faq">Часті питання</a></li>
+                        <li><a href="../contacts.html" data-i18n="footer.contacts">Контакти</a></li>
+                        <li><a href="../about.html" data-i18n="nav.about">Про нас</a></li>
+                    </ul>
+                </div>
+                <!-- Column 4: Contacts -->
+                <div class="footer-col">
+                    <h4 data-i18n="footer.contacts_title">Контакти</h4>
+                    <ul class="footer-contacts">
+                        <li><i class="fas fa-phone"></i> <a href="tel:+380501234567">+380 (50) 123-45-67</a></li>
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:hello@ethiodirect.ua">hello@ethiodirect.ua</a></li>
+                        <li><i class="fas fa-map-marker-alt"></i> <span data-i18n="footer.location">Одеса, Україна</span></li>
+                        <li><i class="fas fa-clock"></i> <span data-i18n="topbar.hours">Пн-Пт: 9:00-18:00</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            
+                <!-- Column 5: Newsletter -->
+                <div class="footer-col">
+                    <h4 data-i18n="footer.newsletter_title">Підписка на новини</h4>
+                    <p style="color:#aaa; margin-bottom:15px; font-size:0.9rem;" data-i18n="footer.newsletter_text">Отримуйте акції, новинки та поради щодо заварювання</p>
+                    <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
+                        <input type="email" placeholder="Ваш email" data-i18n-placeholder="footer.newsletter_placeholder" required>
+                        <button type="submit" class="btn-newsletter" data-i18n="footer.newsletter_cta">Підписатись</button>
+                    </form>
+                </div><!-- Trust Badges -->
+            <div class="footer-trust">
+                <div class="trust-badges">
+                    <div class="trust-badge">
+                        <i class="fas fa-shield-alt"></i>
+                        <div>
+                            <strong data-i18n="footer.badge_return_days">14 днів</strong>
+                            <span data-i18n="footer.badge_return">повернення</span>
+                        </div>
+                    </div>
+                    <div class="trust-badge">
+                        <i class="fas fa-coffee"></i>
+                        <div>
+                            <strong data-i18n="footer.badge_specialty">100% Specialty</strong>
+                            <span data-i18n="footer.badge_quality">якість зерна</span>
+                        </div>
+                    </div>
+                    <div class="trust-badge">
+                        <i class="fas fa-shipping-fast"></i>
+                        <div>
+                            <strong data-i18n="footer.badge_free">Безкоштовна</strong>
+                            <span data-i18n="footer.badge_shipping">доставка від 500₴</span>
+                        </div>
+                    </div>
+                    <div class="trust-badge">
+                        <i class="fas fa-fire"></i>
+                        <div>
+                            <strong data-i18n="footer.badge_fresh">Свіжа обсмажка</strong>
+                            <span data-i18n="footer.badge_days">до 3 днів</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment Methods -->
+            <div class="footer-payment">
+                <p style="color:#666; font-size:0.85rem; margin-bottom:15px;" data-i18n="footer.payment_methods">Способи оплати:</p>
+                <div class="payment-icons">
+                    <i class="fab fa-cc-visa" title="Visa"></i>
+                    <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+                    <i class="fab fa-apple-pay" title="Apple Pay"></i>
+                    <i class="fab fa-google-pay" title="Google Pay"></i>
+                    <span class="payment-text">LiqPay</span>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
             <div class="footer-bottom">
-                <p>&copy; 2025 EthioDirect.</p>
+                <div class="footer-bottom-left">
+                    <p>&copy; 2025 EthioDirect. Всі права захищені.</p>
+                </div>
+                <div class="footer-bottom-right">
+                    <a href="../privacy.html" data-i18n="footer.privacy">Політика конфіденційності</a>
+                    <span>·</span>
+                    <a href="../return.html" data-i18n="footer.terms">Умови повернення</a>
+                </div>
             </div>
         </div>
     </footer>
-    <script src="../js/main.js"></script>
-    <script src="../js/translations.js"></script><script src="../js/i18n.js"></script>
-</body>
 
+    <script src="../js/main.js"></script>
+    <script src="../js/i18n.js?v=2.0"></script>
+</body>
 </html>

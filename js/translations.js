@@ -465,7 +465,8 @@ window.LOCALES = {
             "result_restart": "Пройти тест знову",
             "taste_strawberry": "Полуниця",
             "taste_blueberry": "Чорниця",
-            "taste_jasmine": "Жасмін"
+            "taste_jasmine": "Жасмін",
+            "result_coffee_name": "Yirgacheffe Natural"
         },
         "social": {
             "instagram": "Ми в Instagram",
@@ -565,6 +566,17 @@ window.LOCALES = {
             "blog_title": "Історії про каву",
             "blog_subtitle": "Занурюйтесь у світ specialty кави: від плантацій Ефіопії до вашої чашки",
             "return": "Повернення та обмін — EthioDirect",
+        },
+        "blog": {
+            "cat_all": "Усі",
+            "cat_about": "Про каву",
+            "cat_recipes": "Рецепти",
+            "cat_equipment": "Обладнання",
+            "cat_tips": "Поради",
+            "read_more": "Читати далі →",
+            "newsletter_title": "Підпишіться на кавові новини",
+            "newsletter_text": "Отримуйте нові статті, рецепти та ексклюзивні пропозиції на вашу пошту",
+            "articles_count": "Показано 15 з 15 статей"
         },
         "articles": {
             "sidamo_guide": {
@@ -1194,6 +1206,12 @@ window.LOCALES = {
             }
         },
         "blog": {
+            "cat_all": "Усі",
+            "cat_about": "Про каву",
+            "cat_recipes": "Рецепти",
+            "cat_equipment": "Обладнання",
+            "cat_tips": "Поради",
+            "read_more": "Читати далі →",
             "arabica_vs_robusta": {
                 "title": "Arabica vs Robusta: вся правда про два види кави",
                 "category": "Про каву",
@@ -1919,7 +1937,16 @@ window.LOCALES = {
             "result_btn_order": "Замовити зі знижкою -10%",
             "result_btn_restart": "Пройти тест ще раз",
             "result_discount": "Ваш промокод:",
-            "why_perfect_title": "Чому саме цей сорт?"
+            "why_perfect_title": "Чому саме цей сорт?",
+            "btn_result": "Показати результат",
+            "result_region": "Регіон",
+            "result_roast": "Світла обсмажка",
+            "result_sca": "балів SCA",
+            "result_order": "Замовити зі знижкою",
+            "result_restart": "Пройти тест знову",
+            "taste_strawberry": "Полуниця",
+            "taste_blueberry": "Чорниця",
+            "taste_jasmine": "Жасмін"
         },
         "b2b_page": {
             "hero_badge": "🏢 ДЛЯ БІЗНЕСУ",
@@ -2922,7 +2949,8 @@ window.LOCALES = {
             "result_restart": "Пройти тест снова",
             "taste_strawberry": "Клубника",
             "taste_blueberry": "Черника",
-            "taste_jasmine": "Жасмин"
+            "taste_jasmine": "Жасмин",
+            "result_coffee_name": "Yirgacheffe Natural"
         },
         "social": {
             "instagram": "Мы в Instagram",
@@ -3022,6 +3050,17 @@ window.LOCALES = {
             "blog_title": "Истории о кофе",
             "blog_subtitle": "Погружайтесь в мир specialty кофе: от плантаций Эфиопии до вашей чашки",
             "return": "Возврат и обмен — EthioDirect",
+        },
+        "blog": {
+            "cat_all": "Все",
+            "cat_about": "О кофе",
+            "cat_recipes": "Рецепты",
+            "cat_equipment": "Оборудование",
+            "cat_tips": "Советы",
+            "read_more": "Читать далее →",
+            "newsletter_title": "Подпишитесь на кофейные новости",
+            "newsletter_text": "Получайте новые статьи, рецепты и эксклюзивные предложения на вашу почту",
+            "articles_count": "Показано 15 из 15 статей"
         },
         "articles": {
             "sidamo_guide": {
@@ -3651,6 +3690,12 @@ window.LOCALES = {
             }
         },
         "blog": {
+            "cat_all": "Все",
+            "cat_about": "О кофе",
+            "cat_recipes": "Рецепты",
+            "cat_equipment": "Оборудование",
+            "cat_tips": "Советы",
+            "read_more": "Читать далее →",
             "arabica_vs_robusta": {
                 "title": "Arabica vs Robusta: вся правда о двух видах кофе",
                 "category": "О кофе",
@@ -4376,7 +4421,16 @@ window.LOCALES = {
             "result_btn_order": "Заказать со скидкой -10%",
             "result_btn_restart": "Пройти тест ещё раз",
             "result_discount": "Ваш промокод:",
-            "why_perfect_title": "Почему именно этот сорт?"
+            "why_perfect_title": "Почему именно этот сорт?",
+            "btn_result": "Показать результат",
+            "result_region": "Регион",
+            "result_roast": "Светлая обжарка",
+            "result_sca": "баллов SCA",
+            "result_order": "Заказать со скидкой",
+            "result_restart": "Пройти тест снова",
+            "taste_strawberry": "Клубника",
+            "taste_blueberry": "Черника",
+            "taste_jasmine": "Жасмин"
         },
         "b2b_page": {
             "hero_badge": "🏢 ДЛЯ БИЗНЕСА",
@@ -5386,7 +5440,8 @@ window.LOCALES = {
             "result_restart": "Take test again",
             "taste_strawberry": "Strawberry",
             "taste_blueberry": "Blueberry",
-            "taste_jasmine": "Jasmine"
+            "taste_jasmine": "Jasmine",
+            "result_coffee_name": "Yirgacheffe Natural"
         },
         "social": {
             "instagram": "Follow us on Instagram",
@@ -5486,6 +5541,17 @@ window.LOCALES = {
             "blog_title": "Coffee Stories",
             "blog_subtitle": "Dive into the world of specialty coffee: from Ethiopian plantations to your cup",
             "return": "Returns & Exchange — EthioDirect",
+        },
+        "blog": {
+            "cat_all": "All",
+            "cat_about": "About Coffee",
+            "cat_recipes": "Recipes",
+            "cat_equipment": "Equipment",
+            "cat_tips": "Tips",
+            "read_more": "Read more →",
+            "newsletter_title": "Subscribe to coffee news",
+            "newsletter_text": "Get new articles, recipes and exclusive offers to your inbox",
+            "articles_count": "Showing 15 of 15 articles"
         },
         "articles": {
             "sidamo_guide": {
@@ -6115,6 +6181,12 @@ window.LOCALES = {
             }
         },
         "blog": {
+            "cat_all": "All",
+            "cat_about": "About Coffee",
+            "cat_recipes": "Recipes",
+            "cat_equipment": "Equipment",
+            "cat_tips": "Tips",
+            "read_more": "Read More →",
             "arabica_vs_robusta": {
                 "title": "Arabica vs Robusta: The Full Truth About Two Coffee Types",
                 "category": "About Coffee",
@@ -6840,7 +6912,16 @@ window.LOCALES = {
             "result_btn_order": "Order with -10% discount",
             "result_btn_restart": "Take the quiz again",
             "result_discount": "Your promo code:",
-            "why_perfect_title": "Why this variety?"
+            "why_perfect_title": "Why this variety?",
+            "btn_result": "Show result",
+            "result_region": "Region",
+            "result_roast": "Light roast",
+            "result_sca": "SCA points",
+            "result_order": "Order with discount",
+            "result_restart": "Take test again",
+            "taste_strawberry": "Strawberry",
+            "taste_blueberry": "Blueberry",
+            "taste_jasmine": "Jasmine"
         },
         "b2b_page": {
             "hero_badge": "🏢 FOR BUSINESS",

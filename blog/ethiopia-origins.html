@@ -103,10 +103,10 @@
                     </h4>
                     <p style="color:#aaa; line-height:1.8; margin-bottom:20px;" data-i18n="footer.description">Ми доставляємо справжню specialty каву прямо з ефіопських ферм до вашого дому. Свіжа обсмажка, чесна ціна, любов до кави.</p>
                     <div class="social-links">
-                        <a href="#" aria-label="Instagram" data-i18n="social.instagram" data-i18n-aria><i class="fab fa-instagram"></i></a>
-                        <a href="#" aria-label="Facebook" data-i18n="social.facebook" data-i18n-aria><i class="fab fa-facebook"></i></a>
-                        <a href="#" aria-label="Telegram" data-i18n="social.telegram" data-i18n-aria><i class="fab fa-telegram"></i></a>
-                        <a href="#" aria-label="TikTok" data-i18n="social.tiktok" data-i18n-aria><i class="fab fa-tiktok"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+                        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
                     </div>
                 </div>
 
@@ -152,7 +152,7 @@
                     <h4 data-i18n="footer.newsletter_title">Підписка на новини</h4>
                     <p style="color:#aaa; margin-bottom:15px; font-size:0.9rem;" data-i18n="footer.newsletter_text">Отримуйте акції, новинки та поради щодо заварювання</p>
                     <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
-                        <input type="email" placeholder="Ваш email" data-i18n="footer.newsletter_placeholder" data-i18n-placeholder required>
+                        <input type="email" placeholder="Ваш email" data-i18n-placeholder="footer.newsletter_placeholder" required>
                         <button type="submit" class="btn-newsletter" data-i18n="footer.newsletter_cta">Підписатись</button>
                     </form>
                 </div>
@@ -194,12 +194,12 @@
 
             <!-- Payment Methods -->
             <div class="footer-payment">
-                <p style="color:#666; font-size:0.85rem; margin-bottom:15px;">Способи оплати:</p>
+                <p style="color:#666; font-size:0.85rem; margin-bottom:15px;" data-i18n="footer.payment_methods">Способи оплати:</p>
                 <div class="payment-icons">
-                    <i class="fab fa-cc-visa" title="Visa" data-i18n="payment.visa" data-i18n-title></i>
-                    <i class="fab fa-cc-mastercard" title="Mastercard" data-i18n="payment.mastercard" data-i18n-title></i>
-                    <i class="fab fa-apple-pay" title="Apple Pay" data-i18n="payment.apple_pay" data-i18n-title></i>
-                    <i class="fab fa-google-pay" title="Google Pay" data-i18n="payment.google_pay" data-i18n-title></i>
+                    <i class="fab fa-cc-visa" title="Visa"></i>
+                    <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+                    <i class="fab fa-apple-pay" title="Apple Pay"></i>
+                    <i class="fab fa-google-pay" title="Google Pay"></i>
                     <span class="payment-text">LiqPay</span>
                 </div>
             </div>
@@ -231,10 +231,10 @@
         <div class="drawer-body" id="cart-list"></div>
         <div class="drawer-footer">
             <div style="display:flex; justify-content:space-between; margin-bottom:20px; font-weight:700;">
-                <span data-i18n="cart.subtotal" data-i18n="cart.subtotal">Разом:</span>
+                <span data-i18n="cart.subtotal">Разом:</span>
                 <span id="cart-total">0 ₴</span>
             </div>
-            <button class="btn btn-primary" style="width:100%;" data-i18n="cart.checkout" data-i18n="cart.checkout">Оформити замовлення</button>
+            <button class="btn btn-primary" style="width:100%;" data-i18n="cart.checkout">Оформити замовлення</button>
         </div>
     </div>
     <div class="toast" id="toast">
@@ -243,7 +243,7 @@
     </div>
 
     <script src="../js/main.js"></script>
-    <script src="../js/translations.js"></script><script src="../js/i18n.js"></script>
+    <script src="../js/i18n.js"></script>
 </body>
 
 </html>

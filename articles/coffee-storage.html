@@ -1,6 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="uk" data-i18n-title="articles.coffee_storage.title">
-
+<html lang="uk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,179 +7,179 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../css/main.css">
     <style>
-        .article-header {
-            padding-top: 140px;
-            background: linear-gradient(135deg, #2a1f0a, #4a3520);
-            color: white;
-            padding-bottom: 60px;
-        }
-
-        .article-header .container {
-            max-width: 800px;
-        }
-
-        .article-header h1 {
-            font-size: 2.5rem;
-            color: white;
-            margin-bottom: 20px;
-        }
-
-        .article-body {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 60px 20px;
-        }
-
-        .article-body h2 {
-            font-size: 1.8rem;
-            margin: 40px 0 20px;
-        }
-
-        .article-body p {
-            font-size: 1.1rem;
-            line-height: 1.9;
-            color: #444;
-            margin-bottom: 20px;
-        }
-
-        .article-body ul,
-        .article-body ol {
-            margin: 20px 0;
-            padding-left: 25px;
-        }
-
-        .article-body li {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 12px;
-        }
-
-        .article-image {
-            width: 100%;
-            border-radius: 12px;
-            margin: 30px 0;
-        }
-
-        .tip-box {
-            background: #e8f5e9;
-            border-left: 4px solid #4caf50;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 8px;
-        }
-
-        .warning-box {
-            background: #fff3e0;
-            border-left: 4px solid #ff9800;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 8px;
-        }
+        .article-header { padding-top: 140px; background: linear-gradient(135deg, #2a1f0a, #4a3520); color: white; padding-bottom: 60px; }
+        .article-header .container { max-width: 800px; }
+        .article-header h1 { font-size: 2.5rem; color: white; margin-bottom: 20px; }
+        .article-body { max-width: 800px; margin: 0 auto; padding: 60px 20px; }
+        .article-body h2 { font-size: 1.8rem; margin: 40px 0 20px; }
+        .article-body h3 { font-size: 1.4rem; margin: 30px 0 15px; }
+        .article-body p { font-size: 1.1rem; line-height: 1.9; color: #444; margin-bottom: 20px; }
+        .article-image { width: 100%; border-radius: 12px; margin: 30px 0; }
+        .info-card { background: #f5f0e6; padding: 20px; border-radius: 12px; margin: 20px 0; }
     </style>
 </head>
-
 <body>
-    <div class="top-bar">
-        <div class="container top-bar-inner">
-            <div class="top-bar-left"><span><i class="fas fa-phone-alt"></i> <span data-i18n="topbar.phone">+380 (50) 123-45-67</span></span></div>
-            <div class="top-bar-center"><span data-i18n="common.topbar_free_delivery">🔥 Безкоштовна доставка від 500₴</span></div>
-                        <div class="top-bar-right">
-                <a href="#" translate="no" class="active" onclick="setLanguage('uk'); return false;">UA</a>
-                <a href="#" translate="no" onclick="setLanguage('ru'); return false;">RU</a>
-                <a href="#" translate="no" onclick="setLanguage('en'); return false;">EN</a>
-            </div>
-        </div>
-    </div>
-    <header class="header">
-        <div class="container header-inner"><a href="../index.html" class="logo"><i class="fas fa-certificate"></i>
-                ETHIODIRECT</a>
-            <nav class="nav-desktop"><a href="../shop.html" class="nav-link" data-i18n="nav.catalog">Каталог</a><a href="../blog.html"
-                    class="nav-link active" data-i18n="nav.stories">Історії</a><a href="../about.html" class="nav-link" data-i18n="nav.about">Про нас</a></nav>
-        </div>
-    </header>
-
-    <main>
-        <section class="article-header">
-            <div class="container">
-                <a href="../blog.html" style="color:rgba(255,255,255,0.7); text-decoration:none;"><i
-                        class="fas fa-arrow-left"></i> <span data-i18n="common.back">Назад</span></a>
-                <h1 style="margin-top:20px;" data-i18n="articles.coffee_storage.title">Як правильно зберігати каву: 5 головних правил</h1>
-                <p style="opacity:0.9;">Ворогі свіжості та прості правила збереження аромату</p>
-            </div>
-        </section>
-
+    <div class="top-bar"><div class="container top-bar-inner">
+        <div class="top-bar-left"><span><i class="fas fa-phone-alt"></i> <span data-i18n="topbar.phone">+380 (50) 123-45-67</span></span><span class="divider-dot">•</span><span><i class="fas fa-clock"></i> <span data-i18n="topbar.hours">Пн-Пт: 9:00-18:00</span></span></div>
+        <div class="top-bar-center"><div class="promo-ticker"><span class="ticker-item">🔥 <strong data-i18n="topbar.promo_action">АКЦІЯ:</strong> <span data-i18n="topbar.promo_delivery">безкоштовна доставка від 500₴</span></span></div></div>
+        <div class="top-bar-right language-switcher"><button data-lang="uk" onclick="setLanguage('uk')" class="lang-btn active" translate="no">UK</button><button data-lang="ru" onclick="setLanguage('ru')" class="lang-btn" translate="no">RU</button><button data-lang="en" onclick="setLanguage('en')" class="lang-btn" translate="no">EN</button></div>
+    </div></div>
+    <header class="header"><div class="container header-inner">
+        <a href="../index.html" class="logo"><i class="fas fa-certificate"></i> ETHIODIRECT</a>
+        <nav class="nav-desktop"><a href="../shop.html" class="nav-link" data-i18n="nav.catalog">Каталог</a><a href="../subscription.html" class="nav-link" data-i18n="nav.subscription">Підписка</a><a href="../gift-certificates.html" class="nav-link" data-i18n="nav.certificates">Сертифікати</a><a href="../blog.html" class="nav-link active" data-i18n="nav.stories">Історії</a><a href="../about.html" class="nav-link" data-i18n="nav.about">Про нас</a><a href="../quiz.html" class="nav-link" data-i18n="nav.test">Тест</a></nav>
+        <div class="header-actions"><a href="../account.html"><i class="far fa-user"></i></a><div class="cart-wrapper"><div class="cart-trigger" onclick="openDrawer()"><i class="fas fa-shopping-bag"></i><span class="cart-count">0</span></div></div><button class="menu-toggle" onclick="toggleMobileMenu()"><i class="fas fa-bars"></i></button></div>
+    </div></header>
+    <div class="overlay"></div>
+    <div class="drawer"><div class="drawer-header"><h3><span data-i18n="cart.your_cart">Ваш кошик</span></h3><button onclick="closeDrawer()" style="background:none;border:none;font-size:1.5rem;cursor:pointer;">&times;</button></div><div class="drawer-body" id="cart-list"></div><div class="drawer-footer"><button class="btn btn-primary" style="width:100%;"><span data-i18n="cart.checkout">Оформити</span></button></div></div>    <main>
+        <section class="article-header"><div class="container">
+            <a href="../blog.html" style="color:rgba(255,255,255,0.7); text-decoration:none;"><i class="fas fa-arrow-left"></i> <span data-i18n="common.back">Назад</span></a>
+            <h1 style="margin-top:20px;" data-i18n="articles.coffee_storage.title">Як правильно зберігати каву: 5 правил</h1>
+            <p style="opacity:0.9;" data-i18n="articles.coffee_storage.subtitle">Збережіть свіжість та аромат</p>
+        </div></section>
         <article class="article-body">
-            <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=1200" alt="Зберігання кави"
-                class="article-image">
-
-            <p data-i18n="articles.coffee_storage.p_1">Ви купили чудову specialty каву, але через тиждень вона втратила аромат? Скоріш за все, справа у
-                неправильному зберіганні. Кава — деліікатний продукт, і щоб зберегти її смак, потрібно знати
-                кількампростих правил.</p>
-
-            <h2 data-i18n="articles.coffee_storage.h2_1">4 вороги свіжості кави</h2>
-            <ol>
-                <li><strong>Повітря (кисень)</strong> — окислює олії та ароматичні сполуки</li>
-                <li><strong>Світло</strong> — ультрафіолет руйнує смакові молекули</li>
-                <li><strong>Вологість</strong> — кава гігроскопічна, вбирає воду з повітря</li>
-                <li><strong>Тепло</strong> — прискорює всі процеси деградації</li>
-            </ol>
-
-            <h2 data-i18n="articles.coffee_storage.h2_2">5 правил правильного зберігання</h2>
-
-            <h3 data-i18n="articles.coffee_storage.h3_1">1. Герметична упаковка</h3>
-            <p data-i18n="articles.coffee_storage.p_2">Тримайте каву в герметичному контейнері з клапаном для виходу CO2 (або в оригінальній упаковці з
-                зіп-локом). Уникайте постійного відкривання.</p>
-            <div class="tip-box">✅ <strong>Порада:</strong> Найкраще — вакуумний контейнер або банка з кришкою та
-                силіконовим ущільнювачем</div>
-
-            <h3 data-i18n="articles.coffee_storage.h3_2">2. Темне місце</h3>
-            <p data-i18n="articles.coffee_storage.p_3">Зберігайте каву в шафі або непрозорому контейнері. Ніколи на підвіконні чи відкритій полиці!</p>
-
-            <h3 data-i18n="articles.coffee_storage.h3_3">3. Кімнатна температура</h3>
-            <p data-i18n="articles.coffee_storage.p_4">Оптимальна температура: 15-25°C. Не біля плити, духовки чи холодильника (перепади температур шкідливі).
-            </p>
-            <div class="warning-box">⚠️ <strong>НЕ ставте каву в холодильник!</strong> Там волого, є сторонні запахи, і
-                при кожному відкриванні утворюється конденсат.</div>
-
-            <h3 data-i18n="articles.coffee_storage.h3_4">4. Зерно краще за мелену</h3>
-            <p data-i18n="articles.coffee_storage.p_5">Мелена кава втрачає свіжість у 10 разів швидше. Купуйте зерно та меліть безпосередньо перед
-                приготуванням.</p>
-
-            <h3 data-i18n="articles.coffee_storage.h3_5">5. Купуйте свіжу та часто</h3>
-            <p data-i18n="articles.coffee_storage.p_6">Замість 1 кг на місяць — краще 250г щотижня. Оптимальний період споживання: 7-30 днів після обсмажки.</p>
-
-            <h2 data-i18n="articles.coffee_storage.h2_3">Чи можна заморожувати каву?</h2>
-            <p data-i18n="articles.coffee_storage.p_7">Так, але тільки один раз! Розділіть порціями (на тиждень кожна), загорніть герметично та заморозьте.
-                Дістану порцію — не повертайте назад у морозилку.</p>
-
-            <h2 data-i18n="articles.coffee_storage.h2_4">Терміни свіжості</h2>
-            <ul>
-                <li><strong>1-3 дні</strong> після обсмажки — занадто свіжа, багато CO2</li>
-                <li><strong>4-14 днів</strong> — пік смаку</li>
-                <li><strong>15-30 днів</strong> — ще добре</li>
-                <li><strong>30+ днів</strong> — смак втрачається</li>
-            </ul>
-
-            <div
-                style="background:var(--primary); padding:40px; border-radius:16px; text-align:center; margin-top:40px;">
-                <h3 style="color:white;">Свіжа кава — щотижня</h3>
-                <p style="color:rgba(255,255,255,0.9);">Ми смажимо під замовлення — отримуєте каву 2-5 днів після
-                    обсмажки</p>
-                <a href="../shop.html" class="btn"
-                    style="background:var(--secondary); color:#1a1a1a; margin-top:15px;">Замовити свіжу</a>
+            <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=1200" alt="Зберігання кави" class="article-image">
+            <p data-i18n="articles.coffee_storage.p_1">Кава — делікатний продукт. Неправильне зберігання псує зерна.</p>
+            <h2 data-i18n="articles.coffee_storage.h2_1">4 ворога кави</h2>
+            <div class="info-card"><h3 data-i18n="articles.coffee_storage.h3_1">Кисень</h3><p data-i18n="articles.coffee_storage.p_2">Викликає окислення</p></div>
+            <div class="info-card"><h3 data-i18n="articles.coffee_storage.h3_2">Світло</h3><p data-i18n="articles.coffee_storage.p_3">Руйнує аромат</p></div>
+            <div class="info-card"><h3 data-i18n="articles.coffee_storage.h3_3">Волога</h3><p data-i18n="articles.coffee_storage.p_4">Сприяє цвілі</p></div>
+            <div class="info-card"><h3 data-i18n="articles.coffee_storage.h3_4">Тепло</h3><p data-i18n="articles.coffee_storage.p_5">Прискорює деградацію</p></div>
+            <h2 data-i18n="articles.coffee_storage.h2_2">Правило 1: Герметично</h2>
+            <p data-i18n="articles.coffee_storage.p_6">Використовуйте контейнери з клапанами.</p>
+            <h2 data-i18n="articles.coffee_storage.h2_3">Правило 2: Темне місце</h2>
+            <p data-i18n="articles.coffee_storage.p_7">Кухонна шафа — ідеально.</p>
+            <div class="article-cta" style="background: linear-gradient(135deg, #2a1f0a, #4a3520); padding: 40px; border-radius: 12px; text-align: center; margin-top: 40px;">
+                <h3 style="color: white;" data-i18n="articles.coffee_storage.cta_title">Замовте свіжообсмажену каву</h3>
+                <a href="../shop.html" class="btn btn-primary" data-i18n="common.order_now">Замовити</a>
             </div>
         </article>
     </main>
+    <!-- FLOATING CONTACTS -->
+    <div class="floating-contacts">
+        <a href="https://t.me/ethiodirect" class="float-btn telegram"><i class="fab fa-telegram-plane"></i></a>
+        <a href="viber://chat?number=+380501234567" class="float-btn viber"><i class="fab fa-viber"></i></a>
+        <a href="tel:+380501234567" class="float-btn phone"><i class="fas fa-phone-alt"></i></a>
+    </div>
 
+    <!-- FOOTER -->
     <footer class="footer-pro">
         <div class="container">
+            <div class="footer-grid">
+                <!-- Column 1: Brand -->
+                <div class="footer-col">
+                    <h4 style="font-family:var(--font-heading); font-size:1.5rem; color:white; margin-bottom:20px;">
+                        <a href="../index.html" style="text-decoration:none; color:white;">EthioDirect</a>
+                    </h4>
+                    <p style="color:#aaa; line-height:1.8; margin-bottom:20px;" data-i18n="footer.description">Ми доставляємо справжню specialty каву прямо з ефіопських ферм до вашого дому.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+                        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                <!-- Column 2: Shop -->
+                <div class="footer-col">
+                    <h4 data-i18n="footer.shop_title">Магазин</h4>
+                    <ul class="footer-links">
+                        <li><a href="../shop.html" data-i18n="footer.catalog">Весь каталог</a></li>
+                        <li><a href="../subscription.html" data-i18n="footer.subscription">Підписка на каву</a></li>
+                        <li><a href="../gift-certificates.html" data-i18n="nav.certificates">Сертифікати</a></li>
+                        <li><a href="../b2b.html" data-i18n="footer.b2b">B2B рішення</a></li>
+                    </ul>
+                </div>
+                <!-- Column 3: Support -->
+                <div class="footer-col">
+                    <h4 data-i18n="footer.support_title">Підтримка</h4>
+                    <ul class="footer-links">
+                        <li><a href="../delivery.html" data-i18n="footer.delivery">Доставка та оплата</a></li>
+                        <li><a href="../faq.html" data-i18n="footer.faq">Часті питання</a></li>
+                        <li><a href="../contacts.html" data-i18n="footer.contacts">Контакти</a></li>
+                        <li><a href="../about.html" data-i18n="nav.about">Про нас</a></li>
+                    </ul>
+                </div>
+                <!-- Column 4: Contacts -->
+                <div class="footer-col">
+                    <h4 data-i18n="footer.contacts_title">Контакти</h4>
+                    <ul class="footer-contacts">
+                        <li><i class="fas fa-phone"></i> <a href="tel:+380501234567">+380 (50) 123-45-67</a></li>
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:hello@ethiodirect.ua">hello@ethiodirect.ua</a></li>
+                        <li><i class="fas fa-map-marker-alt"></i> <span data-i18n="footer.location">Одеса, Україна</span></li>
+                        <li><i class="fas fa-clock"></i> <span data-i18n="topbar.hours">Пн-Пт: 9:00-18:00</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            
+                <!-- Column 5: Newsletter -->
+                <div class="footer-col">
+                    <h4 data-i18n="footer.newsletter_title">Підписка на новини</h4>
+                    <p style="color:#aaa; margin-bottom:15px; font-size:0.9rem;" data-i18n="footer.newsletter_text">Отримуйте акції, новинки та поради щодо заварювання</p>
+                    <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
+                        <input type="email" placeholder="Ваш email" data-i18n-placeholder="footer.newsletter_placeholder" required>
+                        <button type="submit" class="btn-newsletter" data-i18n="footer.newsletter_cta">Підписатись</button>
+                    </form>
+                </div><!-- Trust Badges -->
+            <div class="footer-trust">
+                <div class="trust-badges">
+                    <div class="trust-badge">
+                        <i class="fas fa-shield-alt"></i>
+                        <div>
+                            <strong data-i18n="footer.badge_return_days">14 днів</strong>
+                            <span data-i18n="footer.badge_return">повернення</span>
+                        </div>
+                    </div>
+                    <div class="trust-badge">
+                        <i class="fas fa-coffee"></i>
+                        <div>
+                            <strong data-i18n="footer.badge_specialty">100% Specialty</strong>
+                            <span data-i18n="footer.badge_quality">якість зерна</span>
+                        </div>
+                    </div>
+                    <div class="trust-badge">
+                        <i class="fas fa-shipping-fast"></i>
+                        <div>
+                            <strong data-i18n="footer.badge_free">Безкоштовна</strong>
+                            <span data-i18n="footer.badge_shipping">доставка від 500₴</span>
+                        </div>
+                    </div>
+                    <div class="trust-badge">
+                        <i class="fas fa-fire"></i>
+                        <div>
+                            <strong data-i18n="footer.badge_fresh">Свіжа обсмажка</strong>
+                            <span data-i18n="footer.badge_days">до 3 днів</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment Methods -->
+            <div class="footer-payment">
+                <p style="color:#666; font-size:0.85rem; margin-bottom:15px;" data-i18n="footer.payment_methods">Способи оплати:</p>
+                <div class="payment-icons">
+                    <i class="fab fa-cc-visa" title="Visa"></i>
+                    <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+                    <i class="fab fa-apple-pay" title="Apple Pay"></i>
+                    <i class="fab fa-google-pay" title="Google Pay"></i>
+                    <span class="payment-text">LiqPay</span>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
             <div class="footer-bottom">
-                <p>&copy; 2025 EthioDirect.</p>
+                <div class="footer-bottom-left">
+                    <p>&copy; 2025 EthioDirect. Всі права захищені.</p>
+                </div>
+                <div class="footer-bottom-right">
+                    <a href="../privacy.html" data-i18n="footer.privacy">Політика конфіденційності</a>
+                    <span>·</span>
+                    <a href="../return.html" data-i18n="footer.terms">Умови повернення</a>
+                </div>
             </div>
         </div>
     </footer>
-    <script src="../js/main.js"></script>
-    <script src="../js/translations.js"></script><script src="../js/i18n.js"></script>
-</body>
 
+    <script src="../js/main.js"></script>
+    <script src="../js/i18n.js?v=2.0"></script>
+</body>
 </html>

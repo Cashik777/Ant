@@ -1,0 +1,87 @@
+{
+    "meta": {
+        "title": "Taste Quiz — EthioDirect",
+        "description": "Find your perfect coffee variety in 5 questions"
+    },
+    "page": {
+        "title": "Taste Quiz",
+        "subtitle": "Find your perfect coffee variety in 5 questions",
+        "intro": "Answer the questions and we'll find the perfect coffee for you"
+    },
+    "progress": {
+        "step": "Step {{current}} of {{total}}"
+    },
+    "q1": {
+        "title": "How do you usually drink coffee?",
+        "subtitle": "Choose the closest option",
+        "opt1_title": "Pure Espresso",
+        "opt1_desc": "Concentrated, bright taste",
+        "opt2_title": "With Milk",
+        "opt2_desc": "Cappuccino, latte, flat white",
+        "opt3_title": "Filter Coffee",
+        "opt3_desc": "V60, Chemex, pour-over",
+        "opt4_title": "Turkish Coffee",
+        "opt4_desc": "Traditional method"
+    },
+    "q2": {
+        "title": "What flavor notes do you enjoy?",
+        "subtitle": "Choose the profile that suits you",
+        "opt1_title": "Fruity & Berry",
+        "opt1_desc": "Strawberry, blueberry, citrus",
+        "opt2_title": "Chocolate & Nutty",
+        "opt2_desc": "Cocoa, hazelnut, caramel",
+        "opt3_title": "Floral & Tea-like",
+        "opt3_desc": "Jasmine, bergamot, rose",
+        "opt4_title": "Spicy & Sweet",
+        "opt4_desc": "Honey, cinnamon, vanilla"
+    },
+    "q3": {
+        "title": "How do you brew coffee at home?",
+        "subtitle": "Choose your main method",
+        "opt1_title": "Espresso Machine",
+        "opt1_desc": "Pressure coffee maker",
+        "opt2_title": "Pour over / Chemex",
+        "opt2_desc": "Filter methods",
+        "opt3_title": "Turkish / Moka",
+        "opt3_desc": "Traditional method",
+        "opt4_title": "French Press",
+        "opt4_desc": "Immersion brewing"
+    },
+    "q4": {
+        "title": "How strong do you like your coffee?",
+        "subtitle": "This affects roast recommendation",
+        "opt1_title": "Light",
+        "opt1_desc": "Mild taste, more acidity",
+        "opt2_title": "Balanced",
+        "opt2_desc": "Golden middle",
+        "opt3_title": "Strong",
+        "opt3_desc": "Full body, minimal acidity"
+    },
+    "q5": {
+        "title": "How often do you drink coffee?",
+        "subtitle": "Helps choose the right volume",
+        "opt1_title": "1 cup per day",
+        "opt1_desc": "250g lasts 2 weeks",
+        "opt2_title": "2-3 cups per day",
+        "opt2_desc": "500g lasts 2 weeks",
+        "opt3_title": "4+ cups per day",
+        "opt3_desc": "1kg lasts 2 weeks"
+    },
+    "buttons": {
+        "next": "Next",
+        "back": "Back",
+        "show_result": "Show Result"
+    },
+    "result": {
+        "title": "Your perfect coffee:",
+        "coffee_name": "Yirgacheffe Natural",
+        "region": "Region",
+        "roast": "Light Roast",
+        "sca": "SCA points",
+        "taste_strawberry": "Strawberry",
+        "taste_blueberry": "Blueberry",
+        "taste_jasmine": "Jasmine",
+        "order": "Order with discount",
+        "restart": "Take test again"
+    }
+}

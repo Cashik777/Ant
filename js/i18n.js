@@ -1,242 +1,489 @@
 /**
- * EthioDirect i18n System v3.0
- * Simple, reliable language switching for UA/RU/EN
- * Works with flat keys in JSON files
+ * EthioDirect Production i18n System
+ * ====================================
+ * Async JSON-based internationalization without DOM auto-translation
+ * Supports: UK (default), RU, EN
+ * 
+ * @version 2.0.0
+ * @author EthioDirect
  */
-(function () {
+
+(function (global) {
     'use strict';
 
-    // ===== CONFIGURATION =====
-    const CONFIG = {
-        defaultLang: 'uk',
-        supportedLangs: ['uk', 'ru', 'en'],
-        storageKey: 'ed_language',
-        localesPath: null  // Auto-detected
-    };
+    /**
+     * I18n Class - Production-grade internationalization
+     */
+    class I18n {
+        constructor(options = {}) {
+            this.defaultLocale = options.defaultLocale || 'uk';
+            this.supportedLocales = options.supportedLocales || ['uk', 'ru', 'en'];
+            this.localesPath = options.localesPath || '/locales';
+            this.storageKey = options.storageKey || 'ethiodirect_locale';
 
-    // Cache for loaded translations
-    let translations = {};
-    let currentLang = CONFIG.defaultLang;
+            this.translations = {};
+            this.loadedNamespaces = {};
+            this.currentLocale = null;
+            this.isInitialized = false;
 
-    // ===== TRANSLATION LOADING =====
-    async function loadTranslations(lang) {
-        if (translations[lang]) {
-            return translations[lang];
+            // Callbacks
+            this.onLocaleChange = options.onLocaleChange || null;
         }
 
-        try {
-            if (window.LOCALES && window.LOCALES[lang]) {
-                const data = window.LOCALES[lang];
-                translations[lang] = flattenObject(data);
-                console.log('[i18n] Loaded ' + lang + ' from local data (' + Object.keys(translations[lang]).length + ' keys)');
-                return translations[lang];
-            } else {
-                throw new Error('Local data for ' + lang + ' not found');
-            }
-        } catch (err) {
-            console.error('[i18n] Failed to load ' + lang + ':', err.message);
-            // Fallback to empty if not found
-            translations[lang] = {};
-            return {};
-        }
-    }
-
-    // Flatten nested JSON to dot notation
-    function flattenObject(obj, prefix = '') {
-        const result = {};
-        for (const key in obj) {
-            const fullKey = prefix ? prefix + '.' + key : key;
-            if (typeof obj[key] === 'object' && obj[key] !== null && !Array.isArray(obj[key])) {
-                Object.assign(result, flattenObject(obj[key], fullKey));
-            } else {
-                result[fullKey] = obj[key];
+        /**
+         * Get stored locale from localStorage
+         * @returns {string|null}
+         */
+        getStoredLocale() {
+            try {
+                const stored = localStorage.getItem(this.storageKey);
+                return this.supportedLocales.includes(stored) ? stored : null;
+            } catch (e) {
+                console.warn('localStorage not available:', e);
+                return null;
             }
         }
-        return result;
-    }
 
-    // ===== TRANSLATION FUNCTION =====
-    function t(key, params) {
-        const dict = translations[currentLang] || {};
-        let text = dict[key];
-
-        if (text === undefined) {
-            // Fallback to English, then Ukrainian
-            text = (translations['en'] || {})[key] || (translations['uk'] || {})[key] || key;
-        }
-
-        // Interpolation: replace {{param}} with values
-        if (params && typeof text === 'string') {
-            for (const p in params) {
-                text = text.replace(new RegExp('\\{\\{' + p + '\\}\\}', 'g'), params[p]);
+        /**
+         * Save locale to localStorage
+         * @param {string} locale
+         */
+        setStoredLocale(locale) {
+            try {
+                localStorage.setItem(this.storageKey, locale);
+            } catch (e) {
+                console.warn('Failed to save locale:', e);
             }
         }
-        return text;
-    }
 
-    // ===== DOM TRANSLATION =====
-    function translatePage() {
-        // Text content
-        document.querySelectorAll('[data-i18n]').forEach(function (el) {
-            const key = el.getAttribute('data-i18n');
-            if (key) {
-                const text = t(key);
-                if (text !== key) {
-                    el.textContent = text;
+        /**
+         * Detect browser locale
+         * @returns {string}
+         */
+        detectBrowserLocale() {
+            const browserLang = navigator.language || navigator.userLanguage || '';
+            const shortLang = browserLang.split('-')[0].toLowerCase();
+
+            // Map browser locale to supported locale
+            const localeMap = {
+                'uk': 'uk',
+                'ua': 'uk',
+                'ru': 'ru',
+                'en': 'en'
+            };
+
+            return localeMap[shortLang] || this.defaultLocale;
+        }
+
+        /**
+         * Get initial locale (priority: stored > browser > default)
+         * @returns {string}
+         */
+        getInitialLocale() {
+            return this.getStoredLocale() || this.defaultLocale;
+        }
+
+        /**
+         * Load a translation namespace for a locale
+         * @param {string} locale
+         * @param {string} namespace
+         * @returns {Promise<object>}
+         */
+        async loadNamespace(locale, namespace) {
+            const cacheKey = `${locale}:${namespace}`;
+
+            // Return cached if already loaded
+            if (this.loadedNamespaces[cacheKey]) {
+                return this.translations[locale]?.[namespace] || {};
+            }
+
+            try {
+                const url = `${this.localesPath}/${locale}/${namespace}.json?v=${Date.now()}`;
+                const response = await fetch(url);
+
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${url}`);
+                }
+
+                const data = await response.json();
+
+                // Initialize locale object if needed
+                if (!this.translations[locale]) {
+                    this.translations[locale] = {};
+                }
+
+                this.translations[locale][namespace] = data;
+                this.loadedNamespaces[cacheKey] = true;
+
+                return data;
+            } catch (error) {
+                console.error(`Failed to load translations: ${locale}/${namespace}`, error);
+                return {};
+            }
+        }
+
+        /**
+         * Load multiple namespaces for a locale
+         * @param {string} locale
+         * @param {string[]} namespaces
+         * @returns {Promise<void>}
+         */
+        async loadNamespaces(locale, namespaces) {
+            const promises = namespaces.map(ns => this.loadNamespace(locale, ns));
+            await Promise.all(promises);
+        }
+
+        /**
+         * Get namespaces needed for current page
+         * @returns {string[]}
+         */
+        getPageNamespaces() {
+            const namespaces = ['common'];
+
+            // Check if we're in the /articles/ subdirectory
+            const pathname = window.location.pathname;
+            if (pathname.includes('/articles/')) {
+                // Article pages need the blog namespace
+                namespaces.push('blog');
+                return namespaces;
+            }
+
+            // Determine page from URL
+            let page = pathname
+                .split('/')
+                .pop()
+                .replace('.html', '')
+                .replace('.htm', '') || 'index';
+
+            // Map pages to namespaces
+            const pageNamespaceMap = {
+                'index': 'home',
+                'home': 'home',
+                'shop': 'shop',
+                'blog': 'blog',
+                'about': 'about',
+                'contacts': 'contacts',
+                'quiz': 'quiz',
+                'subscription': 'subscription',
+                'delivery': 'delivery',
+                'faq': 'faq',
+                'gift-certificates': 'gift',
+                'account': 'account',
+                'b2b': 'b2b',
+                'return': 'delivery',
+                'product': 'shop',
+                'privacy': 'common'
+            };
+
+            const pageNs = pageNamespaceMap[page];
+            if (pageNs && !namespaces.includes(pageNs)) {
+                namespaces.push(pageNs);
+            }
+
+            return namespaces;
+        }
+
+        /**
+         * Get nested value from object using dot notation
+         * @param {object} obj
+         * @param {string} path
+         * @returns {*}
+         */
+        getNestedValue(obj, path) {
+            return path.split('.').reduce((current, key) => {
+                return current && current[key] !== undefined ? current[key] : undefined;
+            }, obj);
+        }
+
+        /**
+         * Get translation by key
+         * @param {string} key - Dot notation key (e.g., "nav.catalog" or "home.hero.title")
+         * @param {object} params - Interpolation parameters
+         * @returns {string}
+         */
+        t(key, params = {}) {
+            const locale = this.currentLocale || this.defaultLocale;
+            const keys = key.split('.');
+
+            let value;  // undefined by default, allows fallback strategies to work
+
+            // Strategy 1: First part is namespace (e.g., "home.hero.title")
+            if (keys.length >= 2) {
+                const namespace = keys[0];
+                const path = keys.slice(1).join('.');
+
+                if (this.translations[locale]?.[namespace]) {
+                    value = this.getNestedValue(this.translations[locale][namespace], path);
                 }
             }
-        });
 
-        // Placeholders
-        document.querySelectorAll('[data-i18n-placeholder]').forEach(function (el) {
-            const key = el.getAttribute('data-i18n-placeholder');
-            if (key) {
-                const text = t(key);
-                if (text !== key) {
-                    el.placeholder = text;
+            // Strategy 2: Key is in common namespace (e.g., "nav.catalog")
+            if (value === undefined) {
+                value = this.getNestedValue(this.translations[locale]?.common, key);
+            }
+
+            // Strategy 2.5: Key is in page-specific namespace (e.g., "hero.title" in home.json)
+            if (value === undefined) {
+                const pageNs = this.getPageNamespaces().find(ns => ns !== 'common');
+                if (pageNs && this.translations[locale]?.[pageNs]) {
+                    value = this.getNestedValue(this.translations[locale][pageNs], key);
                 }
             }
-        });
 
-        // Titles (tooltips)
-        document.querySelectorAll('[data-i18n-title]').forEach(function (el) {
-            const key = el.getAttribute('data-i18n-title');
-            if (key) {
-                const text = t(key);
-                if (text !== key) {
-                    el.title = text;
+            // Strategy 3: Fallback to default locale
+            if (value === undefined && locale !== this.defaultLocale) {
+                // Try namespace approach
+                if (keys.length >= 2) {
+                    const namespace = keys[0];
+                    const path = keys.slice(1).join('.');
+                    if (this.translations[this.defaultLocale]?.[namespace]) {
+                        value = this.getNestedValue(this.translations[this.defaultLocale][namespace], path);
+                    }
+                }
+                // Try common namespace
+                if (value === undefined) {
+                    value = this.getNestedValue(this.translations[this.defaultLocale]?.common, key);
+                }
+                // Try page-specific namespace
+                if (value === undefined) {
+                    const pageNs = this.getPageNamespaces().find(ns => ns !== 'common');
+                    if (pageNs && this.translations[this.defaultLocale]?.[pageNs]) {
+                        value = this.getNestedValue(this.translations[this.defaultLocale][pageNs], key);
+                    }
                 }
             }
-        });
 
-        // Aria-labels
-        document.querySelectorAll('[data-i18n-aria]').forEach(function (el) {
-            const key = el.getAttribute('data-i18n-aria');
-            if (key) {
-                const text = t(key);
-                if (text !== key) {
-                    el.setAttribute('aria-label', text);
-                }
+            // Return key if not found
+            if (value === undefined) {
+                console.warn(`[i18n] Translation not found: "${key}"`);
+                return key;
             }
-        });
 
-        // Update HTML lang attribute
-        document.documentElement.lang = currentLang;
+            // Interpolate parameters {{param}}
+            if (typeof value === 'string' && Object.keys(params).length > 0) {
+                return value.replace(/\{\{(\w+)\}\}/g, (match, param) => {
+                    return params[param] !== undefined ? params[param] : match;
+                });
+            }
 
-        // Translate page title
-        const titleKey = document.documentElement.getAttribute('data-i18n-title');
-        if (titleKey) {
-            const translatedTitle = t(titleKey);
-            if (translatedTitle !== titleKey) {
-                document.title = translatedTitle;
+            return value;
+        }
+
+        /**
+         * Update all DOM elements with data-i18n attributes
+         */
+        updateDOM() {
+            // Text content
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (key) {
+                    el.textContent = this.t(key);
+                }
+            });
+
+            // Placeholders
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+                const key = el.getAttribute('data-i18n-placeholder');
+                if (key) {
+                    el.placeholder = this.t(key);
+                }
+            });
+
+            // Title attributes
+            document.querySelectorAll('[data-i18n-title]').forEach(el => {
+                const key = el.getAttribute('data-i18n-title');
+                if (key) {
+                    el.title = this.t(key);
+                }
+            });
+
+            // Aria labels
+            document.querySelectorAll('[data-i18n-aria]').forEach(el => {
+                const key = el.getAttribute('data-i18n-aria');
+                if (key) {
+                    el.setAttribute('aria-label', this.t(key));
+                }
+            });
+
+            // HTML content (use with caution)
+            document.querySelectorAll('[data-i18n-html]').forEach(el => {
+                const key = el.getAttribute('data-i18n-html');
+                if (key) {
+                    el.innerHTML = this.t(key);
+                }
+            });
+        }
+
+        /**
+         * Update HTML lang attribute
+         */
+        updateHTMLLang() {
+            document.documentElement.lang = this.currentLocale;
+        }
+
+        /**
+         * Update document title
+         */
+        updatePageTitle() {
+            const namespaces = this.getPageNamespaces();
+            const pageNs = namespaces.find(ns => ns !== 'common');
+
+            if (pageNs && this.translations[this.currentLocale]?.[pageNs]?.meta?.title) {
+                document.title = this.translations[this.currentLocale][pageNs].meta.title;
             }
         }
 
-        // Dispatch event for dynamic content (on both window and document for compatibility)
-        const event = new CustomEvent('languageChanged', { detail: { lang: currentLang } });
-        window.dispatchEvent(event);
-        document.dispatchEvent(event);
-    }
-
-    // ===== BUTTON STATE =====
-    function updateButtons() {
-        document.querySelectorAll('.lang-btn, .top-bar-right a[onclick*="setLanguage"]').forEach(function (btn) {
-            btn.classList.remove('active');
-            const text = btn.textContent.trim().toUpperCase();
-
-            if ((currentLang === 'uk' && text === 'UA') ||
-                (currentLang === 'ru' && text === 'RU') ||
-                (currentLang === 'en' && text === 'EN')) {
-                btn.classList.add('active');
-            }
-        });
-    }
-
-    // ===== PUBLIC API =====
-    async function setLanguage(lang) {
-        if (!CONFIG.supportedLangs.includes(lang)) {
-            console.warn('[i18n] Unsupported language:', lang);
-            return;
+        /**
+         * Update language switcher buttons UI
+         */
+        updateLanguageButtons() {
+            document.querySelectorAll('[data-lang]').forEach(btn => {
+                const btnLang = btn.getAttribute('data-lang');
+                btn.classList.toggle('active', btnLang === this.currentLocale);
+            });
         }
 
-        currentLang = lang;
-        localStorage.setItem(CONFIG.storageKey, lang);
-
-        // Load translations if needed
-        await loadTranslations(lang);
-
-        // Apply to page
-        translatePage();
-        updateButtons();
-
-        console.log('[i18n] Language set to:', lang);
-    }
-
-    function getCurrentLanguage() {
-        return currentLang;
-    }
-
-    // ===== CSS FOR BUTTONS =====
-    function injectStyles() {
-        if (document.getElementById('i18n-styles')) return;
-
-        const style = document.createElement('style');
-        style.id = 'i18n-styles';
-        style.textContent = `
-            .top-bar-right a, .lang-btn {
-                color: rgba(255,255,255,0.7);
-                text-decoration: none;
-                padding: 4px 12px;
-                font-weight: 600;
-                font-size: 0.85rem;
-                border-radius: 4px;
-                margin: 0 2px;
-                transition: all 0.2s ease;
-                cursor: pointer;
+        /**
+         * Switch to a different locale
+         * @param {string} locale
+         * @returns {Promise<void>}
+         */
+        async setLocale(locale) {
+            if (!this.supportedLocales.includes(locale)) {
+                console.error(`[i18n] Unsupported locale: ${locale}`);
+                return;
             }
-            .top-bar-right a:hover, .lang-btn:hover {
-                color: white;
-                background: rgba(255,255,255,0.15);
+
+            if (locale === this.currentLocale && this.isInitialized) {
+                return;
             }
-            .top-bar-right a.active, .lang-btn.active {
-                color: white;
-                background: var(--primary, #5D4037);
+
+            this.currentLocale = locale;
+            this.setStoredLocale(locale);
+
+            // Load required namespaces
+            const namespaces = this.getPageNamespaces();
+            await this.loadNamespaces(locale, namespaces);
+
+            // Update everything
+            this.updateDOM();
+            this.updateHTMLLang();
+            this.updatePageTitle();
+            this.updateLanguageButtons();
+
+            // Callback
+            if (typeof this.onLocaleChange === 'function') {
+                this.onLocaleChange(locale);
             }
-        `;
-        document.head.appendChild(style);
+
+            console.log(`[i18n] Locale switched to: ${locale}`);
+        }
+
+        /**
+         * Initialize the i18n system
+         * @returns {Promise<void>}
+         */
+        async init() {
+            if (this.isInitialized) return;
+
+            const initialLocale = this.getInitialLocale();
+            const namespaces = this.getPageNamespaces();
+
+            // Always load default locale first (for fallback)
+            await this.loadNamespaces(this.defaultLocale, namespaces);
+
+            // Set and load current locale
+            this.currentLocale = initialLocale;
+
+            if (initialLocale !== this.defaultLocale) {
+                await this.loadNamespaces(initialLocale, namespaces);
+            }
+
+            // Update DOM
+            this.updateDOM();
+            this.updateHTMLLang();
+            this.updatePageTitle();
+            this.updateLanguageButtons();
+
+            this.isInitialized = true;
+            console.log(`[i18n] Initialized with locale: ${initialLocale}`);
+        }
+
+        /**
+         * Get current locale
+         * @returns {string}
+         */
+        getLocale() {
+            return this.currentLocale || this.defaultLocale;
+        }
+
+        /**
+         * Check if a locale is supported
+         * @param {string} locale
+         * @returns {boolean}
+         */
+        isSupported(locale) {
+            return this.supportedLocales.includes(locale);
+        }
     }
 
-    // ===== INITIALIZATION =====
-    async function init() {
-        injectStyles();
+    // ====================================
+    // GLOBAL INSTANCE & HELPER FUNCTIONS
+    // ====================================
 
-        // Get saved or default language
-        const saved = localStorage.getItem(CONFIG.storageKey);
-        currentLang = saved && CONFIG.supportedLangs.includes(saved) ? saved : CONFIG.defaultLang;
+    // Create global instance
+    const i18n = new I18n({
+        defaultLocale: 'uk',
+        supportedLocales: ['uk', 'ru', 'en'],
+        localesPath: '/locales',
+        onLocaleChange: function (locale) {
+            // Custom callback when locale changes
+            // Can be used to re-render dynamic content
+            if (typeof window.onLanguageChange === 'function') {
+                window.onLanguageChange(locale);
+            }
+        }
+    });
 
-        // Preload all languages for fast switching
-        await Promise.all([
-            loadTranslations('uk'),
-            loadTranslations('ru'),
-            loadTranslations('en')
-        ]);
-
-        // Apply translations
-        translatePage();
-        updateButtons();
-
-        console.log('[i18n] Initialized with language:', currentLang);
+    /**
+     * Global translation function
+     * @param {string} key
+     * @param {object} params
+     * @returns {string}
+     */
+    function t(key, params = {}) {
+        return i18n.t(key, params);
     }
 
-    // Export to window
-    window.setLanguage = setLanguage;
-    window.getCurrentLanguage = getCurrentLanguage;
-    window.t = t;
+    /**
+     * Global language setter
+     * @param {string} locale
+     * @returns {Promise<void>}
+     */
+    async function setLanguage(locale) {
+        await i18n.setLocale(locale);
+    }
 
-    // Run on DOM ready
+    /**
+     * Get current language
+     * @returns {string}
+     */
+    function getLanguage() {
+        return i18n.getLocale();
+    }
+
+    // Initialize on DOM ready
     if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', init);
+        document.addEventListener('DOMContentLoaded', () => i18n.init());
     } else {
-        init();
+        i18n.init();
     }
-})();
+
+    // Export to global scope
+    global.I18n = I18n;
+    global.i18n = i18n;
+    global.t = t;
+    global.setLanguage = setLanguage;
+    global.getLanguage = getLanguage;
+
+})(typeof window !== 'undefined' ? window : this);

@@ -1,0 +1,54 @@
+{
+    "meta": {
+        "title": "About Us — EthioDirect"
+    },
+    "page": {
+        "title": "About Us",
+        "subtitle": "The EthioDirect Story"
+    },
+    "hero": {
+        "title": "Coffee That Changes Lives",
+        "text": "We are the bridge between Ethiopian farmers and Ukrainian coffee lovers"
+    },
+    "story": {
+        "title": "Our Story",
+        "p1": "EthioDirect was born from a passion for authentic Ethiopian coffee.",
+        "p2": "We work directly with farmers, ensuring fair payment.",
+        "p3": "Every bag is a story of a specific farm and the people who grew this coffee."
+    },
+    "mission": {
+        "title": "Our Mission",
+        "text": "To bring the authentic taste of Ethiopian specialty coffee to every Ukrainian"
+    },
+    "values": {
+        "title": "Our Values",
+        "quality": {
+            "title": "Quality",
+            "text": "Only specialty coffee rated 85+ SCA points"
+        },
+        "transparency": {
+            "title": "Transparency",
+            "text": "We know the origin of every bean"
+        },
+        "fairness": {
+            "title": "Fairness",
+            "text": "Fair payment to farmers"
+        },
+        "freshness": {
+            "title": "Freshness",
+            "text": "Roasted for each order"
+        }
+    },
+    "team": {
+        "title": "Our Team",
+        "text": "We are a team of coffee enthusiasts from Odesa"
+    },
+    "partners": {
+        "title": "Our Partners",
+        "text": "Working with the best farms in Ethiopia"
+    },
+    "cta": {
+        "title": "Try Our Coffee",
+        "button": "Go to Catalog"
+    }
+}

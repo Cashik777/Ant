@@ -1,0 +1,73 @@
+{
+    "meta": {
+        "title": "Delivery & Payment — EthioDirect"
+    },
+    "page": {
+        "title": "Delivery & Payment",
+        "subtitle": "Fast delivery of freshly roasted coffee across Ukraine",
+        "badge": "Fast & Convenient",
+        "hero_desc": "We deliver fresh coffee across Ukraine. Roasted to order and shipped within 1-2 days."
+    },
+    "banner": {
+        "free_shipping": "🎉 Free shipping on orders over 500₴!"
+    },
+    "delivery": {
+        "title": "Delivery Options",
+        "nova_poshta": {
+            "title": "Nova Poshta",
+            "description": "Branch / Parcel locker",
+            "courier_title": "NP Courier",
+            "courier_desc": "Door-to-door delivery"
+        },
+        "ukrposhta": {
+            "title": "Ukrposhta",
+            "description": "Budget option"
+        },
+        "terms": {
+            "delivery_time": "Delivery time",
+            "cost": "Cost",
+            "np_tariffs": "NP tariffs",
+            "from_500": "From 500₴",
+            "from_700": "From 700₴",
+            "free": "FREE",
+            "from_35": "from 35₴",
+            "days_1_2": "1-2 days",
+            "days_3_5": "3-5 days",
+            "popular": "Popular"
+        }
+    },
+    "payment": {
+        "title": "Payment Methods",
+        "methods_label": "Payment methods:",
+        "card": {
+            "title": "Card Online",
+            "description": "Visa, Mastercard, Mono, Privat"
+        },
+        "apple_google": {
+            "title": "Apple / Google Pay",
+            "description": "Quick 1-click payment"
+        },
+        "cod": {
+            "title": "Cash on Delivery",
+            "description": "Pay on receipt"
+        },
+        "invoice": {
+            "title": "For Companies",
+            "description": "Bank transfer with VAT"
+        }
+    },
+    "faq": {
+        "title": "Frequently Asked Questions",
+        "q1": "How fast do you ship orders?",
+        "a1": "Orders placed before 14:00 are shipped the same day. We roast coffee for your specific order.",
+        "q2": "Can I pay with cash?",
+        "a2": "Yes, you can choose cash on delivery and pay when receiving at the NP branch.",
+        "q3": "Is pickup available?",
+        "a3": "Yes, you can pick up your order at our office in Odesa after scheduling a time."
+    },
+    "cta": {
+        "title": "Ready to Order?",
+        "text": "Choose your favorite coffee and we'll deliver it as fast as possible!",
+        "button": "Go to Catalog"
+    }
+}

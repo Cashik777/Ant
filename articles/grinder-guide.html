@@ -1,6 +1,5 @@
 ﻿<!DOCTYPE html>
 <html lang="uk" data-i18n-title="articles.grinder_guide.title">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,188 +7,281 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../css/main.css">
     <style>
-        .article-header {
-            padding-top: 140px;
-            background: linear-gradient(135deg, #2a1f0a, #4a3520);
-            color: white;
-            padding-bottom: 60px;
-        }
-
-        .article-header .container {
-            max-width: 800px;
-        }
-
-        .article-header h1 {
-            font-size: 2.5rem;
-            color: white;
-            margin-bottom: 20px;
-        }
-
-        .article-body {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 60px 20px;
-        }
-
-        .article-body h2 {
-            font-size: 1.8rem;
-            margin: 40px 0 20px;
-        }
-
-        .article-body h3 {
-            font-size: 1.4rem;
-            margin: 30px 0 15px;
-        }
-
-        .article-body p {
-            font-size: 1.1rem;
-            line-height: 1.9;
-            color: #444;
-            margin-bottom: 20px;
-        }
-
-        .article-body ul {
-            margin: 20px 0;
-            padding-left: 25px;
-        }
-
-        .article-body li {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 12px;
-        }
-
-        .article-image {
-            width: 100%;
-            border-radius: 12px;
-            margin: 30px 0;
-        }
-
-        .compare-card {
-            background: #f5f0e6;
-            padding: 25px;
-            border-radius: 12px;
-            margin: 20px 0;
-        }
+        .article-header { padding-top: 140px; background: linear-gradient(135deg, #2a1f0a, #4a3520); color: white; padding-bottom: 60px; }
+        .article-header .container { max-width: 800px; }
+        .article-header h1 { font-size: 2.5rem; color: white; margin-bottom: 20px; }
+        .article-body { max-width: 800px; margin: 0 auto; padding: 60px 20px; }
+        .article-body h2 { font-size: 1.8rem; margin: 40px 0 20px; }
+        .article-body h3 { font-size: 1.4rem; margin: 30px 0 15px; }
+        .article-body p { font-size: 1.1rem; line-height: 1.9; color: #444; margin-bottom: 20px; }
+        .compare-card { background: #f5f0e6; padding: 25px; border-radius: 12px; margin: 20px 0; }
+        .article-image { width: 100%; border-radius: 12px; margin: 30px 0; }
     </style>
 </head>
-
 <body>
+    <!-- TOP BAR -->
     <div class="top-bar">
         <div class="container top-bar-inner">
-            <div class="top-bar-left"><span><i class="fas fa-phone-alt"></i> <span data-i18n="topbar.phone">+380 (50) 123-45-67</span></span></div>
-            <div class="top-bar-center"><span data-i18n="common.topbar_free_delivery">🔥 Безкоштовна доставка від 500₴</span></div>
-                        <div class="top-bar-right">
-                <a href="#" translate="no" class="active" onclick="setLanguage('uk'); return false;">UA</a>
-                <a href="#" translate="no" onclick="setLanguage('ru'); return false;">RU</a>
-                <a href="#" translate="no" onclick="setLanguage('en'); return false;">EN</a>
+            <div class="top-bar-left">
+                <span><i class="fas fa-phone-alt"></i> <span data-i18n="topbar.phone">+380 (50) 123-45-67</span></span>
+                <span class="divider-dot">•</span>
+                <span><i class="fas fa-clock"></i> <span data-i18n="topbar.hours">Пн-Пт: 9:00-18:00</span></span>
+            </div>
+            <div class="top-bar-center">
+                <div class="promo-ticker">
+                    <span class="ticker-item">🔥 <strong data-i18n="topbar.promo_action">АКЦІЯ:</strong> <span data-i18n="topbar.promo_delivery">безкоштовна доставка від 500₴</span></span>
+                    <span class="ticker-divider">|</span>
+                    <span class="ticker-item">☕ <span data-i18n="topbar.promo_subscription">Підписка:</span> <strong data-i18n="topbar.promo_subscription_text">-10% на кожну доставку</strong></span>
+                    <span class="ticker-divider">|</span>
+                    <span class="ticker-item">⚡ <span data-i18n="topbar.promo_roast">Свіжа обсмажка</span> <strong data-i18n="topbar.promo_roast_days">до 3 днів</strong></span>
+                </div>
+            </div>
+            <div class="top-bar-right language-switcher">
+                <button data-lang="uk" onclick="setLanguage('uk')" class="lang-btn active" translate="no">UK</button>
+                <button data-lang="ru" onclick="setLanguage('ru')" class="lang-btn" translate="no">RU</button>
+                <button data-lang="en" onclick="setLanguage('en')" class="lang-btn" translate="no">EN</button>
             </div>
         </div>
     </div>
+
+    <!-- HEADER -->
     <header class="header">
-        <div class="container header-inner"><a href="../index.html" class="logo"><i class="fas fa-certificate"></i>
-                ETHIODIRECT</a>
-            <nav class="nav-desktop"><a href="../shop.html" class="nav-link" data-i18n="nav.catalog">Каталог</a><a href="../blog.html"
-                    class="nav-link active" data-i18n="nav.stories">Історії</a><a href="../about.html" class="nav-link" data-i18n="nav.about">Про нас</a></nav>
+        <div class="container header-inner">
+            <a href="../index.html" class="logo"><i class="fas fa-certificate"></i> ETHIODIRECT</a>
+            <nav class="nav-desktop">
+                <a href="../shop.html" class="nav-link" data-i18n="nav.catalog">Каталог</a>
+                <a href="../subscription.html" class="nav-link" data-i18n="nav.subscription">Підписка</a>
+                <a href="../gift-certificates.html" class="nav-link" data-i18n="nav.certificates">Сертифікати</a>
+                <a href="../blog.html" class="nav-link active" data-i18n="nav.stories">Історії</a>
+                <a href="../about.html" class="nav-link" data-i18n="nav.about">Про нас</a>
+                <a href="../quiz.html" class="nav-link" data-i18n="nav.test">Тест</a>
+            </nav>
+            <div class="header-search">
+                <div class="search-wrapper">
+                    <input type="text" class="search-input" id="search-input" placeholder="Пошук кави..." data-i18n-placeholder="search.placeholder" oninput="handleSearch(this.value)">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                    <div class="search-results" id="search-results"></div>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="../account.html"><i class="far fa-user"></i></a>
+                <div class="cart-wrapper">
+                    <div class="cart-trigger" onclick="openDrawer()">
+                        <i class="fas fa-shopping-bag" style="font-size:1.2rem;"></i>
+                        <span class="cart-count">0</span>
+                    </div>
+                    <div class="mini-cart" id="mini-cart">
+                        <div class="mini-cart-header">
+                            <h4 data-i18n="cart.title">Ваш кошик</h4>
+                            <span class="mini-cart-count" id="mini-cart-count"><span>0</span> <span data-i18n="cart.items">товарів</span></span>
+                        </div>
+                        <div class="mini-cart-items" id="mini-cart-items"></div>
+                        <div class="mini-cart-footer" id="mini-cart-footer">
+                            <div class="mini-cart-subtotal">
+                                <strong data-i18n="cart.subtotal">Разом:</strong>
+                                <span id="mini-cart-total">0 ₴</span>
+                            </div>
+                            <div class="mini-cart-shipping" id="mini-cart-shipping">
+                                <i class="fas fa-truck"></i> <span data-i18n="cart.free_shipping_progress">До безкоштовної доставки:</span> <strong>500 ₴</strong>
+                            </div>
+                            <button class="mini-cart-btn" onclick="openDrawer()">
+                                <i class="fas fa-shopping-cart"></i> <span data-i18n="cart.checkout">Оформити замовлення</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <button class="menu-toggle" aria-label="Open menu" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
         </div>
     </header>
+
+    <!-- DRAWER CART -->
+    <div class="overlay"></div>
+    <div class="drawer">
+        <div class="drawer-header">
+            <h3><i class="fas fa-shopping-bag" style="margin-right:10px; color:var(--primary);"></i> <span data-i18n="cart.your_cart">Ваш кошик</span></h3>
+            <button onclick="closeDrawer()" style="background:none;border:none;font-size:1.5rem;cursor:pointer;">&times;</button>
+        </div>
+        <div class="drawer-body" id="cart-list"></div>
+        <div class="drawer-footer">
+            <div class="free-shipping-progress" id="drawer-shipping-progress">
+                <div class="progress-bar"><div class="progress-fill" id="drawer-progress-fill"></div></div>
+                <p class="progress-text" id="drawer-progress-text"><i class="fas fa-truck"></i> До безкоштовної доставки: <strong>500 ₴</strong></p>
+            </div>
+            <div style="display:flex; justify-content:space-between; margin-bottom:15px;">
+                <span data-i18n="cart.subtotal">Разом:</span><span id="cart-total" style="font-weight:700; color:var(--primary);">0 ₴</span>
+            </div>
+            <button class="btn btn-primary" style="width:100%;"><i class="fas fa-lock"></i> <span data-i18n="cart.checkout">Оформити замовлення</span></button>
+        </div>
+    </div>
 
     <main>
         <section class="article-header">
             <div class="container">
-                <a href="../blog.html" style="color:rgba(255,255,255,0.7); text-decoration:none;"><i
-                        class="fas fa-arrow-left"></i> <span data-i18n="common.back">Назад</span></a>
+                <a href="../blog.html" style="color:rgba(255,255,255,0.7); text-decoration:none;"><i class="fas fa-arrow-left"></i> <span data-i18n="common.back">Назад</span></a>
                 <h1 style="margin-top:20px;" data-i18n="articles.grinder_guide.title">Як обрати кавомолку: повний гід</h1>
-                <p style="opacity:0.9;">Жорнова чи ножова? Ручна чи електрична?</p>
+                <p style="opacity:0.9;" data-i18n="articles.grinder_guide.subtitle">Найважливіша інвестиція в кавове обладнання</p>
             </div>
         </section>
-
         <article class="article-body">
-            <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=1200" alt="Кавомолка"
-                class="article-image">
-
-            <p data-i18n="articles.grinder_guide.p_1">Кавомолка — це найважливіша інвестиція для домашнього бариста. Навіть посередня кавоварка з хорошою
-                кавомолкою дасть кращий результат, ніж дорога машина з готовою меленою кавою.</p>
-
-            <h2 data-i18n="articles.grinder_guide.h2_1">Два типи кавомолок</h2>
-
+            <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1200" alt="Кавомолка" class="article-image">
+            <p data-i18n="articles.grinder_guide.p_1">Хороша кавомолка важливіша за вашу кавоварку. Мелена кава починає втрачати смак вже через 15 хвилин після помелу.</p>
+            <h2 data-i18n="articles.grinder_guide.h2_1">Чому молоти свіжим?</h2>
+            <p data-i18n="articles.grinder_guide.p_why">Кава — складна суміш з понад 800 ароматичних сполук. Мелена кава втрачає до 60% аромату за перші 15 хвилин.</p>
+            <h2 data-i18n="articles.grinder_guide.h2_2">Типи кавомолок</h2>
+            <h3 data-i18n="articles.grinder_guide.h3_1">Ножові кавомолки</h3>
             <div class="compare-card">
-                <h3 style="margin-top:0; color:#e53935;">❌ Ножова (роторна)</h3>
-                <p style="margin-bottom:0;"><strong>Мінуси:</strong> нерівномірний помол (пил + великі частинки), нагрів
-                    зерна, неможливо повторити результат. <strong>Вердикт:</strong> не підходить для specialty кави!</p>
+                <p><strong>Переваги:</strong> <span data-i18n="articles.grinder_guide.blade_pros">Дешеві, компактні, легко знайти</span></p>
+                <p><strong>Недоліки:</strong> <span data-i18n="articles.grinder_guide.blade_cons">Нерівномірний помел, створюють тепло</span></p>
             </div>
-
+            <h3 data-i18n="articles.grinder_guide.h3_2">Жорнові кавомолки</h3>
             <div class="compare-card">
-                <h3 style="margin-top:0; color:#43a047;">✅ Жорнова</h3>
-                <p style="margin-bottom:0;"><strong>Плюси:</strong> рівномірний помол, регулювання ступеня, стабільний
-                    результат, мінімальний нагрів. <strong>Вердикт:</strong> єдиний правильний вибір!</p>
+                <p><strong>Переваги:</strong> <span data-i18n="articles.grinder_guide.burr_pros">Рівномірний помел, регульовані, без перегріву</span></p>
+                <p><strong>Недоліки:</strong> <span data-i18n="articles.grinder_guide.burr_cons">Дорожчі, гучніші, займають місце</span></p>
             </div>
-
-            <h2 data-i18n="articles.grinder_guide.h2_2">Види жорен</h2>
-            <h3 data-i18n="articles.grinder_guide.h3_1">Конічні жорна</h3>
-            <ul>
-                <li>Більш "м'який" смак, зберігають масла</li>
-                <li>Менше нагріваються</li>
-                <li>Тихіші в роботі</li>
-                <li>Рекомендуємо для: фільтра, аеропресу, турки</li>
-            </ul>
-
-            <h3 data-i18n="articles.grinder_guide.h3_2">Плоскі жорна</h3>
-            <ul>
-                <li>Більш "яскравий" смак, акцент на кислотності</li>
-                <li>Швидші, рівномірніші</li>
-                <li>Рекомендуємо для: еспресо</li>
-            </ul>
-
-            <h2 data-i18n="articles.grinder_guide.h2_3">Ручна vs Електрична</h2>
-            <h3 data-i18n="articles.grinder_guide.h3_3">Ручна кавомолка</h3>
-            <ul>
-                <li>✅ Дешевше за електричну тієї ж якості</li>
-                <li>✅ Тиха, портативна</li>
-                <li>✅ Медитативний ритуал</li>
-                <li>❌ Потрібно 1-2 хвилини на порцію</li>
-            </ul>
-
-            <h3 data-i18n="articles.grinder_guide.h3_4">Електрична кавомолка</h3>
-            <ul>
-                <li>✅ Швидко (10-30 секунд)</li>
-                <li>✅ Зручно для великих обсягів</li>
-                <li>❌ Дорожче</li>
-                <li>❌ Шумна</li>
-            </ul>
-
-            <h2 data-i18n="articles.grinder_guide.h2_4">На що звертати увагу</h2>
-            <ol>
-                <li><strong>Кількість ступенів помолу</strong> — чим більше, тим точніше налаштування</li>
-                <li><strong>Матеріал жорен</strong> — сталь дешевша, кераміка довговічніша</li>
-                <li><strong>Ємність бункера</strong> — скільки зерна вміщується</li>
-                <li><strong>Retention</strong> — скільки кави залишається всередині</li>
-            </ol>
-
-            <h2 data-i18n="articles.grinder_guide.h2_5">Рекомендації за бюджетом</h2>
-            <p><strong>До $50:</strong> Ручні TimeMore C2, Hario Skerton — чудовий старт для фільтра</p>
-            <p><strong>$50-150:</strong> Baratza Encore, Wilfa Svart — класика для дому</p>
-            <p><strong>$150+:</strong> 1Zpresso JX-Pro, Baratza Sette — для еспресо та серйозного підходу</p>
-
-            <div
-                style="background:var(--primary); padding:40px; border-radius:16px; text-align:center; margin-top:40px;">
-                <h3 style="color:white;">Немає кавомолки? Ми змелемо!</h3>
-                <p style="color:rgba(255,255,255,0.9);">Вказуйте бажаний помол при замовленні</p>
-                <a href="../shop.html" class="btn"
-                    style="background:var(--secondary); color:#1a1a1a; margin-top:15px;">Замовити</a>
+            <h2 data-i18n="articles.grinder_guide.h2_3">Ручні vs Електричні</h2>
+            <p data-i18n="articles.grinder_guide.p_manual">Ручні кавомолки пропонують відмінне співвідношення ціна/якість.</p>
+            <h2 data-i18n="articles.grinder_guide.h2_4">Рекомендації по бюджету</h2>
+            <h3 data-i18n="articles.grinder_guide.h3_3">Початковий рівень</h3>
+            <p data-i18n="articles.grinder_guide.p_entry">Timemore C2, Hario Skerton — відмінний вибір.</p>
+            <h3 data-i18n="articles.grinder_guide.h3_4">Преміум</h3>
+            <p data-i18n="articles.grinder_guide.p_premium">Comandante, Fellow Ode — найкраще для вимогливих.</p>
+            <h2 data-i18n="articles.grinder_guide.h2_5">Висновок</h2>
+            <p data-i18n="articles.grinder_guide.p_conclusion">Інвестуйте в хорошу кавомолку — це найважливіша покупка для смачної кави вдома.</p>
+            <div class="article-cta" style="background: linear-gradient(135deg, #2a1f0a, #4a3520); padding: 40px; border-radius: 12px; text-align: center; margin-top: 40px;">
+                <h3 style="color: white; margin-bottom: 15px;" data-i18n="articles.grinder_guide.cta_title">Ідеальний помел починається з якісних зерен</h3>
+                <a href="../shop.html" class="btn btn-primary" data-i18n="common.order_now">Замовити каву</a>
             </div>
         </article>
     </main>
+    <!-- FLOATING CONTACTS -->
+    <div class="floating-contacts">
+        <a href="https://t.me/ethiodirect" class="float-btn telegram"><i class="fab fa-telegram-plane"></i></a>
+        <a href="viber://chat?number=+380501234567" class="float-btn viber"><i class="fab fa-viber"></i></a>
+        <a href="tel:+380501234567" class="float-btn phone"><i class="fas fa-phone-alt"></i></a>
+    </div>
 
+    <!-- FOOTER -->
     <footer class="footer-pro">
         <div class="container">
+            <div class="footer-grid">
+                <!-- Column 1: Brand -->
+                <div class="footer-col">
+                    <h4 style="font-family:var(--font-heading); font-size:1.5rem; color:white; margin-bottom:20px;">
+                        <a href="../index.html" style="text-decoration:none; color:white;">EthioDirect</a>
+                    </h4>
+                    <p style="color:#aaa; line-height:1.8; margin-bottom:20px;" data-i18n="footer.description">Ми доставляємо справжню specialty каву прямо з ефіопських ферм до вашого дому.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+                        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                <!-- Column 2: Shop -->
+                <div class="footer-col">
+                    <h4 data-i18n="footer.shop_title">Магазин</h4>
+                    <ul class="footer-links">
+                        <li><a href="../shop.html" data-i18n="footer.catalog">Весь каталог</a></li>
+                        <li><a href="../subscription.html" data-i18n="footer.subscription">Підписка на каву</a></li>
+                        <li><a href="../gift-certificates.html" data-i18n="nav.certificates">Сертифікати</a></li>
+                        <li><a href="../b2b.html" data-i18n="footer.b2b">B2B рішення</a></li>
+                    </ul>
+                </div>
+                <!-- Column 3: Support -->
+                <div class="footer-col">
+                    <h4 data-i18n="footer.support_title">Підтримка</h4>
+                    <ul class="footer-links">
+                        <li><a href="../delivery.html" data-i18n="footer.delivery">Доставка та оплата</a></li>
+                        <li><a href="../faq.html" data-i18n="footer.faq">Часті питання</a></li>
+                        <li><a href="../contacts.html" data-i18n="footer.contacts">Контакти</a></li>
+                        <li><a href="../about.html" data-i18n="nav.about">Про нас</a></li>
+                    </ul>
+                </div>
+                <!-- Column 4: Contacts -->
+                <div class="footer-col">
+                    <h4 data-i18n="footer.contacts_title">Контакти</h4>
+                    <ul class="footer-contacts">
+                        <li><i class="fas fa-phone"></i> <a href="tel:+380501234567">+380 (50) 123-45-67</a></li>
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:hello@ethiodirect.ua">hello@ethiodirect.ua</a></li>
+                        <li><i class="fas fa-map-marker-alt"></i> <span data-i18n="footer.location">Одеса, Україна</span></li>
+                        <li><i class="fas fa-clock"></i> <span data-i18n="topbar.hours">Пн-Пт: 9:00-18:00</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            
+                <!-- Column 5: Newsletter -->
+                <div class="footer-col">
+                    <h4 data-i18n="footer.newsletter_title">Підписка на новини</h4>
+                    <p style="color:#aaa; margin-bottom:15px; font-size:0.9rem;" data-i18n="footer.newsletter_text">Отримуйте акції, новинки та поради щодо заварювання</p>
+                    <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
+                        <input type="email" placeholder="Ваш email" data-i18n-placeholder="footer.newsletter_placeholder" required>
+                        <button type="submit" class="btn-newsletter" data-i18n="footer.newsletter_cta">Підписатись</button>
+                    </form>
+                </div><!-- Trust Badges -->
+            <div class="footer-trust">
+                <div class="trust-badges">
+                    <div class="trust-badge">
+                        <i class="fas fa-shield-alt"></i>
+                        <div>
+                            <strong data-i18n="footer.badge_return_days">14 днів</strong>
+                            <span data-i18n="footer.badge_return">повернення</span>
+                        </div>
+                    </div>
+                    <div class="trust-badge">
+                        <i class="fas fa-coffee"></i>
+                        <div>
+                            <strong data-i18n="footer.badge_specialty">100% Specialty</strong>
+                            <span data-i18n="footer.badge_quality">якість зерна</span>
+                        </div>
+                    </div>
+                    <div class="trust-badge">
+                        <i class="fas fa-shipping-fast"></i>
+                        <div>
+                            <strong data-i18n="footer.badge_free">Безкоштовна</strong>
+                            <span data-i18n="footer.badge_shipping">доставка від 500₴</span>
+                        </div>
+                    </div>
+                    <div class="trust-badge">
+                        <i class="fas fa-fire"></i>
+                        <div>
+                            <strong data-i18n="footer.badge_fresh">Свіжа обсмажка</strong>
+                            <span data-i18n="footer.badge_days">до 3 днів</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment Methods -->
+            <div class="footer-payment">
+                <p style="color:#666; font-size:0.85rem; margin-bottom:15px;" data-i18n="footer.payment_methods">Способи оплати:</p>
+                <div class="payment-icons">
+                    <i class="fab fa-cc-visa" title="Visa"></i>
+                    <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+                    <i class="fab fa-apple-pay" title="Apple Pay"></i>
+                    <i class="fab fa-google-pay" title="Google Pay"></i>
+                    <span class="payment-text">LiqPay</span>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
             <div class="footer-bottom">
-                <p>&copy; 2025 EthioDirect.</p>
+                <div class="footer-bottom-left">
+                    <p>&copy; 2025 EthioDirect. Всі права захищені.</p>
+                </div>
+                <div class="footer-bottom-right">
+                    <a href="../privacy.html" data-i18n="footer.privacy">Політика конфіденційності</a>
+                    <span>·</span>
+                    <a href="../return.html" data-i18n="footer.terms">Умови повернення</a>
+                </div>
             </div>
         </div>
     </footer>
-    <script src="../js/main.js"></script>
-    <script src="../js/translations.js"></script><script src="../js/i18n.js"></script>
-</body>
 
+    <script src="../js/main.js"></script>
+    <script src="../js/i18n.js?v=2.0"></script>
+</body>
 </html>

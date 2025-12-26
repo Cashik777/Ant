@@ -1,0 +1,118 @@
+{
+    "nav": {
+        "catalog": "Каталог",
+        "subscription": "Подписка",
+        "certificates": "Сертификаты",
+        "stories": "Истории",
+        "about": "О нас",
+        "test": "Тест вкуса"
+    },
+    "topbar": {
+        "phone": "+380 (50) 123-45-67",
+        "hours": "Пн-Пт: 9:00-18:00",
+        "promo_action": "АКЦИЯ:",
+        "promo_delivery": "бесплатная доставка от 500₴",
+        "promo_subscription": "Подписка:",
+        "promo_subscription_text": "-10% на каждую доставку",
+        "promo_roast": "Свежая обжарка",
+        "promo_roast_days": "до 3 дней"
+    },
+    "search": {
+        "placeholder": "Поиск кофе...",
+        "no_results": "Ничего не найдено"
+    },
+    "cart": {
+        "title": "Ваша корзина",
+        "your_cart": "Ваша корзина",
+        "empty": "Ваша чашка пока пустая...",
+        "to_catalog": "Перейти в каталог",
+        "checkout": "Оформить заказ",
+        "subtotal": "Итого:",
+        "items": "товаров",
+        "items_single": "товар",
+        "items_few": "товара",
+        "free_shipping_progress": "До бесплатной доставки:",
+        "free_shipping_done": "Бесплатная доставка!",
+        "safe_payment": "Безопасная оплата",
+        "return_days": "14 дней на возврат"
+    },
+    "footer": {
+        "description": "Мы доставляем настоящий specialty кофе прямо с эфиопских ферм к вашему дому.",
+        "shop_title": "Магазин",
+        "catalog": "Весь каталог",
+        "subscription": "Подписка на кофе",
+        "certificates": "Сертификаты",
+        "b2b": "B2B решения",
+        "account": "Личный кабинет",
+        "support_title": "Поддержка",
+        "delivery": "Доставка и оплата",
+        "return": "Возврат и обмен",
+        "faq": "Частые вопросы",
+        "contacts": "Контакты",
+        "about": "О нас",
+        "contacts_title": "Контакты",
+        "location": "Одесса, Украина",
+        "newsletter_title": "Подписка на новости",
+        "newsletter_text": "Получайте акции, новинки и советы по завариванию",
+        "newsletter_placeholder": "Ваш email",
+        "newsletter_cta": "Подписаться",
+        "badge_return_days": "14 дней",
+        "badge_return": "возврат",
+        "badge_specialty": "100% Specialty",
+        "badge_quality": "качество зерна",
+        "badge_free": "Бесплатная",
+        "badge_shipping": "доставка от 500₴",
+        "badge_fresh": "Свежая обжарка",
+        "badge_days": "до 3 дней",
+        "payment_methods": "Способы оплаты:",
+        "copyright": "© 2025 EthioDirect. Все права защищены.",
+        "privacy": "Политика конфиденциальности",
+        "terms": "Условия возврата",
+        "offer": "Публичная оферта"
+    },
+    "buttons": {
+        "add_to_cart": "Добавить в корзину",
+        "buy_now": "Купить сейчас",
+        "learn_more": "Подробнее",
+        "subscribe": "Подписаться",
+        "order_now": "Заказать",
+        "back": "Назад",
+        "next": "Далее"
+    },
+    "product": {
+        "add_to_cart": "В корзину",
+        "weight": "Вес",
+        "grind": "Помол",
+        "beans": "Зерно",
+        "espresso": "Эспрессо",
+        "filter": "Фильтр",
+        "turka": "Турка",
+        "in_stock": "В наличии",
+        "bestseller": "Хит продаж",
+        "new": "Новинка",
+        "rare": "Раритет"
+    },
+    "float_buttons": {
+        "telegram": "Написать в Telegram",
+        "viber": "Написать в Viber",
+        "phone": "Позвонить"
+    },
+    "social": {
+        "instagram": "Мы в Instagram",
+        "facebook": "Мы в Facebook",
+        "telegram": "Наш Telegram канал",
+        "tiktok": "Мы в TikTok"
+    },
+    "payment": {
+        "visa": "Оплата Visa",
+        "mastercard": "Оплата Mastercard",
+        "apple_pay": "Оплата Apple Pay",
+        "google_pay": "Оплата Google Pay"
+    },
+    "common": {
+        "back": "Назад",
+        "back_to_articles": "к статьям",
+        "topbar_free_delivery": "Бесплатная доставка от 500₴",
+        "order_now": "Заказать"
+    }
+}
