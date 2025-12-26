@@ -1,65 +1,13 @@
-﻿<!DOCTYPE html>
-<html lang="uk">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Кава Sidamo — EthioDirect</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="../css/main.css">
-    <style>
-        .article-header { padding-top: 140px; background: linear-gradient(135deg, #2a1f0a, #4a3520); color: white; padding-bottom: 60px; }
-        .article-header .container { max-width: 800px; }
-        .article-header h1 { font-size: 2.5rem; color: white; margin-bottom: 20px; }
-        .article-body { max-width: 800px; margin: 0 auto; padding: 60px 20px; }
-        .article-body h2 { font-size: 1.8rem; margin: 40px 0 20px; }
-        .article-body p { font-size: 1.1rem; line-height: 1.9; color: #444; margin-bottom: 20px; }
-        .article-image { width: 100%; border-radius: 12px; margin: 30px 0; }
-        .info-card { background: #f5f0e6; padding: 20px; border-radius: 12px; margin: 20px 0; }
-    </style>
-</head>
-<body>
-    <div class="top-bar"><div class="container top-bar-inner">
-        <div class="top-bar-left"><span><i class="fas fa-phone-alt"></i> <span data-i18n="topbar.phone">+380 (50) 123-45-67</span></span></div>
-        <div class="top-bar-center"><div class="promo-ticker"><span class="ticker-item">🔥 <strong data-i18n="topbar.promo_action">АКЦІЯ:</strong> <span data-i18n="topbar.promo_delivery">безкоштовна доставка від 500₴</span></span></div></div>
-        <div class="top-bar-right language-switcher"><button data-lang="uk" onclick="setLanguage('uk')" class="lang-btn active" translate="no">UK</button><button data-lang="ru" onclick="setLanguage('ru')" class="lang-btn" translate="no">RU</button><button data-lang="en" onclick="setLanguage('en')" class="lang-btn" translate="no">EN</button></div>
-    </div></div>
-    <header class="header"><div class="container header-inner">
-        <a href="../index.html" class="logo"><i class="fas fa-certificate"></i> ETHIODIRECT</a>
-        <nav class="nav-desktop"><a href="../shop.html" class="nav-link" data-i18n="nav.catalog">Каталог</a><a href="../subscription.html" class="nav-link" data-i18n="nav.subscription">Підписка</a><a href="../gift-certificates.html" class="nav-link" data-i18n="nav.certificates">Сертифікати</a><a href="../blog.html" class="nav-link active" data-i18n="nav.stories">Історії</a><a href="../about.html" class="nav-link" data-i18n="nav.about">Про нас</a><a href="../quiz.html" class="nav-link" data-i18n="nav.test">Тест</a></nav>
-        <div class="header-actions"><a href="../account.html"><i class="far fa-user"></i></a><div class="cart-wrapper"><div class="cart-trigger" onclick="openDrawer()"><i class="fas fa-shopping-bag"></i><span class="cart-count">0</span></div></div><button class="menu-toggle" onclick="toggleMobileMenu()"><i class="fas fa-bars"></i></button></div>
-    </div></header>
-    <div class="overlay"></div>
-    <div class="drawer"><div class="drawer-header"><h3><span data-i18n="cart.your_cart">Ваш кошик</span></h3><button onclick="closeDrawer()" style="background:none;border:none;font-size:1.5rem;cursor:pointer;">&times;</button></div><div class="drawer-body" id="cart-list"></div><div class="drawer-footer"><button class="btn btn-primary" style="width:100%;"><span data-i18n="cart.checkout">Оформити</span></button></div></div>    <main>
-        <section class="article-header"><div class="container">
-            <a href="../blog.html" style="color:rgba(255,255,255,0.7); text-decoration:none;"><i class="fas fa-arrow-left"></i> <span data-i18n="common.back">Назад</span></a>
-            <h1 style="margin-top:20px;" data-i18n="articles.sidamo.title">Кава з регіону Sidamo: повний гід</h1>
-            <p style="opacity:0.9;" data-i18n="articles.sidamo.subtitle">Серце ефіопської кави</p>
-        </div></section>
-        <article class="article-body">
-            <img src="https://images.unsplash.com/photo-1507133750040-4a8f57021571?w=1200" alt="Sidamo" class="article-image">
-            <p data-i18n="articles.sidamo.p_1">Sidamo — величезний і різноманітний кавовий регіон.</p>
-            <h2 data-i18n="articles.sidamo.h2_1">Географія</h2>
-            <p data-i18n="articles.sidamo.p_2">Регіон SNNPR, 1500-2200м над рівнем моря.</p>
-            <h2 data-i18n="articles.sidamo.h2_2">Субрегіони</h2>
-            <p data-i18n="articles.sidamo.p_3">Sidamo включає багато субрегіонів: Guji, Yirgacheffe та інші.</p>
-            <h2 data-i18n="articles.sidamo.h2_3">Смаковий профіль</h2>
-            <p data-i18n="articles.sidamo.flavor_profile">Збалансована, фруктова, з нотами ягід і шоколаду.</p>
-            <h2 data-i18n="articles.sidamo.h2_4">Рекомендації</h2>
-            <p data-i18n="articles.sidamo.p_4">Середня обжарка для балансу кислотності та тіла.</p>
-            <div class="article-cta" style="background: linear-gradient(135deg, #2a1f0a, #4a3520); padding: 40px; border-radius: 12px; text-align: center; margin-top: 40px;">
-                <h3 style="color: white;" data-i18n="articles.sidamo.cta_title">Дослідіть нашу Sidamo</h3>
-                <a href="../shop.html" class="btn btn-primary" data-i18n="common.order_now">Замовити</a>
-            </div>
-        </article>
-    </main>
-    <!-- FLOATING CONTACTS -->
-    <div class="floating-contacts">
-        <a href="https://t.me/ethiodirect" class="float-btn telegram"><i class="fab fa-telegram-plane"></i></a>
-        <a href="viber://chat?number=+380501234567" class="float-btn viber"><i class="fab fa-viber"></i></a>
-        <a href="tel:+380501234567" class="float-btn phone"><i class="fas fa-phone-alt"></i></a>
-    </div>
+#!/usr/bin/env python3
+"""
+Fix footer structure in all article and blog pages.
+Move Newsletter column inside footer-grid div.
+"""
+import os
+import re
 
-            <!-- FOOTER -->
+# Define the correct footer template (relative paths for articles/blog subfolders)
+CORRECT_FOOTER = '''    <!-- FOOTER -->
     <footer class="footer-pro">
         <div class="container">
             <div class="footer-grid">
@@ -175,9 +123,51 @@
                 </div>
             </div>
         </div>
-    </footer>
+    </footer>'''
 
-    <script src="../js/main.js"></script>
-    <script src="../js/i18n.js?v=2.0"></script>
-</body>
-</html>
+
+def fix_footer_in_file(filepath):
+    """Replace the footer in a file with the correct structure."""
+    with open(filepath, 'r', encoding='utf-8') as f:
+        content = f.read()
+    
+    # Try different footer patterns
+    patterns = [
+        r'<!-- FOOTER -->.*?</footer>',
+        r'<!-- PROFESSIONAL FOOTER COMPONENT -->.*?</footer>'
+    ]
+    
+    for pattern in patterns:
+        if re.search(pattern, content, re.DOTALL):
+            new_content = re.sub(pattern, CORRECT_FOOTER, content, flags=re.DOTALL)
+            
+            with open(filepath, 'w', encoding='utf-8') as f:
+                f.write(new_content)
+            print(f"[OK] Fixed: {filepath}")
+            return True
+    
+    print(f"[SKIP] No footer found: {filepath}")
+    return False
+
+
+def main():
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    
+    # Process articles folder
+    articles_dir = os.path.join(base_dir, 'articles')
+    if os.path.exists(articles_dir):
+        for filename in os.listdir(articles_dir):
+            if filename.endswith('.html'):
+                fix_footer_in_file(os.path.join(articles_dir, filename))
+    
+    # Process blog folder
+    blog_dir = os.path.join(base_dir, 'blog')
+    if os.path.exists(blog_dir):
+        for filename in os.listdir(blog_dir):
+            if filename.endswith('.html') and not filename.startswith('_'):
+                fix_footer_in_file(os.path.join(blog_dir, filename))
+
+
+if __name__ == '__main__':
+    main()
+    print("\nDone! Footer fixed in all article and blog pages.")
