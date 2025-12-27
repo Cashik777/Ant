@@ -128,7 +128,14 @@
         "harrar": "Харар",
         "harrar_desc": "Дикий. Черника, вино, специи.",
         "quick_view": "Быстрый просмотр",
-        "added_to_cart": "Добавлено!"
+        "added_to_cart": "Добавлено!",
+        "purchased": "Куплено",
+        "reviews": "отзывов"
+    },
+    "quiz": {
+        "question": "Вопрос",
+        "auto": "Автопереход после выбора",
+        "final": "Финальный шаг!"
     },
     "float_buttons": {
         "telegram": "Написать в Telegram",

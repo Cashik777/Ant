@@ -90,5 +90,23 @@
         "text": "Download our free PDF guide \"How to Choose Ethiopian Coffee\".",
         "placeholder": "Your Email",
         "cta": "Get the guide"
+    },
+    "promo": {
+        "badge": "NEW YEAR SALE",
+        "title": "-20% off all coffee",
+        "text": "Hurry until end of December! Free shipping from 500₴",
+        "cta": "Shop now"
+    },
+    "timer": {
+        "days": "Days",
+        "hours": "Hours",
+        "mins": "Min"
+    },
+    "cat": {
+        "espresso": "For espresso",
+        "filter": "For filter",
+        "subscription": "Subscription",
+        "gifts": "Gifts",
+        "quiz": "Find yours"
     }
 }

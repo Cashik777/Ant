@@ -128,7 +128,14 @@
         "harrar": "Harrar",
         "harrar_desc": "Wild. Blueberry, wine, spices.",
         "quick_view": "Quick View",
-        "added_to_cart": "Added!"
+        "added_to_cart": "Added!",
+        "purchased": "Purchased",
+        "reviews": "reviews"
+    },
+    "quiz": {
+        "question": "Question",
+        "auto": "Auto-advance after selecting",
+        "final": "Final step!"
     },
     "float_buttons": {
         "telegram": "Message on Telegram",
