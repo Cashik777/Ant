@@ -573,19 +573,19 @@ function createProductCard(p) {
             <!-- Grind Selector -->
             <div class="grind-selector" data-product-id="${p.id}">
                 <button class="grind-btn ${sel.grind === 'beans' || !sel.grind ? 'active' : ''}" onclick="selectGrind(${p.id}, 'beans')">
-                    <span class="grind-icon">🫘</span>
+                    <span class="grind-icon"><i class="fas fa-seedling"></i></span>
                     <span class="grind-label">${grindLabels.beans}</span>
                 </button>
                 <button class="grind-btn ${sel.grind === 'espresso' ? 'active' : ''}" onclick="selectGrind(${p.id}, 'espresso')">
-                    <span class="grind-icon">☕</span>
+                    <span class="grind-icon"><i class="fas fa-coffee"></i></span>
                     <span class="grind-label">${grindLabels.espresso}</span>
                 </button>
                 <button class="grind-btn ${sel.grind === 'filter' ? 'active' : ''}" onclick="selectGrind(${p.id}, 'filter')">
-                    <span class="grind-icon">🫖</span>
+                    <span class="grind-icon"><i class="fas fa-mug-hot"></i></span>
                     <span class="grind-label">${grindLabels.filter}</span>
                 </button>
                 <button class="grind-btn ${sel.grind === 'turka' ? 'active' : ''}" onclick="selectGrind(${p.id}, 'turka')">
-                    <span class="grind-icon">🏺</span>
+                    <span class="grind-icon"><i class="fas fa-fire-alt"></i></span>
                     <span class="grind-label">${grindLabels.turka}</span>
                 </button>
             </div>
