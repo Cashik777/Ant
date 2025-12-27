@@ -529,6 +529,90 @@
                 padding: 30px 20px;
             }
         }
+
+        /* LAPTOP: Compact quiz layout - everything visible without scrolling */
+        @media (min-width: 769px) and (max-height: 900px) {
+            .quiz-hero {
+                padding-top: 100px;
+            }
+
+            .quiz-hero-content {
+                padding-bottom: 30px;
+            }
+
+            .quiz-hero h1 {
+                font-size: 2rem;
+                margin-bottom: 10px;
+            }
+
+            .quiz-hero p {
+                font-size: 1rem;
+                margin-bottom: 15px;
+            }
+
+            .benefit-pills {
+                gap: 10px;
+            }
+
+            .benefit-pill {
+                padding: 6px 12px;
+                font-size: 0.8rem;
+            }
+
+            .quiz-progress-steps {
+                padding: 15px 30px;
+            }
+
+            .step-circle {
+                width: 28px;
+                height: 28px;
+            }
+
+            .quiz-content {
+                padding: 25px 40px 20px;
+            }
+
+            .quiz-question h2 {
+                font-size: 1.4rem;
+                margin-bottom: 8px;
+            }
+
+            .quiz-question p {
+                font-size: 0.9rem;
+            }
+
+            .quiz-options {
+                gap: 12px;
+                margin-top: 15px;
+            }
+
+            .quiz-option {
+                padding: 12px 16px;
+            }
+
+            .quiz-option-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 1.5rem;
+            }
+
+            .quiz-option-text h4 {
+                font-size: 1rem;
+            }
+
+            .quiz-option-text p {
+                font-size: 0.8rem;
+            }
+
+            .quiz-nav {
+                padding: 15px 40px;
+            }
+
+            .quiz-nav .btn {
+                padding: 12px 25px;
+                min-width: 120px;
+            }
+        }
     </style>
 </head>
 
@@ -544,13 +628,16 @@
             </div>
             <div class="top-bar-center">
                 <div class="promo-ticker">
-                    <span class="ticker-item"><i class="fas fa-fire" style="color:#e74c3c;"></i> <strong data-i18n="topbar.promo_action">АКЦІЯ:</strong> <span
+                    <span class="ticker-item"><i class="fas fa-fire" style="color:#e74c3c;"></i> <strong
+                            data-i18n="topbar.promo_action">АКЦІЯ:</strong> <span
                             data-i18n="topbar.promo_delivery">безкоштовна доставка від 500₴</span></span>
                     <span class="ticker-divider">|</span>
-                    <span class="ticker-item"><i class="fas fa-coffee" style="color:#8B4545;"></i> <span data-i18n="topbar.promo_subscription">Підписка:</span> <strong
+                    <span class="ticker-item"><i class="fas fa-coffee" style="color:#8B4545;"></i> <span
+                            data-i18n="topbar.promo_subscription">Підписка:</span> <strong
                             data-i18n="topbar.promo_subscription_text">-10% на кожну доставку</strong></span>
                     <span class="ticker-divider">|</span>
-                    <span class="ticker-item"><i class="fas fa-bolt" style="color:#f39c12;"></i> <span data-i18n="topbar.promo_roast">Свіжа обсмажка</span> <strong
+                    <span class="ticker-item"><i class="fas fa-bolt" style="color:#f39c12;"></i> <span
+                            data-i18n="topbar.promo_roast">Свіжа обсмажка</span> <strong
                             data-i18n="topbar.promo_roast_days">до 3 днів</strong></span>
                 </div>
             </div>
@@ -610,11 +697,13 @@
                                 <span id="mini-cart-total">0 ₴</span>
                             </div>
                             <div class="mini-cart-shipping" id="mini-cart-shipping">
-                                <i class="fas fa-truck"></i> <span data-i18n="cart.free_shipping_progress">До безкоштовної доставки:</span> <strong>500
+                                <i class="fas fa-truck"></i> <span data-i18n="cart.free_shipping_progress">До
+                                    безкоштовної доставки:</span> <strong>500
                                     ₴</strong>
                             </div>
                             <button class="mini-cart-btn" onclick="openDrawer()">
-                                <i class="fas fa-shopping-cart"></i> <span data-i18n="cart.checkout">Оформити замовлення</span>
+                                <i class="fas fa-shopping-cart"></i> <span data-i18n="cart.checkout">Оформити
+                                    замовлення</span>
                             </button>
                         </div>
                     </div>
@@ -695,21 +784,22 @@
                             </div>
                             <div class="quiz-options">
                                 <div class="quiz-option" onclick="selectOption(this, 1, 'black')">
-                                    <span class="quiz-option-icon"><i class="fas fa-coffee" style="color:#8B4545;"></i></span>
+                                    <span class="quiz-option-icon"><i class="fas fa-coffee"
+                                            style="color:#8B4545;"></i></span>
                                     <div class="quiz-option-text">
                                         <h4 data-i18n="quiz_page.q1_opt1_title">Чорна, без нічого</h4>
                                         <p data-i18n="quiz_page.q1_opt1_desc">Максимальний смак зерна</p>
                                     </div>
                                 </div>
                                 <div class="quiz-option" onclick="selectOption(this, 1, 'milk')">
-                                    <span class="quiz-option-icon">🥛</span>
+                                    <span class="quiz-option-icon"><i class="fas fa-glass-whiskey" style="color:#e5e5e5;"></i></span>
                                     <div class="quiz-option-text">
                                         <h4 data-i18n="quiz_page.q1_opt2_title">З молоком</h4>
                                         <p data-i18n="quiz_page.q1_opt2_desc">Капучіно, лате, флет-вайт</p>
                                     </div>
                                 </div>
                                 <div class="quiz-option" onclick="selectOption(this, 1, 'sweet')">
-                                    <span class="quiz-option-icon">🍬</span>
+                                    <span class="quiz-option-icon"><i class="fas fa-candy-cane" style="color:#ff69b4;"></i></span>
                                     <div class="quiz-option-text">
                                         <h4 data-i18n="quiz_page.q1_opt3_title">З молоком і цукром</h4>
                                         <p data-i18n="quiz_page.q1_opt3_desc">Солодко та ніжно</p>
@@ -734,21 +824,21 @@
                             </div>
                             <div class="quiz-options">
                                 <div class="quiz-option" onclick="selectOption(this, 2, 'fruity')">
-                                    <span class="quiz-option-icon">🍓</span>
+                                    <span class="quiz-option-icon"><i class="fas fa-apple-alt" style="color:#e74c3c;"></i></span>
                                     <div class="quiz-option-text">
                                         <h4 data-i18n="quiz_page.q2_opt1_title">Фруктові, ягідні</h4>
                                         <p data-i18n="quiz_page.q2_opt1_desc">Яскрава кислинка, свіжість</p>
                                     </div>
                                 </div>
                                 <div class="quiz-option" onclick="selectOption(this, 2, 'chocolate')">
-                                    <span class="quiz-option-icon">🍫</span>
+                                    <span class="quiz-option-icon"><i class="fas fa-cookie" style="color:#8B4513;"></i></span>
                                     <div class="quiz-option-text">
                                         <h4 data-i18n="quiz_page.q2_opt2_title">Шоколадні, горіхові</h4>
                                         <p data-i18n="quiz_page.q2_opt2_desc">Класичний, насичений смак</p>
                                     </div>
                                 </div>
                                 <div class="quiz-option" onclick="selectOption(this, 2, 'floral')">
-                                    <span class="quiz-option-icon">🌸</span>
+                                    <span class="quiz-option-icon"><i class="fas fa-spa" style="color:#ff69b4;"></i></span>
                                     <div class="quiz-option-text">
                                         <h4 data-i18n="quiz_page.q2_opt3_title">Квіткові, чайні</h4>
                                         <p data-i18n="quiz_page.q2_opt3_desc">Ніжний, делікатний аромат</p>
@@ -775,28 +865,30 @@
                             </div>
                             <div class="quiz-options grid-2">
                                 <div class="quiz-option" onclick="selectOption(this, 3, 'espresso')">
-                                    <span class="quiz-option-icon"><i class="fas fa-coffee" style="color:#8B4545;"></i></span>
+                                    <span class="quiz-option-icon"><i class="fas fa-coffee"
+                                            style="color:#8B4545;"></i></span>
                                     <div class="quiz-option-text">
                                         <h4 data-i18n="quiz_page.q3_opt1_title">Еспресо-машина</h4>
                                         <p data-i18n="quiz_page.q3_opt1_desc">Автомат або ріжкова</p>
                                     </div>
                                 </div>
                                 <div class="quiz-option" onclick="selectOption(this, 3, 'filter')">
-                                    <span class="quiz-option-icon">🫖</span>
+                                    <span class="quiz-option-icon"><i class="fas fa-mug-hot" style="color:#8B4545;"></i></span>
                                     <div class="quiz-option-text">
                                         <h4 data-i18n="quiz_page.q3_opt2_title">Пуровер / Кемекс</h4>
                                         <p data-i18n="quiz_page.q3_opt2_desc">Фільтр-методи</p>
                                     </div>
                                 </div>
                                 <div class="quiz-option" onclick="selectOption(this, 3, 'turka')">
-                                    <span class="quiz-option-icon"><i class="fas fa-fire" style="color:#e74c3c;"></i></span>
+                                    <span class="quiz-option-icon"><i class="fas fa-fire"
+                                            style="color:#e74c3c;"></i></span>
                                     <div class="quiz-option-text">
                                         <h4 data-i18n="quiz_page.q3_opt3_title">Турка / Мока</h4>
                                         <p data-i18n="quiz_page.q3_opt3_desc">Традиційний спосіб</p>
                                     </div>
                                 </div>
                                 <div class="quiz-option" onclick="selectOption(this, 3, 'french')">
-                                    <span class="quiz-option-icon">🥤</span>
+                                    <span class="quiz-option-icon"><i class="fas fa-glass-cheers" style="color:#8B4545;"></i></span>
                                     <div class="quiz-option-text">
                                         <h4 data-i18n="quiz_page.q3_opt4_title">Френч-прес</h4>
                                         <p data-i18n="quiz_page.q3_opt4_desc">Імерсійне заварювання</p>
@@ -823,21 +915,21 @@
                             </div>
                             <div class="quiz-options">
                                 <div class="quiz-option" onclick="selectOption(this, 4, 'light')">
-                                    <span class="quiz-option-icon">🌅</span>
+                                    <span class="quiz-option-icon"><i class="fas fa-sun" style="color:#f39c12;"></i></span>
                                     <div class="quiz-option-text">
                                         <h4 data-i18n="quiz_page.q4_opt1_title">Легка</h4>
                                         <p data-i18n="quiz_page.q4_opt1_desc">М'який смак, більше кислинки</p>
                                     </div>
                                 </div>
                                 <div class="quiz-option" onclick="selectOption(this, 4, 'medium')">
-                                    <span class="quiz-option-icon">☀️</span>
+                                    <span class="quiz-option-icon"><i class="fas fa-sun" style="color:#f39c12;"></i></span>
                                     <div class="quiz-option-text">
                                         <h4 data-i18n="quiz_page.q4_opt2_title">Збалансована</h4>
                                         <p data-i18n="quiz_page.q4_opt2_desc">Золота середина</p>
                                     </div>
                                 </div>
                                 <div class="quiz-option" onclick="selectOption(this, 4, 'strong')">
-                                    <span class="quiz-option-icon">🌙</span>
+                                    <span class="quiz-option-icon"><i class="fas fa-moon" style="color:#2c3e50;"></i></span>
                                     <div class="quiz-option-text">
                                         <h4 data-i18n="quiz_page.q4_opt3_title">Насичена</h4>
                                         <p data-i18n="quiz_page.q4_opt3_desc">Щільне тіло, мінімум кислинки</p>
@@ -864,21 +956,22 @@
                             </div>
                             <div class="quiz-options">
                                 <div class="quiz-option" onclick="selectOption(this, 5, 'rare')">
-                                    <span class="quiz-option-icon">1️⃣</span>
+                                    <span class="quiz-option-icon"><i class="fas fa-coffee" style="color:#8B4545;"></i></span>
                                     <div class="quiz-option-text">
                                         <h4 data-i18n="quiz_page.q5_opt1_title">1 чашка на день</h4>
                                         <p data-i18n="quiz_page.q5_opt1_desc">250г вистачить на 2 тижні</p>
                                     </div>
                                 </div>
                                 <div class="quiz-option" onclick="selectOption(this, 5, 'regular')">
-                                    <span class="quiz-option-icon">2️⃣</span>
+                                    <span class="quiz-option-icon"><i class="fas fa-coffee" style="color:#8B4545;"></i></span>
                                     <div class="quiz-option-text">
                                         <h4 data-i18n="quiz_page.q5_opt2_title">2-3 чашки на день</h4>
                                         <p data-i18n="quiz_page.q5_opt2_desc">500г вистачить на 2 тижні</p>
                                     </div>
                                 </div>
                                 <div class="quiz-option" onclick="selectOption(this, 5, 'addict')">
-                                    <span class="quiz-option-icon"><i class="fas fa-coffee" style="color:#8B4545;"></i></span>
+                                    <span class="quiz-option-icon"><i class="fas fa-coffee"
+                                            style="color:#8B4545;"></i></span>
                                     <div class="quiz-option-text">
                                         <h4 data-i18n="quiz_page.q5_opt3_title">4+ чашки на день</h4>
                                         <p data-i18n="quiz_page.q5_opt3_desc">1кг вистачить на 2 тижні</p>
@@ -916,11 +1009,11 @@
                                             SCA</span></span>
                                 </div>
                                 <div class="result-tags">
-                                    <span class="result-tag">🍓 <span
+                                    <span class="result-tag"><i class="fas fa-apple-alt" style="color:#e74c3c;"></i> <span
                                             data-i18n="quiz_page.taste_strawberry">Полуниця</span></span>
-                                    <span class="result-tag">🫐 <span
+                                    <span class="result-tag"><i class="fas fa-circle" style="color:#4169e1;"></i> <span
                                             data-i18n="quiz_page.taste_blueberry">Чорниця</span></span>
-                                    <span class="result-tag">🌸 <span
+                                    <span class="result-tag"><i class="fas fa-spa" style="color:#ff69b4;"></i> <span
                                             data-i18n="quiz_page.taste_jasmine">Жасмін</span></span>
                                 </div>
                                 <div class="result-price">
@@ -966,7 +1059,8 @@
                     <div class="progress-fill" id="drawer-progress-fill" style="width: 0%;"></div>
                 </div>
                 <p class="progress-text" id="drawer-progress-text">
-                    <i class="fas fa-truck"></i> <span data-i18n="cart.free_shipping_progress">До безкоштовної доставки:</span> <strong>500 ₴</strong>
+                    <i class="fas fa-truck"></i> <span data-i18n="cart.free_shipping_progress">До безкоштовної
+                        доставки:</span> <strong>500 ₴</strong>
                 </p>
             </div>
 
@@ -1054,7 +1148,8 @@
                     <p style="color:#aaa; margin-bottom:15px; font-size:0.9rem;" data-i18n="footer.newsletter_text">
                         Отримуйте акції, новинки та поради щодо заварювання</p>
                     <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
-                        <input type="email" placeholder="Ваш email" data-i18n-placeholder="footer.newsletter_placeholder" required>
+                        <input type="email" placeholder="Ваш email"
+                            data-i18n-placeholder="footer.newsletter_placeholder" required>
                         <button type="submit" class="btn-newsletter"
                             data-i18n="footer.newsletter_cta">Підписатись</button>
                     </form>
@@ -1097,7 +1192,8 @@
 
             <!-- Payment Methods -->
             <div class="footer-payment">
-                <p style="color:#666; font-size:0.85rem; margin-bottom:15px;" data-i18n="footer.payment_methods">Способи оплати:</p>
+                <p style="color:#666; font-size:0.85rem; margin-bottom:15px;" data-i18n="footer.payment_methods">Способи
+                    оплати:</p>
                 <div class="payment-icons">
                     <i class="fab fa-cc-visa" title="Visa"></i>
                     <i class="fab fa-cc-mastercard" title="Mastercard"></i>
