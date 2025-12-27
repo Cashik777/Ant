@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Тест смаку — EthioDirect</title>
+    <title>Кофейне подорож — EthioDirect</title>
 
-    <!-- SEO: hreflang -->
+    <!-- SEO -->
     <link rel="canonical" href="https://ethiodirect.ua/quiz.html">
     <link rel="alternate" hreflang="uk" href="https://ethiodirect.ua/quiz.html">
     <link rel="alternate" hreflang="ru" href="https://ethiodirect.ua/quiz.html?lang=ru">
@@ -15,1275 +15,407 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/polish.css">
-    <link rel="stylesheet" href="css/ux-enhancements.css">
-    <style>
-        .quiz-hero {
-            padding-top: 140px;
-            background: linear-gradient(135deg, #1a1207 0%, #3d2d14 50%, #2a1f0a 100%);
-            color: white;
-            padding-bottom: 0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .quiz-hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -30%;
-            width: 80%;
-            height: 200%;
-            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23d4a574' fill-opacity='0.05' d='M44.5,-76.4C58.3,-69.3,70.5,-58.1,79.2,-44.3C87.9,-30.5,93.1,-14.1,92.1,1.6C91,17.2,83.7,33.1,73.2,45.8C62.7,58.5,49,67.9,34.3,74.8C19.6,81.6,3.9,85.9,-11.4,84.8C-26.7,83.7,-41.6,77.2,-54.8,67.7C-68,58.2,-79.5,45.7,-85.4,31C-91.3,16.2,-91.6,-0.8,-86.9,-16.1C-82.2,-31.4,-72.5,-45,-60.1,-53.5C-47.7,-62,-32.6,-65.4,-18.2,-69.4C-3.8,-73.4,9.9,-78,24.5,-79.2C39.1,-80.4,54.6,-78.2,44.5,-76.4Z' transform='translate(100 100)'/%3E%3C/svg%3E") no-repeat center;
-            background-size: contain;
-            animation: float 20s ease-in-out infinite;
-        }
-
-        @keyframes float {
-
-            0%,
-            100% {
-                transform: translateY(0) rotate(0deg);
-            }
-
-            50% {
-                transform: translateY(-20px) rotate(5deg);
-            }
-        }
-
-        .quiz-hero-content {
-            position: relative;
-            z-index: 1;
-            text-align: center;
-            padding-bottom: 60px;
-        }
-
-        .quiz-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 10px 25px;
-            background: linear-gradient(135deg, var(--secondary), #f0b90b);
-            color: #1a1a1a;
-            border-radius: 30px;
-            font-weight: 700;
-            font-size: 0.9rem;
-            margin-bottom: 25px;
-            box-shadow: 0 10px 30px rgba(212, 165, 116, 0.3);
-        }
-
-        .quiz-hero h1 {
-            font-size: 3.5rem;
-            color: white;
-            margin-bottom: 20px;
-            line-height: 1.2;
-        }
-
-        .quiz-hero p {
-            font-size: 1.3rem;
-            opacity: 0.9;
-            max-width: 600px;
-            margin: 0 auto 30px;
-        }
-
-        .benefit-pills {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .benefit-pill {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            padding: 12px 20px;
-            border-radius: 30px;
-            font-size: 0.95rem;
-        }
-
-        .benefit-pill i {
-            color: var(--secondary);
-        }
-
-        /* Quiz Container */
-        .quiz-section {
-            background: linear-gradient(180deg, #f5f0e6 0%, #fcfaf6 100%);
-            padding: 0 0 80px;
-            margin-top: -30px;
-        }
-
-        .quiz-wrapper {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .quiz-container {
-            background: white;
-            border-radius: 24px;
-            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            position: relative;
-        }
-
-        /* Progress Bar */
-        .quiz-progress-bar {
-            height: 6px;
-            background: #eee;
-            position: relative;
-        }
-
-        .quiz-progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            width: 20%;
-            transition: width 0.5s ease;
-            border-radius: 0 3px 3px 0;
-        }
-
-        .quiz-progress-steps {
-            display: flex;
-            justify-content: space-between;
-            padding: 25px 40px;
-            background: #fafafa;
-            border-bottom: 1px solid #eee;
-        }
-
-        .progress-step {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
-            flex: 1;
-            position: relative;
-        }
-
-        .progress-step::after {
-            content: '';
-            position: absolute;
-            top: 15px;
-            left: 50%;
-            width: 100%;
-            height: 2px;
-            background: #ddd;
-            z-index: 0;
-        }
-
-        .progress-step:last-child::after {
-            display: none;
-        }
-
-        .step-circle {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            background: #ddd;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 0.85rem;
-            color: #888;
-            position: relative;
-            z-index: 1;
-            transition: all 0.3s;
-        }
-
-        .progress-step.active .step-circle {
-            background: var(--primary);
-            color: white;
-            transform: scale(1.15);
-            box-shadow: 0 4px 15px rgba(139, 69, 69, 0.4);
-        }
-
-        .progress-step.completed .step-circle {
-            background: var(--success);
-            color: white;
-        }
-
-        .progress-step.completed::after {
-            background: var(--success);
-        }
-
-        .step-label {
-            font-size: 0.75rem;
-            color: #999;
-            text-align: center;
-        }
-
-        .progress-step.active .step-label {
-            color: var(--primary);
-            font-weight: 600;
-        }
-
-        /* Quiz Content */
-        .quiz-content {
-            padding: 50px 50px 40px;
-        }
-
-        .quiz-step {
-            animation: slideIn 0.4s ease;
-        }
-
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateX(30px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        .quiz-question {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .quiz-question h2 {
-            font-size: 2rem;
-            margin-bottom: 10px;
-            color: var(--text-dark);
-        }
-
-        .quiz-question p {
-            color: var(--text-muted);
-            font-size: 1.1rem;
-        }
-
-        /* Quiz Options */
-        .quiz-options {
-            display: grid;
-            gap: 16px;
-        }
-
-        .quiz-options.grid-2 {
-            grid-template-columns: repeat(2, 1fr);
-        }
-
-        .quiz-option {
-            padding: 24px;
-            border: 2px solid #eee;
-            border-radius: 16px;
-            cursor: pointer;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 18px;
-            background: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .quiz-option::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, var(--primary), transparent);
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .quiz-option:hover {
-            border-color: var(--primary);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(139, 69, 69, 0.1);
-        }
-
-        .quiz-option.selected {
-            border-color: var(--primary);
-            background: linear-gradient(135deg, rgba(139, 69, 69, 0.05), rgba(212, 165, 116, 0.05));
-        }
-
-        .quiz-option.selected::after {
-            content: '\f00c';
-            font-family: 'Font Awesome 6 Free';
-            font-weight: 900;
-            position: absolute;
-            top: 12px;
-            right: 12px;
-            background: var(--primary);
-            color: white;
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.7rem;
-        }
-
-        .quiz-option-icon {
-            font-size: 2.5rem;
-            width: 60px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: #f5f0e6;
-            border-radius: 12px;
-            flex-shrink: 0;
-        }
-
-        .quiz-option-text h4 {
-            margin: 0 0 6px;
-            font-size: 1.15rem;
-            color: var(--text-dark);
-        }
-
-        .quiz-option-text p {
-            margin: 0;
-            font-size: 0.9rem;
-            color: var(--text-muted);
-        }
-
-        /* Quiz Navigation */
-        .quiz-nav {
-            display: flex;
-            justify-content: space-between;
-            padding: 30px 50px;
-            border-top: 1px solid #eee;
-            background: #fafafa;
-        }
-
-        .quiz-nav .btn {
-            min-width: 150px;
-        }
-
-        .btn-back {
-            background: transparent;
-            border: 2px solid #ddd;
-            color: var(--text-muted);
-        }
-
-        .btn-back:hover {
-            border-color: var(--text-dark);
-            color: var(--text-dark);
-        }
-
-        /* Result */
-        .quiz-result {
-            text-align: center;
-            padding: 50px;
-        }
-
-        .result-confetti {
-            font-size: 5rem;
-            margin-bottom: 30px;
-            animation: bounce 0.6s ease;
-        }
-
-        @keyframes bounce {
-
-            0%,
-            100% {
-                transform: scale(1);
-            }
-
-            50% {
-                transform: scale(1.2);
-            }
-        }
-
-        .result-title {
-            font-size: 1.5rem;
-            color: var(--text-muted);
-            margin-bottom: 10px;
-        }
-
-        .result-coffee-name {
-            font-size: 2.5rem;
-            color: var(--text-dark);
-            margin-bottom: 30px;
-        }
-
-        .result-card {
-            background: linear-gradient(135deg, #f9f6f0, #f5f0e6);
-            padding: 40px;
-            border-radius: 20px;
-            margin: 0 auto 30px;
-            max-width: 500px;
-        }
-
-        .result-card img {
-            width: 180px;
-            height: 180px;
-            border-radius: 16px;
-            object-fit: cover;
-            margin-bottom: 25px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-        }
-
-        .result-meta {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-            margin-bottom: 20px;
-        }
-
-        .result-meta span {
-            background: white;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            color: var(--text-muted);
-        }
-
-        .result-tags {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            flex-wrap: wrap;
-            margin-bottom: 25px;
-        }
-
-        .result-tag {
-            background: rgba(139, 69, 69, 0.1);
-            color: var(--primary);
-            padding: 8px 18px;
-            border-radius: 20px;
-            font-size: 0.95rem;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .result-price {
-            margin-bottom: 20px;
-        }
-
-        .result-old-price {
-            text-decoration: line-through;
-            color: #999;
-            font-size: 1.2rem;
-        }
-
-        .result-new-price {
-            color: var(--primary);
-            font-size: 2rem;
-            font-weight: 700;
-            margin-left: 10px;
-        }
-
-        .result-discount {
-            background: var(--success);
-            color: white;
-            padding: 5px 12px;
-            border-radius: 10px;
-            font-size: 0.85rem;
-            font-weight: 700;
-            margin-left: 10px;
-        }
-
-        .result-actions {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            align-items: center;
-        }
-
-        .result-actions .btn-primary {
-            font-size: 1.15rem;
-            padding: 18px 50px;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .quiz-hero h1 {
-                font-size: 2.2rem;
-            }
-
-            .quiz-hero p {
-                font-size: 1.1rem;
-            }
-
-            .quiz-content {
-                padding: 30px 20px;
-            }
-
-            .quiz-nav {
-                padding: 20px;
-            }
-
-            .quiz-options.grid-2 {
-                grid-template-columns: 1fr;
-            }
-
-            .quiz-progress-steps {
-                padding: 20px;
-            }
-
-            .step-label {
-                display: none;
-            }
-
-            .quiz-result {
-                padding: 30px 20px;
-            }
-        }
-
-        /* LAPTOP: Compact quiz layout - everything visible without scrolling */
-        @media (min-width: 769px) and (max-height: 900px) {
-            .quiz-hero {
-                padding-top: 100px;
-            }
-
-            .quiz-hero-content {
-                padding-bottom: 30px;
-            }
-
-            .quiz-hero h1 {
-                font-size: 2rem;
-                margin-bottom: 10px;
-            }
-
-            .quiz-hero p {
-                font-size: 1rem;
-                margin-bottom: 15px;
-            }
-
-            .benefit-pills {
-                gap: 10px;
-            }
-
-            .benefit-pill {
-                padding: 6px 12px;
-                font-size: 0.8rem;
-            }
-
-            .quiz-progress-steps {
-                padding: 15px 30px;
-            }
-
-            .step-circle {
-                width: 28px;
-                height: 28px;
-            }
-
-            .quiz-content {
-                padding: 25px 40px 20px;
-            }
-
-            .quiz-question h2 {
-                font-size: 1.4rem;
-                margin-bottom: 8px;
-            }
-
-            .quiz-question p {
-                font-size: 0.9rem;
-            }
-
-            .quiz-options {
-                gap: 12px;
-                margin-top: 15px;
-            }
-
-            .quiz-option {
-                padding: 12px 16px;
-            }
-
-            .quiz-option-icon {
-                width: 40px;
-                height: 40px;
-                font-size: 1.5rem;
-            }
-
-            .quiz-option-text h4 {
-                font-size: 1rem;
-            }
-
-            .quiz-option-text p {
-                font-size: 0.8rem;
-            }
-
-            .quiz-nav {
-                padding: 15px 40px;
-            }
-
-            .quiz-nav .btn {
-                padding: 12px 25px;
-                min-width: 120px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="css/premium-upgrades.css">
+    <link rel="stylesheet" href="css/quiz-gamified.css">
 </head>
 
-<body>
+<body class="quiz-page">
 
-    <!-- TOP BAR -->
-    <div class="top-bar">
-        <div class="container top-bar-inner">
-            <div class="top-bar-left">
-                <span><i class="fas fa-phone-alt"></i> <span data-i18n="topbar.phone">+380 (50) 123-45-67</span></span>
-                <span class="divider-dot">•</span>
-                <span><i class="fas fa-clock"></i> <span data-i18n="topbar.hours">Пн-Пт: 9:00-18:00</span></span>
-            </div>
-            <div class="top-bar-center">
-                <div class="promo-ticker">
-                    <span class="ticker-item"><i class="fas fa-fire" style="color:#e74c3c;"></i> <strong
-                            data-i18n="topbar.promo_action">АКЦІЯ:</strong> <span
-                            data-i18n="topbar.promo_delivery">безкоштовна доставка від 500₴</span></span>
-                    <span class="ticker-divider">|</span>
-                    <span class="ticker-item"><i class="fas fa-coffee" style="color:#8B4545;"></i> <span
-                            data-i18n="topbar.promo_subscription">Підписка:</span> <strong
-                            data-i18n="topbar.promo_subscription_text">-10% на кожну доставку</strong></span>
-                    <span class="ticker-divider">|</span>
-                    <span class="ticker-item"><i class="fas fa-bolt" style="color:#f39c12;"></i> <span
-                            data-i18n="topbar.promo_roast">Свіжа обсмажка</span> <strong
-                            data-i18n="topbar.promo_roast_days">до 3 днів</strong></span>
-                </div>
-            </div>
-            <div class="top-bar-right">
-                <a href="#" translate="no" class="active" onclick="setLanguage('uk'); return false;">UA</a>
-                <a href="#" translate="no" onclick="setLanguage('ru'); return false;">RU</a>
-                <a href="#" translate="no" onclick="setLanguage('en'); return false;">EN</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- HEADER -->
-    <header class="header">
-        <div class="container header-inner">
-            <a href="index.html" class="logo">
-                <i class="fas fa-certificate"></i> ETHIODIRECT
-            </a>
-
-            <nav class="nav-desktop">
-                <a href="shop.html" class="nav-link" data-i18n="nav.catalog">Каталог</a>
-                <a href="subscription.html" class="nav-link" data-i18n="nav.subscription">Підписка</a>
-                <a href="gift-certificates.html" class="nav-link" data-i18n="nav.certificates">Сертифікати</a>
-                <a href="blog.html" class="nav-link" data-i18n="nav.stories">Історії</a>
-                <a href="about.html" class="nav-link" data-i18n="nav.about">Про нас</a>
-                <a href="quiz.html" class="nav-link active" data-i18n="nav.test">Тест</a>
-            </nav>
-
-            <!-- Search Bar -->
-            <div class="header-search">
-                <div class="search-wrapper">
-                    <input type="text" class="search-input" id="search-input" placeholder="Пошук кави..."
-                        data-i18n-placeholder="search.placeholder" oninput="handleSearch(this.value)">
-                    <button class="search-btn"><i class="fas fa-search"></i></button>
-                    <div class="search-results" id="search-results"></div>
-                </div>
-            </div>
-
-            <div class="header-actions">
-                <a href="account.html"><i class="far fa-user"></i></a>
-
-                <!-- Cart with Mini-Cart Dropdown -->
-                <div class="cart-wrapper">
-                    <div class="cart-trigger" onclick="openDrawer()">
-                        <i class="fas fa-shopping-bag" style="font-size:1.2rem;"></i>
-                        <span class="cart-count">0</span>
-                    </div>
-                    <div class="mini-cart" id="mini-cart">
-                        <div class="mini-cart-header">
-                            <h4 data-i18n="cart.title">Ваш кошик</h4>
-                            <span class="mini-cart-count" id="mini-cart-count"><span>0</span> <span
-                                    data-i18n="cart.items">товарів</span></span>
-                        </div>
-                        <div class="mini-cart-items" id="mini-cart-items"></div>
-                        <div class="mini-cart-footer" id="mini-cart-footer">
-                            <div class="mini-cart-subtotal">
-                                <strong data-i18n="cart.subtotal">Разом:</strong>
-                                <span id="mini-cart-total">0 ₴</span>
-                            </div>
-                            <div class="mini-cart-shipping" id="mini-cart-shipping">
-                                <i class="fas fa-truck"></i> <span data-i18n="cart.free_shipping_progress">До
-                                    безкоштовної доставки:</span> <strong>500
-                                    ₴</strong>
-                            </div>
-                            <button class="mini-cart-btn" onclick="openDrawer()">
-                                <i class="fas fa-shopping-cart"></i> <span data-i18n="cart.checkout">Оформити
-                                    замовлення</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <button class="menu-toggle" aria-label="Open menu" data-i18n="common.open_menu" data-i18n-aria
-                    data-i18n="common.open_menu" data-i18n-aria onclick="toggleMobileMenu()">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </div>
+    <!-- Minimal Header -->
+    <header
+        style="position: fixed; top: 0; left: 0; width: 100%; padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; z-index: 100;">
+        <a href="index.html"
+            style="color: white; font-size: 1.3rem; font-weight: 700; display: flex; align-items: center; gap: 10px;">
+            <i class="fas fa-certificate"></i> ETHIODIRECT
+        </a>
+        <div class="language-switcher" style="display: flex; gap: 8px;">
+            <button data-lang="uk" onclick="setLanguage('uk')" class="lang-btn active" translate="no"
+                style="background: rgba(255,255,255,0.1); border: none; color: white; padding: 6px 12px; border-radius: 15px; cursor: pointer;">UK</button>
+            <button data-lang="ru" onclick="setLanguage('ru')" class="lang-btn" translate="no"
+                style="background: rgba(255,255,255,0.1); border: none; color: rgba(255,255,255,0.6); padding: 6px 12px; border-radius: 15px; cursor: pointer;">RU</button>
+            <button data-lang="en" onclick="setLanguage('en')" class="lang-btn" translate="no"
+                style="background: rgba(255,255,255,0.1); border: none; color: rgba(255,255,255,0.6); padding: 6px 12px; border-radius: 15px; cursor: pointer;">EN</button>
         </div>
     </header>
 
     <main>
-        <!-- HERO -->
-        <section class="quiz-hero">
-            <div class="container">
-                <div class="quiz-hero-content">
-                    <span class="quiz-badge">
-                        <i class="fas fa-magic"></i>
-                        <span data-i18n="quiz_page.badge">5 ПИТАНЬ • 2 ХВИЛИНИ</span>
-                    </span>
-                    <h1 data-i18n="quiz_page.hero_title">Знайдіть свою ідеальну каву</h1>
-                    <p data-i18n="quiz_page.hero_text">Відповідайте на прості питання — і ми підберемо сорт, який точно
-                        вам сподобається</p>
-                    <div class="benefit-pills">
-                        <span class="benefit-pill"><i class="fas fa-gift"></i> <span
-                                data-i18n="quiz_page.benefit_discount">Знижка -10% на результат</span></span>
-                        <span class="benefit-pill"><i class="fas fa-bolt"></i> <span
-                                data-i18n="quiz_page.benefit_instant">Миттєва рекомендація</span></span>
-                        <span class="benefit-pill"><i class="fas fa-thumbs-up"></i> <span
-                                data-i18n="quiz_page.benefit_accuracy">98% точність</span></span>
-                    </div>
-                </div>
-            </div>
+        <!-- Hero -->
+        <section class="quiz-hero-v2">
+            <div class="quiz-logo"><i class="fas fa-coffee"></i></div>
+            <h1 data-i18n="quiz_page.hero_title">Кофейне подорож</h1>
+            <p data-i18n="quiz_page.hero_text">5 питань — і ми підберемо ідеальну каву для вас</p>
         </section>
 
-        <!-- QUIZ -->
-        <section class="quiz-section">
-            <div class="quiz-wrapper">
-                <div class="quiz-container" id="quiz-container">
+        <!-- Progress Path -->
+        <div class="quiz-path" id="quiz-path">
+            <div class="path-step active" data-step="1">
+                <div class="path-dot"><span>1</span></div>
+                <span class="path-label" data-i18n="quiz_page.step_way">Спосіб</span>
+                <div class="path-line"></div>
+            </div>
+            <div class="path-step" data-step="2">
+                <div class="path-dot"><span>2</span></div>
+                <span class="path-label" data-i18n="quiz_page.step_taste">Смак</span>
+                <div class="path-line"></div>
+            </div>
+            <div class="path-step" data-step="3">
+                <div class="path-dot"><span>3</span></div>
+                <span class="path-label" data-i18n="quiz_page.step_method">Метод</span>
+                <div class="path-line"></div>
+            </div>
+            <div class="path-step" data-step="4">
+                <div class="path-dot"><span>4</span></div>
+                <span class="path-label" data-i18n="quiz_page.step_strength">Сила</span>
+                <div class="path-line"></div>
+            </div>
+            <div class="path-step" data-step="5">
+                <div class="path-dot"><span>5</span></div>
+                <span class="path-label" data-i18n="quiz_page.step_volume">Об'єм</span>
+            </div>
+        </div>
 
-                    <!-- Progress Bar -->
-                    <div class="quiz-progress-bar">
-                        <div class="quiz-progress-fill" id="progress-fill"></div>
+        <!-- Quiz Container -->
+        <div class="container" style="padding: 0 20px;">
+
+            <!-- Question 1 -->
+            <div class="quiz-card" id="step-1">
+                <div class="quiz-card-header">
+                    <span class="question-number"><i class="fas fa-question"></i> <span
+                            data-i18n="quiz.question">Питання</span> 1/5</span>
+                    <h2 data-i18n="quiz_page.q1_title">Як ви зазвичай п'єте каву?</h2>
+                    <p data-i18n="quiz_page.q1_subtitle">Оберіть найближчий варіант</p>
+                </div>
+                <div class="quiz-options-v2">
+                    <div class="quiz-option-v2" onclick="selectQuizOption(this, 1, 'black')">
+                        <div class="option-icon"><i class="fas fa-coffee"></i></div>
+                        <div class="option-content">
+                            <h4 data-i18n="quiz_page.q1_opt1_title">Чорна, без нічого</h4>
+                            <p data-i18n="quiz_page.q1_opt1_desc">Максимальний смак зерна</p>
+                        </div>
+                        <div class="option-check"></div>
                     </div>
-
-                    <!-- Progress Steps -->
-                    <div class="quiz-progress-steps" id="quiz-progress">
-                        <div class="progress-step active" data-step="1">
-                            <div class="step-circle">1</div>
-                            <span class="step-label" data-i18n="quiz_page.step_way">Спосіб</span>
+                    <div class="quiz-option-v2" onclick="selectQuizOption(this, 1, 'milk')">
+                        <div class="option-icon"><i class="fas fa-glass-whiskey"></i></div>
+                        <div class="option-content">
+                            <h4 data-i18n="quiz_page.q1_opt2_title">З молоком</h4>
+                            <p data-i18n="quiz_page.q1_opt2_desc">Капучіно, лате, флет-вайт</p>
                         </div>
-                        <div class="progress-step" data-step="2">
-                            <div class="step-circle">2</div>
-                            <span class="step-label" data-i18n="quiz_page.step_taste">Смак</span>
-                        </div>
-                        <div class="progress-step" data-step="3">
-                            <div class="step-circle">3</div>
-                            <span class="step-label" data-i18n="quiz_page.step_method">Метод</span>
-                        </div>
-                        <div class="progress-step" data-step="4">
-                            <div class="step-circle">4</div>
-                            <span class="step-label" data-i18n="quiz_page.step_strength">Міцність</span>
-                        </div>
-                        <div class="progress-step" data-step="5">
-                            <div class="step-circle">5</div>
-                            <span class="step-label" data-i18n="quiz_page.step_volume">Обсяг</span>
-                        </div>
+                        <div class="option-check"></div>
                     </div>
-
-                    <!-- Question 1 -->
-                    <div class="quiz-step" id="step-1">
-                        <div class="quiz-content">
-                            <div class="quiz-question">
-                                <h2 data-i18n="quiz_page.q1_title">Як ви зазвичай п'єте каву?</h2>
-                                <p data-i18n="quiz_page.q1_subtitle">Оберіть найближчий варіант</p>
-                            </div>
-                            <div class="quiz-options">
-                                <div class="quiz-option" onclick="selectOption(this, 1, 'black')">
-                                    <span class="quiz-option-icon"><i class="fas fa-coffee"
-                                            style="color:#8B4545;"></i></span>
-                                    <div class="quiz-option-text">
-                                        <h4 data-i18n="quiz_page.q1_opt1_title">Чорна, без нічого</h4>
-                                        <p data-i18n="quiz_page.q1_opt1_desc">Максимальний смак зерна</p>
-                                    </div>
-                                </div>
-                                <div class="quiz-option" onclick="selectOption(this, 1, 'milk')">
-                                    <span class="quiz-option-icon"><i class="fas fa-glass-whiskey" style="color:#e5e5e5;"></i></span>
-                                    <div class="quiz-option-text">
-                                        <h4 data-i18n="quiz_page.q1_opt2_title">З молоком</h4>
-                                        <p data-i18n="quiz_page.q1_opt2_desc">Капучіно, лате, флет-вайт</p>
-                                    </div>
-                                </div>
-                                <div class="quiz-option" onclick="selectOption(this, 1, 'sweet')">
-                                    <span class="quiz-option-icon"><i class="fas fa-candy-cane" style="color:#ff69b4;"></i></span>
-                                    <div class="quiz-option-text">
-                                        <h4 data-i18n="quiz_page.q1_opt3_title">З молоком і цукром</h4>
-                                        <p data-i18n="quiz_page.q1_opt3_desc">Солодко та ніжно</p>
-                                    </div>
-                                </div>
-                            </div>
+                    <div class="quiz-option-v2" onclick="selectQuizOption(this, 1, 'sweet')">
+                        <div class="option-icon"><i class="fas fa-candy-cane"></i></div>
+                        <div class="option-content">
+                            <h4 data-i18n="quiz_page.q1_opt3_title">З молоком і цукром</h4>
+                            <p data-i18n="quiz_page.q1_opt3_desc">Солодко та ніжно</p>
                         </div>
-                        <div class="quiz-nav">
-                            <div></div>
-                            <button class="btn btn-primary" onclick="nextStep(1)" id="next-1" disabled
-                                data-i18n="quiz_page.btn_next">Далі <i class="fas fa-arrow-right"
-                                    style="margin-left:8px;"></i></button>
-                        </div>
+                        <div class="option-check"></div>
                     </div>
-
-                    <!-- Question 2 -->
-                    <div class="quiz-step" id="step-2" style="display:none;">
-                        <div class="quiz-content">
-                            <div class="quiz-question">
-                                <h2 data-i18n="quiz_page.q2_title">Які смаки вам подобаються?</h2>
-                                <p data-i18n="quiz_page.q2_subtitle">Оберіть улюблений профіль</p>
-                            </div>
-                            <div class="quiz-options">
-                                <div class="quiz-option" onclick="selectOption(this, 2, 'fruity')">
-                                    <span class="quiz-option-icon"><i class="fas fa-apple-alt" style="color:#e74c3c;"></i></span>
-                                    <div class="quiz-option-text">
-                                        <h4 data-i18n="quiz_page.q2_opt1_title">Фруктові, ягідні</h4>
-                                        <p data-i18n="quiz_page.q2_opt1_desc">Яскрава кислинка, свіжість</p>
-                                    </div>
-                                </div>
-                                <div class="quiz-option" onclick="selectOption(this, 2, 'chocolate')">
-                                    <span class="quiz-option-icon"><i class="fas fa-cookie" style="color:#8B4513;"></i></span>
-                                    <div class="quiz-option-text">
-                                        <h4 data-i18n="quiz_page.q2_opt2_title">Шоколадні, горіхові</h4>
-                                        <p data-i18n="quiz_page.q2_opt2_desc">Класичний, насичений смак</p>
-                                    </div>
-                                </div>
-                                <div class="quiz-option" onclick="selectOption(this, 2, 'floral')">
-                                    <span class="quiz-option-icon"><i class="fas fa-spa" style="color:#ff69b4;"></i></span>
-                                    <div class="quiz-option-text">
-                                        <h4 data-i18n="quiz_page.q2_opt3_title">Квіткові, чайні</h4>
-                                        <p data-i18n="quiz_page.q2_opt3_desc">Ніжний, делікатний аромат</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="quiz-nav">
-                            <button class="btn btn-back" onclick="prevStep(2)"><i class="fas fa-arrow-left"
-                                    style="margin-right:8px;"></i><span
-                                    data-i18n="quiz_page.btn_back">Назад</span></button>
-                            <button class="btn btn-primary" onclick="nextStep(2)" id="next-2" disabled
-                                data-i18n="quiz_page.btn_next">Далі <i class="fas fa-arrow-right"
-                                    style="margin-left:8px;"></i></button>
-                        </div>
-                    </div>
-
-                    <!-- Question 3 -->
-                    <div class="quiz-step" id="step-3" style="display:none;">
-                        <div class="quiz-content">
-                            <div class="quiz-question">
-                                <h2 data-i18n="quiz_page.q3_title">Як ви готуєте каву вдома?</h2>
-                                <p data-i18n="quiz_page.q3_subtitle">Від цього залежить рекомендація обсмажки</p>
-                            </div>
-                            <div class="quiz-options grid-2">
-                                <div class="quiz-option" onclick="selectOption(this, 3, 'espresso')">
-                                    <span class="quiz-option-icon"><i class="fas fa-coffee"
-                                            style="color:#8B4545;"></i></span>
-                                    <div class="quiz-option-text">
-                                        <h4 data-i18n="quiz_page.q3_opt1_title">Еспресо-машина</h4>
-                                        <p data-i18n="quiz_page.q3_opt1_desc">Автомат або ріжкова</p>
-                                    </div>
-                                </div>
-                                <div class="quiz-option" onclick="selectOption(this, 3, 'filter')">
-                                    <span class="quiz-option-icon"><i class="fas fa-mug-hot" style="color:#8B4545;"></i></span>
-                                    <div class="quiz-option-text">
-                                        <h4 data-i18n="quiz_page.q3_opt2_title">Пуровер / Кемекс</h4>
-                                        <p data-i18n="quiz_page.q3_opt2_desc">Фільтр-методи</p>
-                                    </div>
-                                </div>
-                                <div class="quiz-option" onclick="selectOption(this, 3, 'turka')">
-                                    <span class="quiz-option-icon"><i class="fas fa-fire"
-                                            style="color:#e74c3c;"></i></span>
-                                    <div class="quiz-option-text">
-                                        <h4 data-i18n="quiz_page.q3_opt3_title">Турка / Мока</h4>
-                                        <p data-i18n="quiz_page.q3_opt3_desc">Традиційний спосіб</p>
-                                    </div>
-                                </div>
-                                <div class="quiz-option" onclick="selectOption(this, 3, 'french')">
-                                    <span class="quiz-option-icon"><i class="fas fa-glass-cheers" style="color:#8B4545;"></i></span>
-                                    <div class="quiz-option-text">
-                                        <h4 data-i18n="quiz_page.q3_opt4_title">Френч-прес</h4>
-                                        <p data-i18n="quiz_page.q3_opt4_desc">Імерсійне заварювання</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="quiz-nav">
-                            <button class="btn btn-back" onclick="prevStep(3)"><i class="fas fa-arrow-left"
-                                    style="margin-right:8px;"></i><span
-                                    data-i18n="quiz_page.btn_back">Назад</span></button>
-                            <button class="btn btn-primary" onclick="nextStep(3)" id="next-3" disabled
-                                data-i18n="quiz_page.btn_next">Далі <i class="fas fa-arrow-right"
-                                    style="margin-left:8px;"></i></button>
-                        </div>
-                    </div>
-
-                    <!-- Question 4 -->
-                    <div class="quiz-step" id="step-4" style="display:none;">
-                        <div class="quiz-content">
-                            <div class="quiz-question">
-                                <h2 data-i18n="quiz_page.q4_title">Наскільки міцну каву ви любите?</h2>
-                                <p data-i18n="quiz_page.q4_subtitle">Це вплине на рекомендацію обсмажки</p>
-                            </div>
-                            <div class="quiz-options">
-                                <div class="quiz-option" onclick="selectOption(this, 4, 'light')">
-                                    <span class="quiz-option-icon"><i class="fas fa-sun" style="color:#f39c12;"></i></span>
-                                    <div class="quiz-option-text">
-                                        <h4 data-i18n="quiz_page.q4_opt1_title">Легка</h4>
-                                        <p data-i18n="quiz_page.q4_opt1_desc">М'який смак, більше кислинки</p>
-                                    </div>
-                                </div>
-                                <div class="quiz-option" onclick="selectOption(this, 4, 'medium')">
-                                    <span class="quiz-option-icon"><i class="fas fa-sun" style="color:#f39c12;"></i></span>
-                                    <div class="quiz-option-text">
-                                        <h4 data-i18n="quiz_page.q4_opt2_title">Збалансована</h4>
-                                        <p data-i18n="quiz_page.q4_opt2_desc">Золота середина</p>
-                                    </div>
-                                </div>
-                                <div class="quiz-option" onclick="selectOption(this, 4, 'strong')">
-                                    <span class="quiz-option-icon"><i class="fas fa-moon" style="color:#2c3e50;"></i></span>
-                                    <div class="quiz-option-text">
-                                        <h4 data-i18n="quiz_page.q4_opt3_title">Насичена</h4>
-                                        <p data-i18n="quiz_page.q4_opt3_desc">Щільне тіло, мінімум кислинки</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="quiz-nav">
-                            <button class="btn btn-back" onclick="prevStep(4)"><i class="fas fa-arrow-left"
-                                    style="margin-right:8px;"></i><span
-                                    data-i18n="quiz_page.btn_back">Назад</span></button>
-                            <button class="btn btn-primary" onclick="nextStep(4)" id="next-4" disabled
-                                data-i18n="quiz_page.btn_next">Далі <i class="fas fa-arrow-right"
-                                    style="margin-left:8px;"></i></button>
-                        </div>
-                    </div>
-
-                    <!-- Question 5 -->
-                    <div class="quiz-step" id="step-5" style="display:none;">
-                        <div class="quiz-content">
-                            <div class="quiz-question">
-                                <h2 data-i18n="quiz_page.q5_title">Як часто ви п'єте каву?</h2>
-                                <p data-i18n="quiz_page.q5_subtitle">Допоможе підібрати обсяг</p>
-                            </div>
-                            <div class="quiz-options">
-                                <div class="quiz-option" onclick="selectOption(this, 5, 'rare')">
-                                    <span class="quiz-option-icon"><i class="fas fa-coffee" style="color:#8B4545;"></i></span>
-                                    <div class="quiz-option-text">
-                                        <h4 data-i18n="quiz_page.q5_opt1_title">1 чашка на день</h4>
-                                        <p data-i18n="quiz_page.q5_opt1_desc">250г вистачить на 2 тижні</p>
-                                    </div>
-                                </div>
-                                <div class="quiz-option" onclick="selectOption(this, 5, 'regular')">
-                                    <span class="quiz-option-icon"><i class="fas fa-coffee" style="color:#8B4545;"></i></span>
-                                    <div class="quiz-option-text">
-                                        <h4 data-i18n="quiz_page.q5_opt2_title">2-3 чашки на день</h4>
-                                        <p data-i18n="quiz_page.q5_opt2_desc">500г вистачить на 2 тижні</p>
-                                    </div>
-                                </div>
-                                <div class="quiz-option" onclick="selectOption(this, 5, 'addict')">
-                                    <span class="quiz-option-icon"><i class="fas fa-coffee"
-                                            style="color:#8B4545;"></i></span>
-                                    <div class="quiz-option-text">
-                                        <h4 data-i18n="quiz_page.q5_opt3_title">4+ чашки на день</h4>
-                                        <p data-i18n="quiz_page.q5_opt3_desc">1кг вистачить на 2 тижні</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="quiz-nav">
-                            <button class="btn btn-back" onclick="prevStep(5)"><i class="fas fa-arrow-left"
-                                    style="margin-right:8px;"></i><span
-                                    data-i18n="quiz_page.btn_back">Назад</span></button>
-                            <button class="btn btn-primary" onclick="showResult()" id="next-5" disabled
-                                data-i18n="quiz_page.btn_result">Показати результат <i class="fas fa-magic"
-                                    style="margin-left:8px;"></i></button>
-                        </div>
-                    </div>
-
-                    <!-- Result -->
-                    <div class="quiz-step" id="step-result" style="display:none;">
-                        <div class="quiz-result">
-                            <div class="result-confetti"><i class="fas fa-gift"></i></div>
-                            <p class="result-title" data-i18n="quiz_page.result_title">Ваша ідеальна кава:</p>
-                            <h2 class="result-coffee-name" data-i18n="quiz_page.result_coffee_name">Yirgacheffe Natural
-                            </h2>
-
-                            <div class="result-card">
-                                <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=300"
-                                    alt="Yirgacheffe">
-                                <div class="result-meta">
-                                    <span><i class="fas fa-map-marker-alt"></i> <span
-                                            data-i18n="quiz_page.result_region">Регіон</span> Gedeo</span>
-                                    <span><i class="fas fa-fire"></i> <span data-i18n="quiz_page.result_roast">Світла
-                                            обсмажка</span></span>
-                                    <span><i class="fas fa-star"></i> 87 <span data-i18n="quiz_page.result_sca">балів
-                                            SCA</span></span>
-                                </div>
-                                <div class="result-tags">
-                                    <span class="result-tag"><i class="fas fa-apple-alt" style="color:#e74c3c;"></i> <span
-                                            data-i18n="quiz_page.taste_strawberry">Полуниця</span></span>
-                                    <span class="result-tag"><i class="fas fa-circle" style="color:#4169e1;"></i> <span
-                                            data-i18n="quiz_page.taste_blueberry">Чорниця</span></span>
-                                    <span class="result-tag"><i class="fas fa-spa" style="color:#ff69b4;"></i> <span
-                                            data-i18n="quiz_page.taste_jasmine">Жасмін</span></span>
-                                </div>
-                                <div class="result-price">
-                                    <span class="result-old-price">290₴</span>
-                                    <span class="result-new-price">261₴</span>
-                                    <span class="result-discount">-10%</span>
-                                </div>
-                            </div>
-
-                            <div class="result-actions">
-                                <a href="shop.html" class="btn btn-primary">
-                                    <i class="fas fa-shopping-cart" style="margin-right:10px;"></i>
-                                    <span data-i18n="quiz_page.result_order">Замовити зі знижкою</span>
-                                </a>
-                                <a href="#" onclick="restartQuiz(); return false;" style="color:var(--text-muted);">
-                                    <i class="fas fa-redo" style="margin-right:5px;"></i> <span
-                                        data-i18n="quiz_page.result_restart">Пройти тест знову</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
+                </div>
+                <div class="auto-advance">
+                    <i class="fas fa-magic"></i> <span data-i18n="quiz.auto">Автоперехід після вибору</span>
                 </div>
             </div>
-        </section>
+
+            <!-- Question 2 -->
+            <div class="quiz-card" id="step-2" style="display: none;">
+                <div class="quiz-card-header">
+                    <span class="question-number"><i class="fas fa-question"></i> <span
+                            data-i18n="quiz.question">Питання</span> 2/5</span>
+                    <h2 data-i18n="quiz_page.q2_title">Які смаки вам подобаються?</h2>
+                    <p data-i18n="quiz_page.q2_subtitle">Оберіть улюблений профіль</p>
+                </div>
+                <div class="quiz-options-v2">
+                    <div class="quiz-option-v2" onclick="selectQuizOption(this, 2, 'fruity')">
+                        <div class="option-icon"><i class="fas fa-apple-alt"></i></div>
+                        <div class="option-content">
+                            <h4 data-i18n="quiz_page.q2_opt1_title">Фруктові, ягідні</h4>
+                            <p data-i18n="quiz_page.q2_opt1_desc">Яскрава кислинка, свіжість</p>
+                        </div>
+                        <div class="option-check"></div>
+                    </div>
+                    <div class="quiz-option-v2" onclick="selectQuizOption(this, 2, 'chocolate')">
+                        <div class="option-icon"><i class="fas fa-cookie"></i></div>
+                        <div class="option-content">
+                            <h4 data-i18n="quiz_page.q2_opt2_title">Шоколадні, горіхові</h4>
+                            <p data-i18n="quiz_page.q2_opt2_desc">Класичний, насичений смак</p>
+                        </div>
+                        <div class="option-check"></div>
+                    </div>
+                    <div class="quiz-option-v2" onclick="selectQuizOption(this, 2, 'floral')">
+                        <div class="option-icon"><i class="fas fa-spa"></i></div>
+                        <div class="option-content">
+                            <h4 data-i18n="quiz_page.q2_opt3_title">Квіткові, чайні</h4>
+                            <p data-i18n="quiz_page.q2_opt3_desc">Ніжний, делікатний аромат</p>
+                        </div>
+                        <div class="option-check"></div>
+                    </div>
+                </div>
+                <div class="auto-advance">
+                    <i class="fas fa-magic"></i> <span data-i18n="quiz.auto">Автоперехід після вибору</span>
+                </div>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="quiz-card" id="step-3" style="display: none;">
+                <div class="quiz-card-header">
+                    <span class="question-number"><i class="fas fa-question"></i> <span
+                            data-i18n="quiz.question">Питання</span> 3/5</span>
+                    <h2 data-i18n="quiz_page.q3_title">Як ви готуєте каву вдома?</h2>
+                    <p data-i18n="quiz_page.q3_subtitle">Від цього залежить рекомендація</p>
+                </div>
+                <div class="quiz-options-v2">
+                    <div class="quiz-option-v2" onclick="selectQuizOption(this, 3, 'espresso')">
+                        <div class="option-icon"><i class="fas fa-coffee"></i></div>
+                        <div class="option-content">
+                            <h4 data-i18n="quiz_page.q3_opt1_title">Еспресо-машина</h4>
+                            <p data-i18n="quiz_page.q3_opt1_desc">Автомат або ріжкова</p>
+                        </div>
+                        <div class="option-check"></div>
+                    </div>
+                    <div class="quiz-option-v2" onclick="selectQuizOption(this, 3, 'filter')">
+                        <div class="option-icon"><i class="fas fa-mug-hot"></i></div>
+                        <div class="option-content">
+                            <h4 data-i18n="quiz_page.q3_opt2_title">Пуровер / Кемекс</h4>
+                            <p data-i18n="quiz_page.q3_opt2_desc">Фільтр-методи</p>
+                        </div>
+                        <div class="option-check"></div>
+                    </div>
+                    <div class="quiz-option-v2" onclick="selectQuizOption(this, 3, 'turka')">
+                        <div class="option-icon"><i class="fas fa-fire-alt"></i></div>
+                        <div class="option-content">
+                            <h4 data-i18n="quiz_page.q3_opt3_title">Турка / Мока</h4>
+                            <p data-i18n="quiz_page.q3_opt3_desc">Традиційний спосіб</p>
+                        </div>
+                        <div class="option-check"></div>
+                    </div>
+                    <div class="quiz-option-v2" onclick="selectQuizOption(this, 3, 'french')">
+                        <div class="option-icon"><i class="fas fa-blender"></i></div>
+                        <div class="option-content">
+                            <h4 data-i18n="quiz_page.q3_opt4_title">Френч-прес</h4>
+                            <p data-i18n="quiz_page.q3_opt4_desc">Імерсійне заварювання</p>
+                        </div>
+                        <div class="option-check"></div>
+                    </div>
+                </div>
+                <div class="auto-advance">
+                    <i class="fas fa-magic"></i> <span data-i18n="quiz.auto">Автоперехід після вибору</span>
+                </div>
+            </div>
+
+            <!-- Question 4 -->
+            <div class="quiz-card" id="step-4" style="display: none;">
+                <div class="quiz-card-header">
+                    <span class="question-number"><i class="fas fa-question"></i> <span
+                            data-i18n="quiz.question">Питання</span> 4/5</span>
+                    <h2 data-i18n="quiz_page.q4_title">Наскільки міцну каву ви любите?</h2>
+                    <p data-i18n="quiz_page.q4_subtitle">Це вплине на рекомендацію обсмажки</p>
+                </div>
+                <div class="quiz-options-v2">
+                    <div class="quiz-option-v2" onclick="selectQuizOption(this, 4, 'light')">
+                        <div class="option-icon"><i class="fas fa-sun"></i></div>
+                        <div class="option-content">
+                            <h4 data-i18n="quiz_page.q4_opt1_title">Легка</h4>
+                            <p data-i18n="quiz_page.q4_opt1_desc">М'який смак, більше кислинки</p>
+                        </div>
+                        <div class="option-check"></div>
+                    </div>
+                    <div class="quiz-option-v2" onclick="selectQuizOption(this, 4, 'medium')">
+                        <div class="option-icon"><i class="fas fa-balance-scale"></i></div>
+                        <div class="option-content">
+                            <h4 data-i18n="quiz_page.q4_opt2_title">Збалансована</h4>
+                            <p data-i18n="quiz_page.q4_opt2_desc">Золота середина</p>
+                        </div>
+                        <div class="option-check"></div>
+                    </div>
+                    <div class="quiz-option-v2" onclick="selectQuizOption(this, 4, 'strong')">
+                        <div class="option-icon"><i class="fas fa-moon"></i></div>
+                        <div class="option-content">
+                            <h4 data-i18n="quiz_page.q4_opt3_title">Насичена</h4>
+                            <p data-i18n="quiz_page.q4_opt3_desc">Щільне тіло, мінімум кислинки</p>
+                        </div>
+                        <div class="option-check"></div>
+                    </div>
+                </div>
+                <div class="auto-advance">
+                    <i class="fas fa-magic"></i> <span data-i18n="quiz.auto">Автоперехід після вибору</span>
+                </div>
+            </div>
+
+            <!-- Question 5 -->
+            <div class="quiz-card" id="step-5" style="display: none;">
+                <div class="quiz-card-header">
+                    <span class="question-number"><i class="fas fa-question"></i> <span
+                            data-i18n="quiz.question">Питання</span> 5/5</span>
+                    <h2 data-i18n="quiz_page.q5_title">Як часто ви п'єте каву?</h2>
+                    <p data-i18n="quiz_page.q5_subtitle">Допоможе підібрати обсяг</p>
+                </div>
+                <div class="quiz-options-v2">
+                    <div class="quiz-option-v2" onclick="selectQuizOption(this, 5, 'rare')">
+                        <div class="option-icon"><i class="fas fa-coffee"></i></div>
+                        <div class="option-content">
+                            <h4 data-i18n="quiz_page.q5_opt1_title">1 чашка на день</h4>
+                            <p data-i18n="quiz_page.q5_opt1_desc">250г вистачить на 2 тижні</p>
+                        </div>
+                        <div class="option-check"></div>
+                    </div>
+                    <div class="quiz-option-v2" onclick="selectQuizOption(this, 5, 'regular')">
+                        <div class="option-icon"><i class="fas fa-mug-hot"></i></div>
+                        <div class="option-content">
+                            <h4 data-i18n="quiz_page.q5_opt2_title">2-3 чашки на день</h4>
+                            <p data-i18n="quiz_page.q5_opt2_desc">500г вистачить на 2 тижні</p>
+                        </div>
+                        <div class="option-check"></div>
+                    </div>
+                    <div class="quiz-option-v2" onclick="selectQuizOption(this, 5, 'addict')">
+                        <div class="option-icon"><i class="fas fa-fire"></i></div>
+                        <div class="option-content">
+                            <h4 data-i18n="quiz_page.q5_opt3_title">4+ чашки на день</h4>
+                            <p data-i18n="quiz_page.q5_opt3_desc">1кг вистачить на 2 тижні</p>
+                        </div>
+                        <div class="option-check"></div>
+                    </div>
+                </div>
+                <div class="auto-advance">
+                    <i class="fas fa-gift" style="animation: none;"></i> <span data-i18n="quiz.final">Фінальний
+                        крок!</span>
+                </div>
+            </div>
+
+            <!-- Result -->
+            <div class="quiz-result-v2" id="step-result" style="display: none;">
+                <div class="result-confetti-icon"><i class="fas fa-gift" style="color: #d4a574;"></i></div>
+                <div class="result-match"><i class="fas fa-check-circle"></i> <span
+                        data-i18n="quiz_page.result_match">98% відповідність вашим уподобанням</span></div>
+                <h2 class="result-coffee-name" data-i18n="quiz_page.result_coffee_name">Yirgacheffe Natural</h2>
+
+                <div class="result-image-box">
+                    <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=300" alt="Yirgacheffe">
+                    <div class="result-details">
+                        <span class="result-detail"><i class="fas fa-map-marker-alt"></i> Gedeo, Ethiopia</span>
+                        <span class="result-detail"><i class="fas fa-fire-alt"></i> <span
+                                data-i18n="quiz_page.result_roast">Світла обсмажка</span></span>
+                        <span class="result-detail"><i class="fas fa-star"></i> 87 SCA</span>
+                    </div>
+                </div>
+
+                <div class="result-flavor-tags">
+                    <span class="flavor-tag"><i class="fas fa-apple-alt"></i> <span
+                            data-i18n="quiz_page.taste_strawberry">Полуниця</span></span>
+                    <span class="flavor-tag"><i class="fas fa-circle" style="font-size: 0.6rem;"></i> <span
+                            data-i18n="quiz_page.taste_blueberry">Чорниця</span></span>
+                    <span class="flavor-tag"><i class="fas fa-spa"></i> <span
+                            data-i18n="quiz_page.taste_jasmine">Жасмін</span></span>
+                </div>
+
+                <div class="result-price-block">
+                    <span class="result-price-old">290 ₴</span>
+                    <span class="result-price-new">261 ₴</span>
+                    <span class="result-discount-tag">-10%</span>
+                </div>
+
+                <div class="result-actions">
+                    <a href="shop.html" class="result-btn-buy">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span data-i18n="quiz_page.result_order">Замовити зі знижкою</span>
+                    </a>
+                    <a href="#" class="result-btn-retry" onclick="restartQuiz(); return false;">
+                        <i class="fas fa-redo"></i>
+                        <span data-i18n="quiz_page.result_restart">Пройти тест знову</span>
+                    </a>
+                </div>
+            </div>
+        </div>
     </main>
 
-    <!-- FLOATING CONTACTS -->
-    <!-- CART & MODALS -->
-    <div class="overlay"></div>
-    <div class="drawer">
-        <div class="drawer-header">
-            <h3><i class="fas fa-shopping-bag" style="margin-right:10px; color:var(--primary);"></i> <span
-                    data-i18n="cart.your_cart">Ваш кошик</span></h3>
-            <button onclick="closeDrawer()"
-                style="background:none;border:none;font-size:1.5rem;color:var(--text-dark);cursor:pointer;">&times;</button>
-        </div>
-        <div class="drawer-body" id="cart-list"></div>
-        <div class="drawer-footer">
-            <!-- Free Shipping Progress Bar -->
-            <div class="free-shipping-progress" id="drawer-shipping-progress">
-                <div class="progress-bar">
-                    <div class="progress-fill" id="drawer-progress-fill" style="width: 0%;"></div>
-                </div>
-                <p class="progress-text" id="drawer-progress-text">
-                    <i class="fas fa-truck"></i> <span data-i18n="cart.free_shipping_progress">До безкоштовної
-                        доставки:</span> <strong>500 ₴</strong>
-                </p>
-            </div>
-
-            <div style="display:flex; justify-content:space-between; margin-bottom:15px; font-size:1.1rem;">
-                <span data-i18n="cart.subtotal">Разом:</span>
-                <span id="cart-total" style="font-weight:700; color:var(--primary); font-size:1.3rem;">0 ₴</span>
-            </div>
-            <button class="btn btn-primary" style="width:100%;"><i class="fas fa-lock"></i> <span
-                    data-i18n="cart.checkout">Оформити замовлення</span></button>
-            <p style="text-align:center; margin-top:12px; font-size:0.8rem; color:var(--text-muted);">
-                <i class="fas fa-shield-alt"></i> <span data-i18n="cart.safe_payment">Безпечна оплата</span> • <i
-                    class="fas fa-undo"></i> <span data-i18n="cart.return_days">14 днів на повернення</span>
-            </p>
-        </div>
-    </div>
-
-    <div class="floating-contacts">
-        <a href="https://t.me/ethiodirect" class="float-btn telegram"><i class="fab fa-telegram-plane"></i></a>
-        <a href="tel:+380501234567" class="float-btn phone"><i class="fas fa-phone-alt"></i></a>
-    </div>
-
-    <!-- FOOTER -->
-    <!-- FOOTER -->
-    <footer class="footer-pro">
-        <div class="container">
-            <!-- Main Footer Content -->
-            <div class="footer-grid">
-                <!-- Column 1: Brand -->
-                <div class="footer-col">
-                    <h4 style="font-family:var(--font-heading); font-size:1.5rem; color:white; margin-bottom:20px;">
-                        <a href="index.html" style="text-decoration:none; color:white;">EthioDirect</a>
-                    </h4>
-                    <p style="color:#aaa; line-height:1.8; margin-bottom:20px;" data-i18n="footer.description">Ми
-                        доставляємо справжню specialty каву прямо з ефіопських ферм до вашого дому. Свіжа обсмажка,
-                        чесна ціна, любов до кави.</p>
-                    <div class="social-links">
-                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                        <a href="#" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
-                        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-                    </div>
-                </div>
-
-                <!-- Column 2: Shop -->
-                <div class="footer-col">
-                    <h4 data-i18n="footer.shop_title">Магазин</h4>
-                    <ul class="footer-links">
-                        <li><a href="shop.html" data-i18n="footer.catalog">Весь каталог</a></li>
-                        <li><a href="subscription.html" data-i18n="footer.subscription">Підписка на каву</a></li>
-                        <li><a href="gift-certificates.html" data-i18n="nav.certificates">Сертифікати</a></li>
-                        <li><a href="b2b.html" data-i18n="footer.b2b">B2B рішення</a></li>
-                        <li><a href="account.html" data-i18n="footer.account">Особистий кабінет</a></li>
-                    </ul>
-                </div>
-
-                <!-- Column 3: Support -->
-                <div class="footer-col">
-                    <h4 data-i18n="footer.support_title">Підтримка</h4>
-                    <ul class="footer-links">
-                        <li><a href="delivery.html" data-i18n="footer.delivery">Доставка та оплата</a></li>
-                        <li><a href="return.html" data-i18n="footer.return">Повернення та обмін</a></li>
-                        <li><a href="faq.html" data-i18n="footer.faq">Часті питання</a></li>
-                        <li><a href="contacts.html" data-i18n="footer.contacts">Контакти</a></li>
-                        <li><a href="about.html" data-i18n="nav.about">Про нас</a></li>
-                    </ul>
-                </div>
-
-                <!-- Column 4: Contacts -->
-                <div class="footer-col">
-                    <h4 data-i18n="footer.contacts_title">Контакти</h4>
-                    <ul class="footer-contacts">
-                        <li><i class="fas fa-phone"></i> <a href="tel:+380501234567">+380 (50) 123-45-67</a></li>
-                        <li><i class="fas fa-envelope"></i> <a
-                                href="mailto:hello@ethiodirect.ua">hello@ethiodirect.ua</a>
-                        </li>
-                        <li><i class="fas fa-map-marker-alt"></i> <span data-i18n="footer.location">Одеса,
-                                Україна</span></li>
-                        <li><i class="fas fa-clock"></i> <span data-i18n="topbar.hours">Пн-Пт: 9:00-18:00</span></li>
-                    </ul>
-                </div>
-
-                <!-- Column 5: Newsletter -->
-                <div class="footer-col">
-                    <h4 data-i18n="footer.newsletter_title">Підписка на новини</h4>
-                    <p style="color:#aaa; margin-bottom:15px; font-size:0.9rem;" data-i18n="footer.newsletter_text">
-                        Отримуйте акції, новинки та поради щодо заварювання</p>
-                    <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
-                        <input type="email" placeholder="Ваш email"
-                            data-i18n-placeholder="footer.newsletter_placeholder" required>
-                        <button type="submit" class="btn-newsletter"
-                            data-i18n="footer.newsletter_cta">Підписатись</button>
-                    </form>
-                </div>
-            </div>
-
-            <!-- Trust Badges -->
-            <div class="footer-trust">
-                <div class="trust-badges">
-                    <div class="trust-badge">
-                        <i class="fas fa-shield-alt"></i>
-                        <div>
-                            <strong data-i18n="footer.badge_return_days">14 днів</strong>
-                            <span data-i18n="footer.badge_return">повернення</span>
-                        </div>
-                    </div>
-                    <div class="trust-badge">
-                        <i class="fas fa-coffee"></i>
-                        <div>
-                            <strong data-i18n="footer.badge_specialty">100% Specialty</strong>
-                            <span data-i18n="footer.badge_quality">якість зерна</span>
-                        </div>
-                    </div>
-                    <div class="trust-badge">
-                        <i class="fas fa-shipping-fast"></i>
-                        <div>
-                            <strong data-i18n="footer.badge_free">Безкоштовна</strong>
-                            <span data-i18n="footer.badge_shipping">доставка від 500₴</span>
-                        </div>
-                    </div>
-                    <div class="trust-badge">
-                        <i class="fas fa-fire"></i>
-                        <div>
-                            <strong data-i18n="footer.badge_fresh">Свіжа обсмажка</strong>
-                            <span data-i18n="footer.badge_days">до 3 днів</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Payment Methods -->
-            <div class="footer-payment">
-                <p style="color:#666; font-size:0.85rem; margin-bottom:15px;" data-i18n="footer.payment_methods">Способи
-                    оплати:</p>
-                <div class="payment-icons">
-                    <i class="fab fa-cc-visa" title="Visa"></i>
-                    <i class="fab fa-cc-mastercard" title="Mastercard"></i>
-                    <i class="fab fa-apple-pay" title="Apple Pay"></i>
-                    <i class="fab fa-google-pay" title="Google Pay"></i>
-                    <span class="payment-text">LiqPay</span>
-                </div>
-            </div>
-
-            <!-- Bottom Bar -->
-            <div class="footer-bottom">
-                <div class="footer-bottom-left">
-                    <p>&copy; 2025 EthioDirect. Всі права захищені.</p>
-                </div>
-                <div class="footer-bottom-right">
-                    <a href="privacy.html" data-i18n="footer.privacy">Політика конфіденційності</a>
-                    <span>·</span>
-                    <a href="return.html" data-i18n="footer.terms">Умови повернення</a>
-                    <span>·</span>
-                    <a href="#" data-i18n="footer.offer">Публічна оферта</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- TOAST -->
-    <div class="toast" id="toast">
-        <i class="fas fa-check-circle"></i>
-        <span id="toast-msg">Товар додано</span>
-    </div>
-
     <script src="js/main.js"></script>
+    <script src="js/i18n.js"></script>
     <script>
-        const answers = {};
+        // Quiz state
+        const quizState = {
+            currentStep: 1,
+            answers: {}
+        };
 
-        function selectOption(el, step, value) {
-            el.parentElement.querySelectorAll('.quiz-option').forEach(opt => opt.classList.remove('selected'));
-            el.classList.add('selected');
-            answers[step] = value;
-            document.getElementById('next-' + step).disabled = false;
+        function selectQuizOption(element, step, value) {
+            // Remove selected from siblings
+            const container = element.closest('.quiz-options-v2');
+            container.querySelectorAll('.quiz-option-v2').forEach(opt => opt.classList.remove('selected'));
+
+            // Add selected to this option
+            element.classList.add('selected');
+
+            // Store answer
+            quizState.answers[step] = value;
+
+            // Auto-advance after short delay
+            setTimeout(() => {
+                if (step < 5) {
+                    goToStep(step + 1);
+                } else {
+                    showQuizResult();
+                }
+            }, 600);
         }
 
-        function nextStep(current) {
-            document.getElementById('step-' + current).style.display = 'none';
-            document.getElementById('step-' + (current + 1)).style.display = 'block';
-            updateProgress(current + 1);
-        }
+        function goToStep(step) {
+            // Hide current
+            document.getElementById(`step-${quizState.currentStep}`).style.display = 'none';
 
-        function prevStep(current) {
-            document.getElementById('step-' + current).style.display = 'none';
-            document.getElementById('step-' + (current - 1)).style.display = 'block';
-            updateProgress(current - 1);
-        }
-
-        function updateProgress(step) {
-            // Update progress bar
-            document.getElementById('progress-fill').style.width = (step * 20) + '%';
-
-            // Update step indicators
-            document.querySelectorAll('.progress-step').forEach((el, i) => {
-                el.classList.remove('active', 'completed');
-                if (i + 1 < step) el.classList.add('completed');
-                if (i + 1 === step) el.classList.add('active');
+            // Update path
+            document.querySelectorAll('.path-step').forEach((el, index) => {
+                el.classList.remove('active');
+                if (index + 1 < step) {
+                    el.classList.add('completed');
+                } else if (index + 1 === step) {
+                    el.classList.add('active');
+                } else {
+                    el.classList.remove('completed');
+                }
             });
+
+            // Show new step
+            quizState.currentStep = step;
+            const newCard = document.getElementById(`step-${step}`);
+            newCard.style.display = 'block';
+            newCard.style.animation = 'none';
+            setTimeout(() => newCard.style.animation = 'cardSlideIn 0.5s ease-out', 10);
         }
 
-        function showResult() {
-            document.getElementById('step-5').style.display = 'none';
+        function showQuizResult() {
+            document.getElementById(`step-${quizState.currentStep}`).style.display = 'none';
+
+            // Mark all steps as completed
+            document.querySelectorAll('.path-step').forEach(el => {
+                el.classList.remove('active');
+                el.classList.add('completed');
+            });
+
+            // Show result
             document.getElementById('step-result').style.display = 'block';
-            document.getElementById('quiz-progress').style.display = 'none';
-            document.querySelector('.quiz-progress-bar').style.display = 'none';
-            // Apply translations to the newly visible result section
-            if (typeof setLanguage === 'function' && typeof getCurrentLanguage === 'function') {
-                setLanguage(getCurrentLanguage());
-            }
         }
 
         function restartQuiz() {
-            Object.keys(answers).forEach(k => delete answers[k]);
-            document.querySelectorAll('.quiz-option').forEach(opt => opt.classList.remove('selected'));
-            document.querySelectorAll('[id^="next-"]').forEach(btn => btn.disabled = true);
-            document.querySelectorAll('.quiz-step').forEach(step => step.style.display = 'none');
+            quizState.currentStep = 1;
+            quizState.answers = {};
+
+            // Reset path
+            document.querySelectorAll('.path-step').forEach((el, index) => {
+                el.classList.remove('completed');
+                if (index === 0) {
+                    el.classList.add('active');
+                } else {
+                    el.classList.remove('active');
+                }
+            });
+
+            // Reset all options
+            document.querySelectorAll('.quiz-option-v2').forEach(opt => opt.classList.remove('selected'));
+
+            // Hide result, show step 1
+            document.getElementById('step-result').style.display = 'none';
             document.getElementById('step-1').style.display = 'block';
-            document.getElementById('quiz-progress').style.display = 'flex';
-            document.querySelector('.quiz-progress-bar').style.display = 'block';
-            updateProgress(1);
         }
     </script>
-    <!-- New production i18n system -->
-    <script src="js/i18n.js"></script>
 </body>
 
 </html>
