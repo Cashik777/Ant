@@ -820,9 +820,11 @@ function renderMiniCart() {
     `).join('');
 
     if (store.cart.length > 3) {
+        const moreItems = store.cart.length - 3;
+        const moreText = t('cart.more_items') || `+ ${moreItems} more`;
         itemsContainer.innerHTML += `
             <div style="text-align: center; padding: 10px; color: var(--text-muted); font-size: 0.85rem;">
-                + ще ${store.cart.length - 3} товарів
+                ${moreText.replace('{count}', moreItems)}
             </div>
         `;
     }

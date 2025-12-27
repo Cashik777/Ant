@@ -34,7 +34,8 @@
         "free_shipping_progress": "До бесплатной доставки:",
         "free_shipping_done": "Бесплатная доставка!",
         "safe_payment": "Безопасная оплата",
-        "return_days": "14 дней на возврат"
+        "return_days": "14 дней на возврат",
+        "more_items": "+ ещё {count} товаров"
     },
     "footer": {
         "description": "Мы доставляем настоящий specialty кофе прямо с эфиопских ферм к вашему дому.",

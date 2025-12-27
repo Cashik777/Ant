@@ -34,7 +34,8 @@
         "free_shipping_progress": "Until free shipping:",
         "free_shipping_done": "Free shipping!",
         "safe_payment": "Secure Payment",
-        "return_days": "14-day returns"
+        "return_days": "14-day returns",
+        "more_items": "+ {count} more items"
     },
     "footer": {
         "description": "We deliver authentic specialty coffee directly from Ethiopian farms to your home.",
