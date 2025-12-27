@@ -63,6 +63,12 @@
         "result_title": "Ваш идеальный кофе",
         "result_discount": "Ваша скидка -10%",
         "result_order": "Заказать со скидкой",
-        "result_restart": "Пройти еще раз"
+        "result_restart": "Пройти еще раз",
+        "result_match": "98% соответствие вашим предпочтениям",
+        "result_coffee_name": "Yirgacheffe Natural",
+        "result_roast": "Светлая обжарка",
+        "taste_strawberry": "Клубника",
+        "taste_blueberry": "Черника",
+        "taste_jasmine": "Жасмин"
     }
 }

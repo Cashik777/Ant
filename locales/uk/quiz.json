@@ -63,6 +63,12 @@
         "result_title": "Ваша ідеальна кава",
         "result_discount": "Ваша знижка -10%",
         "result_order": "Замовити зі знижкою",
-        "result_restart": "Пройти ще раз"
+        "result_restart": "Пройти ще раз",
+        "result_match": "98% відповідність вашим уподобанням",
+        "result_coffee_name": "Yirgacheffe Natural",
+        "result_roast": "Світла обсмажка",
+        "taste_strawberry": "Полуниця",
+        "taste_blueberry": "Чорниця",
+        "taste_jasmine": "Жасмін"
     }
 }

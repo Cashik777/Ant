@@ -63,6 +63,12 @@
         "result_title": "Your Perfect Coffee",
         "result_discount": "Your discount -10%",
         "result_order": "Order with discount",
-        "result_restart": "Take quiz again"
+        "result_restart": "Take quiz again",
+        "result_match": "98% match with your preferences",
+        "result_coffee_name": "Yirgacheffe Natural",
+        "result_roast": "Light roast",
+        "taste_strawberry": "Strawberry",
+        "taste_blueberry": "Blueberry",
+        "taste_jasmine": "Jasmine"
     }
 }
