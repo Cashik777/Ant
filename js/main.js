@@ -304,15 +304,75 @@ function initUI() {
 function toggleMobileMenu() {
     const nav = document.getElementById('nav-mobile');
     const toggle = document.querySelector('.menu-toggle i');
-    if (nav) {
-        nav.classList.toggle('open');
+    const body = document.body;
+
+    if (!nav) return;
+
+    const isOpen = nav.classList.contains('open');
+
+    if (isOpen) {
+        // Close menu
+        closeMobileMenu();
+    } else {
+        // Open menu
+        nav.classList.add('open');
+        body.style.overflow = 'hidden'; // Prevent body scroll
+
+        // Create and show overlay
+        let overlay = document.querySelector('.nav-mobile-overlay');
+        if (!overlay) {
+            overlay = document.createElement('div');
+            overlay.className = 'nav-mobile-overlay';
+            document.body.appendChild(overlay);
+
+            // Close on overlay click
+            overlay.addEventListener('click', closeMobileMenu);
+        }
+        overlay.style.display = 'block';
+        setTimeout(() => overlay.classList.add('active'), 10);
+
+        // Update toggle icon
         if (toggle) {
-            toggle.classList.toggle('fa-bars');
-            toggle.classList.toggle('fa-times');
+            toggle.classList.remove('fa-bars');
+            toggle.classList.add('fa-times');
         }
     }
 }
+
+function closeMobileMenu() {
+    const nav = document.getElementById('nav-mobile');
+    const toggle = document.querySelector('.menu-toggle i');
+    const overlay = document.querySelector('.nav-mobile-overlay');
+    const body = document.body;
+
+    if (nav) {
+        nav.classList.remove('open');
+        body.style.overflow = ''; // Restore body scroll
+    }
+
+    if (overlay) {
+        overlay.classList.remove('active');
+        setTimeout(() => overlay.style.display = 'none', 300);
+    }
+
+    if (toggle) {
+        toggle.classList.remove('fa-times');
+        toggle.classList.add('fa-bars');
+    }
+}
+
+// Close mobile menu when clicking a link inside it
+document.addEventListener('DOMContentLoaded', () => {
+    const navMobile = document.getElementById('nav-mobile');
+    if (navMobile) {
+        navMobile.querySelectorAll('a:not(.nav-mobile-footer a)').forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+        });
+    }
+});
+
 window.toggleMobileMenu = toggleMobileMenu;
+window.closeMobileMenu = closeMobileMenu;
 
 function initPageLogic() {
     const path = window.location.pathname;
