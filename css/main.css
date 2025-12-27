@@ -2558,7 +2558,12 @@ img {
     color: var(--secondary);
 }
 
-.lang-switch.active {
+.lang-switch.active,
+.top-bar-right a.active,
+.top-bar-right button.active,
+.lang-btn.active,
+.language-switcher button.active,
+.language-switcher a.active {
     background: var(--primary);
     color: white;
 }

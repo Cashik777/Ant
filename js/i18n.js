@@ -368,9 +368,22 @@
          * Update language switcher buttons UI
          */
         updateLanguageButtons() {
+            const currentLang = this.currentLocale;
+
+            // Handle elements with data-lang attribute
             document.querySelectorAll('[data-lang]').forEach(btn => {
                 const btnLang = btn.getAttribute('data-lang');
-                btn.classList.toggle('active', btnLang === this.currentLocale);
+                btn.classList.toggle('active', btnLang === currentLang);
+            });
+
+            // Handle anchor/button elements with onclick setLanguage (for pages using older pattern)
+            document.querySelectorAll('.top-bar-right a, .top-bar-right button, .language-switcher a, .language-switcher button').forEach(btn => {
+                const onclickAttr = btn.getAttribute('onclick') || '';
+                const match = onclickAttr.match(/setLanguage\(['"](\w+)['"]\)/);
+                if (match) {
+                    const btnLang = match[1];
+                    btn.classList.toggle('active', btnLang === currentLang);
+                }
             });
         }
 
