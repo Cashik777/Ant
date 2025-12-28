@@ -891,7 +891,7 @@ function renderMiniCart() {
             <img src="${item.image}" alt="${item.name}">
             <div class="mini-cart-item-info">
                 <div class="mini-cart-item-name">${item.name}</div>
-                <div class="mini-cart-item-meta">${item.selectedWeight || 250}г</div>
+                <div class="mini-cart-item-meta">${item.selectedWeight || 250}${t('product.unit_g')}</div>
             </div>
             <div class="mini-cart-item-price">${item.price} ₴</div>
             <button class="mini-cart-item-remove" onclick="removeFromCart(${item.cartId}); event.stopPropagation();">×</button>
@@ -1019,14 +1019,14 @@ function renderCart() {
     list.innerHTML = '';
     store.cart.forEach(item => {
         sum += item.price;
-        const grindLabel = item.selectedGrind ? getGrindLabel(item.selectedGrind) : 'Зерно';
+        const grindLabel = item.selectedGrind ? getGrindLabel(item.selectedGrind) : t('product.whole_beans');
         list.innerHTML += `
         <div class="cart-item">
             <img src="${item.image}" alt="${item.name}">
             <div style="flex:1;">
                 <h4 style="font-size:0.95rem; margin-bottom:4px; font-weight:600;">${item.name}</h4>
                 <p style="margin:0; font-size:0.8rem; color:var(--text-muted);">
-                    ${item.selectedWeight || 250}г • ${grindLabel}
+                    ${item.selectedWeight || 250}${t('product.unit_g')} • ${grindLabel}
                 </p>
                 <p style="margin:5px 0 0; font-size:0.95rem; color:var(--primary); font-weight:700;">${item.price} ${store.currency}</p>
             </div>
@@ -1075,8 +1075,8 @@ const GRIND_OPTIONS = [
 ];
 
 function getGrindLabel(grindId) {
-    const option = GRIND_OPTIONS.find(g => g.id === grindId);
-    return option ? option.label : 'Зерно';
+    if (!grindId) return t('product.whole_beans');
+    return t('product.' + grindId);
 }
 
 /* --- DRAWER --- */
