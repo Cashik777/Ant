@@ -594,19 +594,51 @@ function createProductCard(p) {
     // Render Helpers for Beans
     const renderTasteBeans = (val) => {
         let html = '<div class="taste-beans">';
+
+        // Colors from reference
+        const beige = '#E6D7C3';  // Light/Empty
+        const brown = '#4E342E';  // Dark/Full
+
         for (let i = 1; i <= 5; i++) {
-            let fillClass = 'empty';
-            let style = 'fill: #e0e0e0;'; // Default empty gray
+            let fillStyle = '';
+            let strokeStyle = '';
 
             if (i <= Math.floor(val)) {
-                fillClass = 'full';
-                style = 'fill: var(--primary);';
+                // Full Bean: Dark Fill, Beige Stroke for contrast (matches 'negative' look or light cleft)
+                // Actually, to match the image perfectly where the outline is dark but cleft is light...
+                // We'd need a complex SVG. 
+                // APPROXIMATION: Dark Fill, Beige Stroke makes it visible.
+                fillStyle = `fill: ${brown};`;
+                strokeStyle = `stroke: ${beige};`;
             } else if (i === Math.ceil(val) && val % 1 !== 0) {
-                fillClass = 'half';
-                style = 'fill: url(#bean-gradient-half);';
+                // Fractional: Gradient Fill
+                const decimal = val % 1;
+                const percent = Math.round(decimal * 100);
+                const gradId = `grad-${p.id}-${i}`;
+
+                // Define gradient inline
+                const gradDef = `
+                <defs>
+                    <linearGradient id="${gradId}" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="${percent}%" style="stop-color:${brown};stop-opacity:1" />
+                        <stop offset="${percent}%" style="stop-color:${beige};stop-opacity:1" />
+                    </linearGradient>
+                </defs>`;
+
+                html += gradDef; // Inject def
+                fillStyle = `fill: url(#${gradId});`;
+                strokeStyle = `stroke: ${brown};`; // Keep dark outline for partial to define shape
+            } else {
+                // Empty Bean: Beige Fill, Dark Stroke
+                fillStyle = `fill: ${beige};`;
+                strokeStyle = `stroke: ${brown};`;
             }
 
-            html += `<svg class="bean-icon ${fillClass}" viewBox="0 0 24 24" width="16" height="16" style="${style}">
+            // Combine styles
+            // Note: stroke-width depends on icon size. 1.5px is good for 18px.
+            const style = `${fillStyle} ${strokeStyle} stroke-width:1.5px; stroke-linejoin:round;`;
+
+            html += `<svg class="bean-icon" viewBox="0 0 24 24" width="18" height="18" style="${style}">
                 <use href="#icon-bean"></use>
             </svg>`;
         }
@@ -1318,7 +1350,7 @@ function renderWizardStep() {
     let html = '';
     switch (wizardStep) {
         case 1:
-            html = `< h2 > Крок 1: Оберіть каву</h2 >
+            html = `<h2>Крок 1: Оберіть каву</h2>
     <div class="wizard-options">
         <div class="option-card ${wizardData.coffee === 'auto' ? 'selected' : ''}" onclick="setWizard('coffee','auto')">
             <i class="fas fa-magic"></i><div><h4>Автоматичний вибір</h4><p style="margin:0;font-size:0.9rem;">Обжарщик обирає найкраще</p></div>
@@ -1332,7 +1364,7 @@ function renderWizardStep() {
     </div>`;
             break;
         case 2:
-            html = `< h2 > Крок 2: Формат</h2 >
+            html = `<h2>Крок 2: Формат</h2>
     <div class="wizard-options">
         <div class="option-card ${wizardData.format === 'grain' ? 'selected' : ''}" onclick="setWizard('format','grain')">
             <i class="fas fa-circle"></i><div><h4>Зерно</h4></div>
@@ -1349,10 +1381,10 @@ function renderWizardStep() {
                     <div class="option-card ${wizardData.grind === 'turka' ? 'selected' : ''}" onclick="setWizard('grind','turka')"><i class="fas fa-fire"></i><div>Турка</div></div>
                 </div>
             ` : ''
-                } `;
+                }`;
             break;
         case 3:
-            html = `< h2 > Крок 3: Частота доставки</h2 >
+            html = `<h2>Крок 3: Частота доставки</h2>
     <div class="wizard-options">
         <div class="option-card ${wizardData.frequency === '2weeks' ? 'selected' : ''}" onclick="setWizard('frequency','2weeks')"><i class="fas fa-calendar-week"></i><div><h4>Раз на 2 тижні</h4></div></div>
         <div class="option-card ${wizardData.frequency === 'month' ? 'selected' : ''}" onclick="setWizard('frequency','month')"><i class="fas fa-calendar-alt"></i><div><h4>Раз на місяць</h4><span style="color:var(--secondary);font-size:0.8rem;">⭐ Найпопулярніше</span></div></div>
@@ -1360,7 +1392,7 @@ function renderWizardStep() {
     </div>`;
             break;
         case 4:
-            html = `< h2 > Крок 4: Підтвердження</h2 >
+            html = `<h2>Крок 4: Підтвердження</h2>
     <div style="background:#f9f9f9; padding:30px; border-radius:var(--radius); margin:20px 0;">
         <p><strong>Кава:</strong> ${wizardData.coffee === 'auto' ? 'Вибір обжарщика' : PRODUCTS.find(p => p.id === wizardData.coffee)?.name}</p>
         <p><strong>Формат:</strong> ${wizardData.format === 'grain' ? 'Зерно' : 'Молотий (' + wizardData.grind + ')'}</p>
@@ -1370,10 +1402,10 @@ function renderWizardStep() {
             break;
     }
 
-    html += `< div style = "display:flex; gap:15px; margin-top:30px; justify-content:center;" >
+    html += `<div style="display:flex; gap:15px; margin-top:30px; justify-content:center;">
     ${wizardStep > 1 ? '<button class="btn btn-outline" onclick="prevWizardStep()">Назад</button>' : ''}
         ${wizardStep < 4 ? '<button class="btn btn-primary" onclick="nextWizardStep()">Далі</button>' : '<button class="btn btn-primary" onclick="finishWizard()">Оформити підписку</button>'}
-    </div > `;
+    </div>`;
 
     container.innerHTML = html;
 }
