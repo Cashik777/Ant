@@ -1893,7 +1893,15 @@ window.ETHIO_TRANSLATIONS = {
       "reset_filters": "Скинути фільтри",
       "found": "Знайдено",
       "products_count": "товарів",
-      "clear_filters": "Скинути фільтри"
+      "clear_filters": "Скинути фільтри",
+      "product": {
+        "strength": "Крепкість",
+        "wishlist": "В обране",
+        "grind_beans": "Зерно",
+        "grind_espresso": "Еспресо",
+        "grind_filter": "Фільтр",
+        "grind_turka": "Турка"
+      }
     },
     "subscription": {
       "meta": {
@@ -3912,7 +3920,15 @@ window.ETHIO_TRANSLATIONS = {
       "reset_filters": "Сбросить фильтры",
       "found": "Найдено",
       "products_count": "товаров",
-      "clear_filters": "Сбросить фильтры"
+      "clear_filters": "Сбросить фильтры",
+      "product": {
+        "strength": "Крепость",
+        "wishlist": "В избранное",
+        "grind_beans": "Зерно",
+        "grind_espresso": "Эспрессо",
+        "grind_filter": "Фильтр",
+        "grind_turka": "Турка"
+      }
     },
     "subscription": {
       "meta": {
@@ -5931,7 +5947,15 @@ window.ETHIO_TRANSLATIONS = {
       "reset_filters": "Reset Filters",
       "found": "Found",
       "products_count": "products",
-      "clear_filters": "Clear Filters"
+      "clear_filters": "Clear Filters",
+      "product": {
+        "strength": "Strength",
+        "wishlist": "Add to Wishlist",
+        "grind_beans": "Whole Beans",
+        "grind_espresso": "Espresso",
+        "grind_filter": "Filter",
+        "grind_turka": "Turkish"
+      }
     },
     "subscription": {
       "meta": {

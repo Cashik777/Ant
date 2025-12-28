@@ -688,11 +688,19 @@ function renderSelectors(p, sel) {
     ).join('')}
     </div>
     <div class="grind-selector" data-product-id="${p.id}">
-        ${['beans', 'espresso', 'filter', 'turka'].map(g =>
-        `<button class="grind-btn ${sel.grind === g ? 'active' : ''}" onclick="selectGrind(${p.id}, '${g}')">
-                <i class="fas fa-${getGrindIcon(g)}"></i> ${tr('product.' + (g === 'beans' ? 'whole_beans' : g), g)}
-            </button>`
-    ).join('')}
+        ${['beans', 'espresso', 'filter', 'turka'].map(g => {
+        let label = '';
+        let icon = '';
+        switch (g) {
+            case 'beans': label = tr('product.grind_beans', 'Зерно'); icon = 'fa-seedling'; break;
+            case 'espresso': label = tr('product.grind_espresso', 'Еспресо'); icon = 'fa-mug-hot'; break;
+            case 'filter': label = tr('product.grind_filter', 'Фільтр'); icon = 'fa-filter'; break;
+            case 'turka': label = tr('product.grind_turka', 'Турка'); icon = 'fa-fire'; break;
+        }
+        return `<button class="grind-btn ${sel.grind === g ? 'active' : ''}" onclick="selectGrind(${p.id}, '${g}')" title="${label}">
+                <i class="fas ${icon}"></i> <span>${label}</span>
+            </button>`;
+    }).join('')}
     </div>`;
 }
 
@@ -703,7 +711,7 @@ function getGrindIcon(type) {
 
 // Wishlist toggle function
 function toggleWishlist(productId) {
-    const btn = document.querySelector(`.product-card[data-product-id="${productId}"] .p-wishlist i`);
+    const btn = document.querySelector(`.product - card[data - product - id="${productId}"] .p - wishlist i`);
     if (btn) {
         btn.classList.toggle('far');
         btn.classList.toggle('fas');
@@ -721,11 +729,11 @@ function selectWeight(productId, weight) {
     const oldPrice = p.oldPrices[weight];
 
     // Update price display
-    const priceEl = document.getElementById(`price-${productId}`);
+    const priceEl = document.getElementById(`price - ${productId} `);
     if (priceEl) priceEl.textContent = currentPrice + ' ₴';
 
     // Update old price
-    const card = document.querySelector(`[data-product-id="${productId}"]`);
+    const card = document.querySelector(`[data - product - id= "${productId}"]`);
     if (card) {
         const oldPriceEl = card.querySelector('.p-price-old');
         const economyEl = card.querySelector('.p-economy strong');
@@ -734,10 +742,10 @@ function selectWeight(productId, weight) {
     }
 
     // Update active button
-    const selector = document.querySelector(`.weight-selector[data-product-id="${productId}"]`);
+    const selector = document.querySelector(`.weight - selector[data - product - id="${productId}"]`);
     if (selector) {
         selector.querySelectorAll('.weight-btn').forEach(btn => btn.classList.remove('active'));
-        selector.querySelector(`.weight-btn:nth-child(${weight === 250 ? 1 : weight === 500 ? 2 : 3})`).classList.add('active');
+        selector.querySelector(`.weight - btn: nth - child(${weight === 250 ? 1 : weight === 500 ? 2 : 3})`).classList.add('active');
     }
 }
 
@@ -749,7 +757,7 @@ function changeQty(productId, delta) {
     if (newQty > 10) newQty = 10;
     productSelections[productId].qty = newQty;
 
-    const qtyEl = document.getElementById(`qty-${productId}`);
+    const qtyEl = document.getElementById(`qty - ${productId} `);
     if (qtyEl) qtyEl.textContent = newQty;
 }
 
@@ -759,10 +767,10 @@ function selectGrind(productId, grind) {
     productSelections[productId].grind = grind;
 
     // Update active button
-    const selector = document.querySelector(`.grind-selector[data-product-id="${productId}"]`);
+    const selector = document.querySelector(`.grind - selector[data - product - id="${productId}"]`);
     if (selector) {
         selector.querySelectorAll('.grind-btn').forEach(btn => btn.classList.remove('active'));
-        const activeBtn = selector.querySelector(`.grind-btn:nth-child(${grind === 'beans' ? 1 : grind === 'espresso' ? 2 : grind === 'filter' ? 3 : 4})`);
+        const activeBtn = selector.querySelector(`.grind - btn: nth - child(${grind === 'beans' ? 1 : grind === 'espresso' ? 2 : grind === 'filter' ? 3 : 4})`);
         if (activeBtn) activeBtn.classList.add('active');
     }
 }
@@ -799,12 +807,12 @@ function addToCartWithOptions(productId) {
     renderCart();
 
     const addedText = typeof t === 'function' ? t('product.added_to_cart') : 'Додано!';
-    showToast(`${p.name} (${sel.weight}г, ${grindLabel}) ${addedText}`);
+    showToast(`${p.name} (${sel.weight} г, ${grindLabel}) ${addedText} `);
     // openMiniCart(); // Disable auto-open to prevent obscuring view
 
     // Reset quantity after adding
     productSelections[productId].qty = 1;
-    const qtyEl = document.getElementById(`qty-${productId}`);
+    const qtyEl = document.getElementById(`qty - ${productId} `);
     if (qtyEl) qtyEl.textContent = '1';
 }
 
@@ -843,21 +851,21 @@ function handleSearch(query) {
 
     if (results.length === 0) {
         resultsContainer.innerHTML = `
-            <div style="padding: 20px; text-align: center; color: var(--text-muted);">
+    < div style = "padding: 20px; text-align: center; color: var(--text-muted);" >
                 <i class="fas fa-search" style="font-size: 2rem; margin-bottom: 10px; color: #ddd;"></i>
                 <p>Нічого не знайдено для "${query}"</p>
-            </div>
-        `;
+            </div >
+    `;
     } else {
         resultsContainer.innerHTML = results.map(p => `
-            <a href="product.html?id=${p.id}" class="search-result-item">
-                <img src="${p.image}" alt="${p.name}">
-                <div class="search-result-info">
-                    <div class="search-result-name">${p.name}</div>
-                    <div class="search-result-price">від ${p.prices[250]} ₴</div>
-                </div>
-            </a>
-        `).join('');
+    < a href = "product.html?id=${p.id}" class="search-result-item" >
+        <img src="${p.image}" alt="${p.name}">
+            <div class="search-result-info">
+                <div class="search-result-name">${p.name}</div>
+                <div class="search-result-price">від ${p.prices[250]} ₴</div>
+            </div>
+        </a>
+`).join('');
     }
 
     resultsContainer.classList.add('active');
@@ -887,17 +895,17 @@ function renderMiniCart() {
     const count = store.cart.length;
     if (countEl) {
         const word = count === 1 ? t('cart.items_single') : (count < 5 ? t('cart.items_few') : t('cart.items'));
-        countEl.textContent = `${count} ${word}`;
+        countEl.textContent = `${count} ${word} `;
     }
 
     if (count === 0) {
         itemsContainer.innerHTML = `
-            <div class="mini-cart-empty">
+    < div class="mini-cart-empty" >
                 <i class="fas fa-mug-hot"></i>
                 <p>${t('cart.empty')}</p>
                 <a href="shop.html" style="color: var(--primary); font-weight: 600;">${t('cart.to_catalog')}</a>
-            </div>
-        `;
+            </div >
+    `;
         if (footerEl) footerEl.style.display = 'none';
         return;
     }
@@ -910,28 +918,28 @@ function renderMiniCart() {
     store.cart.forEach(item => sum += item.price * item.qty);
 
     itemsContainer.innerHTML = displayItems.map(item => `
-        <div class="mini-cart-item">
-            <img src="${item.image}" alt="${item.name}">
+    < div class="mini-cart-item" >
+        <img src="${item.image}" alt="${item.name}">
             <div class="mini-cart-item-info">
                 <div class="mini-cart-item-name">${item.name}</div>
                 <div class="mini-cart-item-meta">
-                    ${item.selectedWeight || 250}${t('product.unit_g')} 
+                    ${item.selectedWeight || 250}${t('product.unit_g')}
                     ${item.qty > 1 ? `<span style="color:var(--primary); font-weight:bold; margin-left:4px;">x${item.qty}</span>` : ''}
                 </div>
             </div>
             <div class="mini-cart-item-price">${item.price} ₴</div>
             <button class="mini-cart-item-remove" onclick="removeFromCart(${item.cartId}); event.stopPropagation();" style="margin-left: auto;">&times;</button>
         </div>
-    `).join('');
+`).join('');
 
     if (store.cart.length > 3) {
         const moreItems = store.cart.length - 3;
         const moreText = t('cart.more_items') || `+ ${moreItems} more`;
         itemsContainer.innerHTML += `
-            <div style="text-align: center; padding: 10px; color: var(--text-muted); font-size: 0.85rem;">
-                ${moreText.replace('{count}', moreItems)}
-            </div>
-        `;
+    < div style = "text-align: center; padding: 10px; color: var(--text-muted); font-size: 0.85rem;" >
+        ${moreText.replace('{count}', moreItems)}
+            </div >
+    `;
     }
 
     // Calculate total quantity for badges
@@ -949,11 +957,11 @@ function renderMiniCart() {
     // Update shipping message
     if (shippingEl) {
         if (sum >= 500) {
-            shippingEl.innerHTML = `<i class="fas fa-check-circle"></i> ${t('cart.free_shipping_done')}`;
+            shippingEl.innerHTML = `< i class="fas fa-check-circle" ></i > ${t('cart.free_shipping_done')} `;
             shippingEl.style.color = 'var(--success)';
         } else {
             const remaining = 500 - sum;
-            shippingEl.innerHTML = `<i class="fas fa-truck"></i> ${t('cart.free_shipping_progress')} <strong>${remaining} ₴</strong>`;
+            shippingEl.innerHTML = `< i class="fas fa-truck" ></i > ${t('cart.free_shipping_progress')} <strong>${remaining} ₴</strong>`;
             shippingEl.style.color = '';
         }
     }
@@ -1066,12 +1074,12 @@ function renderCart() {
 
     if (store.cart.length === 0) {
         list.innerHTML = `
-            <div style="text-align:center; padding:40px 20px;">
+    < div style = "text-align:center; padding:40px 20px;" >
                 <i class="fas fa-mug-hot" style="font-size:3rem; color:#eee; margin-bottom:20px; display:block;"></i>
                 <p style="color:var(--text-muted); margin-bottom:20px;">${t('cart.empty')}</p>
                 <a href="shop.html" class="btn btn-primary btn-sm" onclick="closeDrawer();">${t('cart.to_catalog')}</a>
-            </div>
-        `;
+            </div >
+    `;
         if (total) total.innerText = '0 ' + store.currency;
         updateShippingProgress(0);
         renderMiniCart(); // Fix: Update mini-cart when empty
@@ -1084,8 +1092,8 @@ function renderCart() {
         sum += item.price * item.qty;
         const grindLabel = item.selectedGrind ? getGrindLabel(item.selectedGrind) : t('product.whole_beans');
         list.innerHTML += `
-        <div class="cart-item">
-            <img src="${item.image}" alt="${item.name}">
+    < div class="cart-item" >
+        <img src="${item.image}" alt="${item.name}">
             <div style="flex:1;">
                 <h4 style="font-size:0.95rem; margin-bottom:4px; font-weight:600;">${item.name}</h4>
                 <p style="margin:0; font-size:0.8rem; color:var(--text-muted);">
@@ -1122,12 +1130,12 @@ function updateShippingProgress(currentTotal) {
     progressFill.style.width = percentage + '%';
 
     if (currentTotal >= FREE_SHIPPING_THRESHOLD) {
-        progressText.innerHTML = `<i class="fas fa-check-circle"></i> <strong>${t('cart.free_shipping_done')}</strong>`;
+        progressText.innerHTML = `< i class="fas fa-check-circle" ></i > <strong>${t('cart.free_shipping_done')}</strong>`;
         progressText.classList.add('progress-complete');
         progressFill.style.background = 'linear-gradient(90deg, #3D5A40, #4CAF50)';
     } else {
         const remaining = FREE_SHIPPING_THRESHOLD - currentTotal;
-        progressText.innerHTML = `<i class="fas fa-truck"></i> ${t('cart.free_shipping_progress')} <strong>${remaining} ₴</strong>`;
+        progressText.innerHTML = `< i class="fas fa-truck" ></i > ${t('cart.free_shipping_progress')} <strong>${remaining} ₴</strong>`;
         progressText.classList.remove('progress-complete');
         progressFill.style.background = 'linear-gradient(90deg, var(--success), #4CAF50)';
     }
@@ -1184,7 +1192,7 @@ function renderQuizStep() {
     document.querySelector('.quiz-progress-bar').style.width = ((quizStep + 1) / QUIZ_QUESTIONS.length * 100) + '%';
 
     container.innerHTML = `
-        <div class="quiz-question">
+    < div class="quiz-question" >
             <h3 style="margin-bottom:10px;">Питання ${quizStep + 1} / ${QUIZ_QUESTIONS.length}</h3>
             <h2>${q.text}</h2>
             <div class="quiz-options">
@@ -1195,7 +1203,7 @@ function renderQuizStep() {
                     </div>
                 `).join('')}
             </div>
-        </div>
+        </div >
     `;
 }
 
@@ -1219,7 +1227,7 @@ function showQuizResult() {
         if (p.method.includes(method)) {
             scores[p.id].score += 30;
             const methodNames = { espresso: 'еспресо', filter: 'фільтру', turka: 'турки', french: 'френч-преса' };
-            scores[p.id].reasons.push(`Ідеально для ${methodNames[method] || method}`);
+            scores[p.id].reasons.push(`Ідеально для ${methodNames[method] || method} `);
         }
     });
 
@@ -1277,7 +1285,7 @@ function showQuizResult() {
 
     const container = document.getElementById('quiz-content');
     container.innerHTML = `
-        <div class="text-center" style="background:white; padding:50px; border-radius:var(--radius);">
+    < div class="text-center" style = "background:white; padding:50px; border-radius:var(--radius);" >
             <i class="fas fa-check-circle" style="font-size:4rem; color:var(--success); margin-bottom:20px;"></i>
             <h2>Ваша ідеальна кава:</h2>
             <h1 style="color:var(--primary); margin:20px 0;">${recommended.name}</h1>
@@ -1289,7 +1297,7 @@ function showQuizResult() {
                 <button class="btn btn-primary" onclick="addToCart(${recommended.id}); closeQuiz();">Додати в кошик — ${recommended.price}₴</button>
                 <a href="subscription.html?product=${recommended.id}" class="btn btn-secondary">Оформити підписку -10%</a>
             </div>
-        </div>
+        </div >
     `;
 }
 
@@ -1310,29 +1318,29 @@ function renderWizardStep() {
     let html = '';
     switch (wizardStep) {
         case 1:
-            html = `<h2>Крок 1: Оберіть каву</h2>
-            <div class="wizard-options">
-                <div class="option-card ${wizardData.coffee === 'auto' ? 'selected' : ''}" onclick="setWizard('coffee','auto')">
-                    <i class="fas fa-magic"></i><div><h4>Автоматичний вибір</h4><p style="margin:0;font-size:0.9rem;">Обжарщик обирає найкраще</p></div>
-                </div>
-                ${PRODUCTS.slice(0, 4).map(p => `
+            html = `< h2 > Крок 1: Оберіть каву</h2 >
+    <div class="wizard-options">
+        <div class="option-card ${wizardData.coffee === 'auto' ? 'selected' : ''}" onclick="setWizard('coffee','auto')">
+            <i class="fas fa-magic"></i><div><h4>Автоматичний вибір</h4><p style="margin:0;font-size:0.9rem;">Обжарщик обирає найкраще</p></div>
+        </div>
+        ${PRODUCTS.slice(0, 4).map(p => `
                     <div class="option-card ${wizardData.coffee === p.id ? 'selected' : ''}" onclick="setWizard('coffee',${p.id})">
                         <img src="${p.image}" style="width:50px;height:50px;border-radius:8px;">
                         <div><h4>${p.name}</h4><p style="margin:0;font-size:0.9rem;">${p.region}</p></div>
                     </div>
                 `).join('')}
-            </div>`;
+    </div>`;
             break;
         case 2:
-            html = `<h2>Крок 2: Формат</h2>
-            <div class="wizard-options">
-                <div class="option-card ${wizardData.format === 'grain' ? 'selected' : ''}" onclick="setWizard('format','grain')">
-                    <i class="fas fa-circle"></i><div><h4>Зерно</h4></div>
-                </div>
-                <div class="option-card ${wizardData.format === 'ground' ? 'selected' : ''}" onclick="setWizard('format','ground')">
-                    <i class="fas fa-mortar-pestle"></i><div><h4>Молотий</h4></div>
-                </div>
-            </div>
+            html = `< h2 > Крок 2: Формат</h2 >
+    <div class="wizard-options">
+        <div class="option-card ${wizardData.format === 'grain' ? 'selected' : ''}" onclick="setWizard('format','grain')">
+            <i class="fas fa-circle"></i><div><h4>Зерно</h4></div>
+        </div>
+        <div class="option-card ${wizardData.format === 'ground' ? 'selected' : ''}" onclick="setWizard('format','ground')">
+            <i class="fas fa-mortar-pestle"></i><div><h4>Молотий</h4></div>
+        </div>
+    </div>
             ${wizardData.format === 'ground' ? `
                 <h3 style="margin-top:30px;">Помол під:</h3>
                 <div class="wizard-options">
@@ -1340,31 +1348,32 @@ function renderWizardStep() {
                     <div class="option-card ${wizardData.grind === 'filter' ? 'selected' : ''}" onclick="setWizard('grind','filter')"><i class="fas fa-filter"></i><div>Фільтр</div></div>
                     <div class="option-card ${wizardData.grind === 'turka' ? 'selected' : ''}" onclick="setWizard('grind','turka')"><i class="fas fa-fire"></i><div>Турка</div></div>
                 </div>
-            ` : ''}`;
+            ` : ''
+                } `;
             break;
         case 3:
-            html = `<h2>Крок 3: Частота доставки</h2>
-            <div class="wizard-options">
-                <div class="option-card ${wizardData.frequency === '2weeks' ? 'selected' : ''}" onclick="setWizard('frequency','2weeks')"><i class="fas fa-calendar-week"></i><div><h4>Раз на 2 тижні</h4></div></div>
-                <div class="option-card ${wizardData.frequency === 'month' ? 'selected' : ''}" onclick="setWizard('frequency','month')"><i class="fas fa-calendar-alt"></i><div><h4>Раз на місяць</h4><span style="color:var(--secondary);font-size:0.8rem;">⭐ Найпопулярніше</span></div></div>
-                <div class="option-card ${wizardData.frequency === '2months' ? 'selected' : ''}" onclick="setWizard('frequency','2months')"><i class="fas fa-calendar"></i><div><h4>Раз на 2 місяці</h4></div></div>
-            </div>`;
+            html = `< h2 > Крок 3: Частота доставки</h2 >
+    <div class="wizard-options">
+        <div class="option-card ${wizardData.frequency === '2weeks' ? 'selected' : ''}" onclick="setWizard('frequency','2weeks')"><i class="fas fa-calendar-week"></i><div><h4>Раз на 2 тижні</h4></div></div>
+        <div class="option-card ${wizardData.frequency === 'month' ? 'selected' : ''}" onclick="setWizard('frequency','month')"><i class="fas fa-calendar-alt"></i><div><h4>Раз на місяць</h4><span style="color:var(--secondary);font-size:0.8rem;">⭐ Найпопулярніше</span></div></div>
+        <div class="option-card ${wizardData.frequency === '2months' ? 'selected' : ''}" onclick="setWizard('frequency','2months')"><i class="fas fa-calendar"></i><div><h4>Раз на 2 місяці</h4></div></div>
+    </div>`;
             break;
         case 4:
-            html = `<h2>Крок 4: Підтвердження</h2>
-            <div style="background:#f9f9f9; padding:30px; border-radius:var(--radius); margin:20px 0;">
-                <p><strong>Кава:</strong> ${wizardData.coffee === 'auto' ? 'Вибір обжарщика' : PRODUCTS.find(p => p.id === wizardData.coffee)?.name}</p>
-                <p><strong>Формат:</strong> ${wizardData.format === 'grain' ? 'Зерно' : 'Молотий (' + wizardData.grind + ')'}</p>
-                <p><strong>Частота:</strong> ${wizardData.frequency === '2weeks' ? 'Раз на 2 тижні' : wizardData.frequency === 'month' ? 'Раз на місяць' : 'Раз на 2 місяці'}</p>
-                <p style="font-size:1.5rem; color:var(--primary); font-weight:bold; margin-top:20px;">~380 ₴ / місяць</p>
-            </div>`;
+            html = `< h2 > Крок 4: Підтвердження</h2 >
+    <div style="background:#f9f9f9; padding:30px; border-radius:var(--radius); margin:20px 0;">
+        <p><strong>Кава:</strong> ${wizardData.coffee === 'auto' ? 'Вибір обжарщика' : PRODUCTS.find(p => p.id === wizardData.coffee)?.name}</p>
+        <p><strong>Формат:</strong> ${wizardData.format === 'grain' ? 'Зерно' : 'Молотий (' + wizardData.grind + ')'}</p>
+        <p><strong>Частота:</strong> ${wizardData.frequency === '2weeks' ? 'Раз на 2 тижні' : wizardData.frequency === 'month' ? 'Раз на місяць' : 'Раз на 2 місяці'}</p>
+        <p style="font-size:1.5rem; color:var(--primary); font-weight:bold; margin-top:20px;">~380 ₴ / місяць</p>
+    </div>`;
             break;
     }
 
-    html += `<div style="display:flex; gap:15px; margin-top:30px; justify-content:center;">
-        ${wizardStep > 1 ? '<button class="btn btn-outline" onclick="prevWizardStep()">Назад</button>' : ''}
+    html += `< div style = "display:flex; gap:15px; margin-top:30px; justify-content:center;" >
+    ${wizardStep > 1 ? '<button class="btn btn-outline" onclick="prevWizardStep()">Назад</button>' : ''}
         ${wizardStep < 4 ? '<button class="btn btn-primary" onclick="nextWizardStep()">Далі</button>' : '<button class="btn btn-primary" onclick="finishWizard()">Оформити підписку</button>'}
-    </div>`;
+    </div > `;
 
     container.innerHTML = html;
 }
@@ -1434,13 +1443,13 @@ function switchTab(tabName) {
     });
 
     // Show selected tab
-    document.getElementById(`tab-${tabName}`).style.display = 'block';
+    document.getElementById(`tab - ${tabName} `).style.display = 'block';
 
     // Update active link
     document.querySelectorAll('.dash-link').forEach(link => {
         link.classList.remove('active');
     });
-    document.querySelector(`.dash-link[data-tab="${tabName}"]`).classList.add('active');
+    document.querySelector(`.dash - link[data - tab="${tabName}"]`).classList.add('active');
 }
 
 function renderSubWidget(widgetId, isCompact) {
@@ -1462,34 +1471,34 @@ function renderSubWidget(widgetId, isCompact) {
 
     if (isCompact) {
         widget.innerHTML = `
-            <h3 style="margin-bottom:15px;">Моя підписка</h3>
+    < h3 style = "margin-bottom:15px;" > Моя підписка</h3 >
             <span class="status-badge ${statusClass}">${statusText}</span>
             <p style="margin-top:10px;"><strong>Наступна доставка:</strong> ${nextDate}</p>
             <a href="#" onclick="switchTab('subscription'); return false;" style="color:var(--primary); font-weight:600; margin-top:10px; display:inline-block;">Управління →</a>
-        `;
+`;
     } else {
         widget.innerHTML = `
-            <div style="display:flex; justify-content:space-between; align-items:start; margin-bottom:20px;">
-                <div>
-                    <span class="status-badge ${statusClass}">${statusText}</span>
-                    <h3 style="margin-top:15px;">Наступна доставка: ${nextDate}</h3>
-                    <p style="margin-top:10px; color:#666;">
-                        <strong>Кава:</strong> ${sub.coffee === 'auto' ? 'Вибір обжарщика' : 'Конкретний сорт'}<br>
-                        <strong>Формат:</strong> ${sub.format === 'grain' ? 'Зерно' : 'Молотий'}<br>
+    < div style = "display:flex; justify-content:space-between; align-items:start; margin-bottom:20px;" >
+        <div>
+            <span class="status-badge ${statusClass}">${statusText}</span>
+            <h3 style="margin-top:15px;">Наступна доставка: ${nextDate}</h3>
+            <p style="margin-top:10px; color:#666;">
+                <strong>Кава:</strong> ${sub.coffee === 'auto' ? 'Вибір обжарщика' : 'Конкретний сорт'}<br>
+                    <strong>Формат:</strong> ${sub.format === 'grain' ? 'Зерно' : 'Молотий'}<br>
                         <strong>Частота:</strong> ${sub.frequency === 'month' ? 'Раз на місяць' : sub.frequency === '2weeks' ? 'Раз на 2 тижні' : 'Раз на 2 місяці'}<br>
-                        <strong>Вартість:</strong> ${sub.price}₴
-                    </p>
+                            <strong>Вартість:</strong> ${sub.price}₴
+                        </p>
+                    </div>
                 </div>
-            </div>
-            <div style="display:flex; gap:10px; flex-wrap:wrap;">
-                ${sub.status === 'active'
+                <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                    ${sub.status === 'active'
                 ? '<button class="btn btn-outline btn-sm" onclick="pauseSub()">⏸️ Пауза</button>'
                 : '<button class="btn btn-outline btn-sm" onclick="resumeSub()">▶️ Відновити</button>'}
-                <button class="btn btn-outline btn-sm" onclick="skipDelivery()">⏭️ Пропустити доставку</button>
-                <button class="btn btn-outline btn-sm" onclick="changeSub()">✏️ Змінити</button>
-                <button class="btn btn-outline btn-sm" style="color:var(--error);" onclick="cancelSub()">❌ Скасувати</button>
-            </div>
-        `;
+                    <button class="btn btn-outline btn-sm" onclick="skipDelivery()">⏭️ Пропустити доставку</button>
+                    <button class="btn btn-outline btn-sm" onclick="changeSub()">✏️ Змінити</button>
+                    <button class="btn btn-outline btn-sm" style="color:var(--error);" onclick="cancelSub()">❌ Скасувати</button>
+                </div>
+                `;
     }
 }
 
@@ -1506,14 +1515,14 @@ function renderOrders() {
     }
 
     container.innerHTML = orders.slice(0, 3).map(order => `
-        <div style="padding:15px; border:1px solid #eee; border-radius:4px; margin-bottom:10px;">
-            <div style="display:flex; justify-content:space-between;">
-                <strong>${order.date}</strong>
-                <span style="color:var(--primary);">${order.total}₴</span>
-            </div>
-            <p style="margin:5px 0 0; color:#666;">${order.items}</p>
-        </div>
-    `).join('');
+                <div style="padding:15px; border:1px solid #eee; border-radius:4px; margin-bottom:10px;">
+                    <div style="display:flex; justify-content:space-between;">
+                        <strong>${order.date}</strong>
+                        <span style="color:var(--primary);">${order.total}₴</span>
+                    </div>
+                    <p style="margin:5px 0 0; color:#666;">${order.items}</p>
+                </div>
+                `).join('');
 }
 
 function renderDeliveryHistory() {
@@ -1527,15 +1536,15 @@ function renderDeliveryHistory() {
     ];
 
     container.innerHTML = `
-        <ul style="list-style:none; padding:0;">
-            ${history.map(h => `
+                <ul style="list-style:none; padding:0;">
+                    ${history.map(h => `
                 <li style="padding:12px 0; border-bottom:1px solid #f0f0f0;">
                     <strong>${h.date}</strong> — ${h.product} 
                     <span style="color:var(--success); margin-left:10px;">✓ ${h.status}</span>
                 </li>
             `).join('')}
-        </ul>
-    `;
+                </ul>
+                `;
 }
 
 function loadUserData() {
@@ -1643,14 +1652,14 @@ function openQuiz() {
     // Create Modal if not exists
     if (!document.getElementById('quiz-modal')) {
         const modalHTML = `
-        <div id="quiz-modal" class="modal-overlay" style="display:flex;">
-            <div class="quiz-card">
-                <button class="quiz-close" onclick="closeQuiz()">&times;</button>
-                <div id="quiz-content">
-                    <!-- Dynamic Content -->
-                </div>
-            </div>
-        </div>`;
+                <div id="quiz-modal" class="modal-overlay" style="display:flex;">
+                    <div class="quiz-card">
+                        <button class="quiz-close" onclick="closeQuiz()">&times;</button>
+                        <div id="quiz-content">
+                            <!-- Dynamic Content -->
+                        </div>
+                    </div>
+                </div>`;
         document.body.insertAdjacentHTML('beforeend', modalHTML);
     } else {
         document.getElementById('quiz-modal').style.display = 'flex';
@@ -1674,10 +1683,10 @@ function renderQuizStep() {
     }
 
     let html = `
-        <div class="quiz-step-indicator">Питання ${currentQuestionIndex + 1} з ${QUIZ_QUESTIONS.length}</div>
-        <h3 class="quiz-question">${q.text}</h3>
-        <div class="quiz-options">
-    `;
+                <div class="quiz-step-indicator">Питання ${currentQuestionIndex + 1} з ${QUIZ_QUESTIONS.length}</div>
+                <h3 class="quiz-question">${q.text}</h3>
+                <div class="quiz-options">
+                    `;
 
     q.options.forEach(opt => {
         html += `
@@ -1709,18 +1718,18 @@ function showQuizResult() {
     if (userAnswers[1] === 'espresso') recommendedProduct = PRODUCTS[3]; // Blend
 
     const html = `
-        <div class="quiz-result">
-            <div class="result-badge">98% Сумісність</div>
-            <h2>Ми знайшли ваш ідеал!</h2>
-            <img src="${recommendedProduct.image}" class="result-img" alt="${recommendedProduct.name}">
-            <h3>${recommendedProduct.name}</h3>
-            <p>${recommendedProduct.desc}</p>
-            <div class="result-actions">
-                <button class="btn btn-primary" onclick="addToCart(${recommendedProduct.id}); closeQuiz();">Спробувати зі знижкою 20%</button>
-                <button class="btn btn-secondary" onclick="closeQuiz()">Зберегти в профіль</button>
-            </div>
-        </div>
-    `;
+                <div class="quiz-result">
+                    <div class="result-badge">98% Сумісність</div>
+                    <h2>Ми знайшли ваш ідеал!</h2>
+                    <img src="${recommendedProduct.image}" class="result-img" alt="${recommendedProduct.name}">
+                        <h3>${recommendedProduct.name}</h3>
+                        <p>${recommendedProduct.desc}</p>
+                        <div class="result-actions">
+                            <button class="btn btn-primary" onclick="addToCart(${recommendedProduct.id}); closeQuiz();">Спробувати зі знижкою 20%</button>
+                            <button class="btn btn-secondary" onclick="closeQuiz()">Зберегти в профіль</button>
+                        </div>
+                </div>
+                `;
     container.innerHTML = html;
 }
 

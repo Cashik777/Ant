@@ -30,5 +30,13 @@
     "reset_filters": "Reset Filters",
     "found": "Found",
     "products_count": "products",
-    "clear_filters": "Clear Filters"
+    "clear_filters": "Clear Filters",
+    "product": {
+        "strength": "Strength",
+        "wishlist": "Add to Wishlist",
+        "grind_beans": "Whole Beans",
+        "grind_espresso": "Espresso",
+        "grind_filter": "Filter",
+        "grind_turka": "Turkish"
+    }
 }
