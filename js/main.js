@@ -906,7 +906,7 @@ function renderMiniCart() {
                 </div>
             </div>
             <div class="mini-cart-item-price">${item.price} ₴</div>
-            <button class="mini-cart-item-remove" onclick="removeFromCart(${item.cartId}); event.stopPropagation();">×</button>
+            <button class="mini-cart-item-remove" onclick="removeFromCart(${item.cartId}); event.stopPropagation();" style="margin-left: auto;">&times;</button>
         </div>
     `).join('');
 
@@ -1085,7 +1085,7 @@ function renderCart() {
             </div>
                 </p>
             </div>
-            <button onclick="removeFromCart(${item.cartId}); event.stopPropagation();" style="background:none; border:none; color:#999; cursor:pointer; font-size:1.3rem; padding:5px;" title="${t('cart.remove') || 'Remove'}">&times;</button>
+            <button onclick="removeFromCart(${item.cartId}); event.stopPropagation();" style="background:none; border:none; color:#999; cursor:pointer; font-size:1.3rem; padding:5px; margin-left: auto; align-self: flex-start;" title="${t('cart.remove') || 'Remove'}">&times;</button>
         </div>`;
     });
     if (total) total.innerText = sum + ' ' + store.currency;

@@ -135,11 +135,13 @@
     <!-- DRAWER CART -->
     <div class="overlay"></div>
     <div class="drawer">
-        <div class="drawer-header">
+        <div class="drawer-header" style="justify-content: flex-start; gap: 15px;">
+            <button onclick="closeDrawer()" title="Back"
+                style="background:none;border:none;font-size:1.2rem;color:var(--text-dark);cursor:pointer;">
+                <i class="fas fa-arrow-left"></i>
+            </button>
             <h3><i class="fas fa-shopping-bag" style="margin-right:10px; color:var(--primary);"></i> <span
                     data-i18n="cart.title">Ваш кошик</span></h3>
-            <button onclick="closeDrawer()"
-                style="background:none;border:none;font-size:1.5rem;color:var(--text-dark);cursor:pointer;">&times;</button>
         </div>
         <div class="drawer-body" id="cart-list"></div>
         <div class="drawer-footer">
