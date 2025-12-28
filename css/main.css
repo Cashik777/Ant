@@ -69,6 +69,17 @@ body {
     line-height: 1.7;
     overflow-x: hidden;
     padding-top: var(--header-height);
+    transition: padding-right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+body.drawer-open {
+    padding-right: 450px;
+    overflow: hidden;
+}
+
+body.drawer-open .header {
+    padding-right: 450px;
+    width: 100%;
 }
 
 h1,
@@ -181,6 +192,7 @@ img {
     z-index: 1000;
     display: flex;
     align-items: center;
+    transition: padding-right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .header-inner {
@@ -3026,10 +3038,18 @@ body {
 
 .cart-item {
     display: flex;
+    flex-flow: row nowrap;
+    /* Ensure single row */
     align-items: center;
+    justify-content: space-between;
     gap: 15px;
     padding: 15px 0;
     border-bottom: 1px solid rgba(42, 31, 10, 0.08);
+}
+
+.cart-item>button {
+    margin-left: auto;
+    flex-shrink: 0;
 }
 
 .cart-item img {

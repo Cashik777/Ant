@@ -1145,13 +1145,13 @@ function setupDrawer() {
 function openDrawer() {
     document.querySelector('.drawer')?.classList.add('open');
     document.querySelector('.overlay')?.classList.add('open');
-    document.body.style.overflow = 'hidden'; // Lock scroll
+    document.body.classList.add('drawer-open');
 }
 
 function closeDrawer() {
     document.querySelector('.drawer')?.classList.remove('open');
     document.querySelector('.overlay')?.classList.remove('open');
-    document.body.style.overflow = ''; // Unlock scroll
+    document.body.classList.remove('drawer-open');
 }
 
 /* --- QUIZ --- */
