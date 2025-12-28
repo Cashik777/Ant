@@ -630,8 +630,9 @@ function createProductCard(p) {
                     <ellipse cx="12" cy="12" rx="9" ry="10" fill="${CREAM}" clip-path="url(#${uid}-right)"/>
                     <!-- Outline -->
                     <ellipse cx="12" cy="12" rx="9" ry="10" fill="none" stroke="${OUTLINE}" stroke-width="1.2"/>
-                    <!-- S-curve cleft (light for better visibility) -->
-                    <path d="M12 2 Q7 7 12 12 Q17 17 12 22" fill="none" stroke="${CLEFT_LIGHT}" stroke-width="2" stroke-linecap="round"/>
+                    <!-- Two-toned S-curve cleft: dark on left edge, light on right edge -->
+                    <path d="M12 2 Q7 7 12 12 Q17 17 12 22" fill="none" stroke="${CLEFT_DARK}" stroke-width="3" stroke-linecap="round"/>
+                    <path d="M12 2 Q7 7 12 12 Q17 17 12 22" fill="none" stroke="${CLEFT_LIGHT}" stroke-width="1.5" stroke-linecap="round"/>
                 </svg>`;
             } else {
                 // EMPTY BEAN: Cream body, dark cleft
@@ -697,9 +698,6 @@ function createProductCard(p) {
                     <span class="qty-value" id="qty-${p.id}">${sel.qty}</span>
                     <button class="qty-btn" onclick="changeQty(${p.id}, 1)">+</button>
                 </div>
-                <button class="p-btn-wishlist" onclick="toggleWishlist(${p.id})" title="${tr('product.wishlist', 'В обране')}">
-                    <i class="far fa-heart"></i>
-                </button>
                 <button class="p-btn-add" onclick="addToCartWithOptions(${p.id})">
                     <i class="fas fa-shopping-cart"></i> ${labels.add}
                 </button>
