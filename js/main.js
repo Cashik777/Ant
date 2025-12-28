@@ -920,6 +920,16 @@ function renderMiniCart() {
         `;
     }
 
+    // Calculate total quantity for badges
+    const totalQty = store.cart.reduce((total, item) => total + item.qty, 0);
+
+    // Update all badge counters
+    document.querySelectorAll('.cart-count').forEach(el => {
+        el.textContent = totalQty;
+        el.style.display = totalQty > 0 ? 'flex' : 'none'; // Optional: hide if 0? User wants to see 0 maybe.
+        el.style.display = ''; // Reset display
+    });
+
     if (totalEl) totalEl.textContent = sum + ' ₴';
 
     // Update shipping message
@@ -1031,7 +1041,13 @@ function renderCart() {
     const total = document.getElementById('cart-total');
     const count = document.querySelector('.cart-count');
 
-    if (count) count.innerText = store.cart.length;
+    // Calculate total quantity including groups
+    const totalQty = store.cart.reduce((total, item) => total + item.qty, 0);
+
+    // Update all counts
+    document.querySelectorAll('.cart-count').forEach(el => el.innerText = totalQty);
+
+    if (count) count.innerText = totalQty; // Fallback for specific element
     if (!list) return;
 
     if (store.cart.length === 0) {
@@ -1066,7 +1082,9 @@ function renderCart() {
                     ${item.qty > 1 ? `<span style="font-size:0.8em; color:var(--text-muted); font-weight:normal;">(${item.price} ${store.currency}/${t('product.pcs')})</span>` : ''}
                 </p>
             </div>
-            <button onclick="removeFromCart(${item.cartId})" style="background:none; border:none; color:#999; cursor:pointer; font-size:1.3rem; padding:5px;">&times;</button>
+                </p>
+            </div>
+            <button onclick="removeFromCart(${item.cartId}); event.stopPropagation();" style="background:none; border:none; color:#999; cursor:pointer; font-size:1.3rem; padding:5px;" title="${t('cart.remove') || 'Remove'}">&times;</button>
         </div>`;
     });
     if (total) total.innerText = sum + ' ' + store.currency;
