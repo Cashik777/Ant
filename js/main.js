@@ -786,7 +786,7 @@ function addToCartWithOptions(productId) {
 
     const addedText = typeof t === 'function' ? t('product.added_to_cart') : 'Додано!';
     showToast(`${p.name} (${sel.weight}г, ${grindLabel}) ${addedText}`);
-    openMiniCart();
+    // openMiniCart(); // Disable auto-open to prevent obscuring view
 
     // Reset quantity after adding
     productSelections[productId].qty = 1;
@@ -1143,13 +1143,13 @@ function setupDrawer() {
 function openDrawer() {
     document.querySelector('.drawer')?.classList.add('open');
     document.querySelector('.overlay')?.classList.add('open');
-    document.body.classList.add('drawer-open');
+    document.body.style.overflow = 'hidden'; // Revert to scroll lock
 }
 
 function closeDrawer() {
     document.querySelector('.drawer')?.classList.remove('open');
     document.querySelector('.overlay')?.classList.remove('open');
-    document.body.classList.remove('drawer-open');
+    document.body.style.overflow = ''; // Unlock scroll
 }
 
 /* --- QUIZ --- */
