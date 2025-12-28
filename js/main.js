@@ -762,11 +762,20 @@ function addToCartWithOptions(productId) {
     const price = p.prices[sel.weight];
     const grindLabel = getGrindLabel(sel.grind);
 
-    for (let i = 0; i < sel.qty; i++) {
+    // Check if item already exists in cart with same options
+    const existingItem = store.cart.find(item =>
+        item.id === p.id &&
+        item.selectedWeight === sel.weight &&
+        item.selectedGrind === sel.grind
+    );
+
+    if (existingItem) {
+        existingItem.qty += sel.qty;
+    } else {
         store.cart.push({
             ...p,
-            cartId: Date.now() + i,
-            qty: 1,
+            cartId: Date.now(),
+            qty: sel.qty,
             selectedWeight: sel.weight,
             selectedGrind: sel.grind,
             price: price
@@ -884,14 +893,17 @@ function renderMiniCart() {
     // Show last 3 items
     const displayItems = store.cart.slice(-3).reverse();
     let sum = 0;
-    store.cart.forEach(item => sum += item.price);
+    store.cart.forEach(item => sum += item.price * item.qty);
 
     itemsContainer.innerHTML = displayItems.map(item => `
         <div class="mini-cart-item">
             <img src="${item.image}" alt="${item.name}">
             <div class="mini-cart-item-info">
                 <div class="mini-cart-item-name">${item.name}</div>
-                <div class="mini-cart-item-meta">${item.selectedWeight || 250}${t('product.unit_g')}</div>
+                <div class="mini-cart-item-meta">
+                    ${item.selectedWeight || 250}${t('product.unit_g')} 
+                    ${item.qty > 1 ? `<span style="color:var(--primary); font-weight:bold; margin-left:4px;">x${item.qty}</span>` : ''}
+                </div>
             </div>
             <div class="mini-cart-item-price">${item.price} ₴</div>
             <button class="mini-cart-item-remove" onclick="removeFromCart(${item.cartId}); event.stopPropagation();">×</button>
@@ -983,7 +995,27 @@ function addToCart(id) {
     const p = PRODUCTS.find(x => x.id === id);
     if (!p) return;
     const price = p.prices ? p.prices[250] : p.price;
-    store.cart.push({ ...p, cartId: Date.now(), qty: 1, selectedWeight: 250, price: price });
+
+    // Check for existing item (default: 250g, beans)
+    const existingItem = store.cart.find(item =>
+        item.id === p.id &&
+        item.selectedWeight === 250 &&
+        item.selectedGrind === 'beans'
+    );
+
+    if (existingItem) {
+        existingItem.qty += 1;
+    } else {
+        store.cart.push({
+            ...p,
+            cartId: Date.now(),
+            qty: 1,
+            selectedWeight: 250,
+            selectedGrind: 'beans',
+            price: price
+        });
+    }
+
     renderCart();
     showToast(`${p.name} додано в кошик!`);
     openMiniCart();
@@ -1018,7 +1050,7 @@ function renderCart() {
     let sum = 0;
     list.innerHTML = '';
     store.cart.forEach(item => {
-        sum += item.price;
+        sum += item.price * item.qty;
         const grindLabel = item.selectedGrind ? getGrindLabel(item.selectedGrind) : t('product.whole_beans');
         list.innerHTML += `
         <div class="cart-item">
@@ -1027,8 +1059,12 @@ function renderCart() {
                 <h4 style="font-size:0.95rem; margin-bottom:4px; font-weight:600;">${item.name}</h4>
                 <p style="margin:0; font-size:0.8rem; color:var(--text-muted);">
                     ${item.selectedWeight || 250}${t('product.unit_g')} • ${grindLabel}
+                    ${item.qty > 1 ? `<span style="color:var(--primary); font-weight:bold; margin-left:5px;">x${item.qty}</span>` : ''}
                 </p>
-                <p style="margin:5px 0 0; font-size:0.95rem; color:var(--primary); font-weight:700;">${item.price} ${store.currency}</p>
+                <p style="margin:5px 0 0; font-size:0.95rem; color:var(--primary); font-weight:700;">
+                    ${item.price * item.qty} ${store.currency}
+                    ${item.qty > 1 ? `<span style="font-size:0.8em; color:var(--text-muted); font-weight:normal;">(${item.price} ${store.currency}/${t('product.pcs')})</span>` : ''}
+                </p>
             </div>
             <button onclick="removeFromCart(${item.cartId})" style="background:none; border:none; color:#999; cursor:pointer; font-size:1.3rem; padding:5px;">&times;</button>
         </div>`;
@@ -1090,11 +1126,13 @@ function setupDrawer() {
 function openDrawer() {
     document.querySelector('.drawer')?.classList.add('open');
     document.querySelector('.overlay')?.classList.add('open');
+    document.body.style.overflow = 'hidden'; // Lock scroll
 }
 
 function closeDrawer() {
     document.querySelector('.drawer')?.classList.remove('open');
     document.querySelector('.overlay')?.classList.remove('open');
+    document.body.style.overflow = ''; // Unlock scroll
 }
 
 /* --- QUIZ --- */
