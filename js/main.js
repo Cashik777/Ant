@@ -591,55 +591,54 @@ function createProductCard(p) {
     // Allow custom strength if present in product data (future proof)
     if (p.strength) strengthVal = p.strength;
 
-    // Render Helpers for Beans
+    // Render Helpers for Beans - REDESIGNED TO MATCH REFERENCE
     const renderTasteBeans = (val) => {
         let html = '<div class="taste-beans">';
 
-        // Colors from reference
-        const beige = '#E6D7C3';  // Light/Empty
-        const brown = '#4E342E';  // Dark/Full
+        // Colors matching reference image exactly
+        const BEIGE = '#E8DCCC';      // Light body (empty bean)
+        const BROWN = '#3E2723';      // Dark body (full bean) + outline
+        const WHITE = '#FFFEF8';      // Light cleft (for dark beans)
+        const CREAM = '#FFF8E8';      // Light half of gradient bean
 
         for (let i = 1; i <= 5; i++) {
-            let fillStyle = '';
-            let strokeStyle = '';
+            const uniqueId = `bean-${p.id}-${i}-${Math.random().toString(36).substr(2, 5)}`;
+            let bodyFill, cleftStroke, outlineStroke;
+            let gradientDef = '';
 
             if (i <= Math.floor(val)) {
-                // Full Bean: Dark Fill, Beige Stroke for contrast (matches 'negative' look or light cleft)
-                // Actually, to match the image perfectly where the outline is dark but cleft is light...
-                // We'd need a complex SVG. 
-                // APPROXIMATION: Dark Fill, Beige Stroke makes it visible.
-                fillStyle = `fill: ${brown};`;
-                strokeStyle = `stroke: ${beige};`;
+                // FULL BEAN: Dark brown body, white cleft, brown outline
+                bodyFill = BROWN;
+                cleftStroke = WHITE;
+                outlineStroke = BROWN;
             } else if (i === Math.ceil(val) && val % 1 !== 0) {
-                // Fractional: Gradient Fill
-                const decimal = val % 1;
-                const percent = Math.round(decimal * 100);
-                const gradId = `grad-${p.id}-${i}`;
-
-                // Define gradient inline
-                const gradDef = `
-                <defs>
-                    <linearGradient id="${gradId}" x1="0%" y1="0%" x2="100%" y2="0%">
-                        <stop offset="${percent}%" style="stop-color:${brown};stop-opacity:1" />
-                        <stop offset="${percent}%" style="stop-color:${beige};stop-opacity:1" />
-                    </linearGradient>
-                </defs>`;
-
-                html += gradDef; // Inject def
-                fillStyle = `fill: url(#${gradId});`;
-                strokeStyle = `stroke: ${brown};`; // Keep dark outline for partial to define shape
+                // HALF BEAN: Gradient body (left dark, right light), white cleft, brown outline
+                const percent = Math.round((val % 1) * 100);
+                gradientDef = `
+                    <defs>
+                        <linearGradient id="${uniqueId}" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="${percent}%" stop-color="${BROWN}"/>
+                            <stop offset="${percent}%" stop-color="${CREAM}"/>
+                        </linearGradient>
+                    </defs>`;
+                bodyFill = `url(#${uniqueId})`;
+                cleftStroke = WHITE;
+                outlineStroke = BROWN;
             } else {
-                // Empty Bean: Beige Fill, Dark Stroke
-                fillStyle = `fill: ${beige};`;
-                strokeStyle = `stroke: ${brown};`;
+                // EMPTY BEAN: Beige body, brown cleft, brown outline
+                bodyFill = BEIGE;
+                cleftStroke = BROWN;
+                outlineStroke = BROWN;
             }
 
-            // Combine styles
-            // Note: stroke-width depends on icon size. 1.5px is good for 18px.
-            const style = `${fillStyle} ${strokeStyle} stroke-width:1.5px; stroke-linejoin:round;`;
-
-            html += `<svg class="bean-icon" viewBox="0 0 24 24" width="18" height="18" style="${style}">
-                <use href="#icon-bean"></use>
+            // Inline SVG with 3 layers: body, cleft, outline
+            html += `
+            <svg class="bean-icon" viewBox="0 0 24 24" width="20" height="20">
+                ${gradientDef}
+                <!-- Body -->
+                <ellipse cx="12" cy="12" rx="9" ry="10" fill="${bodyFill}" stroke="${outlineStroke}" stroke-width="1.5"/>
+                <!-- Cleft (S-curve) -->
+                <path d="M12 3 Q8 8 12 12 Q16 16 12 21" fill="none" stroke="${cleftStroke}" stroke-width="2" stroke-linecap="round"/>
             </svg>`;
         }
         return html + '</div>';
