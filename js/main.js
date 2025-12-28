@@ -596,7 +596,7 @@ function createProductCard(p) {
         let html = '<div class="taste-beans">';
 
         // INVERTED PALETTE: Gold=Full, Cream=Empty
-        const GOLD = '#A67C52';       // Darker rich gold for FULL beans
+        const GOLD = '#8B6914';       // Even darker bronze-gold for FULL beans
         const CREAM = '#FAF5EF';      // Light cream for EMPTY beans
         const OUTLINE = '#5D4037';    // Coffee brown outline
         const CLEFT_DARK = '#4E342E'; // Dark cleft for light beans
@@ -630,8 +630,8 @@ function createProductCard(p) {
                     <ellipse cx="12" cy="12" rx="9" ry="10" fill="${CREAM}" clip-path="url(#${uid}-right)"/>
                     <!-- Outline -->
                     <ellipse cx="12" cy="12" rx="9" ry="10" fill="none" stroke="${OUTLINE}" stroke-width="1.2"/>
-                    <!-- S-curve cleft -->
-                    <path d="M12 2 Q7 7 12 12 Q17 17 12 22" fill="none" stroke="${CLEFT_DARK}" stroke-width="2" stroke-linecap="round"/>
+                    <!-- S-curve cleft (light for better visibility) -->
+                    <path d="M12 2 Q7 7 12 12 Q17 17 12 22" fill="none" stroke="${CLEFT_LIGHT}" stroke-width="2" stroke-linecap="round"/>
                 </svg>`;
             } else {
                 // EMPTY BEAN: Cream body, dark cleft
@@ -652,6 +652,9 @@ function createProductCard(p) {
         
         <div class="p-img-box">
             <a href="product.html?id=${p.id}"><img src="${p.image}" alt="${p.name}" loading="lazy"></a>
+            <button class="p-wishlist" onclick="toggleWishlist(${p.id})" title="${tr('product.wishlist', 'В обране')}">
+                <i class="far fa-heart"></i>
+            </button>
             ${stock <= 5 ? `<div class="p-stock-warning"><i class="fas fa-clock"></i> ${labels.stockLeft} ${stock} ${labels.pcs}!</div>` : ''}
         </div>
         
@@ -741,9 +744,8 @@ function getGrindIcon(type) {
     return icons[type] || 'coffee';
 }
 
-// Wishlist toggle function
 function toggleWishlist(productId) {
-    const btn = document.querySelector(`.product - card[data - product - id="${productId}"] .p - wishlist i`);
+    const btn = document.querySelector(`.product-card[data-product-id="${productId}"] .p-wishlist i`);
     if (btn) {
         btn.classList.toggle('far');
         btn.classList.toggle('fas');

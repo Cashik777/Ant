@@ -4425,3 +4425,9 @@ body {
 .taste-beans { display: flex; gap: 4px; }
 .bean-icon { display: block; }
 .p-btn { display: none; } /* Hide old button class if it remains */
+
+/* Wishlist Heart Button in Image Corner */
+.p-img-box { position: relative; }
+.p-wishlist { position: absolute; top: 15px; right: 15px; width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.95); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; color: #8B7355; transition: all 0.3s ease; z-index: 10; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+.p-wishlist:hover { background: white; color: #E53935; transform: scale(1.1); }
+.p-wishlist i.fas { color: #E53935; }
