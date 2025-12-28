@@ -343,6 +343,8 @@
 .grind-btn.active {
     background: var(--primary-light);
     border-color: var(--primary);
+    color: var(--primary);
+    font-weight: 700;
 }
 
 .grind-btn.active i {
