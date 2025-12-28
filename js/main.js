@@ -1987,10 +1987,11 @@ function applyTranslations(lang) {
     if (searchInput) searchInput.placeholder = t.search;
 
     // Update drawer header
-    const drawerHeader = document.querySelector('.drawer-header h3');
-    if (drawerHeader) {
-        drawerHeader.innerHTML = `<i class="fas fa-shopping-bag" style="margin-right:10px; color:var(--primary);"></i> ${t.cart}`;
-    }
+    // Update drawer header - REMOVED to allow i18n.js to handle it via data-i18n
+    // const drawerHeader = document.querySelector('.drawer-header h3');
+    // if (drawerHeader) {
+    //    drawerHeader.innerHTML = `<i class="fas fa-shopping-bag" style="margin-right:10px; color:var(--primary);"></i> ${t.cart}`;
+    // }
 
     // Update footer section titles
     document.querySelectorAll('.footer-col h4').forEach((h4, index) => {
