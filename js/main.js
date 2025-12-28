@@ -1083,9 +1083,7 @@ function renderCart() {
                     ${item.qty > 1 ? `<span style="font-size:0.8em; color:var(--text-muted); font-weight:normal;">(${item.price} ${store.currency}/${t('product.pcs')})</span>` : ''}
                 </p>
             </div>
-                </p>
-            </div>
-            <button onclick="removeFromCart(${item.cartId}); event.stopPropagation();" style="background:none; border:none; color:#999; cursor:pointer; font-size:1.3rem; padding:5px; margin-left: auto; align-self: flex-start;" title="${t('cart.remove') || 'Remove'}">&times;</button>
+            <button onclick="removeFromCart(${item.cartId}); event.stopPropagation();" style="background:none; border:none; color:#999; cursor:pointer; font-size:1.3rem; padding:5px; margin-left: auto;" title="${t('cart.remove') || 'Remove'}">&times;</button>
         </div>`;
     });
     if (total) total.innerText = sum + ' ' + store.currency;
