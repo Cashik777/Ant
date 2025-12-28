@@ -591,55 +591,58 @@ function createProductCard(p) {
     // Allow custom strength if present in product data (future proof)
     if (p.strength) strengthVal = p.strength;
 
-    // Render Helpers for Beans - REDESIGNED TO MATCH REFERENCE
+    // Render Helpers for Beans - AESTHETIC REFINEMENT
     const renderTasteBeans = (val) => {
         let html = '<div class="taste-beans">';
 
-        // Colors matching reference image exactly
-        const BEIGE = '#E8DCCC';      // Light body (empty bean)
-        const BROWN = '#3E2723';      // Dark body (full bean) + outline
-        const WHITE = '#FFFEF8';      // Light cleft (for dark beans)
-        const CREAM = '#FFF8E8';      // Light half of gradient bean
+        // REFINED COLOR PALETTE - warmer and lighter
+        const GOLD = '#D4B896';       // Warm golden for empty beans
+        const COFFEE = '#5D4037';     // Lighter coffee brown for full beans  
+        const IVORY = '#FFFFF0';      // Ivory white for cleft on dark
+        const OUTLINE = '#4E342E';    // Dark outline for definition
 
         for (let i = 1; i <= 5; i++) {
-            const uniqueId = `bean-${p.id}-${i}-${Math.random().toString(36).substr(2, 5)}`;
-            let bodyFill, cleftStroke, outlineStroke;
-            let gradientDef = '';
+            const uid = `bean-${p.id}-${i}-${Math.random().toString(36).substr(2, 5)}`;
 
             if (i <= Math.floor(val)) {
-                // FULL BEAN: Dark brown body, white cleft, brown outline
-                bodyFill = BROWN;
-                cleftStroke = WHITE;
-                outlineStroke = BROWN;
+                // FULL BEAN: Coffee body, ivory cleft
+                html += `
+                <svg class="bean-icon" viewBox="0 0 24 24" width="20" height="20">
+                    <ellipse cx="12" cy="12" rx="9" ry="10" fill="${COFFEE}" stroke="${OUTLINE}" stroke-width="1.2"/>
+                    <path d="M12 2 Q7 7 12 12 Q17 17 12 22" fill="none" stroke="${IVORY}" stroke-width="2.5" stroke-linecap="round"/>
+                </svg>`;
             } else if (i === Math.ceil(val) && val % 1 !== 0) {
-                // HALF BEAN: Gradient body (left dark, right light), white cleft, brown outline
-                const percent = Math.round((val % 1) * 100);
-                gradientDef = `
+                // HALF BEAN: Split along S-curve - left half dark, right half light
+                // Using two clipPaths - one for left side, one for right side of S-curve
+                html += `
+                <svg class="bean-icon" viewBox="0 0 24 24" width="20" height="20">
                     <defs>
-                        <linearGradient id="${uniqueId}" x1="0%" y1="0%" x2="100%" y2="0%">
-                            <stop offset="${percent}%" stop-color="${BROWN}"/>
-                            <stop offset="${percent}%" stop-color="${CREAM}"/>
-                        </linearGradient>
-                    </defs>`;
-                bodyFill = `url(#${uniqueId})`;
-                cleftStroke = WHITE;
-                outlineStroke = BROWN;
+                        <!-- Left side clipPath (dark half) -->
+                        <clipPath id="${uid}-left">
+                            <path d="M0 0 L12 0 Q7 7 12 12 Q17 17 12 24 L0 24 Z"/>
+                        </clipPath>
+                        <!-- Right side clipPath (light half) -->
+                        <clipPath id="${uid}-right">
+                            <path d="M24 0 L12 0 Q7 7 12 12 Q17 17 12 24 L24 24 Z"/>
+                        </clipPath>
+                    </defs>
+                    <!-- Dark left half -->
+                    <ellipse cx="12" cy="12" rx="9" ry="10" fill="${COFFEE}" clip-path="url(#${uid}-left)"/>
+                    <!-- Light right half -->
+                    <ellipse cx="12" cy="12" rx="9" ry="10" fill="${GOLD}" clip-path="url(#${uid}-right)"/>
+                    <!-- Outline -->
+                    <ellipse cx="12" cy="12" rx="9" ry="10" fill="none" stroke="${OUTLINE}" stroke-width="1.2"/>
+                    <!-- S-curve cleft (white for contrast) -->
+                    <path d="M12 2 Q7 7 12 12 Q17 17 12 22" fill="none" stroke="${IVORY}" stroke-width="2.5" stroke-linecap="round"/>
+                </svg>`;
             } else {
-                // EMPTY BEAN: Beige body, brown cleft, brown outline
-                bodyFill = BEIGE;
-                cleftStroke = BROWN;
-                outlineStroke = BROWN;
+                // EMPTY BEAN: Gold body, dark cleft
+                html += `
+                <svg class="bean-icon" viewBox="0 0 24 24" width="20" height="20">
+                    <ellipse cx="12" cy="12" rx="9" ry="10" fill="${GOLD}" stroke="${OUTLINE}" stroke-width="1.2"/>
+                    <path d="M12 2 Q7 7 12 12 Q17 17 12 22" fill="none" stroke="${OUTLINE}" stroke-width="2" stroke-linecap="round"/>
+                </svg>`;
             }
-
-            // Inline SVG with 3 layers: body, cleft, outline
-            html += `
-            <svg class="bean-icon" viewBox="0 0 24 24" width="20" height="20">
-                ${gradientDef}
-                <!-- Body -->
-                <ellipse cx="12" cy="12" rx="9" ry="10" fill="${bodyFill}" stroke="${outlineStroke}" stroke-width="1.5"/>
-                <!-- Cleft (S-curve) -->
-                <path d="M12 3 Q8 8 12 12 Q16 16 12 21" fill="none" stroke="${cleftStroke}" stroke-width="2" stroke-linecap="round"/>
-            </svg>`;
         }
         return html + '</div>';
     };
