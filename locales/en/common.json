@@ -201,5 +201,15 @@
         "order_now": "Order Now",
         "open_menu": "Menu",
         "close_menu": "Close menu"
+    },
+    "timer": {
+        "days": "Days",
+        "hours": "Hours",
+        "mins": "Min"
+    },
+    "trust": {
+        "clients": "satisfied customers",
+        "farmers": "Direct from farmers",
+        "specialty": "85+ SCA score"
     }
 }

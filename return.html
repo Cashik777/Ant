@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/polish.css">
-    <link rel="stylesheet" href="css/ux-enhancements.css">
 </head>
 
 <body>
@@ -23,13 +22,16 @@
             </div>
             <div class="top-bar-center">
                 <div class="promo-ticker">
-                    <span class="ticker-item"><i class="fas fa-fire" style="color:#e74c3c;"></i> <strong data-i18n="topbar.promo_action">АКЦІЯ:</strong> <span
+                    <span class="ticker-item"><i class="fas fa-fire" style="color:#e74c3c;"></i> <strong
+                            data-i18n="topbar.promo_action">АКЦІЯ:</strong> <span
                             data-i18n="topbar.promo_delivery">безкоштовна доставка від 500₴</span></span>
                     <span class="ticker-divider">|</span>
-                    <span class="ticker-item"><i class="fas fa-coffee" style="color:#8B4545;"></i> <span data-i18n="topbar.promo_subscription">Підписка:</span> <strong
+                    <span class="ticker-item"><i class="fas fa-coffee" style="color:#8B4545;"></i> <span
+                            data-i18n="topbar.promo_subscription">Підписка:</span> <strong
                             data-i18n="topbar.promo_subscription_text">-10% на кожну доставку</strong></span>
                     <span class="ticker-divider">|</span>
-                    <span class="ticker-item"><i class="fas fa-bolt" style="color:#f39c12;"></i> <span data-i18n="topbar.promo_roast">Свіжа обсмажка</span> <strong
+                    <span class="ticker-item"><i class="fas fa-bolt" style="color:#f39c12;"></i> <span
+                            data-i18n="topbar.promo_roast">Свіжа обсмажка</span> <strong
                             data-i18n="topbar.promo_roast_days">до 3 днів</strong></span>
                 </div>
             </div>
@@ -89,11 +91,13 @@
                                 <span id="mini-cart-total">0 ₴</span>
                             </div>
                             <div class="mini-cart-shipping" id="mini-cart-shipping">
-                                <i class="fas fa-truck"></i> <span data-i18n="cart.free_shipping_progress">До безкоштовної доставки:</span> <strong>500
+                                <i class="fas fa-truck"></i> <span data-i18n="cart.free_shipping_progress">До
+                                    безкоштовної доставки:</span> <strong>500
                                     ₴</strong>
                             </div>
                             <button class="mini-cart-btn" onclick="openDrawer()">
-                                <i class="fas fa-shopping-cart"></i> <span data-i18n="cart.checkout">Оформити замовлення</span>
+                                <i class="fas fa-shopping-cart"></i> <span data-i18n="cart.checkout">Оформити
+                                    замовлення</span>
                             </button>
                         </div>
                     </div>
@@ -360,7 +364,8 @@
                     <p style="color:#aaa; margin-bottom:15px; font-size:0.9rem;" data-i18n="footer.newsletter_text">
                         Отримуйте акції, новинки та поради щодо заварювання</p>
                     <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
-                        <input type="email" placeholder="Ваш email" data-i18n-placeholder="footer.newsletter_placeholder" required>
+                        <input type="email" placeholder="Ваш email"
+                            data-i18n-placeholder="footer.newsletter_placeholder" required>
                         <button type="submit" class="btn-newsletter"
                             data-i18n="footer.newsletter_cta">Підписатись</button>
                     </form>
@@ -403,7 +408,8 @@
 
             <!-- Payment Methods -->
             <div class="footer-payment">
-                <p style="color:#666; font-size:0.85rem; margin-bottom:15px;" data-i18n="footer.payment_methods">Способи оплати:</p>
+                <p style="color:#666; font-size:0.85rem; margin-bottom:15px;" data-i18n="footer.payment_methods">Способи
+                    оплати:</p>
                 <div class="payment-icons">
                     <i class="fab fa-cc-visa" title="Visa"></i>
                     <i class="fab fa-cc-mastercard" title="Mastercard"></i>
@@ -416,7 +422,7 @@
             <!-- Bottom Bar -->
             <div class="footer-bottom">
                 <div class="footer-bottom-left">
-                    <p>&copy; 2025 EthioDirect. Всі права захищені.</p>
+                    <p data-i18n="footer.copyright">&copy; 2025 EthioDirect. Всі права захищені.</p>
                 </div>
                 <div class="footer-bottom-right">
                     <a href="privacy.html" data-i18n="footer.privacy">Політика конфіденційності</a>
@@ -429,10 +435,11 @@
         </div>
     </footer>
 
-    <script src="js/main.js"></script><script src="js/i18n-inline.js"></script>
-    
+    <script src="js/main.js"></script>
+    <script src="js/i18n-inline.js"></script>
+
     <script src="js/i18n.js"></script>
-    
+
 </body>
 
 </html>

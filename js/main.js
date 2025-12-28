@@ -123,9 +123,19 @@ const QUIZ_QUESTIONS = [
 ];
 
 /* --- STATE --- */
+function safeJSONParse(key, fallback) {
+    try {
+        const item = localStorage.getItem(key);
+        return item ? JSON.parse(item) : fallback;
+    } catch (e) {
+        console.warn('Error parsing storage item:', key, e);
+        return fallback;
+    }
+}
+
 const store = {
-    cart: JSON.parse(localStorage.getItem('ed_cart')) || [],
-    user: JSON.parse(localStorage.getItem('ed_user')) || { name: 'Guest', subscription: null },
+    cart: safeJSONParse('ed_cart', []),
+    user: safeJSONParse('ed_user', { name: 'Guest', subscription: null }),
     quizAnswers: {},
     currency: '₴'
 };
@@ -509,155 +519,135 @@ document.addEventListener('DOMContentLoaded', () => {
 
 /* --- UTILS --- */
 function createProductCard(p) {
-    // Initialize selection state for this product
+    // Inject SVG defs for gradients if not present
+    if (!document.getElementById('svg-defs-beans')) {
+        const defs = `
+        <svg style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <defs id="svg-defs-beans">
+                <linearGradient id="bean-gradient-half" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="50%" style="stop-color:var(--primary);stop-opacity:1" />
+                    <stop offset="50%" style="stop-color:#e0e0e0;stop-opacity:1" />
+                </linearGradient>
+                <symbol id="icon-bean" viewBox="0 0 24 24">
+                     <path d="M12,2C6.5,2,2,6,2,11.5C2,17,6.5,22,11.5,22C16.5,22,21.5,18,21.5,11C21.5,7,18,2,12,2M12.5,4C14.5,4,16.5,5.5,17,7.5C17.5,9.5,16,11.5,14.5,12.5C13,13.5,11,13.5,10,15.5C9,17.5,11,19.5,11.5,20C9.5,19.5,7,17.5,6,14C5,10.5,8,7.5,10,6.5C11,6,11.5,4,12.5,4Z" />
+                </symbol>
+            </defs>
+        </svg>`;
+        document.body.insertAdjacentHTML('afterbegin', defs);
+    }
+
+    // Helper for translation
+    const tr = (key, def) => (typeof t === 'function' ? t(key) : def);
+
+    // Initialize selection state
     if (!productSelections[p.id]) {
         productSelections[p.id] = { weight: 250, qty: 1, grind: 'beans' };
     }
     const sel = productSelections[p.id];
+
+    // Price calculations
     const currentPrice = p.prices[sel.weight];
     const oldPrice = p.oldPrices[sel.weight];
     const discount = Math.round((1 - currentPrice / oldPrice) * 100);
 
-    // Get product name and description from i18n
-    const productKeys = {
-        1: 'sidamo', 2: 'yirgacheffe', 3: 'guji',
-        4: 'espresso_blend', 5: 'limmu', 6: 'harrar'
-    };
-    const productKey = productKeys[p.id] || 'sidamo';
-    const productName = typeof t === 'function' ? t(`product.${productKey}`) : p.name;
-    const productDesc = typeof t === 'function' ? t(`product.${productKey}_desc`) : p.desc;
+    // key mapping
+    const productKeyMap = { 1: 'sidamo', 2: 'yirgacheffe', 3: 'guji', 4: 'espresso_blend', 5: 'limmu', 6: 'harrar' };
+    const pKey = productKeyMap[p.id] || 'sidamo';
 
-    // Enhanced badges - competitor style
+    const productName = `<span data-i18n="product.${pKey}">${tr(`product.${pKey}`, p.name)}</span>`;
+    const productDesc = `<span data-i18n="product.${pKey}_desc">${tr(`product.${pKey}_desc`, p.desc)}</span>`;
+
+    // Badges
     const badges = [];
     if (discount >= 15) badges.push(`<div class="p-badge p-badge-sale">-${discount}%</div>`);
-    if (p.soldCount > 1500) badges.push(`<div class="p-badge p-badge-hit"><i class="fas fa-fire"></i> ХІТ</div>`);
-    if (p.id === 3 || p.id === 6) badges.push(`<div class="p-badge p-badge-new"><i class="fas fa-star"></i> NEW</div>`);
+    if (p.soldCount > 1500) badges.push(`<div class="p-badge p-badge-hit"><i class="fas fa-fire"></i> <span data-i18n="product.bestseller">ХІТ</span></div>`);
+    if (p.id === 3 || p.id === 6) badges.push(`<div class="p-badge p-badge-new"><i class="fas fa-star"></i> <span data-i18n="product.new">NEW</span></div>`);
 
-    // Simulated stock and review counts
+    // Stock & Reviews
     const stockLevels = { 1: 12, 2: 5, 3: 3, 4: 18, 5: 8, 6: 2 };
     const stock = stockLevels[p.id] || 10;
-    const stockClass = stock <= 5 ? 'low-stock' : '';
-    const reviewCount = Math.floor(p.soldCount * 0.12); // ~12% leave reviews
+    const reviewCount = Math.floor(p.soldCount * 0.12);
 
-    // Roast labels with i18n
-    const roastLabels = {
-        light: typeof t === 'function' ? t('product.roast_light') : 'Світла',
-        medium: typeof t === 'function' ? t('product.roast_medium') : 'Середня',
-        dark: typeof t === 'function' ? t('product.roast_dark') : 'Темна'
+    // Labels with data-i18n
+    const labels = {
+        roast: `<span data-i18n="product.roast_${p.roast}">${tr(`product.roast_${p.roast}`, p.roast)}</span>`,
+        strength: `<span data-i18n="product.strength">${tr('product.strength', 'Крепкість')}</span>`, // Use Ukrainian key or fallback
+        acidity: `<span data-i18n="product.acidity">${tr('product.acidity', 'Кислотність')}</span>`,
+        body: `<span data-i18n="product.body">${tr('product.body', 'Тіло')}</span>`,
+        sweetness: `<span data-i18n="product.sweetness">${tr('product.sweetness', 'Солодкість')}</span>`,
+        add: `<span data-i18n="product.add">${tr('product.add', 'В кошик')}</span>`,
+        purchased: `<span data-i18n="product.purchased">${tr('product.purchased', 'Куплено')}</span>`,
+        reviews: `<span data-i18n="product.reviews">${tr('product.reviews', 'відгуків')}</span>`,
+        stockLeft: `<span data-i18n="product.stock_left">${tr('product.stock_left', 'Залишилось')}</span>`,
+        pcs: `<span data-i18n="product.pcs">${tr('product.pcs', 'шт')}</span>`
     };
 
-    // Taste profile labels with i18n
-    const acidityLabel = typeof t === 'function' ? t('product.acidity') : 'Кислотність';
-    const bodyLabel = typeof t === 'function' ? t('product.body') : 'Тіло';
-    const sweetnessLabel = typeof t === 'function' ? t('product.sweetness') : 'Солодкість';
+    // Calculate Strength from Roast (1-5)
+    let strengthVal = 3;
+    if (p.roast === 'light') strengthVal = 2;
+    if (p.roast === 'medium') strengthVal = 3.5;
+    if (p.roast === 'dark') strengthVal = 5;
 
-    // Grind labels with i18n
-    const grindLabels = {
-        beans: typeof t === 'function' ? t('product.whole_beans') : 'Зерно',
-        espresso: typeof t === 'function' ? t('product.espresso') : 'Еспресо',
-        filter: typeof t === 'function' ? t('product.filter') : 'Фільтр',
-        turka: typeof t === 'function' ? t('product.turka') : 'Турка'
+    // Allow custom strength if present in product data (future proof)
+    if (p.strength) strengthVal = p.strength;
+
+    // Render Helpers for Beans
+    const renderTasteBeans = (val) => {
+        let html = '<div class="taste-beans">';
+        for (let i = 1; i <= 5; i++) {
+            let fillClass = 'empty';
+            let style = 'fill: #e0e0e0;'; // Default empty gray
+
+            if (i <= Math.floor(val)) {
+                fillClass = 'full';
+                style = 'fill: var(--primary);';
+            } else if (i === Math.ceil(val) && val % 1 !== 0) {
+                fillClass = 'half';
+                style = 'fill: url(#bean-gradient-half);';
+            }
+
+            html += `<svg class="bean-icon ${fillClass}" viewBox="0 0 24 24" width="16" height="16" style="${style}">
+                <use href="#icon-bean"></use>
+            </svg>`;
+        }
+        return html + '</div>';
     };
 
-    // Labels
-    const addButtonText = typeof t === 'function' ? t('product.add') : 'В кошик';
-    const purchasedText = typeof t === 'function' ? t('product.purchased') : 'Куплено';
-    const reviewsText = typeof t === 'function' ? t('product.reviews') : 'відгуків';
-    const stockLeftText = typeof t === 'function' ? t('product.stock_left') : 'Залишилось';
-    const pcsText = typeof t === 'function' ? t('product.pcs') : 'шт';
-
-    // Taste bar renderer (visual bars instead of dots)
-    const renderTasteBar = (value, max = 5) => {
-        return `<div class="taste-bar"><div class="taste-bar-fill" style="width: ${(value / max) * 100}%"></div></div>`;
-    };
-
-    // Rating with review count
-    const renderRating = () => {
-        return `
-            <div class="p-rating-full">
-                <div class="p-stars">
-                    <i class="fas fa-star"></i>
-                    <span class="p-rating-num">${p.rating}</span>
-                </div>
-                <span class="p-review-count">(${reviewCount} ${reviewsText})</span>
-            </div>
-        `;
-    };
-
+    // HTML Template
     return `
-    <div class="product-card ${stockClass}" data-product-id="${p.id}">
-        <!-- Badges -->
+    <div class="product-card ${stock <= 5 ? 'low-stock' : ''}" data-product-id="${p.id}">
         <div class="p-badges">${badges.join('')}</div>
         
-        <!-- Wishlist Button -->
-        <button class="p-wishlist" onclick="toggleWishlist(${p.id})" title="В обране">
-            <i class="far fa-heart"></i>
-        </button>
-        
-        <!-- Image -->
         <div class="p-img-box">
-            <a href="product.html?id=${p.id}">
-                <img src="${p.image}" alt="${productName}" loading="lazy">
-            </a>
-            ${stock <= 5 ? `<div class="p-stock-warning"><i class="fas fa-clock"></i> ${stockLeftText} ${stock} ${pcsText}!</div>` : ''}
+            <a href="product.html?id=${p.id}"><img src="${p.image}" alt="${p.name}" loading="lazy"></a>
+            ${stock <= 5 ? `<div class="p-stock-warning"><i class="fas fa-clock"></i> ${labels.stockLeft} ${stock} ${labels.pcs}!</div>` : ''}
         </div>
         
         <div class="p-content">
-            <!-- Header with Rating -->
             <div class="p-header">
                 <h3 class="p-title"><a href="product.html?id=${p.id}">${productName}</a></h3>
-                ${renderRating()}
+                <div class="p-rating-full">
+                    <div class="p-stars"><i class="fas fa-star"></i><span class="p-rating-num">${p.rating}</span></div>
+                    <span class="p-review-count">(${reviewCount} ${labels.reviews})</span>
+                </div>
             </div>
             
-            <!-- Region & Roast -->
             <div class="p-meta">
                 <span class="p-region"><i class="fas fa-map-marker-alt"></i> ${p.region}</span>
-                <span class="p-roast"><i class="fas fa-fire-alt"></i> ${roastLabels[p.roast]}</span>
+                <span class="p-roast"><i class="fas fa-fire-alt"></i> ${labels.roast}</span>
             </div>
             
-            <!-- Description -->
             <p class="p-desc">${productDesc}</p>
             
-            <!-- VISUAL Taste Profile -->
             <div class="taste-profile-visual">
-                <div class="taste-item">
-                    <span class="taste-label">${acidityLabel}</span>
-                    ${renderTasteBar(p.acidity)}
-                </div>
-                <div class="taste-item">
-                    <span class="taste-label">${bodyLabel}</span>
-                    ${renderTasteBar(p.body)}
-                </div>
-                <div class="taste-item">
-                    <span class="taste-label">${sweetnessLabel}</span>
-                    ${renderTasteBar(p.sweetness)}
-                </div>
+                <div class="taste-item"><span class="taste-label">${labels.strength}</span>${renderTasteBeans(strengthVal)}</div>
+                <div class="taste-item"><span class="taste-label">${labels.acidity}</span>${renderTasteBeans(p.acidity)}</div>
+                <div class="taste-item"><span class="taste-label">${labels.body}</span>${renderTasteBeans(p.body)}</div>
+                <div class="taste-item"><span class="taste-label">${labels.sweetness}</span>${renderTasteBeans(p.sweetness)}</div>
             </div>
             
-            <!-- Weight Selector -->
-            <div class="weight-selector" data-product-id="${p.id}">
-                <button class="weight-btn ${sel.weight === 250 ? 'active' : ''}" onclick="selectWeight(${p.id}, 250)">250g</button>
-                <button class="weight-btn ${sel.weight === 500 ? 'active' : ''}" onclick="selectWeight(${p.id}, 500)">500g</button>
-                <button class="weight-btn ${sel.weight === 1000 ? 'active' : ''}" onclick="selectWeight(${p.id}, 1000)">1 kg</button>
-            </div>
+            ${renderSelectors(p, sel)}
             
-            <!-- Grind Selector -->
-            <div class="grind-selector" data-product-id="${p.id}">
-                <button class="grind-btn ${sel.grind === 'beans' || !sel.grind ? 'active' : ''}" onclick="selectGrind(${p.id}, 'beans')">
-                    <i class="fas fa-seedling"></i> ${grindLabels.beans}
-                </button>
-                <button class="grind-btn ${sel.grind === 'espresso' ? 'active' : ''}" onclick="selectGrind(${p.id}, 'espresso')">
-                    <i class="fas fa-coffee"></i> ${grindLabels.espresso}
-                </button>
-                <button class="grind-btn ${sel.grind === 'filter' ? 'active' : ''}" onclick="selectGrind(${p.id}, 'filter')">
-                    <i class="fas fa-mug-hot"></i> ${grindLabels.filter}
-                </button>
-                <button class="grind-btn ${sel.grind === 'turka' ? 'active' : ''}" onclick="selectGrind(${p.id}, 'turka')">
-                    <i class="fas fa-fire-alt"></i> ${grindLabels.turka}
-                </button>
-            </div>
-
-            <!-- Price Block - ENHANCED -->
             <div class="p-price-block">
                 <div class="p-price-main">
                     <span class="p-price-old">${oldPrice} ₴</span>
@@ -666,25 +656,49 @@ function createProductCard(p) {
                 </div>
             </div>
 
-            <!-- Actions -->
             <div class="p-actions">
                 <div class="qty-controls">
                     <button class="qty-btn" onclick="changeQty(${p.id}, -1)">−</button>
                     <span class="qty-value" id="qty-${p.id}">${sel.qty}</span>
                     <button class="qty-btn" onclick="changeQty(${p.id}, 1)">+</button>
                 </div>
+                <button class="p-btn-wishlist" onclick="toggleWishlist(${p.id})" title="${tr('product.wishlist', 'В обране')}">
+                    <i class="far fa-heart"></i>
+                </button>
                 <button class="p-btn-add" onclick="addToCartWithOptions(${p.id})">
-                    <i class="fas fa-shopping-cart"></i> ${addButtonText}
+                    <i class="fas fa-shopping-cart"></i> ${labels.add}
                 </button>
             </div>
             
-            <!-- Social Proof - ENHANCED -->
             <div class="p-social-proof">
-                <span class="p-purchased"><i class="fas fa-check-circle"></i> ${purchasedText}: <strong>${p.soldCount.toLocaleString()}</strong> ${pcsText}</span>
+                <span class="p-purchased"><i class="fas fa-check-circle"></i> ${labels.purchased}: <strong>${p.soldCount.toLocaleString()}</strong> ${labels.pcs}</span>
             </div>
         </div>
+    </div>`;
+}
+
+function renderSelectors(p, sel) {
+    // Helper to keep main function clean
+    const tr = (key, def) => (typeof t === 'function' ? t(key) : def);
+
+    return `
+    <div class="weight-selector" data-product-id="${p.id}">
+        ${[250, 500, 1000].map(w =>
+        `<button class="weight-btn ${sel.weight === w ? 'active' : ''}" onclick="selectWeight(${p.id}, ${w})">${w >= 1000 ? (w / 1000) + 'kg' : w + 'g'}</button>`
+    ).join('')}
     </div>
-    `;
+    <div class="grind-selector" data-product-id="${p.id}">
+        ${['beans', 'espresso', 'filter', 'turka'].map(g =>
+        `<button class="grind-btn ${sel.grind === g ? 'active' : ''}" onclick="selectGrind(${p.id}, '${g}')">
+                <i class="fas fa-${getGrindIcon(g)}"></i> ${tr('product.' + (g === 'beans' ? 'whole_beans' : g), g)}
+            </button>`
+    ).join('')}
+    </div>`;
+}
+
+function getGrindIcon(type) {
+    const icons = { beans: 'seedling', espresso: 'coffee', filter: 'mug-hot', turka: 'fire-alt' };
+    return icons[type] || 'coffee';
 }
 
 // Wishlist toggle function
@@ -1373,30 +1387,8 @@ function finishWizard() {
 }
 
 /* --- DASHBOARD --- */
-function initDashboard() {
-    const sub = store.user.subscription;
-    const widget = document.getElementById('sub-widget');
-    if (!widget) return;
+// Redundant initDashboard removed
 
-    if (!sub) {
-        widget.innerHTML = '<p>У вас ще немає активної підписки.</p><a href="subscription.html" class="btn btn-primary">Оформити підписку</a>';
-        return;
-    }
-
-    widget.innerHTML = `
-        <div style="display:flex; justify-content:space-between; align-items:start; margin-bottom:20px;">
-            <div>
-                <span class="status-badge ${sub.status === 'active' ? 'status-active' : 'status-paused'}">${sub.status === 'active' ? 'Активна' : 'На паузі'}</span>
-                <h3 style="margin-top:10px;">Наступна доставка: ${new Date(sub.nextDelivery).toLocaleDateString('uk-UA')}</h3>
-            </div>
-        </div>
-        <div style="display:flex; gap:10px; flex-wrap:wrap;">
-            <button class="btn btn-outline btn-sm" onclick="pauseSub()">⏸️ Пауза</button>
-            <button class="btn btn-outline btn-sm" onclick="skipDelivery()">⏭️ Пропустити</button>
-            <button class="btn btn-outline btn-sm" style="color:var(--error);" onclick="cancelSub()">❌ Скасувати</button>
-        </div>
-    `;
-}
 
 
 /* --- DASHBOARD --- */

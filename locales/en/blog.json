@@ -16,6 +16,7 @@
     "read_more": "Read more →",
     "read": "Read →",
     "min_read": "min read",
+    "min": "min",
     "views": "views",
     "articles_count": "Showing 15 of 15 articles",
     "newsletter_title": "Subscribe to Coffee News",
@@ -23,7 +24,8 @@
     "articles": {
         "article_1": {
             "title": "What is Specialty Coffee and Why Does It Cost More",
-            "excerpt": "Understanding what sets specialty coffee apart, how professionals grade it, and why it's worth every penny."
+            "excerpt": "Understanding what sets specialty coffee apart, how professionals grade it, and why it's worth every penny.",
+            "date": "December 18, 2025"
         },
         "article_2": {
             "title": "Ethiopia — The Birthplace of Coffee: The Legend of Kaldi",

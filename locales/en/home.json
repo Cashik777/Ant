@@ -15,11 +15,6 @@
         "quiz_text": "Don't know what to choose?",
         "quiz_link": "Take the taste test"
     },
-    "trust": {
-        "clients": "satisfied customers",
-        "farmers": "Direct from farmers",
-        "specialty": "85+ SCA score"
-    },
     "philosophy": {
         "title": "This is more than coffee.",
         "subtitle": "This is — The Way.",
@@ -96,11 +91,6 @@
         "title": "-20% off all coffee",
         "text": "Hurry until end of December! Free shipping from 500₴",
         "cta": "Shop now"
-    },
-    "timer": {
-        "days": "Days",
-        "hours": "Hours",
-        "mins": "Min"
     },
     "cat": {
         "espresso": "For espresso",

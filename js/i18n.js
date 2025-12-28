@@ -219,9 +219,9 @@
                 'gift-certificates': 'gift',
                 'account': 'account',
                 'b2b': 'b2b',
-                'return': 'delivery',
+                'return': 'return',
                 'product': 'shop',
-                'privacy': 'common'
+                'privacy': 'privacy'
             };
 
             const pageNs = pageNamespaceMap[page];
