@@ -596,7 +596,7 @@ function createProductCard(p) {
         let html = '<div class="taste-beans">';
 
         // INVERTED PALETTE: Gold=Full, Cream=Empty
-        const GOLD = '#C9A66B';       // Rich gold for FULL beans
+        const GOLD = '#A67C52';       // Darker rich gold for FULL beans
         const CREAM = '#FAF5EF';      // Light cream for EMPTY beans
         const OUTLINE = '#5D4037';    // Coffee brown outline
         const CLEFT_DARK = '#4E342E'; // Dark cleft for light beans
