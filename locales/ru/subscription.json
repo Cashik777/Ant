@@ -8,7 +8,7 @@
     },
     "hero": {
         "badge": "Подписка",
-        "title": "Кофе, который находит вас сам",
+        "title": "Кофейная подписка",
         "text": "Выберите кофе, частоту и наслаждайтесь свежей обжаркой без забот"
     },
     "benefits": {
@@ -33,15 +33,15 @@
     "steps": {
         "title": "Как это работает",
         "step1": {
-            "title": "Выберите кофе",
+            "title": "Выберите...",
             "text": "Один сорт или микс на ваш вкус"
         },
         "step2": {
-            "title": "Настройте частоту",
+            "title": "Частота",
             "text": "Раз в неделю, 2 недели или месяц"
         },
         "step3": {
-            "title": "Получайте дома",
+            "title": "Оформление",
             "text": "Свежий кофе прибудет вовремя"
         }
     },
@@ -98,19 +98,19 @@
         "benefit_fresh_text": "под ваш заказ",
         "plans_title": "Выберите свой план",
         "plans_subtitle": "Все планы включают бесплатную доставку и возможность изменения/отмены",
-        "plan_starter": "Starter",
+        "plan_starter": "Новичок",
         "plan_starter_desc": "Для знакомства",
         "plan_per_month": "г/месяц",
         "plan_pack_1": "1 пачка 250г",
         "plan_monthly": "Раз в месяц",
         "plan_free_shipping": "Бесплатная доставка",
         "plan_popular_badge": "САМЫЙ ПОПУЛЯРНЫЙ",
-        "plan_coffee_lover": "Coffee Lover",
+        "plan_coffee_lover": "Любитель",
         "plan_lover_desc": "Идеальный баланс",
         "plan_packs_2": "2 пачки по 250г",
         "plan_biweekly": "Раз в 2 недели",
         "plan_priority": "Приоритетная поддержка",
-        "plan_addict": "Coffee Addict",
+        "plan_addict": "Профи",
         "plan_addict_desc": "Для настоящих ценителей",
         "plan_packs_4": "4 пачки по 250г",
         "plan_weekly": "Еженедельно",

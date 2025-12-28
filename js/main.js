@@ -392,40 +392,98 @@ function renderFeatured() {
     PRODUCTS.slice(0, 3).forEach(p => grid.innerHTML += createProductCard(p));
 }
 
-function renderShop(filter = 'all') {
+function renderShop(filter = 'all') { // filter arg kept for compatibility but we rely on DOM
     const grid = document.getElementById('products-grid');
+    const countEl = document.getElementById('products-count');
+    const noResults = document.getElementById('no-results');
+    const resultsText = document.getElementById('results-text');
+
     if (!grid) return;
-    grid.innerHTML = '';
+
+    // Safety check if PRODUCTS is undefined
+    if (typeof PRODUCTS === 'undefined') return;
+
     let filtered = PRODUCTS;
 
-    // Filter by Category/Roast/Method
-    if (filter !== 'all') {
-        filtered = PRODUCTS.filter(p => p.roast === filter || p.method.includes(filter));
+    // 1. Roast (Checkboxes)
+    const roastLight = document.getElementById('filter-light') && document.getElementById('filter-light').checked;
+    const roastMedium = document.getElementById('filter-medium') && document.getElementById('filter-medium').checked;
+    const roastDark = document.getElementById('filter-dark') && document.getElementById('filter-dark').checked;
+
+    if (roastLight || roastMedium || roastDark) {
+        filtered = filtered.filter(p => {
+            if (roastLight && p.roast === 'light') return true;
+            if (roastMedium && p.roast === 'medium') return true;
+            if (roastDark && p.roast === 'dark') return true;
+            return false;
+        });
     }
 
-    // Filter by Price
-    const minPrice = document.getElementById('price-min') ? parseInt(document.getElementById('price-min').value) || 0 : 0;
-    const maxPrice = document.getElementById('price-max') ? parseInt(document.getElementById('price-max').value) || 10000 : 10000;
+    // 2. Taste (Checkboxes)
+    const tasteFruity = document.getElementById('filter-fruity') && document.getElementById('filter-fruity').checked;
+    const tasteChoco = document.getElementById('filter-chocolate') && document.getElementById('filter-chocolate').checked;
+    const tasteFloral = document.getElementById('filter-floral') && document.getElementById('filter-floral').checked;
 
-    // Use base price (250g) for filtering
+    if (tasteFruity || tasteChoco || tasteFloral) {
+        const tasteMap = {
+            fruity: ['🍓', '🥭', '🍋', '🍏', '🫐'],
+            chocolate: ['🍫', '🥜', '🍬'],
+            floral: ['🌸']
+        };
+
+        filtered = filtered.filter(p => {
+            let match = false;
+            // Check if product taste includes any of the selected category icons
+            if (tasteFruity && p.taste.some(t => tasteMap.fruity.includes(t))) match = true;
+            if (tasteChoco && p.taste.some(t => tasteMap.chocolate.includes(t))) match = true;
+            if (tasteFloral && p.taste.some(t => tasteMap.floral.includes(t))) match = true;
+            return match;
+        });
+    }
+
+    // 3. Price (Inputs)
+    const minPrice = document.getElementById('price-min') ? (parseInt(document.getElementById('price-min').value) || 0) : 0;
+    const maxPrice = document.getElementById('price-max') ? (parseInt(document.getElementById('price-max').value) || 10000) : 10000;
+
     filtered = filtered.filter(p => {
-        const basePrice = p.prices[250];
-        return basePrice >= minPrice && basePrice <= maxPrice;
+        const price = p.prices[250]; // Base price
+        return price >= minPrice && price <= maxPrice;
     });
 
+    // 4. Sort (Select)
+    const sortSelect = document.getElementById('sort-select');
+    const sortMode = sortSelect ? sortSelect.value : 'popular';
+
+    filtered.sort((a, b) => {
+        const priceA = a.prices[250];
+        const priceB = b.prices[250];
+
+        switch (sortMode) {
+            case 'price-asc': return priceA - priceB;
+            case 'price-desc': return priceB - priceA;
+            case 'rating': return b.rating - a.rating;
+            case 'popular': default: return b.soldCount - a.soldCount;
+        }
+    });
+
+    // Render
+    grid.innerHTML = '';
+
     if (filtered.length === 0) {
-        grid.innerHTML = '<p class="text-center" style="grid-column:1/-1; padding:40px;">Товарів не знайдено 😔</p>';
-        return;
+        if (resultsText) resultsText.style.display = 'none';
+        if (noResults) noResults.style.display = 'block';
+    } else {
+        if (noResults) noResults.style.display = 'none';
+        if (resultsText) resultsText.style.display = 'block';
+        grid.innerHTML = filtered.map(p => createProductCard(p)).join('');
     }
 
-    filtered.forEach(p => grid.innerHTML += createProductCard(p));
+    // Update count
+    if (countEl) countEl.textContent = filtered.length;
 }
 
-function applyPriceFilter() {
-    // Determine active category filter if any, otherwise 'all'
-    const activeBtn = document.querySelector('.filter-btn.active');
-    const currentCategory = activeBtn ? activeBtn.dataset.filter : 'all';
-    renderShop(currentCategory);
+function applyFilters() { // Alias for main.js usage compatibility if any
+    renderShop();
 }
 
 // Mobile Menu Toggle
@@ -506,6 +564,7 @@ function createProductCard(p) {
     const purchasedText = typeof t === 'function' ? t('product.purchased') : 'Куплено';
     const reviewsText = typeof t === 'function' ? t('product.reviews') : 'відгуків';
     const stockLeftText = typeof t === 'function' ? t('product.stock_left') : 'Залишилось';
+    const pcsText = typeof t === 'function' ? t('product.pcs') : 'шт';
 
     // Taste bar renderer (visual bars instead of dots)
     const renderTasteBar = (value, max = 5) => {
@@ -540,7 +599,7 @@ function createProductCard(p) {
             <a href="product.html?id=${p.id}">
                 <img src="${p.image}" alt="${productName}" loading="lazy">
             </a>
-            ${stock <= 5 ? `<div class="p-stock-warning"><i class="fas fa-clock"></i> ${stockLeftText} ${stock} шт!</div>` : ''}
+            ${stock <= 5 ? `<div class="p-stock-warning"><i class="fas fa-clock"></i> ${stockLeftText} ${stock} ${pcsText}!</div>` : ''}
         </div>
         
         <div class="p-content">
@@ -621,7 +680,7 @@ function createProductCard(p) {
             
             <!-- Social Proof - ENHANCED -->
             <div class="p-social-proof">
-                <span class="p-purchased"><i class="fas fa-check-circle"></i> ${purchasedText}: <strong>${p.soldCount.toLocaleString()}</strong> шт</span>
+                <span class="p-purchased"><i class="fas fa-check-circle"></i> ${purchasedText}: <strong>${p.soldCount.toLocaleString()}</strong> ${pcsText}</span>
             </div>
         </div>
     </div>
@@ -715,7 +774,9 @@ function addToCartWithOptions(productId) {
     }
 
     renderCart();
-    showToast(`${p.name} (${sel.weight}г, ${grindLabel}) додано!`);
+
+    const addedText = typeof t === 'function' ? t('product.added_to_cart') : 'Додано!';
+    showToast(`${p.name} (${sel.weight}г, ${grindLabel}) ${addedText}`);
     openMiniCart();
 
     // Reset quantity after adding
@@ -881,6 +942,16 @@ window.selectWeight = selectWeight;
 window.changeQty = changeQty;
 window.addToCartWithOptions = addToCartWithOptions;
 window.openMiniCart = openMiniCart;
+window.applyFilters = renderShop; // Map applyFilters to renderShop
+window.clearAllFilters = clearAllFilters;
+
+function clearAllFilters() {
+    document.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+    const minP = document.getElementById('price-min'); if (minP) minP.value = '';
+    const maxP = document.getElementById('price-max'); if (maxP) maxP.value = '';
+    const sortS = document.getElementById('sort-select'); if (sortS) sortS.value = 'popular';
+    renderShop();
+}
 
 function initFilters() {
     document.querySelectorAll('.filter-btn').forEach(btn => {

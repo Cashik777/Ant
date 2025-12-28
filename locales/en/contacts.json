@@ -52,5 +52,18 @@
     "response_time": {
         "title": "Response Time",
         "text": "We usually reply within 1-2 hours during business hours"
+    },
+    "contacts_page": {
+        "email_reply": "We reply within an hour",
+        "address_city": "Odesa, Ukraine",
+        "address_note": "Pickup point and office",
+        "messengers_title": "Messengers",
+        "form_name_placeholder": "Your Name",
+        "form_message_placeholder": "Your message...",
+        "form_subject_general": "General question",
+        "form_subject_order": "Order question",
+        "form_subject_b2b": "B2B / Wholesale",
+        "form_subject_collab": "Collaboration",
+        "form_subject_other": "Other"
     }
 }

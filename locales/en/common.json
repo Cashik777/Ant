@@ -69,7 +69,8 @@
         "copyright": "© 2025 EthioDirect. All rights reserved.",
         "privacy": "Privacy Policy",
         "terms": "Return Policy",
-        "offer": "Public Offer"
+        "offer": "Public Offer",
+        "trust_shipping": "Free shipping from 500₴"
     },
     "buttons": {
         "add_to_cart": "Add to Cart",
@@ -79,6 +80,41 @@
         "order_now": "Order Now",
         "back": "Back",
         "next": "Next"
+    },
+    "product_page": {
+        "desc_intro": "This coffee from {region} is grown in ecologically clean regions at an altitude of over 1800 meters.",
+        "about_coffee": "About this coffee",
+        "specs_title": "Detailed Specifications",
+        "spec_region": "Region",
+        "spec_processing": "Processing",
+        "spec_altitude": "Altitude",
+        "spec_variety": "Variety",
+        "spec_roast": "Roast",
+        "spec_sca": "SCA Score",
+        "spec_acidity": "Acidity",
+        "spec_body": "Body",
+        "spec_weight": "Weight",
+        "spec_packaging": "Packaging",
+        "tab_description": "Description",
+        "tab_desc": "About this coffee",
+        "tab_specs": "Specs",
+        "tab_brewing": "How to Brew",
+        "tab_reviews": "Reviews",
+        "guarantee_fresh": "Freshness Guarantee",
+        "guarantee_return": "14 Days Return",
+        "related_products": "Related Products",
+        "leave_review": "Leave a Review",
+        "your_rating": "Your Rating:",
+        "your_name": "Your Name:",
+        "your_review": "Review:",
+        "submit_review": "Submit Review",
+        "reviews_based": "Based on 24 reviews",
+        "verified_purchase": "Verified Purchase",
+        "show_all_reviews": "Show all reviews",
+        "brewing_dose": "Dose:",
+        "brewing_grind": "Grind:",
+        "brewing_temp": "Temperature:",
+        "brewing_time": "Time:"
     },
     "product": {
         "add_to_cart": "Add to Cart",
@@ -130,7 +166,11 @@
         "quick_view": "Quick View",
         "added_to_cart": "Added!",
         "purchased": "Purchased",
-        "reviews": "reviews"
+        "reviews": "reviews",
+        "pcs": "pcs",
+        "unit_g": "g",
+        "spec_weight_250": "/ 250g",
+        "method_universal": "Universal"
     },
     "quiz": {
         "question": "Question",

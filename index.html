@@ -697,15 +697,15 @@
     <!-- FLOATING CONTACT BUTTONS -->
     <div class="floating-contacts">
         <a href="https://t.me/ethiodirect" class="float-btn telegram" title="Написати в Telegram"
-            data-i18n="float_buttons.telegram" data-i18n-title>
+            data-i18n-title="float_buttons.telegram">
             <i class="fab fa-telegram-plane"></i>
         </a>
         <a href="viber://chat?number=+380501234567" class="float-btn viber" title="Написати в Viber"
-            data-i18n="float_buttons.viber" data-i18n-title>
+            data-i18n-title="float_buttons.viber">
             <i class="fab fa-viber"></i>
         </a>
-        <a href="tel:+380501234567" class="float-btn phone" title="Зателефонувати" data-i18n="float_buttons.phone"
-            data-i18n-title>
+        <a href="tel:+380501234567" class="float-btn phone" title="Зателефонувати"
+            data-i18n-title="float_buttons.phone">
             <i class="fas fa-phone-alt"></i>
         </a>
     </div>
@@ -719,9 +719,16 @@
     <script src="js/main.js"></script>
     <script>
         // Init logic specifically for Index
-        document.addEventListener('DOMContentLoaded', () => {
-            renderFeatured(); // Relies on main.js
+        // Wait for i18n to be ready before rendering products
+        document.addEventListener('i18nReady', () => {
+            renderFeatured(); // Relies on main.js and i18n being ready
         });
+
+        // Re-render products when language changes
+        window.onLanguageChange = function (locale) {
+            console.log('[index] Language changed to:', locale, '- Re-rendering products');
+            renderFeatured();
+        };
 
         function filterProducts(type) {
             // Simplified filter for index demo
@@ -747,6 +754,8 @@
         }
     </script>
     <!-- New production i18n system - loads JSON translations -->
+    <script src="js/i18n-inline.js"></script>
+
     <script src="js/i18n.js"></script>
 </body>
 

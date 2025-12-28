@@ -128,6 +128,23 @@
                 return this.translations[locale]?.[namespace] || {};
             }
 
+            // PRIORITY 1: Try to use inline translations if available
+            if (window.ETHIO_TRANSLATIONS &&
+                window.ETHIO_TRANSLATIONS[locale] &&
+                window.ETHIO_TRANSLATIONS[locale][namespace]) {
+
+                // Initialize locale object if needed
+                if (!this.translations[locale]) {
+                    this.translations[locale] = {};
+                }
+
+                this.translations[locale][namespace] = window.ETHIO_TRANSLATIONS[locale][namespace];
+                this.loadedNamespaces[cacheKey] = true;
+                console.log(`[i18n] Loaded from inline: ${locale}/${namespace}`);
+                return this.translations[locale][namespace];
+            }
+
+            // PRIORITY 2: Try to fetch from server (for production)
             try {
                 const url = `${this.localesPath}/${locale}/${namespace}.json?v=${Date.now()}`;
                 const response = await fetch(url);
@@ -145,10 +162,11 @@
 
                 this.translations[locale][namespace] = data;
                 this.loadedNamespaces[cacheKey] = true;
+                console.log(`[i18n] Loaded from server: ${locale}/${namespace}`);
 
                 return data;
             } catch (error) {
-                console.error(`Failed to load translations: ${locale}/${namespace}`, error);
+                console.error(`[i18n] Failed to load translations: ${locale}/${namespace}`, error);
                 return {};
             }
         }

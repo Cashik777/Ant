@@ -1,0 +1,40 @@
+{
+    "meta": {
+        "title": "Returns & Exchanges — EthioDirect"
+    },
+    "page": {
+        "title": "Returns & Exchanges",
+        "subtitle": "If the coffee didn't suit you — we'll fix it"
+    },
+    "return_page": {
+        "guarantee_title": "14-Day Satisfaction Guarantee",
+        "guarantee_text": "If you didn't like the coffee — get a refund or get another variety for free",
+        "how_to_title": "How to return an item?",
+        "step1_title": "Contact Us",
+        "step1_text": "Write to us at hello@ethiodirect.ua or via Telegram/Viber. Specify the order number and reason for return. We reply within 2 hours during business hours.",
+        "step2_title": "Send the item",
+        "step2_text": "Pack the coffee and send it via Nova Poshta to our details. We will pay for shipping if the return is our fault (damage, incorrect order).",
+        "step3_title": "Get a refund or replacement",
+        "step3_text": "After receiving the item, we will refund the money to your card within 1-3 business days. Or we'll send another coffee variety of your choice.",
+        "conditions_title": "Return Conditions",
+        "accept_title": "We accept for return",
+        "accept_list_1": "Unopened packaging",
+        "accept_list_2": "Packaging damaged during delivery",
+        "accept_list_3": "Incorrect order",
+        "accept_list_4": "Coffee didn't taste good*",
+        "accept_list_5": "Expired shelf life",
+        "accept_note": "*If the coffee didn't suit your taste — we'll offer another variety",
+        "decline_title": "We do not accept",
+        "decline_list_1": "Opened packaging without defects",
+        "decline_list_2": "Item purchased more than 14 days ago",
+        "decline_list_3": "Mechanical damage caused by the buyer",
+        "decline_list_4": "Item without receipt or confirmation",
+        "exchange_title": "Exchange",
+        "exchange_text": "If you want to exchange coffee for another variety — it's free! We will send you a new package immediately after receiving the old one. The price difference can be paid extra or refunded.",
+        "exchange_btn": "Contact for exchange",
+        "questions_title": "Have questions?",
+        "questions_text": "We are always ready to help with returns or exchanges",
+        "btn_phone": "+380 (50) 123-45-67",
+        "btn_telegram": "Telegram"
+    }
+}

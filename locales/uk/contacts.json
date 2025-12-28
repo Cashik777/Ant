@@ -52,5 +52,18 @@
     "response_time": {
         "title": "Час відповіді",
         "text": "Зазвичай відповідаємо протягом 1-2 годин у робочий час"
+    },
+    "contacts_page": {
+        "email_reply": "Відповідаємо протягом години",
+        "address_city": "Одеса, Україна",
+        "address_note": "Пункт видачі та офіс",
+        "messengers_title": "Месенджери",
+        "form_name_placeholder": "Ваше ім'я",
+        "form_message_placeholder": "Ваше повідомлення...",
+        "form_subject_general": "Загальне питання",
+        "form_subject_order": "Питання по замовленню",
+        "form_subject_b2b": "B2B / Оптові закупки",
+        "form_subject_collab": "Співпраця",
+        "form_subject_other": "Інше"
     }
 }

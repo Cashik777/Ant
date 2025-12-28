@@ -8,7 +8,7 @@
     },
     "hero": {
         "badge": "Підписка",
-        "title": "Кава, що знаходить вас сама",
+        "title": "Кавова підписка",
         "text": "Оберіть каву, частоту та насолоджуйтесь свіжою обсмажкою без турбот"
     },
     "benefits": {
@@ -33,15 +33,15 @@
     "steps": {
         "title": "Як це працює",
         "step1": {
-            "title": "Оберіть каву",
+            "title": "Оберіть...",
             "text": "Один сорт або мікс на ваш смак"
         },
         "step2": {
-            "title": "Налаштуйте частоту",
+            "title": "Частота",
             "text": "Раз на тиждень, 2 тижні або місяць"
         },
         "step3": {
-            "title": "Отримуйте вдома",
+            "title": "Оформлення",
             "text": "Свіжа кава прибуде вчасно"
         }
     },
@@ -98,19 +98,19 @@
         "benefit_fresh_text": "під ваше замовлення",
         "plans_title": "Оберіть свій план",
         "plans_subtitle": "Всі плани включають безкоштовну доставку та можливість зміни/скасування",
-        "plan_starter": "Starter",
+        "plan_starter": "Новачок",
         "plan_starter_desc": "Для знайомства",
         "plan_per_month": "г/місяць",
         "plan_pack_1": "1 пачка 250г",
         "plan_monthly": "Раз на місяць",
         "plan_free_shipping": "Безкоштовна доставка",
         "plan_popular_badge": "НАЙПОПУЛЯРНІШИЙ",
-        "plan_coffee_lover": "Coffee Lover",
+        "plan_coffee_lover": "Любитель",
         "plan_lover_desc": "Ідеальний баланс",
         "plan_packs_2": "2 пачки по 250г",
         "plan_biweekly": "Раз на 2 тижні",
         "plan_priority": "Пріоритетна підтримка",
-        "plan_addict": "Coffee Addict",
+        "plan_addict": "Профі",
         "plan_addict_desc": "Для справжніх цінителів",
         "plan_packs_4": "4 пачки по 250г",
         "plan_weekly": "Щотижня",

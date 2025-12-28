@@ -296,16 +296,13 @@
 
     <!-- FLOATING CONTACTS -->
     <div class="floating-contacts">
-        <a href="https://t.me/ethiodirect" class="float-btn telegram" title="Telegram"
-            data-i18n="float_buttons.telegram" data-i18n-title>
+        <a href="https://t.me/ethiodirect" class="float-btn telegram" title="Telegram" data-i18n-title>
             <i class="fab fa-telegram-plane"></i>
         </a>
-        <a href="viber://chat?number=+380501234567" class="float-btn viber" title="Viber"
-            data-i18n="float_buttons.viber" data-i18n-title>
+        <a href="viber://chat?number=+380501234567" class="float-btn viber" title="Viber" data-i18n-title>
             <i class="fab fa-viber"></i>
         </a>
-        <a href="tel:+380501234567" class="float-btn phone" title="Зателефонувати" data-i18n="float_buttons.phone"
-            data-i18n-title>
+        <a href="tel:+380501234567" class="float-btn phone" title="Зателефонувати" data-i18n-title>
             <i class="fas fa-phone-alt"></i>
         </a>
     </div>
@@ -454,38 +451,9 @@
     </footer>
 
     <script src="js/main.js"></script>
-    <script>
-        // Render all products on load
-        document.addEventListener('DOMContentLoaded', () => {
-            renderShopProducts();
-        });
 
-        function renderShopProducts() {
-            const grid = document.getElementById('products-grid');
-            const countEl = document.getElementById('products-count');
+    <script src="js/i18n-inline.js"></script>
 
-            if (typeof PRODUCTS === 'undefined') {
-                grid.innerHTML = '<p>Завантаження...</p>';
-                return;
-            }
-
-            grid.innerHTML = PRODUCTS.map(p => createProductCard(p)).join('');
-            countEl.textContent = PRODUCTS.length;
-        }
-
-        function applyFilters() {
-            // Simple filter demo
-            renderShopProducts();
-        }
-
-        function clearAllFilters() {
-            document.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
-            document.getElementById('price-min').value = '';
-            document.getElementById('price-max').value = '';
-            document.getElementById('sort-select').value = 'popular';
-            renderShopProducts();
-        }
-    </script>
     <script src="js/i18n.js"></script>
 </body>
 

@@ -52,5 +52,18 @@
     "response_time": {
         "title": "Время ответа",
         "text": "Обычно отвечаем в течение 1-2 часов в рабочее время"
+    },
+    "contacts_page": {
+        "email_reply": "Отвечаем в течение часа",
+        "address_city": "Одесса, Украина",
+        "address_note": "Пункт выдачи и офис",
+        "messengers_title": "Мессенджеры",
+        "form_name_placeholder": "Ваше имя",
+        "form_message_placeholder": "Ваше сообщение...",
+        "form_subject_general": "Общий вопрос",
+        "form_subject_order": "Вопрос по заказу",
+        "form_subject_b2b": "B2B / Оптовые закупки",
+        "form_subject_collab": "Сотрудничество",
+        "form_subject_other": "Другое"
     }
 }

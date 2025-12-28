@@ -8,7 +8,7 @@
     },
     "hero": {
         "badge": "Subscription",
-        "title": "Coffee That Finds You",
+        "title": "Coffee Subscription",
         "text": "Choose your coffee, frequency and enjoy fresh roasts worry-free"
     },
     "benefits": {
@@ -33,15 +33,15 @@
     "steps": {
         "title": "How It Works",
         "step1": {
-            "title": "Choose Coffee",
+            "title": "Choose...",
             "text": "One variety or a mix to your taste"
         },
         "step2": {
-            "title": "Set Frequency",
+            "title": "Frequency",
             "text": "Weekly, bi-weekly or monthly"
         },
         "step3": {
-            "title": "Receive at Home",
+            "title": "Checkout",
             "text": "Fresh coffee arrives on time"
         }
     },
@@ -98,19 +98,19 @@
         "benefit_fresh_text": "for your order",
         "plans_title": "Choose Your Plan",
         "plans_subtitle": "All plans include free shipping and ability to change/cancel",
-        "plan_starter": "Starter",
+        "plan_starter": "Beginner",
         "plan_starter_desc": "For beginners",
         "plan_per_month": "g/month",
         "plan_pack_1": "1 pack 250g",
         "plan_monthly": "Monthly",
         "plan_free_shipping": "Free shipping",
         "plan_popular_badge": "MOST POPULAR",
-        "plan_coffee_lover": "Coffee Lover",
+        "plan_coffee_lover": "Lover",
         "plan_lover_desc": "Perfect balance",
         "plan_packs_2": "2 packs of 250g",
         "plan_biweekly": "Every 2 weeks",
         "plan_priority": "Priority support",
-        "plan_addict": "Coffee Addict",
+        "plan_addict": "Pro",
         "plan_addict_desc": "For true connoisseurs",
         "plan_packs_4": "4 packs of 250g",
         "plan_weekly": "Weekly",

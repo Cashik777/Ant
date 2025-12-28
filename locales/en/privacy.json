@@ -1,0 +1,21 @@
+{
+    "meta": {
+        "title": "Privacy Policy — EthioDirect"
+    },
+    "page": {
+        "title": "Privacy Policy",
+        "subtitle": "We care about protecting your personal data"
+    },
+    "privacy": {
+        "intro_title": "1. General Provisions",
+        "intro_text": "We, the EthioDirect team, respect your privacy and are committed to protecting your personal data. This policy describes how we collect, use, and protect information.",
+        "collection_title": "2. Information Collection",
+        "collection_text": "We collect only the information necessary to process orders and improve our service: name, phone, email, shipping address.",
+        "usage_title": "3. Data Usage",
+        "usage_text": "Your data is used for: order processing, communication with you, sending newsletters (only with your consent). We do not share data with third parties, except for delivery and payment services.",
+        "security_title": "4. Data Security",
+        "security_text": "We use modern encryption standards and secure connections (HTTPS) to keep your data safe.",
+        "contact_title": "5. Contact",
+        "contact_text": "If you have any questions about this policy, please email us at hello@ethiodirect.ua"
+    }
+}

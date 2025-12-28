@@ -89,5 +89,14 @@
         "title": "Corporate Gifts",
         "text": "Order gift cards for your team or clients",
         "button": "Learn More"
+    },
+    "faq": {
+        "title": "Frequently Asked Questions",
+        "q1": "How long is the certificate valid?",
+        "a1": "The certificate is valid for 12 months from the date of purchase.",
+        "q2": "How to use the certificate?",
+        "a2": "Enter the certificate code in the appropriate field in the cart at checkout.",
+        "q3": "Can I use the certificate in parts?",
+        "a3": "Yes, the balance remains on your account for future purchases."
     }
 }

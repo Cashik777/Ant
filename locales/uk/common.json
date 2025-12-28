@@ -69,7 +69,8 @@
         "copyright": "© 2025 EthioDirect. Всі права захищені.",
         "privacy": "Політика конфіденційності",
         "terms": "Умови повернення",
-        "offer": "Публічна оферта"
+        "offer": "Публічна оферта",
+        "trust_shipping": "Безкоштовна доставка від 500₴"
     },
     "buttons": {
         "add_to_cart": "Додати в кошик",
@@ -79,6 +80,40 @@
         "order_now": "Замовити",
         "back": "Назад",
         "next": "Далі"
+    },
+    "product_page": {
+        "desc_intro": "Ця кава з {region} вирощена в екологічно чистих регіонах на висоті понад 1800 метрів.",
+        "about_coffee": "Про цю каву",
+        "specs_title": "Детальні характеристики",
+        "spec_region": "Регіон",
+        "spec_processing": "Обробка",
+        "spec_altitude": "Висота вирощування",
+        "spec_variety": "Сорт",
+        "spec_roast": "Обсмажка",
+        "spec_sca": "SCA оцінка",
+        "spec_acidity": "Кислотність",
+        "spec_body": "Тіло",
+        "spec_weight": "Вага",
+        "spec_packaging": "Упаковка",
+        "tab_description": "Опис",
+        "tab_specs": "Характеристики",
+        "tab_brewing": "Як заварювати",
+        "guarantee_fresh": "Гарантія свіжості",
+        "guarantee_return": "Повернення 14 днів",
+        "related_products": "Схожі товари",
+        "leave_review": "Залишити відгук",
+        "your_rating": "Ваша оцінка:",
+        "your_name": "Ваше ім'я:",
+        "your_review": "Відгук:",
+        "submit_review": "Надіслати відгук",
+        "reviews_based": "На основі 24 відгуків",
+        "verified_purchase": "Підтверджена покупка",
+        "show_all_reviews": "Показати всі відгуки",
+        "brewing_dose": "Дозування:",
+        "brewing_grind": "Помел:",
+        "brewing_temp": "Температура:",
+        "brewing_time": "Час:",
+        "tab_reviews": "Відгуки"
     },
     "product": {
         "add_to_cart": "В кошик",
@@ -130,7 +165,11 @@
         "quick_view": "Швидкий перегляд",
         "added_to_cart": "Додано!",
         "purchased": "Куплено",
-        "reviews": "відгуків"
+        "reviews": "відгуків",
+        "pcs": "шт",
+        "unit_g": "г",
+        "spec_weight_250": "/ 250г",
+        "method_universal": "Універсальна"
     },
     "quiz": {
         "question": "Питання",

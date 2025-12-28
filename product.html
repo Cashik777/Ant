@@ -24,14 +24,20 @@
             </div>
             <div class="top-bar-center">
                 <div class="promo-ticker">
-                    <span class="ticker-item"><i class="fas fa-fire" style="color:#e74c3c;"></i> <strong data-i18n="topbar.promo_action">АКЦІЯ:</strong> <span data-i18n="topbar.promo_delivery">безкоштовна доставка від 500₴</span></span>
+                    <span class="ticker-item"><i class="fas fa-fire" style="color:#e74c3c;"></i> <strong
+                            data-i18n="topbar.promo_action">АКЦІЯ:</strong> <span
+                            data-i18n="topbar.promo_delivery">безкоштовна доставка від 500₴</span></span>
                     <span class="ticker-divider">|</span>
-                    <span class="ticker-item"><i class="fas fa-coffee" style="color:#8B4545;"></i> <span data-i18n="topbar.promo_subscription">Підписка:</span> <strong data-i18n="topbar.promo_subscription_text">-10% на кожну доставку</strong></span>
+                    <span class="ticker-item"><i class="fas fa-coffee" style="color:#8B4545;"></i> <span
+                            data-i18n="topbar.promo_subscription">Підписка:</span> <strong
+                            data-i18n="topbar.promo_subscription_text">-10% на кожну доставку</strong></span>
                     <span class="ticker-divider">|</span>
-                    <span class="ticker-item"><i class="fas fa-bolt" style="color:#f39c12;"></i> <span data-i18n="topbar.promo_roast">Свіжа обсмажка</span> <strong data-i18n="topbar.promo_roast_days">до 3 днів</strong></span>
+                    <span class="ticker-item"><i class="fas fa-bolt" style="color:#f39c12;"></i> <span
+                            data-i18n="topbar.promo_roast">Свіжа обсмажка</span> <strong
+                            data-i18n="topbar.promo_roast_days">до 3 днів</strong></span>
                 </div>
             </div>
-                        <div class="top-bar-right">
+            <div class="top-bar-right">
                 <a href="#" translate="no" class="active" onclick="setLanguage('uk'); return false;">UA</a>
                 <a href="#" translate="no" onclick="setLanguage('ru'); return false;">RU</a>
                 <a href="#" translate="no" onclick="setLanguage('en'); return false;">EN</a>
@@ -39,7 +45,7 @@
         </div>
     </div>
 
-                    <header class="header">
+    <header class="header">
         <div class="container header-inner">
             <a href="index.html" class="logo">
                 <i class="fas fa-leaf text-accent"></i>
@@ -48,7 +54,8 @@
             <nav class="nav-desktop">
                 <a href="shop.html" class="nav-link" data-i18n="nav.catalog">Каталог</a>
                 <a href="subscription.html" class="nav-link" data-i18n="nav.subscription">Підписка</a>
-                <a href="gift-certificates.html" class="nav-link"><i class="fas fa-gift" style="color:#9b59b6;"></i> Сертифікати</a>
+                <a href="gift-certificates.html" class="nav-link"><i class="fas fa-gift" style="color:#9b59b6;"></i>
+                    Сертифікати</a>
                 <a href="blog.html" class="nav-link" data-i18n="nav.stories">Історії</a>
                 <a href="about.html" class="nav-link" data-i18n="nav.about">Про нас</a>
                 <a href="quiz.html" class="nav-link" data-i18n="nav.test">Тест</a>
@@ -61,10 +68,11 @@
         </div>
     </header>
 
-        <div class="overlay"></div>
+    <div class="overlay"></div>
     <div class="drawer">
         <div class="drawer-header">
-            <h3><i class="fas fa-shopping-bag" style="margin-right:10px; color:var(--primary);"></i> <span data-i18n="cart.your_cart">Ваш кошик</span></h3>
+            <h3><i class="fas fa-shopping-bag" style="margin-right:10px; color:var(--primary);"></i> <span
+                    data-i18n="cart.your_cart">Ваш кошик</span></h3>
             <button onclick="closeDrawer()"
                 style="background:none;border:none;font-size:1.5rem;color:var(--text-dark);cursor:pointer;">&times;</button>
         </div>
@@ -76,279 +84,287 @@
                     <div class="progress-fill" id="drawer-progress-fill" style="width: 0%;"></div>
                 </div>
                 <p class="progress-text" id="drawer-progress-text">
-                    <i class="fas fa-truck"></i> <span data-i18n="cart.free_shipping_progress">До безкоштовної доставки:</span> <strong>500 ₴</strong>
+                    <i class="fas fa-truck"></i> <span data-i18n="cart.free_shipping_progress">До безкоштовної
+                        доставки:</span> <strong>500 ₴</strong>
                 </p>
             </div>
-            
+
             <div style="display:flex; justify-content:space-between; margin-bottom:15px; font-size:1.1rem;">
                 <span data-i18n="cart.subtotal">Разом:</span>
                 <span id="cart-total" style="font-weight:700; color:var(--primary); font-size:1.3rem;">0 ₴</span>
             </div>
-            <button class="btn btn-primary" style="width:100%;"><i class="fas fa-lock"></i> <span data-i18n="cart.checkout">Оформити замовлення</span></button>
+            <button class="btn btn-primary" style="width:100%;"><i class="fas fa-lock"></i> <span
+                    data-i18n="cart.checkout">Оформити замовлення</span></button>
             <p style="text-align:center; margin-top:12px; font-size:0.8rem; color:var(--text-muted);">
-                <i class="fas fa-shield-alt"></i> <span data-i18n="cart.safe_payment">Безпечна оплата</span> • <i class="fas fa-undo"></i> <span data-i18n="cart.return_days">14 днів на повернення</span>
+                <i class="fas fa-shield-alt"></i> <span data-i18n="cart.safe_payment">Безпечна оплата</span> • <i
+                    class="fas fa-undo"></i> <span data-i18n="cart.return_days">14 днів на повернення</span>
             </p>
         </div>
     </div>
 
 
-                        <div class="product-actions">
-                            <div class="quantity-selector">
-                                <button onclick="changeQuantity(-1)">−</button>
-                                <input type="number" id="quantity" value="1" min="1" max="10" readonly>
-                                <button onclick="changeQuantity(1)">+</button>
-                            </div>
-                            <button class="btn btn-primary btn-add-to-cart" onclick="addToCartFromProduct()">
-                                <i class="fas fa-shopping-cart"></i> Додати в кошик
-                            </button>
-                            <button class="btn btn-outline" onclick="window.location.href='subscription.html'">
-                                <i class="fas fa-sync-alt"></i> Підписатись
-                            </button>
-                        </div>
+    <div class="product-actions">
+        <div class="quantity-selector">
+            <button onclick="changeQuantity(-1)">−</button>
+            <input type="number" id="quantity" value="1" min="1" max="10" readonly>
+            <button onclick="changeQuantity(1)">+</button>
+        </div>
+        <button class="btn btn-primary btn-add-to-cart" onclick="addToCartFromProduct()">
+            <i class="fas fa-shopping-cart"></i> Додати в кошик
+        </button>
+        <button class="btn btn-outline" onclick="window.location.href='subscription.html'">
+            <i class="fas fa-sync-alt"></i> Підписатись
+        </button>
+    </div>
 
-                        <div class="product-guarantees">
-                            <div class="guarantee-item">
-                                <i class="fas fa-shield-alt"></i>
-                                <span data-i18n="product_page.guarantee_fresh">Гарантія свіжості</span>
-                            </div>
-                            <div class="guarantee-item">
-                                <i class="fas fa-truck"></i>
-                                <span data-i18n="footer.trust_shipping">Безкоштовна доставка від 500₴</span>
-                            </div>
-                            <div class="guarantee-item">
-                                <i class="fas fa-undo"></i>
-                                <span data-i18n="product_page.guarantee_return">Повернення 14 днів</span>
-                            </div>
-                        </div>
-                    </div>
+    <div class="product-guarantees">
+        <div class="guarantee-item">
+            <i class="fas fa-shield-alt"></i>
+            <span data-i18n="product_page.guarantee_fresh">Гарантія свіжості</span>
+        </div>
+        <div class="guarantee-item">
+            <i class="fas fa-truck"></i>
+            <span data-i18n="footer.trust_shipping">Безкоштовна доставка від 500₴</span>
+        </div>
+        <div class="guarantee-item">
+            <i class="fas fa-undo"></i>
+            <span data-i18n="product_page.guarantee_return">Повернення 14 днів</span>
+        </div>
+    </div>
+    </div>
+    </div>
+
+    <!-- Product Tabs -->
+    <div class="product-tabs-container">
+        <div class="tabs-nav">
+            <button class="tab-btn active" data-tab="description" data-i18n="product_page.tab_description">Опис</button>
+            <button class="tab-btn" data-tab="specs" data-i18n="product_page.tab_specs">Характеристики</button>
+            <button class="tab-btn" data-tab="brewing" data-i18n="product_page.tab_brewing">Як заварювати</button>
+            <button class="tab-btn" data-tab="reviews" data-i18n="product_page.tab_reviews">Відгуки (24)</button>
+        </div>
+
+        <div class="tabs-content">
+            <!-- Tab 1: Description -->
+            <div class="tab-pane active" id="tab-description">
+                <h3 data-i18n="product_page.about_coffee">Про цю каву</h3>
+                <p id="product-description">Ця кава вирощена в екологічно чистих регіонах Ефіопії на висоті
+                    понад 1800 метрів над рівнем моря. Традиційна обробка та ручний збір урожаю забезпечують
+                    виняткову якість кожного зерна.</p>
+                <p>Ідеально підходить як для еспресо, так і для альтернативних методів заварювання.
+                    Збалансований профіль смаку робить цю каву улюбленицею як початківців, так і досвідчених
+                    кавоманів.</p>
+            </div>
+
+            <!-- Tab 2: Specifications -->
+            <div class="tab-pane" id="tab-specs">
+                <h3 data-i18n="product_page.specs_title">Детальні характеристики</h3>
+                <table class="specs-table">
+                    <tr>
+                        <td><strong data-i18n="product_page.spec_region">Регіон:</strong></td>
+                        <td id="specs-region">-</td>
+                    </tr>
+                    <tr>
+                        <td><strong data-i18n="product_page.spec_processing">Обробка:</strong></td>
+                        <td>Мита (Washed)</td>
+                    </tr>
+                    <tr>
+                        <td><strong data-i18n="product_page.spec_altitude">Висота вирощування:</strong></td>
+                        <td>1800-2100 м</td>
+                    </tr>
+                    <tr>
+                        <td><strong data-i18n="product_page.spec_variety">Сорт:</strong></td>
+                        <td>100% Arabica</td>
+                    </tr>
+                    <tr>
+                        <td><strong data-i18n="product_page.spec_roast">Обсмажка:</strong></td>
+                        <td id="specs-roast">-</td>
+                    </tr>
+                    <tr>
+                        <td><strong data-i18n="product_page.spec_sca">SCA оцінка:</strong></td>
+                        <td>85+</td>
+                    </tr>
+                    <tr>
+                        <td><strong data-i18n="product_page.spec_acidity">Кислотність:</strong></td>
+                        <td>Середня</td>
+                    </tr>
+                    <tr>
+                        <td><strong data-i18n="product_page.spec_body">Тіло:</strong></td>
+                        <td>Середнє</td>
+                    </tr>
+                    <tr>
+                        <td><strong data-i18n="product_page.spec_weight">Вага:</strong></td>
+                        <td>250г</td>
+                    </tr>
+                    <tr>
+                        <td><strong data-i18n="product_page.spec_packaging">Упаковка:</strong></td>
+                        <td>Крафт-пакет з клапаном</td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- Tab 3: Brewing -->
+            <div class="tab-pane" id="tab-brewing">
+                <h3>Рекомендації по завар��ванню</h3>
+
+                <div class="brewing-method">
+                    <h4><i class="fas fa-coffee"></i> Еспресо</h4>
+                    <p><strong data-i18n="product_page.brewing_dose">Дозування:</strong> 18г кави на 36г напою (1:2)</p>
+                    <p><strong data-i18n="product_page.brewing_grind">Помел:</strong> Дрібний</p>
+                    <p><strong data-i18n="product_page.brewing_temp">Температура:</strong> 92-94°C</p>
+                    <p><strong data-i18n="product_page.brewing_time">Час екстракції:</strong> 25-30 секунд</p>
                 </div>
 
-                <!-- Product Tabs -->
-                <div class="product-tabs-container">
-                    <div class="tabs-nav">
-                        <button class="tab-btn active" data-tab="description" data-i18n="product_page.tab_description">Опис</button>
-                        <button class="tab-btn" data-tab="specs" data-i18n="product_page.tab_specs">Характеристики</button>
-                        <button class="tab-btn" data-tab="brewing" data-i18n="product_page.tab_brewing">Як заварювати</button>
-                        <button class="tab-btn" data-tab="reviews">Відгуки (24)</button>
-                    </div>
-
-                    <div class="tabs-content">
-                        <!-- Tab 1: Description -->
-                        <div class="tab-pane active" id="tab-description">
-                            <h3 data-i18n="product_page.about_coffee">Про цю каву</h3>
-                            <p id="product-description">Ця кава вирощена в екологічно чистих регіонах Ефіопії на висоті
-                                понад 1800 метрів над рівнем моря. Традиційна обробка та ручний збір урожаю забезпечують
-                                виняткову якість кожного зерна.</p>
-                            <p>Ідеально підходить як для еспресо, так і для альтернативних методів заварювання.
-                                Збалансований профіль смаку робить цю каву улюбленицею як початківців, так і досвідчених
-                                кавоманів.</p>
-                        </div>
-
-                        <!-- Tab 2: Specifications -->
-                        <div class="tab-pane" id="tab-specs">
-                            <h3 data-i18n="product_page.specs_title">Детальні характеристики</h3>
-                            <table class="specs-table">
-                                <tr>
-                                    <td><strong data-i18n="product_page.spec_region">Регіон:</strong></td>
-                                    <td id="specs-region">-</td>
-                                </tr>
-                                <tr>
-                                    <td><strong data-i18n="product_page.spec_processing">Обробка:</strong></td>
-                                    <td>Мита (Washed)</td>
-                                </tr>
-                                <tr>
-                                    <td><strong data-i18n="product_page.spec_altitude">Висота вирощування:</strong></td>
-                                    <td>1800-2100 м</td>
-                                </tr>
-                                <tr>
-                                    <td><strong data-i18n="product_page.spec_variety">Сорт:</strong></td>
-                                    <td>100% Arabica</td>
-                                </tr>
-                                <tr>
-                                    <td><strong data-i18n="product_page.spec_roast">Обсмажка:</strong></td>
-                                    <td id="specs-roast">-</td>
-                                </tr>
-                                <tr>
-                                    <td><strong data-i18n="product_page.spec_sca">SCA оцінка:</strong></td>
-                                    <td>85+</td>
-                                </tr>
-                                <tr>
-                                    <td><strong data-i18n="product_page.spec_acidity">Кислотність:</strong></td>
-                                    <td>Середня</td>
-                                </tr>
-                                <tr>
-                                    <td><strong data-i18n="product_page.spec_body">Тіло:</strong></td>
-                                    <td>Середнє</td>
-                                </tr>
-                                <tr>
-                                    <td><strong data-i18n="product_page.spec_weight">Вага:</strong></td>
-                                    <td>250г</td>
-                                </tr>
-                                <tr>
-                                    <td><strong data-i18n="product_page.spec_packaging">Упаковка:</strong></td>
-                                    <td>Крафт-пакет з клапаном</td>
-                                </tr>
-                            </table>
-                        </div>
-
-                        <!-- Tab 3: Brewing -->
-                        <div class="tab-pane" id="tab-brewing">
-                            <h3>Рекомендації по завар��ванню</h3>
-
-                            <div class="brewing-method">
-                                <h4><i class="fas fa-coffee"></i> Еспресо</h4>
-                                <p><strong data-i18n="product_page.brewing_dose">Дозування:</strong> 18г кави на 36г напою (1:2)</p>
-                                <p><strong data-i18n="product_page.brewing_grind">Помел:</strong> Дрібний</p>
-                                <p><strong data-i18n="product_page.brewing_temp">Температура:</strong> 92-94°C</p>
-                                <p><strong data-i18n="product_page.brewing_time">Час екстракції:</strong> 25-30 секунд</p>
-                            </div>
-
-                            <div class="brewing-method">
-                                <h4><i class="fas fa-filter"></i> V60 / Пур-овер</h4>
-                                <p><strong data-i18n="product_page.brewing_dose">Дозування:</strong> 15г кави на 250мл води (1:16)</p>
-                                <p><strong data-i18n="product_page.brewing_grind">Помел:</strong> Середній</p>
-                                <p><strong data-i18n="product_page.brewing_temp">Температура:</strong> 93-96°C</p>
-                                <p><strong data-i18n="product_page.brewing_time">Час:</strong> 2:30-3:00 хвилин</p>
-                            </div>
-
-                            <div class="brewing-method">
-                                <h4><i class="fas fa-mug-hot"></i> Френч-прес</h4>
-                                <p><strong data-i18n="product_page.brewing_dose">Дозування:</strong> 30г кави на 500мл води (1:16)</p>
-                                <p><strong data-i18n="product_page.brewing_grind">Помел:</strong> Грубий</p>
-                                <p><strong data-i18n="product_page.brewing_temp">Температура:</strong> 93-95°C</p>
-                                <p><strong data-i18n="product_page.brewing_time">Час:</strong> 4-5 хвилин</p>
-                            </div>
-                        </div>
-
-                        <!-- Tab 4: Reviews -->
-                        <div class="tab-pane" id="tab-reviews">
-                            <div class="reviews-summary">
-                                <div class="reviews-average">
-                                    <div class="avg-number">4.5</div>
-                                    <div class="avg-stars">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star-half-alt"></i>
-                                    </div>
-                                    <div class="reviews-total" data-i18n="product_page.reviews_based">На основі 24 відгуків</div>
-                                </div>
-                                <div class="reviews-bars">
-                                    <div class="rating-bar"><span>5★</span>
-                                        <div class="bar">
-                                            <div class="fill" style="width:70%"></div>
-                                        </div><span>17</span>
-                                    </div>
-                                    <div class="rating-bar"><span>4★</span>
-                                        <div class="bar">
-                                            <div class="fill" style="width:20%"></div>
-                                        </div><span>5</span>
-                                    </div>
-                                    <div class="rating-bar"><span>3★</span>
-                                        <div class="bar">
-                                            <div class="fill" style="width:8%"></div>
-                                        </div><span>2</span>
-                                    </div>
-                                    <div class="rating-bar"><span>2★</span>
-                                        <div class="bar">
-                                            <div class="fill" style="width:0%"></div>
-                                        </div><span>0</span>
-                                    </div>
-                                    <div class="rating-bar"><span>1★</span>
-                                        <div class="bar">
-                                            <div class="fill" style="width:0%"></div>
-                                        </div><span>0</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="reviews-list">
-                                <div class="review-card">
-                                    <div class="review-header">
-                                        <div class="review-author">
-                                            <div class="author-avatar">О</div>
-                                            <div>
-                                                <strong>Олена К.</strong>
-                                                <span class="review-date">15 грудня 2024</span>
-                                            </div>
-                                        </div>
-                                        <div class="review-stars">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                        </div>
-                                    </div>
-                                    <p class="review-text">Чудова кава! Смак збалансований, аромат неймовірний. Замовляю
-                                        вже вдруге. Рекомендую для ранкової кави.</p>
-                                    <div class="review-verified" data-i18n="product_page.verified_purchase"><i class="fas fa-check"></i> Підтверджена покупка</div>
-                                </div>
-
-                                <div class="review-card">
-                                    <div class="review-header">
-                                        <div class="review-author">
-                                            <div class="author-avatar">М</div>
-                                            <div>
-                                                <strong>Максим В.</strong>
-                                                <span class="review-date">10 грудня 2024</span>
-                                            </div>
-                                        </div>
-                                        <div class="review-stars">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="far fa-star"></i>
-                                        </div>
-                                    </div>
-                                    <p class="review-text">Добра кава за свої гроші. Трохи кисла для мене, але загалом
-                                        якість відмінна. Доставка швидка.</p>
-                                    <div class="review-verified" data-i18n="product_page.verified_purchase"><i class="fas fa-check"></i> Підтверджена покупка</div>
-                                </div>
-
-                                <button class="btn btn-outline" style="margin-top:30px;" data-i18n="product_page.show_all_reviews">Показати всі відгуки</button>
-                            </div>
-
-                            <div class="review-form-section">
-                                <h3 data-i18n="product_page.leave_review">Залишити відгук</h3>
-                                <form class="review-form" onsubmit="submitReview(event)">
-                                    <div class="form-group">
-                                        <label data-i18n="product_page.your_rating">Ваша оцінка:</label>
-                                        <div class="star-input">
-                                            <i class="far fa-star" data-rating="1"></i>
-                                            <i class="far fa-star" data-rating="2"></i>
-                                            <i class="far fa-star" data-rating="3"></i>
-                                            <i class="far fa-star" data-rating="4"></i>
-                                            <i class="far fa-star" data-rating="5"></i>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label data-i18n="product_page.your_name">Ваше ім'я:</label>
-                                        <input type="text" required placeholder="Введіть ваше ім'я">
-                                    </div>
-                                    <div class="form-group">
-                                        <label data-i18n="product_page.your_review">Відгук:</label>
-                                        <textarea required placeholder="Поділіться враженнями про цю каву..."
-                                            rows="5"></textarea>
-                                    </div>
-                                    <button type="submit" class="btn btn-primary" data-i18n="product_page.submit_review">Надіслати відгук</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
+                <div class="brewing-method">
+                    <h4><i class="fas fa-filter"></i> V60 / Пур-овер</h4>
+                    <p><strong data-i18n="product_page.brewing_dose">Дозування:</strong> 15г кави на 250мл води (1:16)
+                    </p>
+                    <p><strong data-i18n="product_page.brewing_grind">Помел:</strong> Середній</p>
+                    <p><strong data-i18n="product_page.brewing_temp">Температура:</strong> 93-96°C</p>
+                    <p><strong data-i18n="product_page.brewing_time">Час:</strong> 2:30-3:00 хвилин</p>
                 </div>
 
-                <!-- Related Products -->
-                <div class="related-products">
-                    <h2 data-i18n="product_page.related_products">Схожі товари</h2>
-                    <div class="products-grid" id="related-products">
-                        <!-- JS Injected -->
-                    </div>
+                <div class="brewing-method">
+                    <h4><i class="fas fa-mug-hot"></i> Френч-прес</h4>
+                    <p><strong data-i18n="product_page.brewing_dose">Дозування:</strong> 30г кави на 500мл води (1:16)
+                    </p>
+                    <p><strong data-i18n="product_page.brewing_grind">Помел:</strong> Грубий</p>
+                    <p><strong data-i18n="product_page.brewing_temp">Температура:</strong> 93-95°C</p>
+                    <p><strong data-i18n="product_page.brewing_time">Час:</strong> 4-5 хвилин</p>
                 </div>
             </div>
-        </section>
+
+            <!-- Tab 4: Reviews -->
+            <div class="tab-pane" id="tab-reviews">
+                <div class="reviews-summary">
+                    <div class="reviews-average">
+                        <div class="avg-number">4.5</div>
+                        <div class="avg-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <div class="reviews-total" data-i18n="product_page.reviews_based">На основі 24 відгуків</div>
+                    </div>
+                    <div class="reviews-bars">
+                        <div class="rating-bar"><span>5★</span>
+                            <div class="bar">
+                                <div class="fill" style="width:70%"></div>
+                            </div><span>17</span>
+                        </div>
+                        <div class="rating-bar"><span>4★</span>
+                            <div class="bar">
+                                <div class="fill" style="width:20%"></div>
+                            </div><span>5</span>
+                        </div>
+                        <div class="rating-bar"><span>3★</span>
+                            <div class="bar">
+                                <div class="fill" style="width:8%"></div>
+                            </div><span>2</span>
+                        </div>
+                        <div class="rating-bar"><span>2★</span>
+                            <div class="bar">
+                                <div class="fill" style="width:0%"></div>
+                            </div><span>0</span>
+                        </div>
+                        <div class="rating-bar"><span>1★</span>
+                            <div class="bar">
+                                <div class="fill" style="width:0%"></div>
+                            </div><span>0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reviews-list">
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="review-author">
+                                <div class="author-avatar">О</div>
+                                <div>
+                                    <strong>Олена К.</strong>
+                                    <span class="review-date">15 грудня 2024</span>
+                                </div>
+                            </div>
+                            <div class="review-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="review-text">Чудова кава! Смак збалансований, аромат неймовірний. Замовляю
+                            вже вдруге. Рекомендую для ранкової кави.</p>
+                        <div class="review-verified" data-i18n="product_page.verified_purchase"><i
+                                class="fas fa-check"></i> Підтверджена покупка</div>
+                    </div>
+
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="review-author">
+                                <div class="author-avatar">М</div>
+                                <div>
+                                    <strong>Максим В.</strong>
+                                    <span class="review-date">10 грудня 2024</span>
+                                </div>
+                            </div>
+                            <div class="review-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="review-text">Добра кава за свої гроші. Трохи кисла для мене, але загалом
+                            якість відмінна. Доставка швидка.</p>
+                        <div class="review-verified" data-i18n="product_page.verified_purchase"><i
+                                class="fas fa-check"></i> Підтверджена покупка</div>
+                    </div>
+
+                    <button class="btn btn-outline" style="margin-top:30px;"
+                        data-i18n="product_page.show_all_reviews">Показати всі відгуки</button>
+                </div>
+
+                <div class="review-form-section">
+                    <h3 data-i18n="product_page.leave_review">Залишити відгук</h3>
+                    <form class="review-form" onsubmit="submitReview(event)">
+                        <div class="form-group">
+                            <label data-i18n="product_page.your_rating">Ваша оцінка:</label>
+                            <div class="star-input">
+                                <i class="far fa-star" data-rating="1"></i>
+                                <i class="far fa-star" data-rating="2"></i>
+                                <i class="far fa-star" data-rating="3"></i>
+                                <i class="far fa-star" data-rating="4"></i>
+                                <i class="far fa-star" data-rating="5"></i>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label data-i18n="product_page.your_name">Ваше ім'я:</label>
+                            <input type="text" required placeholder="Введіть ваше ім'я">
+                        </div>
+                        <div class="form-group">
+                            <label data-i18n="product_page.your_review">Відгук:</label>
+                            <textarea required placeholder="Поділіться враженнями про цю каву..." rows="5"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" data-i18n="product_page.submit_review">Надіслати
+                            відгук</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Related Products -->
+    <div class="related-products">
+        <h2 data-i18n="product_page.related_products">Схожі товари</h2>
+        <div class="products-grid" id="related-products">
+            <!-- JS Injected -->
+        </div>
+    </div>
+    </div>
+    </section>
     </main>
 
     <!-- Image Modal -->
@@ -358,13 +374,13 @@
     </div>
     <!-- FLOATING CONTACT BUTTONS -->
     <div class="floating-contacts">
-        <a href="https://t.me/ethiodirect" class="float-btn telegram" title="Написати в Telegram" data-i18n="float_buttons.telegram" data-i18n-title>
+        <a href="https://t.me/ethiodirect" class="float-btn telegram" title="Написати в Telegram" data-i18n-title>
             <i class="fab fa-telegram-plane"></i>
         </a>
-        <a href="viber://chat?number=+380501234567" class="float-btn viber" title="Написати в Viber" data-i18n="float_buttons.viber" data-i18n-title>
+        <a href="viber://chat?number=+380501234567" class="float-btn viber" title="Написати в Viber" data-i18n-title>
             <i class="fab fa-viber"></i>
         </a>
-        <a href="tel:+380501234567" class="float-btn phone" title="Зателефонувати" data-i18n="float_buttons.phone" data-i18n-title>
+        <a href="tel:+380501234567" class="float-btn phone" title="Зателефонувати" data-i18n-title>
             <i class="fas fa-phone-alt"></i>
         </a>
     </div>
@@ -381,134 +397,144 @@
     <script src="js/product-page.js"></script>
     <!-- PROFESSIONAL FOOTER COMPONENT -->
     <!-- PROFESSIONAL FOOTER COMPONENT -->
-<!-- PROFESSIONAL FOOTER COMPONENT -->
-<!-- PROFESSIONAL FOOTER COMPONENT -->
-<footer class="footer-pro">
-    <div class="container">
-        <!-- Main Footer Content -->
-        <div class="footer-grid">
-            <!-- Column 1: Brand -->
-            <div class="footer-col">
-                <h4 style="font-family:var(--font-heading); font-size:1.5rem; color:white; margin-bottom:20px;">
-                    <a href="index.html" style="text-decoration:none; color:white;">EthioDirect</a>
-                </h4>
-                <p style="color:#aaa; line-height:1.8; margin-bottom:20px;" data-i18n="footer.description">Ми доставляємо справжню specialty каву прямо з ефіопських ферм до вашого дому. Свіжа обсмажка, чесна ціна, любов до кави.</p>
-                <div class="social-links">
-                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                    <a href="#" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
-                    <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-                </div>
-            </div>
-
-            <!-- Column 2: Shop -->
-            <div class="footer-col">
-                <h4 data-i18n="footer.shop_title">Магазин</h4>
-                <ul class="footer-links">
-                    <li><a href="shop.html" data-i18n="footer.catalog">Весь каталог</a></li>
-                    <li><a href="subscription.html" data-i18n="footer.subscription">Підписка на каву</a></li>
-                    <li><a href="gift-certificates.html" data-i18n="nav.certificates">Сертифікати</a></li>
-                    <li><a href="b2b.html" data-i18n="footer.b2b">B2B рішення</a></li>
-                    <li><a href="account.html" data-i18n="footer.account">Особистий кабінет</a></li>
-                </ul>
-            </div>
-
-            <!-- Column 3: Support -->
-            <div class="footer-col">
-                <h4 data-i18n="footer.support_title">Підтримка</h4>
-                <ul class="footer-links">
-                    <li><a href="delivery.html" data-i18n="footer.delivery">Доставка та оплата</a></li>
-                    <li><a href="return.html" data-i18n="footer.return">Повернення та обмін</a></li>
-                    <li><a href="faq.html" data-i18n="footer.faq">Часті питання</a></li>
-                    <li><a href="contacts.html" data-i18n="footer.contacts">Контакти</a></li>
-                    <li><a href="about.html" data-i18n="nav.about">Про нас</a></li>
-                </ul>
-            </div>
-
-            <!-- Column 4: Contacts -->
-            <div class="footer-col">
-                <h4 data-i18n="footer.contacts_title">Контакти</h4>
-                <ul class="footer-contacts">
-                    <li><i class="fas fa-phone"></i> <a href="tel:+380501234567">+380 (50) 123-45-67</a></li>
-                    <li><i class="fas fa-envelope"></i> <a href="mailto:hello@ethiodirect.ua">hello@ethiodirect.ua</a>
-                    </li>
-                    <li><i class="fas fa-map-marker-alt"></i> <span data-i18n="footer.location">Одеса, Україна</span></li>
-                    <li><i class="fas fa-clock"></i> <span data-i18n="topbar.hours">Пн-Пт: 9:00-18:00</span></li>
-                </ul>
-            </div>
-
-            <!-- Column 5: Newsletter -->
-            <div class="footer-col">
-                <h4 data-i18n="footer.newsletter_title">Підписка на новини</h4>
-                <p style="color:#aaa; margin-bottom:15px; font-size:0.9rem;" data-i18n="footer.newsletter_text">Отримуйте акції, новинки та поради щодо заварювання</p>
-                <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
-                    <input type="email" placeholder="Ваш email" data-i18n-placeholder="footer.newsletter_placeholder" required>
-                    <button type="submit" class="btn-newsletter" data-i18n="footer.newsletter_cta">Підписатись</button>
-                </form>
-            </div>
-        </div>
-
-        <!-- Trust Badges -->
-        <div class="footer-trust">
-            <div class="trust-badges">
-                <div class="trust-badge">
-                    <i class="fas fa-shield-alt"></i>
-                    <div>
-                        <strong>14 днів</strong>
-                        <span>повернення</span>
+    <!-- PROFESSIONAL FOOTER COMPONENT -->
+    <!-- PROFESSIONAL FOOTER COMPONENT -->
+    <footer class="footer-pro">
+        <div class="container">
+            <!-- Main Footer Content -->
+            <div class="footer-grid">
+                <!-- Column 1: Brand -->
+                <div class="footer-col">
+                    <h4 style="font-family:var(--font-heading); font-size:1.5rem; color:white; margin-bottom:20px;">
+                        <a href="index.html" style="text-decoration:none; color:white;">EthioDirect</a>
+                    </h4>
+                    <p style="color:#aaa; line-height:1.8; margin-bottom:20px;" data-i18n="footer.description">Ми
+                        доставляємо справжню specialty каву прямо з ефіопських ферм до вашого дому. Свіжа обсмажка,
+                        чесна ціна, любов до кави.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+                        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
                     </div>
                 </div>
-                <div class="trust-badge">
-                    <i class="fas fa-coffee"></i>
-                    <div>
-                        <strong>100% Specialty</strong>
-                        <span>якість зерна</span>
-                    </div>
-                </div>
-                <div class="trust-badge">
-                    <i class="fas fa-shipping-fast"></i>
-                    <div>
-                        <strong>Безкоштовна</strong>
-                        <span>доставка від 500₴</span>
-                    </div>
-                </div>
-                <div class="trust-badge">
-                    <i class="fas fa-fire"></i>
-                    <div>
-                        <strong>Свіжа обсмажка</strong>
-                        <span>до 3 днів</span>
-                    </div>
-                </div>
-            </div>
-        </div>
 
-        <!-- Payment Methods -->
-        <div class="footer-payment">
-            <p style="color:#666; font-size:0.85rem; margin-bottom:15px;" data-i18n="footer.payment_methods">Способи оплати:</p>
-            <div class="payment-icons">
-                <i class="fab fa-cc-visa" title="Visa"></i>
-                <i class="fab fa-cc-mastercard" title="Mastercard"></i>
-                <i class="fab fa-apple-pay" title="Apple Pay"></i>
-                <i class="fab fa-google-pay" title="Google Pay"></i>
-                <span class="payment-text">LiqPay</span>
-            </div>
-        </div>
+                <!-- Column 2: Shop -->
+                <div class="footer-col">
+                    <h4 data-i18n="footer.shop_title">Магазин</h4>
+                    <ul class="footer-links">
+                        <li><a href="shop.html" data-i18n="footer.catalog">Весь каталог</a></li>
+                        <li><a href="subscription.html" data-i18n="footer.subscription">Підписка на каву</a></li>
+                        <li><a href="gift-certificates.html" data-i18n="nav.certificates">Сертифікати</a></li>
+                        <li><a href="b2b.html" data-i18n="footer.b2b">B2B рішення</a></li>
+                        <li><a href="account.html" data-i18n="footer.account">Особистий кабінет</a></li>
+                    </ul>
+                </div>
 
-        <!-- Bottom Bar -->
-        <div class="footer-bottom">
-            <div class="footer-bottom-left">
-                <p>&copy; 2025 EthioDirect. Всі права захищені.</p>
+                <!-- Column 3: Support -->
+                <div class="footer-col">
+                    <h4 data-i18n="footer.support_title">Підтримка</h4>
+                    <ul class="footer-links">
+                        <li><a href="delivery.html" data-i18n="footer.delivery">Доставка та оплата</a></li>
+                        <li><a href="return.html" data-i18n="footer.return">Повернення та обмін</a></li>
+                        <li><a href="faq.html" data-i18n="footer.faq">Часті питання</a></li>
+                        <li><a href="contacts.html" data-i18n="footer.contacts">Контакти</a></li>
+                        <li><a href="about.html" data-i18n="nav.about">Про нас</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Contacts -->
+                <div class="footer-col">
+                    <h4 data-i18n="footer.contacts_title">Контакти</h4>
+                    <ul class="footer-contacts">
+                        <li><i class="fas fa-phone"></i> <a href="tel:+380501234567">+380 (50) 123-45-67</a></li>
+                        <li><i class="fas fa-envelope"></i> <a
+                                href="mailto:hello@ethiodirect.ua">hello@ethiodirect.ua</a>
+                        </li>
+                        <li><i class="fas fa-map-marker-alt"></i> <span data-i18n="footer.location">Одеса,
+                                Україна</span></li>
+                        <li><i class="fas fa-clock"></i> <span data-i18n="topbar.hours">Пн-Пт: 9:00-18:00</span></li>
+                    </ul>
+                </div>
+
+                <!-- Column 5: Newsletter -->
+                <div class="footer-col">
+                    <h4 data-i18n="footer.newsletter_title">Підписка на новини</h4>
+                    <p style="color:#aaa; margin-bottom:15px; font-size:0.9rem;" data-i18n="footer.newsletter_text">
+                        Отримуйте акції, новинки та поради щодо заварювання</p>
+                    <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
+                        <input type="email" placeholder="Ваш email"
+                            data-i18n-placeholder="footer.newsletter_placeholder" required>
+                        <button type="submit" class="btn-newsletter"
+                            data-i18n="footer.newsletter_cta">Підписатись</button>
+                    </form>
+                </div>
             </div>
-            <div class="footer-bottom-right">
-                <a href="privacy.html" data-i18n="footer.privacy">Політика конфіденційності</a>
-                <span>·</span>
-                <a href="return.html" data-i18n="footer.terms">Умови повернення</a>
-                <span>·</span>
-                <a href="#" data-i18n="footer.offer">Публічна оферта</a>
+
+            <!-- Trust Badges -->
+            <div class="footer-trust">
+                <div class="trust-badges">
+                    <div class="trust-badge">
+                        <i class="fas fa-shield-alt"></i>
+                        <div>
+                            <strong>14 днів</strong>
+                            <span>повернення</span>
+                        </div>
+                    </div>
+                    <div class="trust-badge">
+                        <i class="fas fa-coffee"></i>
+                        <div>
+                            <strong>100% Specialty</strong>
+                            <span>якість зерна</span>
+                        </div>
+                    </div>
+                    <div class="trust-badge">
+                        <i class="fas fa-shipping-fast"></i>
+                        <div>
+                            <strong>Безкоштовна</strong>
+                            <span>доставка від 500₴</span>
+                        </div>
+                    </div>
+                    <div class="trust-badge">
+                        <i class="fas fa-fire"></i>
+                        <div>
+                            <strong>Свіжа обсмажка</strong>
+                            <span>до 3 днів</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment Methods -->
+            <div class="footer-payment">
+                <p style="color:#666; font-size:0.85rem; margin-bottom:15px;" data-i18n="footer.payment_methods">Способи
+                    оплати:</p>
+                <div class="payment-icons">
+                    <i class="fab fa-cc-visa" title="Visa"></i>
+                    <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+                    <i class="fab fa-apple-pay" title="Apple Pay"></i>
+                    <i class="fab fa-google-pay" title="Google Pay"></i>
+                    <span class="payment-text">LiqPay</span>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="footer-bottom">
+                <div class="footer-bottom-left">
+                    <p>&copy; 2025 EthioDirect. Всі права захищені.</p>
+                </div>
+                <div class="footer-bottom-right">
+                    <a href="privacy.html" data-i18n="footer.privacy">Політика конфіденційності</a>
+                    <span>·</span>
+                    <a href="return.html" data-i18n="footer.terms">Умови повернення</a>
+                    <span>·</span>
+                    <a href="#" data-i18n="footer.offer">Публічна оферта</a>
+                </div>
             </div>
         </div>
-    </div>
-</footer>
+    </footer>
+    <script src="js/i18n-inline.js"></script>
+
     <script src="js/i18n.js"></script>
 </body>
 
