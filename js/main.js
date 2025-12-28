@@ -1060,6 +1060,7 @@ function renderCart() {
         `;
         if (total) total.innerText = '0 ' + store.currency;
         updateShippingProgress(0);
+        renderMiniCart(); // Fix: Update mini-cart when empty
         return;
     }
 
