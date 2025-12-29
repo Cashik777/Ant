@@ -44,7 +44,7 @@ const PRODUCTS = [
         method: ['espresso'],
         acidity: 1, body: 5, sweetness: 3,
         soldCount: 2156, rating: 4.7,
-        image: 'https://images.unsplash.com/photo-1550950158-d0d960dff51b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+        image: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
     },
     {
         id: 5, name: 'Лімму', region: 'Limmu',
@@ -895,15 +895,15 @@ function handleSearch(query) {
 
     if (results.length === 0) {
         resultsContainer.innerHTML = `
-    < div style = "padding: 20px; text-align: center; color: var(--text-muted);" >
+            <div style="padding: 20px; text-align: center; color: var(--text-muted);">
                 <i class="fas fa-search" style="font-size: 2rem; margin-bottom: 10px; color: #ddd;"></i>
                 <p>Нічого не знайдено для "${query}"</p>
-            </div >
+            </div>
     `;
     } else {
         resultsContainer.innerHTML = results.map(p => `
-    < a href = "product.html?id=${p.id}" class="search-result-item" >
-        <img src="${p.image}" alt="${p.name}">
+        <a href="product.html?id=${p.id}" class="search-result-item">
+            <img src="${p.image}" alt="${p.name}">
             <div class="search-result-info">
                 <div class="search-result-name">${p.name}</div>
                 <div class="search-result-price">від ${p.prices[250]} ₴</div>
@@ -944,11 +944,11 @@ function renderMiniCart() {
 
     if (count === 0) {
         itemsContainer.innerHTML = `
-    < div class="mini-cart-empty" >
+            <div class="mini-cart-empty">
                 <i class="fas fa-mug-hot"></i>
                 <p>${t('cart.empty')}</p>
                 <a href="shop.html" style="color: var(--primary); font-weight: 600;">${t('cart.to_catalog')}</a>
-            </div >
+            </div>
     `;
         if (footerEl) footerEl.style.display = 'none';
         return;
@@ -962,8 +962,8 @@ function renderMiniCart() {
     store.cart.forEach(item => sum += item.price * item.qty);
 
     itemsContainer.innerHTML = displayItems.map(item => `
-    < div class="mini-cart-item" >
-        <img src="${item.image}" alt="${item.name}">
+        <div class="mini-cart-item">
+            <img src="${item.image}" alt="${item.name}">
             <div class="mini-cart-item-info">
                 <div class="mini-cart-item-name">${item.name}</div>
                 <div class="mini-cart-item-meta">
@@ -972,7 +972,7 @@ function renderMiniCart() {
                 </div>
             </div>
             <div class="mini-cart-item-price">${item.price} ₴</div>
-            <button class="mini-cart-item-remove" onclick="removeFromCart(${item.cartId}); event.stopPropagation();" style="margin-left: auto;">&times;</button>
+            <button class="mini-cart-item-remove" onclick="removeFromCart('${item.cartId}'); event.stopPropagation();" style="margin-left: auto;">&times;</button>
         </div>
 `).join('');
 
@@ -980,9 +980,9 @@ function renderMiniCart() {
         const moreItems = store.cart.length - 3;
         const moreText = t('cart.more_items') || `+ ${moreItems} more`;
         itemsContainer.innerHTML += `
-    < div style = "text-align: center; padding: 10px; color: var(--text-muted); font-size: 0.85rem;" >
-        ${moreText.replace('{count}', moreItems)}
-            </div >
+            <div style="text-align: center; padding: 10px; color: var(--text-muted); font-size: 0.85rem;">
+                ${moreText.replace('{count}', moreItems)}
+            </div>
     `;
     }
 
