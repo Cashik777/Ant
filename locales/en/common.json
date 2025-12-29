@@ -136,6 +136,7 @@
         "origin": "Origin",
         "flavor": "Flavor Notes",
         "roast_level": "Roast Level",
+        "strength": "Strength",
         "roast_light": "Light Roast",
         "roast_medium": "Medium Roast",
         "roast_dark": "Dark Roast",

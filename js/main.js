@@ -568,10 +568,9 @@ function createProductCard(p) {
     const stock = stockLevels[p.id] || 10;
     const reviewCount = Math.floor(p.soldCount * 0.12);
 
-    // Labels with data-i18n
     const labels = {
         roast: `<span data-i18n="product.roast_${p.roast}">${tr(`product.roast_${p.roast}`, p.roast)}</span>`,
-        strength: `<span data-i18n="home.product_strength">${tr('home.product_strength', 'Міцність')}</span>`,
+        strength: `<span data-i18n="product.strength">${tr('product.strength', 'Міцність')}</span>`,
         acidity: `<span data-i18n="product.acidity">${tr('product.acidity', 'Кислотність')}</span>`,
         body: `<span data-i18n="product.body">${tr('product.body', 'Тіло')}</span>`,
         sweetness: `<span data-i18n="product.sweetness">${tr('product.sweetness', 'Солодкість')}</span>`,
