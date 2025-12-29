@@ -98,5 +98,6 @@
         "subscription": "Subscription",
         "gifts": "Gifts",
         "quiz": "Find yours"
-    }
+    },
+    "product_strength": "Strength"
 }
