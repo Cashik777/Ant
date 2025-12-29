@@ -570,16 +570,16 @@ function createProductCard(p) {
 
     // Labels with data-i18n
     const labels = {
-        roast: `<span data-i18n="product.roast_${p.roast}">${tr(`product.roast_${p.roast}`, p.roast)}</span>`,
-        strength: `<span data-i18n="product.strength">${tr('product.strength', 'Крепкість')}</span>`, // Use Ukrainian key or fallback
-        acidity: `<span data-i18n="product.acidity">${tr('product.acidity', 'Кислотність')}</span>`,
-        body: `<span data-i18n="product.body">${tr('product.body', 'Тіло')}</span>`,
-        sweetness: `<span data-i18n="product.sweetness">${tr('product.sweetness', 'Солодкість')}</span>`,
-        add: `<span data-i18n="product.add">${tr('product.add', 'В кошик')}</span>`,
-        purchased: `<span data-i18n="product.purchased">${tr('product.purchased', 'Куплено')}</span>`,
-        reviews: `<span data-i18n="product.reviews">${tr('product.reviews', 'відгуків')}</span>`,
-        stockLeft: `<span data-i18n="product.stock_left">${tr('product.stock_left', 'Залишилось')}</span>`,
-        pcs: `<span data-i18n="product.pcs">${tr('product.pcs', 'шт')}</span>`
+        roast: `<span data-i18n="shop.roast_${p.roast}">${tr(`shop.roast_${p.roast}`, p.roast)}</span>`,
+        strength: `<span data-i18n="shop.product.strength">${tr('shop.product.strength', 'Крепкість')}</span>`,
+        acidity: `<span data-i18n="common.product.acidity">${tr('common.product.acidity', 'Кислотність')}</span>`,
+        body: `<span data-i18n="common.product.body">${tr('common.product.body', 'Тіло')}</span>`,
+        sweetness: `<span data-i18n="common.product.sweetness">${tr('common.product.sweetness', 'Солодкість')}</span>`,
+        add: `<span data-i18n="common.product.add">${tr('common.product.add', 'В кошик')}</span>`,
+        purchased: `<span data-i18n="common.product.purchased">${tr('common.product.purchased', 'Куплено')}</span>`,
+        reviews: `<span data-i18n="common.product.reviews">${tr('common.product.reviews', 'відгуків')}</span>`,
+        stockLeft: `<span data-i18n="common.product.stock_left">${tr('common.product.stock_left', 'Залишилось')}</span>`,
+        pcs: `<span data-i18n="common.product.pcs">${tr('common.product.pcs', 'шт')}</span>`
     };
 
     // Calculate Strength from Roast (1-5)
@@ -714,6 +714,21 @@ function renderSelectors(p, sel) {
     // Helper to keep main function clean
     const tr = (key, def) => (typeof t === 'function' ? t(key) : def);
 
+    // Grind labels with correct translation keys
+    const grindLabels = {
+        beans: tr('shop.product.grind_beans', 'Зерно'),
+        espresso: tr('shop.product.grind_espresso', 'Еспресо'),
+        filter: tr('shop.product.grind_filter', 'Фільтр'),
+        turka: tr('shop.product.grind_turka', 'Турка')
+    };
+
+    const grindIcons = {
+        beans: 'fa-seedling',
+        espresso: 'fa-mug-hot',
+        filter: 'fa-filter',
+        turka: 'fa-fire'
+    };
+
     return `
     <div class="weight-selector" data-product-id="${p.id}">
         ${[250, 500, 1000].map(w =>
@@ -722,16 +737,10 @@ function renderSelectors(p, sel) {
     </div>
     <div class="grind-selector" data-product-id="${p.id}">
         ${['beans', 'espresso', 'filter', 'turka'].map(g => {
-        let label = '';
-        let icon = '';
-        switch (g) {
-            case 'beans': label = tr('product.grind_beans', 'Зерно'); icon = 'fa-seedling'; break;
-            case 'espresso': label = tr('product.grind_espresso', 'Еспресо'); icon = 'fa-mug-hot'; break;
-            case 'filter': label = tr('product.grind_filter', 'Фільтр'); icon = 'fa-filter'; break;
-            case 'turka': label = tr('product.grind_turka', 'Турка'); icon = 'fa-fire'; break;
-        }
+        const label = grindLabels[g];
+        const icon = grindIcons[g];
         return `<button class="grind-btn ${sel.grind === g ? 'active' : ''}" onclick="selectGrind(${p.id}, '${g}')" title="${label}">
-                <i class="fas ${icon}"></i> <span>${label}</span>
+                <i class="fas ${icon}"></i> <span data-i18n="shop.product.grind_${g}">${label}</span>
             </button>`;
     }).join('')}
     </div>`;
