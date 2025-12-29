@@ -734,14 +734,14 @@
             grid.style.opacity = '0';
             setTimeout(() => {
                 grid.innerHTML = ''; // Clear
-                let filtered = PRODUCTS.slice(0, 3); // Default
+                let filtered = PRODUCTS.slice(0, 4); // Default
                 if (type !== 'all') {
                     // Start basic filter visualization
                     // In real app, would filter full list
-                    alert('Фільтр: ' + type + ' (Demo Mode: Показано топ-3)');
-                    PRODUCTS.slice(0, 3).forEach(p => grid.innerHTML += createProductCard(p));
+                    alert('Фільтр: ' + type + ' (Demo Mode: Показано топ-4)');
+                    PRODUCTS.slice(0, 4).forEach(p => grid.innerHTML += createProductCard(p));
                 } else {
-                    PRODUCTS.slice(0, 3).forEach(p => grid.innerHTML += createProductCard(p));
+                    PRODUCTS.slice(0, 4).forEach(p => grid.innerHTML += createProductCard(p));
                 }
                 grid.style.opacity = '1';
             }, 300);

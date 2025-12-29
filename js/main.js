@@ -399,7 +399,7 @@ function renderFeatured() {
     const grid = document.getElementById('featured-grid');
     if (!grid) return;
     grid.innerHTML = '';
-    PRODUCTS.slice(0, 3).forEach(p => grid.innerHTML += createProductCard(p));
+    PRODUCTS.slice(0, 4).forEach(p => grid.innerHTML += createProductCard(p));
 }
 
 function renderShop(filter = 'all') { // filter arg kept for compatibility but we rely on DOM
