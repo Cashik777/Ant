@@ -1098,7 +1098,7 @@ function addToCart(id) {
 }
 
 function removeFromCart(cartId) {
-    store.cart = store.cart.filter(i => i.cartId !== cartId);
+    store.cart = store.cart.filter(i => i.cartId != cartId);
     renderCart();
 }
 
