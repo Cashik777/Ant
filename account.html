@@ -1,12 +1,12 @@
-п»ї<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="uk" data-i18n-title="pages.account">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>РћСЃРѕР±РёСЃС‚РёР№ РєР°Р±С–РЅРµС‚ вЂ” EthioDirect</title>
+    <title>Особистий кабінет — EthioDirect</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/main.css?v=20251230-8">
     <link rel="stylesheet" href="css/polish.css">
 </head>
 
@@ -17,19 +17,19 @@
         <div class="container top-bar-inner">
             <div class="top-bar-left">
                 <span><i class="fas fa-phone-alt"></i> <span data-i18n="topbar.phone">+380 (50) 123-45-67</span></span>
-                <span class="divider-dot">вЂў</span>
-                <span><i class="fas fa-clock"></i> <span data-i18n="topbar.hours">РџРЅ-РџС‚: 9:00-18:00</span></span>
+                <span class="divider-dot">•</span>
+                <span><i class="fas fa-clock"></i> <span data-i18n="topbar.hours">Пн-Пт: 9:00-18:00</span></span>
             </div>
             <div class="top-bar-center">
                 <div class="promo-ticker">
-                    <span class="ticker-item"><i class="fas fa-fire" style="color:#e74c3c;"></i> <strong data-i18n="topbar.promo_action">РђРљР¦Р†РЇ:</strong> <span
-                            data-i18n="topbar.promo_delivery">Р±РµР·РєРѕС€С‚РѕРІРЅР° РґРѕСЃС‚Р°РІРєР° РІС–Рґ 500в‚ґ</span></span>
+                    <span class="ticker-item"><i class="fas fa-fire" style="color:#e74c3c;"></i> <strong data-i18n="topbar.promo_action">АКЦІЯ:</strong> <span
+                            data-i18n="topbar.promo_delivery">безкоштовна доставка від 500?</span></span>
                     <span class="ticker-divider">|</span>
-                    <span class="ticker-item"><i class="fas fa-coffee" style="color:#8B4545;"></i> <span data-i18n="topbar.promo_subscription">РџС–РґРїРёСЃРєР°:</span> <strong
-                            data-i18n="topbar.promo_subscription_text">-10% РЅР° РєРѕР¶РЅСѓ РґРѕСЃС‚Р°РІРєСѓ</strong></span>
+                    <span class="ticker-item"><i class="fas fa-coffee" style="color:#8B4545;"></i> <span data-i18n="topbar.promo_subscription">Підписка:</span> <strong
+                            data-i18n="topbar.promo_subscription_text">-10% на кожну доставку</strong></span>
                     <span class="ticker-divider">|</span>
-                    <span class="ticker-item"><i class="fas fa-bolt" style="color:#f39c12;"></i> <span data-i18n="topbar.promo_roast">РЎРІС–Р¶Р° РѕР±СЃРјР°Р¶РєР°</span> <strong
-                            data-i18n="topbar.promo_roast_days">РґРѕ 3 РґРЅС–РІ</strong></span>
+                    <span class="ticker-item"><i class="fas fa-bolt" style="color:#f39c12;"></i> <span data-i18n="topbar.promo_roast">Свіжа обсмажка</span> <strong
+                            data-i18n="topbar.promo_roast_days">до 3 днів</strong></span>
                 </div>
             </div>
             <div class="top-bar-right">
@@ -48,18 +48,18 @@
             </a>
 
             <nav class="nav-desktop">
-                <a href="shop.html" class="nav-link" data-i18n="nav.catalog">РљР°С‚Р°Р»РѕРі</a>
-                <a href="subscription.html" class="nav-link" data-i18n="nav.subscription">РџС–РґРїРёСЃРєР°</a>
-                <a href="gift-certificates.html" class="nav-link" data-i18n="nav.certificates">РЎРµСЂС‚РёС„С–РєР°С‚Рё</a>
-                <a href="blog.html" class="nav-link" data-i18n="nav.stories">Р†СЃС‚РѕСЂС–С—</a>
-                <a href="about.html" class="nav-link" data-i18n="nav.about">РџСЂРѕ РЅР°СЃ</a>
-                <a href="quiz.html" class="nav-link" data-i18n="nav.test">РўРµСЃС‚</a>
+                <a href="shop.html" class="nav-link" data-i18n="nav.catalog">Каталог</a>
+                <a href="subscription.html" class="nav-link" data-i18n="nav.subscription">Підписка</a>
+                <a href="gift-certificates.html" class="nav-link" data-i18n="nav.certificates">Сертифікати</a>
+                <a href="blog.html" class="nav-link" data-i18n="nav.stories">Історії</a>
+                <a href="about.html" class="nav-link" data-i18n="nav.about">Про нас</a>
+                <a href="quiz.html" class="nav-link" data-i18n="nav.test">Тест</a>
             </nav>
 
             <!-- Search Bar -->
             <div class="header-search">
                 <div class="search-wrapper">
-                    <input type="text" class="search-input" id="search-input" placeholder="РџРѕС€СѓРє РєР°РІРё..."
+                    <input type="text" class="search-input" id="search-input" placeholder="Пошук кави..."
                         data-i18n-placeholder="search.placeholder" oninput="handleSearch(this.value)">
                     <button class="search-btn"><i class="fas fa-search"></i></button>
                     <div class="search-results" id="search-results"></div>
@@ -77,23 +77,23 @@
                     </div>
                     <div class="mini-cart" id="mini-cart">
                         <div class="mini-cart-header">
-                            <h4 data-i18n="cart.title">Р’Р°С€ РєРѕС€РёРє</h4>
+                            <h4 data-i18n="cart.title">Ваш кошик</h4>
                             <span class="mini-cart-count" id="mini-cart-count"><span>0</span> <span
-                                    data-i18n="cart.items">С‚РѕРІР°СЂС–РІ</span></span>
+                                    data-i18n="cart.items">товарів</span></span>
                         </div>
                         <div class="mini-cart-items" id="mini-cart-items"></div>
                         <div class="mini-cart-footer" id="mini-cart-footer">
                             <div class="mini-cart-subtotal">
-                                <strong data-i18n="cart.subtotal">Р Р°Р·РѕРј:</strong>
-                                <span id="mini-cart-total">0 в‚ґ</span>
+                                <strong data-i18n="cart.subtotal">Разом:</strong>
+                                <span id="mini-cart-total">0 ?</span>
                             </div>
                             <div class="mini-cart-shipping" id="mini-cart-shipping">
-                                <i class="fas fa-truck"></i> <span data-i18n="cart.free_shipping_progress">Р”Рѕ
-                                    Р±РµР·РєРѕС€С‚РѕРІРЅРѕС— РґРѕСЃС‚Р°РІРєРё:</span> <strong>500 в‚ґ</strong>
+                                <i class="fas fa-truck"></i> <span data-i18n="cart.free_shipping_progress">До
+                                    безкоштовної доставки:</span> <strong>500 ?</strong>
                             </div>
                             <button class="mini-cart-btn" onclick="openDrawer()">
-                                <i class="fas fa-shopping-cart"></i> <span data-i18n="cart.checkout">РћС„РѕСЂРјРёС‚Рё
-                                    Р·Р°РјРѕРІР»РµРЅРЅСЏ</span>
+                                <i class="fas fa-shopping-cart"></i> <span data-i18n="cart.checkout">Оформити
+                                    замовлення</span>
                             </button>
                         </div>
                     </div>
@@ -112,7 +112,7 @@
     <div class="drawer">
         <div class="drawer-header">
             <h3><i class="fas fa-shopping-bag" style="margin-right:10px; color:var(--primary);"></i> <span
-                    data-i18n="cart.your_cart">Р’Р°С€ РєРѕС€РёРє</span></h3>
+                    data-i18n="cart.your_cart">Ваш кошик</span></h3>
             <button onclick="closeDrawer()"
                 style="background:none;border:none;font-size:1.5rem;color:var(--text-dark);cursor:pointer;">&times;</button>
         </div>
@@ -123,16 +123,16 @@
                     <div class="progress-fill" id="drawer-progress-fill" style="width: 0%;"></div>
                 </div>
                 <p class="progress-text" id="drawer-progress-text">
-                    <i class="fas fa-truck"></i> <span data-i18n="cart.free_shipping_progress">Р”Рѕ Р±РµР·РєРѕС€С‚РѕРІРЅРѕС—
-                        РґРѕСЃС‚Р°РІРєРё:</span> <strong>500 в‚ґ</strong>
+                    <i class="fas fa-truck"></i> <span data-i18n="cart.free_shipping_progress">До безкоштовної
+                        доставки:</span> <strong>500 ?</strong>
                 </p>
             </div>
             <div style="display:flex; justify-content:space-between; margin-bottom:15px; font-size:1.1rem;">
-                <span data-i18n="cart.subtotal">Р Р°Р·РѕРј:</span>
-                <span id="cart-total" style="font-weight:700; color:var(--primary); font-size:1.3rem;">0 в‚ґ</span>
+                <span data-i18n="cart.subtotal">Разом:</span>
+                <span id="cart-total" style="font-weight:700; color:var(--primary); font-size:1.3rem;">0 ?</span>
             </div>
             <button class="btn btn-primary" style="width:100%;"><i class="fas fa-lock"></i> <span
-                    data-i18n="cart.checkout">РћС„РѕСЂРјРёС‚Рё Р·Р°РјРѕРІР»РµРЅРЅСЏ</span></button>
+                    data-i18n="cart.checkout">Оформити замовлення</span></button>
         </div>
     </div>
 
@@ -141,10 +141,10 @@
         <section
             style="padding-top:150px; background:linear-gradient(135deg, var(--bg-main) 0%, #f5f0e6 100%); padding-bottom:40px;">
             <div class="container">
-                <h1 style="font-size:2.5rem; margin-bottom:10px;" data-i18n="page.title">РћСЃРѕР±РёСЃС‚РёР№ РєР°Р±С–РЅРµС‚</h1>
-                <p style="color:var(--text-muted); font-size:1.1rem;" data-i18n="page.subtitle">РљРµСЂСѓР№С‚Рµ Р·Р°РјРѕРІР»РµРЅРЅСЏРјРё,
-                    РїС–РґРїРёСЃРєРѕСЋ С‚Р° РѕСЃРѕР±РёСЃС‚РёРјРё
-                    РґР°РЅРёРјРё</p>
+                <h1 style="font-size:2.5rem; margin-bottom:10px;" data-i18n="page.title">Особистий кабінет</h1>
+                <p style="color:var(--text-muted); font-size:1.1rem;" data-i18n="page.subtitle">Керуйте замовленнями,
+                    підпискою та особистими
+                    даними</p>
             </div>
         </section>
 
@@ -163,7 +163,7 @@
                                 style="width:80px; height:80px; background:linear-gradient(135deg, var(--primary), #6D4C41); border-radius:50%; margin:0 auto 15px; display:flex; align-items:center; justify-content:center;">
                                 <i class="fas fa-user" style="font-size:2rem; color:white;"></i>
                             </div>
-                            <h3 style="margin-bottom:5px;" data-i18n="page.guest">Р“С–СЃС‚СЊ</h3>
+                            <h3 style="margin-bottom:5px;" data-i18n="page.guest">Гість</h3>
                             <p style="color:var(--text-muted); font-size:0.9rem;">guest@example.com</p>
                         </div>
 
@@ -171,30 +171,30 @@
                         <nav style="display:flex; flex-direction:column; gap:5px;">
                             <a href="#" class="account-menu-item active"
                                 style="display:flex; align-items:center; gap:12px; padding:12px 15px; border-radius:8px; text-decoration:none; color:var(--text-dark); background:rgba(139,69,69,0.08); font-weight:600;">
-                                <i class="fas fa-box"></i> <span data-i18n="sidebar.my_orders">РњРѕС— Р·Р°РјРѕРІР»РµРЅРЅСЏ</span>
+                                <i class="fas fa-box"></i> <span data-i18n="sidebar.my_orders">Мої замовлення</span>
                             </a>
                             <a href="#" class="account-menu-item"
                                 style="display:flex; align-items:center; gap:12px; padding:12px 15px; border-radius:8px; text-decoration:none; color:var(--text-muted);">
-                                <i class="fas fa-sync-alt"></i> <span data-i18n="sidebar.my_subscription">РњРѕСЏ
-                                    РїС–РґРїРёСЃРєР°</span>
+                                <i class="fas fa-sync-alt"></i> <span data-i18n="sidebar.my_subscription">Моя
+                                    підписка</span>
                             </a>
                             <a href="#" class="account-menu-item"
                                 style="display:flex; align-items:center; gap:12px; padding:12px 15px; border-radius:8px; text-decoration:none; color:var(--text-muted);">
-                                <i class="fas fa-heart"></i> <span data-i18n="sidebar.favorites">РћР±СЂР°РЅРµ</span>
+                                <i class="fas fa-heart"></i> <span data-i18n="sidebar.favorites">Обране</span>
                             </a>
                             <a href="#" class="account-menu-item"
                                 style="display:flex; align-items:center; gap:12px; padding:12px 15px; border-radius:8px; text-decoration:none; color:var(--text-muted);">
-                                <i class="fas fa-map-marker-alt"></i> <span data-i18n="sidebar.addresses">РђРґСЂРµСЃРё
-                                    РґРѕСЃС‚Р°РІРєРё</span>
+                                <i class="fas fa-map-marker-alt"></i> <span data-i18n="sidebar.addresses">Адреси
+                                    доставки</span>
                             </a>
                             <a href="#" class="account-menu-item"
                                 style="display:flex; align-items:center; gap:12px; padding:12px 15px; border-radius:8px; text-decoration:none; color:var(--text-muted);">
-                                <i class="fas fa-cog"></i> <span data-i18n="sidebar.settings">РќР°Р»Р°С€С‚СѓРІР°РЅРЅСЏ</span>
+                                <i class="fas fa-cog"></i> <span data-i18n="sidebar.settings">Налаштування</span>
                             </a>
                             <hr style="border:none; border-top:1px solid #eee; margin:15px 0;">
                             <a href="#" class="account-menu-item"
                                 style="display:flex; align-items:center; gap:12px; padding:12px 15px; border-radius:8px; text-decoration:none; color:#dc3545;">
-                                <i class="fas fa-sign-out-alt"></i> <span data-i18n="sidebar.logout">Р’РёР№С‚Рё</span>
+                                <i class="fas fa-sign-out-alt"></i> <span data-i18n="sidebar.logout">Вийти</span>
                             </a>
                         </nav>
                     </aside>
@@ -204,7 +204,7 @@
                         <!-- Orders -->
                         <div
                             style="background:white; padding:30px; border-radius:12px; box-shadow:0 5px 20px rgba(0,0,0,0.05); margin-bottom:30px;">
-                            <h2 style="margin-bottom:25px; font-size:1.5rem;" data-i18n="orders.title">РњРѕС— Р·Р°РјРѕРІР»РµРЅРЅСЏ
+                            <h2 style="margin-bottom:25px; font-size:1.5rem;" data-i18n="orders.title">Мої замовлення
                             </h2>
 
                             <!-- Order Example -->
@@ -213,32 +213,32 @@
                                     style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px;">
                                     <div>
                                         <span style="font-weight:700; font-size:1.1rem;">#12345</span>
-                                        <span style="color:var(--text-muted); margin-left:15px;">20 РіСЂСѓРґРЅСЏ 2025</span>
+                                        <span style="color:var(--text-muted); margin-left:15px;">20 грудня 2025</span>
                                     </div>
                                     <span
                                         style="background:#d4edda; color:#155724; padding:5px 15px; border-radius:20px; font-size:0.85rem; font-weight:600;"
-                                        data-i18n="orders.delivered">Р”РѕСЃС‚Р°РІР»РµРЅРѕ</span>
+                                        data-i18n="orders.delivered">Доставлено</span>
                                 </div>
                                 <div style="display:flex; gap:20px; align-items:center;">
                                     <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=100"
                                         style="width:60px; height:60px; border-radius:8px; object-fit:cover;">
                                     <div style="flex:1;">
-                                        <h4 style="margin-bottom:5px;">Yirgacheffe Natural 500Рі</h4>
-                                        <p style="color:var(--text-muted); font-size:0.9rem;">РЎРІС–С‚Р»Р° РѕР±СЃРјР°Р¶РєР°, Р·РµСЂРЅРѕ</p>
+                                        <h4 style="margin-bottom:5px;">Yirgacheffe Natural 500г</h4>
+                                        <p style="color:var(--text-muted); font-size:0.9rem;">Світла обсмажка, зерно</p>
                                     </div>
                                     <div style="text-align:right;">
-                                        <div style="font-weight:700; color:var(--primary);">430 в‚ґ</div>
+                                        <div style="font-weight:700; color:var(--primary);">430 ?</div>
                                     </div>
                                 </div>
                                 <div
                                     style="margin-top:15px; padding-top:15px; border-top:1px solid #eee; display:flex; gap:15px;">
                                     <a href="#" style="color:var(--primary); text-decoration:none; font-size:0.9rem;"><i
-                                            class="fas fa-redo"></i> <span data-i18n="orders.reorder">РџРѕРІС‚РѕСЂРёС‚Рё
-                                            Р·Р°РјРѕРІР»РµРЅРЅСЏ</span></a>
+                                            class="fas fa-redo"></i> <span data-i18n="orders.reorder">Повторити
+                                            замовлення</span></a>
                                     <a href="#"
                                         style="color:var(--text-muted); text-decoration:none; font-size:0.9rem;"><i
                                             class="fas fa-file-alt"></i> <span
-                                            data-i18n="orders.details">Р”РµС‚Р°Р»С–</span></a>
+                                            data-i18n="orders.details">Деталі</span></a>
                                 </div>
                             </div>
 
@@ -248,33 +248,33 @@
                                     style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px;">
                                     <div>
                                         <span style="font-weight:700; font-size:1.1rem;">#12344</span>
-                                        <span style="color:var(--text-muted); margin-left:15px;">15 РіСЂСѓРґРЅСЏ 2025</span>
+                                        <span style="color:var(--text-muted); margin-left:15px;">15 грудня 2025</span>
                                     </div>
                                     <span
                                         style="background:#fff3cd; color:#856404; padding:5px 15px; border-radius:20px; font-size:0.85rem; font-weight:600;"
-                                        data-i18n="orders.in_transit">Р’
-                                        РґРѕСЂРѕР·С–</span>
+                                        data-i18n="orders.in_transit">В
+                                        дорозі</span>
                                 </div>
                                 <div style="display:flex; gap:20px; align-items:center;">
                                     <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=100"
                                         style="width:60px; height:60px; border-radius:8px; object-fit:cover;">
                                     <div style="flex:1;">
-                                        <h4 style="margin-bottom:5px;">Guji Washed 1РєРі</h4>
-                                        <p style="color:var(--text-muted); font-size:0.9rem;">РЎРµСЂРµРґРЅСЏ РѕР±СЃРјР°Р¶РєР°, РµСЃРїСЂРµСЃРѕ
+                                        <h4 style="margin-bottom:5px;">Guji Washed 1кг</h4>
+                                        <p style="color:var(--text-muted); font-size:0.9rem;">Середня обсмажка, еспресо
                                         </p>
                                     </div>
                                     <div style="text-align:right;">
-                                        <div style="font-weight:700; color:var(--primary);">820 в‚ґ</div>
+                                        <div style="font-weight:700; color:var(--primary);">820 ?</div>
                                     </div>
                                 </div>
                                 <div style="margin-top:15px; padding-top:15px; border-top:1px solid #eee;">
                                     <div style="display:flex; align-items:center; gap:10px;">
                                         <i class="fas fa-truck" style="color:var(--primary);"></i>
-                                        <span style="font-size:0.9rem;">РќРѕРІР° РџРѕС€С‚Р°: 20450123456789</span>
+                                        <span style="font-size:0.9rem;">Нова Пошта: 20450123456789</span>
                                         <a href="#"
                                             style="color:var(--primary); text-decoration:none; font-size:0.9rem; margin-left:auto;"
-                                            data-i18n="orders.track">Р’С–РґСЃС‚РµР¶РёС‚Рё
-                                            в†’</a>
+                                            data-i18n="orders.track">Відстежити
+                                            ></a>
                                     </div>
                                 </div>
                             </div>
@@ -286,19 +286,19 @@
                                 style="background:white; padding:25px; border-radius:12px; text-align:center; text-decoration:none; color:var(--text-dark); box-shadow:0 5px 20px rgba(0,0,0,0.05); transition:all 0.3s;">
                                 <i class="fas fa-shopping-bag"
                                     style="font-size:2rem; color:var(--primary); margin-bottom:10px;"></i>
-                                <h4 data-i18n="quick_actions.order_coffee">Р—Р°РјРѕРІРёС‚Рё РєР°РІСѓ</h4>
+                                <h4 data-i18n="quick_actions.order_coffee">Замовити каву</h4>
                             </a>
                             <a href="subscription.html"
                                 style="background:white; padding:25px; border-radius:12px; text-align:center; text-decoration:none; color:var(--text-dark); box-shadow:0 5px 20px rgba(0,0,0,0.05); transition:all 0.3s;">
                                 <i class="fas fa-sync-alt"
                                     style="font-size:2rem; color:var(--success); margin-bottom:10px;"></i>
-                                <h4 data-i18n="quick_actions.subscribe">РћС„РѕСЂРјРёС‚Рё РїС–РґРїРёСЃРєСѓ</h4>
+                                <h4 data-i18n="quick_actions.subscribe">Оформити підписку</h4>
                             </a>
                             <a href="gift-certificates.html"
                                 style="background:white; padding:25px; border-radius:12px; text-align:center; text-decoration:none; color:var(--text-dark); box-shadow:0 5px 20px rgba(0,0,0,0.05); transition:all 0.3s;">
                                 <i class="fas fa-gift"
                                     style="font-size:2rem; color:var(--secondary); margin-bottom:10px;"></i>
-                                <h4 data-i18n="quick_actions.gift_card">РџРѕРґР°СЂСѓРЅРєРѕРІРёР№ СЃРµСЂС‚РёС„С–РєР°С‚</h4>
+                                <h4 data-i18n="quick_actions.gift_card">Подарунковий сертифікат</h4>
                             </a>
                         </div>
                     </div>
@@ -313,14 +313,14 @@
              data-i18n-title><i class="fab fa-telegram-plane"></i></a>
         <a href="viber://chat?number=+380501234567" class="float-btn viber" title="Viber"
              data-i18n-title><i class="fab fa-viber"></i></a>
-        <a href="tel:+380501234567" class="float-btn phone" title="Р—Р°С‚РµР»РµС„РѕРЅСѓРІР°С‚Рё" 
+        <a href="tel:+380501234567" class="float-btn phone" title="Зателефонувати" 
             data-i18n-title><i class="fas fa-phone-alt"></i></a>
     </div>
 
     <!-- TOAST -->
     <div class="toast" id="toast">
         <i class="fas fa-check-circle"></i>
-        <span id="toast-msg">Р“РѕС‚РѕРІРѕ</span>
+        <span id="toast-msg">Готово</span>
     </div>
 
     <!-- FOOTER -->
@@ -334,9 +334,9 @@
                     <h4 style="font-family:var(--font-heading); font-size:1.5rem; color:white; margin-bottom:20px;">
                         <a href="index.html" style="text-decoration:none; color:white;">EthioDirect</a>
                     </h4>
-                    <p style="color:#aaa; line-height:1.8; margin-bottom:20px;" data-i18n="footer.description">РњРё
-                        РґРѕСЃС‚Р°РІР»СЏС”РјРѕ СЃРїСЂР°РІР¶РЅСЋ specialty РєР°РІСѓ РїСЂСЏРјРѕ Р· РµС„С–РѕРїСЃСЊРєРёС… С„РµСЂРј РґРѕ РІР°С€РѕРіРѕ РґРѕРјСѓ. РЎРІС–Р¶Р° РѕР±СЃРјР°Р¶РєР°,
-                        С‡РµСЃРЅР° С†С–РЅР°, Р»СЋР±РѕРІ РґРѕ РєР°РІРё.</p>
+                    <p style="color:#aaa; line-height:1.8; margin-bottom:20px;" data-i18n="footer.description">Ми
+                        доставляємо справжню specialty каву прямо з ефіопських ферм до вашого дому. Свіжа обсмажка,
+                        чесна ціна, любов до кави.</p>
                     <div class="social-links">
                         <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                         <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
@@ -347,51 +347,51 @@
 
                 <!-- Column 2: Shop -->
                 <div class="footer-col">
-                    <h4 data-i18n="footer.shop_title">РњР°РіР°Р·РёРЅ</h4>
+                    <h4 data-i18n="footer.shop_title">Магазин</h4>
                     <ul class="footer-links">
-                        <li><a href="shop.html" data-i18n="footer.catalog">Р’РµСЃСЊ РєР°С‚Р°Р»РѕРі</a></li>
-                        <li><a href="subscription.html" data-i18n="footer.subscription">РџС–РґРїРёСЃРєР° РЅР° РєР°РІСѓ</a></li>
-                        <li><a href="gift-certificates.html" data-i18n="nav.certificates">РЎРµСЂС‚РёС„С–РєР°С‚Рё</a></li>
-                        <li><a href="b2b.html" data-i18n="footer.b2b">B2B СЂС–С€РµРЅРЅСЏ</a></li>
-                        <li><a href="account.html" data-i18n="footer.account">РћСЃРѕР±РёСЃС‚РёР№ РєР°Р±С–РЅРµС‚</a></li>
+                        <li><a href="shop.html" data-i18n="footer.catalog">Весь каталог</a></li>
+                        <li><a href="subscription.html" data-i18n="footer.subscription">Підписка на каву</a></li>
+                        <li><a href="gift-certificates.html" data-i18n="nav.certificates">Сертифікати</a></li>
+                        <li><a href="b2b.html" data-i18n="footer.b2b">B2B рішення</a></li>
+                        <li><a href="account.html" data-i18n="footer.account">Особистий кабінет</a></li>
                     </ul>
                 </div>
 
                 <!-- Column 3: Support -->
                 <div class="footer-col">
-                    <h4 data-i18n="footer.support_title">РџС–РґС‚СЂРёРјРєР°</h4>
+                    <h4 data-i18n="footer.support_title">Підтримка</h4>
                     <ul class="footer-links">
-                        <li><a href="delivery.html" data-i18n="footer.delivery">Р”РѕСЃС‚Р°РІРєР° С‚Р° РѕРїР»Р°С‚Р°</a></li>
-                        <li><a href="return.html" data-i18n="footer.return">РџРѕРІРµСЂРЅРµРЅРЅСЏ С‚Р° РѕР±РјС–РЅ</a></li>
-                        <li><a href="faq.html" data-i18n="footer.faq">Р§Р°СЃС‚С– РїРёС‚Р°РЅРЅСЏ</a></li>
-                        <li><a href="contacts.html" data-i18n="footer.contacts">РљРѕРЅС‚Р°РєС‚Рё</a></li>
-                        <li><a href="about.html" data-i18n="nav.about">РџСЂРѕ РЅР°СЃ</a></li>
+                        <li><a href="delivery.html" data-i18n="footer.delivery">Доставка та оплата</a></li>
+                        <li><a href="return.html" data-i18n="footer.return">Повернення та обмін</a></li>
+                        <li><a href="faq.html" data-i18n="footer.faq">Часті питання</a></li>
+                        <li><a href="contacts.html" data-i18n="footer.contacts">Контакти</a></li>
+                        <li><a href="about.html" data-i18n="nav.about">Про нас</a></li>
                     </ul>
                 </div>
 
                 <!-- Column 4: Contacts -->
                 <div class="footer-col">
-                    <h4 data-i18n="footer.contacts_title">РљРѕРЅС‚Р°РєС‚Рё</h4>
+                    <h4 data-i18n="footer.contacts_title">Контакти</h4>
                     <ul class="footer-contacts">
                         <li><i class="fas fa-phone"></i> <a href="tel:+380501234567">+380 (50) 123-45-67</a></li>
                         <li><i class="fas fa-envelope"></i> <a
                                 href="mailto:hello@ethiodirect.ua">hello@ethiodirect.ua</a>
                         </li>
-                        <li><i class="fas fa-map-marker-alt"></i> <span data-i18n="footer.location">РћРґРµСЃР°,
-                                РЈРєСЂР°С—РЅР°</span></li>
-                        <li><i class="fas fa-clock"></i> <span data-i18n="topbar.hours">РџРЅ-РџС‚: 9:00-18:00</span></li>
+                        <li><i class="fas fa-map-marker-alt"></i> <span data-i18n="footer.location">Одеса,
+                                Україна</span></li>
+                        <li><i class="fas fa-clock"></i> <span data-i18n="topbar.hours">Пн-Пт: 9:00-18:00</span></li>
                     </ul>
                 </div>
 
                 <!-- Column 5: Newsletter -->
                 <div class="footer-col">
-                    <h4 data-i18n="footer.newsletter_title">РџС–РґРїРёСЃРєР° РЅР° РЅРѕРІРёРЅРё</h4>
+                    <h4 data-i18n="footer.newsletter_title">Підписка на новини</h4>
                     <p style="color:#aaa; margin-bottom:15px; font-size:0.9rem;" data-i18n="footer.newsletter_text">
-                        РћС‚СЂРёРјСѓР№С‚Рµ Р°РєС†С–С—, РЅРѕРІРёРЅРєРё С‚Р° РїРѕСЂР°РґРё С‰РѕРґРѕ Р·Р°РІР°СЂСЋРІР°РЅРЅСЏ</p>
+                        Отримуйте акції, новинки та поради щодо заварювання</p>
                     <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
-                        <input type="email" placeholder="Р’Р°С€ email" data-i18n-placeholder="footer.newsletter_placeholder" required>
+                        <input type="email" placeholder="Ваш email" data-i18n-placeholder="footer.newsletter_placeholder" required>
                         <button type="submit" class="btn-newsletter"
-                            data-i18n="footer.newsletter_cta">РџС–РґРїРёСЃР°С‚РёСЃСЊ</button>
+                            data-i18n="footer.newsletter_cta">Підписатись</button>
                     </form>
                 </div>
             </div>
@@ -402,29 +402,29 @@
                     <div class="trust-badge">
                         <i class="fas fa-shield-alt"></i>
                         <div>
-                            <strong data-i18n="footer.badge_return_days">14 РґРЅС–РІ</strong>
-                            <span data-i18n="footer.badge_return">РїРѕРІРµСЂРЅРµРЅРЅСЏ</span>
+                            <strong data-i18n="footer.badge_return_days">14 днів</strong>
+                            <span data-i18n="footer.badge_return">повернення</span>
                         </div>
                     </div>
                     <div class="trust-badge">
                         <i class="fas fa-coffee"></i>
                         <div>
                             <strong data-i18n="footer.badge_specialty">100% Specialty</strong>
-                            <span data-i18n="footer.badge_quality">СЏРєС–СЃС‚СЊ Р·РµСЂРЅР°</span>
+                            <span data-i18n="footer.badge_quality">якість зерна</span>
                         </div>
                     </div>
                     <div class="trust-badge">
                         <i class="fas fa-shipping-fast"></i>
                         <div>
-                            <strong data-i18n="footer.badge_free">Р‘РµР·РєРѕС€С‚РѕРІРЅР°</strong>
-                            <span data-i18n="footer.badge_shipping">РґРѕСЃС‚Р°РІРєР° РІС–Рґ 500в‚ґ</span>
+                            <strong data-i18n="footer.badge_free">Безкоштовна</strong>
+                            <span data-i18n="footer.badge_shipping">доставка від 500?</span>
                         </div>
                     </div>
                     <div class="trust-badge">
                         <i class="fas fa-fire"></i>
                         <div>
-                            <strong data-i18n="footer.badge_fresh">РЎРІС–Р¶Р° РѕР±СЃРјР°Р¶РєР°</strong>
-                            <span data-i18n="footer.badge_days">РґРѕ 3 РґРЅС–РІ</span>
+                            <strong data-i18n="footer.badge_fresh">Свіжа обсмажка</strong>
+                            <span data-i18n="footer.badge_days">до 3 днів</span>
                         </div>
                     </div>
                 </div>
@@ -432,7 +432,7 @@
 
             <!-- Payment Methods -->
             <div class="footer-payment">
-                <p style="color:#666; font-size:0.85rem; margin-bottom:15px;" data-i18n="footer.payment_methods">РЎРїРѕСЃРѕР±Рё РѕРїР»Р°С‚Рё:</p>
+                <p style="color:#666; font-size:0.85rem; margin-bottom:15px;" data-i18n="footer.payment_methods">Способи оплати:</p>
                 <div class="payment-icons">
                     <i class="fab fa-cc-visa" title="Visa"></i>
                     <i class="fab fa-cc-mastercard" title="Mastercard"></i>
@@ -445,14 +445,14 @@
             <!-- Bottom Bar -->
             <div class="footer-bottom">
                 <div class="footer-bottom-left">
-                    <p data-i18n="footer.copyright">&copy; 2025 EthioDirect. Р’СЃС– РїСЂР°РІР° Р·Р°С…РёС‰РµРЅС–.</p>
+                    <p data-i18n="footer.copyright">&copy; 2025 EthioDirect. Всі права захищені.</p>
                 </div>
                 <div class="footer-bottom-right">
-                    <a href="privacy.html" data-i18n="footer.privacy">РџРѕР»С–С‚РёРєР° РєРѕРЅС„С–РґРµРЅС†С–Р№РЅРѕСЃС‚С–</a>
-                    <span>В·</span>
-                    <a href="return.html" data-i18n="footer.terms">РЈРјРѕРІРё РїРѕРІРµСЂРЅРµРЅРЅСЏ</a>
-                    <span>В·</span>
-                    <a href="#" data-i18n="footer.offer">РџСѓР±Р»С–С‡РЅР° РѕС„РµСЂС‚Р°</a>
+                    <a href="privacy.html" data-i18n="footer.privacy">Політика конфіденційності</a>
+                    <span>·</span>
+                    <a href="return.html" data-i18n="footer.terms">Умови повернення</a>
+                    <span>·</span>
+                    <a href="#" data-i18n="footer.offer">Публічна оферта</a>
                 </div>
             </div>
         </div>
