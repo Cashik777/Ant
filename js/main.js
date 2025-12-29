@@ -961,11 +961,14 @@ function renderMiniCart() {
     let sum = 0;
     store.cart.forEach(item => sum += item.price * item.qty);
 
-    itemsContainer.innerHTML = displayItems.map(item => `
+    itemsContainer.innerHTML = displayItems.map(item => {
+        const pKey = productKeyMap[item.id] || 'sidamo';
+        const localizedName = t('product.' + pKey, item.name);
+        return `
         <div class="mini-cart-item">
-            <img src="${item.image}" alt="${item.name}">
+            <img src="${item.image}" alt="${localizedName}">
             <div class="mini-cart-item-info">
-                <div class="mini-cart-item-name">${item.name}</div>
+                <div class="mini-cart-item-name">${localizedName}</div>
                 <div class="mini-cart-item-meta">
                     ${item.selectedWeight || 250}${t('product.unit_g')}
                     ${item.qty > 1 ? `<span style="color:var(--primary); font-weight:bold; margin-left:4px;">x${item.qty}</span>` : ''}
@@ -974,7 +977,8 @@ function renderMiniCart() {
             <div class="mini-cart-item-price">${item.price} ₴</div>
             <button class="mini-cart-item-remove" onclick="removeFromCart('${item.cartId}'); event.stopPropagation();" style="margin-left: auto;">&times;</button>
         </div>
-`).join('');
+`;
+    }).join('');
 
     if (store.cart.length > 3) {
         const moreItems = store.cart.length - 3;
@@ -1052,6 +1056,8 @@ function initFilters() {
 }
 
 /* --- PRODUCT PAGE --- */
+const productKeyMap = { 1: 'sidamo', 2: 'yirgacheffe', 3: 'guji', 4: 'espresso_blend', 5: 'limmu', 6: 'harrar' };
+
 function initProductPage() {
     const id = parseInt(new URLSearchParams(window.location.search).get('id'));
     const p = PRODUCTS.find(x => x.id === id);
@@ -1093,7 +1099,12 @@ function addToCart(id) {
     }
 
     renderCart();
-    showToast(`${p.name} додано в кошик!`);
+
+    // Localize name for toast
+    const pKey = productKeyMap[p.id] || 'sidamo';
+    const localizedName = t('product.' + pKey, p.name);
+
+    showToast(`${localizedName} ${t('product.added_to_cart') || 'додано в кошик!'}`);
     openMiniCart();
 }
 
@@ -1137,13 +1148,17 @@ function renderCart() {
         const freshProduct = PRODUCTS.find(p => p.id === item.id);
         if (freshProduct) item.image = freshProduct.image;
 
+        // Localize Name
+        const pKey = productKeyMap[item.id] || 'sidamo';
+        const localizedName = t('product.' + pKey, item.name);
+
         sum += item.price * item.qty;
         const grindLabel = item.selectedGrind ? getGrindLabel(item.selectedGrind) : t('product.whole_beans');
         list.innerHTML += `
         <div class="cart-item">
-            <img src="${item.image}" alt="${item.name}">
+            <img src="${item.image}" alt="${localizedName}">
             <div style="flex:1;">
-                <h4 style="font-size:0.95rem; margin-bottom:4px; font-weight:600;">${item.name}</h4>
+                <h4 style="font-size:0.95rem; margin-bottom:4px; font-weight:600;">${localizedName}</h4>
                 <p style="margin:0; font-size:0.8rem; color:var(--text-muted);">
                     ${item.selectedWeight || 250}${t('product.unit_g')} • ${grindLabel}
                     ${item.qty > 1 ? `<span style="color:var(--primary); font-weight:bold; margin-left:5px;">x${item.qty}</span>` : ''}
