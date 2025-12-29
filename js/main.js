@@ -713,12 +713,11 @@ function renderSelectors(p, sel) {
     // Helper to keep main function clean
     const tr = (key, def) => (typeof t === 'function' ? t(key) : def);
 
-    // Grind labels - use common.product namespace (loaded on all pages)
-    const grindLabels = {
-        beans: tr('common.product.beans', 'Зерно'),
-        espresso: tr('common.product.espresso', 'Еспресо'),
-        filter: tr('common.product.filter', 'Фільтр'),
-        turka: tr('common.product.turka', 'Турка')
+    const labels = {
+        beans: tr('product.beans', 'Зерно'),
+        espresso: tr('product.espresso', 'Еспресо'),
+        filter: tr('product.filter', 'Фільтр'),
+        turka: tr('product.turka', 'Турка')
     };
 
     const grindIcons = {
@@ -736,10 +735,10 @@ function renderSelectors(p, sel) {
     </div>
     <div class="grind-selector" data-product-id="${p.id}">
         ${['beans', 'espresso', 'filter', 'turka'].map(g => {
-        const label = grindLabels[g];
+        const label = labels[g];
         const icon = grindIcons[g];
         return `<button class="grind-btn ${sel.grind === g ? 'active' : ''}" onclick="selectGrind(${p.id}, '${g}')" title="${label}">
-                <i class="fas ${icon}"></i> <span data-i18n="common.product.${g}">${label}</span>
+                <i class="fas ${icon}"></i> <span data-i18n="product.${g}">${label}</span>
             </button>`;
     }).join('')}
     </div>`;
