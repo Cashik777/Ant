@@ -808,10 +808,11 @@ function selectGrind(productId, grind) {
     productSelections[productId].grind = grind;
 
     // Update active button
-    const selector = document.querySelector(`.grind - selector[data - product - id="${productId}"]`);
+    const selector = document.querySelector(`.grind-selector[data-product-id="${productId}"]`);
     if (selector) {
         selector.querySelectorAll('.grind-btn').forEach(btn => btn.classList.remove('active'));
-        const activeBtn = selector.querySelector(`.grind - btn: nth - child(${grind === 'beans' ? 1 : grind === 'espresso' ? 2 : grind === 'filter' ? 3 : 4})`);
+        const grindIndex = { beans: 1, espresso: 2, filter: 3, turka: 4 };
+        const activeBtn = selector.querySelector(`.grind-btn:nth-child(${grindIndex[grind] || 1})`);
         if (activeBtn) activeBtn.classList.add('active');
     }
 }
