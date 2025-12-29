@@ -1001,11 +1001,11 @@ function renderMiniCart() {
     // Update shipping message
     if (shippingEl) {
         if (sum >= 500) {
-            shippingEl.innerHTML = `< i class="fas fa-check-circle" ></i > ${t('cart.free_shipping_done')} `;
+            shippingEl.innerHTML = `<i class="fas fa-check-circle"></i> ${t('cart.free_shipping_done')} `;
             shippingEl.style.color = 'var(--success)';
         } else {
             const remaining = 500 - sum;
-            shippingEl.innerHTML = `< i class="fas fa-truck" ></i > ${t('cart.free_shipping_progress')} <strong>${remaining} ₴</strong>`;
+            shippingEl.innerHTML = `<i class="fas fa-truck"></i> ${t('cart.free_shipping_progress')} <strong>${remaining} ₴</strong>`;
             shippingEl.style.color = '';
         }
     }
@@ -1118,11 +1118,11 @@ function renderCart() {
 
     if (store.cart.length === 0) {
         list.innerHTML = `
-    < div style = "text-align:center; padding:40px 20px;" >
+        <div style="text-align:center; padding:40px 20px;">
                 <i class="fas fa-mug-hot" style="font-size:3rem; color:#eee; margin-bottom:20px; display:block;"></i>
                 <p style="color:var(--text-muted); margin-bottom:20px;">${t('cart.empty')}</p>
                 <a href="shop.html" class="btn btn-primary btn-sm" onclick="closeDrawer();">${t('cart.to_catalog')}</a>
-            </div >
+            </div>
     `;
         if (total) total.innerText = '0 ' + store.currency;
         updateShippingProgress(0);
@@ -1133,11 +1133,15 @@ function renderCart() {
     let sum = 0;
     list.innerHTML = '';
     store.cart.forEach(item => {
+        // Sync image from PRODUCTS to ensure latest version
+        const freshProduct = PRODUCTS.find(p => p.id === item.id);
+        if (freshProduct) item.image = freshProduct.image;
+
         sum += item.price * item.qty;
         const grindLabel = item.selectedGrind ? getGrindLabel(item.selectedGrind) : t('product.whole_beans');
         list.innerHTML += `
-    < div class="cart-item" >
-        <img src="${item.image}" alt="${item.name}">
+        <div class="cart-item">
+            <img src="${item.image}" alt="${item.name}">
             <div style="flex:1;">
                 <h4 style="font-size:0.95rem; margin-bottom:4px; font-weight:600;">${item.name}</h4>
                 <p style="margin:0; font-size:0.8rem; color:var(--text-muted);">
@@ -1149,7 +1153,7 @@ function renderCart() {
                     ${item.qty > 1 ? `<span style="font-size:0.8em; color:var(--text-muted); font-weight:normal;">(${item.price} ${store.currency}/${t('product.pcs')})</span>` : ''}
                 </p>
             </div>
-            <button onclick="removeFromCart(${item.cartId}); event.stopPropagation();" style="background:none; border:none; color:#999; cursor:pointer; font-size:1.3rem; padding:5px; margin-left: auto;" title="${t('cart.remove') || 'Remove'}">&times;</button>
+            <button onclick="removeFromCart('${item.cartId}'); event.stopPropagation();" style="background:none; border:none; color:#999; cursor:pointer; font-size:1.3rem; padding:5px; margin-left: auto;" title="${t('cart.remove') || 'Remove'}">&times;</button>
         </div>`;
     });
     if (total) total.innerText = sum + ' ' + store.currency;
@@ -1174,12 +1178,12 @@ function updateShippingProgress(currentTotal) {
     progressFill.style.width = percentage + '%';
 
     if (currentTotal >= FREE_SHIPPING_THRESHOLD) {
-        progressText.innerHTML = `< i class="fas fa-check-circle" ></i > <strong>${t('cart.free_shipping_done')}</strong>`;
+        progressText.innerHTML = `<i class="fas fa-check-circle"></i> <strong>${t('cart.free_shipping_done')}</strong>`;
         progressText.classList.add('progress-complete');
         progressFill.style.background = 'linear-gradient(90deg, #3D5A40, #4CAF50)';
     } else {
         const remaining = FREE_SHIPPING_THRESHOLD - currentTotal;
-        progressText.innerHTML = `< i class="fas fa-truck" ></i > ${t('cart.free_shipping_progress')} <strong>${remaining} ₴</strong>`;
+        progressText.innerHTML = `<i class="fas fa-truck"></i> ${t('cart.free_shipping_progress')} <strong>${remaining} ₴</strong>`;
         progressText.classList.remove('progress-complete');
         progressFill.style.background = 'linear-gradient(90deg, var(--success), #4CAF50)';
     }
