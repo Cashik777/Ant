@@ -770,11 +770,11 @@ function selectWeight(productId, weight) {
     const oldPrice = p.oldPrices[weight];
 
     // Update price display
-    const priceEl = document.getElementById(`price - ${productId} `);
+    const priceEl = document.getElementById(`price-${productId}`);
     if (priceEl) priceEl.textContent = currentPrice + ' ₴';
 
     // Update old price
-    const card = document.querySelector(`[data - product - id= "${productId}"]`);
+    const card = document.querySelector(`[data-product-id="${productId}"]`);
     if (card) {
         const oldPriceEl = card.querySelector('.p-price-old');
         const economyEl = card.querySelector('.p-economy strong');
