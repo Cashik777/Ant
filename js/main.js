@@ -570,16 +570,16 @@ function createProductCard(p) {
 
     // Labels with data-i18n
     const labels = {
-        roast: `<span data-i18n="common.product.roast_${p.roast}">${tr(`common.product.roast_${p.roast}`, p.roast)}</span>`,
+        roast: `<span data-i18n="product.roast_${p.roast}">${tr(`product.roast_${p.roast}`, p.roast)}</span>`,
         strength: `<span data-i18n="home.product_strength">${tr('home.product_strength', 'Міцність')}</span>`,
-        acidity: `<span data-i18n="common.product.acidity">${tr('common.product.acidity', 'Кислотність')}</span>`,
-        body: `<span data-i18n="common.product.body">${tr('common.product.body', 'Тіло')}</span>`,
-        sweetness: `<span data-i18n="common.product.sweetness">${tr('common.product.sweetness', 'Солодкість')}</span>`,
-        add: `<span data-i18n="common.product.add">${tr('common.product.add', 'В кошик')}</span>`,
-        purchased: `<span data-i18n="common.product.purchased">${tr('common.product.purchased', 'Куплено')}</span>`,
-        reviews: `<span data-i18n="common.product.reviews">${tr('common.product.reviews', 'відгуків')}</span>`,
-        stockLeft: `<span data-i18n="common.product.stock_left">${tr('common.product.stock_left', 'Залишилось')}</span>`,
-        pcs: `<span data-i18n="common.product.pcs">${tr('common.product.pcs', 'шт')}</span>`
+        acidity: `<span data-i18n="product.acidity">${tr('product.acidity', 'Кислотність')}</span>`,
+        body: `<span data-i18n="product.body">${tr('product.body', 'Тіло')}</span>`,
+        sweetness: `<span data-i18n="product.sweetness">${tr('product.sweetness', 'Солодкість')}</span>`,
+        add: `<span data-i18n="product.add">${tr('product.add', 'В кошик')}</span>`,
+        purchased: `<span data-i18n="product.purchased">${tr('product.purchased', 'Куплено')}</span>`,
+        reviews: `<span data-i18n="product.reviews">${tr('product.reviews', 'відгуків')}</span>`,
+        stockLeft: `<span data-i18n="product.stock_left">${tr('product.stock_left', 'Залишилось')}</span>`,
+        pcs: `<span data-i18n="product.pcs">${tr('product.pcs', 'шт')}</span>`
     };
 
     // Calculate Strength from Roast (1-5)
