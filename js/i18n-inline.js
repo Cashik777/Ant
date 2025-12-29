@@ -1724,7 +1724,8 @@ window.ETHIO_TRANSLATIONS = {
         "subscription": "Підписка",
         "gifts": "Подарунки",
         "quiz": "Підібрати"
-      }
+      },
+      "product_strength": "Міцність"
     },
     "privacy": {
       "meta": {
@@ -3751,7 +3752,8 @@ window.ETHIO_TRANSLATIONS = {
         "subscription": "Подписка",
         "gifts": "Подарки",
         "quiz": "Подобрать"
-      }
+      },
+      "product_strength": "Крепкость"
     },
     "privacy": {
       "meta": {
@@ -5778,7 +5780,8 @@ window.ETHIO_TRANSLATIONS = {
         "subscription": "Subscription",
         "gifts": "Gifts",
         "quiz": "Find yours"
-      }
+      },
+      "product_strength": "Strength"
     },
     "privacy": {
       "meta": {
