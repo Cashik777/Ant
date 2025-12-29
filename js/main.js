@@ -570,8 +570,8 @@ function createProductCard(p) {
 
     // Labels with data-i18n
     const labels = {
-        roast: `<span data-i18n="shop.roast_${p.roast}">${tr(`shop.roast_${p.roast}`, p.roast)}</span>`,
-        strength: `<span data-i18n="shop.product.strength">${tr('shop.product.strength', 'Крепкість')}</span>`,
+        roast: `<span data-i18n="common.product.roast_${p.roast}">${tr(`common.product.roast_${p.roast}`, p.roast)}</span>`,
+        strength: `<span data-i18n="home.product_strength">${tr('home.product_strength', 'Міцність')}</span>`,
         acidity: `<span data-i18n="common.product.acidity">${tr('common.product.acidity', 'Кислотність')}</span>`,
         body: `<span data-i18n="common.product.body">${tr('common.product.body', 'Тіло')}</span>`,
         sweetness: `<span data-i18n="common.product.sweetness">${tr('common.product.sweetness', 'Солодкість')}</span>`,
@@ -714,12 +714,12 @@ function renderSelectors(p, sel) {
     // Helper to keep main function clean
     const tr = (key, def) => (typeof t === 'function' ? t(key) : def);
 
-    // Grind labels with correct translation keys
+    // Grind labels - use common.product namespace (loaded on all pages)
     const grindLabels = {
-        beans: tr('shop.product.grind_beans', 'Зерно'),
-        espresso: tr('shop.product.grind_espresso', 'Еспресо'),
-        filter: tr('shop.product.grind_filter', 'Фільтр'),
-        turka: tr('shop.product.grind_turka', 'Турка')
+        beans: tr('common.product.beans', 'Зерно'),
+        espresso: tr('common.product.espresso', 'Еспресо'),
+        filter: tr('common.product.filter', 'Фільтр'),
+        turka: tr('common.product.turka', 'Турка')
     };
 
     const grindIcons = {
@@ -740,7 +740,7 @@ function renderSelectors(p, sel) {
         const label = grindLabels[g];
         const icon = grindIcons[g];
         return `<button class="grind-btn ${sel.grind === g ? 'active' : ''}" onclick="selectGrind(${p.id}, '${g}')" title="${label}">
-                <i class="fas ${icon}"></i> <span data-i18n="shop.product.grind_${g}">${label}</span>
+                <i class="fas ${icon}"></i> <span data-i18n="common.product.${g}">${label}</span>
             </button>`;
     }).join('')}
     </div>`;
