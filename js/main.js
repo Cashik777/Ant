@@ -783,10 +783,12 @@ function selectWeight(productId, weight) {
     }
 
     // Update active button
-    const selector = document.querySelector(`.weight - selector[data - product - id="${productId}"]`);
+    const selector = document.querySelector(`.weight-selector[data-product-id="${productId}"]`);
     if (selector) {
         selector.querySelectorAll('.weight-btn').forEach(btn => btn.classList.remove('active'));
-        selector.querySelector(`.weight - btn: nth - child(${weight === 250 ? 1 : weight === 500 ? 2 : 3})`).classList.add('active');
+        const weightIndex = { 250: 1, 500: 2, 1000: 3 };
+        const activeBtn = selector.querySelector(`.weight-btn:nth-child(${weightIndex[weight] || 1})`);
+        if (activeBtn) activeBtn.classList.add('active');
     }
 }
 
@@ -798,7 +800,7 @@ function changeQty(productId, delta) {
     if (newQty > 10) newQty = 10;
     productSelections[productId].qty = newQty;
 
-    const qtyEl = document.getElementById(`qty - ${productId} `);
+    const qtyEl = document.getElementById(`qty-${productId}`);
     if (qtyEl) qtyEl.textContent = newQty;
 }
 
