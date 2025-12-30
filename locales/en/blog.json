@@ -1,4 +1,4 @@
-﻿{
+{
     "meta": {
         "title": "Coffee Stories — EthioDirect"
     },
@@ -920,5 +920,7 @@
             "cta_title": "Get Perfect Beans for AeroPress",
             "cta_text": "Our light roast coffee is perfect for bright recipes"
         }
-    }
+    },
+    "table_of_contents": "Table of Contents",
+    "more_articles": "More Articles"
 }
