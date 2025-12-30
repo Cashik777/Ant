@@ -7,6 +7,7 @@
         "about": "About Us",
         "test": "Taste Quiz"
     },
+    "quiz_stat_text": "people passed the taste test",
     "topbar": {
         "phone": "+380 (50) 123-45-67",
         "hours": "Mon-Fri: 9:00-18:00",
