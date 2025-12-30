@@ -1,242 +1,633 @@
-<!DOCTYPE html>
-<html lang="uk">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Áàòüê³âùèíà êàâè  EthioDirect</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="../css/main.css?v=20251230-22">
-    <link rel="stylesheet" href="../css/polish.css">
-    <style>
-        .article-header {
-            padding-top: 140px;
-            background: linear-gradient(135deg, #2a1f0a, #4a3520);
-            color: white;
-            padding-bottom: 60px;
-        }
-
-        .article-header .container {
-            max-width: 800px;
-        }
-
-        .article-header h1 {
-            font-size: 2.5rem;
-            color: white;
-            margin-bottom: 20px;
-        }
-
-        .article-body {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 60px 20px;
-        }
-
-        .article-body h2 {
-            font-size: 1.8rem;
-            margin: 40px 0 20px;
-        }
-
-        .article-body p {
-            font-size: 1.1rem;
-            line-height: 1.9;
-            color: #444;
-            margin-bottom: 20px;
-        }
-
-        .article-image {
-            width: 100%;
-            border-radius: 12px;
-            margin: 30px 0;
-        }
-
-        .info-card {
-            background: #f5f0e6;
-            padding: 20px;
-            border-radius: 12px;
-            margin: 20px 0;
-        }
-    </style>
-</head>
-
-<body>
-
-    <!-- TOP BAR -->
-    <div class="top-bar">
-        <div class="container top-bar-inner">
-            <div class="top-bar-left">
-                <span><i class="fas fa-phone-alt"></i> <span data-i18n="topbar.phone">+380 (50) 123-45-67</span></span>
-                <span class="divider-dot"></span>
-                <span><i class="fas fa-clock"></i> <span data-i18n="topbar.hours">Ïí-Ïò: 9:00-18:00</span></span>
-            </div>
-            <div class="top-bar-center">
-                <div class="promo-ticker">
-                    <span class="ticker-item"><i class="fas fa-fire" style="color:#e74c3c;"></i> <strong
-                            data-i18n="topbar.promo_action">ÀÊÖ²ß:</strong> <span
-                            data-i18n="topbar.promo_delivery">áåçêîøòîâíà äîñòàâêà â³ä 500?</span></span>
-                    <span class="ticker-divider">|</span>
-                    <span class="ticker-item"><i class="fas fa-coffee" style="color:#8B4545;"></i> <span
-                            data-i18n="topbar.promo_subscription">Ï³äïèñêà:</span> <strong
-                            data-i18n="topbar.promo_subscription_text">-10% íà êîæíó äîñòàâêó</strong></span>
-                    <span class="ticker-divider">|</span>
-                    <span class="ticker-item"><i class="fas fa-bolt" style="color:#f39c12;"></i> <span
-                            data-i18n="topbar.promo_roast">Ñâ³æà îáñìàæêà</span> <strong
-                            data-i18n="topbar.promo_roast_days">äî 3 äí³â</strong></span>
-                </div>
-            </div>
-            <div class="top-bar-right language-switcher">
-                <button data-lang="uk" onclick="setLanguage('uk')" class="lang-btn active" translate="no">UK</button>
-                <button data-lang="ru" onclick="setLanguage('ru')" class="lang-btn" translate="no">RU</button>
-                <button data-lang="en" onclick="setLanguage('en')" class="lang-btn" translate="no">EN</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- HEADER -->
-    <header class="header">
-        <div class="container header-inner">
-            <a href="../index.html" class="logo">
-                <i class="fas fa-certificate"></i> ETHIODIRECT
-            </a>
-
-            <nav class="nav-desktop">
-                <a href="../shop.html" class="nav-link" data-i18n="nav.catalog">Êàòàëîã</a>
-                <a href="../subscription.html" class="nav-link" data-i18n="nav.subscription">Ï³äïèñêà</a>
-                <a href="../gift-certificates.html" class="nav-link" data-i18n="nav.certificates">Ñåðòèô³êàòè</a>
-                <a href="../blog.html" class="nav-link active" data-i18n="nav.stories">²ñòîð³¿</a>
-                <a href="../about.html" class="nav-link" data-i18n="nav.about">Ïðî íàñ</a>
-                <a href="../quiz.html" class="nav-link" data-i18n="nav.test">Òåñò</a>
-            </nav>
-
-            <!-- Search Bar -->
-            <div class="header-search">
-                <div class="search-wrapper">
-                    <input type="text" class="search-input" id="search-input" placeholder="Ïîøóê êàâè..."
-                        data-i18n-placeholder="search.placeholder" oninput="handleSearch(this.value)">
-                    <button class="search-btn"><i class="fas fa-search"></i></button>
-                    <div class="search-results" id="search-results"></div>
-                </div>
-            </div>
-
-            <div class="header-actions">
-                <a href="../account.html"><i class="far fa-user"></i></a>
-
-                <!-- Cart with Mini-Cart Dropdown -->
-                <div class="cart-wrapper">
-                    <div class="cart-trigger" onclick="openDrawer()">
-                        <i class="fas fa-shopping-bag" style="font-size:1.2rem;"></i>
-                        <span class="cart-count">0</span>
-                    </div>
-                    <div class="mini-cart" id="mini-cart">
-                        <div class="mini-cart-header">
-                            <h4 data-i18n="cart.title">Âàø êîøèê</h4>
-                            <span class="mini-cart-count" id="mini-cart-count"><span>0</span> <span
-                                    data-i18n="cart.items">òîâàð³â</span></span>
-                        </div>
-                        <div class="mini-cart-items" id="mini-cart-items"></div>
-                        <div class="mini-cart-footer" id="mini-cart-footer">
-                            <div class="mini-cart-subtotal">
-                                <strong data-i18n="cart.subtotal">Ðàçîì:</strong>
-                                <span id="mini-cart-total">0 ?</span>
-                            </div>
-                            <div class="mini-cart-shipping" id="mini-cart-shipping">
-                                <i class="fas fa-truck"></i> <span data-i18n="cart.free_shipping_progress">Äî
-                                    áåçêîøòîâíî¿ äîñòàâêè:</span> <strong>500 ?</strong>
-                            </div>
-                            <button class="mini-cart-btn" onclick="openDrawer()">
-                                <i class="fas fa-shopping-cart"></i> <span data-i18n="cart.checkout">Îôîðìèòè
-                                    çàìîâëåííÿ</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <button class="menu-toggle" aria-label="Open menu" onclick="toggleMobileMenu()">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </div>
-        </div>
-    </header>
-
-    <!-- MOBILE NAVIGATION -->
-    <nav class="nav-mobile" id="nav-mobile">
-        <button class="nav-mobile-close" onclick="toggleMobileMenu()" aria-label="Close menu">
-            <i class="fas fa-times"></i>
-        </button>
-        <a href="../shop.html" data-i18n="nav.catalog">Êàòàëîã</a>
-        <a href="../subscription.html" data-i18n="nav.subscription">Ï³äïèñêà</a>
-        <a href="../quiz.html" data-i18n="nav.test">Òåñò ñìàêó</a>
-        <a href="../gift-certificates.html" data-i18n="nav.certificates">Ñåðòèô³êàòè</a>
-        <a href="../about.html" data-i18n="nav.about">Ïðî íàñ</a>
-        <a href="../contacts.html" data-i18n="footer.contacts">Êîíòàêòè</a>
-        <div class="nav-mobile-footer">
-            <a href="https://t.me/ethiodirect"><i class="fab fa-telegram"></i></a>
-            <a href="tel:+380501234567"><i class="fas fa-phone"></i></a>
-            <a href="mailto:hello@ethiodirect.ua"><i class="fas fa-envelope"></i></a>
-        </div>
-    </nav>
-
-    <!-- DRAWER CART -->
-    <div class="overlay"></div>
-    <div class="drawer">
-        <div class="drawer-header">
-            <h3><i class="fas fa-shopping-bag" style="margin-right:10px; color:var(--primary);"></i> <span
-                    data-i18n="cart.your_cart">Âàø êîøèê</span></h3>
-            <button onclick="closeDrawer()"
-                style="background:none;border:none;font-size:1.5rem;cursor:pointer;">&times;</button>
-        </div>
-        <div class="drawer-body" id="cart-list"></div>
-        <div class="drawer-footer">
-            <div class="free-shipping-progress" id="drawer-shipping-progress">
-                <div class="progress-bar">
-                    <div class="progress-fill" id="drawer-progress-fill"></div>
-                </div>
-                <p class="progress-text" id="drawer-progress-text"><i class="fas fa-truck"></i> Äî áåçêîøòîâíî¿
-                    äîñòàâêè: <strong>500 ?</strong></p>
-            </div>
-            <div style="display:flex; justify-content:space-between; margin-bottom:15px;">
-                <span data-i18n="cart.subtotal">Ðàçîì:</span><span id="cart-total"
-                    style="font-weight:700; color:var(--primary);">0 ?</span>
-            </div>
-            <button class="btn btn-primary" style="width:100%;"><i class="fas fa-lock"></i> <span
-                    data-i18n="cart.checkout">Îôîðìèòè çàìîâëåííÿ</span></button>
-        </div>
-    </div>
-
-    <main>
-        <section class="article-header">
-            <div class="container">
-                <a href="../blog.html" style="color:rgba(255,255,255,0.7); text-decoration:none;"><i
-                        class="fas fa-arrow-left"></i> <span data-i18n="common.back">Íàçàä</span></a>
-                <h1 style="margin-top:20px;" data-i18n="articles.ethiopia_origin.title">Åô³îï³ÿ  áàòüê³âùèíà êàâè</h1>
-                <p style="opacity:0.9;" data-i18n="articles.ethiopia_origin.subtitle">²ñòîð³ÿ òà òðàäèö³¿</p>
-            </div>
-        </section>
-        <article class="article-body">
-            <img src="https://images.unsplash.com/photo-1434494878577-86c23bcb06b9?w=1200" alt="Åô³îï³ÿ"
-                class="article-image">
+<!DOCTYPE html>
+
+<html lang="uk">
+
+
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Áàòüê³âùèíà êàâè  EthioDirect</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="../css/main.css?v=20251230-22">
+
+    <link rel="stylesheet" href="../css/polish.css">
+
+    <style>
+
+        .article-header {
+
+            padding-top: 140px;
+
+            background: linear-gradient(135deg, #2a1f0a, #4a3520);
+
+            color: white;
+
+            padding-bottom: 60px;
+
+        }
+
+
+
+        .article-header .container {
+
+            max-width: 800px;
+
+        }
+
+
+
+        .article-header h1 {
+
+            font-size: 2.5rem;
+
+            color: white;
+
+            margin-bottom: 20px;
+
+        }
+
+
+
+        .article-body {
+
+            max-width: 800px;
+
+            margin: 0 auto;
+
+            padding: 60px 20px;
+
+        }
+
+
+
+        .article-body h2 {
+
+            font-size: 1.8rem;
+
+            margin: 40px 0 20px;
+
+        }
+
+
+
+        .article-body p {
+
+            font-size: 1.1rem;
+
+            line-height: 1.9;
+
+            color: #444;
+
+            margin-bottom: 20px;
+
+        }
+
+
+
+        .article-image {
+
+            width: 100%;
+
+            border-radius: 12px;
+
+            margin: 30px 0;
+
+        }
+
+
+
+        .info-card {
+
+            background: #f5f0e6;
+
+            padding: 20px;
+
+            border-radius: 12px;
+
+            margin: 20px 0;
+
+        }
+
+    
+        /* Article Layout with Sidebars */
+        .article-layout {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .article-sidebar-left {
+            width: 200px;
+            flex-shrink: 0;
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+            display: none;
+        }
+        
+        .article-sidebar-right {
+            width: 280px;
+            flex-shrink: 0;
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+            display: none;
+        }
+        
+        @media (min-width: 1200px) {
+            .article-sidebar-left,
+            .article-sidebar-right {
+                display: block;
+            }
+        }
+        
+        /* Table of Contents */
+        .toc-widget {
+            background: rgba(42, 31, 10, 0.03);
+            border-radius: 12px;
+            padding: 20px;
+            border-left: 3px solid #D4AF37;
+        }
+        
+        .toc-widget h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 14px;
+            color: #2a1f0a;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .toc-widget ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .toc-widget li {
+            margin-bottom: 10px;
+        }
+        
+        .toc-widget a {
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            color: #5a4a2a;
+            text-decoration: none;
+            display: block;
+            padding: 5px 0;
+            transition: all 0.2s ease;
+            border-left: 2px solid transparent;
+            padding-left: 10px;
+            margin-left: -10px;
+        }
+        
+        .toc-widget a:hover {
+            color: #D4AF37;
+            border-left-color: #D4AF37;
+        }
+        
+        /* Product Card Widget */
+        .product-widget {
+            background: white;
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 4px 20px rgba(42, 31, 10, 0.08);
+            border: 1px solid rgba(42, 31, 10, 0.08);
+        }
+        
+        .product-widget-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            color: #D4AF37;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+        
+        .product-widget img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 15px;
+        }
+        
+        .product-widget h5 {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            color: #2a1f0a;
+            margin-bottom: 8px;
+        }
+        
+        .product-widget .product-meta {
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            color: #8a7a5a;
+            margin-bottom: 12px;
+        }
+        
+        .product-widget .product-price {
+            font-family: 'Inter', sans-serif;
+            font-size: 20px;
+            font-weight: 600;
+            color: #2a1f0a;
+            margin-bottom: 15px;
+        }
+        
+        .product-widget .btn-widget {
+            display: block;
+            width: 100%;
+            padding: 12px 20px;
+            background: linear-gradient(135deg, #D4AF37, #B8962E);
+            color: white;
+            text-align: center;
+            border-radius: 8px;
+            text-decoration: none;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .product-widget .btn-widget:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+        }
+        
+        /* Adjust main article body */
+        .article-main {
+            max-width: 800px;
+            flex-grow: 1;
+        }
+
+    </style>
+
+</head>
+
+
+
+<body>
+
+
+
+    <!-- TOP BAR -->
+
+    <div class="top-bar">
+
+        <div class="container top-bar-inner">
+
+            <div class="top-bar-left">
+
+                <span><i class="fas fa-phone-alt"></i> <span data-i18n="topbar.phone">+380 (50) 123-45-67</span></span>
+
+                <span class="divider-dot"></span>
+
+                <span><i class="fas fa-clock"></i> <span data-i18n="topbar.hours">Ïí-Ïò: 9:00-18:00</span></span>
+
+            </div>
+
+            <div class="top-bar-center">
+
+                <div class="promo-ticker">
+
+                    <span class="ticker-item"><i class="fas fa-fire" style="color:#e74c3c;"></i> <strong
+
+                            data-i18n="topbar.promo_action">ÀÊÖ²ß:</strong> <span
+
+                            data-i18n="topbar.promo_delivery">áåçêîøòîâíà äîñòàâêà â³ä 500?</span></span>
+
+                    <span class="ticker-divider">|</span>
+
+                    <span class="ticker-item"><i class="fas fa-coffee" style="color:#8B4545;"></i> <span
+
+                            data-i18n="topbar.promo_subscription">Ï³äïèñêà:</span> <strong
+
+                            data-i18n="topbar.promo_subscription_text">-10% íà êîæíó äîñòàâêó</strong></span>
+
+                    <span class="ticker-divider">|</span>
+
+                    <span class="ticker-item"><i class="fas fa-bolt" style="color:#f39c12;"></i> <span
+
+                            data-i18n="topbar.promo_roast">Ñâ³æà îáñìàæêà</span> <strong
+
+                            data-i18n="topbar.promo_roast_days">äî 3 äí³â</strong></span>
+
+                </div>
+
+            </div>
+
+            <div class="top-bar-right language-switcher">
+
+                <button data-lang="uk" onclick="setLanguage('uk')" class="lang-btn active" translate="no">UK</button>
+
+                <button data-lang="ru" onclick="setLanguage('ru')" class="lang-btn" translate="no">RU</button>
+
+                <button data-lang="en" onclick="setLanguage('en')" class="lang-btn" translate="no">EN</button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- HEADER -->
+
+    <header class="header">
+
+        <div class="container header-inner">
+
+            <a href="../index.html" class="logo">
+
+                <i class="fas fa-certificate"></i> ETHIODIRECT
+
+            </a>
+
+
+
+            <nav class="nav-desktop">
+
+                <a href="../shop.html" class="nav-link" data-i18n="nav.catalog">Êàòàëîã</a>
+
+                <a href="../subscription.html" class="nav-link" data-i18n="nav.subscription">Ï³äïèñêà</a>
+
+                <a href="../gift-certificates.html" class="nav-link" data-i18n="nav.certificates">Ñåðòèô³êàòè</a>
+
+                <a href="../blog.html" class="nav-link active" data-i18n="nav.stories">²ñòîð³¿</a>
+
+                <a href="../about.html" class="nav-link" data-i18n="nav.about">Ïðî íàñ</a>
+
+                <a href="../quiz.html" class="nav-link" data-i18n="nav.test">Òåñò</a>
+
+            </nav>
+
+
+
+            <!-- Search Bar -->
+
+            <div class="header-search">
+
+                <div class="search-wrapper">
+
+                    <input type="text" class="search-input" id="search-input" placeholder="Ïîøóê êàâè..."
+
+                        data-i18n-placeholder="search.placeholder" oninput="handleSearch(this.value)">
+
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+
+                    <div class="search-results" id="search-results"></div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="header-actions">
+
+                <a href="../account.html"><i class="far fa-user"></i></a>
+
+
+
+                <!-- Cart with Mini-Cart Dropdown -->
+
+                <div class="cart-wrapper">
+
+                    <div class="cart-trigger" onclick="openDrawer()">
+
+                        <i class="fas fa-shopping-bag" style="font-size:1.2rem;"></i>
+
+                        <span class="cart-count">0</span>
+
+                    </div>
+
+                    <div class="mini-cart" id="mini-cart">
+
+                        <div class="mini-cart-header">
+
+                            <h4 data-i18n="cart.title">Âàø êîøèê</h4>
+
+                            <span class="mini-cart-count" id="mini-cart-count"><span>0</span> <span
+
+                                    data-i18n="cart.items">òîâàð³â</span></span>
+
+                        </div>
+
+                        <div class="mini-cart-items" id="mini-cart-items"></div>
+
+                        <div class="mini-cart-footer" id="mini-cart-footer">
+
+                            <div class="mini-cart-subtotal">
+
+                                <strong data-i18n="cart.subtotal">Ðàçîì:</strong>
+
+                                <span id="mini-cart-total">0 ?</span>
+
+                            </div>
+
+                            <div class="mini-cart-shipping" id="mini-cart-shipping">
+
+                                <i class="fas fa-truck"></i> <span data-i18n="cart.free_shipping_progress">Äî
+
+                                    áåçêîøòîâíî¿ äîñòàâêè:</span> <strong>500 ?</strong>
+
+                            </div>
+
+                            <button class="mini-cart-btn" onclick="openDrawer()">
+
+                                <i class="fas fa-shopping-cart"></i> <span data-i18n="cart.checkout">Îôîðìèòè
+
+                                    çàìîâëåííÿ</span>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <button class="menu-toggle" aria-label="Open menu" onclick="toggleMobileMenu()">
+
+                    <i class="fas fa-bars"></i>
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- MOBILE NAVIGATION -->
+
+    <nav class="nav-mobile" id="nav-mobile">
+
+        <button class="nav-mobile-close" onclick="toggleMobileMenu()" aria-label="Close menu">
+
+            <i class="fas fa-times"></i>
+
+        </button>
+
+        <a href="../shop.html" data-i18n="nav.catalog">Êàòàëîã</a>
+
+        <a href="../subscription.html" data-i18n="nav.subscription">Ï³äïèñêà</a>
+
+        <a href="../quiz.html" data-i18n="nav.test">Òåñò ñìàêó</a>
+
+        <a href="../gift-certificates.html" data-i18n="nav.certificates">Ñåðòèô³êàòè</a>
+
+        <a href="../about.html" data-i18n="nav.about">Ïðî íàñ</a>
+
+        <a href="../contacts.html" data-i18n="footer.contacts">Êîíòàêòè</a>
+
+        <div class="nav-mobile-footer">
+
+            <a href="https://t.me/ethiodirect"><i class="fab fa-telegram"></i></a>
+
+            <a href="tel:+380501234567"><i class="fas fa-phone"></i></a>
+
+            <a href="mailto:hello@ethiodirect.ua"><i class="fas fa-envelope"></i></a>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- DRAWER CART -->
+
+    <div class="overlay"></div>
+
+    <div class="drawer">
+
+        <div class="drawer-header">
+
+            <h3><i class="fas fa-shopping-bag" style="margin-right:10px; color:var(--primary);"></i> <span
+
+                    data-i18n="cart.your_cart">Âàø êîøèê</span></h3>
+
+            <button onclick="closeDrawer()"
+
+                style="background:none;border:none;font-size:1.5rem;cursor:pointer;">&times;</button>
+
+        </div>
+
+        <div class="drawer-body" id="cart-list"></div>
+
+        <div class="drawer-footer">
+
+            <div class="free-shipping-progress" id="drawer-shipping-progress">
+
+                <div class="progress-bar">
+
+                    <div class="progress-fill" id="drawer-progress-fill"></div>
+
+                </div>
+
+                <p class="progress-text" id="drawer-progress-text"><i class="fas fa-truck"></i> Äî áåçêîøòîâíî¿
+
+                    äîñòàâêè: <strong>500 ?</strong></p>
+
+            </div>
+
+            <div style="display:flex; justify-content:space-between; margin-bottom:15px;">
+
+                <span data-i18n="cart.subtotal">Ðàçîì:</span><span id="cart-total"
+
+                    style="font-weight:700; color:var(--primary);">0 ?</span>
+
+            </div>
+
+            <button class="btn btn-primary" style="width:100%;"><i class="fas fa-lock"></i> <span
+
+                    data-i18n="cart.checkout">Îôîðìèòè çàìîâëåííÿ</span></button>
+
+        </div>
+
+    </div>
+
+
+
+    <main>
+
+        <section class="article-header">
+
+            <div class="container">
+
+                <a href="../blog.html" style="color:rgba(255,255,255,0.7); text-decoration:none;"><i
+
+                        class="fas fa-arrow-left"></i> <span data-i18n="common.back">Íàçàä</span></a>
+
+                <h1 style="margin-top:20px;" data-i18n="articles.ethiopia_origin.title">Åô³îï³ÿ  áàòüê³âùèíà êàâè</h1>
+
+                <p style="opacity:0.9;" data-i18n="articles.ethiopia_origin.subtitle">²ñòîð³ÿ òà òðàäèö³¿</p>
+
+            </div>
+
+        </section>
+
+        
+        <div class="article-layout">
+
+        <aside class="article-sidebar-left">
+            <div class="toc-widget">
+                <h4 data-i18n="common.contents">Зміст</h4>
+                <ul>
+                    <li><a href="#section-legend" data-i18n="articles.ethiopia_origin.h2_1">Легенда про Калді</a></li>
+                    <li><a href="#section-geography" data-i18n="articles.ethiopia_origin.h2_2">Географія та клімат</a></li>
+                    <li><a href="#section-regions" data-i18n="articles.ethiopia_origin.h2_3">Регіони вирощування</a></li>
+                    <li><a href="#section-processing" data-i18n="articles.ethiopia_origin.h2_4">Методи обробки</a></li>
+                    <li><a href="#section-taste" data-i18n="articles.ethiopia_origin.h2_5">Смакові профілі</a></li>
+                    <li><a href="#section-ceremony" data-i18n="articles.ethiopia_origin.h2_6">Кавова церемонія</a></li>
+                    <li><a href="#section-today" data-i18n="articles.ethiopia_origin.h2_7">Ефіопія сьогодні</a></li>
+                </ul>
+            </div>
+        </aside>
+
+            <div class="article-main">
+<article class="article-body">
+
+            <img src="https://images.unsplash.com/photo-1434494878577-86c23bcb06b9?w=1200" alt="Åô³îï³ÿ"
+
+                class="article-image">
+
                         <p class="intro" data-i18n="articles.ethiopia_origin.intro_1"></p>
             <p class="intro" data-i18n="articles.ethiopia_origin.intro_2"></p>
             <p class="intro" data-i18n="articles.ethiopia_origin.intro_3"></p>
-            <h2 data-i18n="articles.ethiopia_origin.h2_1"></h2>
+            <h2 id="section-legend" data-i18n="articles.ethiopia_origin.h2_1"></h2>
             <p data-i18n="articles.ethiopia_origin.legend_1"></p>
             <p data-i18n="articles.ethiopia_origin.legend_2"></p>
             <p data-i18n="articles.ethiopia_origin.legend_3"></p>
             <p data-i18n="articles.ethiopia_origin.legend_4"></p>
-            <h2 data-i18n="articles.ethiopia_origin.h2_2"></h2>
+            <h2 id="section-geography" data-i18n="articles.ethiopia_origin.h2_2"></h2>
             <p data-i18n="articles.ethiopia_origin.geography_1"></p>
             <p data-i18n="articles.ethiopia_origin.geography_2"></p>
             <p data-i18n="articles.ethiopia_origin.geography_3"></p>
             <p data-i18n="articles.ethiopia_origin.geography_4"></p>
             <p data-i18n="articles.ethiopia_origin.geography_5"></p>
-            <h2 data-i18n="articles.ethiopia_origin.h2_3"></h2>
+            <h2 id="section-regions" data-i18n="articles.ethiopia_origin.h2_3"></h2>
             <p data-i18n="articles.ethiopia_origin.regions_intro"></p>
             <p data-i18n="articles.ethiopia_origin.region_yirgacheffe"></p>
             <p data-i18n="articles.ethiopia_origin.region_sidamo"></p>
             <p data-i18n="articles.ethiopia_origin.region_harrar"></p>
             <p data-i18n="articles.ethiopia_origin.region_limu"></p>
             <p data-i18n="articles.ethiopia_origin.region_jimma"></p>
-            <h2 data-i18n="articles.ethiopia_origin.h2_4"></h2>
+            <h2 id="section-processing" data-i18n="articles.ethiopia_origin.h2_4"></h2>
             <p data-i18n="articles.ethiopia_origin.ceremony_1"></p>
             <p data-i18n="articles.ethiopia_origin.ceremony_2"></p>
             <p data-i18n="articles.ethiopia_origin.ceremony_3"></p>
@@ -244,180 +635,357 @@
             <p data-i18n="articles.ethiopia_origin.ceremony_5"></p>
             <p data-i18n="articles.ethiopia_origin.ceremony_6"></p>
             <p data-i18n="articles.ethiopia_origin.ceremony_7"></p>
-            <h2 data-i18n="articles.ethiopia_origin.h2_5"></h2>
+            <h2 id="section-taste" data-i18n="articles.ethiopia_origin.h2_5"></h2>
             <p data-i18n="articles.ethiopia_origin.processing_1"></p>
             <p data-i18n="articles.ethiopia_origin.processing_natural"></p>
             <p data-i18n="articles.ethiopia_origin.processing_washed"></p>
             <p data-i18n="articles.ethiopia_origin.processing_honey"></p>
-            <h2 data-i18n="articles.ethiopia_origin.h2_6"></h2>
+            <h2 id="section-ceremony" data-i18n="articles.ethiopia_origin.h2_6"></h2>
             <p data-i18n="articles.ethiopia_origin.choosing_1"></p>
             <p data-i18n="articles.ethiopia_origin.choosing_region"></p>
             <p data-i18n="articles.ethiopia_origin.choosing_process"></p>
             <p data-i18n="articles.ethiopia_origin.choosing_roast"></p>
             <p data-i18n="articles.ethiopia_origin.choosing_freshness"></p>
-            <h2 data-i18n="articles.ethiopia_origin.h2_7"></h2>
+            <h2 id="section-today" data-i18n="articles.ethiopia_origin.h2_7"></h2>
             <p data-i18n="articles.ethiopia_origin.brewing_1"></p>
             <p data-i18n="articles.ethiopia_origin.brewing_pourover"></p>
             <p data-i18n="articles.ethiopia_origin.brewing_aeropress"></p>
             <p data-i18n="articles.ethiopia_origin.brewing_traditional"></p>
             <p data-i18n="articles.ethiopia_origin.conclusion_1"></p>
             <p data-i18n="articles.ethiopia_origin.conclusion_2"></p>
-            <div class="article-cta"
-                style="background: linear-gradient(135deg, #2a1f0a, #4a3520); padding: 40px; border-radius: 12px; text-align: center; margin-top: 40px;">
-                <h3 style="color: white;" data-i18n="articles.ethiopia_origin.cta_title">Â³ä÷óéòå ñïðàâæíþ Åô³îï³þ</h3>
-                <a href="../shop.html" class="btn btn-primary" data-i18n="common.order_now">Çàìîâèòè</a>
-            </div>
-        </article>
-    </main>
-    <!-- FLOATING CONTACTS -->
-    <div class="floating-contacts">
-        <a href="https://t.me/ethiodirect" class="float-btn telegram"><i class="fab fa-telegram-plane"></i></a>
-        <a href="viber://chat?number=+380501234567" class="float-btn viber"><i class="fab fa-viber"></i></a>
-        <a href="tel:+380501234567" class="float-btn phone"><i class="fas fa-phone-alt"></i></a>
-    </div>
-
-    <!-- FOOTER -->
-    <footer class="footer-pro">
-        <div class="container">
-            <div class="footer-grid">
-                <!-- Column 1: Brand -->
-                <div class="footer-col">
-                    <h4 style="font-family:var(--font-heading); font-size:1.5rem; color:white; margin-bottom:20px;">
-                        <a href="../index.html" style="text-decoration:none; color:white;">EthioDirect</a>
-                    </h4>
-                    <p style="color:#aaa; line-height:1.8; margin-bottom:20px;" data-i18n="footer.description">Ìè
-                        äîñòàâëÿºìî ñïðàâæíþ specialty êàâó ïðÿìî ç åô³îïñüêèõ ôåðì äî âàøîãî äîìó.</p>
-                    <div class="social-links">
-                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                        <a href="#" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
-                        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-                    </div>
-                </div>
-                <!-- Column 2: Shop -->
-                <div class="footer-col">
-                    <h4 data-i18n="footer.shop_title">Ìàãàçèí</h4>
-                    <ul class="footer-links">
-                        <li><a href="../shop.html" data-i18n="footer.catalog">Âåñü êàòàëîã</a></li>
-                        <li><a href="../subscription.html" data-i18n="footer.subscription">Ï³äïèñêà íà êàâó</a></li>
-                        <li><a href="../gift-certificates.html" data-i18n="nav.certificates">Ñåðòèô³êàòè</a></li>
-                        <li><a href="../b2b.html" data-i18n="footer.b2b">B2B ð³øåííÿ</a></li>
-                    </ul>
-                </div>
-                <!-- Column 3: Support -->
-                <div class="footer-col">
-                    <h4 data-i18n="footer.support_title">Ï³äòðèìêà</h4>
-                    <ul class="footer-links">
-                        <li><a href="../delivery.html" data-i18n="footer.delivery">Äîñòàâêà òà îïëàòà</a></li>
-                        <li><a href="../faq.html" data-i18n="footer.faq">×àñò³ ïèòàííÿ</a></li>
-                        <li><a href="../contacts.html" data-i18n="footer.contacts">Êîíòàêòè</a></li>
-                        <li><a href="../about.html" data-i18n="nav.about">Ïðî íàñ</a></li>
-                    </ul>
-                </div>
-                <!-- Column 4: Contacts -->
-                <div class="footer-col">
-                    <h4 data-i18n="footer.contacts_title">Êîíòàêòè</h4>
-                    <ul class="footer-contacts">
-                        <li><i class="fas fa-phone"></i> <a href="tel:+380501234567">+380 (50) 123-45-67</a></li>
-                        <li><i class="fas fa-envelope"></i> <a
-                                href="mailto:hello@ethiodirect.ua">hello@ethiodirect.ua</a></li>
-                        <li><i class="fas fa-map-marker-alt"></i> <span data-i18n="footer.location">Îäåñà,
-                                Óêðà¿íà</span></li>
-                        <li><i class="fas fa-clock"></i> <span data-i18n="topbar.hours">Ïí-Ïò: 9:00-18:00</span></li>
-                    </ul>
-                </div>
-                <!-- Column 5: Newsletter -->
-                <div class="footer-col">
-                    <h4 data-i18n="footer.newsletter_title">Ï³äïèñêà íà íîâèíè</h4>
-                    <p style="color:#aaa; margin-bottom:15px; font-size:0.9rem;" data-i18n="footer.newsletter_text">
-                        Îòðèìóéòå àêö³¿, íîâèíêè òà ïîðàäè ùîäî çàâàðþâàííÿ</p>
-                    <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
-                        <input type="email" placeholder="Âàø email"
-                            data-i18n-placeholder="footer.newsletter_placeholder" required>
-                        <button type="submit" class="btn-newsletter"
-                            data-i18n="footer.newsletter_cta">Ï³äïèñàòèñü</button>
-                    </form>
-                </div>
-            </div>
-
-            <!-- Trust Badges -->
-            <div class="footer-trust">
-                <div class="trust-badges">
-                    <div class="trust-badge">
-                        <i class="fas fa-shield-alt"></i>
-                        <div>
-                            <strong data-i18n="footer.badge_return_days">14 äí³â</strong>
-                            <span data-i18n="footer.badge_return">ïîâåðíåííÿ</span>
-                        </div>
-                    </div>
-                    <div class="trust-badge">
-                        <i class="fas fa-coffee"></i>
-                        <div>
-                            <strong data-i18n="footer.badge_specialty">100% Specialty</strong>
-                            <span data-i18n="footer.badge_quality">ÿê³ñòü çåðíà</span>
-                        </div>
-                    </div>
-                    <div class="trust-badge">
-                        <i class="fas fa-shipping-fast"></i>
-                        <div>
-                            <strong data-i18n="footer.badge_free">Áåçêîøòîâíà</strong>
-                            <span data-i18n="footer.badge_shipping">äîñòàâêà â³ä 500?</span>
-                        </div>
-                    </div>
-                    <div class="trust-badge">
-                        <i class="fas fa-fire"></i>
-                        <div>
-                            <strong data-i18n="footer.badge_fresh">Ñâ³æà îáñìàæêà</strong>
-                            <span data-i18n="footer.badge_days">äî 3 äí³â</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Payment Methods -->
-            <div class="footer-payment">
-                <p style="color:#666; font-size:0.85rem; margin-bottom:15px;" data-i18n="footer.payment_methods">Ñïîñîáè
-                    îïëàòè:</p>
-                <div class="payment-icons">
-                    <i class="fab fa-cc-visa" title="Visa"></i>
-                    <i class="fab fa-cc-mastercard" title="Mastercard"></i>
-                    <i class="fab fa-apple-pay" title="Apple Pay"></i>
-                    <i class="fab fa-google-pay" title="Google Pay"></i>
-                    <span class="payment-text">LiqPay</span>
-                </div>
-            </div>
-
-            <!-- Bottom Bar -->
-            <div class="footer-bottom">
-                <div class="footer-bottom-left">
-                    <p data-i18n="footer.copyright">&copy; 2025 EthioDirect. Âñ³ ïðàâà çàõèùåí³.</p>
-                </div>
-                <div class="footer-bottom-right">
-                    <a href="../privacy.html" data-i18n="footer.privacy">Ïîë³òèêà êîíô³äåíö³éíîñò³</a>
-                    <span>·</span>
-                    <a href="../return.html" data-i18n="footer.terms">Óìîâè ïîâåðíåííÿ</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <script src="../js/main.js"></script>
-
-    <script src="../js/i18n.js?v=2.0"></script>
-</body>
-
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            <div class="article-cta"
+
+                style="background: linear-gradient(135deg, #2a1f0a, #4a3520); padding: 40px; border-radius: 12px; text-align: center; margin-top: 40px;">
+
+                <h3 style="color: white;" data-i18n="articles.ethiopia_origin.cta_title">Â³ä÷óéòå ñïðàâæíþ Åô³îï³þ</h3>
+
+                <a href="../shop.html" class="btn btn-primary" data-i18n="common.order_now">Çàìîâèòè</a>
+
+            </div>
+
+        </article>
+            </div>
+
+        <aside class="article-sidebar-right">
+            <div class="product-widget">
+                <div class="product-widget-label" data-i18n="common.recommended">Рекомендуємо</div>
+                <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=400" alt="Yirgacheffe Coffee">
+                <h5>Ethiopia Yirgacheffe</h5>
+                <div class="product-meta">
+                    <span data-i18n="product.region">Регіон:</span> Yirgacheffe<br>
+                    <span data-i18n="product.notes">Ноти:</span> Бергамот, жасмин, персик
+                </div>
+                <div class="product-price">420 ₴</div>
+                <a href="../shop.html" class="btn-widget" data-i18n="common.order_now">Замовити</a>
+            </div>
+        </aside>
+
+        </div>
+
+
+    </main>
+
+    <!-- FLOATING CONTACTS -->
+
+    <div class="floating-contacts">
+
+        <a href="https://t.me/ethiodirect" class="float-btn telegram"><i class="fab fa-telegram-plane"></i></a>
+
+        <a href="viber://chat?number=+380501234567" class="float-btn viber"><i class="fab fa-viber"></i></a>
+
+        <a href="tel:+380501234567" class="float-btn phone"><i class="fas fa-phone-alt"></i></a>
+
+    </div>
+
+
+
+    <!-- FOOTER -->
+
+    <footer class="footer-pro">
+
+        <div class="container">
+
+            <div class="footer-grid">
+
+                <!-- Column 1: Brand -->
+
+                <div class="footer-col">
+
+                    <h4 style="font-family:var(--font-heading); font-size:1.5rem; color:white; margin-bottom:20px;">
+
+                        <a href="../index.html" style="text-decoration:none; color:white;">EthioDirect</a>
+
+                    </h4>
+
+                    <p style="color:#aaa; line-height:1.8; margin-bottom:20px;" data-i18n="footer.description">Ìè
+
+                        äîñòàâëÿºìî ñïðàâæíþ specialty êàâó ïðÿìî ç åô³îïñüêèõ ôåðì äî âàøîãî äîìó.</p>
+
+                    <div class="social-links">
+
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+
+                        <a href="#" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+
+                        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+
+                    </div>
+
+                </div>
+
+                <!-- Column 2: Shop -->
+
+                <div class="footer-col">
+
+                    <h4 data-i18n="footer.shop_title">Ìàãàçèí</h4>
+
+                    <ul class="footer-links">
+
+                        <li><a href="../shop.html" data-i18n="footer.catalog">Âåñü êàòàëîã</a></li>
+
+                        <li><a href="../subscription.html" data-i18n="footer.subscription">Ï³äïèñêà íà êàâó</a></li>
+
+                        <li><a href="../gift-certificates.html" data-i18n="nav.certificates">Ñåðòèô³êàòè</a></li>
+
+                        <li><a href="../b2b.html" data-i18n="footer.b2b">B2B ð³øåííÿ</a></li>
+
+                    </ul>
+
+                </div>
+
+                <!-- Column 3: Support -->
+
+                <div class="footer-col">
+
+                    <h4 data-i18n="footer.support_title">Ï³äòðèìêà</h4>
+
+                    <ul class="footer-links">
+
+                        <li><a href="../delivery.html" data-i18n="footer.delivery">Äîñòàâêà òà îïëàòà</a></li>
+
+                        <li><a href="../faq.html" data-i18n="footer.faq">×àñò³ ïèòàííÿ</a></li>
+
+                        <li><a href="../contacts.html" data-i18n="footer.contacts">Êîíòàêòè</a></li>
+
+                        <li><a href="../about.html" data-i18n="nav.about">Ïðî íàñ</a></li>
+
+                    </ul>
+
+                </div>
+
+                <!-- Column 4: Contacts -->
+
+                <div class="footer-col">
+
+                    <h4 data-i18n="footer.contacts_title">Êîíòàêòè</h4>
+
+                    <ul class="footer-contacts">
+
+                        <li><i class="fas fa-phone"></i> <a href="tel:+380501234567">+380 (50) 123-45-67</a></li>
+
+                        <li><i class="fas fa-envelope"></i> <a
+
+                                href="mailto:hello@ethiodirect.ua">hello@ethiodirect.ua</a></li>
+
+                        <li><i class="fas fa-map-marker-alt"></i> <span data-i18n="footer.location">Îäåñà,
+
+                                Óêðà¿íà</span></li>
+
+                        <li><i class="fas fa-clock"></i> <span data-i18n="topbar.hours">Ïí-Ïò: 9:00-18:00</span></li>
+
+                    </ul>
+
+                </div>
+
+                <!-- Column 5: Newsletter -->
+
+                <div class="footer-col">
+
+                    <h4 data-i18n="footer.newsletter_title">Ï³äïèñêà íà íîâèíè</h4>
+
+                    <p style="color:#aaa; margin-bottom:15px; font-size:0.9rem;" data-i18n="footer.newsletter_text">
+
+                        Îòðèìóéòå àêö³¿, íîâèíêè òà ïîðàäè ùîäî çàâàðþâàííÿ</p>
+
+                    <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
+
+                        <input type="email" placeholder="Âàø email"
+
+                            data-i18n-placeholder="footer.newsletter_placeholder" required>
+
+                        <button type="submit" class="btn-newsletter"
+
+                            data-i18n="footer.newsletter_cta">Ï³äïèñàòèñü</button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Trust Badges -->
+
+            <div class="footer-trust">
+
+                <div class="trust-badges">
+
+                    <div class="trust-badge">
+
+                        <i class="fas fa-shield-alt"></i>
+
+                        <div>
+
+                            <strong data-i18n="footer.badge_return_days">14 äí³â</strong>
+
+                            <span data-i18n="footer.badge_return">ïîâåðíåííÿ</span>
+
+                        </div>
+
+                    </div>
+
+                    <div class="trust-badge">
+
+                        <i class="fas fa-coffee"></i>
+
+                        <div>
+
+                            <strong data-i18n="footer.badge_specialty">100% Specialty</strong>
+
+                            <span data-i18n="footer.badge_quality">ÿê³ñòü çåðíà</span>
+
+                        </div>
+
+                    </div>
+
+                    <div class="trust-badge">
+
+                        <i class="fas fa-shipping-fast"></i>
+
+                        <div>
+
+                            <strong data-i18n="footer.badge_free">Áåçêîøòîâíà</strong>
+
+                            <span data-i18n="footer.badge_shipping">äîñòàâêà â³ä 500?</span>
+
+                        </div>
+
+                    </div>
+
+                    <div class="trust-badge">
+
+                        <i class="fas fa-fire"></i>
+
+                        <div>
+
+                            <strong data-i18n="footer.badge_fresh">Ñâ³æà îáñìàæêà</strong>
+
+                            <span data-i18n="footer.badge_days">äî 3 äí³â</span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Payment Methods -->
+
+            <div class="footer-payment">
+
+                <p style="color:#666; font-size:0.85rem; margin-bottom:15px;" data-i18n="footer.payment_methods">Ñïîñîáè
+
+                    îïëàòè:</p>
+
+                <div class="payment-icons">
+
+                    <i class="fab fa-cc-visa" title="Visa"></i>
+
+                    <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+
+                    <i class="fab fa-apple-pay" title="Apple Pay"></i>
+
+                    <i class="fab fa-google-pay" title="Google Pay"></i>
+
+                    <span class="payment-text">LiqPay</span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Bottom Bar -->
+
+            <div class="footer-bottom">
+
+                <div class="footer-bottom-left">
+
+                    <p data-i18n="footer.copyright">&copy; 2025 EthioDirect. Âñ³ ïðàâà çàõèùåí³.</p>
+
+                </div>
+
+                <div class="footer-bottom-right">
+
+                    <a href="../privacy.html" data-i18n="footer.privacy">Ïîë³òèêà êîíô³äåíö³éíîñò³</a>
+
+                    <span>·</span>
+
+                    <a href="../return.html" data-i18n="footer.terms">Óìîâè ïîâåðíåííÿ</a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+
+    <script src="../js/main.js"></script>
+
+
+
+    <script src="../js/i18n.js?v=2.0"></script>
+
+</body>
+
+
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
