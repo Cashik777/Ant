@@ -3,6 +3,7 @@
         "title": "Taste Test — EthioDirect",
         "description": "Find your ideal coffee in 5 questions"
     },
+    "stat_text": "people passed the taste test",
     "quiz_page": {
         "badge": "5 QUESTIONS • 2 MINUTES",
         "hero_title": "Find Your Perfect Coffee",
