@@ -5467,31 +5467,38 @@ textarea:hover {
 }
 
 /* 1. Trust Badges: Force Row Layout */
+.footer-compact-bottom .compact-trust,
+.footer-pro .compact-trust,
 .compact-trust {
     display: flex !important;
     flex-direction: row !important;
-    /* Ensure horizontal */
     flex-wrap: wrap !important;
-    /* Allow wrap if needed */
     gap: 20px !important;
     align-items: center !important;
-    justify-content: flex-start !important;
+    justify-content: center !important;
     width: 100% !important;
     margin-bottom: 20px !important;
 }
 
-.trust-item {
+.footer-compact-bottom .compact-trust .trust-item,
+.footer-pro .compact-trust .trust-item,
+.compact-trust .trust-item {
     display: inline-flex !important;
     align-items: center !important;
+    gap: 6px !important;
     width: auto !important;
     flex: 0 0 auto !important;
-    color: rgba(255, 255, 255, 0.9) !important;
-    font-size: 0.9rem !important;
+    color: rgba(255, 255, 255, 0.85) !important;
+    font-size: 0.85rem !important;
+    white-space: nowrap !important;
 }
 
-.trust-item i {
-    color: var(--primary) !important;
-    margin-right: 8px !important;
+.footer-compact-bottom .compact-trust .trust-item i,
+.footer-pro .compact-trust .trust-item i,
+.compact-trust .trust-item i {
+    color: var(--secondary) !important;
+    margin-right: 6px !important;
+    font-size: 1rem !important;
 }
 
 /* 2. Legal Links: Ensure Spacing */
