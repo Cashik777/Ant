@@ -5815,34 +5815,36 @@ textarea:hover {
     font-size: 0.5rem !important;
 }
 
-/* CENTER: Promo Ticker - Horizontal Single Line */
+/* CENTER: Promo Ticker - DYNAMIC SCROLLING */
 .top-bar-center {
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
     flex: 1 !important;
     min-width: 0 !important;
-    max-height: 20px !important;
+    max-height: 22px !important;
     overflow: hidden !important;
+    position: relative !important;
 }
 
 .promo-ticker {
     display: flex !important;
     flex-direction: row !important;
     align-items: center !important;
-    gap: 12px !important;
+    gap: 30px !important;
     flex-wrap: nowrap !important;
-    overflow: hidden !important;
-    max-height: 20px !important;
+    white-space: nowrap !important;
+    animation: tickerScrollSmooth 12s ease-in-out infinite !important;
 }
 
-/* Show only FIRST promo item to keep single line */
-.ticker-item:nth-child(n+2),
+/* SHOW ALL ticker items with smooth animation */
+.ticker-item,
 .ticker-divider {
-    display: none !important;
+    display: flex !important;
+    opacity: 1 !important;
 }
 
-.ticker-item:first-child {
+.ticker-item {
     display: flex !important;
     align-items: center !important;
     gap: 6px !important;
@@ -5851,7 +5853,40 @@ textarea:hover {
 }
 
 .ticker-item i {
-    font-size: 0.75rem !important;
+    font-size: 0.8rem !important;
+}
+
+.ticker-divider {
+    opacity: 0.4 !important;
+    color: var(--secondary) !important;
+}
+
+/* Smooth scrolling animation - cycles through promos */
+@keyframes tickerScrollSmooth {
+
+    0%,
+    20% {
+        transform: translateX(0);
+    }
+
+    25%,
+    45% {
+        transform: translateX(-33%);
+    }
+
+    50%,
+    70% {
+        transform: translateX(-66%);
+    }
+
+    75%,
+    95% {
+        transform: translateX(-33%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
 }
 
 
@@ -5952,4 +5987,126 @@ textarea:hover {
     .hero {
         padding-top: 140px !important;
     }
+}
+
+/* ========================================
+   HERO SECTION ENTRANCE ANIMATIONS
+   Dynamic visual effects to capture attention
+   ======================================== */
+
+/* Premium badge - slides down */
+.hero .premium-badge {
+    opacity: 0;
+    animation: heroSlideDown 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 0.2s;
+}
+
+/* Main title - slides up with bounce */
+.hero-content h1 {
+    opacity: 0;
+    animation: heroSlideUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 0.4s;
+}
+
+/* Lead text - fades and slides */
+.hero .hero-lead {
+    opacity: 0;
+    animation: heroSlideUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 0.6s;
+}
+
+/* CTA wrapper - slides up */
+.hero .hero-cta-wrapper {
+    opacity: 0;
+    animation: heroSlideUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 0.8s;
+}
+
+/* Trust signals - fade in */
+.hero .hero-trust {
+    opacity: 0;
+    animation: heroFadeIn 1s ease-out forwards;
+    animation-delay: 1s;
+}
+
+/* Hero image - scale in with subtle float */
+.hero .hero-image {
+    opacity: 0;
+    animation: heroImageReveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 0.3s;
+}
+
+/* Hero image subtle floating effect */
+.hero .hero-image img {
+    animation: heroImageFloat 6s ease-in-out infinite;
+    animation-delay: 1.5s;
+}
+
+/* Keyframe definitions */
+@keyframes heroSlideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes heroSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes heroFadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes heroImageReveal {
+    from {
+        opacity: 0;
+        transform: scale(0.92);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes heroImageFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+/* Hover enhancement for hero CTA button */
+.hero .btn-hero {
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero .btn-hero:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 12px 35px rgba(93, 64, 55, 0.4);
 }
