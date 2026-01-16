@@ -6093,3 +6093,311 @@ textarea:hover {
     transform: translateY(-3px) scale(1.02);
     box-shadow: 0 12px 35px rgba(93, 64, 55, 0.4);
 }
+/* ==============================================
+   PREMIUM CATALOG PAGE STYLES
+   ============================================== */
+
+/* Catalog Hero Section */
+.catalog-hero {
+    position: relative;
+    min-height: 260px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: linear-gradient(135deg, #3d2516 0%, #5d4037 50%, var(--bg-cream) 100%);
+    margin-bottom: 0;
+}
+
+.catalog-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('../img/catalog-hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.35;
+    mix-blend-mode: overlay;
+}
+
+.catalog-hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(61,37,22,0.85) 0%, rgba(61,37,22,0.4) 60%, transparent 100%);
+}
+
+.catalog-hero-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 60px 0;
+}
+
+.catalog-hero-text {
+    max-width: 600px;
+}
+
+.catalog-hero-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    padding: 8px 18px;
+    border-radius: 30px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.catalog-hero h1 {
+    color: white;
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+    text-shadow: 0 2px 15px rgba(0,0,0,0.3);
+}
+
+.catalog-hero p {
+    color: rgba(255,255,255,0.85);
+    font-size: 1.15rem;
+    margin-bottom: 0;
+}
+
+/* Catalog Hero Stats */
+.catalog-hero-stats {
+    display: flex;
+    gap: 40px;
+    margin-top: 25px;
+}
+
+.catalog-stat {
+    text-align: center;
+}
+
+.catalog-stat-number {
+    display: block;
+    color: var(--secondary);
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.catalog-stat-label {
+    color: rgba(255,255,255,0.7);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Premium Filter Sidebar */
+.premium-filters {
+    background: white;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+    height: fit-content;
+    position: sticky;
+    top: 130px;
+}
+
+.premium-filters h3 {
+    font-size: 1.3rem;
+    margin-bottom: 30px;
+    color: var(--primary-dark);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.premium-filters h3::before {
+    content: '';
+    width: 4px;
+    height: 24px;
+    background: linear-gradient(to bottom, var(--primary), var(--secondary));
+    border-radius: 2px;
+}
+
+.filter-group {
+    margin-bottom: 28px;
+}
+
+.filter-group h4 {
+    font-size: 0.85rem;
+    margin-bottom: 15px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.filter-group h4 i {
+    color: var(--primary);
+    font-size: 0.9rem;
+}
+
+/* Custom Premium Checkboxes */
+.filter-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    margin-bottom: 8px;
+    border: 1px solid transparent;
+}
+
+.filter-checkbox:hover {
+    background: rgba(93, 64, 55, 0.06);
+    border-color: rgba(93, 64, 55, 0.1);
+}
+
+.filter-checkbox input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 22px;
+    height: 22px;
+    border: 2px solid #d4c8be;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.filter-checkbox input[type="checkbox"]:hover {
+    border-color: var(--primary);
+}
+
+.filter-checkbox input[type="checkbox"]:checked {
+    background: var(--primary);
+    border-color: var(--primary);
+}
+
+.filter-checkbox input[type="checkbox"]:checked::after {
+    content: '✓';
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.filter-checkbox-label {
+    font-size: 0.95rem;
+    color: var(--text);
+    flex-grow: 1;
+}
+
+.filter-checkbox-icon {
+    font-size: 1.1rem;
+    margin-right: 4px;
+}
+
+/* Taste Profile Icons */
+.filter-checkbox[data-taste="fruity"] .filter-checkbox-icon::before { content: '🍓'; }
+.filter-checkbox[data-taste="chocolate"] .filter-checkbox-icon::before { content: '🍫'; }
+.filter-checkbox[data-taste="floral"] .filter-checkbox-icon::before { content: '🌸'; }
+
+/* Roast Level Visual Indicator */
+.roast-indicator {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    margin-left: auto;
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+.roast-indicator.light { background: #d4a574; }
+.roast-indicator.medium { background: #8b5a2b; }
+.roast-indicator.dark { background: #3d2516; }
+
+/* Sort Select Premium */
+.premium-sort-select {
+    appearance: none;
+    -webkit-appearance: none;
+    padding: 12px 40px 12px 16px;
+    border: 1px solid #e8e0d8;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    background: white url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%235d4037' d='M6 8L1 3h10z'/%3E%3C/svg%3E") no-repeat right 14px center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    width: 100%;
+}
+
+.premium-sort-select:hover {
+    border-color: var(--primary);
+}
+
+.premium-sort-select:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(93, 64, 55, 0.1);
+}
+
+/* Clear Filters Button */
+.btn-clear-filters {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #e8e0d8;
+    border-radius: 10px;
+    background: transparent;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.btn-clear-filters:hover {
+    background: #f5f0eb;
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+/* Products Count Badge */
+.products-count {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--bg-cream);
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    color: var(--text);
+    margin-bottom: 25px;
+}
+
+.products-count strong {
+    color: var(--primary);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .catalog-hero {
+        min-height: 200px;
+    }
+    
+    .catalog-hero h1 {
+        font-size: 1.8rem;
+    }
+    
+    .catalog-hero-stats {
+        gap: 20px;
+    }
+    
+    .catalog-stat-number {
+        font-size: 1.5rem;
+    }
+}
+

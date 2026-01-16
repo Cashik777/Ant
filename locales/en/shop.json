@@ -2,7 +2,9 @@
     "meta": {
         "title": "Coffee Catalog — EthioDirect"
     },
+    "badge": "SPECIALTY COLLECTION",
     "title": "Coffee Catalog",
+    "lots": "Lots",
     "notes": "Notes:",
     "processing": "Processing:",
     "add_to_cart": "Add to Cart",
