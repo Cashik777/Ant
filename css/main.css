@@ -5831,10 +5831,10 @@ textarea:hover {
     display: flex !important;
     flex-direction: row !important;
     align-items: center !important;
-    gap: 30px !important;
+    gap: 40px !important;
     flex-wrap: nowrap !important;
     white-space: nowrap !important;
-    animation: tickerScrollSmooth 12s ease-in-out infinite !important;
+    animation: tickerFloat 25s linear infinite !important;
 }
 
 /* SHOW ALL ticker items with smooth animation */
@@ -5861,31 +5861,14 @@ textarea:hover {
     color: var(--secondary) !important;
 }
 
-/* Smooth scrolling animation - cycles through promos */
-@keyframes tickerScrollSmooth {
-
-    0%,
-    20% {
-        transform: translateX(0);
-    }
-
-    25%,
-    45% {
-        transform: translateX(-33%);
-    }
-
-    50%,
-    70% {
-        transform: translateX(-66%);
-    }
-
-    75%,
-    95% {
-        transform: translateX(-33%);
+/* Continuous floating animation - smooth endless scroll */
+@keyframes tickerFloat {
+    0% {
+        transform: translateX(10%);
     }
 
     100% {
-        transform: translateX(0);
+        transform: translateX(-110%);
     }
 }
 
