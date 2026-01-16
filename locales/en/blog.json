@@ -22,6 +22,15 @@
     "newsletter_title": "Subscribe to Coffee News",
     "newsletter_text": "Get new articles, recipes and exclusive offers delivered to your inbox",
     "articles": {
+        "sommelier": {
+            "tag": "Expert Selection",
+            "title": "Review",
+            "altitude": "Altitude",
+            "process": "Process",
+            "acidity": "Acidity",
+            "body": "Body",
+            "quote": "Quote"
+        },
         "article_1": {
             "title": "What is Specialty Coffee and Why Does It Cost More",
             "excerpt": "Understanding what sets specialty coffee apart, how professionals grade it, and why it's worth every penny.",
@@ -634,11 +643,13 @@
             "cta_text": "Proper water + our fresh-roasted coffee = perfect result"
         },
         "ethiopia_origin": {
-            "title": "Ethiopia — The Birthplace of Coffee: A Journey to the Origins",
+            "title": "Ethiopia — Birthplace of Coffee",
             "subtitle": "From the Legend of Kaldi to Modern Specialty Plantations",
             "intro_1": "Imagine: over a thousand years ago, somewhere in the green mountains of Ethiopia, a shepherd named Kaldi noticed his goats suddenly jumping and dancing. The reason? Small red berries from an unfamiliar bush. This simple observation sparked one of humanity's greatest cultural revolutions — the discovery of coffee.",
             "intro_2": "Ethiopia is not just where coffee was first discovered. It's the cradle of the richest genetic diversity of coffee plants on the planet, a place of unique cultivation traditions and cultural rituals passed down through generations for over a millennium.",
             "intro_3": "In this article, we'll embark on a fascinating journey through the history, geography, and culture of Ethiopian coffee — from the misty highlands of Yirgacheffe to the sacred coffee ceremonies that unite families and communities.",
+            "sommelier_title": "Ethiopia Sidamo Profile",
+            "sommelier_quote": "A breathtaking explosion of jasmine and bergamot, leading to a long, honeyed finish. True Ethiopian excellence.",
             "h2_1": "The Legend of Kaldi: The Birth of Coffee",
             "legend_1": "The most famous legend about coffee's origin tells of an Ethiopian shepherd named Kaldi, who lived around the 9th century. One day, he noticed that his goats, after eating berries from an unknown bush, became extraordinarily energetic and couldn't sleep even at night.",
             "legend_2": "Curious, Kaldi tried the berries himself and felt a surge of alertness. He took the amazing fruits to a local monastery, where a monk, deciding they were the devil's work, threw them into the fire.",
@@ -918,9 +929,59 @@
             "conclusion_1": "AeroPress is a playground for coffee enthusiasts. The three recipes we covered are just a starting point.",
             "conclusion_2": "Find your perfect cup through experimentation. And remember: the best recipe is the one whose result you enjoy most.",
             "cta_title": "Get Perfect Beans for AeroPress",
-            "cta_text": "Our light roast coffee is perfect for bright recipes"
+            "cta_text": "Our light roast coffee is perfect for bright recipes",
+            "sommelier_title": "Ethiopia Yirgacheffe",
+            "sommelier_quote": "Floral and tea-like, perfect for the clean immersion of Aeropress."
+        },
+        "yirgacheffe": {
+            "title": "Yirgacheffe: Region of Legends"
+        },
+        "sidamo": {
+            "title": "Sidamo: Complete Guide"
+        },
+        "specialty": {
+            "title": "What is Specialty Coffee?"
+        },
+        "processing": {
+            "title": "Natural vs Washed Processing"
+        },
+        "roast": {
+            "title": "Light vs Dark Roast"
+        },
+        "v60": {
+            "title": "How to Brew V60"
+        },
+        "aeropress": {
+            "title": "AeroPress Recipes"
+        },
+        "coldbrew": {
+            "title": "Cold Brew: Complete Guide"
+        },
+        "turka": {
+            "title": "Turkish Coffee"
+        },
+        "espresso": {
+            "title": "Espresso Mistakes"
+        },
+        "grinder": {
+            "title": "How to Choose a Grinder"
+        },
+        "water": {
+            "title": "Water for Coffee"
+        },
+        "storage": {
+            "title": "How to Store Coffee"
+        },
+        "caffeine": {
+            "title": "Caffeine Myths"
         }
     },
     "table_of_contents": "Table of Contents",
-    "more_articles": "More Articles"
+    "more_articles": "More Articles",
+    "other_stories": "Other Stories",
+    "recommended_desc_water": "How the mineral composition of water affects the taste of your cup.",
+    "recommended_desc_storage": "Secrets of preserving the freshness and aroma of roasted beans.",
+    "recommended_desc_v60": "Step-by-step instructions for preparing the perfect V60 pour-over.",
+    "related_articles": "Related Articles",
+    "all_articles": "All Articles"
 }

@@ -1,0 +1,6 @@
+Pattern: cta
+Context:
+'íà êóëüòóðè.</p>\r\n            <div class="article-cta"\r\n                style="background: linear-gradient(135deg, #2a1f0a, #4a3520); padding: 40px; border-radius: 12px; text-align: center; margin-top'
+
+Before </article>:
+'px; text-align: center; margin-top: 40px;">\r\n                <h3 style="color: white;" data-i18n="articles.ethiopia_origin.cta_title">Â³ä÷óéòå ñïðàâæíþ Åô³îï³þ</h3>\r\n                <a href="../shop.html" class="btn btn-primary" data-i18n="common.order_now">Çàìîâèòè</a>\r\n            </div>\r\n        </article>'

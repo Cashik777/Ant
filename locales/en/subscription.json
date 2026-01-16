@@ -6,6 +6,11 @@
         "title": "Coffee Subscription",
         "subtitle": "Fresh coffee every month with 10% off"
     },
+    "sidebar_tag": "Specialty Subscription",
+    "sidebar_save": "Save 10%",
+    "sidebar_title": "Elevate Your Morning Ritual",
+    "sidebar_text": "Join our exclusive circle and receive limited-edition Ethiopian harvests every month.",
+    "subscribe_btn": "Begin Journey",
     "hero": {
         "badge": "Subscription",
         "title": "Coffee Subscription",

@@ -3,6 +3,9 @@
         "title": "Каталог кофе — EthioDirect"
     },
     "title": "Каталог кофе",
+    "notes": "Ноты:",
+    "processing": "Обработка:",
+    "add_to_cart": "В корзину",
     "subtitle": "Выберите свой идеальный сорт эфиопского specialty кофе",
     "filters": "Фильтры",
     "filter_roast": "Обжарка",

@@ -192,8 +192,8 @@
             // Check if we're in the /articles/ subdirectory
             const pathname = window.location.pathname;
             if (pathname.includes('/articles/')) {
-                // Article pages need the blog namespace
-                namespaces.push('blog');
+                // Article pages need blog, shop, subscription and articles namespaces for sidebars
+                namespaces.push('blog', 'shop', 'subscription', 'articles');
                 return namespaces;
             }
 
@@ -326,7 +326,14 @@
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
                 if (key) {
-                    el.textContent = this.t(key);
+                    let text = this.t(key);
+                    // Simple Markdown Parser: **text** -> <strong>text</strong>
+                    if (typeof text === 'string' && text.includes('**')) {
+                        text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+                        el.innerHTML = text;
+                    } else {
+                        el.textContent = text;
+                    }
                 }
             });
 

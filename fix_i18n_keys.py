@@ -215,8 +215,13 @@ for root, dirs, files in os.walk(base_dir):
     for file in files:
         if file.endswith('.html'):
             filepath = os.path.join(root, file)
-            with open(filepath, 'r', encoding='utf-8') as f:
-                content = f.read()
+            try:
+                with open(filepath, 'r', encoding='utf-8') as f:
+                    content = f.read()
+            except UnicodeDecodeError:
+                print(f"Warning: Could not read {filepath} as utf-8. Trying with errors='ignore'.")
+                with open(filepath, 'r', encoding='utf-8', errors='ignore') as f:
+                    content = f.read()
             
             original = content
             for old_key, new_key in key_mappings.items():

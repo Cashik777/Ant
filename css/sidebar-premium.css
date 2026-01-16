@@ -1,0 +1,596 @@
+﻿/* ============================================
+   PREMIUM ARTICLE LAYOUT v9
+   Equal height sidebars, centered, floating buttons lower
+   ============================================ */
+
+/* === HEADER - Premium Gold Title Design === */
+.article-header {
+    text-align: center;
+    padding: 25px 20px 20px;
+    margin-bottom: 35px;
+    /* Clear spacing before photo starts */
+    background: linear-gradient(135deg, #1a150a 0%, #2a1f0a 50%, #1a150a 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Subtle gold shimmer effect */
+.article-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(90deg,
+            transparent 0%,
+            rgba(199, 155, 77, 0.03) 25%,
+            rgba(199, 155, 77, 0.08) 50%,
+            rgba(199, 155, 77, 0.03) 75%,
+            transparent 100%);
+    animation: headerShimmer 8s ease-in-out infinite;
+}
+
+@keyframes headerShimmer {
+
+    0%,
+    100% {
+        transform: translateX(-25%);
+    }
+
+    50% {
+        transform: translateX(25%);
+    }
+}
+
+.article-header h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 500;
+    /* Adaptive font size that scales better */
+    font-size: clamp(1.1rem, 2.8vw, 2.2rem);
+    background: linear-gradient(135deg, #e8c86d 0%, #c79b4d 30%, #d4a94a 60%, #c08840 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.25;
+    margin: 8px auto 6px;
+    /* Allow wrapping but keep elegant */
+    white-space: normal;
+    text-align: center;
+    max-width: 95%;
+    letter-spacing: 0.01em;
+    position: relative;
+    z-index: 1;
+    text-shadow: 0 2px 20px rgba(199, 155, 77, 0.3);
+}
+
+.article-header p {
+    text-align: center;
+    font-size: 0.85rem;
+    color: rgba(199, 155, 77, 0.65);
+    margin-bottom: 0;
+    font-style: italic;
+    position: relative;
+    z-index: 1;
+}
+
+.article-header a {
+    color: rgba(199, 155, 77, 0.5);
+    text-decoration: none;
+    font-size: 0.75rem;
+    transition: color 0.2s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.article-header a:hover {
+    color: rgba(199, 155, 77, 0.85);
+}
+
+
+/* ============================================
+   ARTICLE GRID LAYOUT 
+   Symmetric sidebars, perfectly centered vertically
+   ============================================ */
+
+.article-layout {
+    display: grid;
+    /* Fixed sidebar widths with flexible center content */
+    grid-template-columns: 280px minmax(auto, 800px) 280px;
+    gap: 40px;
+    max-width: 1540px;
+    margin: 0 auto;
+    margin: 0 auto;
+    padding: 0 20px 100px;
+    /* Strict top alignment */
+    align-items: start;
+    justify-content: center;
+}
+
+
+/* ============================================
+   SIDEBAR CONTAINERS
+   Centered initially, sticky while scrolling
+   ============================================ */
+
+.article-sidebar-left,
+.article-sidebar-right {
+    position: sticky;
+    /* Start strict at top, accounting for any potential grid gap offset if needed, but 0 is safe usually */
+    top: 20px;
+    align-self: start;
+    margin-top: 0 !important;
+    width: 100%;
+    max-width: 280px;
+    z-index: 10;
+}
+
+
+/* ============================================
+   WIDGET STYLING - Premium Dark Theme
+   EQUAL HEIGHT for both sidebars
+   ============================================ */
+
+.related-widget,
+.toc-widget {
+    background: linear-gradient(165deg, #2a2218 0%, #1f1810 100%);
+    border: 1px solid rgba(199, 155, 77, 0.15);
+    border-radius: 12px;
+    padding: 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* Remove forced height, let content dictate, but ensure min height */
+    height: auto;
+    min-height: 200px;
+}
+
+/* Gold accent line */
+.related-widget::before,
+.toc-widget::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg,
+            transparent 0%,
+            rgba(199, 155, 77, 0.5) 30%,
+            rgba(199, 155, 77, 0.5) 70%,
+            transparent 100%);
+    z-index: 10;
+}
+
+.related-widget::after,
+.toc-widget::after {
+    display: none;
+}
+
+/* Widget Headers */
+.related-widget h4,
+.toc-widget h4 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.62rem;
+    font-weight: 700;
+    color: #c79b4d;
+    margin: 0;
+    padding: 14px 16px 12px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    background: transparent;
+    border-bottom: 1px solid rgba(199, 155, 77, 0.12);
+    flex-shrink: 0;
+}
+
+.related-widget h4 svg,
+.toc-widget h4 svg {
+    color: #c79b4d;
+    opacity: 0.65;
+    width: 13px;
+    height: 13px;
+}
+
+.related-widget h4::after,
+.toc-widget h4::after {
+    display: none;
+}
+
+/* Widget Lists - scrollable if needed */
+.related-widget ul,
+.toc-widget ul {
+    list-style: none;
+    padding: 8px 10px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    flex: 1;
+    overflow-y: auto;
+    /* Scroll if too many items */
+}
+
+.related-widget ul::before,
+.toc-widget ul::before {
+    display: none;
+}
+
+.related-widget li,
+.toc-widget li {
+    margin: 0;
+    list-style: none !important;
+    position: relative;
+}
+
+.related-widget li::before,
+.toc-widget li::before {
+    display: none !important;
+    content: none !important;
+}
+
+.related-widget li::after {
+    display: none;
+}
+
+/* Link Styles - Related Widget */
+/* Link Styles - UNIFIED for both widgets */
+.related-widget a,
+.toc-widget a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.85rem;
+    font-weight: 400;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    transition: all 0.2s ease;
+    background: transparent;
+    border-left: 2px solid transparent;
+}
+
+.related-widget a:hover,
+.toc-widget a:hover {
+    background: rgba(199, 155, 77, 0.08);
+    color: #f0e6d2;
+    padding-left: 20px;
+    /* Slide effect */
+    border-left-color: #c79b4d;
+}
+
+/* Remove old specific overrides */
+.related-widget a::before {
+    display: none;
+}
+
+
+/* ============================================
+   TOC WIDGET - Coffee Bean Icons
+   ============================================ */
+
+:root {
+    --bean-outline: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 26'%3E%3Cellipse cx='10' cy='13' rx='8' ry='11' fill='%23352a1e' stroke='rgba(199,155,77,0.4)' stroke-width='1.2'/%3E%3Cpath d='M10 4 Q7 9 10 13 Q13 17 10 22' fill='none' stroke='rgba(199,155,77,0.2)' stroke-width='1.2' stroke-linecap='round'/%3E%3C/svg%3E");
+
+    --bean-gold: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 26'%3E%3Cdefs%3E%3ClinearGradient id='gold' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23d4a94a'/%3E%3Cstop offset='50%25' stop-color='%23c79b4d'/%3E%3Cstop offset='100%25' stop-color='%23b8892e'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cellipse cx='10' cy='13' rx='8' ry='11' fill='url(%23gold)'/%3E%3Cpath d='M10 4 Q7 9 10 13 Q13 17 10 22' fill='none' stroke='rgba(80,50,20,0.6)' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
+
+    --bean-hover: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 26'%3E%3Cellipse cx='10' cy='13' rx='8' ry='11' fill='rgba(199,155,77,0.25)' stroke='rgba(199,155,77,0.6)' stroke-width='1.2'/%3E%3Cpath d='M10 4 Q7 9 10 13 Q13 17 10 22' fill='none' stroke='rgba(60,35,15,0.6)' stroke-width='1.2' stroke-linecap='round'/%3E%3C/svg%3E");
+}
+
+.toc-widget li:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 15px;
+    top: 100%;
+    width: 2px;
+    height: 2px;
+    background: rgba(199, 155, 77, 0.18);
+    border-radius: 1px;
+}
+
+.toc-widget a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 10px 8px 36px;
+    color: rgba(255, 255, 255, 0.55);
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: color 0.2s ease, background 0.2s ease;
+    position: relative;
+    border: none !important;
+    outline: none !important;
+}
+
+.toc-widget a::before {
+    content: '';
+    position: absolute;
+    left: 10px;
+    width: 14px;
+    height: 18px;
+    background: var(--bean-outline);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: filter 0.25s ease, background 0.25s ease;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none;
+}
+
+.toc-widget a::after {
+    display: none !important;
+}
+
+.toc-widget a:hover {
+    color: rgba(255, 255, 255, 0.88);
+    background: rgba(199, 155, 77, 0.07);
+}
+
+.toc-widget a:hover::before {
+    background: var(--bean-hover);
+    filter: drop-shadow(0 0 5px rgba(199, 155, 77, 0.3));
+}
+
+.toc-widget a:focus,
+.toc-widget a:focus-visible {
+    outline: none !important;
+    border: none !important;
+}
+
+.toc-widget a.active {
+    color: white !important;
+    font-weight: 600;
+    background: rgba(199, 155, 77, 0.1) !important;
+}
+
+.toc-widget a.active::before {
+    background: var(--bean-gold) !important;
+    animation: beanGlow 2.5s ease-in-out infinite;
+}
+
+@keyframes beanGlow {
+
+    0%,
+    100% {
+        filter: drop-shadow(0 0 6px rgba(199, 155, 77, 0.5));
+    }
+
+    50% {
+        filter: drop-shadow(0 0 10px rgba(199, 155, 77, 0.7));
+    }
+}
+
+
+/* ============================================
+   CTA BUTTONS - Always at bottom
+   ============================================ */
+
+.related-widget .toc-more-link,
+.toc-widget .toc-more-link,
+.toc-more-link {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 7px !important;
+    margin: auto 12px 14px !important;
+    padding: 11px 15px !important;
+    background: transparent !important;
+    color: #c79b4d !important;
+    border: 1px solid rgba(199, 155, 77, 0.3) !important;
+    border-radius: 7px !important;
+    font-weight: 600 !important;
+    font-size: 0.68rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1.3px !important;
+    transition: all 0.2s ease !important;
+    flex-shrink: 0 !important;
+}
+
+.toc-more-link::before,
+.toc-more-link::after,
+.related-widget .toc-more-link::before,
+.related-widget .toc-more-link::after {
+    display: none !important;
+    content: none !important;
+}
+
+.toc-more-link:hover,
+.related-widget .toc-more-link:hover {
+    background: rgba(199, 155, 77, 0.12) !important;
+    border-color: #c79b4d !important;
+    color: white !important;
+}
+
+
+/* ============================================
+   FLOATING CONTACTS - MOVED TO LEFT
+   ============================================ */
+
+body:has(.article-layout) .floating-contacts {
+    /* MOVE TO RIGHT as per user preference implied by 'ugly on left' complaint */
+    right: 30px !important;
+    left: auto !important;
+    bottom: 30px !important;
+    z-index: 998 !important;
+}
+
+body:has(.article-layout) .float-btn {
+    width: 44px !important;
+    height: 44px !important;
+    font-size: 1rem !important;
+}
+
+
+/* ============================================
+   ARTICLE MAIN CONTENT
+   ============================================ */
+
+.article-main {
+    padding-top: 0;
+    margin-top: 0;
+    /* Strict alignment */
+    width: 100%;
+    /* Ensure main content fills its grid cell */
+}
+
+.article-body {
+    /* Soft milky background instead of harsh white */
+    background: #fdfbf7;
+    border-radius: 12px;
+    padding: 0;
+    margin: 0;
+    /* Subtle shadow for depth */
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.03);
+    overflow: hidden;
+}
+
+.article-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    /* Image touches edges of container */
+    border-radius: 12px 12px 0 0;
+}
+
+.article-body p {
+    font-size: 1.05rem;
+    line-height: 1.9;
+    color: #4a4238;
+    /* Softer text color */
+    margin-bottom: 1.2em;
+    padding: 0 40px;
+    /* Internal padding for text */
+}
+
+.article-body p.intro {
+    font-size: 1.08rem;
+    color: #2a2a2a;
+    font-weight: 500;
+}
+
+.article-body h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.6rem;
+    color: #2a1f0a;
+    margin: 2em 40px 0.8em;
+    padding-bottom: 0.3em;
+    border-bottom: 1px solid rgba(199, 155, 77, 0.2);
+}
+
+.article-body ul,
+.article-body ol {
+    padding: 0 40px 0 60px;
+    margin-bottom: 1.5em;
+    color: #4a4238;
+}
+
+.article-cta {
+    background: linear-gradient(135deg, #2a1f0a, #4a3520);
+    padding: 32px;
+    border-radius: 12px;
+    text-align: center;
+    margin-top: 32px;
+}
+
+.article-cta h3 {
+    color: white;
+    margin-bottom: 16px;
+}
+
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 1250px) {
+    .article-layout {
+        grid-template-columns: 260px 1fr 260px;
+        /* Revert to tighter grid on smaller screens */
+        gap: 20px;
+        justify-items: stretch;
+    }
+
+    .article-sidebar-left,
+    .article-sidebar-right {
+        width: 100%;
+        margin-top: 0;
+    }
+}
+
+@media (max-width: 1100px) {
+    .article-layout {
+        grid-template-columns: 1fr;
+        max-width: 780px;
+        padding: 15px;
+    }
+
+    .article-sidebar-left {
+        order: 2;
+        display: none;
+    }
+
+    .article-sidebar-right {
+        order: 1;
+        margin-bottom: 18px;
+        position: relative;
+        top: 0;
+        margin-top: 0;
+    }
+
+    .article-main {
+        order: 2;
+    }
+
+    .related-widget,
+    .toc-widget {
+        position: relative;
+        min-height: auto;
+    }
+
+    .article-header h1 {
+        white-space: normal;
+        font-size: clamp(1.1rem, 4vw, 1.7rem);
+    }
+
+    body:has(.article-layout) .floating-contacts {
+        right: 12px !important;
+        bottom: 20px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .article-header {
+        padding: 18px 12px 15px;
+    }
+
+    .article-header h1 {
+        font-size: clamp(1rem, 4vw, 1.4rem);
+        margin: 5px 0;
+    }
+
+    .article-header p {
+        font-size: 0.78rem;
+    }
+
+    .article-layout {
+        padding: 10px;
+        gap: 12px;
+    }
+
+    .article-body p {
+        font-size: 0.92rem;
+    }
+
+    .article-body h2 {
+        font-size: 1.2rem;
+    }
+}

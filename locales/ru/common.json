@@ -197,6 +197,7 @@
         "google_pay": "Оплата Google Pay"
     },
     "common": {
+        "recommended": "Рекомендуем",
         "back": "Назад",
         "back_to_articles": "к статьям",
         "topbar_free_delivery": "Бесплатная доставка от 500₴",

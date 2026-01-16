@@ -532,5 +532,17 @@
         "recipe3_steps": "Pour everything at once, don't stir, start pressing at 45s, finish by 1:00.",
         "tip": "Experiment! Every coffee is unique, and the best recipe is the one you like most.",
         "cta_title": "Get perfect beans for AeroPress"
+    },
+    "sommelier": {
+        "tag": "Sommelier's Selection",
+        "title": "Ethiopia Yirgacheffe G1",
+        "altitude": "1,900 - 2,200m",
+        "process": "Washed / Heirloom",
+        "score_label": "SCA SCORE",
+        "acidity": "Bright Citrus",
+        "body": "Silky / Tea-like",
+        "complex": "High Complexity",
+        "velvety": "Velvety Mouthfeel",
+        "quote": "This lot captures the absolute essence of Yirgacheffe—crystalline acidity and a haunting jasmine aroma that lingers long after the first sip."
     }
 }

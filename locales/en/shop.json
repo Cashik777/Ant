@@ -3,6 +3,9 @@
         "title": "Coffee Catalog — EthioDirect"
     },
     "title": "Coffee Catalog",
+    "notes": "Notes:",
+    "processing": "Processing:",
+    "add_to_cart": "Add to Cart",
     "subtitle": "Choose your ideal Ethiopian specialty coffee",
     "filters": "Filters",
     "filter_roast": "Roast",

@@ -197,6 +197,8 @@
         "google_pay": "Pay with Google Pay"
     },
     "common": {
+        "contents": "Table of Contents",
+        "recommended": "Recommended",
         "back": "Back",
         "back_to_articles": "to articles",
         "topbar_free_delivery": "Free shipping from 500₴",
