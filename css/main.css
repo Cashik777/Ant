@@ -5751,3 +5751,34 @@ textarea:hover {
         font-size: 1.1rem !important;
     }
 }
+
+/* ========================================
+   HEADER VISIBILITY FIX
+   ======================================== */
+
+/* Make header visible below top-bar */
+header,
+.main-nav {
+    top: 40px !important;
+    z-index: 1002 !important;
+}
+
+/* Make sure nav-desktop is visible */
+.nav-desktop {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.nav-desktop a {
+    color: var(--text-dark) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Top bar height compensation */
+.top-bar {
+    position: fixed !important;
+    top: 0 !important;
+    z-index: 1001 !important;
+}
