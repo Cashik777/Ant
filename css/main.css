@@ -5303,6 +5303,169 @@ textarea:hover {
 }
 
 /* === FINAL ROBUST FOOTER & BOTTOM FIXES === */
+
+/* 0. Footer Compact Bottom Container */
+.footer-compact-bottom {
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-compact-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.footer-compact-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-socials {
+    display: flex;
+    gap: 12px;
+}
+
+.footer-socials a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.footer-socials a:hover {
+    background: var(--primary);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.footer-compact-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    flex: 1;
+}
+
+/* Payment Icons */
+.compact-payment {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.compact-payment i {
+    font-size: 1.8rem;
+    color: rgba(255, 255, 255, 0.6);
+    transition: var(--transition);
+}
+
+.compact-payment i:hover {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.payment-liqpay {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+/* Newsletter Form in Footer */
+.newsletter-form {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+}
+
+.newsletter-form input {
+    flex: 1;
+    padding: 12px 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius);
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+    font-size: 0.9rem;
+    transition: var(--transition);
+}
+
+.newsletter-form input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.newsletter-form input:focus {
+    outline: none;
+    border-color: var(--primary);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.btn-newsletter {
+    padding: 12px 20px;
+    background: var(--primary);
+    border: none;
+    border-radius: var(--radius);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    white-space: nowrap;
+}
+
+.btn-newsletter:hover {
+    background: var(--primary-hover);
+    transform: translateY(-2px);
+}
+
+/* Mobile Footer Responsive */
+@media (max-width: 992px) {
+    .footer-grid {
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-grid {
+        grid-template-columns: 1fr 1fr !important;
+    }
+
+    .footer-compact-row {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-compact-brand {
+        align-items: center;
+    }
+
+    .footer-compact-content {
+        width: 100%;
+    }
+
+    .compact-trust {
+        justify-content: center !important;
+    }
+
+    .compact-payment {
+        justify-content: center;
+    }
+}
+
 /* 1. Trust Badges: Force Row Layout */
 .compact-trust {
     display: flex !important;
