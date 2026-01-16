@@ -5311,6 +5311,109 @@ textarea:hover {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+/* === SLIM FOOTER BOTTOM === */
+.footer-slim-bottom {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.footer-slim-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    padding: 10px 0;
+}
+
+.slim-trust {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.slim-trust span {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.8rem;
+    white-space: nowrap;
+}
+
+.slim-trust span i {
+    color: var(--secondary);
+    font-size: 0.9rem;
+}
+
+.slim-payment {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.slim-payment i {
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.5);
+    transition: var(--transition);
+}
+
+.slim-payment i:hover {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.liqpay-badge {
+    padding: 3px 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.footer-slim-legal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    padding: 12px 0 5px;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.footer-slim-legal a {
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.footer-slim-legal a:hover {
+    color: var(--secondary);
+}
+
+.footer-slim-legal .dot {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+@media (max-width: 768px) {
+    .footer-slim-row {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .slim-trust {
+        gap: 12px;
+    }
+
+    .footer-slim-legal {
+        text-align: center;
+    }
+}
+
 .footer-compact-row {
     display: flex;
     flex-wrap: wrap;
