@@ -5822,6 +5822,8 @@ textarea:hover {
     justify-content: center !important;
     flex: 1 !important;
     min-width: 0 !important;
+    max-height: 20px !important;
+    overflow: hidden !important;
 }
 
 .promo-ticker {
@@ -5831,9 +5833,16 @@ textarea:hover {
     gap: 12px !important;
     flex-wrap: nowrap !important;
     overflow: hidden !important;
+    max-height: 20px !important;
 }
 
-.ticker-item {
+/* Show only FIRST promo item to keep single line */
+.ticker-item:nth-child(n+2),
+.ticker-divider {
+    display: none !important;
+}
+
+.ticker-item:first-child {
     display: flex !important;
     align-items: center !important;
     gap: 6px !important;
@@ -5845,10 +5854,6 @@ textarea:hover {
     font-size: 0.75rem !important;
 }
 
-.ticker-divider {
-    color: rgba(255, 255, 255, 0.25) !important;
-    margin: 0 4px !important;
-}
 
 /* RIGHT: Language Switcher */
 .top-bar-right,
