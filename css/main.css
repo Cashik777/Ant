@@ -5753,14 +5753,97 @@ textarea:hover {
 }
 
 /* ========================================
-   HEADER VISIBILITY FIX
+   HEADER VISIBILITY FIX v2 - Premium Top Bar
    ======================================== */
 
-/* Make header visible below top-bar */
-header,
-.main-nav {
-    top: 40px !important;
+/* Top bar: Fixed at top, premium compact height */
+.top-bar {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
     z-index: 1002 !important;
+    background: #1C1814 !important;
+    color: #fff !important;
+    padding: 8px 0 !important;
+    height: auto !important;
+}
+
+.top-bar-inner {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important;
+    gap: 20px !important;
+}
+
+.top-bar-left,
+.top-bar-center,
+.top-bar-right {
+    display: flex !important;
+    align-items: center !important;
+    gap: 15px !important;
+    font-size: 0.85rem !important;
+}
+
+.top-bar-left span,
+.top-bar-center span {
+    white-space: nowrap !important;
+}
+
+/* Promo ticker horizontal layout */
+.promo-ticker {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 15px !important;
+}
+
+.ticker-item {
+    white-space: nowrap !important;
+}
+
+.ticker-divider {
+    color: rgba(255, 255, 255, 0.3) !important;
+}
+
+/* Language switcher visible */
+.language-switcher {
+    display: flex !important;
+    gap: 8px !important;
+}
+
+.lang-btn {
+    background: transparent !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    color: #fff !important;
+    padding: 4px 10px !important;
+    border-radius: 4px !important;
+    font-size: 0.75rem !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+}
+
+.lang-btn:hover,
+.lang-btn.active {
+    background: var(--primary) !important;
+    border-color: var(--primary) !important;
+}
+
+/* Header positioned below top-bar */
+.header {
+    position: fixed !important;
+    top: 40px !important;
+    left: 0 !important;
+    width: 100% !important;
+    z-index: 1001 !important;
+}
+
+/* Hero section starts after header */
+.hero {
+    margin-top: 40px !important;
+    padding-top: 100px !important;
 }
 
 /* Make sure nav-desktop is visible */
@@ -5776,9 +5859,23 @@ header,
     visibility: visible !important;
 }
 
-/* Top bar height compensation */
-.top-bar {
-    position: fixed !important;
-    top: 0 !important;
-    z-index: 1001 !important;
+/* Mobile responsive */
+@media (max-width: 992px) {
+    .top-bar-center {
+        display: none !important;
+    }
+
+    .top-bar-left {
+        flex: 1 !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .top-bar-left span:not(:first-child) {
+        display: none !important;
+    }
+
+    .divider-dot {
+        display: none !important;
+    }
 }
