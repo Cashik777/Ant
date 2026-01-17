@@ -45,21 +45,18 @@
     }
 }
 
-/* Layout for Header Row - Refined */
+/* Layout for Header Row - Refined Final */
 .header-main-row {
-    display: grid;
-    /* Match the 3-column layout of the page: 280px sidebar | content | 280px sidebar */
-    grid-template-columns: 280px 1fr 280px;
+    display: flex;
     align-items: center;
-    gap: 40px;
-    /* Match grid gap */
+    justify-content: center;
+    position: relative;
+    /* Allows absolute positioning for back button */
     margin-bottom: 8px;
     max-width: 1540px;
-    /* Match page max-width */
     margin-left: auto;
     margin-right: auto;
     padding: 0 10px;
-    /* Align with content padding if needed */
 }
 
 .header-back-link {
@@ -76,17 +73,16 @@
     border-radius: 20px;
     border: 1px solid rgba(199, 155, 77, 0.3);
     white-space: nowrap;
-    justify-self: start;
-    /* Deep left alignment */
-    grid-column: 1;
-    width: fit-content;
+
+    /* Absolute positioning to place it far left independently of title flow */
+    position: absolute;
+    left: 20px;
+    /* Align with general page padding/logo area */
 }
 
-/* Empty pseudo-element to balance the grid and keep title centered */
+/* Empty pseudo-element no longer needed */
 .header-main-row::after {
-    content: '';
-    display: block;
-    grid-column: 3;
+    display: none;
 }
 
 .header-back-link:hover {
@@ -101,12 +97,11 @@
 .header-subtitle {
     text-align: center;
     font-family: 'Playfair Display', Georgia, serif;
-    /* More premium font */
     font-size: 1.3rem;
-    /* Larger size */
+    /* Increased size as requested */
     color: rgba(255, 255, 255, 0.9);
     font-style: italic;
-    max-width: 700px;
+    max-width: 800px;
     margin: 5px auto 0;
     line-height: 1.4;
     font-weight: 400;
@@ -115,23 +110,24 @@
 .article-header h1 {
     font-family: 'Playfair Display', Georgia, serif;
     font-weight: 400;
-    /* Adaptive font size that scales better */
-    font-size: clamp(1.4rem, 2.5vw, 2.2rem);
+    /* Adaptive font size - reduced min/max slightly to ensure fit without ellipsis */
+    font-size: clamp(1.2rem, 2.2vw, 2.0rem);
     background: linear-gradient(135deg, #e8c86d 0%, #c79b4d 30%, #d4a94a 60%, #c08840 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     line-height: 1.2;
     margin: 0;
-    /* Force single line */
+    /* Force single line but NO ellipsis - fit the text */
     white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    overflow: visible;
+    /* Show all text */
+    text-overflow: clip;
+    /* Do not use ellipsis */
     text-align: center;
     letter-spacing: -0.01em;
-    grid-column: 2;
-    /* Place in center column */
     max-width: 100%;
+    width: 100%;
     margin: 0 auto;
     z-index: 1;
     text-shadow: none;
