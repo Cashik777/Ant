@@ -6,8 +6,10 @@
 /* === HEADER - Premium Gold Title Design === */
 .article-header {
     text-align: center;
-    padding: 25px 20px 20px;
-    margin-bottom: 35px;
+    padding: 15px 20px 10px;
+    /* Tighter padding */
+    margin-bottom: 20px;
+    /* Reduced margin */
     /* Clear spacing before photo starts */
     background: linear-gradient(135deg, #1a150a 0%, #2a1f0a 50%, #1a150a 100%);
     position: relative;
@@ -46,33 +48,38 @@
 /* Layout for Header Row - Refined */
 .header-main-row {
     display: grid;
-    grid-template-columns: auto 1fr auto;
-    /* Button, Title, Balance */
+    /* Match the 3-column layout of the page: 280px sidebar | content | 280px sidebar */
+    grid-template-columns: 280px 1fr 280px;
     align-items: center;
-    gap: 20px;
-    margin-bottom: 15px;
-    max-width: 1000px;
-    /* Constrain width */
+    gap: 40px;
+    /* Match grid gap */
+    margin-bottom: 8px;
+    max-width: 1540px;
+    /* Match page max-width */
     margin-left: auto;
     margin-right: auto;
+    padding: 0 10px;
+    /* Align with content padding if needed */
 }
 
 .header-back-link {
     color: rgba(255, 255, 255, 0.8);
     text-decoration: none;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     transition: all 0.2s ease;
     display: inline-flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
     background: rgba(42, 31, 10, 0.6);
-    padding: 8px 18px;
+    padding: 6px 14px;
+    /* Narrower pill */
     border-radius: 20px;
     border: 1px solid rgba(199, 155, 77, 0.3);
     white-space: nowrap;
     justify-self: start;
-    /* Align to left */
+    /* Deep left alignment */
     grid-column: 1;
+    width: fit-content;
 }
 
 /* Empty pseudo-element to balance the grid and keep title centered */
@@ -80,8 +87,6 @@
     content: '';
     display: block;
     grid-column: 3;
-    width: 60px;
-    /* Approximate width of back button */
 }
 
 .header-back-link:hover {
@@ -110,33 +115,29 @@
 .article-header h1 {
     font-family: 'Playfair Display', Georgia, serif;
     font-weight: 400;
-    /* Lighter weight to reduce eye strain */
     /* Adaptive font size that scales better */
-    font-size: clamp(1.4rem, 3vw, 2.4rem);
+    font-size: clamp(1.4rem, 2.5vw, 2.2rem);
     background: linear-gradient(135deg, #e8c86d 0%, #c79b4d 30%, #d4a94a 60%, #c08840 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    line-height: 1.25;
+    line-height: 1.2;
     margin: 0;
-    /* Margin handled by Row gap */
-    /* Allow wrapping but keep elegant */
-    white-space: normal;
+    /* Force single line */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     text-align: center;
     letter-spacing: -0.01em;
     grid-column: 2;
     /* Place in center column */
-    max-width: 800px;
+    max-width: 100%;
     margin: 0 auto;
     z-index: 1;
     text-shadow: none;
-    /* Removed heavy shadow */
     color: #e8c86d;
-    /* Solid legible gold */
     -webkit-text-fill-color: initial;
-    /* Reset text fill */
     background: none;
-    /* Reset gradient background */
 }
 
 .article-header p {
@@ -644,6 +645,28 @@ body:has(.article-layout) .float-btn {
     body:has(.article-layout) .floating-contacts {
         right: 12px !important;
         bottom: 20px !important;
+    }
+
+    /* Stack header on mobile */
+    .header-main-row {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .header-back-link {
+        justify-self: center;
+        grid-column: 1;
+    }
+
+    .article-header h1 {
+        grid-column: 1;
+        white-space: normal;
+        /* Allow wrap on mobile */
+    }
+
+    .header-main-row::after {
+        display: none;
     }
 }
 
