@@ -19,7 +19,7 @@
 
     <link rel="stylesheet" href="../css/polish.css">
 
-    
+
 
 </head>
 
@@ -50,25 +50,19 @@
                 <div class="promo-ticker">
 
                     <span class="ticker-item"><i class="fas fa-fire" style="color:#e74c3c;"></i> <strong
-
                             data-i18n="topbar.promo_action">ÀÊÖ²ß:</strong> <span
-
                             data-i18n="topbar.promo_delivery">áåçêîøòîâíà äîñòàâêà â³ä 500?</span></span>
 
                     <span class="ticker-divider">|</span>
 
                     <span class="ticker-item"><i class="fas fa-coffee" style="color:#8B4545;"></i> <span
-
                             data-i18n="topbar.promo_subscription">Ï³äïèñêà:</span> <strong
-
                             data-i18n="topbar.promo_subscription_text">-10% íà êîæíó äîñòàâêó</strong></span>
 
                     <span class="ticker-divider">|</span>
 
                     <span class="ticker-item"><i class="fas fa-bolt" style="color:#f39c12;"></i> <span
-
                             data-i18n="topbar.promo_roast">Ñâ³æà îáñìàæêà</span> <strong
-
                             data-i18n="topbar.promo_roast_days">äî 3 äí³â</strong></span>
 
                 </div>
@@ -130,7 +124,6 @@
                 <div class="search-wrapper">
 
                     <input type="text" class="search-input" id="search-input" placeholder="Ïîøóê êàâè..."
-
                         data-i18n-placeholder="search.placeholder" oninput="handleSearch(this.value)">
 
                     <button class="search-btn"><i class="fas fa-search"></i></button>
@@ -168,7 +161,6 @@
                             <h4 data-i18n="cart.title">Âàø êîøèê</h4>
 
                             <span class="mini-cart-count" id="mini-cart-count"><span>0</span> <span
-
                                     data-i18n="cart.items">òîâàð³â</span></span>
 
                         </div>
@@ -268,11 +260,9 @@
         <div class="drawer-header">
 
             <h3><i class="fas fa-shopping-bag" style="margin-right:10px; color:var(--primary);"></i> <span
-
                     data-i18n="cart.your_cart">Âàø êîøèê</span></h3>
 
             <button onclick="closeDrawer()"
-
                 style="background:none;border:none;font-size:1.5rem;cursor:pointer;">&times;</button>
 
         </div>
@@ -298,13 +288,11 @@
             <div style="display:flex; justify-content:space-between; margin-bottom:15px;">
 
                 <span data-i18n="cart.subtotal">Ðàçîì:</span><span id="cart-total"
-
                     style="font-weight:700; color:var(--primary);">0 ?</span>
 
             </div>
 
             <button class="btn btn-primary" style="width:100%;"><i class="fas fa-lock"></i> <span
-
                     data-i18n="cart.checkout">Îôîðìèòè çàìîâëåííÿ</span></button>
 
         </div>
@@ -313,50 +301,50 @@
 
 
 
-    
-    
-    
+
+
+
     <main>
         <section class="article-header">
-
             <div class="container">
-
-                <a href="../blog.html" style="color:rgba(255,255,255,0.7); text-decoration:none;"><i
-
-                        class="fas fa-arrow-left"></i> <span data-i18n="common.back">Íàçàä</span></a>
-
-                <h1 style="margin-top:20px;" data-i18n="articles.what_is_specialty.title">Ùî òàêå specialty êàâà ³ ÷îìó
-
-                    âîíà êîøòóº á³ëüøå?</h1>
-
-                <p style="opacity:0.9;" data-i18n="articles.what_is_specialty.subtitle">Ð³çíèöÿ, ÿêó âè ìîæåòå â³ä÷óòè
-
-                </p>
-
+                <div class="header-main-row">
+                    <a href="../blog.html" class="header-back-link">
+                        <i class="fas fa-arrow-left"></i> <span data-i18n="common.back">Назад</span>
+                    </a>
+                    <h1 data-i18n="articles.what_is_specialty.title">Що таке specialty кава і чому вона коштує більше?
+                    </h1>
+                </div>
+                <p class="header-subtitle" data-i18n="articles.what_is_specialty.subtitle">Різниця, яку ви можете
+                    відчути</p>
             </div>
-
         </section>
 
         <div class="article-layout">
-            
+
             <aside class="article-sidebar-left">
                 <div class="related-widget">
                     <h4>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
                             <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
                             <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
                         </svg>
                         <span data-i18n="blog.related_articles">Читайте також</span>
                     </h4>
                     <ul>
-                        <li><a href="yirgacheffe-region.html" data-i18n="articles.yirgacheffe.title">Yirgacheffe: регіон легенд</a></li>
+                        <li><a href="yirgacheffe-region.html" data-i18n="articles.yirgacheffe.title">Yirgacheffe: регіон
+                                легенд</a></li>
                         <li><a href="sidamo-guide.html" data-i18n="articles.sidamo.title">Sidamo: повний гід</a></li>
-                        <li><a href="what-is-specialty.html" data-i18n="articles.specialty.title">Що таке specialty кава?</a></li>
-                        <li><a href="natural-vs-washed.html" data-i18n="articles.processing.title">Натуральна vs мита обробка</a></li>
-                        <li><a href="aeropress-recipes.html" data-i18n="articles.aeropress_recipes.title">3 рецепти для Аеропреса</a></li>
+                        <li><a href="what-is-specialty.html" data-i18n="articles.specialty.title">Що таке specialty
+                                кава?</a></li>
+                        <li><a href="natural-vs-washed.html" data-i18n="articles.processing.title">Натуральна vs мита
+                                обробка</a></li>
+                        <li><a href="aeropress-recipes.html" data-i18n="articles.aeropress_recipes.title">3 рецепти для
+                                Аеропреса</a></li>
                     </ul>
                     <a href="../blog.html" class="toc-more-link">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
                             <path d="M5 12h14M12 5l7 7-7 7" />
                         </svg>
                         <span data-i18n="blog.all_articles">Усі статті</span>
@@ -367,68 +355,72 @@
 
             <div class="article-main">
                 <article class="article-body">
-            <img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=1200" alt="Specialty Coffee" class="article-image">
-            
-                        <p class="intro" data-i18n="articles.what_is_specialty.intro_1"></p>
-            <p class="intro" data-i18n="articles.what_is_specialty.intro_2"></p>
-            <p class="intro" data-i18n="articles.what_is_specialty.intro_3"></p>
-            <h2 id="section-h2_1" data-i18n="articles.what_is_specialty.h2_1"></h2>
-            <p data-i18n="articles.what_is_specialty.sca_intro"></p>
-            <p data-i18n="articles.what_is_specialty.sca_scale"></p>
-            <p data-i18n="articles.what_is_specialty.sca_criteria"></p>
-            <p data-i18n="articles.what_is_specialty.sca_grades"></p>
-            <p data-i18n="articles.what_is_specialty.sca_threshold"></p>
-            <h2 id="section-h2_2" data-i18n="articles.what_is_specialty.h2_2"></h2>
-            <p data-i18n="articles.what_is_specialty.diff_intro"></p>
-            <p data-i18n="articles.what_is_specialty.diff_growing"></p>
-            <p data-i18n="articles.what_is_specialty.diff_picking"></p>
-            <p data-i18n="articles.what_is_specialty.diff_processing"></p>
-            <p data-i18n="articles.what_is_specialty.diff_roasting"></p>
-            <p data-i18n="articles.what_is_specialty.diff_freshness"></p>
-            <h2 id="section-h2_3" data-i18n="articles.what_is_specialty.h2_3"></h2>
-            <p data-i18n="articles.what_is_specialty.taste_intro"></p>
-            <p data-i18n="articles.what_is_specialty.taste_commercial"></p>
-            <p data-i18n="articles.what_is_specialty.taste_specialty"></p>
-            <p data-i18n="articles.what_is_specialty.taste_acidity"></p>
-            <p data-i18n="articles.what_is_specialty.taste_aftertaste"></p>
-            <h2 id="section-h2_4" data-i18n="articles.what_is_specialty.h2_4"></h2>
-            <p data-i18n="articles.what_is_specialty.price_intro"></p>
-            <p data-i18n="articles.what_is_specialty.price_labor"></p>
-            <p data-i18n="articles.what_is_specialty.price_yield"></p>
-            <p data-i18n="articles.what_is_specialty.price_processing"></p>
-            <p data-i18n="articles.what_is_specialty.price_logistics"></p>
-            <p data-i18n="articles.what_is_specialty.price_roasting"></p>
-            <p data-i18n="articles.what_is_specialty.price_fair"></p>
-            <h2 id="section-h2_5" data-i18n="articles.what_is_specialty.h2_5"></h2>
-            <p data-i18n="articles.what_is_specialty.identify_intro"></p>
-            <p data-i18n="articles.what_is_specialty.identify_origin"></p>
-            <p data-i18n="articles.what_is_specialty.identify_roast_date"></p>
-            <p data-i18n="articles.what_is_specialty.identify_score"></p>
-            <p data-i18n="articles.what_is_specialty.identify_tasting_notes"></p>
-            <p data-i18n="articles.what_is_specialty.identify_processing"></p>
-            <p data-i18n="articles.what_is_specialty.identify_roaster"></p>
-            <h2 id="section-h2_6" data-i18n="articles.what_is_specialty.h2_6"></h2>
-            <p data-i18n="articles.what_is_specialty.worth_intro"></p>
-            <p data-i18n="articles.what_is_specialty.worth_taste"></p>
-            <p data-i18n="articles.what_is_specialty.worth_ritual"></p>
-            <p data-i18n="articles.what_is_specialty.worth_health"></p>
-            <p data-i18n="articles.what_is_specialty.worth_ethics"></p>
-            <p data-i18n="articles.what_is_specialty.worth_discovery"></p>
-            <p data-i18n="articles.what_is_specialty.conclusion_1"></p>
-            <p data-i18n="articles.what_is_specialty.conclusion_2"></p>
-            <div class="article-cta" style="background: linear-gradient(135deg, #2a1f0a, #4a3520); padding: 40px; border-radius: 12px; text-align: center; margin-top: 40px;">
-                <h3 style="color: white;" data-i18n="articles.what_is_specialty.cta_title"></h3>
-                <p style="color: rgba(255,255,255,0.8); margin-bottom: 20px;" data-i18n="articles.what_is_specialty.cta_text"></p>
-                <a href="../shop.html" class="btn btn-primary" data-i18n="common.order_now"></a>
-            </div>
-        </article>
+                    <img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=1200"
+                        alt="Specialty Coffee" class="article-image">
+
+                    <p class="intro" data-i18n="articles.what_is_specialty.intro_1"></p>
+                    <p class="intro" data-i18n="articles.what_is_specialty.intro_2"></p>
+                    <p class="intro" data-i18n="articles.what_is_specialty.intro_3"></p>
+                    <h2 id="section-h2_1" data-i18n="articles.what_is_specialty.h2_1"></h2>
+                    <p data-i18n="articles.what_is_specialty.sca_intro"></p>
+                    <p data-i18n="articles.what_is_specialty.sca_scale"></p>
+                    <p data-i18n="articles.what_is_specialty.sca_criteria"></p>
+                    <p data-i18n="articles.what_is_specialty.sca_grades"></p>
+                    <p data-i18n="articles.what_is_specialty.sca_threshold"></p>
+                    <h2 id="section-h2_2" data-i18n="articles.what_is_specialty.h2_2"></h2>
+                    <p data-i18n="articles.what_is_specialty.diff_intro"></p>
+                    <p data-i18n="articles.what_is_specialty.diff_growing"></p>
+                    <p data-i18n="articles.what_is_specialty.diff_picking"></p>
+                    <p data-i18n="articles.what_is_specialty.diff_processing"></p>
+                    <p data-i18n="articles.what_is_specialty.diff_roasting"></p>
+                    <p data-i18n="articles.what_is_specialty.diff_freshness"></p>
+                    <h2 id="section-h2_3" data-i18n="articles.what_is_specialty.h2_3"></h2>
+                    <p data-i18n="articles.what_is_specialty.taste_intro"></p>
+                    <p data-i18n="articles.what_is_specialty.taste_commercial"></p>
+                    <p data-i18n="articles.what_is_specialty.taste_specialty"></p>
+                    <p data-i18n="articles.what_is_specialty.taste_acidity"></p>
+                    <p data-i18n="articles.what_is_specialty.taste_aftertaste"></p>
+                    <h2 id="section-h2_4" data-i18n="articles.what_is_specialty.h2_4"></h2>
+                    <p data-i18n="articles.what_is_specialty.price_intro"></p>
+                    <p data-i18n="articles.what_is_specialty.price_labor"></p>
+                    <p data-i18n="articles.what_is_specialty.price_yield"></p>
+                    <p data-i18n="articles.what_is_specialty.price_processing"></p>
+                    <p data-i18n="articles.what_is_specialty.price_logistics"></p>
+                    <p data-i18n="articles.what_is_specialty.price_roasting"></p>
+                    <p data-i18n="articles.what_is_specialty.price_fair"></p>
+                    <h2 id="section-h2_5" data-i18n="articles.what_is_specialty.h2_5"></h2>
+                    <p data-i18n="articles.what_is_specialty.identify_intro"></p>
+                    <p data-i18n="articles.what_is_specialty.identify_origin"></p>
+                    <p data-i18n="articles.what_is_specialty.identify_roast_date"></p>
+                    <p data-i18n="articles.what_is_specialty.identify_score"></p>
+                    <p data-i18n="articles.what_is_specialty.identify_tasting_notes"></p>
+                    <p data-i18n="articles.what_is_specialty.identify_processing"></p>
+                    <p data-i18n="articles.what_is_specialty.identify_roaster"></p>
+                    <h2 id="section-h2_6" data-i18n="articles.what_is_specialty.h2_6"></h2>
+                    <p data-i18n="articles.what_is_specialty.worth_intro"></p>
+                    <p data-i18n="articles.what_is_specialty.worth_taste"></p>
+                    <p data-i18n="articles.what_is_specialty.worth_ritual"></p>
+                    <p data-i18n="articles.what_is_specialty.worth_health"></p>
+                    <p data-i18n="articles.what_is_specialty.worth_ethics"></p>
+                    <p data-i18n="articles.what_is_specialty.worth_discovery"></p>
+                    <p data-i18n="articles.what_is_specialty.conclusion_1"></p>
+                    <p data-i18n="articles.what_is_specialty.conclusion_2"></p>
+                    <div class="article-cta"
+                        style="background: linear-gradient(135deg, #2a1f0a, #4a3520); padding: 40px; border-radius: 12px; text-align: center; margin-top: 40px;">
+                        <h3 style="color: white;" data-i18n="articles.what_is_specialty.cta_title"></h3>
+                        <p style="color: rgba(255,255,255,0.8); margin-bottom: 20px;"
+                            data-i18n="articles.what_is_specialty.cta_text"></p>
+                        <a href="../shop.html" class="btn btn-primary" data-i18n="common.order_now"></a>
+                    </div>
+                </article>
             </div>
 
-            
+
             <aside class="article-sidebar-right">
                 <div class="toc-widget" id="toc-widget">
                     <h4>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
                             <path d="M4 6h16M4 12h16M4 18h7" />
                         </svg>
                         <span data-i18n="blog.table_of_contents">Зміст статті</span>
@@ -442,10 +434,11 @@
                         <li><a href="#section-h2_5" data-i18n="articles.what_is_specialty.h2_5"></a></li>
                         <li><a href="#section-h2_6" data-i18n="articles.what_is_specialty.h2_6"></a></li>
 
-            
+
                     </ul>
                     <a href="../blog.html" class="toc-more-link">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
                             <path d="M5 12h14M12 5l7 7-7 7" />
                         </svg>
                         <span data-i18n="blog.more_articles">Більше історій</span>
@@ -557,7 +550,6 @@
                         <li><i class="fas fa-phone"></i> <a href="tel:+380501234567">+380 (50) 123-45-67</a></li>
 
                         <li><i class="fas fa-envelope"></i> <a
-
                                 href="mailto:hello@ethiodirect.ua">hello@ethiodirect.ua</a></li>
 
                         <li><i class="fas fa-map-marker-alt"></i> <span data-i18n="footer.location">Îäåñà,
@@ -583,11 +575,9 @@
                     <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
 
                         <input type="email" placeholder="Âàø email"
-
                             data-i18n-placeholder="footer.newsletter_placeholder" required>
 
                         <button type="submit" class="btn-newsletter"
-
                             data-i18n="footer.newsletter_cta">Ï³äïèñàòèñü</button>
 
                     </form>
@@ -598,15 +588,20 @@
 
 
 
-                        <!-- Compact Footer Bottom: Single-line elegant design -->
+            <!-- Compact Footer Bottom: Single-line elegant design -->
             <div class="footer-slim-bottom">
                 <!-- Row 1: Trust badges + Payment icons -->
                 <div class="footer-slim-row">
                     <div class="slim-trust">
-                        <span><i class="fas fa-shield-alt"></i> <span data-i18n="footer.badge_return_days">14 днів</span> <span data-i18n="footer.badge_return">повернення</span></span>
-                        <span><i class="fas fa-coffee"></i> <span data-i18n="footer.badge_specialty">100% Specialty</span></span>
-                        <span><i class="fas fa-shipping-fast"></i> <span data-i18n="footer.badge_free">Безкоштовна</span> <span data-i18n="footer.badge_shipping">від 500₴</span></span>
-                        <span><i class="fas fa-fire"></i> <span data-i18n="footer.badge_fresh">Свіжа обсмажка</span></span>
+                        <span><i class="fas fa-shield-alt"></i> <span data-i18n="footer.badge_return_days">14
+                                днів</span> <span data-i18n="footer.badge_return">повернення</span></span>
+                        <span><i class="fas fa-coffee"></i> <span data-i18n="footer.badge_specialty">100%
+                                Specialty</span></span>
+                        <span><i class="fas fa-shipping-fast"></i> <span
+                                data-i18n="footer.badge_free">Безкоштовна</span> <span
+                                data-i18n="footer.badge_shipping">від 500₴</span></span>
+                        <span><i class="fas fa-fire"></i> <span data-i18n="footer.badge_fresh">Свіжа
+                                обсмажка</span></span>
                     </div>
                     <div class="slim-payment">
                         <i class="fab fa-cc-visa"></i>
@@ -689,7 +684,7 @@
                 if (!footer) return;
 
                 const footerTop = footer.getBoundingClientRect().top;
-                const minDistance = 50; 
+                const minDistance = 50;
 
                 [leftSidebar, rightSidebar].forEach(sidebar => {
                     if (!sidebar) return;
@@ -721,32 +716,3 @@
 
 
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
