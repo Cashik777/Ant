@@ -77,7 +77,9 @@
     /* Absolute positioning to place it far left independently of title flow */
     position: absolute;
     left: 20px;
-    /* Align with general page padding/logo area */
+    /* Align with page padding/logo */
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 /* Empty pseudo-element no longer needed */
@@ -90,7 +92,8 @@
     background: rgba(199, 155, 77, 0.3);
     /* Premium highlighted background on hover */
     border-color: rgba(199, 155, 77, 0.6);
-    transform: translateX(-3px);
+    /* Transform + TranslateY to keep vertical center */
+    transform: translateY(-50%) translateX(-3px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
@@ -121,13 +124,14 @@
     /* Force single line but NO ellipsis - fit the text */
     white-space: nowrap;
     overflow: visible;
-    /* Show all text */
+    /* Show all text - DO NOT CUT OFF */
     text-overflow: clip;
     /* Do not use ellipsis */
     text-align: center;
     letter-spacing: -0.01em;
-    max-width: 100%;
-    width: 100%;
+    max-width: none;
+    /* Allow full width */
+    width: auto;
     margin: 0 auto;
     z-index: 1;
     text-shadow: none;
