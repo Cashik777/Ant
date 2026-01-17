@@ -74,10 +74,10 @@
     border: 1px solid rgba(199, 155, 77, 0.3);
     white-space: nowrap;
 
-    /* Absolute positioning to place it far left independently of title flow */
+    /* Absolute positioning to place it under the logo sun */
     position: absolute;
-    left: 20px;
-    /* Align with page padding/logo */
+    left: 120px;
+    /* Align under logo sun center */
     top: 50%;
     transform: translateY(-50%);
 }
@@ -100,14 +100,19 @@
 .header-subtitle {
     text-align: center;
     font-family: 'Playfair Display', Georgia, serif;
-    font-size: 1.3rem;
-    /* Increased size as requested */
-    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.6rem;
+    /* Much larger for elegance */
+    color: rgba(232, 200, 109, 0.9);
+    /* Gold tint to match theme */
     font-style: italic;
-    max-width: 800px;
-    margin: 5px auto 0;
-    line-height: 1.4;
+    max-width: 900px;
+    margin: 12px auto 0;
+    line-height: 1.5;
     font-weight: 400;
+    letter-spacing: 0.03em;
+    /* Elegant spacing */
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    /* Subtle depth */
 }
 
 .article-header h1 {
