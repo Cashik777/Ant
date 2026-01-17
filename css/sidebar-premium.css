@@ -145,7 +145,7 @@ p.header-subtitle {
     background: none;
 }
 
-.article-header p {
+.article-header p:not(.header-subtitle) {
     text-align: center;
     font-size: 0.85rem;
     color: rgba(199, 155, 77, 0.65);
@@ -155,7 +155,7 @@ p.header-subtitle {
     z-index: 1;
 }
 
-.article-header a {
+.article-header a:not(.header-back-link) {
     color: rgba(199, 155, 77, 0.5);
     text-decoration: none;
     font-size: 0.75rem;
@@ -164,7 +164,7 @@ p.header-subtitle {
     z-index: 1;
 }
 
-.article-header a:hover {
+.article-header a:not(.header-back-link):hover {
     color: rgba(199, 155, 77, 0.85);
 }
 
