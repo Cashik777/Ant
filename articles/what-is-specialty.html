@@ -684,8 +684,8 @@
                 if (!footer) return;
 
                 const footerTop = footer.getBoundingClientRect().top;
-                /* Increased buffer to avoid touching footer content */
-                const minDistance = 100;
+                /* Reduced buffer to minimize bottom whitespace */
+                const minDistance = 40;
 
                 [leftSidebar, rightSidebar].forEach(sidebar => {
                     if (!sidebar) return;

@@ -45,24 +45,20 @@
 
 /* Layout for Header Row - Refined */
 .header-main-row {
-    display: flex;
-    flex-direction: column;
-    /* Stack back button and title for better control */
-    align-items: flex-start;
-    /* Align everything to left as requested (or top-left) */
-    justify-content: center;
-    gap: 15px;
-    margin-bottom: 20px;
-    position: relative;
-    max-width: 900px;
-    /* Narrower width for reading focus */
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    /* Button, Title, Balance */
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 15px;
+    max-width: 1000px;
+    /* Constrain width */
     margin-left: auto;
     margin-right: auto;
 }
 
 .header-back-link {
     color: rgba(255, 255, 255, 0.8);
-    /* Brighter text */
     text-decoration: none;
     font-size: 0.85rem;
     transition: all 0.2s ease;
@@ -70,12 +66,22 @@
     align-items: center;
     gap: 8px;
     background: rgba(42, 31, 10, 0.6);
-    /* Darker semi-transparent background */
     padding: 8px 18px;
     border-radius: 20px;
     border: 1px solid rgba(199, 155, 77, 0.3);
-    align-self: flex-start;
-    /* Push to left */
+    white-space: nowrap;
+    justify-self: start;
+    /* Align to left */
+    grid-column: 1;
+}
+
+/* Empty pseudo-element to balance the grid and keep title centered */
+.header-main-row::after {
+    content: '';
+    display: block;
+    grid-column: 3;
+    width: 60px;
+    /* Approximate width of back button */
 }
 
 .header-back-link:hover {
@@ -89,12 +95,16 @@
 
 .header-subtitle {
     text-align: center;
-    font-size: 1rem;
-    color: rgba(255, 255, 255, 0.8);
+    font-family: 'Playfair Display', Georgia, serif;
+    /* More premium font */
+    font-size: 1.3rem;
+    /* Larger size */
+    color: rgba(255, 255, 255, 0.9);
     font-style: italic;
     max-width: 700px;
-    margin: 10px auto 0;
-    line-height: 1.6;
+    margin: 5px auto 0;
+    line-height: 1.4;
+    font-weight: 400;
 }
 
 .article-header h1 {
@@ -113,9 +123,11 @@
     /* Allow wrapping but keep elegant */
     white-space: normal;
     text-align: center;
-    /* Center title as per standard premium blog layout, back button is left */
     letter-spacing: -0.01em;
-    position: relative;
+    grid-column: 2;
+    /* Place in center column */
+    max-width: 800px;
+    margin: 0 auto;
     z-index: 1;
     text-shadow: none;
     /* Removed heavy shadow */
@@ -164,7 +176,8 @@
     max-width: 1540px;
     margin: 0 auto;
     margin: 0 auto;
-    padding: 0 20px 100px;
+    padding: 0 20px 40px;
+    /* Reduced bottom padding from 100px to 40px */
     /* Strict top alignment */
     align-items: start;
     justify-content: center;
