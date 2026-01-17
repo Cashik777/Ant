@@ -43,44 +43,58 @@
     }
 }
 
-/* Layout for Header Row */
+/* Layout for Header Row - Refined */
 .header-main-row {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    /* Stack back button and title for better control */
+    align-items: flex-start;
+    /* Align everything to left as requested (or top-left) */
     justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-    margin-bottom: 10px;
+    gap: 15px;
+    margin-bottom: 20px;
+    position: relative;
+    max-width: 900px;
+    /* Narrower width for reading focus */
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .header-back-link {
-    color: rgba(199, 155, 77, 0.6);
+    color: rgba(255, 255, 255, 0.8);
+    /* Brighter text */
     text-decoration: none;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     transition: all 0.2s ease;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: rgba(199, 155, 77, 0.1);
-    padding: 8px 16px;
+    background: rgba(42, 31, 10, 0.6);
+    /* Darker semi-transparent background */
+    padding: 8px 18px;
     border-radius: 20px;
-    border: 1px solid rgba(199, 155, 77, 0.2);
+    border: 1px solid rgba(199, 155, 77, 0.3);
+    align-self: flex-start;
+    /* Push to left */
 }
 
 .header-back-link:hover {
     color: #fff;
-    background: rgba(199, 155, 77, 0.2);
-    border-color: rgba(199, 155, 77, 0.4);
+    background: rgba(199, 155, 77, 0.3);
+    /* Premium highlighted background on hover */
+    border-color: rgba(199, 155, 77, 0.6);
     transform: translateX(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .header-subtitle {
     text-align: center;
-    font-size: 0.95rem;
-    color: rgba(255, 255, 255, 0.7);
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.8);
     font-style: italic;
-    max-width: 600px;
-    margin: 0 auto;
+    max-width: 700px;
+    margin: 10px auto 0;
+    line-height: 1.6;
 }
 
 .article-header h1 {
@@ -98,9 +112,9 @@
     /* Margin handled by Row gap */
     /* Allow wrapping but keep elegant */
     white-space: normal;
-    text-align: left;
-    /* Align left relative to the button if needed, but in flex it works naturally */
-    letter-spacing: 0.02em;
+    text-align: center;
+    /* Center title as per standard premium blog layout, back button is left */
+    letter-spacing: -0.01em;
     position: relative;
     z-index: 1;
     text-shadow: none;
@@ -367,12 +381,9 @@
     height: 18px;
     background: var(--bean-outline);
     background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    transition: filter 0.25s ease, background 0.25s ease;
-    border: none !important;
-    outline: none !important;
     box-shadow: none;
+    z-index: 5;
+    /* Ensure above bean */
 }
 
 .toc-widget a::after {
@@ -380,13 +391,19 @@
 }
 
 .toc-widget a:hover {
-    color: rgba(255, 255, 255, 0.88);
-    background: rgba(199, 155, 77, 0.07);
+    color: rgba(255, 255, 255, 1);
+    background: rgba(199, 155, 77, 0.1);
+    /* No border left or padding shift to avoid text jumping over bean */
+    padding-left: 36px;
+    /* Keep consistent padding */
 }
 
+/* Fix bean hover overlap issue - animate opacity/brightness instead of replacing bg */
 .toc-widget a:hover::before {
-    background: var(--bean-hover);
-    filter: drop-shadow(0 0 5px rgba(199, 155, 77, 0.3));
+    /* Use same outline but brighter or filled from CSS filter only to avoid asset swap flicker */
+    filter: brightness(1.5) drop-shadow(0 0 3px rgba(199, 155, 77, 0.5));
+    /* Remove background swap which causes glitch */
+    background-image: var(--bean-outline);
 }
 
 .toc-widget a:focus,
