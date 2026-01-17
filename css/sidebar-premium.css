@@ -7,13 +7,12 @@
 .article-header {
     text-align: center;
     padding: 15px 20px 10px;
-    /* Tighter padding */
     margin-bottom: 20px;
-    /* Reduced margin */
-    /* Clear spacing before photo starts */
     background: linear-gradient(135deg, #1a150a 0%, #2a1f0a 50%, #1a150a 100%);
     position: relative;
-    overflow: hidden;
+    /* Required for absolute positioning of back button */
+    overflow: visible;
+    /* Allow button to position freely */
 }
 
 /* Subtle gold shimmer effect */
@@ -74,12 +73,12 @@
     border: 1px solid rgba(199, 155, 77, 0.3);
     white-space: nowrap;
 
-    /* Absolute positioning to place it under the logo sun */
+    /* Position relative to .article-header (full width), not .header-main-row */
     position: absolute;
     left: 120px;
     /* Align under logo sun center */
-    top: 50%;
-    transform: translateY(-50%);
+    top: 15px;
+    /* Align with top of header */
 }
 
 /* Empty pseudo-element no longer needed */
@@ -97,12 +96,13 @@
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-.header-subtitle {
+.article-header .header-subtitle,
+p.header-subtitle {
     text-align: center;
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: 1.6rem;
+    font-family: 'Playfair Display', Georgia, serif !important;
+    font-size: 1.6rem !important;
     /* Much larger for elegance */
-    color: rgba(232, 200, 109, 0.9);
+    color: rgba(232, 200, 109, 0.9) !important;
     /* Gold tint to match theme */
     font-style: italic;
     max-width: 900px;
